@@ -130,7 +130,7 @@ ft_transcendence/
 ### Interface du jeu
 <div align="center"> <img src="assets/gameplay.png" alt="Aperçu du jeu Pong" width="800"> </div>
 
-## Statistiques des utilisateurs
+### Statistiques des utilisateurs
 <div align="center"> <img src="assets/user-stats.png" alt="Statistiques utilisateur" width="800"> </div>
 
 ## Contributeurs
