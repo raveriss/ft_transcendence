@@ -16,7 +16,7 @@
 
 ## Description
 
-Le projet **ft_transcendence** est une plateforme Web innovante centrée sur le jeu **Pong**. Bien plus qu'un simple jeu local, il s'agit d'une application web complète, évolutive, et riche en fonctionnalités, permettant des interactions temps réel entre utilisateurs. Ce projet est conçu comme un exercice d'excellence en développement web, DevOps, et cybersécurité.
+Le projet **`ft_transcendence`** est une plateforme Web innovante centrée sur le jeu **`Pong`**. Bien plus qu'un simple jeu local, il s'agit d'une application web complète, évolutive, et riche en fonctionnalités, permettant des interactions temps réel entre utilisateurs. Ce projet est conçu comme un exercice d'excellence en développement web, **`DevOps`**, et **`cybersécurité`**.
 
 ---
 
@@ -24,49 +24,49 @@ Le projet **ft_transcendence** est une plateforme Web innovante centrée sur le 
 
 ### Partie Obligatoire
 - **Jeu Pong en ligne** :
-  - Mode 1v1 sur la même machine ou en ligne.
+  - Mode **`1v1`** sur la même machine ou en ligne.
   - Tournoi avec organisation automatique des matchs.
 - **Application Web Monopage (SPA)** :
-  - Développée en **vanilla JavaScript**.
-  - Compatible avec la dernière version stable de **Google Chrome**.
+  - Développée en **`vanilla JavaScript`**.
+  - Compatible avec la dernière version stable de **`Google Chrome`**.
 - **Sécurité Basique** :
-  - Connexion `HTTPS`.
-  - Protection contre les injections `SQL` et `XSS`.
+  - Connexion **`HTTPS`**.
+  - Protection contre les injections **`SQL`** et **`XSS`**.
   - Stockage des mots de passe hashés.
 - **Conteneurisation avec Docker** :
-  - Déploiement via une commande simple (`docker-compose up --build`).
+  - Déploiement via une commande simple (**`docker-compose up --build`**).
 
 ### Modules Avancés
-Le projet peut être enrichi avec de nombreux modules pour atteindre 100 % de complétion :
+Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`** de complétion :
 
 #### Web
-- Backend avec **Django**.
-- Utilisation de **PostgreSQL** comme base de données.
-- Stockage des scores sur **Ethereum** (blockchain).
+- Backend avec **`Django`**.
+- Utilisation de **`PostgreSQL`** comme base de données.
+- Stockage des scores sur **`Ethereum`** (blockchain).
 
 #### User Management
-- Authentification OAuth2.0/42.
+- Authentification **`OAuth2.0/42`**.
 - Gestion des profils avec avatars, historique des matchs, et statistiques.
 - Système d’amis avec affichage du statut en ligne.
 
 #### Gameplay
 - Joueurs distants et multijoueurs.
 - Chat en direct avec invitations à jouer.
-- `Matchmaking` automatisé.
+- **`Matchmaking`** automatisé.
 
 #### Cybersécurité
-- Mise en place de **WAF/ModSecurity**.
-- Gestion des secrets avec **HashiCorp Vault**.
-- Authentification 2FA et JWT.
-- Conformité **GDPR**.
+- Mise en place de **`WAF/ModSecurity`**.
+- Gestion des secrets avec **`HashiCorp Vault`**.
+- Authentification **`2FA`** et **`JWT`**.
+- Conformité **`GDPR`**.
 
 #### DevOps
-- Monitoring avec **Prometheus/Grafana**.
-- Gestion des logs via **ELK (Elasticsearch, Logstash, Kibana)**.
+- Monitoring avec **`Prometheus/Grafana`**.
+- Gestion des logs via **`ELK (Elasticsearch, Logstash, Kibana)`**.
 - Architecture backend en microservices.
 
 #### Graphiques
-- Graphismes avancés avec **ThreeJS/WebGL**.
+- Graphismes avancés avec **`ThreeJS`**.
 
 #### Accessibilité
 - Multi-langue, compatibilité multi-navigateurs, support mobile.
@@ -75,7 +75,7 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre 100 % de co
 ## Structure du Projet
 
 ```bash
-.
+ft_transcendence/
 ├── backend/
 │   ├── manage.py
 │   ├── settings.py
@@ -94,8 +94,8 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre 100 % de co
 
 ## Installation et Lancement
 ### Prérequis
-  - `Docker` et `Docker Compose` installés.
-  - Navigateur moderne (Google Chrome recommandé).
+  - **`Docker`** et **`Docker Compose`** installés.
+  - Navigateur moderne (**`Google Chrome`** recommandé).
 
 ### Commandes
   - **1.** Clonez le dépôt :
@@ -104,7 +104,7 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre 100 % de co
     cd ft_transcendence
     ```
   - **2.** Configurez les variables d'environnement :
-    - Créez un fichier .env à la racine et renseignez-y vos clés API, mots de passe et paramètres.
+    - Créez un fichier **`.env`** à la racine et renseignez-y vos clés **`API`**, mots de passe et paramètres.
 
   - **3.** Lancez l'application :
     ```bash
@@ -115,16 +115,16 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre 100 % de co
 
 ## Modules et Extensions
 ### Modules Principaux
-  - **1.** Backend Framework : Développement du backend avec `Django`.
-  - **2.** User Management : Authentification, gestion des profils et historique des matchs.
-  - **3.** Gameplay : Mode multijoueur, personnalisation des règles, et ajout d'une `IA`.
-  - **4.** Cybersecurity : Mise en place de `2FA` et `JWT`.
-  - **5.** DevOps : Monitoring avec `Prometheus/Grafana` et gestion des logs avec `ELK`.
+  - **`1`.** **`Backend Framework`** : Développement du backend avec **`Django`**.
+  - **`2`.** **`User Management`** : Authentification, gestion des profils et historique des matchs.
+  - **`3`.** **`Gameplay`** : Mode multijoueur, personnalisation des règles, et ajout d'une **`IA`**.
+  - **`4`.** **`Cybersecurity`** : Mise en place de **`2FA`** et **`JWT`**.
+  - **`5`.** **`DevOps`** : Monitoring avec **`Prometheus/Grafana`** et gestion des logs avec **`ELK`**.
   
 ### Modules Bonus
-  - Accessibilité : Compatibilité multi-langue et support pour les utilisateurs malvoyants.
-  - Graphiques 3D : Utilisation de `ThreeJS/WebGL` pour une expérience immersive.
-  - `Blockchain` : Stockage des scores de tournois sur Ethereum.
+  - **`Accessibilité`** : Compatibilité multi-langue et support pour les utilisateurs malvoyants.
+  - **`Graphiques 3D`** : Utilisation de **`ThreeJS`** pour une expérience immersive.
+  - **`Blockchain`** : Stockage des scores de tournois sur **`Ethereum`**.
 
 ## Aperçu
 ### Interface du jeu
