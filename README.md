@@ -9,7 +9,6 @@
   <img src="https://img.shields.io/badge/application-SPA-brightgreen" alt="SPA">
   <img src="https://img.shields.io/badge/frontend-JavaScript-yellow" alt="JavaScript">
   <img src="https://img.shields.io/badge/graphics-Three.js-orange" alt="Three.js">
-  <img src="https://img.shields.io/badge/graphics-WebGL-brightgreen" alt="WebGL">
   <img src="https://img.shields.io/badge/multi--language-Yes-blue" alt="Multi-language">
   <img src="https://img.shields.io/badge/mobile-Compatible-yellow" alt="Mobile Compatible">
   <img src="https://img.shields.io/badge/compliance-GDPR-blue" alt="GDPR">
