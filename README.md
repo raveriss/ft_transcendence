@@ -4,10 +4,15 @@
   <img src="https://img.shields.io/badge/game-Pong-brightgreen" alt="Pong">
   <img src="https://img.shields.io/badge/framework-Django-blue" alt="Django">
   <img src="https://img.shields.io/badge/database-PostgreSQL-blue" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/frontend-Javascript-yellow" alt="Javascript">
-  <img src="https://img.shields.io/badge/security-2FA-brightgreen" alt="2FA">
   <img src="https://img.shields.io/badge/devops-Docker-red" alt="Docker">
-  <img src="https://img.shields.io/badge/school-42-green" alt="42">
+  <img src="https://img.shields.io/badge/security-2FA-blue" alt="2FA">
+  <img src="https://img.shields.io/badge/application-SPA-brightgreen" alt="SPA">
+  <img src="https://img.shields.io/badge/frontend-JavaScript-yellow" alt="JavaScript">
+  <img src="https://img.shields.io/badge/graphics-Three.js-orange" alt="Three.js">
+  <img src="https://img.shields.io/badge/graphics-WebGL-brightgreen" alt="WebGL">
+  <img src="https://img.shields.io/badge/multi--language-Yes-blue" alt="Multi-language">
+  <img src="https://img.shields.io/badge/mobile-Compatible-yellow" alt="Mobile Compatible">
+  <img src="https://img.shields.io/badge/compliance-GDPR-blue" alt="GDPR">
 </div>
 
 ## Description
