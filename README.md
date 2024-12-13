@@ -32,7 +32,7 @@ Le projet **`ft_transcendence`** est une plateforme Web innovante centrée sur l
 - **Sécurité Basique** :
   - Connexion **`HTTPS`**.
   - Protection contre les injections **`SQL`** et **`XSS`**.
-  - Stockage des mots de passe hashés.
+  - Stockage des mots de passe **`hashés`**.
 - **Conteneurisation avec Docker** :
   - Déploiement via une commande simple (**`docker-compose up --build`**).
 
