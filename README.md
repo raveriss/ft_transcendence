@@ -69,28 +69,28 @@ Le projet **ft_transcendence** consiste à développer une application web autou
   - Navigateur moderne (Google Chrome recommandé).
 
 ### Commandes
-  - 1 Clonez le dépôt :
+  - **1.** Clonez le dépôt :
     ```bash
     git clone https://github.com/raveriss/ft_transcendence.git
     cd ft_transcendence
     ```
-  - 2 Configurez les variables d'environnement :
+  - **2.** Configurez les variables d'environnement :
     - Créez un fichier .env à la racine et renseignez-y vos clés API, mots de passe et paramètres.
 
-  - 3 Lancez l'application :
+  - **3.** Lancez l'application :
     ```bash
     docker-compose up --build
     ```
-  - 4 Accédez à l'application :
+  - **4.** Accédez à l'application :
     - Ouvrez votre navigateur et rendez-vous sur http://localhost:3000.
 
 ## Modules et Extensions
 ### Modules Principaux
-  - 1 Backend Framework : Développement du backend avec Django.
-  - 2 User Management : Authentification, gestion des profils et historique des matchs.
-  - 3 Gameplay : Mode multijoueur, personnalisation des règles, et ajout d'une IA.
-  - 4 Cybersecurity : Mise en place de 2FA et JWT.
-  - 5 DevOps : Monitoring avec Prometheus/Grafana et gestion des logs avec ELK.
+  - **1.** Backend Framework : Développement du backend avec Django.
+  - **2.** User Management : Authentification, gestion des profils et historique des matchs.
+  - **3.** Gameplay : Mode multijoueur, personnalisation des règles, et ajout d'une IA.
+  - **4.** Cybersecurity : Mise en place de 2FA et JWT.
+  - **5.** DevOps : Monitoring avec Prometheus/Grafana et gestion des logs avec ELK.
   
 ### Modules Bonus
   - Accessibilité : Compatibilité multi-langue et support pour les utilisateurs malvoyants.
