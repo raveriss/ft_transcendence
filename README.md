@@ -51,12 +51,12 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 
 #### User Management
 - Authentification **`OAuth2.0/42`**.
-- Gestion des profils avec avatars, historique des matchs, et statistiques.
-- Système d’amis avec affichage du statut en ligne.
+- Gestion des **`profils`** avec **`avatars`**, historique des **`matchs`**, et **`statistiques`**.
+- Système d’**`amis`** avec affichage du **`statut`** en ligne.
 
 #### Gameplay
-- Joueurs distants et multijoueurs.
-- Chat en direct avec invitations à jouer.
+- **Joueurs** **`distants`** et **`multijoueurs`**.
+- **Chat** en **`direct`** avec **`invitations`** à jouer.
 - **`Matchmaking`** automatisé.
 
 #### Cybersécurité
@@ -68,14 +68,14 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 #### DevOps
 - Monitoring avec **`Prometheus/Grafana`**.
 - Gestion des logs via **`ELK (Elasticsearch, Logstash, Kibana)`**.
-- Architecture backend en microservices.
+- Architecture **backend** en **`microservices`**.
 
 #### Graphiques
 - Graphismes avancés avec **`ThreeJS`**.
 
 #### Accessibilité
 - Multi-langue, compatibilité multi-navigateurs, support mobile.
-- Accessibilité pour malvoyants.
+- **Accessibilité** pour **`malvoyants`**.
 
 ## Structure du Projet
 
