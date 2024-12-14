@@ -66,7 +66,7 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 - Conformité **`GDPR`**.
 
 #### DevOps
-- **Monitoring avec `Prometheus/Grafana`**.
+- **Monitoring** avec **`Prometheus/Grafana`**.
 - Gestion des **logs via ELK `(Elasticsearch, Logstash, Kibana)`**.
 - Architecture **backend** en **`microservices`**.
 
