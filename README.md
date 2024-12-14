@@ -29,16 +29,16 @@ Le projet **`ft_transcendence`** est une plateforme Web innovante centrée sur l
 
 ### Partie Obligatoire
 - **Jeu Pong en ligne** :
-  - Mode **`1v1`** sur la même machine ou en ligne.
-  - Tournoi avec organisation automatique des matchs.
-- **Application Web Monopage (SPA)** :
-  - Développée en **`vanilla JavaScript`**.
+  - Mode **1v1** sur **`même machine`** ou **`en ligne`**
+  - **Tournoi** avec organisation **`automatique`** des matchs.
+- **Application Web Monopage (**`SPA`**)** :
+  - Développée en **JavaScript** : **`vanilla`**.
   - Compatible avec la dernière version stable de **`Google Chrome`**.
 - **Sécurité Basique** :
   - Connexion **`HTTPS`**.
   - Protection contre les injections **`SQL`** et **`XSS`**.
   - Stockage des mots de passe **`hashés`**.
-- **Conteneurisation avec Docker** :
+- **Conteneurisation avec `Docker`** :
   - Déploiement via une commande simple (**`docker-compose up --build`**).
 
 ### Modules Avancés
@@ -50,31 +50,31 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 - Stockage des scores sur **`Ethereum`** (blockchain).
 
 #### User Management
-- Authentification **`OAuth2.0/42`**.
-- Gestion des **`profils`** avec **`avatars`**, historique des **`matchs`**, et **`statistiques`**.
-- Système d’**`amis`** avec affichage du **`statut`** en ligne.
+- **Authentification `OAuth2.0/42`**.
+- Gestion des **profils** avec **`avatars`**, historique des **`matchs`**, et **`statistiques`**.
+- Système d'**amis** avec affichage du **`statut`** en ligne.
 
 #### Gameplay
 - **Joueurs** **`distants`** et **`multijoueurs`**.
 - **Chat** en **`direct`** avec **`invitations`** à jouer.
-- **`Matchmaking`** automatisé.
+- **Matchmaking** **`automatisé`**.
 
 #### Cybersécurité
 - Mise en place de **`WAF/ModSecurity`**.
-- Gestion des secrets avec **`HashiCorp Vault`**.
+- Gestion des **secrets** avec **`HashiCorp Vault`**.
 - Authentification **`2FA`** et **`JWT`**.
 - Conformité **`GDPR`**.
 
 #### DevOps
-- Monitoring avec **`Prometheus/Grafana`**.
-- Gestion des logs via **`ELK (Elasticsearch, Logstash, Kibana)`**.
+- **Monitoring avec `Prometheus/Grafana`**.
+- Gestion des **logs via ELK `(Elasticsearch, Logstash, Kibana)`**.
 - Architecture **backend** en **`microservices`**.
 
 #### Graphiques
-- Graphismes avancés avec **`ThreeJS`**.
+- **Graphismes** avancés avec **`ThreeJS`**.
 
 #### Accessibilité
-- Multi-langue, compatibilité multi-navigateurs, support mobile.
+- **Multi-langue**, compatibilité multi-navigateurs, support mobile.
 - **Accessibilité** pour **`malvoyants`**.
 
 ## Structure du Projet
