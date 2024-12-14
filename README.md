@@ -14,6 +14,11 @@
   <img src="https://img.shields.io/badge/compliance-GDPR-blue" alt="GDPR">
 </div>
 
+###
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ayogun/42-project-badges/refs/heads/main/badges/ft_transcendencee.png?raw=true" alt="Badge du projet transcendence">
+</div>
+
 ## Description
 
 Le projet **`ft_transcendence`** est une plateforme Web innovante centrée sur le jeu **`Pong`**. Bien plus qu'un simple jeu local, il s'agit d'une application web complète, évolutive, et riche en fonctionnalités, permettant des interactions temps réel entre utilisateurs. Ce projet est conçu comme un exercice d'excellence en développement web, **`DevOps`**, et **`cybersécurité`**.
