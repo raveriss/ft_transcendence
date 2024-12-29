@@ -29,10 +29,10 @@ Le projet **`ft_transcendence`** est une plateforme Web innovante centrée sur l
 
 ### Partie Obligatoire
 - **Jeu Pong en ligne** :
-  - Mode **1v1** sur **`même machine`** ou **`en ligne`**
-  - **Tournoi** avec organisation **`automatique`** des matchs.
+  - Mode **`1v1`** sur **`même machine`** ou **`en ligne`**
+  - **`Tournoi`** avec organisation **`automatique`** des **`matchs`**.
 - **Application Web Monopage (**`SPA`**)** :
-  - Développée en **JavaScript** : **`vanilla`**.
+  - Développée en **`JavaScript`** : **`vanilla`**.
   - Compatible avec la dernière version stable de **`Google Chrome`**.
 - **Sécurité Basique** :
   - Connexion **`HTTPS`**.
@@ -47,12 +47,12 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 #### Web
 - Backend avec **`Django`**.
 - Utilisation de **`PostgreSQL`** comme base de données.
-- Stockage des scores sur **`Ethereum`** (blockchain).
+- Stockage des scores sur **`Ethereum`** (**`blockchain`**).
 
 #### User Management
 - **Authentification `OAuth2.0/42`**.
-- Gestion des **profils** avec **`avatars`**, historique des **`matchs`**, et **`statistiques`**.
-- Système d'**amis** avec affichage du **`statut`** en ligne.
+- Gestion des **`profils`** avec **`avatars`**, historique des **`matchs`**, et **`statistiques`**.
+- Système d'**`amis`** avec affichage du **`statut`** en ligne.
 
 #### Gameplay
 - **Joueurs** **`distants`** et **`multijoueurs`**.
@@ -61,20 +61,20 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 
 #### Cybersécurité
 - Mise en place de **`WAF/ModSecurity`**.
-- Gestion des **secrets** avec **`HashiCorp Vault`**.
+- Gestion des **`secrets`** avec **`HashiCorp Vault`**.
 - Authentification **`2FA`** et **`JWT`**.
 - Conformité **`GDPR`**.
 
 #### DevOps
-- **Monitoring** avec **`Prometheus/Grafana`**.
-- Gestion des **logs via ELK `(Elasticsearch, Logstash, Kibana)`**.
-- Architecture **backend** en **`microservices`**.
+- **`Monitoring`** avec **`Prometheus/Grafana`**.
+- Gestion des **`logs via ELK` `(Elasticsearch, Logstash, Kibana)`**.
+- Architecture **`backend`** en **`microservices`**.
 
 #### Graphiques
 - **Graphismes** avancés avec **`ThreeJS`**.
 
 #### Accessibilité
-- **Multi-langue**, compatibilité multi-navigateurs, support mobile.
+- **Multi-langue**, compatibilité **`multi-navigateurs`**, support mobile.
 - **Accessibilité** pour **`malvoyants`**.
 
 ## Structure du Projet
@@ -116,7 +116,7 @@ ft_transcendence/
     docker-compose up --build
     ```
   - **4.** Accédez à l'application :
-    - Ouvrez votre navigateur et rendez-vous sur http://localhost:3000.
+    - Ouvrez votre navigateur et rendez-vous sur **`http://localhost:3000`**.
 
 ## Modules et Extensions
 ### Modules Principaux
