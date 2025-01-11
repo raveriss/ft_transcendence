@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+  }
+  button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .auth-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .auth-button img {
+    /* Ajustez la taille, le hover, etc. */
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .auth-button img:hover {
+    opacity: 0.8;
+  }
+  
+  

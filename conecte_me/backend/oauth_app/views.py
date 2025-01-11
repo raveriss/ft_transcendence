@@ -1,0 +1,96 @@
+import os
+import requests
+import jwt
+from django.shortcuts import redirect, render
+from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.utils.crypto import get_random_string
+from .models import User42
+from .utils import generate_jwt
+
+# Récupération des variables d'env
+CLIENT_ID = os.environ.get('OAUTH42_CLIENT_ID')
+CLIENT_SECRET = os.environ.get('OAUTH42_CLIENT_SECRET')
+REDIRECT_URI = os.environ.get('OAUTH42_REDIRECT_URI')
+TOKEN_URL = "https://api.intra.42.fr/oauth/token"
+AUTHORIZE_URL = "https://api.intra.42.fr/oauth/authorize"
+
+def redirect_to_42(request):
+    """
+    Redirige vers la page d'authentification 42 en utilisant
+    Authorization Code Grant. On génère un state random pour la protection CSRF.
+    """
+    state = get_random_string(32)
+    request.session['oauth_state'] = state
+
+    params = {
+        'client_id': CLIENT_ID,
+        'redirect_uri': REDIRECT_URI,
+        'response_type': 'code',
+        'scope': 'public',
+        'state': state,
+    }
+    # Construction de l'URL d'authentification
+    query_string = "&".join([f"{k}={v}" for k, v in params.items()])
+    auth_url = f"{AUTHORIZE_URL}?{query_string}"
+    return redirect(auth_url)
+
+
+def callback_42(request):
+    """
+    Gère le callback après authentification 42.
+    Échange le code reçu contre un token, puis récupère les infos utilisateur.
+    """
+    # Vérification du state
+    state_session = request.session.get('oauth_state')
+    state_request = request.GET.get('state')
+    if not state_session or state_session != state_request:
+        return JsonResponse({"error": "Invalid state"}, status=400)
+
+    code = request.GET.get('code')
+    if not code:
+        return JsonResponse({"error": "No code provided"}, status=400)
+
+    # Échange code -> access token
+    data = {
+        'grant_type': 'authorization_code',
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
+        'code': code,
+        'redirect_uri': REDIRECT_URI,
+    }
+    try:
+        response = requests.post(TOKEN_URL, data=data)
+        token_data = response.json()
+        access_token = token_data.get('access_token')
+        if not access_token:
+            return JsonResponse({"error": "Failed to retrieve access token"}, status=400)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)
+
+    # Récupération des infos utilisateur depuis l'API 42
+    user_info_url = "https://api.intra.42.fr/v2/me"
+    headers = {
+        'Authorization': f"Bearer {access_token}"
+    }
+    user_resp = requests.get(user_info_url, headers=headers)
+    if user_resp.status_code != 200:
+        return JsonResponse({"error": "Failed to retrieve user info"}, status=400)
+
+    user_data = user_resp.json()
+    user_id_42 = user_data['id']
+    user_name_42 = user_data['login']
+
+    # Stocker ou mettre à jour l'utilisateur en base
+    user, _ = User42.objects.get_or_create(
+        user_id=user_id_42,
+        defaults={'username': user_name_42}
+    )
+
+    # Générer un JWT pour la session
+    jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
+
+    # Redirection côté frontend, transmettant le token ou un paramètre signifiant succès
+    # On peut stocker le token dans un cookie HttpOnly (plus sûr), ou dans un paramètre GET
+    response = HttpResponseRedirect(f"https://localhost:8443/?jwt={jwt_token}")
+    return response
