@@ -143,7 +143,42 @@ ft_transcendence/
 
 ## Ressources Utilisées
 
+- [Request for Comments 4226 HOTP: An HMAC-Based One-Time Password Algorithm](https://datatracker.ietf.org/doc/html/rfc4226)
+
+- [Request for Comments 6238 TOTP: Time-Based One-Time Password Algorithm](https://datatracker.ietf.org/doc/html/rfc6238)
+
+- [RGPD](https://eur-lex.europa.eu/eli/reg/2016/679/oj?locale=fr)
+
 - [Documentation Django](https://docs.djangoproject.com/fr/5.1/)
+- [Openlassrooms debutez avec le framework django](https://openclassrooms.com/fr/courses/7172076-debutez-avec-le-framework-django)
+- [Openlassrooms allez plus loin avec le framework django](https://openclassrooms.com/fr/courses/7192426-allez-plus-loin-avec-le-framework-django)
+- [Openlassrooms mettez-en-place-une-api-avec-django-rest-framework/7424482-decouvrez-django-rest-framework](https://openclassrooms.com/fr/courses/7192416-mettez-en-place-une-api-avec-django-rest-framework/7424482-decouvrez-django-rest-framework)
+- [Openlassrooms deployez-une-application-django](https://openclassrooms.com/fr/courses/4425101-deployez-une-application-django)
+- [Django Rest Framework cours tutoriel exemples](https://python.doctor/page-django-rest-framework-drf-cours-tuto-tutoriel-exemples)
+
+- [Openlassrooms apprenez a programmer avec javascript](https://openclassrooms.com/fr/courses/7696886-apprenez-a-programmer-avec-javascript)
+- [Lesieur apprenez a programmer avec javascript](https://blog.lesieur.name/vanilla-js-france/#id)
+
+- [Ethereum guides](https://ethereum.org/fr/guides/)
+- [Soliditylang Documentation](https://docs.soliditylang.org/fr/latest/)
+
+- [Play list Video Tuto Docker #01](https://www.youtube.com/watch?v=GVogBCqrXck&list=PLn6POgpklwWqVFAFrjnpXGhjveRUTHGa_&ab_channel=xavki)
+- [Play list Video Tuto Docker-Compose #01](https://www.youtube.com/watch?v=pMAGe6nTkws&list=PLn6POgpklwWqaC1pdx02SrrgOaL2ZL7G0&ab_channel=xavki)
+
+- [Google Authenticator PAM module](https://github.com/google/google-authenticator-libpam)
+- [Introducing 2FA with Google Authenticator and Node.js](https://www.youtube.com/watch?v=6mxA9Zp8600&ab_channel=Omnidev)
+
+- [Tuto docker comprendre docker partie #01](https://www.wanadevdigital.fr/23-tuto-docker-comprendre-docker-partie1/)
+- [Tuto docker comprendre docker partie #02](https://www.wanadevdigital.fr/24-tuto-docker-demarrer-docker-partie-2/)
+- [Tuto docker comprendre docker partie #03](https://www.wanadevdigital.fr/27-tuto-docker-les-commandes-et-docker-partie-3/)
+
 - [PostgreSQL](https://docs.postgresql.fr/)
+- [TUTORIALS POSTGRESQL](https://www.youtube.com/watch?v=_LmASWXwdoM&list=PLn6POgpklwWonHjoGXXSIXJWYzPSy2FeJ&ab_channel=xavki)
+
+- [TUTORIALS PROMETHEUS / GRAFANA](https://www.youtube.com/watch?v=wcTr8Hm7SCQ&list=PLn6POgpklwWo3_2pj5Jflqwla62P5OI8n&ab_channel=xavki)
+
+- [TUTORIALS Introduction : why ? what ? - #ELK 01](https://www.youtube.com/watch?v=QmSIml8lo-c&list=PLn6POgpklwWqSvhjguOUJCH8ItydtIvKZ&ab_channel=XavkiEn)
+
+
 - [ThreeJS](https://threejs.org/docs/index.html#manual/fr/introduction/Creating-a-scene)
 - [Tutoriel Pong](https://www.ponggame.org/)
