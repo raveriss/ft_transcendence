@@ -143,7 +143,7 @@ ft_transcendence/
 
 ## Ressources Utilisées
 
-- [Documentation Django](https://docs.djangoproject.com/en/5.1/)
-- [PostgreSQL](https://www.postgresql.org/)
-- [ThreeJS](https://threejs.org/)
+- [Documentation Django](https://docs.djangoproject.com/fr/5.1/)
+- [PostgreSQL](https://docs.postgresql.fr/)
+- [ThreeJS](https://threejs.org/docs/index.html#manual/fr/introduction/Creating-a-scene)
 - [Tutoriel Pong](https://www.ponggame.org/)
