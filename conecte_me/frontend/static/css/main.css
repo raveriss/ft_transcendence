@@ -22,5 +22,102 @@ body {
   .auth-button img:hover {
     opacity: 0.8;
   }
+
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #4c51bf, #805ad5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+  }
+  .container {
+    background: #fff;
+    color: #4a5568;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  .header {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .subheader {
+    font-size: 1rem;
+    color: #718096;
+    margin-bottom: 1.5rem;
+  }
+  .button-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+  }
+  .button-group button {
+    flex: 1;
+    margin: 0 25.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .button-group .active {
+    background-color: #5a67d8;
+    color: #fff;
+  }
+  .button-group button:not(.active) {
+    background-color: #efefef;
+    color: #4a5568;
+  }
+  .button-group button:hover:not(.active) {
+    background-color: #e2e8f0;
+  }
+  .auth-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2d3748;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .auth-button img {
+    margin-right: 0.5rem;
+    width: 24px;
+    height: 24px;
+  }
+  .auth-button:hover {
+    background-color: #111827;
+  }
   
+  /* Assombrir le background au survol */
+#login-btn:hover,
+#signup-btn:hover {
+  background-color: #d6d6d6; /* Couleur légèrement plus sombre */
+  color: #4a5568; /* Garder le texte visible */
+  transition: background-color 0.3s ease; /* Animation douce */
+}
+
+/* Modifier la couleur au clic */
+#login-btn:active,
+#signup-btn:active {
+  background-color: #4F46E5; /* Couleur encore plus sombre */
+  color: #ffffff; /* Texte en blanc */
+  transition: background-color 0.1s ease, color 0.1s; /* Animation rapide */
+}
+
   
