@@ -132,11 +132,34 @@ ft_transcendence/
   - **`Blockchain`** : Stockage des scores de tournois sur **`Ethereum`**.
 
 ## Aperçu
-### Interface du jeu
+
+  - ### Interface du jeu
 <div align="center"> <img src="assets/gameplay.png" alt="Aperçu du jeu Pong" width="800"> </div>
 
-### Statistiques des utilisateurs
+  - ### Statistiques des utilisateurs
 <div align="center"> <img src="assets/user-stats.png" alt="Statistiques utilisateur" width="800"> </div>
+
+  - ### Inscription et authentification
+<div align="center"> <img src="assets/authentication.png" alt="Écran d'inscription et authentification" width="800"> </div>
+
+  - ### Matchmaking et tournois
+<div align="center"> <img src="assets/matchmaking.png" alt="Matchmaking et gestion des tournois" width="800"> </div>
+
+  - ### Personnalisation des avatars et réglages
+<div align="center"> <img src="assets/customization.png" alt="Personnalisation des avatars et réglages" width="800"> </div>
+
+  - ### Chat en direct
+<div align="center"> <img src="assets/live-chat.png" alt="Chat en direct entre les joueurs" width="800"> </div>
+
+  - ### Intelligence artificielle
+<div align="center"> <img src="assets/ai-opponent.png" alt="Partie avec un adversaire IA" width="800"> </div>
+
+  - ### Sécurité et infrastructure
+<div align="center"> <img src="assets/security.png" alt="Schéma de l'infrastructure sécurisée" width="800"> </div>
+
+  - ### Fonctionnalités bonus
+<div align="center"> <img src="assets/bonus-features.png" alt="Aperçu des fonctionnalités bonus (ex. : 3D, nouveau jeu)" width="800"> </div>
+
 
 ## Contributeurs
 - [raveriss](https://github.com/raveriss)
