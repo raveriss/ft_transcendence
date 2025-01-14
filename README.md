@@ -167,24 +167,26 @@ ft_transcendence/
 
 ## Aperçu
 
+  - ### Inscription et authentification
+    <div align="center">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_Registration_and_authentication_windows.png" alt="Inscription et authentification">
+    </div> 
+
   - ### Interface du jeu
     <div align="center">
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_interface_windows.png" alt="Interface du jeu">
     </div> 
   
-<div align="center"> <img src="assets/gameplay.png" alt="Aperçu du jeu Pong" width="800"> </div>
-
   - ### Statistiques des utilisateurs
 <div align="center"> <img src="assets/user-stats.png" alt="Statistiques utilisateur" width="800"> </div>
 
-  - ### Inscription et authentification
-<div align="center"> <img src="assets/authentication.png" alt="Écran d'inscription et authentification" width="800"> </div>
+
 
   - ### Matchmaking et tournois
-<div align="center"> <img src="assets/matchmaking.png" alt="Matchmaking et gestion des tournois" width="800"> </div>
+<div align="center"> <img src="assets/matchmaking.png" alt="Matchmaking et gestion des tournois"> </div>
 
   - ### Personnalisation des avatars et réglages
-<div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_setup_windows.png" alt="Personnalisation des avatars et réglages" width="800"> </div>
+<div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_setup_windows.png" alt="Personnalisation des avatars et réglages"> </div>
 
   - ### Chat en direct
 <div align="center"> <img src="assets/live-chat.png" alt="Chat en direct entre les joueurs" width="800"> </div>
