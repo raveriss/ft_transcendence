@@ -81,19 +81,53 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 
 ```bash
 ft_transcendence/
-├── backend/
-│   ├── manage.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── models.py
-│   └── views.py
-├── frontend/
-│   ├── index.html
-│   ├── styles.css
-│   ├── main.js
-│   └── pong.js
+├── backend
+│   ├── conecte_me_backend
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── settings.cpython-310.pyc
+│   │   │   └── urls.cpython-310.pyc
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── Dockerfile
+│   ├── manage.py
+│   ├── oauth_app
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       └── __init__.cpython-310.pyc
+│   │   ├── models.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── models.cpython-310.pyc
+│   │   │   ├── urls.cpython-310.pyc
+│   │   │   ├── utils.cpython-310.pyc
+│   │   │   └── views.cpython-310.pyc
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   ├── utils.py
+│   │   └── views.py
+│   └── requirements.txt
+├── certs
+│   ├── localhost.crt
+│   └── localhost.key
 ├── docker-compose.yml
-├── .env
+├── frontend
+│   ├── Dockerfile
+│   ├── index.html
+│   └── static
+│       ├── css
+│       │   └── main.css
+│       ├── img
+│       │   ├── 42_logo.svg
+│       │   └── PONG_Accueil.png
+│       └── js
+│           └── main.js
+├── nginx.conf
 └── README.md
 ```
 

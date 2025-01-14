@@ -5,20 +5,54 @@ Conecte Me is a single-page web application that integrates OAuth 2.0 authentica
 ## Project Structure
 
 ```
-conecte-me
+ft_transcendence/
 ├── backend
-│   ├── conecte_me
-│   ├── app
-│   ├── manage.py
-│   └── requirements.txt
-├── frontend
-│   ├── index.html
-│   ├── css
-│   └── js
+│   ├── conecte_me_backend
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── settings.cpython-310.pyc
+│   │   │   └── urls.cpython-310.pyc
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── Dockerfile
+│   ├── manage.py
+│   ├── oauth_app
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       └── __init__.cpython-310.pyc
+│   │   ├── models.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── models.cpython-310.pyc
+│   │   │   ├── urls.cpython-310.pyc
+│   │   │   ├── utils.cpython-310.pyc
+│   │   │   └── views.cpython-310.pyc
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   ├── utils.py
+│   │   └── views.py
+│   └── requirements.txt
+├── certs
+│   ├── localhost.crt
+│   └── localhost.key
 ├── docker-compose.yml
-├── Dockerfile
-├── .dockerignore
-├── .gitignore
+├── frontend
+│   ├── Dockerfile
+│   ├── index.html
+│   └── static
+│       ├── css
+│       │   └── main.css
+│       ├── img
+│       │   ├── 42_logo.svg
+│       │   └── PONG_Accueil.png
+│       └── js
+│           └── main.js
+├── nginx.conf
 └── README.md
 ```
 
