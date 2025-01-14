@@ -176,6 +176,16 @@ ft_transcendence/
     <div align="center">
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_interface_windows.png" alt="Interface du jeu">
     </div> 
+
+  - ### Mode 1v1
+    <div align="center">
+      <img src="assets/bonus-features.png" alt="Mode 1v1">
+    </div> 
+        
+  - ### Mode Multijoueur
+    <div align="center">
+      <img src="assets/bonus-features.png" alt="Mode Multijoueur">
+    </div> 
   
   - ### Interface utilisateurs et Sécurité
     <div align="center">
