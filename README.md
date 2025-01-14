@@ -168,6 +168,10 @@ ft_transcendence/
 ## Aperçu
 
   - ### Interface du jeu
+    <div align="center">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_interface_windows.png" alt="Interface du jeu">
+    </div> 
+  
 <div align="center"> <img src="assets/gameplay.png" alt="Aperçu du jeu Pong" width="800"> </div>
 
   - ### Statistiques des utilisateurs
@@ -180,7 +184,7 @@ ft_transcendence/
 <div align="center"> <img src="assets/matchmaking.png" alt="Matchmaking et gestion des tournois" width="800"> </div>
 
   - ### Personnalisation des avatars et réglages
-<div align="center"> <img src="assets/customization.png" alt="Personnalisation des avatars et réglages" width="800"> </div>
+<div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_setup_windows.png" alt="Personnalisation des avatars et réglages" width="800"> </div>
 
   - ### Chat en direct
 <div align="center"> <img src="assets/live-chat.png" alt="Chat en direct entre les joueurs" width="800"> </div>
