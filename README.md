@@ -203,9 +203,6 @@ ft_transcendence/
   - ### Chat en direct
 <div align="center"> <img src="assets/live-chat.png" alt="Chat en direct entre les joueurs" width="800"> </div>
 
-  - ### Intelligence artificielle
-<div align="center"> <img src="assets/ai-opponent.png" alt="Partie avec un adversaire IA" width="800"> </div>
-
   - ### Fonctionnalités bonus
 <div align="center"> <img src="assets/bonus-features.png" alt="Aperçu des fonctionnalités bonus (ex. : 3D, nouveau jeu)" width="800"> </div>
 
