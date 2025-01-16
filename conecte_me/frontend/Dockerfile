@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 WORKDIR /usr/share/nginx/html
-COPY index.html .
+COPY *.html .
 COPY static ./static
 
 # Nginx par défaut écoute sur le port 80
