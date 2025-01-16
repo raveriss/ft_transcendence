@@ -1,123 +1,133 @@
+/* Remise à zéro + style général */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 50px;
-  }
-  button {
-    padding: 10px 20px;
-    cursor: pointer;
-  }
+  font-family: Arial, sans-serif;
+  background: url('/static/img/PONG_Accueil.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centre tout verticalement */
+  min-height: 100vh;
+  /* On laisse un padding-top pour descendre le bloc principal */
+  padding-top: 120px;
+  color: #fff;
+}
 
-  .auth-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+/* Animation de va-et-vient vertical */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Position initiale et finale */
   }
-  
-  .auth-button img {
-    /* Ajustez la taille, le hover, etc. */
-    transition: opacity 0.2s ease-in-out;
+  50% {
+    transform: translateY(-10px); /* Monte de 10px */
   }
-  
-  .auth-button img:hover {
-    opacity: 0.8;
-  }
+}
 
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #4c51bf, #805ad5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    color: #fff;
-  }
-  .container {
-    background: #fff;
-    color: #4a5568;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-  }
-  .header {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-  }
-  .subheader {
-    font-size: 1rem;
-    color: #718096;
-    margin-bottom: 1.5rem;
-  }
-  .button-group {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 1rem;
-  }
-  .button-group button {
-    flex: 1;
-    margin: 0 25.5rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .button-group .active {
-    background-color: #5a67d8;
-    color: #fff;
-  }
-  .button-group button:not(.active) {
-    background-color: #efefef;
-    color: #4a5568;
-  }
-  .button-group button:hover:not(.active) {
-    background-color: #e2e8f0;
-  }
-  .auth-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.8rem;
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #2d3748;
-    color: #fff;
-    border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .auth-button img {
-    margin-right: 0.5rem;
-    width: 24px;
-    height: 24px;
-  }
-  .auth-button:hover {
-    background-color: #111827;
-  }
-  
-  /* Assombrir le background au survol */
+/* Titre au dessus */
+.title-block {
+  margin-left: 600px;
+  margin-top: 340px;
+  position: relative; /* Assurez-vous que l'élément peut être déplacé */
+  animation: bounce 1.3s infinite; /* Animation continue */
+
+}
+
+/* Image du titre (Pong) */
+.title-block img {
+  max-width: 372px;
+  height: 138px;
+}
+
+/* Container (Welcome to Morpion) */
+.welcome-container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  background: #fff;
+  color: #4a5568;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  /* On peut ajouter un petit décalage avec margin-top si besoin */
+  margin-bottom: 5px;
+}
+
+/* Boutons, etc. */
+button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.button-group .active {
+  background-color: #5a67d8;
+  color: #fff;
+}
+
+.button-group button:not(.active) {
+  background-color: #efefef;
+  color: #4a5568;
+}
+
+.button-group button:hover:not(.active) {
+  background-color: #e2e8f0;
+}
+
+/* Survol des boutons “Login” et “Sign Up” */
 #login-btn:hover,
 #signup-btn:hover {
-  background-color: #d6d6d6; /* Couleur légèrement plus sombre */
-  color: #4a5568; /* Garder le texte visible */
-  transition: background-color 0.3s ease; /* Animation douce */
+  background-color: #d6d6d6;
+  color: #4a5568;
+  transition: background-color 0.3s ease;
 }
 
-/* Modifier la couleur au clic */
+/* Clic sur “Login” / “Sign Up” */
 #login-btn:active,
 #signup-btn:active {
-  background-color: #4F46E5; /* Couleur encore plus sombre */
-  color: #ffffff; /* Texte en blanc */
-  transition: background-color 0.1s ease, color 0.1s; /* Animation rapide */
+  background-color: #4f46e5;
+  color: #ffffff;
+  transition: background-color 0.1s ease, color 0.1s;
 }
 
-  
+/* Bouton “Continue with 42” */
+.auth-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2d3748;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-button img {
+  margin-right: 0.5rem;
+  width: 24px;
+  height: 24px;
+}
+
+.auth-button:hover {
+  background-color: #111827;
+}
+
+.text-muted {
+  margin-bottom: 4mm; /* Ajoute un espace de 4mm sous le paragraphe */
+}
