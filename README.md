@@ -176,17 +176,25 @@ ft_transcendence/
     <div align="center">
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_interface_windows.png" alt="Interface du jeu">
     </div> 
+  - ### Statistiques des utilisateurs
+  <div align="center"> <img src="assets/user-stats.png" alt="Statistiques utilisateur"> </div>
 
-  - ### Mode 1v1
-    <div align="center">
-      <img src="assets/bonus-features.png" alt="Mode 1v1">
-    </div> 
-        
-  - ### Mode Multijoueur
-    <div align="center">
-      <img src="assets/bonus-features.png" alt="Mode Multijoueur">
-    </div> 
+  - ### Différents modes de jeu
+    1. **Mode classique** :
+      <div align="center"> <img src="assets/classic-mode.png" alt="Mode classique du Pong"> </div>
+     
+    2. **Mode tournoi** :
+     <div align="center"> <img src="assets/tournament-mode.png" alt="Mode tournoi avec plusieurs joueurs"> </div>
+     
+    3. **Mode spectateur** :
+     <div align="center"> <img src="assets/spectator-mode.png" alt="Vue du mode spectateur"> </div>
   
+    4. **Mode solo avec IA** :
+     <div align="center"> <img src="assets/solo-ai-mode.png" alt="Mode solo avec une IA"> </div>
+  
+    5. **Mode multijoueur en ligne** :
+     <div align="center"> <img src="assets/online-mode.png" alt="Mode multijoueur en ligne"> </div>
+    
   - ### Interface utilisateurs et Sécurité
     <div align="center">
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_user_windows.png" alt="Interface du jeu">
@@ -197,16 +205,21 @@ ft_transcendence/
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_setup_windows.png" alt="Personnalisation des avatars et réglages">
     </div>
 
-  - ### Matchmaking et tournois
-<div align="center"> <img src="assets/matchmaking.png" alt="Matchmaking et gestion des tournois"> </div>
+  - ### Matchmaking
+<div align="center"> <img src="assets/matchmaking.png" alt="Système de matchmaking"> </div>
+
+  - ### Tournois
+<div align="center"> <img src="assets/tournament.png" alt="Organisation des tournois"> </div>
 
   - ### Chat en direct
-<div align="center"> <img src="assets/live-chat.png" alt="Chat en direct entre les joueurs" width="800"> </div>
+<div align="center"> <img src="assets/live-chat.png" alt="Chat en direct entre les joueurs"> </div>
 
-  - ### Fonctionnalités bonus
-<div align="center"> <img src="assets/bonus-features.png" alt="Aperçu des fonctionnalités bonus (ex. : 3D, nouveau jeu)" width="800"> </div>
-
-
+  - ### Fonctionnalités bonus : Autre jeu
+    <div align="center"> <img src="assets/bonus-other-game.png" alt="Exemple d'un autre jeu implémenté"> </div>
+  
+  - ### Fonctionnalités bonus : Pong 3D
+    <div align="center"> <img src="assets/bonus-pong-3d.png" alt="Aperçu du Pong en 3D"> </div>
+  
 ## Contributeurs
 - [raveriss](https://github.com/raveriss)
 
