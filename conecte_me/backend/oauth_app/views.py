@@ -5,8 +5,16 @@ from django.shortcuts import redirect, render
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
-from .models import User42
 from .utils import generate_jwt
+
+from django.contrib import messages
+
+from django.db import IntegrityError, transaction
+
+from django.views.decorators.csrf import csrf_exempt
+from django.middleware.csrf import get_token
+from django.contrib.auth.hashers import check_password
+from .models import User42
 
 # Récupération des variables d'env
 CLIENT_ID = os.environ.get('OAUTH42_CLIENT_ID')
@@ -94,3 +102,47 @@ def callback_42(request):
     # On peut stocker le token dans un cookie HttpOnly (plus sûr), ou dans un paramètre GET
     response = HttpResponseRedirect(f"https://localhost:8443/?jwt={jwt_token}")
     return response
+
+def signup_view(request):
+    if request.method == 'GET':
+        # Si vous souhaitez renvoyer un template Django :
+        # return render(request, 'signup.html')
+        #
+        # Ou si vous servez déjà `signup.html` depuis votre conteneur nginx (statique),
+        # vous pouvez simplement retourner le HTML ou rediriger l’utilisateur.
+        return JsonResponse({"detail": "GET signup page placeholder"})
+
+    elif request.method == 'POST':
+        # Récupération des données depuis le formulaire
+        first_name = request.POST.get('firstname')
+        email = request.POST.get('email')
+        raw_password = request.POST.get('password')
+        pseudo = request.POST.get('pseudo', '')  # si vous voulez le stocker en .username
+        # Ici, vous pouvez ajouter des checks complémentaires (force du mdp, etc.)
+
+        if not all([first_name, email, raw_password]):
+            return JsonResponse(
+                {"error": "Tous les champs requis ne sont pas remplis."}, 
+                status=400
+            )
+
+        # On crée l’utilisateur en base avec gestion des collisions (email unique)
+        try:
+            with transaction.atomic():
+                user = User42(
+                    user_id=0,  # Valeur fictive si vous n’utilisez pas encore `user_id`
+                    username=pseudo or email.split('@')[0], 
+                    first_name=first_name,
+                    email_address=email,
+                )
+                user.set_password(raw_password)  # Hash le mot de passe
+                user.save()
+        except IntegrityError:
+            # Géré si l'email est déjà en base (unique constraint)
+            return JsonResponse(
+                {"error": "Cette adresse e-mail est déjà utilisée."},
+                status=400
+            )
+
+        # Tout s’est bien passé : retour succès ou redirection
+        return JsonResponse({"success": True, "detail": "Inscription réussie."}, status=201)

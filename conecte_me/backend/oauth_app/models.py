@@ -1,10 +1,17 @@
 from django.db import models
+from django.contrib.auth.hashers import make_password
 
 class User42(models.Model):
     user_id = models.IntegerField(unique=True)
     username = models.CharField(max_length=255)
-    # Vous pouvez ajouter d’autres champs si besoin (scopes, email, etc.)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    first_name = models.CharField(max_length=50, null=False, default="Unknown")
+    email_address = models.EmailField(unique=True, null=False, default="placeholder@example.com")
+    password = models.CharField(max_length=128, null=False, default="to_be_hashed")
+
     def __str__(self):
-        return self.username
+        return f"{self.username} ({self.email_address})"
+
+    def set_password(self, raw_password: str):
+        self.password = make_password(raw_password)
