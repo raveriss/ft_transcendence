@@ -167,17 +167,26 @@ ft_transcendence/
 
 ## Aperçu
 
-  - ### Inscription et authentification
+  - ### Accueil
     <div align="center">
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_Registration_and_authentication_windows.png" alt="Inscription et authentification">
+    </div>
+
+  - ### Inscription et authentification
+    <div align="center">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_signup_windows.png" alt="Inscription et authentification">
     </div> 
 
   - ### Interface du jeu
     <div align="center">
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_interface_windows.png" alt="Interface du jeu">
     </div> 
+    
   - ### Statistiques des utilisateurs
-  <div align="center"> <img src="assets/user-stats.png" alt="Statistiques utilisateur"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_statistique_windows.png" alt="Statistiques utilisateur"> </div>
+    
+  - ### Game
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_windows.png" alt="Windows Game"> </div>
 
   - ### Différents modes de jeu
     1. **Mode classique** :
@@ -205,20 +214,17 @@ ft_transcendence/
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_setup_windows.png" alt="Personnalisation des avatars et réglages">
     </div>
 
-  - ### Matchmaking
-<div align="center"> <img src="assets/matchmaking.png" alt="Système de matchmaking"> </div>
-
   - ### Tournois
-<div align="center"> <img src="assets/tournament.png" alt="Organisation des tournois"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screnshot_tournament.png" alt="Organisation des tournois"> </div>
 
   - ### Chat en direct
-<div align="center"> <img src="assets/live-chat.png" alt="Chat en direct entre les joueurs"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat.png" alt="Chat en direct entre les joueurs"> </div>
+  
+  - ### Pong 3D
+    <div align="center"> <img src="assets/bonus-pong-3d.png" alt="Aperçu du Pong en 3D"> </div>
 
   - ### Fonctionnalités bonus : Autre jeu
     <div align="center"> <img src="assets/bonus-other-game.png" alt="Exemple d'un autre jeu implémenté"> </div>
-  
-  - ### Fonctionnalités bonus : Pong 3D
-    <div align="center"> <img src="assets/bonus-pong-3d.png" alt="Aperçu du Pong en 3D"> </div>
   
 ## Contributeurs
 - [raveriss](https://github.com/raveriss)
