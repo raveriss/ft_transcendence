@@ -217,6 +217,10 @@ ft_transcendence/
   - ### Tournois
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screnshot_tournament.png" alt="Organisation des tournois"> </div>
 
+  - ### Réseau social
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_add_friends_windows.png" alt="Réseau social"> </div>
+  
+
   - ### Chat en direct
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat.png" alt="Chat en direct entre les joueurs"> </div>
   
