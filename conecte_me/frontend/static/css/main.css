@@ -32,10 +32,10 @@ body {
 /* Titre au dessus */
 .title-block {
   margin-left: 600px;
-  margin-top: 340px;
+  position: relative;
+  top: 5cm; /* Descend le bloc de 3 cm */
   position: relative; /* Assurez-vous que l'élément peut être déplacé */
   animation: bounce 1.3s infinite; /* Animation continue */
-
 }
 
 /* Image du titre (Pong) */
@@ -55,6 +55,7 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   /* On peut ajouter un petit décalage avec margin-top si besoin */
+  margin-top: 3cm; /* Remonte de 2 cm */
   margin-bottom: 5px;
 }
 
