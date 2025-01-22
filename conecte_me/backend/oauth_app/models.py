@@ -5,7 +5,6 @@ class User42(models.Model):
     user_id = models.IntegerField(unique=True)
     username = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
-
     first_name = models.CharField(max_length=50, null=False, default="Unknown")
     email_address = models.EmailField(unique=True, null=False, default="placeholder@example.com")
     password = models.CharField(max_length=128, null=False, default="to_be_hashed")

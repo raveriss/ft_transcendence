@@ -4,9 +4,25 @@ FROM python:3.10-alpine
 # Créer un répertoire de travail
 WORKDIR /app
 
-# Installer les dépendances système éventuelles (libpq pour PostgreSQL, etc.)
-RUN apk update && apk add --no-cache postgresql-dev gcc musl-dev libffi-dev openssl-dev curl \
-    && pip install --upgrade pip  # Mettre à jour pip
+# Installer les dépendances système nécessaires
+RUN apk update && apk add --no-cache \
+    postgresql-client \              
+    postgresql-dev \                 
+    gcc \                            
+    musl-dev \                       
+    libffi-dev \                     
+    openssl-dev \                    
+    zlib-dev \                       
+    jpeg-dev \                       
+    freetype-dev \                   
+    lcms2-dev \                      
+    tiff-dev \                       
+    py3-pip \                        
+    python3-dev \                    
+    build-base \                     
+    curl \                           
+    bash                            
+
 
 # Copier les fichiers de configuration
 COPY requirements.txt .
