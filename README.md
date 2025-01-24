@@ -12,7 +12,20 @@
   <img src="https://img.shields.io/badge/multi--language-Yes-blue" alt="Multi-language">
   <img src="https://img.shields.io/badge/mobile-Compatible-yellow" alt="Mobile Compatible">
   <img src="https://img.shields.io/badge/compliance-GDPR-blue" alt="GDPR">
+  <img src="https://img.shields.io/badge/blockchain-Ethereum-lightgrey" alt="Ethereum">
+  <img src="https://img.shields.io/badge/authentication-OAuth2.0/42-blueviolet" alt="OAuth2.0/42">
+  <img src="https://img.shields.io/badge/logging-ELK-orange" alt="ELK">
+  <img src="https://img.shields.io/badge/monitoring-Prometheus/Grafana-brightgreen" alt="Prometheus/Grafana">
+  <img src="https://img.shields.io/badge/architecture-Microservices-ff69b4" alt="Microservices">
+  <img src="https://img.shields.io/badge/accessibility-Visually%20Impaired-yellowgreen" alt="Accessibility">
+  <img src="https://img.shields.io/badge/security-WAF%2FModSecurity-red" alt="WAF/ModSecurity">
+  <img src="https://img.shields.io/badge/secrets-HashiCorp%20Vault-blue" alt="HashiCorp Vault">
+  <img src="https://img.shields.io/badge/matchmaking-Automated-blue" alt="Matchmaking">
+  <img src="https://img.shields.io/badge/chat-Live%20Chat-brightgreen" alt="Live Chat">
+  <img src="https://img.shields.io/badge/status-Friends%20Online-green" alt="Friends Online">
+  <img src="https://img.shields.io/badge/tournament-Automatic%20Organization-blue" alt="Automatic Tournament">
 </div>
+
 
 ###
 <div align="center">
