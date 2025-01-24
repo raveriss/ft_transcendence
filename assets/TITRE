@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="9.2869319"
+       y="1113.4679"
+       width="777.62184"
+       height="1105.9854"
+       id="rect1" />
+  </defs>
+  <g
+     id="layer1">
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text1"
+       style="fill:#000000;-inkscape-font-specification:Pong-Game;font-family:Pong-Game;font-size:96px;white-space:pre;shape-inside:url(#rect1)" />
+    <text
+       xml:space="preserve"
+       style="font-size:25.4px;font-family:Pong-Game;-inkscape-font-specification:Pong-Game;white-space:pre;inline-size:183.466;fill:#000000;stroke-width:0.265;stroke-dasharray:none"
+       x="17.893778"
+       y="26.974411"
+       id="text2"><tspan
+         x="17.893778"
+         y="26.974411"
+         id="tspan1">PONG
+</tspan><tspan
+         x="17.893778"
+         y="58.724412"
+         id="tspan3">USER
+</tspan><tspan
+         x="17.893778"
+         y="90.474412"
+         id="tspan4">STATISTICS
+</tspan><tspan
+         x="17.893778"
+         y="122.22441"
+         id="tspan5">GAME
+</tspan><tspan
+         x="17.893778"
+         y="153.9744"
+         id="tspan6">SETTINGS </tspan><tspan
+         x="17.893778"
+         y="185.7244"
+         id="tspan8">TOURNAMENT
+</tspan><tspan
+         x="17.893778"
+         y="217.4744"
+         id="tspan9">SOCIAL
+</tspan><tspan
+         x="17.893778"
+         y="249.2244"
+         id="tspan10">CHAT</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:25.4px;font-family:Pong-Game;-inkscape-font-specification:Pong-Game;fill:#000000;stroke-width:0.264583"
+       x="63.873272"
+       y="206.18825"
+       id="text7"><tspan
+         id="tspan7"
+         style="stroke-width:0.264583"
+         x="63.873272"
+         y="206.18825" /></text>
+  </g>
+</svg>
