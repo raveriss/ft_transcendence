@@ -227,7 +227,7 @@ ft_transcendence/
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_setup_windows.png" alt="Personnalisation des avatars et réglages">
     </div>
 
-  - ### Tournois
+  - ### Tournoi
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screnshot_tournament.png" alt="Organisation des tournois"> </div>
 
   - ### Réseau social
