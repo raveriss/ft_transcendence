@@ -229,6 +229,9 @@ ft_transcendence/
 
   - ### Tournoi
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screnshot_tournament.png" alt="Organisation des tournois"> </div>
+    
+  - ### Tournoi game
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screnshot_tournament_game.png" alt="Tournois game"> </div>
 
   - ### Réseau social
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_add_friends_windows.png" alt="Réseau social"> </div>
