@@ -220,9 +220,14 @@ ft_transcendence/
   - ### Réseau social
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_add_friends_windows.png" alt="Réseau social"> </div>
   
-
   - ### Chat en direct
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat.png" alt="Chat en direct entre les joueurs"> </div>
+
+  - ### Chat salon
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_salon.png" alt="Chatsalon"> </div>
+
+  - ### Chat prive
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_prive.png" alt="Chat prive"> </div>
   
   - ### Pong 3D
     <div align="center"> <img src="assets/bonus-pong-3d.png" alt="Aperçu du Pong en 3D"> </div>
