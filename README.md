@@ -150,7 +150,7 @@ ft_transcendence/
     docker-compose up --build
     ```
   - **4.** Accédez à l'application :
-    - Ouvrez votre navigateur et rendez-vous sur **`http://localhost:3000`**.
+    - Ouvrez votre navigateur et rendez-vous sur **`https://localhost:8443`**.
 
 ## Modules et Extensions
 ### Modules Principaux
