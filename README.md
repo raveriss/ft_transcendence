@@ -220,7 +220,7 @@ ft_transcendence/
   - ### Réseau social
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_add_friends_windows.png" alt="Réseau social"> </div>
   
-  - ### Chat en direct
+  - ### Chat
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat.png" alt="Chat en direct entre les joueurs"> </div>
 
   - ### Chat salon
