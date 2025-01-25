@@ -250,6 +250,9 @@ ft_transcendence/
 
   - ### Fonctionnalités bonus : Autre jeu
     <div align="center"> <img src="assets/bonus-other-game.png" alt="Exemple d'un autre jeu implémenté"> </div>
+
+  - ### Credits
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_credits.png" alt="Credits"> </div>
   
 ## Contributeurs
 - [raveriss](https://github.com/raveriss)
