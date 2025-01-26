@@ -239,8 +239,11 @@ ft_transcendence/
   - ### Chat
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat.png" alt="Chat en direct entre les joueurs"> </div>
 
-  - ### Chat salon
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_salon.png" alt="Chatsalon"> </div>
+  - ### Chat room
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_salon.png" alt="Chat room"> </div>
+    
+  - ### Private chat
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_prive.png" alt="Private chat"> </div>
 
   - ### Logs via ELK (Elasticsearch, Logstash, Kibana)
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_log_ELK.png" alt="Log ELK"> </div>
