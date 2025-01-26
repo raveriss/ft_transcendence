@@ -181,9 +181,9 @@ ft_transcendence/
 ## Aperçu
 
   - ### Accueil
-    <div align="center">
-      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Accueil_pong.webm" alt="Accueil_pong.webm">
-    </div>
+  	<div align="center">
+     <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Accueil_pong.gif" alt="Accueil_pong">
+  	</div>
 
   - ### Inscription et authentification
     <div align="center">
