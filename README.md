@@ -242,9 +242,18 @@ ft_transcendence/
   - ### Chat salon
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_salon.png" alt="Chatsalon"> </div>
 
-  - ### Chat prive
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_prive.png" alt="Chat prive"> </div>
+  - ### Logs via ELK (Elasticsearch, Logstash, Kibana)
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_log_ELK.png" alt="Log ELK"> </div>
+    
+  - ### Monitoring avec Prometheus/Grafana
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_monitoring_prometheus_grafana.png" alt="Monitoring avec Prometheus/Grafana"> </div>
   
+  - ### Stockage des scores sur Ethereum (blockchain)
+  	- **1.** connect :
+  		<div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_tournament_scores_ethereum_connected.png" alt="Monitoring avec Prometheus/Grafana"> </div>
+  	- **2.** disconnect :
+  		<div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_tournament_scores_ethereum.png" alt="Monitoring avec Prometheus/Grafana"> </div>
+
   - ### Pong 3D
     <div align="center"> <img src="assets/bonus-pong-3d.png" alt="Aperçu du Pong en 3D"> </div>
 
