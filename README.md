@@ -182,7 +182,7 @@ ft_transcendence/
 
   - ### Accueil
     <div align="center">
-      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_Registration_and_authentication_windows.png" alt="Inscription et authentification">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Accueil_pong.webm" alt="Accueil_pong.webm">
     </div>
 
   - ### Inscription et authentification
