@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     connect42Btn.addEventListener('click', () => {
       // Redirection vers l'endpoint OAuth 42
       // Adaptez l'URL si nécessaire
-      window.location.href = 'https://localhost:8443/auth/42/login/';
+      window.location.href = 'https://localhost:8443/auth/42/login-42/';
     });
   }
 
