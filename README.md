@@ -185,9 +185,14 @@ ft_transcendence/
      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Accueil_pong.gif" alt="Accueil_pong">
   	</div>
 
-  - ### Inscription et authentification
+  - ### Inscription
     <div align="center">
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_signup_windows.png" alt="Inscription et authentification">
+    </div> 
+    
+  - ### Authentification avec log in
+    <div align="center">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_login.png" alt="Authentification avec log in">
     </div> 
 
   - ### Interface du jeu
