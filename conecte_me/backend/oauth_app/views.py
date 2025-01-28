@@ -1,6 +1,15 @@
 import os
 import requests
 import jwt
+import json
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import login
+from django.db.models import Q
+from django.contrib.auth.hashers import check_password
+
+from .models import User42
+from .utils import generate_jwt  # si vous voulez aussi fournir un token en plus
 from django.shortcuts import redirect, render
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -16,6 +25,8 @@ from django.middleware.csrf import get_token
 from django.contrib.auth.hashers import check_password
 from .models import User42
 from django.contrib.auth.hashers import make_password
+from django.views.decorators.csrf import csrf_protect
+
 
 
 # Récupération des variables d'env
@@ -135,3 +146,57 @@ def signup_view(request):
 
     # Méthode non autorisée
     return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+@csrf_protect
+def login_view(request):
+    """
+    Vue permettant de se connecter avec un pseudo OU un email
+    + mot de passe, et de gérer la session utilisateur.
+    """
+    if request.method != 'POST':
+        return JsonResponse({"success": False, "message": "Méthode non autorisée"}, status=405)
+
+    try:
+        body = json.loads(request.body.decode('utf-8'))
+    except json.JSONDecodeError:
+        return JsonResponse({"success": False, "message": "Données JSON invalides"}, status=400)
+
+    identifier = body.get('identifier')  # pseudo ou email
+    password = body.get('password')
+
+    if not identifier or not password:
+        return JsonResponse({"success": False, "message": "Identifiants manquants"}, status=400)
+
+    # On cherche dans la table par username OU email_address
+    user = User42.objects.filter(Q(username=identifier) | Q(email_address=identifier)).first()
+    if not user:
+        # Pour éviter de dire “email non trouvé” ou “pseudo non trouvé”, on masque volontairement
+        return JsonResponse({"success": False, "message": "Identifiants invalides"}, status=401)
+
+    # Vérification du mot de passe
+    if not check_password(password, user.password):
+        return JsonResponse({"success": False, "message": "Identifiants invalides"}, status=401)
+
+    # Si vous gérez un champ “is_active”, vérifiez ici :
+    # if not user.is_active:
+    #    return JsonResponse({"success": False, "message": "Compte inactif"}, status=403)
+
+    # Authentification via session
+    # (nécessite un objet “User” conforme à Django — si vous utilisez
+    #  un model custom, vous pourriez devoir créer un user “virtuel”
+    #  ou migrer vers un custom user model complet)
+    # Pour simplifier, on va “outrepasser” et forcer la session manuellement :
+    request.session['user42_id'] = user.id
+
+    # OU, si votre User42 hérite de AbstractBaseUser ou extends Django user
+    # vous pouvez faire : login(request, user)
+
+    # Génération optionnelle d’un token JWT pour usage en front
+    token = generate_jwt(user_id=user.user_id, username=user.username)
+
+    # Retourne un JSON de succès
+    return JsonResponse({
+        "success": True,
+        "message": "Authentification réussie",
+        "token": token
+    }, status=200)
