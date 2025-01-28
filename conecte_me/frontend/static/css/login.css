@@ -1,151 +1,198 @@
-/* Body */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* 
+ * Réinitialisation de box-sizing pour éviter 
+ * que padding/border ne modifient la largeur réelle 
+ */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ /* Body */
+ body {
+   font-family: Pong-Game sans-serif;
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+   background: linear-gradient(135deg, #0f172a, #1e293b);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+ /* Conteneur global (contient le titre, le bouton retour et le formulaire) */
+ .container {
+   position: relative;
+   width: 100%;
+   max-width: 400px; /* Largeur max du bloc login */
+   margin: 0 auto;   /* Centré horizontalement */
+   text-align: center;
+ }
+ 
+ @font-face {
+    font-family: 'NotoSymbols';
+    src: url('NotoSansSymbols-Regular.ttf') format('truetype');
+  }
 
-/* Container principal */
-.container {
-    text-align: center;
-    position: relative;
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* Bouton de retour */
-.back-btn {
+ .back-btn {
     position: absolute;
-    top: -50px;
-    left: -70px;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #a3bffa;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.back-btn:hover {
-    color: #3b82f6;
-}
-
-/* Titre principal */
-.title {
-    font-size: 3rem;
-    font-weight: bold;
-    color: transparent;
-    background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
-    margin-bottom: 20px;
-}
-
-/* Formulaire */
-.form-container {
-    background: rgba(17, 24, 39, 0.9);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-.form-title {
-    font-size: 1.5rem;
-    color: #f1f5f9;
-    margin-bottom: 20px;
-}
-
-/* Groupes d'inputs */
-.input-group {
-    position: relative;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.label {
-    color: #cbd5e1;
-    font-size: 0.9rem;
-    margin-bottom: 5px;
-    display: block;
-}
-
-.forgot-link {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: #3b82f6;
-    font-size: 0.8rem;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.forgot-link:hover {
-    color: #60a5fa;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #9da7b4; /* Liseret bleu ajusté */
-    border-radius: 8px;
-    background: rgba(17, 24, 39, 0.8);
-    color: #f1f5f9;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-input::placeholder {
-    color: #64748b;
-}
-
-input:focus {
-    border-color: #60a5fa;
-    box-shadow: 0 0 5px rgba(59, 130, 246, 0.7);
-}
-
-/* Bouton principal */
-.btn-primary {
-    width: 100%;
-    padding: 15px; /* Alignement avec les champs */
-    background: #3b82f6;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    display: flex;
+    top: 20px; 
+    left: 20px;
+    width: 40px; 
+    height: 40px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    color: #fff;           /* Flèche blanche */
+    border-radius: 50%;    /* Cercle */
+    display: flex;         /* Centrage horizontal/vertical */
     align-items: center;
     justify-content: center;
-    gap: 5px;
-}
-
-.btn-primary:hover {
-    background: #2563eb;
-}
-
-/* Lien d'inscription */
-.signup-link {
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: #cbd5e1;
-}
-
-.signup-link a {
-    color: #3b82f6;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.signup-link a:hover {
-    color: #60a5fa;
-}
+    cursor: pointer;
+    font-size: 18px;       /* Taille de la flèche */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  
+  .back-btn:hover {
+    background: rgba(30, 41, 59, 0.9);   /* Légèrement plus opaque au survol */
+    border-color: rgba(51, 65, 85, 0.75);
+    transform: scale(1.05);             /* Petit agrandissement au survol */
+  }
+  
+  .back-btn span {
+    display: inline-block;
+    line-height: 1;
+  }
+  
+ 
+ /* Titre principal “PONG” */
+ .title {
+   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
+   font-size: 3rem;
+   font-weight: bold;
+   color: #3b82f6;
+   text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
+ }
+ 
+ /* Carte/formulaire */
+ .form-container {
+   background: rgb(30 41 59 / 0.3);
+   padding: 20px;
+   border-radius: 12px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ }
+ 
+ /* On met le formulaire en flex-column 
+    pour que les éléments (inputs + bouton) 
+    s’empilent et soient centrés */
+ .form-container form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+ /* Titre dans le formulaire */
+ .form-title {
+   font-size: 1.5rem;
+   color: #f1f5f9;
+   margin-bottom: 20px;
+ }
+ 
+ /* Groupes d'inputs */
+ .input-group {
+   position: relative;
+   margin-bottom: 20px;
+   text-align: left;
+   width: 100%;           /* Prend toute la largeur dispo */
+   max-width: 300px;      /* Limite la largeur pour harmoniser */
+ }
+ 
+ .label {
+   color: #cbd5e1;
+   font-size: 0.9rem;
+   margin-bottom: 5px;
+   display: block;
+ }
+ 
+ /* Lien "Mot de passe oublié ?" */
+ .forgot-link {
+   position: absolute;
+   top: 0;
+   right: 0;
+   color: #3b82f6;
+   font-size: 0.8rem;
+   text-decoration: none;
+   transition: color 0.3s;
+ }
+ 
+ .forgot-link:hover {
+   color: #60a5fa;
+ }
+ 
+ /* Inputs (email / password) */
+ input {
+   width: 100%;
+   padding: 12px 16px;
+   margin: 8px 0px 0px;
+   border: 0.5px solid rgb(51 65 85);
+   border-radius: 8px;
+   background: rgb(15 23 42 / 0.5);
+   color: #f1f5f9;
+   font-size: 1rem;
+   outline: none;
+   transition: border-color 0.3s, box-shadow 0.3s;
+ }
+ 
+ input::placeholder {
+   color: #64748b;
+ }
+ 
+ input:focus {
+   border-color: #60a5fa;
+   box-shadow: 0 0 5px rgba(59, 130, 246, 0.7);
+ }
+ 
+ /* Bouton principal */
+ .btn-primary {
+   width: 100%;          /* Même logique de largeur que les inputs */
+   max-width: 300px;     /* On garde la même contrainte de 300px pour aligner */
+   margin: 24px 0px 0px;  /* Petite marge en dessous */
+   padding: 12px 16px;
+   background: #2563EB;
+   color: white;
+   font-size: 1rem;
+   font-weight: bold;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background-color 0.3s, box-shadow 0.3s;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 5px;
+   margin-top: 5px;      /* Petite marge au-dessus */
+ }
+ 
+ .btn-primary:hover {
+   background: #2563eb;
+   box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+ }
+ 
+ /* Lien d'inscription */
+ .signup-link {
+   margin-top: 15px;
+   font-size: 0.9rem;
+   color: #cbd5e1;
+   text-align: center;
+ }
+ 
+ .signup-link a {
+   color: #3b82f6;
+   text-decoration: none;
+   transition: color 0.3s;
+ }
+ 
+ .signup-link a:hover {
+   color: #60a5fa;
+ }
+ 
