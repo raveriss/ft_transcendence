@@ -33,8 +33,6 @@ INSTALLED_APPS = [
 
     # Applications personnalisées
     'oauth_app',
-
-    'axes',
 ]
 
 # Middleware
@@ -43,16 +41,10 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'axes.middleware.AxesMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-AXES_FAILURE_LIMIT = 5             # Limite de tentatives
-AXES_LOCKOUT_PARAMETERS = ['ip']   # On peut bloquer par IP ou par couple user/IP
-AXES_COOLOFF_TIME = 1/24           # Temps de “blocage” (ici 1 heure)
-AXES_ENABLED = True
 
 # Configuration des URL
 ROOT_URLCONF = 'conecte_me_backend.urls'
