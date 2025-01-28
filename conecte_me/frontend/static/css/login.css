@@ -1,0 +1,151 @@
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+.container {
+    text-align: center;
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Bouton de retour */
+.back-btn {
+    position: absolute;
+    top: -50px;
+    left: -70px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #a3bffa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.back-btn:hover {
+    color: #3b82f6;
+}
+
+/* Titre principal */
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+    margin-bottom: 20px;
+}
+
+/* Formulaire */
+.form-container {
+    background: rgba(17, 24, 39, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-title {
+    font-size: 1.5rem;
+    color: #f1f5f9;
+    margin-bottom: 20px;
+}
+
+/* Groupes d'inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.label {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.forgot-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #3b82f6;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-link:hover {
+    color: #60a5fa;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #9da7b4; /* Liseret bleu ajusté */
+    border-radius: 8px;
+    background: rgba(17, 24, 39, 0.8);
+    color: #f1f5f9;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+input:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.7);
+}
+
+/* Bouton principal */
+.btn-primary {
+    width: 100%;
+    padding: 15px; /* Alignement avec les champs */
+    background: #3b82f6;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+}
+
+/* Lien d'inscription */
+.signup-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.signup-link a {
+    color: #3b82f6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.signup-link a:hover {
+    color: #60a5fa;
+}

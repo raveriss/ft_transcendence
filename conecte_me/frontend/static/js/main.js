@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loginBtn.classList.add('btn-primary');
       signupBtn?.classList.remove('btn-primary');
       // Ici, vous pouvez rediriger, afficher un modal, etc.
-      console.log("Login button clicked");
+      window.location.href = '/login.html';
     });
   }
 
