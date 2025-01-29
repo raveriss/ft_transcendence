@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pong - Interface</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons (pour l’icône “person-circle” par ex.) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+  <style>
+    /* -------------------------------------------------------------
+       Fonts (à adapter selon l’emplacement de vos fichiers de police)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NotoSymbols';
+      src: url('static/fonts/NotoSansSymbols-Regular.ttf') format('truetype');
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body + fond dégradé
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f1f5f9;
+    }
+
+    /* -------------------------------------------------------------
+       Conteneur principal
+    ------------------------------------------------------------- */
+    .main-container {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .rank {
+     font-weight: bold;
+     margin-left: 15px; /* Ajuste la valeur selon tes besoins */
+     margin-right: 8px; /* Ajuste la valeur selon tes besoins */
+}
+
+    /* -------------------------------------------------------------
+       Titre PONG en dégradé
+    ------------------------------------------------------------- */
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      text-align: center;
+      margin: 0;
+      font-size: 5rem;
+      font-weight: bold;
+
+      /* Dégradé de bleu */
+      background: linear-gradient(
+        to bottom, 
+        #3b82f6,  /* Bleu clair */
+        #2563eb,  /* Bleu moyen */
+        #1e3a8a   /* Bleu foncé */
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent; /* Pour Safari */
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+
+      /* Espacement des lettres */
+      letter-spacing: 15px;
+    }
+
+    /* -------------------------------------------------------------
+       Icône utilisateur (en haut à droite)
+    ------------------------------------------------------------- */
+    .user-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1rem;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Cartes (Historique des matchs / Classement général)
+    ------------------------------------------------------------- */
+    .card-custom {
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .card-header-custom {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.5rem;
+    }
+    .list-group-item-custom {
+      background: #263246;
+      border: none;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      border-radius: 8px;
+    }
+    .list-group-item-custom:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .list-group-item-custom .match-date {
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+
+    .list-group-item-custom .match-name {
+      font-size: 0.9rem;
+      align-items: right;
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+
+    .list-group-item-custom .match-result {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Surbrillance d’un item particulier (ex: #24 Player123) */
+    .highlight {
+      background-color: #1c2f60;
+    }
+
+    /* -------------------------------------------------------------
+       Boutons du bas (“PLAY”, “COMMUNAUTE”, etc.)
+    ------------------------------------------------------------- */
+    .menu-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .menu-button {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      color: #f1f5f9;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+      min-width: 120px;
+    }
+    .menu-button i {
+      font-size: 1.2rem;
+    }
+    .menu-button:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(51, 65, 85, 0.75);
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <!-- Icône utilisateur (en haut à droite) -->
+    <div class="user-icon">
+      <i class="bi bi-person-circle"></i>
+    </div>
+
+    <!-- Titre principal -->
+    <h1 class="title mb-5">DASHBOARD</h1>
+
+    <!-- Contenu principal en 2 colonnes : Historique + Classement -->
+    <div class="row">
+      <!-- Colonne gauche : Historique des matchs -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi-clock-history"></i>
+            Historique des matchs</div>
+          <ul class="list-unstyled mb-0">
+            <li class="list-group-item-custom">
+              <span class="match-date">2025-01-10</span>
+              <span class="match-name">ProGamer</span>
+              <span class="match-result text-success">Victory 11-9</span>
+            </li>
+            <li class="list-group-item-custom">
+              <span class="match-date">2025-01-08</span>
+              <span class="match-name">PongMaster</span>
+              <span class="match-result text-danger">Defeat 9-11</span>
+            </li>
+            <li class="list-group-item-custom">
+              <span class="match-date">2025-01-05</span>
+              <span class="match-name">NewPlayer</span>
+              <span class="match-result text-success">Victory 11-7</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Colonne droite : Classement général -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi-mortarboard"></i>
+            Classement général</div>
+          <ul class="list-unstyled mb-0">
+            <li class="list-group-item-custom">
+                <span><span class="rank">#1</span> TopPlayer1</span>
+                <span>2100 <small>156 wins</small></span>
+            </li>
+            <li class="list-group-item-custom">
+              <span><span class="rank">#2</span> TopPlayer2</span>
+              <span>2050 <small>142 wins</small></span>
+            </li>
+            <li class="list-group-item-custom">
+              <span><span class="rank">#3</span> TopPlayer3</span>
+              <span>2000 <small>138 wins</small></span>
+            </li>
+            <li class="list-group-item-custom highlight">
+                <span><span class="rank">#24</span> Player123</span>
+              <span>1850 <small>42 wins</small></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barre de boutons -->
+    <div class="menu-buttons">
+      <button class="menu-button">
+        <i class="bi bi-controller"></i>
+        PLAY
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-people"></i>
+        COMMUNAUTE
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-gear"></i>
+        SETUP
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-heart"></i>
+        CREDITS
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-x-lg"></i>
+        EXIT
+      </button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (facultatif si vous n’utilisez pas de composants interactifs) -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
