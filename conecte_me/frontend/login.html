@@ -8,10 +8,13 @@
 </head>
 <body class="bg-gradient">
     <div class="container">
-        <button class="back-btn" onclick="history.back()">
-            &#x2B05;
-        </button>
-        <h1 class="title">PONG</h1>
+        <!-- Nouveau conteneur flex pour le bouton et le titre -->
+        <div class="header-row">
+            <button class="back-btn" onclick="history.back()">
+            <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
+            </button>
+            <h1 class="title">PONG</h1>
+        </div>
         <div class="form-container">
             <h2 class="form-title">Connexion</h2>
             <form id="loginForm">

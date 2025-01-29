@@ -11,6 +11,7 @@
  /* Body */
  body {
    font-family: Pong-Game sans-serif;
+   font-family: 'Cantarell', sans-serif;
    margin: 0;
    padding: 0;
    height: 100vh;
@@ -34,28 +35,47 @@
     src: url('NotoSansSymbols-Regular.ttf') format('truetype');
   }
 
- .back-btn {
-    position: absolute;
-    top: 20px; 
-    left: 20px;
-    width: 40px; 
-    height: 40px;
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(51, 65, 85, 0.5);
-    color: #fff;           /* Flèche blanche */
-    border-radius: 50%;    /* Cercle */
-    display: flex;         /* Centrage horizontal/vertical */
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 18px;       /* Taille de la flèche */
-    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
-  }
+/* Pour l'image à l'intérieur du bouton "back-btn" */
+.back-btn img.arrow-icon {
+  width: 24px;
+  height: 24px;
+  /* object-fit: contain;  <-- facultatif si tu veux être sûr que l’image ne soit pas déformée */
+}
+
+/* Conteneur horizontal pour la flèche et le titre */
+.header-row {
+  position: relative;       /* Permet de positionner le bouton en absolu */
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Centre le titre au milieu du conteneur */
+  width: 100%;
+  margin-bottom: 48px;      /* Espace sous le header */
+}
+
+/* Le bouton est placé en absolu, tout à gauche du .header-row */
+.back-btn {
+  position: absolute;
+  left: 0;                  /* Collé au bord gauche du .header-row */
+  top: 50%;
+  transform: translateY(-50%);  /* on centre verticalement */
+  transform-origin: center;     /* l’échelle sera centrée sur le milieu */
+  
+  width: 40px; 
+  height: 40px;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+}
   
   .back-btn:hover {
     background: rgba(30, 41, 59, 0.9);   /* Légèrement plus opaque au survol */
     border-color: rgba(51, 65, 85, 0.75);
-    transform: scale(1.05);             /* Petit agrandissement au survol */
+    transform: translateY(-50%) scale(1.05);
   }
   
   .back-btn span {
@@ -63,15 +83,41 @@
     line-height: 1;
   }
   
+  @font-face {
+    font-family: 'Pong-Game';
+    src: url('static/fonts/PongGame.woff2') format('woff2'),
+         url('static/fonts/PongGame.woff') format('woff');
+    /* ou format('truetype') si vous n’avez qu’un .ttf */
+    font-weight: normal;
+    font-style: normal;
+  }  
  
  /* Titre principal “PONG” */
  .title {
-   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
-   font-size: 3rem;
+   font-family: "Pong-Game", sans-serif;
+   margin: 0px;
+   font-size: 5rem;
    font-weight: bold;
-   color: #3b82f6;
+
+   /* Dégradé de 3 teintes de bleu (claire en haut, moyenne, puis foncée) */
+   background: linear-gradient(
+     to bottom, 
+     #3b82f6,  /* Bleu clair */
+     #2563eb,  /* Bleu moyen */
+     #1e3a8a   /* Bleu foncé */
+  );
+
+  /* Coupe l'arrière-plan au niveau du texte */
+  -webkit-background-clip: text;
+  background-clip: text; 
+
+  /* Rendre le texte transparent pour laisser apparaître le dégradé */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Pour Safari */
    text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
+
+   /* Augmente l’espace entre chaque lettre */
+   letter-spacing: 15px; 
  }
  
  /* Carte/formulaire */
@@ -161,7 +207,6 @@
    background: #2563EB;
    color: white;
    font-size: 1rem;
-   font-weight: bold;
    border: none;
    border-radius: 8px;
    cursor: pointer;

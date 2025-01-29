@@ -1,28 +1,6 @@
 Starting docker-compose down...
-Container conecteme_proxy  Stopping
-Container conecteme_proxy  Stopping
-Container conecteme_proxy  Stopped
-Container conecteme_proxy  Removing
-Container conecteme_proxy  Removed
-Container conecteme_frontend  Stopping
-Container conecteme_frontend  Stopping
-Container conecteme_frontend  Stopped
-Container conecteme_frontend  Removing
-Container conecteme_frontend  Removed
-Container conecteme_backend  Stopping
-Container conecteme_backend  Stopping
-Container conecteme_backend  Stopped
-Container conecteme_backend  Removing
-Container conecteme_backend  Removed
-Container conecteme_db  Stopping
-Container conecteme_db  Stopping
-Container conecteme_db  Stopped
-Container conecteme_db  Removing
-Container conecteme_db  Removed
 Volume conecte_me_postgres_data  Removing
-Network conecte_me_conecteme_network  Removing
 Volume conecte_me_postgres_data  Removed
-Network conecte_me_conecteme_network  Removed
 Tree structure:
 .
 ├── backend
@@ -68,9 +46,11 @@ Tree structure:
 │   ├── confirmation.html
 │   ├── Dockerfile
 │   ├── index.html
+│   ├── login.html
 │   ├── signup.html
 │   └── static
 │       ├── css
+│       │   ├── login.css
 │       │   ├── main.css
 │       │   └── signup.css
 │       ├── img
@@ -78,15 +58,18 @@ Tree structure:
 │       │   ├── Game_anime.png
 │       │   ├── PONG_Accueil.png
 │       │   ├── PONG_seul.png
+│       │   ├── return_arrow.png
+│       │   ├── Symbole_return.png
 │       │   └── User_title.png
 │       └── js
+│           ├── login.js
 │           ├── main.js
 │           └── signup.js
 ├── nginx.conf
 ├── output.log
 └── README.md
 
-13 directories, 47 files
+13 directories, 52 files
 Backend OAuth App:
 from django.db import models
 from django.contrib.auth.hashers import make_password
@@ -765,10 +748,243 @@ CMD ["nginx", "-g", "daemon off;"]
     <!-- <a href="/login.html">Aller à la page de connexion</a> -->
 </body>
 </html>
-cat: login.html: No such file or directory
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="static/css/login.css">
+</head>
+<body class="bg-gradient">
+    <div class="container">
+        <button class="back-btn" onclick="history.back()">
+            &#x2B05;
+        </button>
+        <h1 class="title">PONG</h1>
+        <div class="form-container">
+            <h2 class="form-title">Connexion</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email" class="label">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password" class="label">Mot de passe</label>
+                    <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-primary">
+                    &#x21AA; Se connecter
+                </button>
+            </form>
+            <p class="signup-link">
+                Pas encore de compte ? <a href="signup.html">S'inscrire</a>
+            </p>
+        </div>
+    </div>
+    <script src="static/js/login.js"></script>
+</body>
+</html>
 Static CSS:
-cat: login.css: No such file or directory
-/* Remise à zéro + style général */
+/* 
+ * Réinitialisation de box-sizing pour éviter 
+ * que padding/border ne modifient la largeur réelle 
+ */
+ *,
+ *::before,
+ *::after {
+   box-sizing: border-box;
+ }
+ 
+ /* Body */
+ body {
+   font-family: Pong-Game sans-serif;
+   margin: 0;
+   padding: 0;
+   height: 100vh;
+   background: linear-gradient(135deg, #0f172a, #1e293b);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ 
+ /* Conteneur global (contient le titre, le bouton retour et le formulaire) */
+ .container {
+   position: relative;
+   width: 100%;
+   max-width: 400px; /* Largeur max du bloc login */
+   margin: 0 auto;   /* Centré horizontalement */
+   text-align: center;
+ }
+ 
+ @font-face {
+    font-family: 'NotoSymbols';
+    src: url('NotoSansSymbols-Regular.ttf') format('truetype');
+  }
+
+ .back-btn {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    width: 40px; 
+    height: 40px;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    color: #fff;           /* Flèche blanche */
+    border-radius: 50%;    /* Cercle */
+    display: flex;         /* Centrage horizontal/vertical */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;       /* Taille de la flèche */
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  
+  .back-btn:hover {
+    background: rgba(30, 41, 59, 0.9);   /* Légèrement plus opaque au survol */
+    border-color: rgba(51, 65, 85, 0.75);
+    transform: scale(1.05);             /* Petit agrandissement au survol */
+  }
+  
+  .back-btn span {
+    display: inline-block;
+    line-height: 1;
+  }
+  
+ 
+ /* Titre principal “PONG” */
+ .title {
+   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
+   font-size: 3rem;
+   font-weight: bold;
+   color: #3b82f6;
+   text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
+ }
+ 
+ /* Carte/formulaire */
+ .form-container {
+   background: rgb(30 41 59 / 0.3);
+   padding: 20px;
+   border-radius: 12px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+ }
+ 
+ /* On met le formulaire en flex-column 
+    pour que les éléments (inputs + bouton) 
+    s’empilent et soient centrés */
+ .form-container form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+ /* Titre dans le formulaire */
+ .form-title {
+   font-size: 1.5rem;
+   color: #f1f5f9;
+   margin-bottom: 20px;
+ }
+ 
+ /* Groupes d'inputs */
+ .input-group {
+   position: relative;
+   margin-bottom: 20px;
+   text-align: left;
+   width: 100%;           /* Prend toute la largeur dispo */
+   max-width: 300px;      /* Limite la largeur pour harmoniser */
+ }
+ 
+ .label {
+   color: #cbd5e1;
+   font-size: 0.9rem;
+   margin-bottom: 5px;
+   display: block;
+ }
+ 
+ /* Lien "Mot de passe oublié ?" */
+ .forgot-link {
+   position: absolute;
+   top: 0;
+   right: 0;
+   color: #3b82f6;
+   font-size: 0.8rem;
+   text-decoration: none;
+   transition: color 0.3s;
+ }
+ 
+ .forgot-link:hover {
+   color: #60a5fa;
+ }
+ 
+ /* Inputs (email / password) */
+ input {
+   width: 100%;
+   padding: 12px 16px;
+   margin: 8px 0px 0px;
+   border: 0.5px solid rgb(51 65 85);
+   border-radius: 8px;
+   background: rgb(15 23 42 / 0.5);
+   color: #f1f5f9;
+   font-size: 1rem;
+   outline: none;
+   transition: border-color 0.3s, box-shadow 0.3s;
+ }
+ 
+ input::placeholder {
+   color: #64748b;
+ }
+ 
+ input:focus {
+   border-color: #60a5fa;
+   box-shadow: 0 0 5px rgba(59, 130, 246, 0.7);
+ }
+ 
+ /* Bouton principal */
+ .btn-primary {
+   width: 100%;          /* Même logique de largeur que les inputs */
+   max-width: 300px;     /* On garde la même contrainte de 300px pour aligner */
+   margin: 24px 0px 0px;  /* Petite marge en dessous */
+   padding: 12px 16px;
+   background: #2563EB;
+   color: white;
+   font-size: 1rem;
+   font-weight: bold;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background-color 0.3s, box-shadow 0.3s;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 5px;
+   margin-top: 5px;      /* Petite marge au-dessus */
+ }
+ 
+ .btn-primary:hover {
+   background: #2563eb;
+   box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
+ }
+ 
+ /* Lien d'inscription */
+ .signup-link {
+   margin-top: 15px;
+   font-size: 0.9rem;
+   color: #cbd5e1;
+   text-align: center;
+ }
+ 
+ .signup-link a {
+   color: #3b82f6;
+   text-decoration: none;
+   transition: color 0.3s;
+ }
+ 
+ .signup-link a:hover {
+   color: #60a5fa;
+ }
+ /* Remise à zéro + style général */
 * {
   margin: 0;
   padding: 0;
@@ -981,7 +1197,7 @@ document.addEventListener('DOMContentLoaded', () => {
       loginBtn.classList.add('btn-primary');
       signupBtn?.classList.remove('btn-primary');
       // Ici, vous pouvez rediriger, afficher un modal, etc.
-      console.log("Login button clicked");
+      window.location.href = '/login.html';
     });
   }
 
@@ -1113,4 +1329,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
-cat: login.js: No such file or directory
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    console.log('Email:', email);
+    console.log('Mot de passe:', password);
+
+    // Exemple de redirection après connexion réussie
+    alert('Connexion réussie!');
+    window.location.href = '/dashboard.html';
+});
