@@ -120,17 +120,16 @@
     ------------------------------------------------------------- */
     .card-custom {
       background: rgba(30, 41, 59, 0.4);
-      border: 1px solid rgba(51, 65, 85, 0.5);
+
       border-radius: 8px;
       padding: 1rem;
-      margin-bottom: 2rem;
+
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
     .card-header-custom {
       font-size: 1.1rem;
       color: #fff;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
       padding-bottom: 0.5rem;
     }
     .list-group-item-custom {
@@ -142,13 +141,22 @@
       align-items: center;
       padding: 0.4rem 0;
       border-radius: 8px;
+      margin-bottom: 0.5rem; /* Ajoutez cette ligne pour l'espacement */
+
     }
+
+    .list-group-item-custom:last-child {
+     margin-bottom: 0; /* Supprimez la marge en bas du dernier élément */
+    }
+    
     .list-group-item-custom:not(:last-child) {
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .list-group-item-custom .match-date {
       font-size: 0.7rem;
       opacity: 0.8;
+      margin-left: 15px; /* Ajuste la valeur selon tes besoins */
+      margin-right: 8px;
     }
 
     .list-group-item-custom .match-name {
@@ -162,8 +170,10 @@
     .list-group-item-custom .match-result {
       font-weight: 600;
       font-size: 0.9rem;
+      margin-right: 15px; /* Ajuste la valeur selon tes besoins */
     }
 
+    .list-unstyled mb-0
     /* Surbrillance d’un item particulier (ex: #24 Player123) */
     .highlight {
       background-color: #1c2f60;
@@ -200,6 +210,20 @@
       background: rgba(30, 41, 59, 0.9);
       border-color: rgba(51, 65, 85, 0.75);
       transform: scale(1.05);
+    }
+
+    .elo-value {
+      font-weight: 600;       /* ou bold, selon votre préférence */
+      font-size: 1rem;        /* ajustez si vous voulez plus grand/petit */
+      color: #ffffff;         /* ou un bleu clair (#60a5fa), etc. */
+      margin-right: 0.5rem;   /* un petit espace entre le ELO et “wins” */
+    }
+
+    .wins-text {
+      font-size: 0.85rem;     /* un peu plus petit si souhaité */
+      color: #cbd5e1;         /* gris clair, par exemple */
+      opacity: 0.8;           /* pour un effet plus discret */
+      margin-right: 0.9rem;
     }
 
   </style>
@@ -252,19 +276,30 @@
           <ul class="list-unstyled mb-0">
             <li class="list-group-item-custom">
                 <span><span class="rank">#1</span> TopPlayer1</span>
-                <span>2100 <small>156 wins</small></span>
+                <span>
+                  <span class="elo-value">1850</span>
+                  <span class="wins-text">42 wins</span>
+                </span>
             </li>
             <li class="list-group-item-custom">
               <span><span class="rank">#2</span> TopPlayer2</span>
-              <span>2050 <small>142 wins</small></span>
+              <span>
+                <span class="elo-value">2050</span>
+                <span class="wins-text">142 wins</span>
+              </span>              
             </li>
             <li class="list-group-item-custom">
               <span><span class="rank">#3</span> TopPlayer3</span>
-              <span>2000 <small>138 wins</small></span>
-            </li>
+              <span>
+                <span class="elo-value">2000</span>
+                <span class="wins-text">138 wins</span>
+              </span>
             <li class="list-group-item-custom highlight">
                 <span><span class="rank">#24</span> Player123</span>
-              <span>1850 <small>42 wins</small></span>
+                <span>
+                  <span class="elo-value">1850</span>
+                  <span class="wins-text">42 wins</span>
+                </span>
             </li>
           </ul>
         </div>
@@ -278,8 +313,12 @@
         PLAY
       </button>
       <button class="menu-button">
+        <i class="bi bi-x-lg"></i>
+        PLAYERS STATISTICS
+      </button>
+      <button class="menu-button">
         <i class="bi bi-people"></i>
-        COMMUNAUTE
+        SOCIAL
       </button>
       <button class="menu-button">
         <i class="bi bi-gear"></i>
