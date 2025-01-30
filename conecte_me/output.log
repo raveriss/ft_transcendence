@@ -1,7 +1,27 @@
-Starting docker-compose down...
+Container conecteme_proxy  Stopping
+Container conecteme_proxy  Stopping
+Container conecteme_proxy  Stopped
+Container conecteme_proxy  Removing
+Container conecteme_proxy  Removed
+Container conecteme_frontend  Stopping
+Container conecteme_frontend  Stopping
+Container conecteme_frontend  Stopped
+Container conecteme_frontend  Removing
+Container conecteme_frontend  Removed
+Container conecteme_backend  Stopping
+Container conecteme_backend  Stopping
+Container conecteme_backend  Stopped
+Container conecteme_backend  Removing
+Container conecteme_backend  Removed
+Container conecteme_db  Stopping
+Container conecteme_db  Stopping
+Container conecteme_db  Stopped
+Container conecteme_db  Removing
+Container conecteme_db  Removed
 Volume conecte_me_postgres_data  Removing
+Network conecte_me_conecteme_network  Removing
 Volume conecte_me_postgres_data  Removed
-Tree structure:
+Network conecte_me_conecteme_network  Removed
 .
 ├── backend
 │   ├── conecte_me_backend
@@ -45,6 +65,7 @@ Tree structure:
 ├── frontend
 │   ├── confirmation.html
 │   ├── Dockerfile
+│   ├── game_interface.html
 │   ├── index.html
 │   ├── login.html
 │   ├── signup.html
@@ -69,242 +90,743 @@ Tree structure:
 ├── output.log
 └── README.md
 
-13 directories, 52 files
-Backend OAuth App:
-from django.db import models
-from django.contrib.auth.hashers import make_password
+13 directories, 53 files
+# nginx.conf
+events {
+    worker_connections 1024;
+}
 
-class User42(models.Model):
-    user_id = models.IntegerField(unique=True)
-    username = models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    first_name = models.CharField(max_length=50, null=False, default="Unknown")
-    email_address = models.EmailField(unique=True, null=False, default="placeholder@example.com")
-    password = models.CharField(max_length=128, null=False, default="to_be_hashed")
+http {
+    # Éviter les attaques MIME type
+    include       mime.types;
+    default_type  application/octet-stream;
 
-    def __str__(self):
-        return f"{self.username} ({self.email_address})"
+    # Log minimal
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log warn;
 
-    def set_password(self, raw_password: str):
-        self.password = make_password(raw_password)
+    # Serveur HTTPS local
+    server {
+        listen 443 ssl;
+        server_name localhost;
+
+        # Emplacements des certificats
+        ssl_certificate     /etc/nginx/certs/localhost.crt;
+        ssl_certificate_key /etc/nginx/certs/localhost.key;
+
+        # SSL Settings (versions / ciphers minimales)
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers HIGH:!aNULL:!MD5;
+
+        # Proxy pass vers votre container frontend
+        location / {
+            # Redirection du trafic principal vers le frontend (port 80)
+            proxy_pass http://conecteme_frontend:80;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-Proto https;
+            proxy_set_header X-Forwarded-For $remote_addr;
+        }
+
+        # Redirection spécifique pour la route /auth/signup/
+        location /auth/signup/ {
+            proxy_pass http://conecteme_backend:8000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-Proto https;
+            proxy_set_header X-Forwarded-For $remote_addr;
+        }
+
+        location /auth/42/ {
+            proxy_pass http://conecteme_backend:8000;
+            proxy_set_header Host $host;
+            proxy_set_header X-Forwarded-Proto https;
+            proxy_set_header X-Forwarded-For $remote_addr;
+        }
+
+    }
+}# Django
+SECRET_KEY=change_me_in_production
+DEBUG=1
+
+# PostgreSQL
+POSTGRES_DB=conecteme_db
+POSTGRES_USER=conecteme_user
+POSTGRES_PASSWORD=conecteme_password
+POSTGRES_HOST=db
+POSTGRES_PORT=5432
+
+# OAuth 42
+OAUTH42_WEBSITE=https://localhost:8443
+OAUTH42_CLIENT_ID=u-s4t2ud-212adcc9d7bcdde9f1b4072ac7e13a17ce8c3493475514c9c139b3f993a243a6
+OAUTH42_CLIENT_SECRET=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
+OAUTH42_REDIRECT_URI=https://localhost:8443/auth/42/callback
+OAUTH42_AUTH_URL=https://api.intra.42.fr/oauth/authorize
+OAUTH42_TOKEN_URL=https://api.intra.42.fr/oauth/token
+OAUTH42_USER_URL=https://api.intra.42.fr/v2/me
+
+
+FROM nginx:alpine
+
+WORKDIR /usr/share/nginx/html
+COPY *.html .
+COPY static ./static
+
+# Nginx par défaut écoute sur le port 80
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRfu8m1L/J1Rv2hFpgb8si5+KclW5hqIcWPL6jIoS"
+      crossorigin="anonymous"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gradient">
+    <!-- Bloc “titre” au-dessus du container -->
+    <div class="title-block text-center">
+      <!-- Image ou logo “PONG” -->
+      <img
+        src="/static/img/Game_anime.png"
+        alt="Game Title"
+        class="img-fluid"
+      />
+    </div>
+
+    <!-- Container principal (Welcome to Morpion) -->
+    <div class="container text-center bg-white shadow-lg rounded p-4 welcome-container">
+      <p class="text-muted">Please sign in to continue</p>
+      <h1 class="display-6 text-primary"></h1>
+
+      <div class="btn-group w-100 mb-3 d-flex" role="group">
+        <button
+          id="login-btn"
+          class="btn active d-flex align-items-center justify-content-center"
+          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+        >
+          <i class="bi bi-box-arrow-in-right" style="font-size: 20px; margin-right: 8px;"></i>
+          Login
+        </button>
+        <button
+          id="signup-btn"
+          class="btn d-flex align-items-center justify-content-center"
+          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+        >
+          <i class="bi bi-person-plus" style="font-size: 20px; margin-right: 8px;"></i>
+          Sign Up
+        </button>
+      </div>
+      <button id="connect-42" class="auth-button">
+        <span>Sign in with</span>    
+        <img src="static/img/42_logo.png" alt="42 Logo" />
+      </button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Custom JS -->
+    <script src="static/js/main.js"></script>
+  </body>
+</html><!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pong - Interface</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons (pour l’icône “person-circle” par ex.) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+  <style>
+    /* -------------------------------------------------------------
+       Fonts (à adapter selon l’emplacement de vos fichiers de police)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NotoSymbols';
+      src: url('static/fonts/NotoSansSymbols-Regular.ttf') format('truetype');
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body + fond dégradé
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f1f5f9;
+    }
+
+    /* -------------------------------------------------------------
+       Conteneur principal
+    ------------------------------------------------------------- */
+    .main-container {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .rank {
+     font-weight: bold;
+     margin-left: 15px; /* Ajuste la valeur selon tes besoins */
+     margin-right: 8px; /* Ajuste la valeur selon tes besoins */
+}
+
+    /* -------------------------------------------------------------
+       Titre PONG en dégradé
+    ------------------------------------------------------------- */
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      text-align: center;
+      margin: 0;
+      font-size: 5rem;
+      font-weight: bold;
+
+      /* Dégradé de bleu */
+      background: linear-gradient(
+        to bottom, 
+        #3b82f6,  /* Bleu clair */
+        #2563eb,  /* Bleu moyen */
+        #1e3a8a   /* Bleu foncé */
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent; /* Pour Safari */
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+
+      /* Espacement des lettres */
+      letter-spacing: 15px;
+    }
+
+    /* -------------------------------------------------------------
+       Icône utilisateur (en haut à droite)
+    ------------------------------------------------------------- */
+    .user-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1rem;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Cartes (Historique des matchs / Classement général)
+    ------------------------------------------------------------- */
+    .card-custom {
+      background: rgba(30, 41, 59, 0.4);
+
+      border-radius: 8px;
+      padding: 1rem;
+
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .card-header-custom {
+      font-size: 1.1rem;
+      color: #fff;
+
+      padding-bottom: 0.5rem;
+    }
+    .list-group-item-custom {
+      background: #263246;
+      border: none;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      border-radius: 8px;
+      margin-bottom: 0.5rem; /* Ajoutez cette ligne pour l'espacement */
+
+    }
+
+    .list-group-item-custom:last-child {
+     margin-bottom: 0; /* Supprimez la marge en bas du dernier élément */
+    }
+    
+    .list-group-item-custom:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .list-group-item-custom .match-date {
+      font-size: 0.7rem;
+      opacity: 0.8;
+      margin-left: 15px; /* Ajuste la valeur selon tes besoins */
+      margin-right: 8px;
+    }
+
+    .list-group-item-custom .match-name {
+      font-size: 0.9rem;
+      align-items: right;
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+
+    .list-group-item-custom .match-result {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-right: 15px; /* Ajuste la valeur selon tes besoins */
+    }
+
+    .list-unstyled mb-0
+    /* Surbrillance d’un item particulier (ex: #24 Player123) */
+    .highlight {
+      background-color: #1c2f60;
+    }
+
+    /* -------------------------------------------------------------
+       Boutons du bas (“PLAY”, “COMMUNAUTE”, etc.)
+    ------------------------------------------------------------- */
+    .menu-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .menu-button {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      color: #f1f5f9;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+      min-width: 120px;
+    }
+    .menu-button i {
+      font-size: 1.2rem;
+    }
+    .menu-button:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(51, 65, 85, 0.75);
+      transform: scale(1.05);
+    }
+
+    .elo-value {
+      font-weight: 600;       /* ou bold, selon votre préférence */
+      font-size: 1rem;        /* ajustez si vous voulez plus grand/petit */
+      color: #ffffff;         /* ou un bleu clair (#60a5fa), etc. */
+    }
+
+    .wins-text {
+      font-size: 0.7rem;
+      color: #cbd5e1;         /* gris clair, par exemple */
+      opacity: 0.8;           /* pour un effet plus discret */
+      margin-right: 0.7rem;
+    }
+
+    .match-info-left {
+      display: flex;
+      align-items: center;        /* aligne verticalement au centre */
+      justify-content: flex-start;/* reste collé à gauche */
+      gap: 8px;                   /* espace horizontal entre la date et le nom */
+    }
+
+
+    .elo-container {
+      display: inline-block;  /* pour pouvoir fixer une width */
+      width: 50px;            /* ajustez selon la taille max (4 chiffres : ~50px) */
+      text-align: right;      /* aligne la valeur ELO à droite */
+      margin-right: 0.5rem;   /* petit espace après */
+    }
+
+    /* -----------------------------------------------------------------
+      TABLEAU “custom-table” : Même look que .list-group-item-custom
+    ------------------------------------------------------------------- */
+    /* On sépare les cellules (et donc les lignes) 
+      et on ajoute 0.5rem de marge verticale 
+      entre chaque rangée. */
+      .custom-table {
+      table-layout: fixed;            /* Ajouté */
+      border-collapse: separate;
+      border-spacing: 0 0.5rem; /* Espace vertical entre les lignes */
+      width: 100%;
+      background: transparent;  /* Pas de fond imposé pour la table */
+    }
+
+    /* Chaque cellule a un fond #263246 
+      + un trait de séparation en bas, comme dans .list-group-item-custom */
+      .custom-table tbody tr td {
+      background-color: #263246; 
+      border: none;
+  
+      /* Optionnel: un peu de padding interne 
+        pour que le texte ne soit pas collé. */
+      padding: 0.4rem 0.8rem;
+      color: #fff;
+    }
+
+    .player-name-cell {
+      font-size: 0.9rem;
+      font-weight: bold;
+      opacity: 0.8;
+
+    }
+
+    /* Coins arrondis sur la première et la dernière cellule
+      de chaque rangée, ce qui donne 4 coins arrondis à la ligne. */
+      .custom-table tbody tr td:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      color: #fff;
+    }
+
+    /* Supprimer ce trait sur la dernière ligne du tableau */
+    .custom-table tbody tr td:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      color: #fff;
+    }
+
+    /* Ligne surbrillée (ex: #24 Player123) */
+    .custom-table tbody tr.highlight td {
+      background-color: #1c2f60;
+      color: #fff;
+    }
+
+    /* Optionnel : forcer la largeur d'une colonne 
+      par exemple pour le rang, si vous voulez un alignement 
+      standard pour #1, #24, etc. 
+    */
+    .rank-cell {
+      width: 50px;
+      text-align: left; /* #1, #24 seront alignés à droite */
+      padding-right: 8px;
+      opacity: 0.8;
+      align-items: right;
+      font-weight: bold;
+    }
+
+    /* Valeur ELO alignée à droite 
+      (déjà géré par .text-end dans le HTML).
+    */
+    .elo-cell {
+      text-align: right;
+      table-layout: fixed;
+      padding: 0.4rem 0.8rem 0.4rem 0.8rem; /* top right bottom left */
+      padding-left: 1rem;  /* ou 1.5rem selon l’effet voulu */
+
+      /* plus de width: 10px; à retirer */
+      width: 52px;          /* Laisse l’auto, ou fixez p.ex. 50px si vous préférez */
+      font-weight: bold;
+      opacity: 0.8;
+      white-space: nowrap;  /* Pour ne pas couper ELO sur 2 lignes */
+
+    }  
+
+    /* Wins 
+      (texte normal, vous pouvez y appliquer 
+      la classe .wins-text existante si vous voulez) 
+    */
+    .wins-cell {
+      width: 80px;
+      font-size: 0.7rem;
+      text-align: right;
+      white-space: nowrap;  /* Empêche le renvoi à la ligne */
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <!-- Icône utilisateur (en haut à droite) -->
+    <div class="user-icon">
+      <i class="bi bi-person-circle"></i>
+    </div>
+
+    <!-- Titre principal -->
+    <h1 class="title mb-5">DASHBOARD</h1>
+
+    <!-- Contenu principal en 2 colonnes : Historique + Classement -->
+    <div class="row">
+      <!-- Colonne gauche : Historique des matchs -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi-clock-history"></i>
+            Historique des matchs</div>
+          <ul class="list-unstyled mb-0">
+            <li class="list-group-item-custom">
+              <div class="match-info-left">
+                <span class="match-date">2025-01-10</span>
+                <span class="match-name">ProGamer</span>
+              </div>
+              <span class="match-result text-success">Victory 11-9</span>
+            </li>
+            <li class="list-group-item-custom">
+              <div class="match-info-left">
+                <span class="match-date">2025-01-08</span>
+                <span class="match-name">PongMaster</span>
+              </div>
+
+              <span class="match-result text-danger">Defeat 9-11</span>
+            </li>
+            <li class="list-group-item-custom">
+              <div class="match-info-left">
+                <span class="match-date">2025-01-05</span>
+                <span class="match-name">NewPlayer</span>
+              </div>
+
+              <span class="match-result text-success">Victory 11-7</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Colonne droite : Classement général -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi-mortarboard"></i>
+            Classement général
+          </div>
+        
+          <table class="table table-borderless text-white align-middle mb-0 custom-table">
+            <tbody>
+              <tr>
+                <td class="rank-cell">#1</td>
+                <td class="player-name-cell">TopPlayer1</td>
+                <td class="elo-cell text-end">1850</td>
+                <td class="wins-cell">42 wins</td>
+              </tr>
+              <tr>
+                <td class="rank-cell">#2</td>
+                <td class="player-name-cell">TopPlayer2</td>
+                <td class="elo-cell text-end">2050</td>
+                <td class="wins-cell">142 wins</td>
+              </tr>
+              <tr>
+                <td class="rank-cell">#3</td>
+                <td class="player-name-cell">TopPlayer3</td>
+                <td class="elo-cell text-end">2000</td>
+                <td class="wins-cell">138 wins</td>
+              </tr>
+              <tr class="highlight">
+                <td class="rank-cell">#24</td>
+                <td class="player-name-cell">Player123</td>
+                <td class="elo-cell text-end">1850</td>
+                <td class="wins-cell">42 wins</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barre de boutons -->
+    <div class="menu-buttons">
+      <button class="menu-button">
+        <i class="bi bi-controller"></i>
+        PLAY
+      </button>
+      <button class="menu-button">
+        <i class="bi-graph-up-arrow"></i>
+        PLAYERS STATISTICS
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-people"></i>
+        SOCIAL
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-gear"></i>
+        SETUP
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-heart"></i>
+        CREDITS
+      </button>
+      <button class="menu-button">
+        <i class="bi bi-x-lg"></i>
+        EXIT
+      </button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (facultatif si vous n’utilisez pas de composants interactifs) -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
+// main.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.getElementById('login-btn');
+  const signupBtn = document.getElementById('signup-btn');
+  const connect42Btn = document.getElementById('connect-42');
+
+  // ====== GESTION DU BOUTON LOGIN ======
+  if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+      // Ajoute la classe d’état "active"
+      loginBtn.classList.add('btn-primary');
+      signupBtn?.classList.remove('btn-primary');
+      // Ici, vous pouvez rediriger, afficher un modal, etc.
+      window.location.href = '/login.html';
+    });
+  }
+
+  // ====== GESTION DU BOUTON SIGNUP ======
+  if (signupBtn) {
+    signupBtn.addEventListener('click', () => {
+      // Ajoute la classe d’état "active"
+      signupBtn.classList.add('btn-primary');
+      loginBtn?.classList.remove('btn-primary');
+
+      // EXEMPLE : rediriger vers une page signup.html
+      // (À créer ou à remplacer par votre propre route)
+      window.location.href = 'signup.html';
+    });
+  }
+
+  // ====== GESTION DU BOUTON "CONNECT-42" ======
+  if (connect42Btn) {
+    connect42Btn.addEventListener('click', () => {
+      // Redirection vers l'endpoint OAuth 42
+      // Adaptez l'URL si nécessaire
+      window.location.href = 'https://localhost:8443/auth/42/login-42/';
+    });
+  }
+
+  // ====== GESTION DE LA RÉCUPÉRATION DU JWT (SI RETOUR OAUTH) ======
+  const urlParams = new URLSearchParams(window.location.search);
+  const jwt = urlParams.get('jwt');
+  if (jwt) {
+    const container = document.querySelector('.container');
+    if (container) {
+      localStorage.setItem('jwt', jwt);
+    }
+  }
+});
+# Utiliser une image Python légère
+FROM python:3.10-alpine
+
+# Créer un répertoire de travail
+WORKDIR /app
+
+# Installer les dépendances système nécessaires
+RUN apk update && apk add --no-cache \
+    postgresql-client \              
+    postgresql-dev \                 
+    gcc \                            
+    musl-dev \                       
+    libffi-dev \                     
+    openssl-dev \                    
+    zlib-dev \                       
+    jpeg-dev \                       
+    freetype-dev \                   
+    lcms2-dev \                      
+    tiff-dev \                       
+    py3-pip \                        
+    python3-dev \                    
+    build-base \                     
+    curl \                           
+    bash                            
+
+
+# Copier les fichiers de configuration
+COPY requirements.txt .
+
+# Installer les dépendances Python
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Nettoyer le cache pour réduire la taille de l'image
+RUN apk del gcc musl-dev libffi-dev openssl-dev && rm -rf /var/cache/apk/*
+
+# Copier le code source du backend
+COPY . /app
+
+# Exposer le port 8000
+EXPOSE 8000
+
+# Lancer le serveur Django
+CMD ["sh", "-c", "while ! nc -z db 5432; do sleep 1; done; python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
+#!/usr/bin/env python
 import os
-import jwt
-import datetime
+import sys
 
-def generate_jwt(user_id, username):
-    secret_key = os.environ.get('SECRET_KEY', 'unsafe-default-key')
-    expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
-    payload = {
-        'user_id': user_id,
-        'username': username,
-        'exp': expiration,
-        'iss': 'ConecteMe'
-    }
-    token = jwt.encode(payload, secret_key, algorithm='HS256')
-    return token
-from django.urls import path
-from django.http import HttpResponse  # Import de HttpResponse
-from .views import redirect_to_42, callback_42
-from . import views
-
-
-def login_view(request):
-    return HttpResponse("Login page")
-
-urlpatterns = [
-    path('signup/', views.signup_view, name='signup'),
-    path('login-42/', redirect_to_42, name='redirect_to_42'),
-    path('callback', callback_42, name='callback_42'),
-]
-import os
-import requests
-import jwt
-from django.shortcuts import redirect, render
-from django.http import JsonResponse, HttpResponseRedirect
-from django.urls import reverse
-from django.utils.crypto import get_random_string
-from .utils import generate_jwt
-
-from django.contrib import messages
-
-from django.db import IntegrityError, transaction
-
-from django.views.decorators.csrf import csrf_exempt
-from django.middleware.csrf import get_token
-from django.contrib.auth.hashers import check_password
-from .models import User42
-from django.contrib.auth.hashers import make_password
-
-
-# Récupération des variables d'env
-CLIENT_ID = os.environ.get('OAUTH42_CLIENT_ID')
-CLIENT_SECRET = os.environ.get('OAUTH42_CLIENT_SECRET')
-REDIRECT_URI = os.environ.get('OAUTH42_REDIRECT_URI')
-TOKEN_URL = "https://api.intra.42.fr/oauth/token"
-AUTHORIZE_URL = "https://api.intra.42.fr/oauth/authorize"
-
-def redirect_to_42(request):
-    """
-    Redirige vers la page d'authentification 42 en utilisant
-    Authorization Code Grant. On génère un state random pour la protection CSRF.
-    """
-    state = get_random_string(32)
-    request.session['oauth_state'] = state
-
-    params = {
-        'client_id': CLIENT_ID,
-        'redirect_uri': REDIRECT_URI,
-        'response_type': 'code',
-        'scope': 'public',
-        'state': state,
-    }
-    # Construction de l'URL d'authentification
-    query_string = "&".join([f"{k}={v}" for k, v in params.items()])
-    auth_url = f"{AUTHORIZE_URL}?{query_string}"
-    return redirect(auth_url)
-
-
-def callback_42(request):
-    """
-    Gère le callback après authentification 42.
-    Échange le code reçu contre un token, puis récupère les infos utilisateur.
-    """
-    # Vérification du state
-    state_session = request.session.get('oauth_state')
-    state_request = request.GET.get('state')
-    if not state_session or state_session != state_request:
-        return JsonResponse({"error": "Invalid state"}, status=400)
-
-    code = request.GET.get('code')
-    if not code:
-        return JsonResponse({"error": "No code provided"}, status=400)
-
-    # Échange code -> access token
-    data = {
-        'grant_type': 'authorization_code',
-        'client_id': CLIENT_ID,
-        'client_secret': CLIENT_SECRET,
-        'code': code,
-        'redirect_uri': REDIRECT_URI,
-    }
+def main():
+    """Point d'entrée principal pour les commandes Django."""
+    # Définit les paramètres du projet Django
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'conecte_me_backend.settings')
     try:
-        response = requests.post(TOKEN_URL, data=data)
-        token_data = response.json()
-        access_token = token_data.get('access_token')
-        if not access_token:
-            return JsonResponse({"error": "Failed to retrieve access token"}, status=400)
-    except Exception as e:
-        return JsonResponse({"error": str(e)}, status=400)
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Impossible d'importer Django. Assurez-vous qu'il est installé "
+            "et que le virtualenv est activé. Consultez les dépendances "
+            "dans requirements.txt."
+        ) from exc
+    execute_from_command_line(sys.argv)
 
-    # Récupération des infos utilisateur depuis l'API 42
-    user_info_url = "https://api.intra.42.fr/v2/me"
-    headers = {
-        'Authorization': f"Bearer {access_token}"
-    }
-    user_resp = requests.get(user_info_url, headers=headers)
-    if user_resp.status_code != 200:
-        return JsonResponse({"error": "Failed to retrieve user info"}, status=400)
-
-    user_data = user_resp.json()
-    user_id_42 = user_data['id']
-    user_name_42 = user_data['login']
-
-    # Stocker ou mettre à jour l'utilisateur en base
-    user, _ = User42.objects.get_or_create(
-        user_id=user_id_42,
-        defaults={'username': user_name_42}
-    )
-
-    # Générer un JWT pour la session
-    jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
-
-    # Redirection côté frontend, transmettant le token ou un paramètre signifiant succès
-    # On peut stocker le token dans un cookie HttpOnly (plus sûr), ou dans un paramètre GET
-    response = HttpResponseRedirect(f"https://localhost:8443/?jwt={jwt_token}")
-    return response
-
-@csrf_exempt
-def signup_view(request):
-    if request.method == 'POST':
-        # Récupération des données depuis la requête POST
-        first_name = request.POST.get('firstname')
-        email = request.POST.get('email')
-        raw_password = request.POST.get('password')
-        pseudo = request.POST.get('pseudo', '')
-
-        # Validation des champs
-        if not all([first_name, email, raw_password]):
-            return JsonResponse({"success": False, "error": "Tous les champs requis ne sont pas remplis."}, status=400)
-        try:
-            with transaction.atomic():
-                user = User42(
-                    user_id=0,  # Placeholder pour le moment
-                    username=pseudo or email.split('@')[0],
-                    first_name=first_name,
-                    email_address=email,
-                )
-                user.password = make_password(raw_password)  # Hash du mot de passe
-                user.save()
-        except IntegrityError:
-            return JsonResponse({"success": False, "error": "Cette adresse e-mail est déjà utilisée."}, status=400)
-
-        # Succès de l'inscription
-        return JsonResponse({"success": True, "detail": "Inscription réussie."}, status=201)
-
-    # Méthode non autorisée
-    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)Backend Migrations:
-# Generated by Django 5.1.4 on 2025-01-11 10:26
-
-from django.db import migrations, models
+if __name__ == '__main__':
+    main()
+Django==4.2
+djangorestframework==3.14.0
+psycopg2-binary==2.9.6
+PyJWT==2.8.0
+requests==2.31.0
+python-decouple==3.8  # Ajouté pour une meilleure gestion des variables d'environnement
+django-oauth-toolkit==2.0.0
 
 
-class Migration(migrations.Migration):
-
-    initial = True
-
-    dependencies = [
-    ]
-
-    operations = [
-        migrations.CreateModel(
-            name='User42',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('user_id', models.IntegerField(unique=True)),
-                ('username', models.CharField(max_length=255)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-            ],
-        ),
-    ]
-# Generated by Django 5.1.4 on 2025-01-22 10:42
-
-from django.db import migrations, models
-
-
-class Migration(migrations.Migration):
-
-    dependencies = [
-        ('oauth_app', '0001_initial'),
-    ]
-
-    operations = [
-        migrations.AddField(
-            model_name='user42',
-            name='email_address',
-            field=models.EmailField(default='placeholder@example.com', max_length=254, unique=True),
-        ),
-        migrations.AddField(
-            model_name='user42',
-            name='first_name',
-            field=models.CharField(default='Unknown', max_length=50),
-        ),
-        migrations.AddField(
-            model_name='user42',
-            name='password',
-            field=models.CharField(default='to_be_hashed', max_length=128),
-        ),
-    ]
-Backend Conecte Me:
 import os
 from pathlib import Path
 import logging
@@ -458,887 +980,484 @@ urlpatterns = [
     path('auth/42/', include('oauth_app.urls')),  # Routes d’auth OAuth 42
     path('auth/signup/', views.signup_view, name='signup'),  # Ajoutez cette ligne
 ]
-Frontend:
-FROM nginx:alpine
+import os
+from django.core.wsgi import get_wsgi_application
 
-WORKDIR /usr/share/nginx/html
-COPY *.html .
-COPY static ./static
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'conecte_me_backend.settings')
 
-# Nginx par défaut écoute sur le port 80
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Créer un compte</title>
+application = get_wsgi_application()
+from django.db import models
+from django.contrib.auth.hashers import make_password
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-    <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    />
-    <!-- Votre CSS personnalisé -->
-    <link rel="stylesheet" href="static/css/signup.css" />
+class User42(models.Model):
+    user_id = models.IntegerField(unique=True)
+    username = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    first_name = models.CharField(max_length=50, null=False, default="Unknown")
+    email_address = models.EmailField(unique=True, null=False, default="placeholder@example.com")
+    password = models.CharField(max_length=128, null=False, default="to_be_hashed")
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body class="bg-light fade-in">
-    <!-- Conteneur principal centré verticalement -->
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-      <!-- Card Bootstrap pour faire un joli encadré -->
-      <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
-        <div class="card-header bg-white text-center">
-          <h2 class="mb-0">Créer un compte</h2>
-          <p class="text-muted">Entrez vos informations pour commencer</p>
-        </div>
+    def __str__(self):
+        return f"{self.username} ({self.email_address})"
 
-        <div class="card-body">
-          <form
-            id="signup-form"
-            action="https://localhost:8443/signup/""
-            method="POST"
-            class="needs-validation"
-            novalidate
-            enctype="multipart/form-data"
-          >
-            <!-- Aperçu Avatar -->
-            <div class="mb-3 d-flex justify-content-center">
-              <div
-                class="position-relative avatar-preview rounded-circle border border-2 border-dashed text-center"
-              >
-                <!-- Icône caméra (affichée par défaut) -->
-                <i
-                  class="bi bi-camera"
-                  id="camera-icon"
-                  style="font-size: 2rem; color: #6c757d;"
-                ></i>
-                <!-- Image d’aperçu (cachée au départ) -->
-                <img
-                  id="avatar-img"
-                  src="#"
-                  alt="Aperçu de l'avatar"
-                  class="d-none"
-                />
-                <!-- Input file en pleine superposition (invisible) -->
-                <input
-                  type="file"
-                  id="avatar"
-                  name="avatar"
-                  accept="image/*"
-                  class="position-absolute w-100 h-100 top-0 start-0 opacity-0"
-                  style="cursor: pointer;"
-                />
-              </div>
-            </div>
+    def set_password(self, raw_password: str):
+        self.password = make_password(raw_password)
+from django.urls import path
+from django.http import HttpResponse  # Import de HttpResponse
+from .views import redirect_to_42, callback_42
+from . import views
 
-            <!-- Champ Pseudo -->
-            <div class="mb-3">
-              <label for="pseudo" class="form-label">Pseudo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="pseudo"
-                name="pseudo"
-                placeholder="johndoe"
-                required
-                minlength="3"
-                maxlength="20"
-              />
-              <div class="invalid-feedback">
-                Le pseudo doit contenir entre 3 et 20 caractères.
-              </div>
-            </div>
 
-            <!-- Champ Prénom -->
-            <div class="mb-3">
-              <label for="firstname" class="form-label">Prénom</label>
-              <input
-                type="text"
-                class="form-control"
-                id="firstname"
-                name="firstname"
-                placeholder="John"
-                required
-                minlength="2"
-                maxlength="50"
-              />
-              <div class="invalid-feedback">
-                Le prénom doit contenir entre 2 et 50 caractères.
-              </div>
-            </div>
+def login_view(request):
+    return HttpResponse("Login page")
 
-            <!-- Champ Email -->
-            <div class="mb-3">
-              <label for="email" class="form-label">Adresse e-mail</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="john.doe@example.com"
-                required
-              />
-              <div class="invalid-feedback">
-                Veuillez saisir une adresse e-mail valide.
-              </div>
-            </div>
+urlpatterns = [
+    path('signup/', views.signup_view, name='signup'),
+    path('login-42/', redirect_to_42, name='redirect_to_42'),
+    path('callback', callback_42, name='callback_42'),
+]
+import os
+import jwt
+import datetime
 
-            <!-- Champ Mot de passe + note d'aide -->
-            <div class="mb-3">
-              <label for="password" class="form-label">Mot de passe</label>
-              <div class="input-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  name="password"
-                  required
-                  minlength="8"
-                  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
-                  placeholder="••••••••"
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="togglePassword"
-                >
-                  <i class="bi bi-eye"></i>
-                </button>
-                <div class="invalid-feedback">
-                  Le mot de passe doit contenir au moins 8 caractères,
-                  une majuscule, une minuscule, un chiffre et un caractère spécial.
-                </div>
-              </div>
-              <small class="form-text text-muted">
-                Le mot de passe doit contenir au moins 8 caractères, une majuscule,
-                une minuscule, un chiffre et un caractère spécial.
-              </small>
-            </div>
-
-            <!-- Champ Confirmation du mot de passe -->
-            <div class="mb-3">
-              <label for="confirmPassword" class="form-label"
-                >Confirmer le mot de passe</label
-              >
-              <div class="input-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  required
-                  minlength="8"
-                  placeholder="••••••••"
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="toggleConfirmPassword"
-                >
-                  <i class="bi bi-eye"></i>
-                </button>
-                <div class="invalid-feedback">
-                  Les mots de passe ne correspondent pas.
-                </div>
-              </div>
-            </div>
-
-            <!-- Bouton de soumission -->
-            <button type="submit" class="btn btn-primary w-100">
-              S'inscrire
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    ></script>
-    <!-- Script Custom -->
-    <script src="static/js/signup.js"></script>
-  </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pong</title>
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRfu8m1L/J1Rv2hFpgb8si5+KclW5hqIcWPL6jIoS"
-      crossorigin="anonymous"
-    />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/main.css" />
-    <!-- Bootstrap Icons -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-gradient">
-    <!-- Bloc “titre” au-dessus du container -->
-    <div class="title-block text-center">
-      <!-- Image ou logo “PONG” -->
-      <img
-        src="/static/img/Game_anime.png"
-        alt="Game Title"
-        class="img-fluid"
-      />
-    </div>
-
-    <!-- Container principal (Welcome to Morpion) -->
-    <div class="container text-center bg-white shadow-lg rounded p-4 welcome-container">
-      <p class="text-muted">Please sign in to continue</p>
-      <h1 class="display-6 text-primary"></h1>
-
-      <div class="btn-group w-100 mb-3 d-flex" role="group">
-        <button
-          id="login-btn"
-          class="btn active d-flex align-items-center justify-content-center"
-          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
-        >
-          <i class="bi bi-box-arrow-in-right" style="font-size: 20px; margin-right: 8px;"></i>
-          Login
-        </button>
-        <button
-          id="signup-btn"
-          class="btn d-flex align-items-center justify-content-center"
-          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
-        >
-          <i class="bi bi-person-plus" style="font-size: 20px; margin-right: 8px;"></i>
-          Sign Up
-        </button>
-      </div>
-      <button id="connect-42" class="auth-button">
-        <span>Sign in with</span>    
-        <img src="static/img/42_logo.png" alt="42 Logo" />
-      </button>
-    </div>
-
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    ></script>
-    <!-- Custom JS -->
-    <script src="static/js/main.js"></script>
-  </body>
-</html><!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation</title>
-</head>
-<body>
-    <h1>Inscription réussie !</h1>
-    <p>Merci pour votre inscription. Vous pouvez maintenant vous connecter.</p>
-    <!-- <a href="/login.html">Aller à la page de connexion</a> -->
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="static/css/login.css">
-</head>
-<body class="bg-gradient">
-    <div class="container">
-        <button class="back-btn" onclick="history.back()">
-            &#x2B05;
-        </button>
-        <h1 class="title">PONG</h1>
-        <div class="form-container">
-            <h2 class="form-title">Connexion</h2>
-            <form id="loginForm">
-                <div class="input-group">
-                    <label for="email" class="label">Email</label>
-                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                </div>
-                <div class="input-group">
-                    <label for="password" class="label">Mot de passe</label>
-                    <a href="#" class="forgot-link">Mot de passe oublié ?</a>
-                    <input type="password" id="password" name="password" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="btn-primary">
-                    &#x21AA; Se connecter
-                </button>
-            </form>
-            <p class="signup-link">
-                Pas encore de compte ? <a href="signup.html">S'inscrire</a>
-            </p>
-        </div>
-    </div>
-    <script src="static/js/login.js"></script>
-</body>
-</html>
-Static CSS:
-/* 
- * Réinitialisation de box-sizing pour éviter 
- * que padding/border ne modifient la largeur réelle 
- */
- *,
- *::before,
- *::after {
-   box-sizing: border-box;
- }
- 
- /* Body */
- body {
-   font-family: Pong-Game sans-serif;
-   margin: 0;
-   padding: 0;
-   height: 100vh;
-   background: linear-gradient(135deg, #0f172a, #1e293b);
-   display: flex;
-   justify-content: center;
-   align-items: center;
- }
- 
- /* Conteneur global (contient le titre, le bouton retour et le formulaire) */
- .container {
-   position: relative;
-   width: 100%;
-   max-width: 400px; /* Largeur max du bloc login */
-   margin: 0 auto;   /* Centré horizontalement */
-   text-align: center;
- }
- 
- @font-face {
-    font-family: 'NotoSymbols';
-    src: url('NotoSansSymbols-Regular.ttf') format('truetype');
-  }
-
- .back-btn {
-    position: absolute;
-    top: 20px; 
-    left: 20px;
-    width: 40px; 
-    height: 40px;
-    background: rgba(30, 41, 59, 0.8);
-    border: 1px solid rgba(51, 65, 85, 0.5);
-    color: #fff;           /* Flèche blanche */
-    border-radius: 50%;    /* Cercle */
-    display: flex;         /* Centrage horizontal/vertical */
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 18px;       /* Taille de la flèche */
-    transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
-  }
-  
-  .back-btn:hover {
-    background: rgba(30, 41, 59, 0.9);   /* Légèrement plus opaque au survol */
-    border-color: rgba(51, 65, 85, 0.75);
-    transform: scale(1.05);             /* Petit agrandissement au survol */
-  }
-  
-  .back-btn span {
-    display: inline-block;
-    line-height: 1;
-  }
-  
- 
- /* Titre principal “PONG” */
- .title {
-   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
-   font-size: 3rem;
-   font-weight: bold;
-   color: #3b82f6;
-   text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-   margin: 0px 0px 48px;  /* Pour le descendre sous le bouton “back” */
- }
- 
- /* Carte/formulaire */
- .form-container {
-   background: rgb(30 41 59 / 0.3);
-   padding: 20px;
-   border-radius: 12px;
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
- }
- 
- /* On met le formulaire en flex-column 
-    pour que les éléments (inputs + bouton) 
-    s’empilent et soient centrés */
- .form-container form {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
- }
- 
- /* Titre dans le formulaire */
- .form-title {
-   font-size: 1.5rem;
-   color: #f1f5f9;
-   margin-bottom: 20px;
- }
- 
- /* Groupes d'inputs */
- .input-group {
-   position: relative;
-   margin-bottom: 20px;
-   text-align: left;
-   width: 100%;           /* Prend toute la largeur dispo */
-   max-width: 300px;      /* Limite la largeur pour harmoniser */
- }
- 
- .label {
-   color: #cbd5e1;
-   font-size: 0.9rem;
-   margin-bottom: 5px;
-   display: block;
- }
- 
- /* Lien "Mot de passe oublié ?" */
- .forgot-link {
-   position: absolute;
-   top: 0;
-   right: 0;
-   color: #3b82f6;
-   font-size: 0.8rem;
-   text-decoration: none;
-   transition: color 0.3s;
- }
- 
- .forgot-link:hover {
-   color: #60a5fa;
- }
- 
- /* Inputs (email / password) */
- input {
-   width: 100%;
-   padding: 12px 16px;
-   margin: 8px 0px 0px;
-   border: 0.5px solid rgb(51 65 85);
-   border-radius: 8px;
-   background: rgb(15 23 42 / 0.5);
-   color: #f1f5f9;
-   font-size: 1rem;
-   outline: none;
-   transition: border-color 0.3s, box-shadow 0.3s;
- }
- 
- input::placeholder {
-   color: #64748b;
- }
- 
- input:focus {
-   border-color: #60a5fa;
-   box-shadow: 0 0 5px rgba(59, 130, 246, 0.7);
- }
- 
- /* Bouton principal */
- .btn-primary {
-   width: 100%;          /* Même logique de largeur que les inputs */
-   max-width: 300px;     /* On garde la même contrainte de 300px pour aligner */
-   margin: 24px 0px 0px;  /* Petite marge en dessous */
-   padding: 12px 16px;
-   background: #2563EB;
-   color: white;
-   font-size: 1rem;
-   font-weight: bold;
-   border: none;
-   border-radius: 8px;
-   cursor: pointer;
-   transition: background-color 0.3s, box-shadow 0.3s;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 5px;
-   margin-top: 5px;      /* Petite marge au-dessus */
- }
- 
- .btn-primary:hover {
-   background: #2563eb;
-   box-shadow: 0 0 8px rgba(37, 99, 235, 0.5);
- }
- 
- /* Lien d'inscription */
- .signup-link {
-   margin-top: 15px;
-   font-size: 0.9rem;
-   color: #cbd5e1;
-   text-align: center;
- }
- 
- .signup-link a {
-   color: #3b82f6;
-   text-decoration: none;
-   transition: color 0.3s;
- }
- 
- .signup-link a:hover {
-   color: #60a5fa;
- }
- /* Remise à zéro + style général */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: url('/static/img/PONG_Accueil.png') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Centre tout verticalement */
-  min-height: 100vh;
-  /* On laisse un padding-top pour descendre le bloc principal */
-  padding-top: 120px;
-  color: #fff;
-}
-
-/* Animation de va-et-vient vertical */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0); /* Position initiale et finale */
-  }
-  50% {
-    transform: translateY(-10px); /* Monte de 10px */
-  }
-}
-
-/* Titre au dessus */
-.title-block {
-  margin-left: 600px;
-  position: relative;
-  top: 5cm; /* Descend le bloc de 3 cm */
-  position: relative; /* Assurez-vous que l'élément peut être déplacé */
-  animation: bounce 1.3s infinite; /* Animation continue */
-}
-
-/* Image du titre (Pong) */
-.title-block img {
-  max-width: 372px;
-  height: 138px;
-}
-
-/* Container (Welcome to Morpion) */
-.welcome-container {
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  background: #fff;
-  color: #4a5568;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  /* On peut ajouter un petit décalage avec margin-top si besoin */
-  margin-top: 3cm; /* Remonte de 2 cm */
-  margin-bottom: 5px;
-}
-
-/* Boutons, etc. */
-button {
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.button-group {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 1rem;
-}
-
-.button-group .active {
-  background-color: #5a67d8;
-  color: #fff;
-}
-
-.button-group button:not(.active) {
-  background-color: #efefef;
-  color: #4a5568;
-}
-
-.button-group button:hover:not(.active) {
-  background-color: #e2e8f0;
-}
-
-/* Survol des boutons “Login” et “Sign Up” */
-#login-btn:hover,
-#signup-btn:hover {
-  background-color: #d6d6d6;
-  color: #4a5568;
-  transition: background-color 0.3s ease;
-}
-
-/* Clic sur “Login” / “Sign Up” */
-#login-btn:active,
-#signup-btn:active {
-  background-color: #4f46e5;
-  color: #ffffff;
-  transition: background-color 0.1s ease, color 0.1s;
-}
-
-/* Bouton “Continue with 42” */
-.auth-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0.8rem;
-  margin-top: 1rem;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #2d3748;
-  color: #fff;
-  border: none;
-  border-radius: 7px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.auth-button img {
-  margin-right: 0.5rem;
-  width: 24px;
-  height: 24px;
-}
-
-.auth-button:hover {
-  background-color: #111827;
-}
-
-.text-muted {
-  margin-bottom: 4mm; /* Ajoute un espace de 4mm sous le paragraphe */
-}/* On importe (ou on utilise via CDN) Bootstrap et Bootstrap Icons dans le HTML,
-   donc ici on se limite à nos overrides et classes perso. */
-
-/* Aperçu de l’avatar */
-.avatar-preview {
-    width: 96px;
-    height: 96px;
-    overflow: hidden;
-    background: #f8f9fa;
-    display: flex; /* Ajout */
-    align-items: center; /* Ajout */
-    justify-content: center; /* Ajout */
-    position: relative; /* Assurez-vous que l'icône reste positionnée */
-}
-
-#camera-icon {
-    font-size: 2rem;
-    color: #6c757d;
-    position: absolute; /* Si nécessaire pour un positionnement précis */
-    top: 50%; /* Centrage vertical */
-    left: 50%; /* Centrage horizontal */
-    transform: translate(-50%, -50%); /* Ajustement */
-    pointer-events: none; /* Pour éviter que l'utilisateur ne clique accidentellement dessus */
-}
-
-  /* L'image prend tout l'espace, rognée pour remplir la zone */
-  .avatar-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Fond en dégradé clair */
-  .bg-light {
-    background: linear-gradient(to bottom, #e9ecef, #f8f9fa) !important;
-  }
-  
-  /* Animation fade-in */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+def generate_jwt(user_id, username):
+    secret_key = os.environ.get('SECRET_KEY', 'unsafe-default-key')
+    expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
+    payload = {
+        'user_id': user_id,
+        'username': username,
+        'exp': expiration,
+        'iss': 'ConecteMe'
     }
-    to {
-      opacity: 1;
+    token = jwt.encode(payload, secret_key, algorithm='HS256')
+    return token
+import os
+import requests
+import jwt
+from django.shortcuts import redirect, render
+from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.utils.crypto import get_random_string
+from .utils import generate_jwt
+
+from django.contrib import messages
+
+from django.db import IntegrityError, transaction
+
+from django.views.decorators.csrf import csrf_exempt
+from django.middleware.csrf import get_token
+from django.contrib.auth.hashers import check_password
+from .models import User42
+from django.contrib.auth.hashers import make_password
+
+
+# Récupération des variables d'env
+CLIENT_ID = os.environ.get('OAUTH42_CLIENT_ID')
+CLIENT_SECRET = os.environ.get('OAUTH42_CLIENT_SECRET')
+REDIRECT_URI = os.environ.get('OAUTH42_REDIRECT_URI')
+TOKEN_URL = "https://api.intra.42.fr/oauth/token"
+AUTHORIZE_URL = "https://api.intra.42.fr/oauth/authorize"
+
+def redirect_to_42(request):
+    """
+    Redirige vers la page d'authentification 42 en utilisant
+    Authorization Code Grant. On génère un state random pour la protection CSRF.
+    """
+    state = get_random_string(32)
+    request.session['oauth_state'] = state
+
+    params = {
+        'client_id': CLIENT_ID,
+        'redirect_uri': REDIRECT_URI,
+        'response_type': 'code',
+        'scope': 'public',
+        'state': state,
     }
-  }
-  .fade-in {
-    animation: fadeIn 0.3s ease-in;
-  }
-  
-  /* Boutons “œil” (affichage/masquage du mot de passe) */
-  .input-group .btn-outline-secondary {
-    border-color: #ced4da;
-  }
-  .input-group .btn-outline-secondary:hover {
-    background-color: #f8f9fa;
-    border-color: #ced4da;
-  }
-  
-  /* Correction lisibilité des messages d'erreur / aides */
-  .invalid-feedback,
-  .valid-feedback {
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-  }
-  Static JS:
-// main.js
+    # Construction de l'URL d'authentification
+    query_string = "&".join([f"{k}={v}" for k, v in params.items()])
+    auth_url = f"{AUTHORIZE_URL}?{query_string}"
+    return redirect(auth_url)
 
-document.addEventListener('DOMContentLoaded', () => {
-  const loginBtn = document.getElementById('login-btn');
-  const signupBtn = document.getElementById('signup-btn');
-  const connect42Btn = document.getElementById('connect-42');
 
-  // ====== GESTION DU BOUTON LOGIN ======
-  if (loginBtn) {
-    loginBtn.addEventListener('click', () => {
-      // Ajoute la classe d’état "active"
-      loginBtn.classList.add('btn-primary');
-      signupBtn?.classList.remove('btn-primary');
-      // Ici, vous pouvez rediriger, afficher un modal, etc.
-      window.location.href = '/login.html';
-    });
-  }
+def callback_42(request):
+    """
+    Gère le callback après authentification 42.
+    Échange le code reçu contre un token, puis récupère les infos utilisateur.
+    """
+    # Vérification du state
+    state_session = request.session.get('oauth_state')
+    state_request = request.GET.get('state')
+    if not state_session or state_session != state_request:
+        return JsonResponse({"error": "Invalid state"}, status=400)
 
-  // ====== GESTION DU BOUTON SIGNUP ======
-  if (signupBtn) {
-    signupBtn.addEventListener('click', () => {
-      // Ajoute la classe d’état "active"
-      signupBtn.classList.add('btn-primary');
-      loginBtn?.classList.remove('btn-primary');
+    code = request.GET.get('code')
+    if not code:
+        return JsonResponse({"error": "No code provided"}, status=400)
 
-      // EXEMPLE : rediriger vers une page signup.html
-      // (À créer ou à remplacer par votre propre route)
-      window.location.href = 'signup.html';
-    });
-  }
-
-  // ====== GESTION DU BOUTON "CONNECT-42" ======
-  if (connect42Btn) {
-    connect42Btn.addEventListener('click', () => {
-      // Redirection vers l'endpoint OAuth 42
-      // Adaptez l'URL si nécessaire
-      window.location.href = 'https://localhost:8443/auth/42/login-42/';
-    });
-  }
-
-  // ====== GESTION DE LA RÉCUPÉRATION DU JWT (SI RETOUR OAUTH) ======
-  const urlParams = new URLSearchParams(window.location.search);
-  const jwt = urlParams.get('jwt');
-  if (jwt) {
-    const container = document.querySelector('.container');
-    if (container) {
-      container.innerHTML = `
-        <p class="text-success">
-          Authentification réussie ! Votre token est : ${jwt}
-        </p>
-      `;
+    # Échange code -> access token
+    data = {
+        'grant_type': 'authorization_code',
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
+        'code': code,
+        'redirect_uri': REDIRECT_URI,
     }
-  }
-});
-document.addEventListener('DOMContentLoaded', () => {
-  const signupForm = document.getElementById('signup-form');
+    try:
+        response = requests.post(TOKEN_URL, data=data)
+        token_data = response.json()
+        access_token = token_data.get('access_token')
+        if not access_token:
+            return JsonResponse({"error": "Failed to retrieve access token"}, status=400)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)
 
-  // === Aperçu de l'avatar ===
-  const avatarInput = document.getElementById('avatar');
-  const avatarImg = document.getElementById('avatar-img');
-  const cameraIcon = document.getElementById('camera-icon');
+    # Récupération des infos utilisateur depuis l'API 42
+    user_info_url = "https://api.intra.42.fr/v2/me"
+    headers = {
+        'Authorization': f"Bearer {access_token}"
+    }
+    user_resp = requests.get(user_info_url, headers=headers)
+    if user_resp.status_code != 200:
+        return JsonResponse({"error": "Failed to retrieve user info"}, status=400)
 
-  avatarInput.addEventListener('change', (e) => {
-      const file = e.target.files && e.target.files[0];
-      if (file) {
-          const reader = new FileReader();
-          reader.onload = (event) => {
-              avatarImg.src = event.target.result;
-              avatarImg.classList.remove('d-none');
-              cameraIcon.classList.add('d-none');
-          };
-          reader.readAsDataURL(file);
-      } else {
-          // Remettre à zéro
-          avatarImg.src = '#';
-          avatarImg.classList.add('d-none');
-          cameraIcon.classList.remove('d-none');
-      }
-  });
+    user_data = user_resp.json()
+    user_id_42 = user_data['id']
+    user_name_42 = user_data['login']
 
-  // === Affichage/masquage du mot de passe ===
-  const passwordInput = document.getElementById('password');
-  const togglePasswordBtn = document.getElementById('togglePassword');
-  togglePasswordBtn.addEventListener('click', () => {
-      const isPassword = passwordInput.type === 'password';
-      passwordInput.type = isPassword ? 'text' : 'password';
-      // Change l’icône
-      const icon = togglePasswordBtn.querySelector('i');
-      icon.classList.toggle('bi-eye');
-      icon.classList.toggle('bi-eye-slash');
-  });
+    # Stocker ou mettre à jour l'utilisateur en base
+    user, _ = User42.objects.get_or_create(
+        user_id=user_id_42,
+        defaults={'username': user_name_42}
+    )
 
-  const confirmInput = document.getElementById('confirmPassword');
-  const toggleConfirmBtn = document.getElementById('toggleConfirmPassword');
-  toggleConfirmBtn.addEventListener('click', () => {
-      const isPassword = confirmInput.type === 'password';
-      confirmInput.type = isPassword ? 'text' : 'password';
-      // Change l’icône
-      const icon = toggleConfirmBtn.querySelector('i');
-      icon.classList.toggle('bi-eye');
-      icon.classList.toggle('bi-eye-slash');
-  });
+    # Générer un JWT pour la session
+    jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
 
-  // === Validation & soumission du formulaire ===
-  signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    # Redirection côté frontend, transmettant le token ou un paramètre signifiant succès
+    # On peut stocker le token dans un cookie HttpOnly (plus sûr), ou dans un paramètre GET
+    response = HttpResponseRedirect(f"https://localhost:8443/game_interface.html?jwt={jwt_token}")
+    return response
 
-      // Vérifier la correspondance des mots de passe
-      if (passwordInput.value !== confirmInput.value) {
-          confirmInput.setCustomValidity("Les mots de passe ne correspondent pas.");
-      } else {
-          confirmInput.setCustomValidity("");
-      }
+@csrf_exempt
+def signup_view(request):
+    if request.method == 'POST':
+        # Récupération des données depuis la requête POST
+        first_name = request.POST.get('firstname')
+        email = request.POST.get('email')
+        raw_password = request.POST.get('password')
+        pseudo = request.POST.get('pseudo', '')
 
-      // Forcer la validation côté client
-      if (!signupForm.checkValidity()) {
-          signupForm.classList.add('was-validated');
-          return;
-      }
+        # Validation des champs
+        if not all([first_name, email, raw_password]):
+            return JsonResponse({"success": False, "error": "Tous les champs requis ne sont pas remplis."}, status=400)
+        try:
+            with transaction.atomic():
+                user = User42(
+                    user_id=0,  # Placeholder pour le moment
+                    username=pseudo or email.split('@')[0],
+                    first_name=first_name,
+                    email_address=email,
+                )
+                user.password = make_password(raw_password)  # Hash du mot de passe
+                user.save()
+        except IntegrityError:
+            return JsonResponse({"success": False, "error": "Cette adresse e-mail est déjà utilisée."}, status=400)
 
-      // Formulaire valide
-      console.log("Formulaire d'inscription soumis !");
+        # Succès de l'inscription
+        return JsonResponse({"success": True, "detail": "Inscription réussie."}, status=201)
 
-      // Création des données du formulaire
-      const formData = new FormData(signupForm);
+    # Méthode non autorisée
+    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)#1 [conecte_me-backend internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.37kB done
+#1 DONE 0.4s
 
-      // Envoi des données au backend
-      fetch('https://localhost:8443/auth/signup/', { // Chemin vers votre endpoint backend
-          method: 'POST',
-          body: formData,
-      })
-      .then(response => response.json())
-      .then(data => {
-          if (data.success) {
-              alert(data.detail); // Affiche un message de succès
-              window.location.href = '/confirmation.html'; // Redirige vers la page de confirmation
-          } else {
-              alert(`Erreur : ${data.error}`); // Affiche un message d'erreur
-          }
-      })
-      .catch(err => {
-          console.error("Erreur réseau :", err);
-          alert("Une erreur réseau s'est produite. Veuillez réessayer plus tard.");
-      });
-  });
-});
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+#2 [conecte_me-frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile: 212B done
+#2 DONE 0.7s
 
-    console.log('Email:', email);
-    console.log('Mot de passe:', password);
+#3 [conecte_me-backend internal] load metadata for docker.io/library/python:3.10-alpine
+#3 ...
 
-    // Exemple de redirection après connexion réussie
-    alert('Connexion réussie!');
-    window.location.href = '/dashboard.html';
-});
+#4 [conecte_me-frontend internal] load metadata for docker.io/library/nginx:alpine
+#4 DONE 0.0s
+
+#5 [conecte_me-frontend internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.4s
+
+#3 [conecte_me-backend internal] load metadata for docker.io/library/python:3.10-alpine
+#3 ...
+
+#6 [conecte_me-frontend 1/4] FROM docker.io/library/nginx:alpine
+#6 DONE 0.0s
+
+#7 [conecte_me-frontend internal] load build context
+#7 transferring context: 2.50kB done
+#7 DONE 0.3s
+
+#3 [conecte_me-backend internal] load metadata for docker.io/library/python:3.10-alpine
+#3 DONE 1.4s
+
+#8 [conecte_me-frontend 2/4] WORKDIR /usr/share/nginx/html
+#8 CACHED
+
+#9 [conecte_me-frontend 3/4] COPY *.html .
+#9 CACHED
+
+#10 [conecte_me-backend internal] load .dockerignore
+#10 transferring context: 2B done
+#10 DONE 0.6s
+
+#11 [conecte_me-frontend 4/4] COPY static ./static
+#11 ...
+
+#12 [conecte_me-backend 1/7] FROM docker.io/library/python:3.10-alpine@sha256:930b4f931ab35253e85b21e812c345c0a091ca702fc45d90c1c45264f90b43c3
+#12 DONE 0.0s
+
+#13 [conecte_me-backend internal] load build context
+#13 transferring context: 6.95kB done
+#13 DONE 0.3s
+
+#11 [conecte_me-frontend 4/4] COPY static ./static
+#11 ...
+
+#14 [conecte_me-backend 5/7] RUN pip install --no-cache-dir -r requirements.txt
+#14 CACHED
+
+#15 [conecte_me-backend 2/7] WORKDIR /app
+#15 CACHED
+
+#16 [conecte_me-backend 3/7] RUN apk update && apk add --no-cache     postgresql-client     postgresql-dev     gcc     musl-dev     libffi-dev     openssl-dev     zlib-dev     jpeg-dev     freetype-dev     lcms2-dev     tiff-dev     py3-pip     python3-dev     build-base     curl     bash
+#16 CACHED
+
+#17 [conecte_me-backend 4/7] COPY requirements.txt .
+#17 CACHED
+
+#18 [conecte_me-backend 6/7] RUN apk del gcc musl-dev libffi-dev openssl-dev && rm -rf /var/cache/apk/*
+#18 CACHED
+
+#19 [conecte_me-backend 7/7] COPY . /app
+#19 ...
+
+#11 [conecte_me-frontend 4/4] COPY static ./static
+#11 DONE 3.3s
+
+#20 [conecte_me-frontend] exporting to image
+#20 exporting layers
+#20 ...
+
+#19 [conecte_me-backend 7/7] COPY . /app
+#19 DONE 3.0s
+
+#21 [conecte_me-backend] exporting to image
+#21 ...
+
+#20 [conecte_me-frontend] exporting to image
+#20 exporting layers 1.3s done
+#20 writing image sha256:0b6caf704f00e925a9213d9bfba8a721e8f0dee3d6e9257d17a918baa0bd525a 0.1s done
+#20 naming to docker.io/library/conecte_me-frontend 0.1s done
+#20 DONE 2.0s
+
+#21 [conecte_me-backend] exporting to image
+#21 exporting layers 1.8s done
+#21 writing image sha256:a38e6a22dd325fee631c1929d9db29f76f5937512d939ecc0610fd415bff97b1 0.1s done
+#21 naming to docker.io/library/conecte_me-backend
+#21 naming to docker.io/library/conecte_me-backend 0.1s done
+#21 DONE 2.3s
+Network conecte_me_conecteme_network  Creating
+Network conecte_me_conecteme_network  Created
+Volume "conecte_me_postgres_data"  Creating
+Volume "conecte_me_postgres_data"  Created
+Container conecteme_db  Creating
+Container conecteme_db  Created
+Container conecteme_backend  Creating
+Container conecteme_backend  Created
+Container conecteme_frontend  Creating
+Container conecteme_frontend  Created
+Container conecteme_proxy  Creating
+Container conecteme_proxy  Created
+Attaching to conecteme_backend, conecteme_db, conecteme_frontend, conecteme_proxy
+conecteme_db        | The files belonging to this database system will be owned by user "postgres".
+conecteme_db        | This user must also own the server process.
+conecteme_db        | 
+conecteme_db        | The database cluster will be initialized with locale "en_US.utf8".
+conecteme_db        | The default database encoding has accordingly been set to "UTF8".
+conecteme_db        | The default text search configuration will be set to "english".
+conecteme_db        | 
+conecteme_db        | Data page checksums are disabled.
+conecteme_db        | 
+conecteme_db        | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+conecteme_db        | creating subdirectories ... ok
+conecteme_db        | selecting dynamic shared memory implementation ... posix
+conecteme_db        | selecting default max_connections ... 100
+conecteme_db        | selecting default shared_buffers ... 128MB
+conecteme_frontend  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+conecteme_frontend  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+conecteme_frontend  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+conecteme_frontend  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+conecteme_frontend  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+conecteme_frontend  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+conecteme_frontend  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+conecteme_frontend  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+conecteme_db        | selecting default time zone ... UTC
+conecteme_frontend  | /docker-entrypoint.sh: Configuration complete; ready for start up
+conecteme_db        | creating configuration files ... ok
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: using the "epoll" event method
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: nginx/1.27.3
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: built by gcc 13.2.1 20240309 (Alpine 13.2.1_git20240309) 
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: OS: Linux 5.15.0-131-generic
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker processes
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 30
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 31
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 32
+conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 33
+conecteme_db        | running bootstrap script ... ok
+conecteme_proxy     | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+conecteme_proxy     | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+conecteme_proxy     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+conecteme_proxy     | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+conecteme_proxy     | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+conecteme_proxy     | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+conecteme_proxy     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+conecteme_proxy     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+conecteme_proxy     | /docker-entrypoint.sh: Configuration complete; ready for start up
+conecteme_db        | sh: locale: not found
+conecteme_db        | 2025-01-30 16:38:48.192 UTC [35] WARNING:  no usable system locales were found
+conecteme_db        | performing post-bootstrap initialization ... ok
+conecteme_db        | initdb: warning: enabling "trust" authentication for local connections
+conecteme_db        | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+conecteme_db        | syncing data to disk ... ok
+conecteme_db        | 
+conecteme_db        | 
+conecteme_db        | Success. You can now start the database server using:
+conecteme_db        | 
+conecteme_db        |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+conecteme_db        | 
+conecteme_db        | waiting for server to start....2025-01-30 16:38:49.633 UTC [41] LOG:  starting PostgreSQL 15.10 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+conecteme_db        | 2025-01-30 16:38:49.667 UTC [41] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+conecteme_db        | 2025-01-30 16:38:49.760 UTC [44] LOG:  database system was shut down at 2025-01-30 16:38:48 UTC
+conecteme_db        | 2025-01-30 16:38:49.787 UTC [41] LOG:  database system is ready to accept connections
+conecteme_db        |  done
+conecteme_db        | server started
+conecteme_db        | CREATE DATABASE
+conecteme_db        | 
+conecteme_db        | 
+conecteme_db        | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+conecteme_db        | 
+conecteme_db        | waiting for server to shut down....2025-01-30 16:38:50.109 UTC [41] LOG:  received fast shutdown request
+conecteme_db        | 2025-01-30 16:38:50.179 UTC [41] LOG:  aborting any active transactions
+conecteme_db        | 2025-01-30 16:38:50.182 UTC [41] LOG:  background worker "logical replication launcher" (PID 47) exited with exit code 1
+conecteme_db        | 2025-01-30 16:38:50.183 UTC [42] LOG:  shutting down
+conecteme_db        | 2025-01-30 16:38:50.263 UTC [42] LOG:  checkpoint starting: shutdown immediate
+conecteme_db        | .2025-01-30 16:38:51.265 UTC [42] LOG:  checkpoint complete: wrote 920 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.184 s, sync=0.583 s, total=1.082 s; sync files=301, longest=0.251 s, average=0.002 s; distance=4233 kB, estimate=4233 kB
+conecteme_db        | 2025-01-30 16:38:51.271 UTC [41] LOG:  database system is shut down
+conecteme_db        |  done
+conecteme_db        | server stopped
+conecteme_db        | 
+conecteme_db        | PostgreSQL init process complete; ready for start up.
+conecteme_db        | 
+conecteme_db        | 2025-01-30 16:38:51.397 UTC [1] LOG:  starting PostgreSQL 15.10 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+conecteme_db        | 2025-01-30 16:38:51.398 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+conecteme_db        | 2025-01-30 16:38:51.398 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+conecteme_db        | 2025-01-30 16:38:51.458 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+conecteme_db        | 2025-01-30 16:38:51.559 UTC [57] LOG:  database system was shut down at 2025-01-30 16:38:51 UTC
+conecteme_db        | 2025-01-30 16:38:51.586 UTC [1] LOG:  database system is ready to accept connections
+conecteme_backend   | DEBUG:conecte_me_backend.settings:Connecting to DB: {'ENGINE': 'django.db.backends.postgresql', 'NAME': 'conecteme_db', 'USER': 'conecteme_user', 'PASSWORD': 'conecteme_password', 'HOST': 'db', 'PORT': '5432'}
+conecteme_backend   | Operations to perform:
+conecteme_backend   |   Apply all migrations: admin, auth, contenttypes, oauth2_provider, oauth_app, sessions
+conecteme_backend   | Running migrations:
+conecteme_backend   |   Applying contenttypes.0001_initial... OK
+conecteme_backend   |   Applying auth.0001_initial... OK
+conecteme_backend   |   Applying admin.0001_initial... OK
+conecteme_backend   |   Applying admin.0002_logentry_remove_auto_add... OK
+conecteme_backend   |   Applying admin.0003_logentry_add_action_flag_choices... OK
+conecteme_backend   |   Applying contenttypes.0002_remove_content_type_name... OK
+conecteme_backend   |   Applying auth.0002_alter_permission_name_max_length... OK
+conecteme_backend   |   Applying auth.0003_alter_user_email_max_length... OK
+conecteme_backend   |   Applying auth.0004_alter_user_username_opts... OK
+conecteme_backend   |   Applying auth.0005_alter_user_last_login_null... OK
+conecteme_backend   |   Applying auth.0006_require_contenttypes_0002... OK
+conecteme_backend   |   Applying auth.0007_alter_validators_add_error_messages... OK
+conecteme_backend   |   Applying auth.0008_alter_user_username_max_length... OK
+conecteme_backend   |   Applying auth.0009_alter_user_last_name_max_length... OK
+conecteme_backend   |   Applying auth.0010_alter_group_name_max_length... OK
+conecteme_backend   |   Applying auth.0011_update_proxy_permissions... OK
+conecteme_backend   |   Applying auth.0012_alter_user_first_name_max_length... OK
+conecteme_backend   |   Applying oauth2_provider.0001_initial... OK
+conecteme_backend   |   Applying oauth2_provider.0002_auto_20190406_1805... OK
+conecteme_backend   |   Applying oauth2_provider.0003_auto_20201211_1314... OK
+conecteme_backend   |   Applying oauth2_provider.0004_auto_20200902_2022... OK
+conecteme_backend   |   Applying oauth2_provider.0005_auto_20211222_2352... OK
+conecteme_backend   |   Applying oauth2_provider.0006_alter_application_client_secret... OK
+conecteme_backend   |   Applying oauth_app.0001_initial... OK
+conecteme_backend   |   Applying oauth_app.0002_user42_email_address_user42_first_name_and_more... OK
+conecteme_backend   |   Applying sessions.0001_initial... OK
+conecteme_backend   | DEBUG:conecte_me_backend.settings:Connecting to DB: {'ENGINE': 'django.db.backends.postgresql', 'NAME': 'conecteme_db', 'USER': 'conecteme_user', 'PASSWORD': 'conecteme_password', 'HOST': 'db', 'PORT': '5432'}
+conecteme_backend   | DEBUG:conecte_me_backend.settings:Connecting to DB: {'ENGINE': 'django.db.backends.postgresql', 'NAME': 'conecteme_db', 'USER': 'conecteme_user', 'PASSWORD': 'conecteme_password', 'HOST': 'db', 'PORT': '5432'}
+conecteme_backend   | Watching for file changes with StatReloader
+conecteme_backend   | INFO:django.utils.autoreload:Watching for file changes with StatReloader
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET / HTTP/1.1" 200 2378 "https://profile.intra.42.fr/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET / HTTP/1.0" 200 2378 "https://profile.intra.42.fr/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/css/main.css HTTP/1.0" 200 2768 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/css/main.css HTTP/1.1" 200 2768 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/42_logo.png HTTP/1.1" 200 7101 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/42_logo.png HTTP/1.0" 200 7101 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/js/main.js HTTP/1.1" 200 1650 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/js/main.js HTTP/1.0" 200 1650 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/Game_anime.png HTTP/1.0" 200 60932 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/Game_anime.png HTTP/1.1" 200 60932 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/PONG_Accueil.png HTTP/1.0" 200 1117009 "https://localhost:8443/static/css/main.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/PONG_Accueil.png HTTP/1.1" 200 1117009 "https://localhost:8443/static/css/main.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_backend   | [30/Jan/2025 17:39:19] "GET /auth/42/login-42/ HTTP/1.0" 302 0
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:19 +0000] "GET /auth/42/login-42/ HTTP/1.1" 302 0 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_backend   | DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.intra.42.fr:443
+conecteme_backend   | DEBUG:urllib3.connectionpool:https://api.intra.42.fr:443 "POST /oauth/token HTTP/1.1" 200 None
+conecteme_backend   | DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.intra.42.fr:443
+conecteme_backend   | DEBUG:urllib3.connectionpool:https://api.intra.42.fr:443 "GET /v2/me HTTP/1.1" 200 None
+conecteme_backend   | [30/Jan/2025 17:39:20] "GET /auth/42/callback?code=042959d953e3be8569984f52a1557c2cbab5b33609a92b52b1f3efa3bd74617f&state=JxDHcnlp3hbMChyw7a5J3VAuXCvqKYhE HTTP/1.0" 302 0
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:20 +0000] "GET /auth/42/callback?code=042959d953e3be8569984f52a1557c2cbab5b33609a92b52b1f3efa3bd74617f&state=JxDHcnlp3hbMChyw7a5J3VAuXCvqKYhE HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:20 +0000] "GET /game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg HTTP/1.0" 200 14082 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:20 +0000] "GET /game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg HTTP/1.1" 200 14082 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:20 +0000] "GET /static/fonts/PongGame.woff2 HTTP/1.0" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_frontend  | 2025/01/30 16:39:20 [error] 30#30: *8 open() "/usr/share/nginx/html/static/fonts/PongGame.woff2" failed (2: No such file or directory), client: 172.18.0.5, server: localhost, request: "GET /static/fonts/PongGame.woff2 HTTP/1.0", host: "localhost", referrer: "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:20 +0000] "GET /static/fonts/PongGame.woff2 HTTP/1.1" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_frontend  | 2025/01/30 16:39:21 [error] 30#30: *9 open() "/usr/share/nginx/html/static/fonts/PongGame.woff" failed (2: No such file or directory), client: 172.18.0.5, server: localhost, request: "GET /static/fonts/PongGame.woff HTTP/1.0", host: "localhost", referrer: "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg"
+conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:21 +0000] "GET /static/fonts/PongGame.woff HTTP/1.0" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
+conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:21 +0000] "GET /static/fonts/PongGame.woff HTTP/1.1" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+conecteme_proxy exited with code 0
+conecteme_proxy exited with code 0
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 30#30: gracefully shutting down
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 32#32: gracefully shutting down
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 31#31: gracefully shutting down
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 31#31: exiting
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 30#30: exiting
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 32#32: exiting
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 30#30: exit
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 32#32: exit
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 31#31: exit
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 33#33: gracefully shutting down
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 33#33: exiting
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 33#33: exit
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 31 exited with code 0
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 32 exited with code 0
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 29 (SIGIO) received
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 30 exited with code 0
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 33 exited with code 0
+conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: exit
+conecteme_frontend exited with code 0
+conecteme_frontend exited with code 0
+conecteme_backend exited with code 0
+conecteme_backend exited with code 0
+conecteme_db        | 2025-01-30 16:40:21.551 UTC [1] LOG:  received fast shutdown request
+conecteme_db        | 2025-01-30 16:40:21.578 UTC [1] LOG:  aborting any active transactions
+conecteme_db        | 2025-01-30 16:40:21.581 UTC [1] LOG:  background worker "logical replication launcher" (PID 60) exited with exit code 1
+conecteme_db        | 2025-01-30 16:40:21.581 UTC [55] LOG:  shutting down
+conecteme_db        | 2025-01-30 16:40:21.603 UTC [55] LOG:  checkpoint starting: shutdown immediate
+conecteme_db        | 2025-01-30 16:40:21.971 UTC [55] LOG:  checkpoint complete: wrote 225 buffers (1.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.046 s, sync=0.232 s, total=0.391 s; sync files=172, longest=0.158 s, average=0.002 s; distance=1095 kB, estimate=1095 kB
+conecteme_db        | 2025-01-30 16:40:21.977 UTC [1] LOG:  database system is shut down
+conecteme_db exited with code 0

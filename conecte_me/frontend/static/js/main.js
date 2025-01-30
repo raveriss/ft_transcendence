@@ -44,11 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (jwt) {
     const container = document.querySelector('.container');
     if (container) {
-      container.innerHTML = `
-        <p class="text-success">
-          Authentification réussie ! Votre token est : ${jwt}
-        </p>
-      `;
+      localStorage.setItem('jwt', jwt);
     }
   }
 });

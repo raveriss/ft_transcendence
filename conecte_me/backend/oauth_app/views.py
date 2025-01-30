@@ -102,7 +102,7 @@ def callback_42(request):
 
     # Redirection côté frontend, transmettant le token ou un paramètre signifiant succès
     # On peut stocker le token dans un cookie HttpOnly (plus sûr), ou dans un paramètre GET
-    response = HttpResponseRedirect(f"https://localhost:8443/?jwt={jwt_token}")
+    response = HttpResponseRedirect(f"https://localhost:8443/game_interface.html?jwt={jwt_token}")
     return response
 
 @csrf_exempt
