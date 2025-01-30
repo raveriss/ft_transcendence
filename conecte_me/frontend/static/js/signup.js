@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => {
           if (data.success) {
               alert(data.detail); // Affiche un message de succès
-              window.location.href = '/confirmation.html'; // Redirige vers la page de confirmation
+              window.location.href = '/index.html'; // Redirige vers la page de confirmation
           } else {
               alert(`Erreur : ${data.error}`); // Affiche un message d'erreur
           }

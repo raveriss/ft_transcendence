@@ -1,27 +1,7 @@
-Container conecteme_proxy  Stopping
-Container conecteme_proxy  Stopping
-Container conecteme_proxy  Stopped
-Container conecteme_proxy  Removing
-Container conecteme_proxy  Removed
-Container conecteme_frontend  Stopping
-Container conecteme_frontend  Stopping
-Container conecteme_frontend  Stopped
-Container conecteme_frontend  Removing
-Container conecteme_frontend  Removed
-Container conecteme_backend  Stopping
-Container conecteme_backend  Stopping
-Container conecteme_backend  Stopped
-Container conecteme_backend  Removing
-Container conecteme_backend  Removed
-Container conecteme_db  Stopping
-Container conecteme_db  Stopping
-Container conecteme_db  Stopped
-Container conecteme_db  Removing
-Container conecteme_db  Removed
-Volume conecte_me_postgres_data  Removing
-Network conecte_me_conecteme_network  Removing
-Volume conecte_me_postgres_data  Removed
-Network conecte_me_conecteme_network  Removed
+]633;E;docker-compose down -v;195b4d52-96d1-4a0d-aff8-8ddb76130b91]633;CRemoving network conecte_me_conecteme_network
+Network conecte_me_conecteme_network not found.
+Removing volume conecte_me_postgres_data
+Volume conecte_me_postgres_data not found.
 .
 ├── backend
 │   ├── conecte_me_backend
@@ -176,74 +156,205 @@ COPY static ./static
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pong</title>
+    <title>Créer un compte</title>
+
     <!-- Bootstrap CSS -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRfu8m1L/J1Rv2hFpgb8si5+KclW5hqIcWPL6jIoS"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
     />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/main.css" />
     <!-- Bootstrap Icons -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
+    <!-- Votre CSS personnalisé -->
+    <link rel="stylesheet" href="static/css/signup.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
-  <body class="bg-gradient">
-    <!-- Bloc “titre” au-dessus du container -->
-    <div class="title-block text-center">
-      <!-- Image ou logo “PONG” -->
-      <img
-        src="/static/img/Game_anime.png"
-        alt="Game Title"
-        class="img-fluid"
-      />
-    </div>
+  <body class="bg-light fade-in">
+    <!-- Conteneur principal centré verticalement -->
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <!-- Card Bootstrap pour faire un joli encadré -->
+      <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
+        <div class="card-header bg-white text-center">
+          <h2 class="mb-0">Créer un compte</h2>
+          <p class="text-muted">Entrez vos informations pour commencer</p>
+        </div>
 
-    <!-- Container principal (Welcome to Morpion) -->
-    <div class="container text-center bg-white shadow-lg rounded p-4 welcome-container">
-      <p class="text-muted">Please sign in to continue</p>
-      <h1 class="display-6 text-primary"></h1>
+        <div class="card-body">
+          <form
+            id="signup-form"
+            action="https://localhost:8443/signup/""
+            method="POST"
+            class="needs-validation"
+            novalidate
+            enctype="multipart/form-data"
+          >
+            <!-- Aperçu Avatar -->
+            <div class="mb-3 d-flex justify-content-center">
+              <div
+                class="position-relative avatar-preview rounded-circle border border-2 border-dashed text-center"
+              >
+                <!-- Icône caméra (affichée par défaut) -->
+                <i
+                  class="bi bi-camera"
+                  id="camera-icon"
+                  style="font-size: 2rem; color: #6c757d;"
+                ></i>
+                <!-- Image d’aperçu (cachée au départ) -->
+                <img
+                  id="avatar-img"
+                  src="#"
+                  alt="Aperçu de l'avatar"
+                  class="d-none"
+                />
+                <!-- Input file en pleine superposition (invisible) -->
+                <input
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  accept="image/*"
+                  class="position-absolute w-100 h-100 top-0 start-0 opacity-0"
+                  style="cursor: pointer;"
+                />
+              </div>
+            </div>
 
-      <div class="btn-group w-100 mb-3 d-flex" role="group">
-        <button
-          id="login-btn"
-          class="btn active d-flex align-items-center justify-content-center"
-          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
-        >
-          <i class="bi bi-box-arrow-in-right" style="font-size: 20px; margin-right: 8px;"></i>
-          Login
-        </button>
-        <button
-          id="signup-btn"
-          class="btn d-flex align-items-center justify-content-center"
-          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
-        >
-          <i class="bi bi-person-plus" style="font-size: 20px; margin-right: 8px;"></i>
-          Sign Up
-        </button>
+            <!-- Champ Pseudo -->
+            <div class="mb-3">
+              <label for="pseudo" class="form-label">Pseudo</label>
+              <input
+                type="text"
+                class="form-control"
+                id="pseudo"
+                name="pseudo"
+                placeholder="johndoe"
+                required
+                minlength="3"
+                maxlength="20"
+              />
+              <div class="invalid-feedback">
+                Le pseudo doit contenir entre 3 et 20 caractères.
+              </div>
+            </div>
+
+            <!-- Champ Prénom -->
+            <div class="mb-3">
+              <label for="firstname" class="form-label">Prénom</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstname"
+                name="firstname"
+                placeholder="John"
+                required
+                minlength="2"
+                maxlength="50"
+              />
+              <div class="invalid-feedback">
+                Le prénom doit contenir entre 2 et 50 caractères.
+              </div>
+            </div>
+
+            <!-- Champ Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Adresse e-mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="john.doe@example.com"
+                required
+              />
+              <div class="invalid-feedback">
+                Veuillez saisir une adresse e-mail valide.
+              </div>
+            </div>
+
+            <!-- Champ Mot de passe + note d'aide -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                  minlength="8"
+                  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
+                  placeholder="••••••••"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="togglePassword"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+                <div class="invalid-feedback">
+                  Le mot de passe doit contenir au moins 8 caractères,
+                  une majuscule, une minuscule, un chiffre et un caractère spécial.
+                </div>
+              </div>
+              <small class="form-text text-muted">
+                Le mot de passe doit contenir au moins 8 caractères, une majuscule,
+                une minuscule, un chiffre et un caractère spécial.
+              </small>
+            </div>
+
+            <!-- Champ Confirmation du mot de passe -->
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label"
+                >Confirmer le mot de passe</label
+              >
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  required
+                  minlength="8"
+                  placeholder="••••••••"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="toggleConfirmPassword"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+                <div class="invalid-feedback">
+                  Les mots de passe ne correspondent pas.
+                </div>
+              </div>
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit" class="btn btn-primary w-100">
+              S'inscrire
+            </button>
+          </form>
+        </div>
       </div>
-      <button id="connect-42" class="auth-button">
-        <span>Sign in with</span>    
-        <img src="static/img/42_logo.png" alt="42 Logo" />
-      </button>
     </div>
 
     <!-- Bootstrap JS -->
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
     ></script>
-    <!-- Custom JS -->
-    <script src="static/js/main.js"></script>
+    <!-- Script Custom -->
+    <script src="static/js/signup.js"></script>
   </body>
-</html><!DOCTYPE html>
+</html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -755,6 +866,98 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const signupForm = document.getElementById('signup-form');
+
+  // === Aperçu de l'avatar ===
+  const avatarInput = document.getElementById('avatar');
+  const avatarImg = document.getElementById('avatar-img');
+  const cameraIcon = document.getElementById('camera-icon');
+
+  avatarInput.addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+              avatarImg.src = event.target.result;
+              avatarImg.classList.remove('d-none');
+              cameraIcon.classList.add('d-none');
+          };
+          reader.readAsDataURL(file);
+      } else {
+          // Remettre à zéro
+          avatarImg.src = '#';
+          avatarImg.classList.add('d-none');
+          cameraIcon.classList.remove('d-none');
+      }
+  });
+
+  // === Affichage/masquage du mot de passe ===
+  const passwordInput = document.getElementById('password');
+  const togglePasswordBtn = document.getElementById('togglePassword');
+  togglePasswordBtn.addEventListener('click', () => {
+      const isPassword = passwordInput.type === 'password';
+      passwordInput.type = isPassword ? 'text' : 'password';
+      // Change l’icône
+      const icon = togglePasswordBtn.querySelector('i');
+      icon.classList.toggle('bi-eye');
+      icon.classList.toggle('bi-eye-slash');
+  });
+
+  const confirmInput = document.getElementById('confirmPassword');
+  const toggleConfirmBtn = document.getElementById('toggleConfirmPassword');
+  toggleConfirmBtn.addEventListener('click', () => {
+      const isPassword = confirmInput.type === 'password';
+      confirmInput.type = isPassword ? 'text' : 'password';
+      // Change l’icône
+      const icon = toggleConfirmBtn.querySelector('i');
+      icon.classList.toggle('bi-eye');
+      icon.classList.toggle('bi-eye-slash');
+  });
+
+  // === Validation & soumission du formulaire ===
+  signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Vérifier la correspondance des mots de passe
+      if (passwordInput.value !== confirmInput.value) {
+          confirmInput.setCustomValidity("Les mots de passe ne correspondent pas.");
+      } else {
+          confirmInput.setCustomValidity("");
+      }
+
+      // Forcer la validation côté client
+      if (!signupForm.checkValidity()) {
+          signupForm.classList.add('was-validated');
+          return;
+      }
+
+      // Formulaire valide
+      console.log("Formulaire d'inscription soumis !");
+
+      // Création des données du formulaire
+      const formData = new FormData(signupForm);
+
+      // Envoi des données au backend
+      fetch('https://localhost:8443/auth/signup/', { // Chemin vers votre endpoint backend
+          method: 'POST',
+          body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert(data.detail); // Affiche un message de succès
+              window.location.href = '/index.html'; // Redirige vers la page de confirmation
+          } else {
+              alert(`Erreur : ${data.error}`); // Affiche un message d'erreur
+          }
+      })
+      .catch(err => {
+          console.error("Erreur réseau :", err);
+          alert("Une erreur réseau s'est produite. Veuillez réessayer plus tard.");
+      });
+  });
+});
 # Utiliser une image Python légère
 FROM python:3.10-alpine
 
@@ -1167,297 +1370,4 @@ def signup_view(request):
         return JsonResponse({"success": True, "detail": "Inscription réussie."}, status=201)
 
     # Méthode non autorisée
-    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)#1 [conecte_me-backend internal] load build definition from Dockerfile
-#1 transferring dockerfile:
-#1 transferring dockerfile: 1.37kB done
-#1 DONE 0.4s
-
-#2 [conecte_me-frontend internal] load build definition from Dockerfile
-#2 transferring dockerfile: 212B done
-#2 DONE 0.7s
-
-#3 [conecte_me-backend internal] load metadata for docker.io/library/python:3.10-alpine
-#3 ...
-
-#4 [conecte_me-frontend internal] load metadata for docker.io/library/nginx:alpine
-#4 DONE 0.0s
-
-#5 [conecte_me-frontend internal] load .dockerignore
-#5 transferring context: 2B done
-#5 DONE 0.4s
-
-#3 [conecte_me-backend internal] load metadata for docker.io/library/python:3.10-alpine
-#3 ...
-
-#6 [conecte_me-frontend 1/4] FROM docker.io/library/nginx:alpine
-#6 DONE 0.0s
-
-#7 [conecte_me-frontend internal] load build context
-#7 transferring context: 2.50kB done
-#7 DONE 0.3s
-
-#3 [conecte_me-backend internal] load metadata for docker.io/library/python:3.10-alpine
-#3 DONE 1.4s
-
-#8 [conecte_me-frontend 2/4] WORKDIR /usr/share/nginx/html
-#8 CACHED
-
-#9 [conecte_me-frontend 3/4] COPY *.html .
-#9 CACHED
-
-#10 [conecte_me-backend internal] load .dockerignore
-#10 transferring context: 2B done
-#10 DONE 0.6s
-
-#11 [conecte_me-frontend 4/4] COPY static ./static
-#11 ...
-
-#12 [conecte_me-backend 1/7] FROM docker.io/library/python:3.10-alpine@sha256:930b4f931ab35253e85b21e812c345c0a091ca702fc45d90c1c45264f90b43c3
-#12 DONE 0.0s
-
-#13 [conecte_me-backend internal] load build context
-#13 transferring context: 6.95kB done
-#13 DONE 0.3s
-
-#11 [conecte_me-frontend 4/4] COPY static ./static
-#11 ...
-
-#14 [conecte_me-backend 5/7] RUN pip install --no-cache-dir -r requirements.txt
-#14 CACHED
-
-#15 [conecte_me-backend 2/7] WORKDIR /app
-#15 CACHED
-
-#16 [conecte_me-backend 3/7] RUN apk update && apk add --no-cache     postgresql-client     postgresql-dev     gcc     musl-dev     libffi-dev     openssl-dev     zlib-dev     jpeg-dev     freetype-dev     lcms2-dev     tiff-dev     py3-pip     python3-dev     build-base     curl     bash
-#16 CACHED
-
-#17 [conecte_me-backend 4/7] COPY requirements.txt .
-#17 CACHED
-
-#18 [conecte_me-backend 6/7] RUN apk del gcc musl-dev libffi-dev openssl-dev && rm -rf /var/cache/apk/*
-#18 CACHED
-
-#19 [conecte_me-backend 7/7] COPY . /app
-#19 ...
-
-#11 [conecte_me-frontend 4/4] COPY static ./static
-#11 DONE 3.3s
-
-#20 [conecte_me-frontend] exporting to image
-#20 exporting layers
-#20 ...
-
-#19 [conecte_me-backend 7/7] COPY . /app
-#19 DONE 3.0s
-
-#21 [conecte_me-backend] exporting to image
-#21 ...
-
-#20 [conecte_me-frontend] exporting to image
-#20 exporting layers 1.3s done
-#20 writing image sha256:0b6caf704f00e925a9213d9bfba8a721e8f0dee3d6e9257d17a918baa0bd525a 0.1s done
-#20 naming to docker.io/library/conecte_me-frontend 0.1s done
-#20 DONE 2.0s
-
-#21 [conecte_me-backend] exporting to image
-#21 exporting layers 1.8s done
-#21 writing image sha256:a38e6a22dd325fee631c1929d9db29f76f5937512d939ecc0610fd415bff97b1 0.1s done
-#21 naming to docker.io/library/conecte_me-backend
-#21 naming to docker.io/library/conecte_me-backend 0.1s done
-#21 DONE 2.3s
-Network conecte_me_conecteme_network  Creating
-Network conecte_me_conecteme_network  Created
-Volume "conecte_me_postgres_data"  Creating
-Volume "conecte_me_postgres_data"  Created
-Container conecteme_db  Creating
-Container conecteme_db  Created
-Container conecteme_backend  Creating
-Container conecteme_backend  Created
-Container conecteme_frontend  Creating
-Container conecteme_frontend  Created
-Container conecteme_proxy  Creating
-Container conecteme_proxy  Created
-Attaching to conecteme_backend, conecteme_db, conecteme_frontend, conecteme_proxy
-conecteme_db        | The files belonging to this database system will be owned by user "postgres".
-conecteme_db        | This user must also own the server process.
-conecteme_db        | 
-conecteme_db        | The database cluster will be initialized with locale "en_US.utf8".
-conecteme_db        | The default database encoding has accordingly been set to "UTF8".
-conecteme_db        | The default text search configuration will be set to "english".
-conecteme_db        | 
-conecteme_db        | Data page checksums are disabled.
-conecteme_db        | 
-conecteme_db        | fixing permissions on existing directory /var/lib/postgresql/data ... ok
-conecteme_db        | creating subdirectories ... ok
-conecteme_db        | selecting dynamic shared memory implementation ... posix
-conecteme_db        | selecting default max_connections ... 100
-conecteme_db        | selecting default shared_buffers ... 128MB
-conecteme_frontend  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
-conecteme_frontend  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
-conecteme_frontend  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
-conecteme_frontend  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
-conecteme_frontend  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
-conecteme_frontend  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
-conecteme_frontend  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
-conecteme_frontend  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
-conecteme_db        | selecting default time zone ... UTC
-conecteme_frontend  | /docker-entrypoint.sh: Configuration complete; ready for start up
-conecteme_db        | creating configuration files ... ok
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: using the "epoll" event method
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: nginx/1.27.3
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: built by gcc 13.2.1 20240309 (Alpine 13.2.1_git20240309) 
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: OS: Linux 5.15.0-131-generic
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker processes
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 30
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 31
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 32
-conecteme_frontend  | 2025/01/30 16:38:46 [notice] 1#1: start worker process 33
-conecteme_db        | running bootstrap script ... ok
-conecteme_proxy     | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
-conecteme_proxy     | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
-conecteme_proxy     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
-conecteme_proxy     | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
-conecteme_proxy     | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
-conecteme_proxy     | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
-conecteme_proxy     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
-conecteme_proxy     | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
-conecteme_proxy     | /docker-entrypoint.sh: Configuration complete; ready for start up
-conecteme_db        | sh: locale: not found
-conecteme_db        | 2025-01-30 16:38:48.192 UTC [35] WARNING:  no usable system locales were found
-conecteme_db        | performing post-bootstrap initialization ... ok
-conecteme_db        | initdb: warning: enabling "trust" authentication for local connections
-conecteme_db        | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
-conecteme_db        | syncing data to disk ... ok
-conecteme_db        | 
-conecteme_db        | 
-conecteme_db        | Success. You can now start the database server using:
-conecteme_db        | 
-conecteme_db        |     pg_ctl -D /var/lib/postgresql/data -l logfile start
-conecteme_db        | 
-conecteme_db        | waiting for server to start....2025-01-30 16:38:49.633 UTC [41] LOG:  starting PostgreSQL 15.10 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-conecteme_db        | 2025-01-30 16:38:49.667 UTC [41] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-conecteme_db        | 2025-01-30 16:38:49.760 UTC [44] LOG:  database system was shut down at 2025-01-30 16:38:48 UTC
-conecteme_db        | 2025-01-30 16:38:49.787 UTC [41] LOG:  database system is ready to accept connections
-conecteme_db        |  done
-conecteme_db        | server started
-conecteme_db        | CREATE DATABASE
-conecteme_db        | 
-conecteme_db        | 
-conecteme_db        | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
-conecteme_db        | 
-conecteme_db        | waiting for server to shut down....2025-01-30 16:38:50.109 UTC [41] LOG:  received fast shutdown request
-conecteme_db        | 2025-01-30 16:38:50.179 UTC [41] LOG:  aborting any active transactions
-conecteme_db        | 2025-01-30 16:38:50.182 UTC [41] LOG:  background worker "logical replication launcher" (PID 47) exited with exit code 1
-conecteme_db        | 2025-01-30 16:38:50.183 UTC [42] LOG:  shutting down
-conecteme_db        | 2025-01-30 16:38:50.263 UTC [42] LOG:  checkpoint starting: shutdown immediate
-conecteme_db        | .2025-01-30 16:38:51.265 UTC [42] LOG:  checkpoint complete: wrote 920 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.184 s, sync=0.583 s, total=1.082 s; sync files=301, longest=0.251 s, average=0.002 s; distance=4233 kB, estimate=4233 kB
-conecteme_db        | 2025-01-30 16:38:51.271 UTC [41] LOG:  database system is shut down
-conecteme_db        |  done
-conecteme_db        | server stopped
-conecteme_db        | 
-conecteme_db        | PostgreSQL init process complete; ready for start up.
-conecteme_db        | 
-conecteme_db        | 2025-01-30 16:38:51.397 UTC [1] LOG:  starting PostgreSQL 15.10 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-conecteme_db        | 2025-01-30 16:38:51.398 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-conecteme_db        | 2025-01-30 16:38:51.398 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-conecteme_db        | 2025-01-30 16:38:51.458 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-conecteme_db        | 2025-01-30 16:38:51.559 UTC [57] LOG:  database system was shut down at 2025-01-30 16:38:51 UTC
-conecteme_db        | 2025-01-30 16:38:51.586 UTC [1] LOG:  database system is ready to accept connections
-conecteme_backend   | DEBUG:conecte_me_backend.settings:Connecting to DB: {'ENGINE': 'django.db.backends.postgresql', 'NAME': 'conecteme_db', 'USER': 'conecteme_user', 'PASSWORD': 'conecteme_password', 'HOST': 'db', 'PORT': '5432'}
-conecteme_backend   | Operations to perform:
-conecteme_backend   |   Apply all migrations: admin, auth, contenttypes, oauth2_provider, oauth_app, sessions
-conecteme_backend   | Running migrations:
-conecteme_backend   |   Applying contenttypes.0001_initial... OK
-conecteme_backend   |   Applying auth.0001_initial... OK
-conecteme_backend   |   Applying admin.0001_initial... OK
-conecteme_backend   |   Applying admin.0002_logentry_remove_auto_add... OK
-conecteme_backend   |   Applying admin.0003_logentry_add_action_flag_choices... OK
-conecteme_backend   |   Applying contenttypes.0002_remove_content_type_name... OK
-conecteme_backend   |   Applying auth.0002_alter_permission_name_max_length... OK
-conecteme_backend   |   Applying auth.0003_alter_user_email_max_length... OK
-conecteme_backend   |   Applying auth.0004_alter_user_username_opts... OK
-conecteme_backend   |   Applying auth.0005_alter_user_last_login_null... OK
-conecteme_backend   |   Applying auth.0006_require_contenttypes_0002... OK
-conecteme_backend   |   Applying auth.0007_alter_validators_add_error_messages... OK
-conecteme_backend   |   Applying auth.0008_alter_user_username_max_length... OK
-conecteme_backend   |   Applying auth.0009_alter_user_last_name_max_length... OK
-conecteme_backend   |   Applying auth.0010_alter_group_name_max_length... OK
-conecteme_backend   |   Applying auth.0011_update_proxy_permissions... OK
-conecteme_backend   |   Applying auth.0012_alter_user_first_name_max_length... OK
-conecteme_backend   |   Applying oauth2_provider.0001_initial... OK
-conecteme_backend   |   Applying oauth2_provider.0002_auto_20190406_1805... OK
-conecteme_backend   |   Applying oauth2_provider.0003_auto_20201211_1314... OK
-conecteme_backend   |   Applying oauth2_provider.0004_auto_20200902_2022... OK
-conecteme_backend   |   Applying oauth2_provider.0005_auto_20211222_2352... OK
-conecteme_backend   |   Applying oauth2_provider.0006_alter_application_client_secret... OK
-conecteme_backend   |   Applying oauth_app.0001_initial... OK
-conecteme_backend   |   Applying oauth_app.0002_user42_email_address_user42_first_name_and_more... OK
-conecteme_backend   |   Applying sessions.0001_initial... OK
-conecteme_backend   | DEBUG:conecte_me_backend.settings:Connecting to DB: {'ENGINE': 'django.db.backends.postgresql', 'NAME': 'conecteme_db', 'USER': 'conecteme_user', 'PASSWORD': 'conecteme_password', 'HOST': 'db', 'PORT': '5432'}
-conecteme_backend   | DEBUG:conecte_me_backend.settings:Connecting to DB: {'ENGINE': 'django.db.backends.postgresql', 'NAME': 'conecteme_db', 'USER': 'conecteme_user', 'PASSWORD': 'conecteme_password', 'HOST': 'db', 'PORT': '5432'}
-conecteme_backend   | Watching for file changes with StatReloader
-conecteme_backend   | INFO:django.utils.autoreload:Watching for file changes with StatReloader
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET / HTTP/1.1" 200 2378 "https://profile.intra.42.fr/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET / HTTP/1.0" 200 2378 "https://profile.intra.42.fr/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/css/main.css HTTP/1.0" 200 2768 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/css/main.css HTTP/1.1" 200 2768 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/42_logo.png HTTP/1.1" 200 7101 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/42_logo.png HTTP/1.0" 200 7101 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/js/main.js HTTP/1.1" 200 1650 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/js/main.js HTTP/1.0" 200 1650 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/Game_anime.png HTTP/1.0" 200 60932 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/Game_anime.png HTTP/1.1" 200 60932 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/PONG_Accueil.png HTTP/1.0" 200 1117009 "https://localhost:8443/static/css/main.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:18 +0000] "GET /static/img/PONG_Accueil.png HTTP/1.1" 200 1117009 "https://localhost:8443/static/css/main.css" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_backend   | [30/Jan/2025 17:39:19] "GET /auth/42/login-42/ HTTP/1.0" 302 0
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:19 +0000] "GET /auth/42/login-42/ HTTP/1.1" 302 0 "https://localhost:8443/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_backend   | DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.intra.42.fr:443
-conecteme_backend   | DEBUG:urllib3.connectionpool:https://api.intra.42.fr:443 "POST /oauth/token HTTP/1.1" 200 None
-conecteme_backend   | DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): api.intra.42.fr:443
-conecteme_backend   | DEBUG:urllib3.connectionpool:https://api.intra.42.fr:443 "GET /v2/me HTTP/1.1" 200 None
-conecteme_backend   | [30/Jan/2025 17:39:20] "GET /auth/42/callback?code=042959d953e3be8569984f52a1557c2cbab5b33609a92b52b1f3efa3bd74617f&state=JxDHcnlp3hbMChyw7a5J3VAuXCvqKYhE HTTP/1.0" 302 0
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:20 +0000] "GET /auth/42/callback?code=042959d953e3be8569984f52a1557c2cbab5b33609a92b52b1f3efa3bd74617f&state=JxDHcnlp3hbMChyw7a5J3VAuXCvqKYhE HTTP/1.1" 302 0 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:20 +0000] "GET /game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg HTTP/1.0" 200 14082 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:20 +0000] "GET /game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg HTTP/1.1" 200 14082 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:20 +0000] "GET /static/fonts/PongGame.woff2 HTTP/1.0" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_frontend  | 2025/01/30 16:39:20 [error] 30#30: *8 open() "/usr/share/nginx/html/static/fonts/PongGame.woff2" failed (2: No such file or directory), client: 172.18.0.5, server: localhost, request: "GET /static/fonts/PongGame.woff2 HTTP/1.0", host: "localhost", referrer: "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:20 +0000] "GET /static/fonts/PongGame.woff2 HTTP/1.1" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_frontend  | 2025/01/30 16:39:21 [error] 30#30: *9 open() "/usr/share/nginx/html/static/fonts/PongGame.woff" failed (2: No such file or directory), client: 172.18.0.5, server: localhost, request: "GET /static/fonts/PongGame.woff HTTP/1.0", host: "localhost", referrer: "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg"
-conecteme_frontend  | 172.18.0.5 - - [30/Jan/2025:16:39:21 +0000] "GET /static/fonts/PongGame.woff HTTP/1.0" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" "172.18.0.1"
-conecteme_proxy     | 172.18.0.1 - - [30/Jan/2025:16:39:21 +0000] "GET /static/fonts/PongGame.woff HTTP/1.1" 404 555 "https://localhost:8443/game_interface.html?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxMzM1NTcsInVzZXJuYW1lIjoicmF2ZXJpc3MiLCJleHAiOjE3MzgyNTg3NjAsImlzcyI6IkNvbmVjdGVNZSJ9.9fk7bzfCG1m3_N6q1cDftVUwjRLix1InXr6CCJorjhg" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
-conecteme_proxy exited with code 0
-conecteme_proxy exited with code 0
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 30#30: gracefully shutting down
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 32#32: gracefully shutting down
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 31#31: gracefully shutting down
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 31#31: exiting
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 30#30: exiting
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 32#32: exiting
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 30#30: exit
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 32#32: exit
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 31#31: exit
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 33#33: gracefully shutting down
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 33#33: exiting
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 33#33: exit
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 17 (SIGCHLD) received from 32
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 31 exited with code 0
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 32 exited with code 0
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 29 (SIGIO) received
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: signal 17 (SIGCHLD) received from 33
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 30 exited with code 0
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: worker process 33 exited with code 0
-conecteme_frontend  | 2025/01/30 16:40:19 [notice] 1#1: exit
-conecteme_frontend exited with code 0
-conecteme_frontend exited with code 0
-conecteme_backend exited with code 0
-conecteme_backend exited with code 0
-conecteme_db        | 2025-01-30 16:40:21.551 UTC [1] LOG:  received fast shutdown request
-conecteme_db        | 2025-01-30 16:40:21.578 UTC [1] LOG:  aborting any active transactions
-conecteme_db        | 2025-01-30 16:40:21.581 UTC [1] LOG:  background worker "logical replication launcher" (PID 60) exited with exit code 1
-conecteme_db        | 2025-01-30 16:40:21.581 UTC [55] LOG:  shutting down
-conecteme_db        | 2025-01-30 16:40:21.603 UTC [55] LOG:  checkpoint starting: shutdown immediate
-conecteme_db        | 2025-01-30 16:40:21.971 UTC [55] LOG:  checkpoint complete: wrote 225 buffers (1.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.046 s, sync=0.232 s, total=0.391 s; sync files=172, longest=0.158 s, average=0.002 s; distance=1095 kB, estimate=1095 kB
-conecteme_db        | 2025-01-30 16:40:21.977 UTC [1] LOG:  database system is shut down
-conecteme_db exited with code 0
+    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
