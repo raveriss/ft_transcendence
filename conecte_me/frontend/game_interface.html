@@ -216,14 +216,124 @@
       font-weight: 600;       /* ou bold, selon votre préférence */
       font-size: 1rem;        /* ajustez si vous voulez plus grand/petit */
       color: #ffffff;         /* ou un bleu clair (#60a5fa), etc. */
-      margin-right: 0.5rem;   /* un petit espace entre le ELO et “wins” */
     }
 
     .wins-text {
-      font-size: 0.85rem;     /* un peu plus petit si souhaité */
+      font-size: 0.7rem;
       color: #cbd5e1;         /* gris clair, par exemple */
       opacity: 0.8;           /* pour un effet plus discret */
-      margin-right: 0.9rem;
+      margin-right: 0.7rem;
+    }
+
+    .match-info-left {
+      display: flex;
+      align-items: center;        /* aligne verticalement au centre */
+      justify-content: flex-start;/* reste collé à gauche */
+      gap: 8px;                   /* espace horizontal entre la date et le nom */
+    }
+
+
+    .elo-container {
+      display: inline-block;  /* pour pouvoir fixer une width */
+      width: 50px;            /* ajustez selon la taille max (4 chiffres : ~50px) */
+      text-align: right;      /* aligne la valeur ELO à droite */
+      margin-right: 0.5rem;   /* petit espace après */
+    }
+
+    /* -----------------------------------------------------------------
+      TABLEAU “custom-table” : Même look que .list-group-item-custom
+    ------------------------------------------------------------------- */
+    /* On sépare les cellules (et donc les lignes) 
+      et on ajoute 0.5rem de marge verticale 
+      entre chaque rangée. */
+      .custom-table {
+      table-layout: fixed;            /* Ajouté */
+      border-collapse: separate;
+      border-spacing: 0 0.5rem; /* Espace vertical entre les lignes */
+      width: 100%;
+      background: transparent;  /* Pas de fond imposé pour la table */
+    }
+
+    /* Chaque cellule a un fond #263246 
+      + un trait de séparation en bas, comme dans .list-group-item-custom */
+      .custom-table tbody tr td {
+      background-color: #263246; 
+      border: none;
+  
+      /* Optionnel: un peu de padding interne 
+        pour que le texte ne soit pas collé. */
+      padding: 0.4rem 0.8rem;
+      color: #fff;
+    }
+
+    .player-name-cell {
+      font-size: 0.9rem;
+      font-weight: bold;
+      opacity: 0.8;
+
+    }
+
+    /* Coins arrondis sur la première et la dernière cellule
+      de chaque rangée, ce qui donne 4 coins arrondis à la ligne. */
+      .custom-table tbody tr td:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      color: #fff;
+    }
+
+    /* Supprimer ce trait sur la dernière ligne du tableau */
+    .custom-table tbody tr td:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      color: #fff;
+    }
+
+    /* Ligne surbrillée (ex: #24 Player123) */
+    .custom-table tbody tr.highlight td {
+      background-color: #1c2f60;
+      color: #fff;
+    }
+
+    /* Optionnel : forcer la largeur d'une colonne 
+      par exemple pour le rang, si vous voulez un alignement 
+      standard pour #1, #24, etc. 
+    */
+    .rank-cell {
+      width: 50px;
+      text-align: left; /* #1, #24 seront alignés à droite */
+      padding-right: 8px;
+      opacity: 0.8;
+      align-items: right;
+      font-weight: bold;
+    }
+
+    /* Valeur ELO alignée à droite 
+      (déjà géré par .text-end dans le HTML).
+    */
+    .elo-cell {
+      text-align: right;
+      table-layout: fixed;
+      padding: 0.4rem 0.8rem 0.4rem 0.8rem; /* top right bottom left */
+      padding-left: 1rem;  /* ou 1.5rem selon l’effet voulu */
+
+      /* plus de width: 10px; à retirer */
+      width: 52px;          /* Laisse l’auto, ou fixez p.ex. 50px si vous préférez */
+      font-weight: bold;
+      opacity: 0.8;
+      white-space: nowrap;  /* Pour ne pas couper ELO sur 2 lignes */
+
+    }  
+
+    /* Wins 
+      (texte normal, vous pouvez y appliquer 
+      la classe .wins-text existante si vous voulez) 
+    */
+    .wins-cell {
+      width: 80px;
+      font-size: 0.7rem;
+      text-align: right;
+      white-space: nowrap;  /* Empêche le renvoi à la ligne */
+      opacity: 0.8;
     }
 
   </style>
@@ -249,18 +359,26 @@
             Historique des matchs</div>
           <ul class="list-unstyled mb-0">
             <li class="list-group-item-custom">
-              <span class="match-date">2025-01-10</span>
-              <span class="match-name">ProGamer</span>
+              <div class="match-info-left">
+                <span class="match-date">2025-01-10</span>
+                <span class="match-name">ProGamer</span>
+              </div>
               <span class="match-result text-success">Victory 11-9</span>
             </li>
             <li class="list-group-item-custom">
-              <span class="match-date">2025-01-08</span>
-              <span class="match-name">PongMaster</span>
+              <div class="match-info-left">
+                <span class="match-date">2025-01-08</span>
+                <span class="match-name">PongMaster</span>
+              </div>
+
               <span class="match-result text-danger">Defeat 9-11</span>
             </li>
             <li class="list-group-item-custom">
-              <span class="match-date">2025-01-05</span>
-              <span class="match-name">NewPlayer</span>
+              <div class="match-info-left">
+                <span class="match-date">2025-01-05</span>
+                <span class="match-name">NewPlayer</span>
+              </div>
+
               <span class="match-result text-success">Victory 11-7</span>
             </li>
           </ul>
@@ -272,36 +390,37 @@
         <div class="card-custom">
           <div class="card-header-custom">
             <i class="bi-mortarboard"></i>
-            Classement général</div>
-          <ul class="list-unstyled mb-0">
-            <li class="list-group-item-custom">
-                <span><span class="rank">#1</span> TopPlayer1</span>
-                <span>
-                  <span class="elo-value">1850</span>
-                  <span class="wins-text">42 wins</span>
-                </span>
-            </li>
-            <li class="list-group-item-custom">
-              <span><span class="rank">#2</span> TopPlayer2</span>
-              <span>
-                <span class="elo-value">2050</span>
-                <span class="wins-text">142 wins</span>
-              </span>              
-            </li>
-            <li class="list-group-item-custom">
-              <span><span class="rank">#3</span> TopPlayer3</span>
-              <span>
-                <span class="elo-value">2000</span>
-                <span class="wins-text">138 wins</span>
-              </span>
-            <li class="list-group-item-custom highlight">
-                <span><span class="rank">#24</span> Player123</span>
-                <span>
-                  <span class="elo-value">1850</span>
-                  <span class="wins-text">42 wins</span>
-                </span>
-            </li>
-          </ul>
+            Classement général
+          </div>
+        
+          <table class="table table-borderless text-white align-middle mb-0 custom-table">
+            <tbody>
+              <tr>
+                <td class="rank-cell">#1</td>
+                <td class="player-name-cell">TopPlayer1</td>
+                <td class="elo-cell text-end">1850</td>
+                <td class="wins-cell">42 wins</td>
+              </tr>
+              <tr>
+                <td class="rank-cell">#2</td>
+                <td class="player-name-cell">TopPlayer2</td>
+                <td class="elo-cell text-end">2050</td>
+                <td class="wins-cell">142 wins</td>
+              </tr>
+              <tr>
+                <td class="rank-cell">#3</td>
+                <td class="player-name-cell">TopPlayer3</td>
+                <td class="elo-cell text-end">2000</td>
+                <td class="wins-cell">138 wins</td>
+              </tr>
+              <tr class="highlight">
+                <td class="rank-cell">#24</td>
+                <td class="player-name-cell">Player123</td>
+                <td class="elo-cell text-end">1850</td>
+                <td class="wins-cell">42 wins</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -313,7 +432,7 @@
         PLAY
       </button>
       <button class="menu-button">
-        <i class="bi bi-x-lg"></i>
+        <i class="bi-graph-up-arrow"></i>
         PLAYERS STATISTICS
       </button>
       <button class="menu-button">
