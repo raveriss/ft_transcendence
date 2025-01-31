@@ -1,7 +1,5 @@
-]633;E;docker-compose down -v;195b4d52-96d1-4a0d-aff8-8ddb76130b91]633;CRemoving network conecte_me_conecteme_network
-Network conecte_me_conecteme_network not found.
-Removing volume conecte_me_postgres_data
-Volume conecte_me_postgres_data not found.
+Volume conecte_me_postgres_data  Removing
+Volume conecte_me_postgres_data  Removed
 .
 ├── backend
 │   ├── conecte_me_backend
@@ -146,7 +144,83 @@ OAUTH42_TOKEN_URL=https://api.intra.42.fr/oauth/token
 OAUTH42_USER_URL=https://api.intra.42.fr/v2/me
 
 
-FROM nginx:alpine
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: conecteme_db
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - conecteme_network
+
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: conecteme_backend
+    env_file:
+      - .env
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - DEBUG=${DEBUG}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - OAUTH42_CLIENT_ID=${OAUTH42_CLIENT_ID}
+      - OAUTH42_CLIENT_SECRET=${OAUTH42_CLIENT_SECRET}
+      - OAUTH42_REDIRECT_URI=${OAUTH42_REDIRECT_URI}
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,conecteme_backend
+
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - conecteme_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: conecteme_frontend
+    ports:
+      - "80"
+    depends_on:
+      - backend
+    networks:
+      - conecteme_network
+
+  proxy:
+    image: nginx:alpine
+    container_name: conecteme_proxy
+    # On copie le nginx.conf et on monte le dossier certs
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    ports:
+      - "8443:443"
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - conecteme_network
+
+networks:
+  conecteme_network:
+    driver: bridge
+
+volumes:
+  postgres_data:FROM nginx:alpine
 
 WORKDIR /usr/share/nginx/html
 COPY *.html .
@@ -157,202 +231,44 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Créer un compte</title>
-
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-    <!-- Bootstrap Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    />
-    <!-- Votre CSS personnalisé -->
-    <link rel="stylesheet" href="static/css/signup.css" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body class="bg-light fade-in">
-    <!-- Conteneur principal centré verticalement -->
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-      <!-- Card Bootstrap pour faire un joli encadré -->
-      <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
-        <div class="card-header bg-white text-center">
-          <h2 class="mb-0">Créer un compte</h2>
-          <p class="text-muted">Entrez vos informations pour commencer</p>
-        </div>
-
-        <div class="card-body">
-          <form
-            id="signup-form"
-            action="https://localhost:8443/signup/""
-            method="POST"
-            class="needs-validation"
-            novalidate
-            enctype="multipart/form-data"
-          >
-            <!-- Aperçu Avatar -->
-            <div class="mb-3 d-flex justify-content-center">
-              <div
-                class="position-relative avatar-preview rounded-circle border border-2 border-dashed text-center"
-              >
-                <!-- Icône caméra (affichée par défaut) -->
-                <i
-                  class="bi bi-camera"
-                  id="camera-icon"
-                  style="font-size: 2rem; color: #6c757d;"
-                ></i>
-                <!-- Image d’aperçu (cachée au départ) -->
-                <img
-                  id="avatar-img"
-                  src="#"
-                  alt="Aperçu de l'avatar"
-                  class="d-none"
-                />
-                <!-- Input file en pleine superposition (invisible) -->
-                <input
-                  type="file"
-                  id="avatar"
-                  name="avatar"
-                  accept="image/*"
-                  class="position-absolute w-100 h-100 top-0 start-0 opacity-0"
-                  style="cursor: pointer;"
-                />
-              </div>
-            </div>
-
-            <!-- Champ Pseudo -->
-            <div class="mb-3">
-              <label for="pseudo" class="form-label">Pseudo</label>
-              <input
-                type="text"
-                class="form-control"
-                id="pseudo"
-                name="pseudo"
-                placeholder="johndoe"
-                required
-                minlength="3"
-                maxlength="20"
-              />
-              <div class="invalid-feedback">
-                Le pseudo doit contenir entre 3 et 20 caractères.
-              </div>
-            </div>
-
-            <!-- Champ Prénom -->
-            <div class="mb-3">
-              <label for="firstname" class="form-label">Prénom</label>
-              <input
-                type="text"
-                class="form-control"
-                id="firstname"
-                name="firstname"
-                placeholder="John"
-                required
-                minlength="2"
-                maxlength="50"
-              />
-              <div class="invalid-feedback">
-                Le prénom doit contenir entre 2 et 50 caractères.
-              </div>
-            </div>
-
-            <!-- Champ Email -->
-            <div class="mb-3">
-              <label for="email" class="form-label">Adresse e-mail</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                placeholder="john.doe@example.com"
-                required
-              />
-              <div class="invalid-feedback">
-                Veuillez saisir une adresse e-mail valide.
-              </div>
-            </div>
-
-            <!-- Champ Mot de passe + note d'aide -->
-            <div class="mb-3">
-              <label for="password" class="form-label">Mot de passe</label>
-              <div class="input-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  name="password"
-                  required
-                  minlength="8"
-                  pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
-                  placeholder="••••••••"
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="togglePassword"
-                >
-                  <i class="bi bi-eye"></i>
-                </button>
-                <div class="invalid-feedback">
-                  Le mot de passe doit contenir au moins 8 caractères,
-                  une majuscule, une minuscule, un chiffre et un caractère spécial.
-                </div>
-              </div>
-              <small class="form-text text-muted">
-                Le mot de passe doit contenir au moins 8 caractères, une majuscule,
-                une minuscule, un chiffre et un caractère spécial.
-              </small>
-            </div>
-
-            <!-- Champ Confirmation du mot de passe -->
-            <div class="mb-3">
-              <label for="confirmPassword" class="form-label"
-                >Confirmer le mot de passe</label
-              >
-              <div class="input-group">
-                <input
-                  type="password"
-                  class="form-control"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  required
-                  minlength="8"
-                  placeholder="••••••••"
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="toggleConfirmPassword"
-                >
-                  <i class="bi bi-eye"></i>
-                </button>
-                <div class="invalid-feedback">
-                  Les mots de passe ne correspondent pas.
-                </div>
-              </div>
-            </div>
-
-            <!-- Bouton de soumission -->
-            <button type="submit" class="btn btn-primary w-100">
-              S'inscrire
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="static/css/login.css">
+</head>
+<body class="bg-gradient">
+    <div class="container">
+        <!-- Nouveau conteneur flex pour le bouton et le titre -->
+        <div class="header-row">
+            <button class="back-btn" onclick="history.back()">
+            <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
             </button>
-          </form>
+            <h1 class="title">PONG</h1>
         </div>
-      </div>
+        <div class="form-container">
+            <h2 class="form-title">Connexion</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email" class="label">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password" class="label">Mot de passe</label>
+                    <a href="#" class="forgot-link">Mot de passe oublié ?</a>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-primary">
+                    &#x21AA; Se connecter
+                </button>
+            </form>
+            <p class="signup-link">
+                Pas encore de compte ? <a href="signup.html">S'inscrire</a>
+            </p>
+        </div>
     </div>
-
-    <!-- Bootstrap JS -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    ></script>
-    <!-- Script Custom -->
-    <script src="static/js/signup.js"></script>
-  </body>
+    <script src="static/js/login.js"></script>
+</body>
 </html>
 <!DOCTYPE html>
 <html lang="fr">
@@ -866,97 +782,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const signupForm = document.getElementById('signup-form');
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-  // === Aperçu de l'avatar ===
-  const avatarInput = document.getElementById('avatar');
-  const avatarImg = document.getElementById('avatar-img');
-  const cameraIcon = document.getElementById('camera-icon');
+    console.log('Email:', email);
+    console.log('Mot de passe:', password);
 
-  avatarInput.addEventListener('change', (e) => {
-      const file = e.target.files && e.target.files[0];
-      if (file) {
-          const reader = new FileReader();
-          reader.onload = (event) => {
-              avatarImg.src = event.target.result;
-              avatarImg.classList.remove('d-none');
-              cameraIcon.classList.add('d-none');
-          };
-          reader.readAsDataURL(file);
-      } else {
-          // Remettre à zéro
-          avatarImg.src = '#';
-          avatarImg.classList.add('d-none');
-          cameraIcon.classList.remove('d-none');
-      }
-  });
-
-  // === Affichage/masquage du mot de passe ===
-  const passwordInput = document.getElementById('password');
-  const togglePasswordBtn = document.getElementById('togglePassword');
-  togglePasswordBtn.addEventListener('click', () => {
-      const isPassword = passwordInput.type === 'password';
-      passwordInput.type = isPassword ? 'text' : 'password';
-      // Change l’icône
-      const icon = togglePasswordBtn.querySelector('i');
-      icon.classList.toggle('bi-eye');
-      icon.classList.toggle('bi-eye-slash');
-  });
-
-  const confirmInput = document.getElementById('confirmPassword');
-  const toggleConfirmBtn = document.getElementById('toggleConfirmPassword');
-  toggleConfirmBtn.addEventListener('click', () => {
-      const isPassword = confirmInput.type === 'password';
-      confirmInput.type = isPassword ? 'text' : 'password';
-      // Change l’icône
-      const icon = toggleConfirmBtn.querySelector('i');
-      icon.classList.toggle('bi-eye');
-      icon.classList.toggle('bi-eye-slash');
-  });
-
-  // === Validation & soumission du formulaire ===
-  signupForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Vérifier la correspondance des mots de passe
-      if (passwordInput.value !== confirmInput.value) {
-          confirmInput.setCustomValidity("Les mots de passe ne correspondent pas.");
-      } else {
-          confirmInput.setCustomValidity("");
-      }
-
-      // Forcer la validation côté client
-      if (!signupForm.checkValidity()) {
-          signupForm.classList.add('was-validated');
-          return;
-      }
-
-      // Formulaire valide
-      console.log("Formulaire d'inscription soumis !");
-
-      // Création des données du formulaire
-      const formData = new FormData(signupForm);
-
-      // Envoi des données au backend
-      fetch('https://localhost:8443/auth/signup/', { // Chemin vers votre endpoint backend
-          method: 'POST',
-          body: formData,
-      })
-      .then(response => response.json())
-      .then(data => {
-          if (data.success) {
-              alert(data.detail); // Affiche un message de succès
-              window.location.href = '/index.html'; // Redirige vers la page de confirmation
-          } else {
-              alert(`Erreur : ${data.error}`); // Affiche un message d'erreur
-          }
-      })
-      .catch(err => {
-          console.error("Erreur réseau :", err);
-          alert("Une erreur réseau s'est produite. Veuillez réessayer plus tard.");
-      });
-  });
+    // Exemple de redirection après connexion réussie
+    alert('Connexion réussie!');
+    window.location.href = '/dashboard.html';
 });
 # Utiliser une image Python légère
 FROM python:3.10-alpine
@@ -1370,4 +1207,68 @@ def signup_view(request):
         return JsonResponse({"success": True, "detail": "Inscription réussie."}, status=201)
 
     # Méthode non autorisée
-    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)from django.test import TestCase
+from django.urls import reverse
+from oauth_app.models import User42
+
+class OAuthFlowTest(TestCase):
+    def test_redirect_to_42(self):
+        url = reverse('redirect_to_42')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 302)
+        self.assertIn("api.intra.42.fr/oauth/authorize", response.url)
+
+class SignupViewTestCase(TestCase):
+    def setUp(self):
+        self.signup_url = reverse('signup')
+
+    def test_signup_success(self):
+        response = self.client.post(self.signup_url, {
+            'firstname': 'John',
+            'email': 'john.doe@example.com',
+            'password': 'StrongP@ssw0rd!',
+            'pseudo': 'johndoe'
+        })
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.json().get('success'), True)
+        self.assertEqual(User42.objects.count(), 1)
+        self.assertEqual(User42.objects.first().email_address, 'john.doe@example.com')
+
+    def test_signup_email_already_exists(self):
+        User42.objects.create(
+            user_id=1, 
+            username='existinguser',
+            first_name='Existing', 
+            email_address='existing@example.com', 
+            password='hashed_password'
+        )
+        response = self.client.post(self.signup_url, {
+            'firstname': 'John',
+            'email': 'existing@example.com',
+            'password': 'StrongP@ssw0rd!',
+            'pseudo': 'johndoe'
+        })
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json().get('error'), "Cette adresse e-mail est déjà utilisée.")
+        self.assertEqual(User42.objects.count(), 1)
+
+    def test_signup_missing_fields(self):
+        response = self.client.post(self.signup_url, {
+            'firstname': '',
+            'email': '',
+            'password': ''
+        })
+        self.assertEqual(response.status_code, 400)
+        self.assertIn('error', response.json())
+
+def test_signup_stores_data_in_db(self):
+    response = self.client.post(self.signup_url, {
+        'firstname': 'Alice',
+        'email': 'alice@example.com',
+        'password': 'ValidP@ss123',
+        'pseudo': 'alice123'
+    })
+    self.assertEqual(response.status_code, 201)
+    user = User42.objects.get(email_address='alice@example.com')
+    self.assertEqual(user.first_name, 'Alice')
+    self.assertTrue(user.password.startswith('pbkdf2_sha256$'))  # Vérifie que le mot de passe est haché

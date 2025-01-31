@@ -9,6 +9,7 @@ def login_view(request):
 
 urlpatterns = [
     path('signup/', views.signup_view, name='signup'),
+    path('login/', login_view, name='login'),
     path('login-42/', redirect_to_42, name='redirect_to_42'),
     path('callback', callback_42, name='callback_42'),
 ]

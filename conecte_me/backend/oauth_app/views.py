@@ -5,18 +5,15 @@ from django.shortcuts import redirect, render
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
-from .utils import generate_jwt
-
-from django.contrib import messages
-
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.hashers import check_password, make_password
 from django.db import IntegrityError, transaction
 
-from django.views.decorators.csrf import csrf_exempt
 from django.middleware.csrf import get_token
-from django.contrib.auth.hashers import check_password
-from .models import User42
-from django.contrib.auth.hashers import make_password
+from django.contrib import messages
 
+from .models import User42
+from .utils import generate_jwt
 
 # Récupération des variables d'env
 CLIENT_ID = os.environ.get('OAUTH42_CLIENT_ID')
@@ -135,3 +132,53 @@ def signup_view(request):
 
     # Méthode non autorisée
     return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+@csrf_exempt
+def login_view(request):
+    """
+    Vue permettant à l'utilisateur de se connecter avec email + password.
+    Retourne un JSON indiquant le succès ou l'échec,
+    ainsi qu'une éventuelle URL de redirection.
+    """
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if not email or not password:
+            return JsonResponse({
+                "success": False,
+                "error": "Champs 'email' et 'password' requis."
+            }, status=400)
+
+        # On tente de récupérer l'utilisateur via l’email
+        user = User42.objects.filter(email_address=email).first()
+        if not user:
+            return JsonResponse({
+                "success": False,
+                "error": "Email ou mot de passe incorrect."
+            }, status=401)
+
+        # Vérification du mot de passe
+        if check_password(password, user.password):
+            # Authentification réussie => on stocke l'ID de l’utilisateur dans la session
+            request.session['user_id'] = user.pk
+            request.session['email'] = user.email_address
+
+            # Optionnel: vous pouvez mettre un timeout plus court 
+            # request.session.set_expiry(3600)  # expire la session en 1h
+
+            return JsonResponse({
+                "success": True,
+                "redirect": "game_interface.html"
+            }, status=200)
+        else:
+            return JsonResponse({
+                "success": False,
+                "error": "Email ou mot de passe incorrect."
+            }, status=401)
+
+    # Méthode non autorisée
+    return JsonResponse({
+        "success": False,
+        "error": "Méthode non autorisée."
+    }, status=405)
