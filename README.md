@@ -300,6 +300,7 @@ ft_transcendence/
 
 - [Google Authenticator PAM module](https://github.com/google/google-authenticator-libpam)
 - [Introducing 2FA with Google Authenticator and Node.js](https://www.youtube.com/watch?v=6mxA9Zp8600&ab_channel=Omnidev)
+- [Two-Factor Authentication in Django Using Google Authenticator](https://www.youtube.com/watch?v=u02U_ZNd0HU&ab_channel=Neszen)
 
 - [Tuto docker comprendre docker partie #01](https://www.wanadevdigital.fr/23-tuto-docker-comprendre-docker-partie1/)
 - [Tuto docker comprendre docker partie #02](https://www.wanadevdigital.fr/24-tuto-docker-demarrer-docker-partie-2/)
