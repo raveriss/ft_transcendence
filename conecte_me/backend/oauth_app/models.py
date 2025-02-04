@@ -9,6 +9,10 @@ class User42(models.Model):
     email_address = models.EmailField(unique=True, null=False, default="placeholder@example.com")
     password = models.CharField(max_length=128, null=False, default="to_be_hashed")
 
+    # Champs pour l'authentification 2FA
+    totp_secret = models.CharField(max_length=32, blank=True, null=True)
+    is_2fa_enabled = models.BooleanField(default=False)
+
     def __str__(self):
         return f"{self.username} ({self.email_address})"
 

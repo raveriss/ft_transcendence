@@ -1,3 +1,6 @@
+# backend/conecte_me_backend/settings.py
+
+
 import os
 from pathlib import Path
 import logging
@@ -53,7 +56,11 @@ ROOT_URLCONF = 'conecte_me_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [
+            BASE_DIR / 'templates',
+            BASE_DIR / 'oauth_app' / 'templates',  # Ajout du dossier des templates de 2FA
+        ],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

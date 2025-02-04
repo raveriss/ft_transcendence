@@ -159,23 +159,22 @@ def login_view(request):
             }, status=401)
 
         # Vérification du mot de passe
-        if check_password(password, user.password):
-            # Authentification réussie => on stocke l'ID de l’utilisateur dans la session
-            request.session['user_id'] = user.pk
-            request.session['email'] = user.email_address
-
-            # Optionnel: vous pouvez mettre un timeout plus court 
-            # request.session.set_expiry(3600)  # expire la session en 1h
-
+    if check_password(password, user.password):
+        # Authentification réussie : stocker l'ID dans la session
+        request.session['user_id'] = user.pk
+        request.session['email'] = user.email_address
+        
+        # Vérifier si la 2FA n'est pas activée
+        if not user.is_2fa_enabled:
             return JsonResponse({
                 "success": True,
-                "redirect": "game_interface.html"
+                "redirect": "/auth/2fa/setup/"
             }, status=200)
         else:
             return JsonResponse({
-                "success": False,
-                "error": "Email ou mot de passe incorrect."
-            }, status=401)
+                "success": True,
+                "redirect": "/game_interface.html"
+            }, status=200)
 
     # Méthode non autorisée
     return JsonResponse({

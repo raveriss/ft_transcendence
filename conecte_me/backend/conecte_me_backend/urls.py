@@ -5,6 +5,7 @@ from oauth_app import views  # Remplacez par le nom correct de l'application con
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('auth/', include('oauth_app.urls')),  # Toutes les routes d’authentification et 2FA
     path('auth/42/', include('oauth_app.urls')),  # Routes d’auth OAuth 42
     path('auth/signup/', views.signup_view, name='signup'),  # Ajoutez cette ligne
     

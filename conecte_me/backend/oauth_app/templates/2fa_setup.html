@@ -1,0 +1,24 @@
+<!-- backend/oauth_app/templates/2fa_setup.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuration 2FA - ConecteMe</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <h1>Configuration de l'Authentification à Deux Facteurs (2FA)</h1>
+    <p>Scannez le QR Code ci-dessous avec votre application d'authentification (par ex. Google Authenticator) :</p>
+    <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code pour 2FA">
+    
+    <p>Ensuite, entrez le code généré par votre application :</p>
+    <form id="2faForm">
+        <input type="text" name="otp_code" id="otp_code" placeholder="Entrez le code OTP" required>
+        <button type="submit">Valider</button>
+    </form>
+    
+    <div id="message"></div>
+    
+    <script src="/static/js/2fa.js"></script>
+</body>
+</html>

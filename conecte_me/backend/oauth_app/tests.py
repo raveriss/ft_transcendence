@@ -1,5 +1,6 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.urls import reverse
+import pyotp
 from oauth_app.models import User42
 
 class OAuthFlowTest(TestCase):
@@ -63,3 +64,45 @@ def test_signup_stores_data_in_db(self):
     user = User42.objects.get(email_address='alice@example.com')
     self.assertEqual(user.first_name, 'Alice')
     self.assertTrue(user.password.startswith('pbkdf2_sha256$'))  # Vérifie que le mot de passe est haché
+
+class TwoFactorAuthTest(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User42.objects.create(
+            user_id=999,
+            username="testuser",
+            first_name="Test",
+            email_address="test@example.com",
+            password="fake"  # le mot de passe n'est pas important ici
+        )
+        # Simuler l'authentification via session
+        session = self.client.session
+        session['user_id'] = self.user.pk
+        session.save()
+    
+    def test_two_factor_setup(self):
+        response = self.client.get(reverse('two_factor_setup'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("QR Code", response.content.decode())
+        self.user.refresh_from_db()
+        self.assertIsNotNone(self.user.totp_secret)
+    
+    def test_two_factor_validate_success(self):
+        # Appel de la configuration pour générer le secret
+        self.client.get(reverse('two_factor_setup'))
+        self.user.refresh_from_db()
+        totp = pyotp.TOTP(self.user.totp_secret)
+        valid_code = totp.now()
+        response = self.client.post(reverse('two_factor_validate'), data={'otp_code': valid_code})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("succès", response.content.decode())
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.is_2fa_enabled)
+    
+    def test_two_factor_validate_failure(self):
+        self.client.get(reverse('two_factor_setup'))
+        self.user.refresh_from_db()
+        invalid_code = "000000"
+        response = self.client.post(reverse('two_factor_validate'), data={'otp_code': invalid_code})
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("invalide", response.content.decode())
