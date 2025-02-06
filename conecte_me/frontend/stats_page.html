@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Statistiques - ft_transcendence</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+  <style>
+    /* -------------------------------------------------------------
+       Police “Pong-Game” (adaptez chemin si besoin)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body : fond dégradé, police
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-y: auto;
+      font-family: 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+
+    .main-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    /* -------------------------------------------------------------
+       Header : flèche, titre PONG, icône user
+    ------------------------------------------------------------- */
+    .header-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .back-btn {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30,41,59,0.8);
+      border: 1px solid rgba(51,65,85,0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .back-btn:hover {
+      background: rgba(30,41,59,0.9);
+      border-color: rgba(51,65,85,0.75);
+      transform: translateY(-50%) scale(1.05);
+    }
+    .back-btn img.arrow-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      margin: 0;
+      font-size: 3rem;
+      font-weight: bold;
+      background: linear-gradient(to bottom, #3b82f6, #2563eb, #1e3a8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(59,130,246,0.3);
+      letter-spacing: 15px;
+      text-align: center;
+    }
+    .top-user-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .top-user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Cards commun
+    ------------------------------------------------------------- */
+    .card-custom {
+      background: rgba(30,41,59,0.4);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .card-header-custom {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-body-custom {
+      font-size: 0.9rem;
+    }
+
+    /* 
+      4 stats en haut, même taille, centré 
+      => row + col, ou grillage + .stats-badge-card 
+    */
+    .stats-badge-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 120px; /* ajustez la hauteur souhaitée */
+      text-align: center; 
+    }
+    .stats-badge {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .stats-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    .stats-desc {
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+      opacity: 0.75;
+    }
+
+    /* Chart placeholders */
+    .chart-placeholder {
+      width: 100%;
+      height: 200px;
+      background: rgba(25,36,52,0.5);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* Table “Derniers matchs” */
+    .match-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .match-table th,
+    .match-table td {
+      border: none;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+      color: #f1f5f9;
+    }
+    .match-table thead th {
+      font-weight: 500;
+      opacity: 0.8;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .match-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .match-table tbody tr:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- HEADER -->
+    <div class="header-bar">
+      <div class="back-btn" onclick="history.back()">
+        <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
+      </div>
+      <h1 class="title">PLAYERS STATISTICS</h1>
+      <div class="top-user-icon">
+        <i class="bi bi-person-circle"></i>
+      </div>
+    </div>
+
+    <!-- 1) 4 stats top row, en 4 colonnes de taille identique -->
+    <div class="row mb-3">
+      <!-- Win Rate -->
+      <div class="col-6 col-md-3">
+        <div class="card-custom stats-badge-card">
+          <i class="bi bi-trophy mb-1" style="font-size:1.2rem;"></i>
+          <div class="stats-badge">65%</div>
+          <div class="stats-label">Win Rate</div>
+          <div class="stats-desc">Ratio de victoires</div>
+        </div>
+      </div>
+      <!-- Win Streak -->
+      <div class="col-6 col-md-3">
+        <div class="card-custom stats-badge-card">
+          <i class="bi bi-lightning-fill mb-1" style="font-size:1.2rem;"></i>
+          <div class="stats-badge">4</div>
+          <div class="stats-label">Win Streak</div>
+          <div class="stats-desc">Plus longue série actuelle</div>
+        </div>
+      </div>
+      <!-- Avg Duration -->
+      <div class="col-6 col-md-3">
+        <div class="card-custom stats-badge-card">
+          <i class="bi bi-stopwatch mb-1" style="font-size:1.2rem;"></i>
+          <div class="stats-badge">12.5min</div>
+          <div class="stats-label">Avg Duration</div>
+          <div class="stats-desc">Durée moyenne par match</div>
+        </div>
+      </div>
+      <!-- Rank Progress -->
+      <div class="col-6 col-md-3">
+        <div class="card-custom stats-badge-card">
+          <i class="bi bi-graph-up-arrow mb-1" style="font-size:1.2rem;"></i>
+          <div class="stats-badge text-success">+25</div>
+          <div class="stats-label">Rank Progress</div>
+          <div class="stats-desc">Points gagnés cette semaine</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2) Evolution ELO (placeholder) -->
+    <div class="card-custom mb-3">
+      <div class="card-header-custom">
+        <i class="bi bi-bar-chart-line"></i>
+        L'évolution ELO
+      </div>
+      <div class="card-body-custom">
+        <div class="chart-placeholder">
+          [Courbe ELO sur 7 derniers jours]
+        </div>
+      </div>
+    </div>
+
+    <!-- 3) Style de jeu & Victoires par mode -->
+    <div class="row mb-3">
+      <!-- Style de jeu (radar) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi bi-bullseye"></i>
+            Style de jeu
+          </div>
+          <div class="card-body-custom">
+            <div class="chart-placeholder" style="height:220px;">
+              [Graphique radar: Speed, Precision, Aggressive, Defensive, Consistency]
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Victoires par mode (pie chart) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi bi-pie-chart"></i>
+            Victoires par mode
+          </div>
+          <div class="card-body-custom">
+            <div class="chart-placeholder" style="height:220px;">
+              [Camembert: 1v1, Tournament, Casual]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4) Derniers matchs -->
+    <div class="card-custom mb-3">
+      <div class="card-header-custom">
+        <i class="bi bi-list-check"></i>
+        Derniers matchs
+      </div>
+      <div class="card-body-custom">
+        <table class="match-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Adversaire</th>
+              <th>Score</th>
+              <th>Durée</th>
+              <th>Elo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-01-15</td>
+              <td>Player1</td>
+              <td>11-6</td>
+              <td>12 min</td>
+              <td>1870</td>
+            </tr>
+            <tr>
+              <td>2025-01-14</td>
+              <td>Player2</td>
+              <td>9-11</td>
+              <td>15 min</td>
+              <td>1850</td>
+            </tr>
+            <tr>
+              <td>2025-01-13</td>
+              <td>Player3</td>
+              <td>11-7</td>
+              <td>10 min</td>
+              <td>1860</td>
+            </tr>
+            <tr>
+              <td>2025-01-12</td>
+              <td>Player4</td>
+              <td>11-9</td>
+              <td>14 min</td>
+              <td>1840</td>
+            </tr>
+            <tr>
+              <td>2025-01-11</td>
+              <td>Player5</td>
+              <td>8-11</td>
+              <td>11 min</td>
+              <td>1830</td>
+            </tr>
+            <tr>
+              <td>2025-01-10</td>
+              <td>Player6</td>
+              <td>11-6</td>
+              <td>13 min</td>
+              <td>1845</td>
+            </tr>
+            <tr>
+              <td>2025-01-09</td>
+              <td>Player7</td>
+              <td>7-11</td>
+              <td>12 min</td>
+              <td>1835</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5) Distribution horaire (bar chart) -->
+    <div class="card-custom">
+      <div class="card-header-custom">
+        <i class="bi bi-clock"></i>
+        Distribution horaire
+      </div>
+      <div class="card-body-custom">
+        <div class="chart-placeholder" style="height:180px;">
+          [Barres: morning / afternoon / evening / night]
+        </div>
+      </div>
+    </div>
+
+  </div><!-- main-container -->
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>

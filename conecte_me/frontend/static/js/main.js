@@ -4,6 +4,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.getElementById('login-btn');
   const signupBtn = document.getElementById('signup-btn');
   const connect42Btn = document.getElementById('connect-42');
+  const userIcon = document.querySelector('.user-icon');
+  const creditsBtn = document.getElementById('credits-btn');
+  const setupBtn = document.getElementById('setup-btn');
+  const statsBtn = document.getElementById('stats-btn');
+
+
+
+
+  if (userIcon) {
+    userIcon.addEventListener('click', () => {
+      // Redirection vers user.html
+      window.location.href = 'user.html';
+    });
+  }
+
+  if (setupBtn) {
+    setupBtn.addEventListener('click', () => {
+      // Redirection vers la page game_setup.html
+      window.location.href = 'game_setup.html';
+    });
+  }
+
+  if (statsBtn) {
+    statsBtn.addEventListener('click', () => {
+      // Redirection vers game_setup.html
+      window.location.href = 'stats_page.html';
+    });
+  }
+
+  if (creditsBtn) {
+    creditsBtn.addEventListener('click', () => {
+      // Redirection vers team.html
+      window.location.href = 'team.html';
+    });
+  }
 
   // ====== GESTION DU BOUTON LOGIN ======
   if (loginBtn) {

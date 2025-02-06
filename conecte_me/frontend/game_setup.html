@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Setup - ft_transcendence</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link 
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+  <style>
+    /* -------------------------------------------------------------
+       Fonts (adaptez selon vos fichiers réels)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body : fond dégradé, police, etc.
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-y: auto;
+      font-family: 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+
+    .main-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+
+    /* -------------------------------------------------------------
+       HEADER BAR : flèche, Titre PONG, icône user
+    ------------------------------------------------------------- */
+    .header-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    /* Bouton retour (flèche) */
+    .back-btn {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30,41,59,0.8);
+      border: 1px solid rgba(51,65,85,0.5);
+      border-radius: 50%;
+      width: 40px; 
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: rgba(30,41,59,0.9);
+      border-color: rgba(51,65,85,0.75);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    /* Titre PONG */
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      margin: 0;
+      font-size: 3.5rem;
+      font-weight: bold;
+      background: linear-gradient(to bottom, #3b82f6, #2563eb, #1e3a8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(59,130,246,0.3);
+      letter-spacing: 15px;
+      text-align: center;
+    }
+    /* Icône user top-right */
+    .top-user-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .top-user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Cards commun
+    ------------------------------------------------------------- */
+    .card-custom {
+      background: rgba(30,41,59,0.4);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+    .card-header-custom {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .card-body-custom {
+      font-size: 0.9rem;
+    }
+
+    /* Boutons radio-like */
+    .toggle-group {
+      display: flex;
+      flex-wrap: wrap; /* pour passer à la ligne si trop large */
+      gap: 0.5rem;
+    }
+    .toggle-group button {
+      background: rgba(15,23,42,0.6);
+      border: 1px solid rgba(51,65,85,0.5);
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      color: #f1f5f9;
+      transition: background 0.3s, transform 0.3s;
+      flex: 1;  /* Pour AI difficulty => 3 boutons de même largeur */
+      min-width: 60px;
+    }
+    .toggle-group button:hover {
+      background: rgba(15,23,42,0.8);
+      transform: scale(1.05);
+    }
+
+    /* Sliders + color accent */
+    .form-range {
+      width: 100%;
+      accent-color: #3b82f6; /* Couleur bleue */
+    }
+
+    /* Select en style sombre */
+    select.form-select {
+      background: rgba(15,23,42,0.5);
+      border: 1px solid rgba(51,65,85,0.5);
+      color: #f1f5f9;
+    }
+    /* Input number (LIVES) */
+    .number-spinner {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .number-spinner input[type="number"] {
+      background: rgba(15,23,42,0.5);
+      border: 1px solid rgba(51,65,85,0.5);
+      color: #f1f5f9;
+      border-radius: 6px;
+      width: 50px;
+      text-align: center;
+    }
+
+    /* Checkboxes */
+    .form-check-input {
+      background-color: rgba(15,23,42,0.5);
+      border: 1px solid rgba(51,65,85,0.5);
+    }
+
+    /* Range label min / max */
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.3rem;
+    }
+
+    .toggle-group-2x2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes de même largeur */
+        gap: 0.5rem;                           /* espace entre les boutons */
+    }
+
+    /* Disposition spécifique : pour correspondre EXACTEMENT à la capture,
+       on place les blocs manuellement en row/col. 
+       On peut superposer plus de row / col pour un contrôle précis. */
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <!-- HEADER -->
+    <div class="header-bar">
+      <div class="back-btn" onclick="history.back()">
+        <i class="bi bi-arrow-left"></i>
+      </div>
+      <h1 class="title">SETUP</h1>
+      <div class="top-user-icon">
+        <i class="bi bi-person-circle"></i>
+      </div>
+    </div>
+
+    <!-- GRID : 2 COLONNES, + plus de lignes pour reproduire EXACTEMENT l’image. -->
+    <div class="row">
+      <!-- 1) MAP (col-left) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-map"></i> MAP</div>
+          <div class="card-body-custom toggle-group toggle-group-2x2">
+            <button>Classic</button>
+            <button>Modern</button>
+            <button>Retro</button>
+            <button>Space</button>
+          </div>
+        </div>
+      </div>
+      <!-- 2) TIME (col-right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-clock"></i> TIME</div>
+          <div class="card-body-custom">
+            <input type="range" class="form-range" min="1" max="10" value="5">
+            <div class="range-labels">
+              <span>1 min</span>
+              <span>5 min</span>
+              <span>10 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3) LIVES (left)  & 4) SCORE LIMIT (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-heart"></i> LIVES</div>
+          <div class="card-body-custom number-spinner">
+            <span>-</span>
+            <input type="number" min="1" max="9" value="3">
+            <span>+</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-flag"></i> SCORE LIMIT</div>
+          <div class="card-body-custom">
+            <select class="form-select">
+              <option>5 Points</option>
+              <option>10 Points</option>
+              <option>15 Points</option>
+              <option>20 Points</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5) AI DIFFICULTY (left) & 6) PADDLE (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-cpu"></i> AI DIFFICULTY</div>
+          <!-- 3 boutons occupant la même largeur : .toggle-group + .flex:1 -->
+          <div class="card-body-custom toggle-group">
+            <button>Easy</button>
+            <button>Medium</button>
+            <button>Hard</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-stickies"></i> PADDLE</div>
+          <div class="card-body-custom toggle-group">
+            <button>Classic</button>
+            <button>Modern</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7) WEATHER (left) & 8) BALL SPEED (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-cloud"></i> WEATHER</div>
+          <div class="card-body-custom toggle-group toggle-group-2x2">
+            <button>Rain</button>
+            <button>Snow</button>
+            <button>Wind</button>
+            <button>None</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-lightning"></i> BALL SPEED</div>
+          <div class="card-body-custom">
+            <input type="range" class="form-range" min="1" max="3" value="2">
+            <div class="range-labels">
+              <span>Slow</span>
+              <span>Normal</span>
+              <span>Fast</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9) PADDLE SIZE (left) & 10) POWER-UPS (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-arrows-expand"></i> PADDLE SIZE</div>
+          <div class="card-body-custom toggle-group">
+            <button>Small</button>
+            <button>Medium</button>
+            <button>Large</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-magic"></i> POWER-UPS</div>
+          <div class="card-body-custom">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="puSpeed">
+              <label class="form-check-label" for="puSpeed">Speed Boost</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="puSize">
+              <label class="form-check-label" for="puSize">Size Change</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="puMultiBall">
+              <label class="form-check-label" for="puMultiBall">Multi Ball</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="puShield">
+              <label class="form-check-label" for="puShield">Shield</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11) MUSIC & SOUND EFFECTS (left) & 12) BACKGROUND THEME (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-music-note-beamed"></i> MUSIC & SOUND EFFECTS</div>
+          <div class="card-body-custom">
+            <label class="form-label">Music Volume</label>
+            <input type="range" class="form-range" min="0" max="100" value="30">
+            <label class="form-label mt-2">Effects Volume</label>
+            <input type="range" class="form-range" min="0" max="100" value="50">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-palette"></i> BACKGROUND THEME</div>
+          <!-- 6 options en 2 lignes de 3 colonnes => on peut faire .toggle-group en flex-wrap, 
+               chaque bouton 30% width par ex. -->
+          <div class="card-body-custom toggle-group" style="flex-wrap: wrap;">
+            <button style="flex:1 1 30%;">Dark</button>
+            <button style="flex:1 1 30%;">Light</button>
+            <button style="flex:1 1 30%;">Retro</button>
+            <button style="flex:1 1 30%;">Neon</button>
+            <button style="flex:1 1 30%;">Space</button>
+            <button style="flex:1 1 30%;">Ocean</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13) BALL TRAIL EFFECTS (left) & 14) CONTROLS (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-slash-circle"></i> BALL TRAIL EFFECTS</div>
+          <div class="card-body-custom toggle-group toggle-group-2x2">
+            <button>None</button>
+            <button>Fire</button>
+            <button>Neon</button>
+            <button>Rainbow</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-controller"></i> CONTROLS</div>
+          <div class="card-body-custom">
+            <div class="mb-2">Configure Keyboard</div>
+            <div class="mb-2">Configure Gamepad</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15) GRAVITY (left) & 16) FPS LIMIT (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-droplet"></i> GRAVITY</div>
+          <div class="card-body-custom toggle-group toggle-group-2x2">
+            <button>Normal</button>
+            <button>High</button>
+            <button>Low</button>
+            <button>Zero</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-speedometer2"></i> FPS LIMIT</div>
+          <div class="card-body-custom">
+            <select class="form-select">
+              <option>30 FPS</option>
+              <option>60 FPS</option>
+              <option>120 FPS</option>
+              <option>144 FPS</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 17) VISUAL MODE (left) & 18) ACCESSIBILITY (right) -->
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-easel"></i> VISUAL MODE</div>
+          <div class="card-body-custom toggle-group toggle-group-2x2">
+            <button>2D Classic</button>
+            <button>3D Modern</button>
+            <button>Retro</button>
+            <button>Minimalist</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="card-custom">
+          <div class="card-header-custom"><i class="bi bi-universal-access"></i> ACCESSIBILITY</div>
+          <div class="card-body-custom">
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="srSupport">
+              <label class="form-check-label" for="srSupport">Screen Reader Support</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="altText">
+              <label class="form-check-label" for="altText">Alt Text for Images</label>
+            </div>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="highContrast">
+              <label class="form-check-label" for="highContrast">High Contrast Mode</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="keyboardNav">
+              <label class="form-check-label" for="keyboardNav">Keyboard Navigation</label>
+            </div>
+            <label class="form-label mt-2">Text Size</label>
+            <input type="range" class="form-range" min="10" max="24" value="14">
+            <div class="mt-3">
+              <button class="btn btn-sm btn-secondary">Check for Updates</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- row -->
+  </div><!-- main-container -->
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>

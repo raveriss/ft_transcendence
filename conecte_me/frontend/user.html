@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profil utilisateur - ft_transcendence</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+  <style>
+    /* -------------------------------------------------------------
+       Fonts (adaptez selon vos chemins)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NotoSymbols';
+      src: url('static/fonts/NotoSansSymbols-Regular.ttf') format('truetype');
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body : fond + centrage
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cantarell', sans-serif;
+
+      min-height: 100vh;
+      overflow-y: auto; /* on scrolle si trop grand */
+      
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+
+    .main-container {
+      position: relative;
+      width: 95%;
+      max-width: 1200px;
+      margin: 2rem auto;  /* centrage horizontal + marge verticale */
+      position: relative; /* si vous avez besoin de position:relative */
+    }
+
+    /* -------------------------------------------------------------
+       Header : flèche retour, Titre PONG, icône user (top-right)
+    ------------------------------------------------------------- */
+    .header-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .back-btn {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(51, 65, 85, 0.75);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      margin: 0;
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(
+        to bottom, 
+        #3b82f6, 
+        #2563eb,
+        #1e3a8a
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+      letter-spacing: 15px;
+      text-align: center;
+    }
+
+    .top-user-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .top-user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Carte principale (Avatar + Player name + Stats)
+    ------------------------------------------------------------- */
+    .main-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Avatar-bubble avec icône camera en bas à droite */
+    .avatar-bubble {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      background-color: rgba(15,23,42,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #f1f5f9;
+      margin: 0 auto 1rem; /* centré, marge en bas */
+    }
+    .camera-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 28px;
+        height: 28px;
+        background: rgba(30, 41, 59, 0.9);
+        border: 1px solid rgba(51,65,85,0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f1f5f9;
+        font-size: 1rem;
+        cursor: pointer;      /* Important : curseur clic */
+        transition: transform 0.3s;
+        border: none;         /* si c’est un <button>, vous pouvez forcer l’absence de style */
+        outline: none;
+    }
+
+    .camera-icon:hover {
+        transform: scale(1.5);
+    }
+
+    .camera-icon:focus {
+        outline: 2px solid rgba(59,130,246,0.5); /* Pour l’accessibilité focus */
+    }
+
+    .player-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+    }
+    .player-status {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-align: center;
+        margin-bottom: 1rem;
+
+        color: #60a5fa;  /* Couleur demandée */
+    }
+
+    /* Stats en 4 blocs, mais left-align (label au-dessus, value en dessous) */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .stat-item {
+      flex: 1 1 calc(25% - 1rem); /* 4 items sur une ligne */
+      min-width: 120px;
+      background: rgba(53, 63, 87, 0.5);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin: 0;
+      text-align: left; /* Gauche */
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 0.2rem;
+        color: #fff;
+        text-align: left; /* Gauche */
+    }
+
+    .stat-value.highlight-value {
+        color: #60a5fa; /* force la couleur bleue */
+    }
+
+    /* -------------------------------------------------------------
+       Bloc “Sécurité”
+    ------------------------------------------------------------- */
+    .security-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .security-card h5 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .security-item {
+      background: rgba(53, 63, 87, 0.5);
+
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background-color 0.2s, border-color 0.3s;
+    }
+    .security-item:hover {
+      background: rgba(51, 72, 120, 0.6);
+      border-color: rgba(51,65,85,0.7);
+    }
+    .security-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .security-left i {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .security-right {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       Bloc “Logs de connexion”
+    ------------------------------------------------------------- */
+    .logs-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logs-card h5 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .logs-table {
+  width: 100%;
+  border-collapse: collapse; /* Permet de gérer les bordures de façon fine */
+  background-color: #192434; /* Fond global, si voulu */
+}
+
+/* On enlève toutes les bordures par défaut sur th & td */
+.logs-table th,
+.logs-table td {
+  border: none; 
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  color: #f1f5f9;
+  background-color: #192434; /* Couleur de fond pour chaque cellule */
+}
+
+/* On ne veut pas de lignes verticales → pas de border-left/border-right. 
+   Mais on veut de fines lignes horizontales internes,
+   sauf la toute première (au-dessus du thead) et la toute dernière (après le dernier <tr>). */
+
+/* Ligne horizontale sous l’en‐tête (thead) */
+.logs-table thead tr th {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Lignes horizontales entre les rangées du tbody 
+   (on en met une border-bottom sur chaque <tr> du tbody, 
+    sauf le dernier). */
+.logs-table tbody tr {
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* On supprime la ligne horizontale après la dernière rangée */
+.logs-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Style de base pour les badges de statut */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;        /* Ajustez si vous voulez un badge plus ou moins grand */
+  border-radius: 9999px;    /* donne un aspect “pill” très arrondi */
+  font-size: 0.8rem;        /* taille du texte */
+  font-weight: 600;         /* texte un peu gras */
+  text-align: center;
+  min-width: 60px;          /* optionnel, pour un badge d’au moins 60px de large */
+}
+
+/* Couleurs pour “Active” */
+.status-active {
+  background-color: #22395f; /* Fond #22395f */
+  color: #83b0e6;            /* Texte #83b0e6 */
+}
+
+/* Couleurs pour “Inactive” */
+.status-inactive {
+  background-color: #2a364a; /* Fond #2a364a */
+  color: #9ba5b4;            /* Texte #9ba5b4 */
+}
+
+/* Pour l'image à l'intérieur du bouton "back-btn" */
+.back-btn img.arrow-icon {
+  width: 24px;
+  height: 24px;
+  /* object-fit: contain;  <-- facultatif si tu veux être sûr que l’image ne soit pas déformée */
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="main-container">
+
+    <!-- Barre supérieure : flèche retour + Titre + user icon -->
+    <div class="header-bar">
+      <!-- Bouton retour -->
+      <div class="back-btn">
+        <button class="back-btn" onclick="history.back()">
+            <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
+            </button>
+            <!-- Titre PONG -->
+        </div>
+        <h1 class="title">USER</h1>
+    </div>
+
+    <!-- Carte principale (Profil + Stats) -->
+    <div class="main-card">
+      
+      <!-- Bulle avatar au-dessus -->
+      <div class="avatar-bubble">
+        <i class="bi bi-person-circle"></i>
+        <!-- Icône photo en bas à droite, version “button” -->
+        <button class="camera-icon" onclick="alert('Changer photo de profil');">
+            <i class="bi bi-camera-fill"></i>
+        </button>
+      </div>
+
+      <!-- Nom + statut -->
+      <h2 class="player-name">Player123</h2>
+      <div class="player-status">Online</div>
+
+      <!-- Stats en 4 blocs, alignés à gauche -->
+      <div class="stats-row">
+        <!-- Classement Elo -->
+        <div class="stat-item">
+          <p class="stat-label">Classement Elo</p>
+          <div class="stat-value">1850</div>
+        </div>
+        <!-- Parties totales -->
+        <div class="stat-item">
+          <p class="stat-label">Parties totales</p>
+          <div class="stat-value">70</div>
+        </div>
+        <!-- Victoires -->
+        <div class="stat-item">
+          <p class="stat-label">Victoires</p>
+          <div class="stat-value highlight-value">42</div>
+        </div>
+        <!-- Défaites -->
+        <div class="stat-item">
+          <p class="stat-label">Défaites</p>
+          <div class="stat-value">28</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Section Sécurité -->
+    <div class="security-card mb-4">
+      <h5 class="mb-3">Sécurité</h5>
+
+      <!-- Item 1 : Ajouter/Changer Email -->
+      <div class="security-item">
+        <div class="security-left">
+          <i class="bi bi-envelope"></i>
+          <span>Ajouter/Changer : Email</span>
+        </div>
+        <div class="security-right">
+          <i class="bi bi-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- Item 2 : Changer le mot de passe -->
+      <div class="security-item">
+        <div class="security-left">
+          <i class="bi bi-key"></i>
+          <span>Changer le mot de passe</span>
+        </div>
+        <div class="security-right">
+          <i class="bi bi-chevron-right"></i>
+        </div>
+      </div>
+
+      <!-- Item 3 : 2FA -->
+      <div class="security-item">
+        <div class="security-left">
+          <i class="bi bi-shield"></i>
+          <span>Two-factor authentication (2FA)</span>
+        </div>
+        <div class="security-right">
+          <span class="opacity-75">Désactivé</span>
+          <i class="bi bi-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Logs de connexion -->
+    <div class="logs-card">
+      <h5 class="mb-3"><i class="bi bi-activity"></i> Logs de connexion</h5>
+      <!-- Conteneur “table-responsive” -->
+      <div class="table-responsive">
+        <table class="logs-table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Plateforme</th>
+                <th>Navigateur</th>
+                <th>Adresse IP</th>
+                <th>Statut</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>January 12, 2025</td>
+                <td>Linux</td>
+                <td>Chrome</td>
+                <td>62.210.32.164</td>
+                <td><span class="status-badge status-active">Active</span></td>
+            </tr>
+            <tr>
+                <td>January 11, 2025</td>
+                <td>Linux</td>
+                <td>Chrome</td>
+                <td>2001:e34:…:38e</td>
+                <td><span class="status-badge status-active">Active</span></td>
+            </tr>
+            <tr>
+                <td>January 10, 2025</td>
+                <td>Windows</td>
+                <td>Firefox</td>
+                <td>82.45.128.91</td>
+                <td><span class="status-badge status-inactive">Inactive</span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+</body>
+</html>
