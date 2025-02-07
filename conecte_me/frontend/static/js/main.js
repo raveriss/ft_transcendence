@@ -8,9 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const creditsBtn = document.getElementById('credits-btn');
   const setupBtn = document.getElementById('setup-btn');
   const statsBtn = document.getElementById('stats-btn');
+  const exitBtn = document.getElementById('exit-btn');
 
 
-
+  if (exitBtn) {
+    exitBtn.addEventListener('click', () => {
+      // Redirige vers index.html
+      window.location.href = 'index.html';
+    });
+  }
 
   if (userIcon) {
     userIcon.addEventListener('click', () => {
