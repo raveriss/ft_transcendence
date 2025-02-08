@@ -132,3 +132,48 @@ button {
 .text-muted {
   margin-bottom: 4mm; /* Ajoute un espace de 4mm sous le paragraphe */
 }
+
+/* ----- Nouvelles règles pour la case à cocher et le texte ----- */
+.tos-container {
+  margin-top: 2rem;  /* Augmente l'espace au-dessus de la section */
+  margin-bottom: 1rem;
+}
+
+.tos-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.tos-line input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+.tos-links {
+  font-size: 0.9rem;
+}
+
+.tos-links a {
+  color: #2d3748;
+  text-decoration: underline;
+  margin: 0 4px;
+}
+
+.tos-links a:hover {
+  color: #111827;
+}
+
+.gdpr-text {
+  font-size: 0.8rem;
+  color: #4a5568;
+}
+
+/* Style pour les boutons désactivés */
+button.disabled,
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

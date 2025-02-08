@@ -30,11 +30,12 @@
       />
     </div>
 
-    <!-- Container principal (Welcome to Morpion) -->
+    <!-- Container principal -->
     <div class="container text-center bg-white shadow-lg rounded p-4 welcome-container">
       <p class="text-muted">Please sign in to continue</p>
       <h1 class="display-6 text-primary"></h1>
 
+      <!-- Ligne 1: Boutons Login et Sign Up -->
       <div class="btn-group w-100 mb-3 d-flex" role="group">
         <button
           id="login-btn"
@@ -53,8 +54,26 @@
           Sign Up
         </button>
       </div>
+
+      <!-- Ligne 2: Case à cocher et texte en deux lignes -->
+      <div class="tos-container mb-3">
+        <div class="tos-line">
+          <input type="checkbox" id="tos-checkbox" />
+          <label for="tos-checkbox">I have read and agree to the</label>
+        </div>
+        <div class="tos-links">
+          <a href="terms.html" target="_blank">Terms of Service</a>
+          <span> and </span>
+          <a href="privacy.html" target="_blank">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Ligne 3: Texte RGPD -->
+      <p class="gdpr-text mb-3">Your data is processed according to GDPR regulations.</p>
+
+      <!-- Ligne 4: Bouton "Sign in with 42" -->
       <button id="connect-42" class="auth-button">
-        <span>Sign in with</span>    
+        <span>SIGN IN WITH</span>    
         <img src="static/img/42_logo.png" alt="42 Logo" />
       </button>
     </div>

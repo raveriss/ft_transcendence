@@ -13,6 +13,12 @@ class User42(models.Model):
     totp_secret = models.CharField(max_length=32, blank=True, null=True)
     is_2fa_enabled = models.BooleanField(default=False)
 
+    # Nouveau champ pour l'image de profil
+    profile_image = models.ImageField(
+        upload_to='profile_pictures/',
+        default='profile_pictures/default.jpg'
+    )
+
     def __str__(self):
         return f"{self.username} ({self.email_address})"
 

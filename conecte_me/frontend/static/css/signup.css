@@ -1,66 +1,97 @@
-/* On importe (ou on utilise via CDN) Bootstrap et Bootstrap Icons dans le HTML,
-   donc ici on se limite à nos overrides et classes perso. */
+/* -------------------------------
+   Styles existants...
+-------------------------------- */
 
 /* Aperçu de l’avatar */
 .avatar-preview {
-    width: 96px;
-    height: 96px;
-    overflow: hidden;
-    background: #f8f9fa;
-    display: flex; /* Ajout */
-    align-items: center; /* Ajout */
-    justify-content: center; /* Ajout */
-    position: relative; /* Assurez-vous que l'icône reste positionnée */
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 #camera-icon {
-    font-size: 2rem;
-    color: #6c757d;
-    position: absolute; /* Si nécessaire pour un positionnement précis */
-    top: 50%; /* Centrage vertical */
-    left: 50%; /* Centrage horizontal */
-    transform: translate(-50%, -50%); /* Ajustement */
-    pointer-events: none; /* Pour éviter que l'utilisateur ne clique accidentellement dessus */
+  font-size: 2rem;
+  color: #6c757d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
-  /* L'image prend tout l'espace, rognée pour remplir la zone */
-  .avatar-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Fond en dégradé clair */
-  .bg-light {
-    background: linear-gradient(to bottom, #e9ecef, #f8f9fa) !important;
-  }
-  
-  /* Animation fade-in */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  .fade-in {
-    animation: fadeIn 0.3s ease-in;
-  }
-  
-  /* Boutons “œil” (affichage/masquage du mot de passe) */
-  .input-group .btn-outline-secondary {
-    border-color: #ced4da;
-  }
-  .input-group .btn-outline-secondary:hover {
-    background-color: #f8f9fa;
-    border-color: #ced4da;
-  }
-  
-  /* Correction lisibilité des messages d'erreur / aides */
-  .invalid-feedback,
-  .valid-feedback {
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-  }
-  
+.avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bg-light {
+  background: linear-gradient(to bottom, #e9ecef, #f8f9fa) !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.input-group .btn-outline-secondary {
+  border-color: #ced4da;
+}
+.input-group .btn-outline-secondary:hover {
+  background-color: #f8f9fa;
+  border-color: #ced4da;
+}
+
+.invalid-feedback,
+.valid-feedback {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* -------------------------------
+ Styles pour la case RGPD
+-------------------------------- */
+.terms-container {
+  text-align: center;
+}
+
+.terms-container .form-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terms-container .form-check-input {
+  margin-right: 0.5rem;
+}
+
+.terms-links {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.terms-links a {
+  color: #0d6efd; /* Couleur primaire Bootstrap */
+  text-decoration: none;
+}
+
+.terms-links a:hover {
+  text-decoration: underline;
+}
+
+/* -----------------------------------------------------------------
+   Si la case RGPD n'est pas cochée, alors au survol du bouton S'inscrire
+   le curseur devient "not-allowed".
+   Utilisation de :has, compatible avec Google Chrome.
+------------------------------------------------------------------ */
+form:not(:has(#terms-checkbox:checked)) button[type="submit"]:hover {
+  cursor: not-allowed;
+}

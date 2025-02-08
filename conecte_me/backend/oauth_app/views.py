@@ -1,6 +1,9 @@
 import os
 import requests
 import jwt
+import datetime
+import requests
+
 from django.shortcuts import redirect, render
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -102,36 +105,67 @@ def callback_42(request):
     response = HttpResponseRedirect(f"https://localhost:8443/game_interface.html?jwt={jwt_token}")
     return response
 
+# --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
 @csrf_exempt
 def signup_view(request):
     if request.method == 'POST':
-        # Récupération des données depuis la requête POST
+        # Récupération des données du formulaire
         first_name = request.POST.get('firstname')
         email = request.POST.get('email')
         raw_password = request.POST.get('password')
         pseudo = request.POST.get('pseudo', '')
 
-        # Validation des champs
+        # Vérification que tous les champs requis sont présents
         if not all([first_name, email, raw_password]):
-            return JsonResponse({"success": False, "error": "Tous les champs requis ne sont pas remplis."}, status=400)
+            return JsonResponse(
+                {"success": False, "error": "Tous les champs requis ne sont pas remplis."},
+                status=400
+            )
+
+        # Gestion de l'image de profil
+        profile_image = request.FILES.get('avatar')
+        if profile_image:
+            # Limiter la taille du fichier à 2MB
+            if profile_image.size > 2 * 1024 * 1024:
+                return JsonResponse(
+                    {"success": False, "error": "La taille de l'image ne doit pas dépasser 2MB."},
+                    status=400
+                )
+            # Vérifier le type MIME (seuls JPEG et PNG sont acceptés)
+            if profile_image.content_type not in ['image/jpeg', 'image/png']:
+                return JsonResponse(
+                    {"success": False, "error": "Format d'image non supporté. Seul JPEG et PNG sont autorisés."},
+                    status=400
+                )
+        # Si aucune image n'est fournie, le champ prendra la valeur par défaut définie dans le modèle.
+
         try:
             with transaction.atomic():
                 user = User42(
-                    user_id=0,  # Placeholder pour le moment
+                    user_id=0,  # À remplacer selon la logique de votre application
                     username=pseudo or email.split('@')[0],
                     first_name=first_name,
                     email_address=email,
                 )
-                user.password = make_password(raw_password)  # Hash du mot de passe
+                user.password = make_password(raw_password)
+                if profile_image:
+                    user.profile_image = profile_image
                 user.save()
         except IntegrityError:
-            return JsonResponse({"success": False, "error": "Cette adresse e-mail est déjà utilisée."}, status=400)
+            return JsonResponse(
+                {"success": False, "error": "Cette adresse e-mail est déjà utilisée."},
+                status=400
+            )
 
-        # Succès de l'inscription
-        return JsonResponse({"success": True, "detail": "Inscription réussie."}, status=201)
+        return JsonResponse(
+            {"success": True, "detail": "Inscription réussie."},
+            status=201
+        )
 
-    # Méthode non autorisée
-    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    return JsonResponse(
+        {"success": False, "error": "Méthode non autorisée."},
+        status=405
+    )
 
 @csrf_exempt
 def login_view(request):

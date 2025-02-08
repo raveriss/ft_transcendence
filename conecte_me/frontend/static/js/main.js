@@ -1,5 +1,3 @@
-// main.js
-
 document.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.getElementById('login-btn');
   const signupBtn = document.getElementById('signup-btn');
@@ -9,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const setupBtn = document.getElementById('setup-btn');
   const statsBtn = document.getElementById('stats-btn');
   const exitBtn = document.getElementById('exit-btn');
-
 
   if (exitBtn) {
     exitBtn.addEventListener('click', () => {
@@ -34,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (statsBtn) {
     statsBtn.addEventListener('click', () => {
-      // Redirection vers game_setup.html
+      // Redirection vers stats_page.html
       window.location.href = 'stats_page.html';
     });
   }
@@ -52,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Ajoute la classe d’état "active"
       loginBtn.classList.add('btn-primary');
       signupBtn?.classList.remove('btn-primary');
-      // Ici, vous pouvez rediriger, afficher un modal, etc.
+      // Redirection vers login.html
       window.location.href = '/login.html';
     });
   }
@@ -63,9 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Ajoute la classe d’état "active"
       signupBtn.classList.add('btn-primary');
       loginBtn?.classList.remove('btn-primary');
-
-      // EXEMPLE : rediriger vers une page signup.html
-      // (À créer ou à remplacer par votre propre route)
+      // Redirection vers signup.html
       window.location.href = 'signup.html';
     });
   }
@@ -74,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (connect42Btn) {
     connect42Btn.addEventListener('click', () => {
       // Redirection vers l'endpoint OAuth 42
-      // Adaptez l'URL si nécessaire
       window.location.href = 'https://localhost:8443/auth/42/login-42/';
     });
   }
@@ -87,5 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (container) {
       localStorage.setItem('jwt', jwt);
     }
+  }
+
+  // ====== GESTION DE LA CASE À COCHER POUR LES POLITIQUES (TOS & Privacy) ======
+  const tosCheckbox = document.getElementById('tos-checkbox');
+  if (tosCheckbox && connect42Btn) {
+    // Désactiver le bouton dès le chargement de la page
+    connect42Btn.disabled = true;
+    connect42Btn.classList.add('disabled');
+
+    tosCheckbox.addEventListener('change', () => {
+      if (tosCheckbox.checked) {
+        connect42Btn.disabled = false;
+        connect42Btn.classList.remove('disabled');
+      } else {
+        connect42Btn.disabled = true;
+        connect42Btn.classList.add('disabled');
+      }
+    });
   }
 });
