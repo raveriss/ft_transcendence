@@ -100,4 +100,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // --- Nouveau code pour mettre à jour le username dans user.html ---
+  if (window.location.href.includes('user.html')) {
+    const playerNameElement = document.querySelector('.player-name');
+    if (playerNameElement) {
+      fetch('/auth/user/', { credentials: 'include' })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.username) {
+            playerNameElement.textContent = data.username;
+          } else {
+            playerNameElement.textContent = 'Error loading username';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching username:', error);
+          playerNameElement.textContent = 'Error loading username';
+        });
+    }
+  }
+
 });

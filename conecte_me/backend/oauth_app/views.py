@@ -18,6 +18,10 @@ from django.contrib import messages
 from .models import User42
 from .utils import generate_jwt
 
+# Ajout de la gestion des logs
+import logging
+logger = logging.getLogger(__name__)
+
 # Récupération des variables d'env
 CLIENT_ID = os.environ.get('OAUTH42_CLIENT_ID')
 CLIENT_SECRET = os.environ.get('OAUTH42_CLIENT_SECRET')
@@ -96,6 +100,11 @@ def callback_42(request):
         user_id=user_id_42,
         defaults={'username': user_name_42}
     )
+
+    # --- Ajout de la mise à jour de la session ---
+    request.session['user_id'] = user.pk
+    request.session['email'] = user.email_address
+    # -----------------------------------------------
 
     # Générer un JWT pour la session
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
@@ -215,3 +224,20 @@ def login_view(request):
         "success": False,
         "error": "Méthode non autorisée."
     }, status=405)
+
+# -------------------------------
+# Nouvelle vue pour récupérer le username
+# -------------------------------
+def user_info(request):
+    logger.debug("Appel de user_info, session: %s", dict(request.session))
+    user_id = request.session.get('user_id')
+    if not user_id:
+        logger.error("Aucun user_id dans la session !")
+        return JsonResponse({'error': 'User not authenticated'}, status=401)
+    try:
+        user = User42.objects.get(pk=user_id)
+        logger.debug("Utilisateur trouvé : %s", user.username)
+        return JsonResponse({'username': user.username})
+    except User42.DoesNotExist:
+        logger.error("Utilisateur non trouvé pour user_id=%s", user_id)
+        return JsonResponse({'error': 'User not found'}, status=404)
