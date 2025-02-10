@@ -1,24 +1,368 @@
-<!-- backend/oauth_app/templates/2fa_setup.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Configuration 2FA - ConecteMe</title>
-    <link rel="stylesheet" href="/static/css/main.css">
+  <meta charset="UTF-8" />
+  <title>Configuration 2FA - ConecteMe</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+  <style>
+    /* -------------------------------------------------------------
+       Fonts (adaptez selon vos chemins)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NotoSymbols';
+      src: url('static/fonts/NotoSansSymbols-Regular.ttf') format('truetype');
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body : fond + centrage
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cantarell', sans-serif;
+      min-height: 100vh;
+      overflow-y: auto; /* on scrolle si trop grand */
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+
+    .main-container {
+      position: relative;
+      width: 95%;
+      max-width: 1200px;
+      margin: 2rem auto;  /* centrage horizontal + marge verticale */
+    }
+
+    /* -------------------------------------------------------------
+       Header : flèche retour, Titre, icône user (top-right)
+    ------------------------------------------------------------- */
+    .header-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .back-btn {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(51, 65, 85, 0.75);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      margin: 0;
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(
+        to bottom, 
+        #3b82f6, 
+        #2563eb,
+        #1e3a8a
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+      letter-spacing: 15px;
+      text-align: center;
+    }
+
+    .top-user-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .top-user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Carte principale (adaptée ici pour le 2FA)
+    ------------------------------------------------------------- */
+    .main-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* -------------------------------------------------------------
+       Autres styles hérités de la charte graphique
+       (non utilisés ici mais conservés pour homogénéité)
+    ------------------------------------------------------------- */
+    .avatar-bubble {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      background-color: rgba(15, 23, 42, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #f1f5f9;
+      margin: 0 auto 1rem;
+    }
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .avatar-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .camera-icon {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 28px;
+      height: 28px;
+      background: rgba(30, 41, 59, 0.9);
+      border: 1px solid rgba(51,65,85,0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f1f5f9;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+      border: none;
+      outline: none;
+    }
+    .camera-icon:hover {
+      transform: scale(1.5);
+    }
+    .camera-icon:focus {
+      outline: 2px solid rgba(59,130,246,0.5);
+    }
+    .player-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+    }
+    .player-status {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .stat-item {
+      flex: 1 1 calc(25% - 1rem);
+      min-width: 120px;
+      background: rgba(53, 63, 87, 0.5);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin: 0;
+      text-align: left;
+    }
+    .stat-value {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 0.2rem;
+      color: #fff;
+      text-align: left;
+    }
+    .stat-value.highlight-value {
+      color: #60a5fa;
+    }
+    .security-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .security-card h5 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .security-item {
+      background: rgba(53, 63, 87, 0.5);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background-color 0.2s, border-color 0.3s;
+    }
+    .security-item:hover {
+      background: rgba(51, 72, 120, 0.6);
+      border-color: rgba(51,65,85,0.7);
+    }
+    .security-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .security-left i {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .security-right {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logs-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logs-card h5 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .logs-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #192434;
+    }
+    .logs-table th,
+    .logs-table td {
+      border: none; 
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: #f1f5f9;
+      background-color: #192434;
+    }
+    .logs-table thead tr th {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .logs-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .logs-table tbody tr:last-child {
+      border-bottom: none;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      min-width: 60px;
+    }
+    .status-active {
+      background-color: #22395f;
+      color: #83b0e6;
+    }
+    .status-inactive {
+      background-color: #2a364a;
+      color: #9ba5b4;
+    }
+    .back-btn img.arrow-icon {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Configuration de l'Authentification à Deux Facteurs (2FA)</h1>
-    <p>Scannez le QR Code ci-dessous avec votre application d'authentification (par ex. Google Authenticator) :</p>
-    <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code pour 2FA">
-    
-    <p>Ensuite, entrez le code généré par votre application :</p>
-    <form id="2faForm">
-        <input type="text" name="otp_code" id="otp_code" placeholder="Entrez le code OTP" required>
-        <button type="submit">Valider</button>
-    </form>
-    
-    <div id="message"></div>
-    
-    <script src="/static/js/2fa.js"></script>
+  <div class="main-container">
+    <!-- Barre supérieure avec bouton retour et titre -->
+    <div class="header-bar">
+      <div class="back-btn">
+        <button onclick="history.back()">
+          <img src="/static/img/return_arrow.png" alt="Retour" class="arrow-icon">
+        </button>
+      </div>
+      <h1 class="title">Configuration 2FA</h1>
+    </div>
+
+    <!-- Carte principale contenant le contenu de la configuration 2FA -->
+    <div class="main-card">
+      <h2>Configuration de l'Authentification à Deux Facteurs (2FA)</h2>
+      <p>Scannez le QR Code ci-dessous avec votre application d'authentification (par ex. Google Authenticator) :</p>
+      <div class="text-center mb-3">
+        <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code pour 2FA">
+      </div>
+      <p>Ensuite, entrez le code généré par votre application :</p>
+      <form id="2faForm">
+        <div class="mb-3">
+          <input type="text" name="otp_code" id="otp_code" placeholder="Entrez le code OTP" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Valider</button>
+      </form>
+      <div id="message" class="mt-3"></div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="/static/js/2fa.js"></script>
 </body>
 </html>
