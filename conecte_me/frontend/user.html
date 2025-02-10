@@ -139,12 +139,12 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Avatar-bubble avec icône camera en bas à droite */
+    /* Conteneur principal (pour le positionnement de l'icône) */
     .avatar-bubble {
       position: relative;
       width: 96px;
       height: 96px;
-      background-color: rgba(15,23,42,0.5);
+      background-color: rgba(15, 23, 42, 0.5);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -152,7 +152,23 @@
       font-size: 3rem;
       color: #f1f5f9;
       margin: 0 auto 1rem; /* centré, marge en bas */
+      /* Ne pas utiliser overflow: hidden ici, pour que l'icône puisse dépasser */
     }
+
+    /* Conteneur dédié à l'image qui va être masquée */
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden; /* l'image sera clipée dans un cercle */
+    }
+
+    .avatar-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* l'image couvre tout le conteneur sans déformation */
+    }
+
     .camera-icon {
         position: absolute;
         bottom: 0;
@@ -382,10 +398,11 @@
       
       <!-- Bulle avatar au-dessus -->
       <div class="avatar-bubble">
-        <i class="bi bi-person-circle"></i>
-        <!-- Icône photo en bas à droite, version “button” -->
+        <div class="avatar-image">
+          <img id="profile-image" src="{% static 'img/default-avatar.png' %}" alt="User Profile">
+        </div>
         <button class="camera-icon" onclick="alert('Changer photo de profil');">
-            <i class="bi bi-camera-fill"></i>
+          <i class="bi bi-camera-fill"></i>
         </button>
       </div>
 

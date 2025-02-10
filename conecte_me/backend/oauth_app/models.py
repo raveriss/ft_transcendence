@@ -16,7 +16,7 @@ class User42(models.Model):
     # Nouveau champ pour l'image de profil
     profile_image = models.ImageField(
         upload_to='profile_pictures/',
-        default='profile_pictures/default.jpg'
+        default='profile_pictures/default_avatar.png'
     )
 
     def __str__(self):

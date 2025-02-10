@@ -101,10 +101,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Nouveau code pour mettre à jour le username dans user.html ---
+  // --- Nouveau code pour mettre à jour le username et la photo de profil dans user.html ---
   if (window.location.href.includes('user.html')) {
     const playerNameElement = document.querySelector('.player-name');
-    if (playerNameElement) {
+    const profileImageElement = document.getElementById('profile-image');
+    if (playerNameElement && profileImageElement) {
       fetch('/auth/user/', { credentials: 'include' })
         .then(response => {
           if (!response.ok) {
@@ -118,12 +119,18 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
             playerNameElement.textContent = 'Error loading username';
           }
+          if (data.profile_image) {
+            profileImageElement.src = data.profile_image;
+          }
         })
         .catch(error => {
-          console.error('Error fetching username:', error);
+          console.error('Error fetching user info:', error);
           playerNameElement.textContent = 'Error loading username';
+          // Utiliser l'avatar par défaut en cas d'erreur
+          profileImageElement.src = '/static/img/default-avatar.png';
         });
     }
   }
+
 
 });
