@@ -107,28 +107,39 @@ def callback_42(request):
     # Utilisation de get_or_create pour éviter les doublons.
     # Pour un nouvel utilisateur, les champs username, email_address et first_name
     # seront initialisés grâce à defaults.
-    user, created = User42.objects.get_or_create(
-        user_id=user_id_42,
-        defaults={
-            'username': user_name_42,
-            'email_address': email_value,
-            'first_name': first_name_value,
-        }
-    )
+    try:
+        with transaction.atomic():
+            # Recherche de l'utilisateur par email (champ unique dans notre cas)
+            user = User42.objects.filter(email_address=email_value).first()
+            if user:
+                # L'utilisateur existe déjà : on met à jour les infos si l'API fournit de nouvelles données
+                if (email_from_api and email_from_api != user.email_address) or \
+                   (first_name_from_api and first_name_from_api != user.first_name):
+                    user.email_address = email_from_api or user.email_address
+                    user.first_name = first_name_from_api or user.first_name
+                    user.save()
+            else:
+                # L'utilisateur n'existe pas encore : on lui attribue un user_id unique
+                existing_ids = list(User42.objects.values_list('user_id', flat=True))
+                sorted_ids = sorted(existing_ids)
+                new_user_id = 0
+                for uid in sorted_ids:
+                    if uid == new_user_id:
+                        new_user_id += 1
+                    else:
+                        # Dès qu'on détecte un gap, new_user_id est disponible
+                        break
 
-    # Pour un utilisateur existant, on met à jour email_address et first_name
-    # uniquement si l'API fournit de nouvelles données (afin de ne pas écraser
-    # des informations déjà renseignées).
-    if not created:
-        updated = False
-        if email_from_api and email_from_api != user.email_address:
-            user.email_address = email_from_api
-            updated = True
-        if first_name_from_api and first_name_from_api != user.first_name:
-            user.first_name = first_name_from_api
-            updated = True
-        if updated:
-            user.save()
+                user = User42(
+                    user_id=new_user_id,
+                    username=user_name_42,
+                    email_address=email_value,
+                    first_name=first_name_value,
+                )
+                user.save()
+    except IntegrityError:
+        return JsonResponse({"error": "Erreur lors de l'inscription de l'utilisateur"}, status=400)
+
 
     # --- Ajout de la mise à jour de la session ---
     request.session['user_id'] = user.pk
