@@ -6,6 +6,7 @@ from .views import (
     signup_view,
     login_view,
     user_info,  # <--- Import de la nouvelle vue
+    upload_avatar_view,
 )
 from . import twofa_views
 
@@ -18,4 +19,7 @@ urlpatterns = [
     path('2fa/validate/', twofa_views.two_factor_validate, name='two_factor_validate'),
     # Nouvelle route pour récupérer le username
     path('user/', user_info, name='user_info'),
+
+    path('user/upload_avatar/', upload_avatar_view, name='upload_avatar'),
+
 ]

@@ -396,14 +396,17 @@
     <!-- Carte principale (Profil + Stats) -->
     <div class="main-card">
       
-      <!-- Bulle avatar au-dessus -->
+      <!-- Bloc avatar -->
       <div class="avatar-bubble">
         <div class="avatar-image">
           <img id="profile-image" src="{% static 'img/default-avatar.png' %}" alt="User Profile">
         </div>
-        <button class="camera-icon" onclick="alert('Changer photo de profil');">
+        <!-- Bouton pour déclencher la sélection d'image -->
+        <button type="button" class="camera-icon">
           <i class="bi bi-camera-fill"></i>
         </button>
+        <!-- Input file caché -->
+        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
       </div>
 
       <!-- Nom + statut -->
@@ -522,5 +525,6 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
   </script>
   <script src="static/js/main.js"></script>
+  <script src="static/js/user.js"></script>
 </body>
 </html>

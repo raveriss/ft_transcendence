@@ -95,11 +95,40 @@ def callback_42(request):
     user_id_42 = user_data['id']
     user_name_42 = user_data['login']
 
-    # Stocker ou mettre à jour l'utilisateur en base
-    user, _ = User42.objects.get_or_create(
+    # Récupération de l'email et du prénom depuis l'API 42
+    email_from_api = user_data.get('email')
+    first_name_from_api = user_data.get('first_name')
+
+    # Pour un nouvel utilisateur, si l'API ne fournit pas ces informations,
+    # on utilise les valeurs par défaut.
+    email_value = email_from_api if email_from_api else 'placeholder@example.com'
+    first_name_value = first_name_from_api if first_name_from_api else 'Unknown'
+
+    # Utilisation de get_or_create pour éviter les doublons.
+    # Pour un nouvel utilisateur, les champs username, email_address et first_name
+    # seront initialisés grâce à defaults.
+    user, created = User42.objects.get_or_create(
         user_id=user_id_42,
-        defaults={'username': user_name_42}
+        defaults={
+            'username': user_name_42,
+            'email_address': email_value,
+            'first_name': first_name_value,
+        }
     )
+
+    # Pour un utilisateur existant, on met à jour email_address et first_name
+    # uniquement si l'API fournit de nouvelles données (afin de ne pas écraser
+    # des informations déjà renseignées).
+    if not created:
+        updated = False
+        if email_from_api and email_from_api != user.email_address:
+            user.email_address = email_from_api
+            updated = True
+        if first_name_from_api and first_name_from_api != user.first_name:
+            user.first_name = first_name_from_api
+            updated = True
+        if updated:
+            user.save()
 
     # --- Ajout de la mise à jour de la session ---
     request.session['user_id'] = user.pk
@@ -241,3 +270,36 @@ def user_info(request):
     except User42.DoesNotExist:
         logger.error("Utilisateur non trouvé pour user_id=%s", user_id)
         return JsonResponse({'error': 'User not found'}, status=404)
+    
+@csrf_exempt
+def upload_avatar_view(request):
+    if request.method == 'POST':
+        # Vérification de l'authentification via la session
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+        try:
+            user = User42.objects.get(pk=user_id)
+        except User42.DoesNotExist:
+            return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+        # Récupération du fichier envoyé
+        avatar_file = request.FILES.get('avatar')
+        if not avatar_file:
+            return JsonResponse({"success": False, "error": "Aucun fichier envoyé."}, status=400)
+
+        # Vérification de la taille (max 2MB)
+        if avatar_file.size > 2 * 1024 * 1024:
+            return JsonResponse({"success": False, "error": "La taille de l'image ne doit pas dépasser 2MB."}, status=400)
+        # Vérification du format (JPEG/PNG)
+        if avatar_file.content_type not in ['image/jpeg', 'image/png']:
+            return JsonResponse({"success": False, "error": "Format d'image non supporté."}, status=400)
+
+        # Sauvegarde du nouvel avatar dans le modèle (le champ profile_image gère le chemin d'upload)
+        user.profile_image = avatar_file
+        user.save()
+
+        # Retour de l'URL de la nouvelle image pour mise à jour immédiate côté client
+        return JsonResponse({"success": True, "profile_image_url": user.profile_image.url}, status=200)
+    else:
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
