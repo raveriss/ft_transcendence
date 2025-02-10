@@ -148,10 +148,10 @@ def callback_42(request):
 def signup_view(request):
     if request.method == 'POST':
         # Récupération des données du formulaire
-        first_name = request.POST.get('firstname')
-        email = request.POST.get('email')
+        first_name   = request.POST.get('firstname')
+        email        = request.POST.get('email')
         raw_password = request.POST.get('password')
-        pseudo = request.POST.get('pseudo', '')
+        pseudo       = request.POST.get('pseudo', '')
 
         # Vérification que tous les champs requis sont présents
         if not all([first_name, email, raw_password]):
@@ -175,12 +175,26 @@ def signup_view(request):
                     {"success": False, "error": "Format d'image non supporté. Seul JPEG et PNG sont autorisés."},
                     status=400
                 )
-        # Si aucune image n'est fournie, le champ prendra la valeur par défaut définie dans le modèle.
 
         try:
             with transaction.atomic():
+                # Récupérer tous les user_id existants
+                existing_ids = list(User42.objects.values_list('user_id', flat=True))
+                # Trier les IDs pour faciliter la recherche de la plus petite valeur manquante
+                sorted_ids = sorted(existing_ids)
+
+                # Déterminer le plus petit user_id disponible
+                new_user_id = 0
+                for uid in sorted_ids:
+                    if uid == new_user_id:
+                        new_user_id += 1
+                    else:
+                        # Dès qu'on trouve un gap, on arrête : new_user_id est disponible
+                        break
+
+                # Création de l'utilisateur avec le user_id trouvé
                 user = User42(
-                    user_id=0,  # À remplacer selon la logique de votre application
+                    user_id=new_user_id,
                     username=pseudo or email.split('@')[0],
                     first_name=first_name,
                     email_address=email,
@@ -189,7 +203,9 @@ def signup_view(request):
                 if profile_image:
                     user.profile_image = profile_image
                 user.save()
+
         except IntegrityError:
+            # Gestion propre des erreurs transactionnelles pour éviter les conflits d'unicité
             return JsonResponse(
                 {"success": False, "error": "Cette adresse e-mail est déjà utilisée."},
                 status=400
