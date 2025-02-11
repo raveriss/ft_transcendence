@@ -15,7 +15,7 @@
   />
   <style>
     /* -------------------------------------------------------------
-       Fonts (adaptez selon vos chemins)
+       Fonts
     ------------------------------------------------------------- */
     @font-face {
       font-family: 'Pong-Game';
@@ -46,7 +46,7 @@
       padding: 0;
       font-family: 'Cantarell', sans-serif;
       min-height: 100vh;
-      overflow-y: auto; /* on scrolle si trop grand */
+      overflow-y: auto;
       background: linear-gradient(135deg, #0f172a, #1e293b);
       color: #f1f5f9;
     }
@@ -54,12 +54,13 @@
     .main-container {
       position: relative;
       width: 95%;
-      max-width: 1200px;
-      margin: 2rem auto;  /* centrage horizontal + marge verticale */
+      max-width: 323px;
+      margin: 2rem auto;
+      position: relative;
     }
 
     /* -------------------------------------------------------------
-       Header : flèche retour, Titre, icône user (top-right)
+       Header : flèche retour, Titre, icône user
     ------------------------------------------------------------- */
     .header-bar {
       position: relative;
@@ -89,7 +90,6 @@
       border-color: rgba(51, 65, 85, 0.75);
       transform: translateY(-50%) scale(1.05);
     }
-
     .title {
       font-family: "Pong-Game", sans-serif;
       margin: 0;
@@ -109,7 +109,6 @@
       letter-spacing: 15px;
       text-align: center;
     }
-
     .top-user-icon {
       position: absolute;
       right: 0;
@@ -125,7 +124,7 @@
     }
 
     /* -------------------------------------------------------------
-       Carte principale (adaptée ici pour le 2FA)
+       Carte principale
     ------------------------------------------------------------- */
     .main-card {
       background: rgba(30, 41, 59, 0.4);
@@ -136,8 +135,20 @@
     }
 
     /* -------------------------------------------------------------
-       Autres styles hérités de la charte graphique
-       (non utilisés ici mais conservés pour homogénéité)
+       Customisation 2FA
+       - Réduction de la taille du QR code avec angles arrondis
+       - Textes centrés pour les instructions
+    ------------------------------------------------------------- */
+    .qr-code {
+      width: 200px; /* Taille réduite */
+      border-radius: 12px; /* Angles arrondis */
+    }
+    .instruction-text {
+      text-align: center;
+    }
+
+    /* -------------------------------------------------------------
+       Autres styles (issus de la charte graphique)
     ------------------------------------------------------------- */
     .avatar-bubble {
       position: relative;
@@ -291,7 +302,7 @@
     }
     .logs-table th,
     .logs-table td {
-      border: none; 
+      border: none;
       padding: 0.8rem;
       font-size: 0.9rem;
       color: #f1f5f9;
@@ -334,21 +345,24 @@
     <!-- Barre supérieure avec bouton retour et titre -->
     <div class="header-bar">
       <div class="back-btn">
-        <button onclick="history.back()">
+        <button onclick="history.back()" style="background: transparent; border: none;">
           <img src="/static/img/return_arrow.png" alt="Retour" class="arrow-icon">
         </button>
       </div>
-      <h1 class="title">Configuration 2FA</h1>
+      <h1 class="title">2FA</h1>
     </div>
 
     <!-- Carte principale contenant le contenu de la configuration 2FA -->
     <div class="main-card">
-      <h2>Configuration de l'Authentification à Deux Facteurs (2FA)</h2>
-      <p>Scannez le QR Code ci-dessous avec votre application d'authentification (par ex. Google Authenticator) :</p>
+      <p class="instruction-text">
+        Scannez le QR Code ci-dessous avec votre application d'authentification (par ex. Google Authenticator) :
+      </p>
       <div class="text-center mb-3">
-        <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code pour 2FA">
+        <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code pour 2FA" class="qr-code">
       </div>
-      <p>Ensuite, entrez le code généré par votre application :</p>
+      <p class="instruction-text">
+        Entrez le code généré par votre application :
+      </p>
       <form id="2faForm">
         <div class="mb-3">
           <input type="text" name="otp_code" id="otp_code" placeholder="Entrez le code OTP" required class="form-control">
@@ -360,9 +374,7 @@
   </div>
   
   <!-- Bootstrap JS -->
-  <script 
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/static/js/2fa.js"></script>
 </body>
 </html>
