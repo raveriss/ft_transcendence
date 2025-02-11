@@ -275,7 +275,9 @@
     .security-item:hover {
       background: rgba(51, 72, 120, 0.6);
       border-color: rgba(51,65,85,0.7);
+      color: #f1f5f9;
     }
+
     .security-left {
       display: flex;
       align-items: center;
@@ -309,71 +311,121 @@
     }
 
     .logs-table {
-  width: 100%;
-  border-collapse: collapse; /* Permet de gérer les bordures de façon fine */
-  background-color: #192434; /* Fond global, si voulu */
-}
+      width: 100%;
+      border-collapse: collapse; /* Permet de gérer les bordures de façon fine */
+      background-color: #192434; /* Fond global, si voulu */
+    }
 
-/* On enlève toutes les bordures par défaut sur th & td */
-.logs-table th,
-.logs-table td {
-  border: none; 
-  padding: 0.8rem;
-  font-size: 0.9rem;
-  color: #f1f5f9;
-  background-color: #192434; /* Couleur de fond pour chaque cellule */
-}
+    /* On enlève toutes les bordures par défaut sur th & td */
+    .logs-table th,
+    .logs-table td {
+      border: none; 
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: #f1f5f9;
+      background-color: #192434; /* Couleur de fond pour chaque cellule */
+    }
 
-/* On ne veut pas de lignes verticales → pas de border-left/border-right. 
-   Mais on veut de fines lignes horizontales internes,
-   sauf la toute première (au-dessus du thead) et la toute dernière (après le dernier <tr>). */
+    /* On ne veut pas de lignes verticales → pas de border-left/border-right. 
+      Mais on veut de fines lignes horizontales internes,
+      sauf la toute première (au-dessus du thead) et la toute dernière (après le dernier <tr>). */
 
-/* Ligne horizontale sous l’en‐tête (thead) */
-.logs-table thead tr th {
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
+    /* Ligne horizontale sous l’en‐tête (thead) */
+    .logs-table thead tr th {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
 
-/* Lignes horizontales entre les rangées du tbody 
-   (on en met une border-bottom sur chaque <tr> du tbody, 
-    sauf le dernier). */
-.logs-table tbody tr {
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
+    /* Lignes horizontales entre les rangées du tbody 
+      (on en met une border-bottom sur chaque <tr> du tbody, 
+        sauf le dernier). */
+    .logs-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
 
-/* On supprime la ligne horizontale après la dernière rangée */
-.logs-table tbody tr:last-child {
-  border-bottom: none;
-}
+    /* On supprime la ligne horizontale après la dernière rangée */
+    .logs-table tbody tr:last-child {
+      border-bottom: none;
+    }
 
-/* Style de base pour les badges de statut */
-.status-badge {
-  display: inline-block;
-  padding: 4px 10px;        /* Ajustez si vous voulez un badge plus ou moins grand */
-  border-radius: 9999px;    /* donne un aspect “pill” très arrondi */
-  font-size: 0.8rem;        /* taille du texte */
-  font-weight: 600;         /* texte un peu gras */
-  text-align: center;
-  min-width: 60px;          /* optionnel, pour un badge d’au moins 60px de large */
-}
+    /* Style de base pour les badges de statut */
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;        /* Ajustez si vous voulez un badge plus ou moins grand */
+      border-radius: 9999px;    /* donne un aspect “pill” très arrondi */
+      font-size: 0.8rem;        /* taille du texte */
+      font-weight: 600;         /* texte un peu gras */
+      text-align: center;
+      min-width: 60px;          /* optionnel, pour un badge d’au moins 60px de large */
+    }
 
-/* Couleurs pour “Active” */
-.status-active {
-  background-color: #22395f; /* Fond #22395f */
-  color: #83b0e6;            /* Texte #83b0e6 */
-}
+    /* Couleurs pour “Active” */
+    .status-active {
+      background-color: #22395f; /* Fond #22395f */
+      color: #83b0e6;            /* Texte #83b0e6 */
+    }
 
-/* Couleurs pour “Inactive” */
-.status-inactive {
-  background-color: #2a364a; /* Fond #2a364a */
-  color: #9ba5b4;            /* Texte #9ba5b4 */
-}
+    /* Couleurs pour “Inactive” */
+    .status-inactive {
+      background-color: #2a364a; /* Fond #2a364a */
+      color: #9ba5b4;            /* Texte #9ba5b4 */
+    }
 
-/* Pour l'image à l'intérieur du bouton "back-btn" */
-.back-btn img.arrow-icon {
-  width: 24px;
-  height: 24px;
-  /* object-fit: contain;  <-- facultatif si tu veux être sûr que l’image ne soit pas déformée */
-}
+    /* Pour l'image à l'intérieur du bouton "back-btn" */
+    .back-btn img.arrow-icon {
+      width: 24px;
+      height: 24px;
+      /* object-fit: contain;  <-- facultatif si tu veux être sûr que l’image ne soit pas déformée */
+    }
+
+    /* -----------------------
+       Email form container
+    -------------------------*/
+    .email-form-container {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .email-form-container.open {
+      max-height: 400px; /* Valeur à ajuster selon la hauteur du formulaire */
+      opacity: 1;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem; /* <-- Ajout pour avoir plus d’espace en bas */
+      background: rgba(53, 63, 87, 0.5);
+      border-radius: 8px;
+      padding: 1.3rem 1.618rem;
+    }
+    /* Rotation de l’icône */
+    .rotate {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+
+    .password-form-container {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    .password-form-container.open {
+      max-height: 400px; /* Ajustez selon la hauteur du formulaire */
+      opacity: 1;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;  /* Pour ajouter un espace en bas quand c’est ouvert */
+      background: rgba(53, 63, 87, 0.5);
+      border-radius: 8px;
+      padding: 1.3rem 1.618rem;
+    }
+
+    /* Animation pour le toggle 2FA */
+    #twofa-btn i {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    #twofa-icon {
+      font-size: 2rem; /* Augmentez la valeur (ex: 2rem, 3rem, etc.) selon vos besoins */
+    }
 
 
   </style>
@@ -444,39 +496,98 @@
       <h5 class="mb-3">Sécurité</h5>
 
       <!-- Item 1 : Ajouter/Changer Email -->
-      <div class="security-item">
+      <div class="security-item" id="email-toggle">
         <div class="security-left">
           <i class="bi bi-envelope"></i>
           <span>Ajouter/Changer : Email</span>
         </div>
         <div class="security-right">
-          <i class="bi bi-chevron-down"></i>
+          <i class="bi bi-chevron-down" id="email-chevron"></i>
         </div>
       </div>
 
+      <!-- Conteneur du formulaire d'email (caché par défaut) -->
+      <div id="email-form-container" class="email-form-container">
+        <form id="email-form" novalidate class="mb-3">
+          <div class="mb-3">
+            <label for="old-email" class="form-label">Ancien Email</label>
+            <input type="email" id="old-email" class="form-control" placeholder="user@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="new-email" class="form-label">Nouveau Email</label>
+            <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email">
+            <div class="invalid-feedback">
+              Veuillez entrer un email valide.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="confirm-email" class="form-label">Confirmation Email</label>
+            <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email">
+            <div class="invalid-feedback">
+              Les emails ne correspondent pas.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            Valider
+          </button>
+        </form>
+      </div>
+
       <!-- Item 2 : Changer le mot de passe -->
-      <div class="security-item">
+      <div class="security-item" id="password-toggle">
         <div class="security-left">
           <i class="bi bi-key"></i>
           <span>Changer le mot de passe</span>
         </div>
         <div class="security-right">
-          <i class="bi bi-chevron-down"></i>
+          <i class="bi bi-chevron-down" id="password-chevron"></i>
         </div>
       </div>
 
-      <!-- Item 3 : 2FA -->
-      <div class="security-item">
-        <div class="security-left">
-          <i class="bi bi-shield"></i>
-          <span>Two-factor authentication (2FA)</span>
-        </div>
-        <div class="security-right">
-          <span class="opacity-75">Désactivé</span>
-          <i class="bi bi-chevron-right"></i>
-        </div>
+      <!-- Conteneur du formulaire du mot de passe (caché par défaut) -->
+      <div id="password-form-container" class="password-form-container">
+        <form id="password-form" novalidate class="mb-3">
+          <div class="mb-3">
+            <label for="old-password" class="form-label">Ancien mot de passe</label>
+            <input type="password" id="old-password" class="form-control" placeholder="•••••••">
+          </div>
+          <div class="mb-3">
+            <label for="new-password" class="form-label">Nouveau mot de passe</label>
+            <input type="password" id="new-password" class="form-control" placeholder="•••••••">
+            <div class="invalid-feedback">
+              Veuillez entrer un mot de passe valide.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="confirm-password" class="form-label">Confirmation</label>
+            <input type="password" id="confirm-password" class="form-control" placeholder="•••••••">
+            <div class="invalid-feedback">
+              Les mots de passe ne correspondent pas.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            Valider
+          </button>
+        </form>
+      </div>
+
+
+    <!-- Section 2FA dans la sécurité -->
+    <div class="security-item" id="twofa-toggle">
+      <div class="security-left">
+        <i class="bi bi-shield"></i>
+        <span>Two-factor authentication (2FA)</span>
+      </div>
+      <div class="security-right">
+        <!-- Bouton toggle avec icône initiale "toggle off" en rouge -->
+        <button id="twofa-btn" class="btn btn-link p-0" tabindex="0" aria-label="Activer 2FA">
+          <i id="twofa-icon" class="bi bi-toggle-off text-danger"></i>
+        </button>
       </div>
     </div>
+
 
     <!-- Section Logs de connexion -->
     <div class="logs-card">
