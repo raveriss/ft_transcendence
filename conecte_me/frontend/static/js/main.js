@@ -7,11 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const setupBtn = document.getElementById('setup-btn');
   const statsBtn = document.getElementById('stats-btn');
   const exitBtn = document.getElementById('exit-btn');
-
+  const playBtn = document.getElementById('play-btn');
   if (exitBtn) {
     exitBtn.addEventListener('click', () => {
       // Redirige vers index.html
       window.location.href = 'index.html';
+    });
+  }
+  
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      window.location.href = 'game_mode.html';
     });
   }
 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Créer un Tournoi</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <!-- Lien vers le fichier JS externe -->
+  <script src="static/js/tournament.js" defer></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f1f5f9;
+      text-align: center;
+    }
+
+    .main-container {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(30, 41, 59, 0.9);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .title {
+      font-size: 2.5rem;
+      background: linear-gradient(to bottom, #3b82f6, #2563eb, #1e3a8a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #64748b;
+      background: #1e293b;
+      color: #f1f5f9;
+    }
+
+    .menu-button {
+      background: rgba(51, 65, 85, 0.8);
+      border: 1px solid rgba(100, 116, 139, 0.5);
+      border-radius: 8px;
+      color: #f1f5f9;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .menu-button:hover {
+      background: rgba(51, 65, 85, 0.9);
+      transform: scale(1.05);
+    }
+
+    #players-container {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main-container">
+    <h1 class="title">Créer un Tournoi</h1>
+
+    <form id="tournament-form">
+      <div class="form-group">
+        <label for="tournament-name">Nom du Tournoi :</label>
+        <input type="text" id="tournament-name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="player-count">Nombre de Participants :</label>
+        <select id="player-count" required>
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="8">8</option>
+        </select>
+      </div>
+
+      <div id="players-container"></div>
+
+      <button type="submit" class="menu-button">Valider</button>
+    </form>
+  </div>
+
+</body>
+</html>
+

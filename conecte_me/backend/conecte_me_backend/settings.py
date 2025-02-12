@@ -29,13 +29,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'corsheaders',
     # Applications tierces
     'rest_framework',
     'oauth2_provider',
 
     # Applications personnalisées
     'oauth_app',
+    'tournament',
 ]
 
 # Middleware
@@ -47,11 +48,17 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleWare',
 ]
 
 # Configuration des URL
 ROOT_URLCONF = 'conecte_me_backend.urls'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8443", #url  et port du front
+]
+
+CORS_ALLOW_ALL_ORIGINS = True # uniquement en phase de dev
 # Configuration des templates
 TEMPLATES = [
     {

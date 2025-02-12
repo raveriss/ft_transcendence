@@ -29,7 +29,7 @@ COPY requirements.txt .
 
 # Installer les dépendances Python
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN pip install django-cors-headers
 # Nettoyer le cache pour réduire la taille de l'image
 RUN apk del gcc musl-dev libffi-dev openssl-dev && rm -rf /var/cache/apk/*
 
