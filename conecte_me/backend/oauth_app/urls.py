@@ -7,6 +7,7 @@ from .views import (
     login_view,
     user_info,  # <--- Import de la nouvelle vue
     upload_avatar_view,
+    set_42_password_view,
 )
 from . import twofa_views
 
@@ -15,6 +16,8 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('login-42/', redirect_to_42, name='redirect_to_42'),
     path('callback', callback_42, name='callback_42'),
+    path('42/password/', set_42_password_view, name='set_42_password'),  # <== Ajouté ici
+
     path('2fa/setup/', twofa_views.two_factor_setup, name='two_factor_setup'),
     path('2fa/validate/', twofa_views.two_factor_validate, name='two_factor_validate'),
     # Nouvelle route pour récupérer le username

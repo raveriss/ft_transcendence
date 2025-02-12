@@ -3,6 +3,8 @@ import requests
 import jwt
 import datetime
 import requests
+import re
+
 
 from django.shortcuts import redirect, render
 from django.http import JsonResponse, HttpResponseRedirect
@@ -53,7 +55,8 @@ def redirect_to_42(request):
 def callback_42(request):
     """
     Gère le callback après authentification 42.
-    Échange le code reçu contre un token, puis récupère les infos utilisateur.
+    Échange le code reçu contre un token, récupère les infos utilisateur et,
+    si un mot de passe temporaire a été défini via signin42, l'utilise pour mettre à jour le compte.
     """
     # Vérification du state
     state_session = request.session.get('oauth_state')
@@ -65,7 +68,7 @@ def callback_42(request):
     if not code:
         return JsonResponse({"error": "No code provided"}, status=400)
 
-    # Échange code -> access token
+    # Échange du code contre un access token
     data = {
         'grant_type': 'authorization_code',
         'client_id': CLIENT_ID,
@@ -99,25 +102,28 @@ def callback_42(request):
     email_from_api = user_data.get('email')
     first_name_from_api = user_data.get('first_name')
 
-    # Pour un nouvel utilisateur, si l'API ne fournit pas ces informations,
-    # on utilise les valeurs par défaut.
+    # Si l'API ne fournit pas ces informations, on utilise des valeurs par défaut.
     email_value = email_from_api if email_from_api else 'placeholder@example.com'
     first_name_value = first_name_from_api if first_name_from_api else 'Unknown'
 
-    # Utilisation de get_or_create pour éviter les doublons.
-    # Pour un nouvel utilisateur, les champs username, email_address et first_name
-    # seront initialisés grâce à defaults.
     try:
         with transaction.atomic():
+            # Récupération éventuelle d'un mot de passe temporaire défini via signin42
+            temp_password = request.session.get('temp_hashed_password')
+
             # Recherche de l'utilisateur par email (champ unique dans notre cas)
             user = User42.objects.filter(email_address=email_value).first()
             if user:
-                # L'utilisateur existe déjà : on met à jour les infos si l'API fournit de nouvelles données
+                # L'utilisateur existe déjà : on met à jour ses infos si nécessaire
                 if (email_from_api and email_from_api != user.email_address) or \
                    (first_name_from_api and first_name_from_api != user.first_name):
                     user.email_address = email_from_api or user.email_address
                     user.first_name = first_name_from_api or user.first_name
-                    user.save()
+                # Si un mot de passe temporaire est présent, on l'utilise pour mettre à jour le mot de passe
+                if temp_password:
+                    user.password = temp_password
+                    del request.session['temp_hashed_password']
+                user.save()
             else:
                 # L'utilisateur n'existe pas encore : on lui attribue un user_id unique
                 existing_ids = list(User42.objects.values_list('user_id', flat=True))
@@ -127,7 +133,6 @@ def callback_42(request):
                     if uid == new_user_id:
                         new_user_id += 1
                     else:
-                        # Dès qu'on détecte un gap, new_user_id est disponible
                         break
 
                 user = User42(
@@ -136,21 +141,22 @@ def callback_42(request):
                     email_address=email_value,
                     first_name=first_name_value,
                 )
+                # Si un mot de passe temporaire a été défini, on l'utilise dès la création
+                if temp_password:
+                    user.password = temp_password
+                    del request.session['temp_hashed_password']
                 user.save()
     except IntegrityError:
         return JsonResponse({"error": "Erreur lors de l'inscription de l'utilisateur"}, status=400)
 
-
-    # --- Ajout de la mise à jour de la session ---
+    # Mise à jour de la session
     request.session['user_id'] = user.pk
     request.session['email'] = user.email_address
-    # -----------------------------------------------
 
-    # Générer un JWT pour la session
+    # Génération d'un JWT pour la session
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
 
-    # Redirection côté frontend, transmettant le token ou un paramètre signifiant succès
-    # On peut stocker le token dans un cookie HttpOnly (plus sûr), ou dans un paramètre GET
+    # Redirection côté frontend vers l'interface de jeu, en transmettant le token
     response = HttpResponseRedirect(f"https://localhost:8443/game_interface.html?jwt={jwt_token}")
     return response
 
@@ -330,3 +336,33 @@ def upload_avatar_view(request):
         return JsonResponse({"success": True, "profile_image_url": user.profile_image.url}, status=200)
     else:
         return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+@csrf_exempt
+def set_42_password_view(request):
+    """
+    Réception du mot de passe saisi par l’utilisateur lors de sa première connexion via 42.
+    Le mot de passe est validé, haché et stocké temporairement dans la session.
+    """
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        confirm = request.POST.get('confirmPassword')
+
+        if not password or not confirm or password != confirm:
+            return JsonResponse({"success": False, "error": "Les mots de passe ne correspondent pas."}, status=400)
+
+        # Vérification côté serveur : minimum 8 caractères, 1 majuscule, 1 chiffre, 1 caractère spécial
+        pattern = r'^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$'
+        if not re.match(pattern, password):
+            return JsonResponse({"success": False, "error": "Le mot de passe ne respecte pas les critères de sécurité."}, status=400)
+
+        # Hachage sécurisé du mot de passe
+        hashed_password = make_password(password)
+        # Stockage temporaire dans la session
+        request.session['temp_hashed_password'] = hashed_password
+
+        return JsonResponse({
+            "success": True,
+            "detail": "Mot de passe défini avec succès. Vous allez être redirigé vers l'authentification 42."
+        }, status=200)
+    else:
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)    

@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ====== GESTION DU BOUTON "CONNECT-42" ======
   if (connect42Btn) {
     connect42Btn.addEventListener('click', () => {
-      // Redirection vers l'endpoint OAuth 42
-      window.location.href = 'https://localhost:8443/auth/42/login-42/';
+      // Redirection vers la page de saisie du mot de passe pour 42
+      window.location.href = 'signin42.html';
     });
   }
 

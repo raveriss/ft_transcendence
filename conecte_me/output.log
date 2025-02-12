@@ -21,8 +21,8 @@ Container conecteme_db  Removed
 Volume conecte_me_postgres_data  Removing
 Volume conecte_me_media_data  Removing
 Network conecte_me_conecteme_network  Removing
-Volume conecte_me_media_data  Removed
 Volume conecte_me_postgres_data  Removed
+Volume conecte_me_media_data  Removed
 Network conecte_me_conecteme_network  Removed
 .
 ├── backend
@@ -86,6 +86,7 @@ Network conecte_me_conecteme_network  Removed
 │   ├── index.html
 │   ├── login.html
 │   ├── privacy.html
+│   ├── signin42.html
 │   ├── signup.html
 │   ├── static
 │   │   ├── css
@@ -104,6 +105,7 @@ Network conecte_me_conecteme_network  Removed
 │   │       ├── 2fa.js
 │   │       ├── login.js
 │   │       ├── main.js
+│   │       ├── signin42.js
 │   │       ├── signup.js
 │   │       └── user.js
 │   ├── stats_page.html
@@ -114,7 +116,7 @@ Network conecte_me_conecteme_network  Removed
 ├── output.log
 └── README.md
 
-16 directories, 72 files
+16 directories, 74 files
 # Django
 SECRET_KEY=change_me_in_production
 DEBUG=1
@@ -328,534 +330,92 @@ COPY static ./static
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <title>Profil utilisateur - ft_transcendence</title>
-  <!-- Bootstrap CSS -->
-  <link 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet"
-  />
-  <!-- Bootstrap Icons -->
-  <link 
-    rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-  />
-
-  <style>
-    /* -------------------------------------------------------------
-       Fonts (adaptez selon vos chemins)
-    ------------------------------------------------------------- */
-    @font-face {
-      font-family: 'Pong-Game';
-      src: url('static/fonts/PongGame.woff2') format('woff2'),
-           url('static/fonts/PongGame.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: 'NotoSymbols';
-      src: url('static/fonts/NotoSansSymbols-Regular.ttf') format('truetype');
-    }
-
-    /* -------------------------------------------------------------
-       Reset box-sizing
-    ------------------------------------------------------------- */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    /* -------------------------------------------------------------
-       Body : fond + centrage
-    ------------------------------------------------------------- */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Cantarell', sans-serif;
-
-      min-height: 100vh;
-      overflow-y: auto; /* on scrolle si trop grand */
-      
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #f1f5f9;
-    }
-
-    .main-container {
-      position: relative;
-      width: 95%;
-      max-width: 1200px;
-      margin: 2rem auto;  /* centrage horizontal + marge verticale */
-      position: relative; /* si vous avez besoin de position:relative */
-    }
-
-    /* -------------------------------------------------------------
-       Header : flèche retour, Titre PONG, icône user (top-right)
-    ------------------------------------------------------------- */
-    .header-bar {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .back-btn {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(30, 41, 59, 0.8);
-      border: 1px solid rgba(51, 65, 85, 0.5);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
-    }
-    .back-btn:hover {
-      background: rgba(30, 41, 59, 0.9);
-      border-color: rgba(51, 65, 85, 0.75);
-      transform: translateY(-50%) scale(1.05);
-    }
-
-    .title {
-      font-family: "Pong-Game", sans-serif;
-      margin: 0;
-      font-size: 4rem;
-      font-weight: bold;
-      background: linear-gradient(
-        to bottom, 
-        #3b82f6, 
-        #2563eb,
-        #1e3a8a
-      );
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
-      letter-spacing: 15px;
-      text-align: center;
-    }
-
-    .top-user-icon {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.8rem;
-      cursor: pointer;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-    .top-user-icon:hover {
-      opacity: 1;
-    }
-
-    /* -------------------------------------------------------------
-       Carte principale (Avatar + Player name + Stats)
-    ------------------------------------------------------------- */
-    .main-card {
-      background: rgba(30, 41, 59, 0.4);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Conteneur principal (pour le positionnement de l'icône) */
-    .avatar-bubble {
-      position: relative;
-      width: 96px;
-      height: 96px;
-      background-color: rgba(15, 23, 42, 0.5);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: #f1f5f9;
-      margin: 0 auto 1rem; /* centré, marge en bas */
-      /* Ne pas utiliser overflow: hidden ici, pour que l'icône puisse dépasser */
-    }
-
-    /* Conteneur dédié à l'image qui va être masquée */
-    .avatar-image {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      overflow: hidden; /* l'image sera clipée dans un cercle */
-    }
-
-    .avatar-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* l'image couvre tout le conteneur sans déformation */
-    }
-
-    .camera-icon {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 28px;
-        height: 28px;
-        background: rgba(30, 41, 59, 0.9);
-        border: 1px solid rgba(51,65,85,0.7);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #f1f5f9;
-        font-size: 1rem;
-        cursor: pointer;      /* Important : curseur clic */
-        transition: transform 0.3s;
-        border: none;         /* si c’est un <button>, vous pouvez forcer l’absence de style */
-        outline: none;
-    }
-
-    .camera-icon:hover {
-        transform: scale(1.5);
-    }
-
-    .camera-icon:focus {
-        outline: 2px solid rgba(59,130,246,0.5); /* Pour l’accessibilité focus */
-    }
-
-    .player-name {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 0;
-      text-align: center;
-    }
-    .player-status {
-        font-size: 0.9rem;
-        opacity: 0.8;
-        text-align: center;
-        margin-bottom: 1rem;
-
-        color: #60a5fa;  /* Couleur demandée */
-    }
-
-    /* Stats en 4 blocs, mais left-align (label au-dessus, value en dessous) */
-    .stats-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: space-between;
-    }
-    .stat-item {
-      flex: 1 1 calc(25% - 1rem); /* 4 items sur une ligne */
-      min-width: 120px;
-      background: rgba(53, 63, 87, 0.5);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-    }
-    .stat-label {
-      font-size: 0.85rem;
-      opacity: 0.8;
-      margin: 0;
-      text-align: left; /* Gauche */
-    }
-
-    .stat-value {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-top: 0.2rem;
-        color: #fff;
-        text-align: left; /* Gauche */
-    }
-
-    .stat-value.highlight-value {
-        color: #60a5fa; /* force la couleur bleue */
-    }
-
-    /* -------------------------------------------------------------
-       Bloc “Sécurité”
-    ------------------------------------------------------------- */
-    .security-card {
-      background: rgba(30, 41, 59, 0.4);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .security-card h5 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-    .security-item {
-      background: rgba(53, 63, 87, 0.5);
-
-      border-radius: 8px;
-      padding: 0.8rem 1rem;
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      transition: background-color 0.2s, border-color 0.3s;
-    }
-    .security-item:hover {
-      background: rgba(51, 72, 120, 0.6);
-      border-color: rgba(51,65,85,0.7);
-    }
-    .security-left {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .security-left i {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-    .security-right {
-      font-size: 0.9rem;
-      opacity: 0.6;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    /* -------------------------------------------------------------
-       Bloc “Logs de connexion”
-    ------------------------------------------------------------- */
-    .logs-card {
-      background: rgba(30, 41, 59, 0.4);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .logs-card h5 {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .logs-table {
-  width: 100%;
-  border-collapse: collapse; /* Permet de gérer les bordures de façon fine */
-  background-color: #192434; /* Fond global, si voulu */
-}
-
-/* On enlève toutes les bordures par défaut sur th & td */
-.logs-table th,
-.logs-table td {
-  border: none; 
-  padding: 0.8rem;
-  font-size: 0.9rem;
-  color: #f1f5f9;
-  background-color: #192434; /* Couleur de fond pour chaque cellule */
-}
-
-/* On ne veut pas de lignes verticales → pas de border-left/border-right. 
-   Mais on veut de fines lignes horizontales internes,
-   sauf la toute première (au-dessus du thead) et la toute dernière (après le dernier <tr>). */
-
-/* Ligne horizontale sous l’en‐tête (thead) */
-.logs-table thead tr th {
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-/* Lignes horizontales entre les rangées du tbody 
-   (on en met une border-bottom sur chaque <tr> du tbody, 
-    sauf le dernier). */
-.logs-table tbody tr {
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-}
-
-/* On supprime la ligne horizontale après la dernière rangée */
-.logs-table tbody tr:last-child {
-  border-bottom: none;
-}
-
-/* Style de base pour les badges de statut */
-.status-badge {
-  display: inline-block;
-  padding: 4px 10px;        /* Ajustez si vous voulez un badge plus ou moins grand */
-  border-radius: 9999px;    /* donne un aspect “pill” très arrondi */
-  font-size: 0.8rem;        /* taille du texte */
-  font-weight: 600;         /* texte un peu gras */
-  text-align: center;
-  min-width: 60px;          /* optionnel, pour un badge d’au moins 60px de large */
-}
-
-/* Couleurs pour “Active” */
-.status-active {
-  background-color: #22395f; /* Fond #22395f */
-  color: #83b0e6;            /* Texte #83b0e6 */
-}
-
-/* Couleurs pour “Inactive” */
-.status-inactive {
-  background-color: #2a364a; /* Fond #2a364a */
-  color: #9ba5b4;            /* Texte #9ba5b4 */
-}
-
-/* Pour l'image à l'intérieur du bouton "back-btn" */
-.back-btn img.arrow-icon {
-  width: 24px;
-  height: 24px;
-  /* object-fit: contain;  <-- facultatif si tu veux être sûr que l’image ne soit pas déformée */
-}
-
-
-  </style>
-</head>
-<body>
-  <div class="main-container">
-
-    <!-- Barre supérieure : flèche retour + Titre + user icon -->
-    <div class="header-bar">
-      <!-- Bouton retour -->
-      <div class="back-btn">
-        <button class="back-btn" onclick="history.back()">
-            <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
-            </button>
-            <!-- Titre PONG -->
-        </div>
-        <h1 class="title">USER</h1>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRfu8m1L/J1Rv2hFpgb8si5+KclW5hqIcWPL6jIoS"
+      crossorigin="anonymous"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gradient">
+    <!-- Bloc “titre” au-dessus du container -->
+    <div class="title-block text-center">
+      <!-- Image ou logo “PONG” -->
+      <img
+        src="/static/img/Game_anime.png"
+        alt="Game Title"
+        class="img-fluid"
+      />
     </div>
 
-    <!-- Carte principale (Profil + Stats) -->
-    <div class="main-card">
-      
-      <!-- Bloc avatar -->
-      <div class="avatar-bubble">
-        <div class="avatar-image">
-          <img id="profile-image" src="{% static 'img/default-avatar.png' %}" alt="User Profile">
-        </div>
-        <!-- Bouton pour déclencher la sélection d'image -->
-        <button type="button" class="camera-icon">
-          <i class="bi bi-camera-fill"></i>
+    <!-- Container principal -->
+    <div class="container text-center bg-white shadow-lg rounded p-4 welcome-container">
+      <p class="text-muted">Please sign in to continue</p>
+      <h1 class="display-6 text-primary"></h1>
+
+      <!-- Ligne 1: Boutons Login et Sign Up -->
+      <div class="btn-group w-100 mb-3 d-flex" role="group">
+        <button
+          id="login-btn"
+          class="btn active d-flex align-items-center justify-content-center"
+          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+        >
+          <i class="bi bi-box-arrow-in-right" style="font-size: 20px; margin-right: 8px;"></i>
+          Login
         </button>
-        <!-- Input file caché -->
-        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+        <button
+          id="signup-btn"
+          class="btn d-flex align-items-center justify-content-center"
+          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+        >
+          <i class="bi bi-person-plus" style="font-size: 20px; margin-right: 8px;"></i>
+          Sign Up
+        </button>
       </div>
 
-      <!-- Nom + statut -->
-      <h2 class="player-name">Loading...</h2>
-      <div class="player-status">Online</div>
-
-      <!-- Stats en 4 blocs, alignés à gauche -->
-      <div class="stats-row">
-        <!-- Classement Elo -->
-        <div class="stat-item">
-          <p class="stat-label">Classement Elo</p>
-          <div class="stat-value">1850</div>
+      <!-- Ligne 2: Case à cocher et texte en deux lignes -->
+      <div class="tos-container mb-3">
+        <div class="tos-line">
+          <input type="checkbox" id="tos-checkbox" />
+          <label for="tos-checkbox">I have read and agree to the</label>
         </div>
-        <!-- Parties totales -->
-        <div class="stat-item">
-          <p class="stat-label">Parties totales</p>
-          <div class="stat-value">70</div>
-        </div>
-        <!-- Victoires -->
-        <div class="stat-item">
-          <p class="stat-label">Victoires</p>
-          <div class="stat-value highlight-value">42</div>
-        </div>
-        <!-- Défaites -->
-        <div class="stat-item">
-          <p class="stat-label">Défaites</p>
-          <div class="stat-value">28</div>
+        <div class="tos-links">
+          <a href="terms.html" target="_blank">Terms of Service</a>
+          <span> and </span>
+          <a href="privacy.html" target="_blank">Privacy Policy</a>
         </div>
       </div>
 
+      <!-- Ligne 3: Texte RGPD -->
+      <p class="gdpr-text mb-3">Your data is processed according to GDPR regulations.</p>
+
+      <!-- Ligne 4: Bouton "Sign in with 42" -->
+      <button id="connect-42" class="auth-button">
+        <span>SIGN IN WITH</span>    
+        <img src="static/img/42_logo.png" alt="42 Logo" />
+      </button>
     </div>
 
-    <!-- Section Sécurité -->
-    <div class="security-card mb-4">
-      <h5 class="mb-3">Sécurité</h5>
-
-      <!-- Item 1 : Ajouter/Changer Email -->
-      <div class="security-item">
-        <div class="security-left">
-          <i class="bi bi-envelope"></i>
-          <span>Ajouter/Changer : Email</span>
-        </div>
-        <div class="security-right">
-          <i class="bi bi-chevron-down"></i>
-        </div>
-      </div>
-
-      <!-- Item 2 : Changer le mot de passe -->
-      <div class="security-item">
-        <div class="security-left">
-          <i class="bi bi-key"></i>
-          <span>Changer le mot de passe</span>
-        </div>
-        <div class="security-right">
-          <i class="bi bi-chevron-down"></i>
-        </div>
-      </div>
-
-      <!-- Item 3 : 2FA -->
-      <div class="security-item">
-        <div class="security-left">
-          <i class="bi bi-shield"></i>
-          <span>Two-factor authentication (2FA)</span>
-        </div>
-        <div class="security-right">
-          <span class="opacity-75">Désactivé</span>
-          <i class="bi bi-chevron-right"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section Logs de connexion -->
-    <div class="logs-card">
-      <h5 class="mb-3"><i class="bi bi-activity"></i> Logs de connexion</h5>
-      <!-- Conteneur “table-responsive” -->
-      <div class="table-responsive">
-        <table class="logs-table">
-            <thead>
-            <tr>
-                <th>Date</th>
-                <th>Plateforme</th>
-                <th>Navigateur</th>
-                <th>Adresse IP</th>
-                <th>Statut</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>January 12, 2025</td>
-                <td>Linux</td>
-                <td>Chrome</td>
-                <td>62.210.32.164</td>
-                <td><span class="status-badge status-active">Active</span></td>
-            </tr>
-            <tr>
-                <td>January 11, 2025</td>
-                <td>Linux</td>
-                <td>Chrome</td>
-                <td>2001:e34:…:38e</td>
-                <td><span class="status-badge status-active">Active</span></td>
-            </tr>
-            <tr>
-                <td>January 10, 2025</td>
-                <td>Windows</td>
-                <td>Firefox</td>
-                <td>82.45.128.91</td>
-                <td><span class="status-badge status-inactive">Inactive</span></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script 
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
-  </script>
-  <script src="static/js/main.js"></script>
-  <script src="static/js/user.js"></script>
-</body>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Custom JS -->
+    <script src="static/js/main.js"></script>
+  </body>
 </html>
 <!DOCTYPE html>
 <html lang="fr">
@@ -1066,6 +626,94 @@ CMD ["nginx", "-g", "daemon off;"]
     <script src="static/js/signup.js"></script>
   </body>
 </html>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Définir votre mot de passe - SIGN IN 42</title>
+    <!-- Vous pouvez réutiliser le CSS de signup.css -->
+    <link rel="stylesheet" href="static/css/signup.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap et Bootstrap Icons (optionnel si déjà inclus) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+      <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
+        <div class="card-header bg-white text-center">
+          <h2 class="mb-0">Définir votre mot de passe</h2>
+          <p class="text-muted">Créez un mot de passe pour votre compte 42</p>
+        </div>
+
+        <div class="card-body">
+          <form id="signin42-form" class="needs-validation" novalidate>
+            <!-- Champ Mot de passe -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Mot de passe</label>
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                  minlength="8"
+                  pattern="(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
+                  placeholder="••••••••"
+                />
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+                <div class="invalid-feedback">
+                  Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.
+                </div>
+              </div>
+            </div>
+
+            <!-- Champ Confirmation du mot de passe -->
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  required
+                  minlength="8"
+                  placeholder="••••••••"
+                />
+                <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                  <i class="bi bi-eye"></i>
+                </button>
+                <div class="invalid-feedback">
+                  Les mots de passe ne correspondent pas.
+                </div>
+              </div>
+            </div>
+
+            <!-- Bouton de soumission (désactivé par défaut) -->
+            <button type="submit" class="btn btn-primary w-100" disabled>
+              Valider
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script de gestion de la page signin42 -->
+    <script src="static/js/signin42.js"></script>
+  </body>
+</html>
 document.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.getElementById('login-btn');
   const signupBtn = document.getElementById('signup-btn');
@@ -1136,8 +784,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ====== GESTION DU BOUTON "CONNECT-42" ======
   if (connect42Btn) {
     connect42Btn.addEventListener('click', () => {
-      // Redirection vers l'endpoint OAuth 42
-      window.location.href = 'https://localhost:8443/auth/42/login-42/';
+      // Redirection vers la page de saisie du mot de passe pour 42
+      window.location.href = 'signin42.html';
     });
   }
 
@@ -1203,68 +851,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 document.addEventListener('DOMContentLoaded', () => {
-    // Récupération des éléments
-    const cameraBtn = document.querySelector('.camera-icon');
-    const avatarInput = document.getElementById('avatar-upload');
-    const profileImage = document.getElementById('profile-image');
-  
-    // Au clic sur l'icône, déclenche la sélection de fichier
-    cameraBtn.addEventListener('click', () => {
-      avatarInput.click();
-    });
-  
-    // Lorsque l'utilisateur sélectionne un fichier
-    avatarInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-  
-      // Optionnel : Vérification côté client du format et de la taille
-      const allowedTypes = ['image/jpeg', 'image/png'];
-      if (!allowedTypes.includes(file.type)) {
-        alert("Format d'image non supporté. Seul JPEG et PNG sont autorisés.");
-        return;
-      }
-      if (file.size > 2 * 1024 * 1024) {
-        alert("La taille de l'image ne doit pas dépasser 2MB.");
-        return;
-      }
-  
-      // Afficher un aperçu grâce à FileReader
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        profileImage.src = event.target.result;
-      };
-      reader.readAsDataURL(file);
-  
-      // Préparer l'envoi via FormData
-      const formData = new FormData();
-      formData.append('avatar', file);
-  
-      // Envoyer l'image au backend
-      fetch('/auth/user/upload_avatar/', {
-        method: 'POST',
-        credentials: 'include', // Pour inclure les cookies de session
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          // Si le backend retourne l'URL de la nouvelle image, on peut mettre à jour la source
-          if (data.profile_image_url) {
-            profileImage.src = data.profile_image_url;
-          }
-          console.log("Avatar mis à jour avec succès.");
-        } else {
-          alert("Erreur lors de la mise à jour de l'avatar : " + data.error);
-        }
-      })
-      .catch(error => {
-        console.error("Erreur réseau :", error);
-        alert("Erreur lors de l'envoi de l'image.");
-      });
-    });
-  });
-  document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signup-form');
 
     // --- Gestion de l'aperçu de l'avatar ---
@@ -1668,6 +1254,8 @@ import requests
 import jwt
 import datetime
 import requests
+import re
+
 
 from django.shortcuts import redirect, render
 from django.http import JsonResponse, HttpResponseRedirect
@@ -1718,7 +1306,8 @@ def redirect_to_42(request):
 def callback_42(request):
     """
     Gère le callback après authentification 42.
-    Échange le code reçu contre un token, puis récupère les infos utilisateur.
+    Échange le code reçu contre un token, récupère les infos utilisateur et,
+    si un mot de passe temporaire a été défini via signin42, l'utilise pour mettre à jour le compte.
     """
     # Vérification du state
     state_session = request.session.get('oauth_state')
@@ -1730,7 +1319,7 @@ def callback_42(request):
     if not code:
         return JsonResponse({"error": "No code provided"}, status=400)
 
-    # Échange code -> access token
+    # Échange du code contre un access token
     data = {
         'grant_type': 'authorization_code',
         'client_id': CLIENT_ID,
@@ -1764,25 +1353,28 @@ def callback_42(request):
     email_from_api = user_data.get('email')
     first_name_from_api = user_data.get('first_name')
 
-    # Pour un nouvel utilisateur, si l'API ne fournit pas ces informations,
-    # on utilise les valeurs par défaut.
+    # Si l'API ne fournit pas ces informations, on utilise des valeurs par défaut.
     email_value = email_from_api if email_from_api else 'placeholder@example.com'
     first_name_value = first_name_from_api if first_name_from_api else 'Unknown'
 
-    # Utilisation de get_or_create pour éviter les doublons.
-    # Pour un nouvel utilisateur, les champs username, email_address et first_name
-    # seront initialisés grâce à defaults.
     try:
         with transaction.atomic():
+            # Récupération éventuelle d'un mot de passe temporaire défini via signin42
+            temp_password = request.session.get('temp_hashed_password')
+
             # Recherche de l'utilisateur par email (champ unique dans notre cas)
             user = User42.objects.filter(email_address=email_value).first()
             if user:
-                # L'utilisateur existe déjà : on met à jour les infos si l'API fournit de nouvelles données
+                # L'utilisateur existe déjà : on met à jour ses infos si nécessaire
                 if (email_from_api and email_from_api != user.email_address) or \
                    (first_name_from_api and first_name_from_api != user.first_name):
                     user.email_address = email_from_api or user.email_address
                     user.first_name = first_name_from_api or user.first_name
-                    user.save()
+                # Si un mot de passe temporaire est présent, on l'utilise pour mettre à jour le mot de passe
+                if temp_password:
+                    user.password = temp_password
+                    del request.session['temp_hashed_password']
+                user.save()
             else:
                 # L'utilisateur n'existe pas encore : on lui attribue un user_id unique
                 existing_ids = list(User42.objects.values_list('user_id', flat=True))
@@ -1792,7 +1384,6 @@ def callback_42(request):
                     if uid == new_user_id:
                         new_user_id += 1
                     else:
-                        # Dès qu'on détecte un gap, new_user_id est disponible
                         break
 
                 user = User42(
@@ -1801,21 +1392,22 @@ def callback_42(request):
                     email_address=email_value,
                     first_name=first_name_value,
                 )
+                # Si un mot de passe temporaire a été défini, on l'utilise dès la création
+                if temp_password:
+                    user.password = temp_password
+                    del request.session['temp_hashed_password']
                 user.save()
     except IntegrityError:
         return JsonResponse({"error": "Erreur lors de l'inscription de l'utilisateur"}, status=400)
 
-
-    # --- Ajout de la mise à jour de la session ---
+    # Mise à jour de la session
     request.session['user_id'] = user.pk
     request.session['email'] = user.email_address
-    # -----------------------------------------------
 
-    # Générer un JWT pour la session
+    # Génération d'un JWT pour la session
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
 
-    # Redirection côté frontend, transmettant le token ou un paramètre signifiant succès
-    # On peut stocker le token dans un cookie HttpOnly (plus sûr), ou dans un paramètre GET
+    # Redirection côté frontend vers l'interface de jeu, en transmettant le token
     response = HttpResponseRedirect(f"https://localhost:8443/game_interface.html?jwt={jwt_token}")
     return response
 
@@ -1994,7 +1586,37 @@ def upload_avatar_view(request):
         # Retour de l'URL de la nouvelle image pour mise à jour immédiate côté client
         return JsonResponse({"success": True, "profile_image_url": user.profile_image.url}, status=200)
     else:
-        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)from django.test import TestCase, Client
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+@csrf_exempt
+def set_42_password_view(request):
+    """
+    Réception du mot de passe saisi par l’utilisateur lors de sa première connexion via 42.
+    Le mot de passe est validé, haché et stocké temporairement dans la session.
+    """
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        confirm = request.POST.get('confirmPassword')
+
+        if not password or not confirm or password != confirm:
+            return JsonResponse({"success": False, "error": "Les mots de passe ne correspondent pas."}, status=400)
+
+        # Vérification côté serveur : minimum 8 caractères, 1 majuscule, 1 chiffre, 1 caractère spécial
+        pattern = r'^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$'
+        if not re.match(pattern, password):
+            return JsonResponse({"success": False, "error": "Le mot de passe ne respecte pas les critères de sécurité."}, status=400)
+
+        # Hachage sécurisé du mot de passe
+        hashed_password = make_password(password)
+        # Stockage temporaire dans la session
+        request.session['temp_hashed_password'] = hashed_password
+
+        return JsonResponse({
+            "success": True,
+            "detail": "Mot de passe défini avec succès. Vous allez être redirigé vers l'authentification 42."
+        }, status=200)
+    else:
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)    from django.test import TestCase, Client
 from django.urls import reverse
 import pyotp
 from oauth_app.models import User42
