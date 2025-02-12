@@ -387,7 +387,7 @@
       transition: max-height 0.5s ease, opacity 0.5s ease;
     }
     .email-form-container.open {
-      max-height: 400px; /* Valeur à ajuster selon la hauteur du formulaire */
+      max-height: 500px; /* Valeur à ajuster selon la hauteur du formulaire */
       opacity: 1;
       margin-top: 0.5rem;
       margin-bottom: 1rem; /* <-- Ajout pour avoir plus d’espace en bas */
@@ -511,20 +511,28 @@
         <form id="email-form" novalidate class="mb-3">
           <div class="mb-3">
             <label for="old-email" class="form-label">Ancien Email</label>
-            <input type="email" id="old-email" class="form-control" placeholder="user@example.com">
+            <input type="email" id="old-email" class="form-control" placeholder="user@example.com" required>
           </div>
           <div class="mb-3">
             <label for="new-email" class="form-label">Nouveau Email</label>
-            <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email">
+            <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email" required>
             <div class="invalid-feedback">
               Veuillez entrer un email valide.
             </div>
           </div>
           <div class="mb-3">
             <label for="confirm-email" class="form-label">Confirmation Email</label>
-            <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email">
+            <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email" required>
             <div class="invalid-feedback">
               Les emails ne correspondent pas.
+            </div>
+          </div>
+          <!-- Nouveau champ pour le mot de passe -->
+          <div class="mb-3">
+            <label for="email-password" class="form-label">Mot de passe</label>
+            <input type="password" id="email-password" class="form-control" placeholder="Votre mot de passe" required>
+            <div class="invalid-feedback">
+              Mot de passe requis.
             </div>
           </div>
           <button type="submit" class="btn btn-primary">
@@ -533,6 +541,7 @@
           </button>
         </form>
       </div>
+      
 
       <!-- Item 2 : Changer le mot de passe -->
       <div class="security-item" id="password-toggle">

@@ -106,45 +106,87 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Gestion de la soumission du formulaire (simulation)
+  // Gestion de la soumission du formulaire de mise à jour d'email
   emailForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const emailVal = newEmailInput.value.trim();
-    const confirmVal = confirmEmailInput.value.trim();
+
+    const currentEmail = document.getElementById('old-email').value.trim();
+    const newEmail = document.getElementById('new-email').value.trim();
+    const confirmEmail = document.getElementById('confirm-email').value.trim();
+    const password = document.getElementById('email-password').value.trim();
+
     let isValid = true;
 
-    if (!validateEmail(emailVal)) {
+    // Vérification du nouvel email
+    if (!validateEmail(newEmail)) {
       newEmailInput.classList.add('is-invalid');
       isValid = false;
     } else {
       newEmailInput.classList.remove('is-invalid');
     }
 
-    if (emailVal !== confirmVal || confirmVal === '') {
+    // Vérification de la confirmation
+    if (newEmail !== confirmEmail || confirmEmail === '') {
       confirmEmailInput.classList.add('is-invalid');
       isValid = false;
     } else {
       confirmEmailInput.classList.remove('is-invalid');
     }
 
-    if (!isValid) {
-      return;
+    // Vérification du mot de passe
+    const passwordInput = document.getElementById('email-password');
+    if (password === '') {
+      passwordInput.classList.add('is-invalid');
+      isValid = false;
+    } else {
+      passwordInput.classList.remove('is-invalid');
     }
 
+    if (!isValid) return;
+
+    // Désactiver le bouton et afficher le spinner
     const submitButton = emailForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
     const spinner = submitButton.querySelector('.spinner-border');
     spinner.classList.remove('d-none');
 
-    // Simulation d'un délai (exemple : 2 secondes)
-    setTimeout(() => {
+    // Préparation du payload
+    const payload = {
+      current_email: currentEmail,
+      new_email: newEmail,
+      password: password
+    };
+
+    fetch('/auth/user/update_email/', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        // Ajout du token CSRF si vous utilisez la protection CSRF
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
       spinner.classList.add('d-none');
-      alert("Email modifié avec succès !");
-      // Optionnel : fermer le formulaire et réinitialiser les champs
-      emailFormContainer.classList.remove('open');
-      emailChevron.classList.remove('rotate');
-      newEmailInput.value = '';
-      confirmEmailInput.value = '';
-    }, 2000);
+      submitButton.disabled = false;
+      if (data.success) {
+        alert("Email modifié avec succès !");
+        // Mise à jour éventuelle de l'UI (par exemple, mise à jour de l'email affiché)
+        emailForm.reset();
+        emailFormContainer.classList.remove('open');
+        emailChevron.classList.remove('rotate');
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur lors de la requête :", error);
+      spinner.classList.add('d-none');
+      submitButton.disabled = false;
+      alert("Une erreur est survenue lors de la mise à jour de l'email.");
+    });
   });
 
   // =========================================================
@@ -154,9 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const passwordFormContainer = document.getElementById('password-form-container');  // <div id="password-form-container">
   const passwordChevron = document.getElementById('password-chevron');          // <i id="password-chevron">
   const passwordForm = document.getElementById('password-form');                // <form id="password-form">
-  const oldPasswordInput = document.getElementById('old-password');            // <input id="old-password">
-  const newPasswordInput = document.getElementById('new-password');            // <input id="new-password">
-  const confirmPasswordInput = document.getElementById('confirm-password');    // <input id="confirm-password">
+  const oldPasswordInput = document.getElementById('old-password');             // <input id="old-password">
+  const newPasswordInput = document.getElementById('new-password');             // <input id="new-password">
+  const confirmPasswordInput = document.getElementById('confirm-password');     // <input id="confirm-password">
 
   // -- Ouverture/fermeture au clic sur "Changer le mot de passe"
   passwordToggle.addEventListener('click', (e) => {
@@ -198,52 +240,81 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // -- Soumission du formulaire "mot de passe"
+  // -- Soumission du formulaire "mot de passe" (mise à jour réelle via AJAX)
   passwordForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const oldVal = oldPasswordInput.value.trim();
-    const newVal = newPasswordInput.value.trim();
-    const confirmVal = confirmPasswordInput.value.trim();
-    let isValid = true;
+    const currentPassword = oldPasswordInput.value.trim();
+    const newPassword = newPasswordInput.value.trim();
+    const confirmPassword = confirmPasswordInput.value.trim();
 
-    // Vérif mot de passe
-    if (!validatePassword(newVal)) {
-      newPasswordInput.classList.add('is-invalid');
-      isValid = false;
-    } else {
-      newPasswordInput.classList.remove('is-invalid');
+    // Vérifier que tous les champs sont remplis
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      alert("Veuillez remplir tous les champs.");
+      return;
     }
-
-    // Vérif confirmation
-    if (newVal !== confirmVal || confirmVal === '') {
-      confirmPasswordInput.classList.add('is-invalid');
-      isValid = false;
-    } else {
-      confirmPasswordInput.classList.remove('is-invalid');
+    // Vérifier la correspondance des nouveaux mots de passe
+    if (newPassword !== confirmPassword) {
+      alert("Les nouveaux mots de passe ne correspondent pas.");
+      return;
     }
-
-    if (!isValid) {
+    // Vérifier les critères de sécurité : minimum 8 caractères, au moins une majuscule, un chiffre et un caractère spécial
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+    if (!passwordRegex.test(newPassword)) {
+      alert("Le nouveau mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.");
+      return;
+    }
+    // Vérifier que le nouveau mot de passe est différent de l'ancien
+    if (currentPassword === newPassword) {
+      alert("Votre nouveau mot de passe doit être différent de l'ancien.");
       return;
     }
 
-    // Affiche le spinner
+    // Désactivation du bouton et affichage du spinner
     const submitButton = passwordForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
     const spinner = submitButton.querySelector('.spinner-border');
-    spinner.classList.remove('d-none');
+    if (spinner) spinner.classList.remove('d-none');
 
-    // Simulation d'une requête asynchrone (2 secondes)
-    setTimeout(() => {
-      spinner.classList.add('d-none');
-      alert("Mot de passe modifié avec succès !");
-      
-      // Optionnel : refermer le formulaire et réinitialiser
-      passwordFormContainer.classList.remove('open');
-      passwordChevron.classList.remove('rotate');
-      oldPasswordInput.value = '';
-      newPasswordInput.value = '';
-      confirmPasswordInput.value = '';
-    }, 2000);
-  });  
+    // Préparation du payload
+    const payload = {
+      current_password: currentPassword,
+      new_password: newPassword,
+      confirm_password: confirmPassword
+    };
+
+    // Envoi de la requête AJAX vers le backend pour mettre à jour le mot de passe
+    fetch('/auth/user/update_password/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      credentials: 'include',
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (spinner) spinner.classList.add('d-none');
+      submitButton.disabled = false;
+      if (data.success) {
+        alert("Mot de passe modifié avec succès !");
+        // Réinitialisation du formulaire et fermeture du conteneur
+        oldPasswordInput.value = '';
+        newPasswordInput.value = '';
+        confirmPasswordInput.value = '';
+        passwordFormContainer.classList.remove('open');
+        passwordChevron.classList.remove('rotate');
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur :", error);
+      if (spinner) spinner.classList.add('d-none');
+      submitButton.disabled = false;
+      alert("Une erreur est survenue lors de la mise à jour du mot de passe.");
+    });
+  });
 
   // =====================================================
   // 2. Gestion du Toggle 2FA avec les icônes Bootstrap
@@ -290,4 +361,26 @@ document.addEventListener('DOMContentLoaded', () => {
     updateTwofaUI();
   });  
 
+  // Fonction utilitaire pour récupérer le cookie CSRF (si nécessaire)
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Vérifie si ce cookie correspond au nom recherché
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  // Validation basique d'email
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
 });

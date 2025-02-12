@@ -8,6 +8,9 @@ from .views import (
     user_info,  # <--- Import de la nouvelle vue
     upload_avatar_view,
     set_42_password_view,
+    update_email_view,  # Import de la nouvelle vue
+    update_password_view,
+
 )
 from . import twofa_views
 
@@ -24,5 +27,8 @@ urlpatterns = [
     path('user/', user_info, name='user_info'),
 
     path('user/upload_avatar/', upload_avatar_view, name='upload_avatar'),
+    path('user/update_email/', update_email_view, name='update_email'),
+    path("user/update_password/", update_password_view, name="update_password"),
+
 
 ]

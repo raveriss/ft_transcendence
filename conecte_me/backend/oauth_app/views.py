@@ -3,6 +3,7 @@ import requests
 import jwt
 import datetime
 import requests
+import json
 import re
 
 
@@ -365,4 +366,108 @@ def set_42_password_view(request):
             "detail": "Mot de passe défini avec succès. Vous allez être redirigé vers l'authentification 42."
         }, status=200)
     else:
-        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)    
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+@csrf_exempt
+def update_email_view(request):
+    if request.method != 'POST':
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+    # Vérifier que l'utilisateur est authentifié via la session
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+    
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+    
+    # Extraire le JSON envoyé
+    try:
+        data = json.loads(request.body)
+    except Exception:
+        return JsonResponse({"success": False, "error": "JSON invalide."}, status=400)
+    
+    current_email = data.get('current_email', '').strip()
+    new_email = data.get('new_email', '').strip()
+    password = data.get('password', '')
+
+    # Vérification que l'email actuel correspond à celui enregistré
+    if current_email != user.email_address:
+        return JsonResponse({"success": False, "error": "L'email actuel ne correspond pas."}, status=400)
+    
+    # Vérifier le format du nouvel email
+    email_regex = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
+    if not re.match(email_regex, new_email):
+        return JsonResponse({"success": False, "error": "Le nouvel email n'est pas valide."}, status=400)
+    
+    # Vérifier que le nouvel email n'est pas déjà utilisé par un autre compte
+    if User42.objects.filter(email_address=new_email).exclude(pk=user_id).exists():
+        return JsonResponse({"success": False, "error": "Cet email est déjà utilisé par un autre compte."}, status=400)
+    
+    # Vérifier que le mot de passe est correct
+    if not check_password(password, user.password):
+        return JsonResponse({"success": False, "error": "Mot de passe incorrect."}, status=400)
+    
+    # Tout est validé : mise à jour de l'email
+    user.email_address = new_email
+    user.save()
+    
+    # Mettre à jour éventuellement la session
+    request.session['email'] = new_email
+    
+    return JsonResponse({"success": True, "detail": "Email mis à jour avec succès."}, status=200)
+
+@csrf_exempt
+def update_password_view(request):
+    if request.method != "POST":
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+    # Vérifier que l'utilisateur est authentifié via la session
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+    
+    # Extraction des données JSON
+    try:
+        data = json.loads(request.body)
+    except Exception:
+        return JsonResponse({"success": False, "error": "JSON invalide."}, status=400)
+    
+    current_password = data.get("current_password", "").strip()
+    new_password = data.get("new_password", "").strip()
+    confirm_password = data.get("confirm_password", "").strip()
+    
+    # Vérification que tous les champs sont présents
+    if not current_password or not new_password or not confirm_password:
+        return JsonResponse({"success": False, "error": "Tous les champs sont requis."}, status=400)
+    
+    # Vérification de la correspondance des nouveaux mots de passe
+    if new_password != confirm_password:
+        return JsonResponse({"success": False, "error": "Les nouveaux mots de passe ne correspondent pas."}, status=400)
+    
+    # Vérification des critères de sécurité
+    password_pattern = r"^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$"
+    if not re.match(password_pattern, new_password):
+        return JsonResponse({"success": False, "error": "Le nouveau mot de passe ne respecte pas les critères de sécurité."}, status=400)
+    
+    # Récupération de l'utilisateur
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+    
+    # Vérification du mot de passe actuel
+    if not check_password(current_password, user.password):
+        return JsonResponse({"success": False, "error": "Mot de passe actuel incorrect."}, status=400)
+    
+    # Vérifier que le nouveau mot de passe est différent de l'ancien
+    if current_password == new_password:
+        return JsonResponse({"success": False, "error": "Votre nouveau mot de passe doit être différent de l'ancien."}, status=400)
+    
+    # Tout est validé : hachage et mise à jour du mot de passe
+    user.password = make_password(new_password)
+    user.save()
+    
+    return JsonResponse({"success": True, "detail": "Mot de passe mis à jour avec succès."}, status=200)
