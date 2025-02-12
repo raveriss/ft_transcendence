@@ -387,6 +387,11 @@
       transition: max-height 0.5s ease, opacity 0.5s ease;
     }
     
+    #password-toggle.open {
+      margin-bottom: 0;              /* retire la marge inférieure quand c'est ouvert */
+      border-bottom-left-radius: 0;  /* retire l'arrondi */
+      border-bottom-right-radius: 0; /* retire l'arrondi */
+    }
 
     .email-form-container.open {
       max-height: 500px;          /* hauteur ouverte */
@@ -415,12 +420,15 @@
     }
 
     .password-form-container.open {
-      max-height: 400px; /* Ajustez selon la hauteur du formulaire */
+      max-height: 400px;       /* ou 500px, selon la hauteur voulue */
       opacity: 1;
-      margin-top: 0.5rem;
-      margin-bottom: 1rem;  /* Pour ajouter un espace en bas quand c’est ouvert */
+      margin-top: 0;           /* on retire la marge au-dessus pour coller au toggle */
+      margin-bottom: 1rem;     /* marge en bas, si vous voulez */
       background: rgba(53, 63, 87, 0.5);
-      border-radius: 8px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 0;  /* pour aligner avec l’item ouvert */
+      border-top-right-radius: 0; /* idem */
       padding: 1.3rem 1.618rem;
     }
 

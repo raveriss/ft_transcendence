@@ -208,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopPropagation();
     passwordFormContainer.classList.toggle('open');
     passwordChevron.classList.toggle('rotate');
+    passwordToggle.classList.toggle('open'); // AJOUTÉ : pour enlever l'arrondi en bas
   });
 
   // -- Fermeture si clic en dehors
