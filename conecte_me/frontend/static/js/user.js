@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopPropagation(); // Empêche la propagation pour ne pas déclencher le document click
     emailFormContainer.classList.toggle('open');
     emailChevron.classList.toggle('rotate');
+    emailToggle.classList.toggle('open'); // Ajouté pour retirer l'arrondi en bas du toggle
   });
 
   // Fermeture du formulaire si clic en dehors
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!emailFormContainer.contains(e.target) && !emailToggle.contains(e.target)) {
       emailFormContainer.classList.remove('open');
       emailChevron.classList.remove('rotate');
+      emailToggle.classList.remove('open'); // On retire la classe open du toggle
     }
   });
 
@@ -177,6 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
         emailForm.reset();
         emailFormContainer.classList.remove('open');
         emailChevron.classList.remove('rotate');
+        emailToggle.classList.remove('open');
       } else {
         alert("Erreur : " + data.error);
       }
@@ -378,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return cookieValue;
   }
 
-  // Validation basique d'email
+  // Validation basique d'email (si besoin ailleurs)
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
