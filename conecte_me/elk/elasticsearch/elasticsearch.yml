@@ -1,0 +1,13 @@
+# Nom du cluster
+cluster.name: "docker-cluster"
+
+# Pour que Elasticsearch écoute sur toutes les interfaces
+network.host: 0.0.0.0
+
+# Mode mononœud pour simplifier le déploiement (utile en dev)
+discovery.type: single-node
+
+# Activer la securite dans Elasticsearch 
+# A modifier pour securiser passer a true
+#########################
+xpack.security.enabled: false
