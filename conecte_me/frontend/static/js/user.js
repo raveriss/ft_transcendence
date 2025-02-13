@@ -216,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!passwordFormContainer.contains(e.target) && !passwordToggle.contains(e.target)) {
       passwordFormContainer.classList.remove('open');
       passwordChevron.classList.remove('rotate');
+      passwordToggle.classList.remove('open'); // Ajouté pour rétablir l'espacement
     }
   });
 
