@@ -1,0 +1,2 @@
+# Adresse sur laquelle Logstash écoute pour l'API HTTP (optionnel)
+http.host: "0.0.0.0"

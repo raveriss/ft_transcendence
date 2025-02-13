@@ -1,6 +1,4 @@
 # backend/conecte_me_backend/settings.py
-
-
 import os
 from pathlib import Path
 import logging
@@ -148,3 +146,70 @@ DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 logger.debug(f"Connecting to DB: {DATABASES['default']}")
+
+# Définition du répertoire où seront stockés les fichiers de logs.
+# Ici, nous créons un dossier "logs" à la racine du projet.
+LOG_DIR = BASE_DIR / 'logs'
+if not LOG_DIR.exists():
+    # Crée le dossier "logs" s'il n'existe pas, en incluant tous les dossiers parents nécessaires.
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+# Configuration de la journalisation (logging) de Django.
+# Cette configuration est définie sous forme de dictionnaire et suit le schéma de configuration du module logging de Python.
+LOGGING = {
+    # Version du schéma de configuration du logging.
+    'version': 1,
+    # Ne pas désactiver les loggers existants (utile pour conserver la configuration par défaut de Django).
+    'disable_existing_loggers': False,
+
+    # Définition des formatters, qui déterminent le format des messages de log.
+    'formatters': {
+        # Formatter "verbose" : fournit des informations détaillées telles que le niveau, l'heure, le module, l'ID du processus, l'ID du thread et le message.
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',  # Utilisation du style "{" pour le formatage
+        },
+        # Formatter "simple" : affiche seulement le niveau de log et le message.
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+
+    # Définition des handlers, qui déterminent où les messages de log seront envoyés.
+    'handlers': {
+        # Handler "file" : enregistre les logs dans un fichier.
+        'file': {
+            'level': 'INFO',  # Seuls les messages d'INFO et plus sont enregistrés dans le fichier.
+            'class': 'logging.FileHandler',  # Utilise le FileHandler pour écrire dans un fichier.
+            'filename': str(LOG_DIR / 'django.log'),  # Chemin complet vers le fichier de log.
+            'formatter': 'verbose',  # Utilise le formatter "verbose" défini ci-dessus.
+        },
+        # Handler "console" : affiche les logs dans la console (stdout).
+        'console': {
+            'level': 'DEBUG',  # Affiche tous les messages de DEBUG et plus dans la console.
+            'class': 'logging.StreamHandler',  # Utilise StreamHandler pour écrire dans la console.
+            'formatter': 'simple',  # Utilise le formatter "simple".
+        },
+    },
+
+    # Configuration des loggers pour différentes parties de l'application.
+    'loggers': {
+        # Logger pour Django (les messages émis par Django lui-même).
+        'django': {
+            'handlers': ['file', 'console'],  # Envoie les logs à la fois dans le fichier et à la console.
+            'level': 'INFO',  # Niveau minimum pour enregistrer les messages.
+            'propagate': True,  # Les messages sont également propagés au logger racine.
+        },
+        # Logger racine (pour capturer les messages non spécifiquement attribués à un autre logger).
+        '': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+        },
+    },
+}
+
+# Par exemple, vous pouvez tester cette configuration en ajoutant un message de log au démarrage :
+import logging
+logger = logging.getLogger(__name__)
+logger.info("La configuration du logging est activée et les logs seront enregistrés dans 'logs/django.log'.")
