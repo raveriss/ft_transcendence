@@ -6,3 +6,160 @@ INFO 2025-02-13 15:35:02,653 basehttp 18 139885013793592 "GET /auth/42/login-42/
 INFO 2025-02-13 15:35:02,653 basehttp 18 139885013793592 "GET /auth/42/login-42/ HTTP/1.0" 302 0
 INFO 2025-02-13 15:35:03,524 basehttp 18 139885013793592 "GET /auth/42/callback?code=039ae1f7a537690069fefa5a87f769d153eb78175121a0acd69aeec68e49ce5f&state=zGIIqMuCKtJ9oQrZvdUC3F6JV24I0KYp HTTP/1.0" 302 0
 INFO 2025-02-13 15:35:03,524 basehttp 18 139885013793592 "GET /auth/42/callback?code=039ae1f7a537690069fefa5a87f769d153eb78175121a0acd69aeec68e49ce5f&state=zGIIqMuCKtJ9oQrZvdUC3F6JV24I0KYp HTTP/1.0" 302 0
+INFO 2025-02-14 11:28:32,003 autoreload 9 140042334391080 Watching for file changes with StatReloader
+INFO 2025-02-14 11:28:32,003 autoreload 9 140042334391080 Watching for file changes with StatReloader
+INFO 2025-02-14 11:28:51,502 basehttp 9 140042255649592 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 11:28:51,502 basehttp 9 140042255649592 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 11:28:51,520 basehttp 9 140042255686456 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 11:28:51,520 basehttp 9 140042255686456 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 11:28:52,181 basehttp 9 140042255686456 "GET /auth/42/callback?code=9d5bdac360340746062fed63841a62d91f10ecb09ffda9a412f401826aba3cb6&state=k3TDzPzVArSnD97r9TWsOfMrsDtH1bPR HTTP/1.0" 302 0
+INFO 2025-02-14 11:28:52,181 basehttp 9 140042255686456 "GET /auth/42/callback?code=9d5bdac360340746062fed63841a62d91f10ecb09ffda9a412f401826aba3cb6&state=k3TDzPzVArSnD97r9TWsOfMrsDtH1bPR HTTP/1.0" 302 0
+INFO 2025-02-14 11:29:17,754 basehttp 9 140042251238200 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-14 11:29:17,754 basehttp 9 140042251238200 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-14 11:29:17,786 basehttp 9 140042251238200 "GET /auth/2fa/setup/ HTTP/1.0" 200 11695
+INFO 2025-02-14 11:29:17,786 basehttp 9 140042251238200 "GET /auth/2fa/setup/ HTTP/1.0" 200 11695
+WARNING 2025-02-14 11:29:17,853 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-14 11:29:17,853 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-14 11:29:17,853 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
+WARNING 2025-02-14 11:29:17,853 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
+WARNING 2025-02-14 11:29:17,864 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-14 11:29:17,864 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-14 11:29:17,864 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
+WARNING 2025-02-14 11:29:17,864 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
+INFO 2025-02-14 11:29:36,379 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-14 11:29:36,379 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-14 11:29:38,736 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 11:29:38,736 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 11:29:43,364 basehttp 9 140042250189624 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
+INFO 2025-02-14 11:29:43,364 basehttp 9 140042250189624 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
+INFO 2025-02-14 11:29:57,336 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
+INFO 2025-02-14 11:29:57,336 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
+INFO 2025-02-14 11:32:33,114 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
+INFO 2025-02-14 11:32:33,114 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
+INFO 2025-02-14 11:33:43,148 basehttp 9 140042250189624 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-14 11:33:43,148 basehttp 9 140042250189624 "POST /auth/signup/ HTTP/1.0" 201 56
+WARNING 2025-02-14 11:34:52,610 log 9 140042250189624 Method Not Allowed: /auth/login/
+WARNING 2025-02-14 11:34:52,610 log 9 140042250189624 Method Not Allowed: /auth/login/
+WARNING 2025-02-14 11:34:52,610 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 405 63
+WARNING 2025-02-14 11:34:52,610 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 405 63
+INFO 2025-02-14 11:35:06,860 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-14 11:35:06,860 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-14 11:35:06,886 basehttp 9 140042250189624 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
+INFO 2025-02-14 11:35:06,886 basehttp 9 140042250189624 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
+WARNING 2025-02-14 11:35:06,950 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-14 11:35:06,950 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-14 11:35:06,950 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
+WARNING 2025-02-14 11:35:06,950 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
+WARNING 2025-02-14 11:35:06,960 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-14 11:35:06,960 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-14 11:35:06,960 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
+WARNING 2025-02-14 11:35:06,960 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
+INFO 2025-02-14 11:35:25,780 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-14 11:35:25,780 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-14 11:35:28,726 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
+INFO 2025-02-14 11:35:28,726 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
+INFO 2025-02-14 11:37:32,053 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
+INFO 2025-02-14 11:37:32,053 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
+INFO 2025-02-14 12:58:44,204 autoreload 11 139753982798632 Watching for file changes with StatReloader
+INFO 2025-02-14 12:58:44,204 autoreload 11 139753982798632 Watching for file changes with StatReloader
+INFO 2025-02-14 12:59:01,921 basehttp 11 139753904085816 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 12:59:01,921 basehttp 11 139753904085816 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 12:59:01,938 basehttp 11 139753904106296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 12:59:01,938 basehttp 11 139753904106296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 12:59:02,523 basehttp 11 139753904106296 "GET /auth/42/callback?code=3d07315d1da8d810b0e4dde8546c2277674912da9ec4a15e45b344e29769012b&state=A2HEzUnumUsnFSgSuVst6mQcJ1o3pkbG HTTP/1.0" 302 0
+INFO 2025-02-14 12:59:02,523 basehttp 11 139753904106296 "GET /auth/42/callback?code=3d07315d1da8d810b0e4dde8546c2277674912da9ec4a15e45b344e29769012b&state=A2HEzUnumUsnFSgSuVst6mQcJ1o3pkbG HTTP/1.0" 302 0
+INFO 2025-02-14 12:59:04,027 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 12:59:04,027 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 12:59:06,197 basehttp 11 139753899727672 "GET /auth/user/export_data/ HTTP/1.0" 200 243
+INFO 2025-02-14 12:59:06,197 basehttp 11 139753899727672 "GET /auth/user/export_data/ HTTP/1.0" 200 243
+INFO 2025-02-14 13:00:13,337 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-02-14 13:00:13,337 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+ERROR 2025-02-14 13:00:14,779 log 11 139753899727672 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 268, in login_view
+    if check_password(password, user.password):
+UnboundLocalError: local variable 'password' referenced before assignment
+ERROR 2025-02-14 13:00:14,779 log 11 139753899727672 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 268, in login_view
+    if check_password(password, user.password):
+UnboundLocalError: local variable 'password' referenced before assignment
+ERROR 2025-02-14 13:00:14,779 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
+ERROR 2025-02-14 13:00:14,779 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
+ERROR 2025-02-14 13:00:59,050 views 11 139753899727672 Aucun user_id dans la session !
+WARNING 2025-02-14 13:00:59,051 log 11 139753899727672 Unauthorized: /auth/user/
+WARNING 2025-02-14 13:00:59,051 log 11 139753899727672 Unauthorized: /auth/user/
+WARNING 2025-02-14 13:00:59,052 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-14 13:00:59,052 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-14 13:01:06,747 log 11 139753899727672 Unauthorized: /auth/user/delete_account/
+WARNING 2025-02-14 13:01:06,747 log 11 139753899727672 Unauthorized: /auth/user/delete_account/
+WARNING 2025-02-14 13:01:06,747 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 401 64
+WARNING 2025-02-14 13:01:06,747 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 401 64
+INFO 2025-02-14 13:01:40,443 basehttp 11 139753899727672 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 13:01:40,443 basehttp 11 139753899727672 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 13:01:40,458 basehttp 11 139753899727672 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 13:01:40,458 basehttp 11 139753899727672 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 13:01:41,122 basehttp 11 139753899727672 "GET /auth/42/callback?code=fd8e20afa8e3ea2f99ffed851bf23c16096971222e37f385c991ce58ac5d383b&state=fxvRJutUcarclCC9BqxaeumoAu1BkCK0 HTTP/1.0" 302 0
+INFO 2025-02-14 13:01:41,122 basehttp 11 139753899727672 "GET /auth/42/callback?code=fd8e20afa8e3ea2f99ffed851bf23c16096971222e37f385c991ce58ac5d383b&state=fxvRJutUcarclCC9BqxaeumoAu1BkCK0 HTTP/1.0" 302 0
+INFO 2025-02-14 13:01:43,949 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 13:01:43,949 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 13:01:47,584 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-02-14 13:01:47,584 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+ERROR 2025-02-14 13:01:58,721 log 11 139753899727672 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 268, in login_view
+    if check_password(password, user.password):
+UnboundLocalError: local variable 'password' referenced before assignment
+ERROR 2025-02-14 13:01:58,721 log 11 139753899727672 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 268, in login_view
+    if check_password(password, user.password):
+UnboundLocalError: local variable 'password' referenced before assignment
+ERROR 2025-02-14 13:01:58,721 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
+ERROR 2025-02-14 13:01:58,721 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
+INFO 2025-02-14 13:07:15,328 autoreload 11 140391225199400 Watching for file changes with StatReloader
+INFO 2025-02-14 13:07:15,328 autoreload 11 140391225199400 Watching for file changes with StatReloader
+INFO 2025-02-14 13:07:27,031 basehttp 11 140391146478392 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 13:07:27,031 basehttp 11 140391146478392 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 13:07:27,048 basehttp 11 140391146515256 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 13:07:27,048 basehttp 11 140391146515256 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 13:07:27,620 basehttp 11 140391146515256 "GET /auth/42/callback?code=8deca3174e9b45227399be37ab40ce61f78c5c9f1666f4337fe286f1debe90d1&state=huEsHCvQkRIQSatm3FKtkYFdOQNvppVm HTTP/1.0" 302 0
+INFO 2025-02-14 13:07:27,620 basehttp 11 140391146515256 "GET /auth/42/callback?code=8deca3174e9b45227399be37ab40ce61f78c5c9f1666f4337fe286f1debe90d1&state=huEsHCvQkRIQSatm3FKtkYFdOQNvppVm HTTP/1.0" 302 0
+INFO 2025-02-14 13:07:29,412 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 13:07:29,412 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 13:08:05,548 basehttp 11 140391142046520 "GET /auth/user/export_data/ HTTP/1.0" 200 243
+INFO 2025-02-14 13:08:05,548 basehttp 11 140391142046520 "GET /auth/user/export_data/ HTTP/1.0" 200 243
+INFO 2025-02-14 13:08:22,676 basehttp 11 140391142046520 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-02-14 13:08:22,676 basehttp 11 140391142046520 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-02-14 13:08:55,349 basehttp 11 140391142046520 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 13:08:55,349 basehttp 11 140391142046520 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-14 13:08:55,363 basehttp 11 140391142046520 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 13:08:55,363 basehttp 11 140391142046520 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-14 13:08:55,934 basehttp 11 140391142046520 "GET /auth/42/callback?code=47aece0b26b3dc5e8728218cec65ebd04a770bb0d1c9b556e5191242762793d9&state=USiOv1JShFD1G8GsNbYmPwxrgRIywtSa HTTP/1.0" 302 0
+INFO 2025-02-14 13:08:55,934 basehttp 11 140391142046520 "GET /auth/42/callback?code=47aece0b26b3dc5e8728218cec65ebd04a770bb0d1c9b556e5191242762793d9&state=USiOv1JShFD1G8GsNbYmPwxrgRIywtSa HTTP/1.0" 302 0
+INFO 2025-02-14 13:09:02,806 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-14 13:09:02,806 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87

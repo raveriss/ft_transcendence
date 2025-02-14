@@ -65,26 +65,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const newEmailInput = document.getElementById('new-email');
   const confirmEmailInput = document.getElementById('confirm-email');
 
-  // Basculement du formulaire au clic sur l'item email
   emailToggle.addEventListener('click', (e) => {
-    e.stopPropagation(); // Empêche la propagation pour ne pas déclencher le document click
+    e.stopPropagation();
     emailFormContainer.classList.toggle('open');
     emailChevron.classList.toggle('rotate');
-    emailToggle.classList.toggle('open'); // Ajouté pour retirer l'arrondi en bas du toggle
+    emailToggle.classList.toggle('open');
   });
 
-  // Fermeture du formulaire si clic en dehors
   document.addEventListener('click', (e) => {
     if (!emailFormContainer.contains(e.target) && !emailToggle.contains(e.target)) {
       emailFormContainer.classList.remove('open');
       emailChevron.classList.remove('rotate');
-      emailToggle.classList.remove('open'); // On retire la classe open du toggle
+      emailToggle.classList.remove('open');
     }
   });
 
-  // Validation des emails en temps réel
   function validateEmail(email) {
-    // Expression régulière basique pour valider un email
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
@@ -108,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Gestion de la soumission du formulaire de mise à jour d'email
   emailForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -119,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isValid = true;
 
-    // Vérification du nouvel email
     if (!validateEmail(newEmail)) {
       newEmailInput.classList.add('is-invalid');
       isValid = false;
@@ -127,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
       newEmailInput.classList.remove('is-invalid');
     }
 
-    // Vérification de la confirmation
     if (newEmail !== confirmEmail || confirmEmail === '') {
       confirmEmailInput.classList.add('is-invalid');
       isValid = false;
@@ -135,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
       confirmEmailInput.classList.remove('is-invalid');
     }
 
-    // Vérification du mot de passe
     const passwordInput = document.getElementById('email-password');
     if (password === '') {
       passwordInput.classList.add('is-invalid');
@@ -146,13 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!isValid) return;
 
-    // Désactiver le bouton et afficher le spinner
     const submitButton = emailForm.querySelector('button[type="submit"]');
     submitButton.disabled = true;
     const spinner = submitButton.querySelector('.spinner-border');
     spinner.classList.remove('d-none');
 
-    // Préparation du payload
     const payload = {
       current_email: currentEmail,
       new_email: newEmail,
@@ -164,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        // Ajout du token CSRF si vous utilisez la protection CSRF
         'X-CSRFToken': getCookie('csrftoken')
       },
       body: JSON.stringify(payload)
@@ -175,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
       submitButton.disabled = false;
       if (data.success) {
         alert("Email modifié avec succès !");
-        // Mise à jour éventuelle de l'UI (par exemple, mise à jour de l'email affiché)
         emailForm.reset();
         emailFormContainer.classList.remove('open');
         emailChevron.classList.remove('rotate');
@@ -192,37 +180,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =========================================================
-  // 3. Fonctionnalité Formulaire Changer le mot de passe
-  // =========================================================
-  const passwordToggle = document.getElementById('password-toggle');            // <div id="password-toggle">
-  const passwordFormContainer = document.getElementById('password-form-container');  // <div id="password-form-container">
-  const passwordChevron = document.getElementById('password-chevron');          // <i id="password-chevron">
-  const passwordForm = document.getElementById('password-form');                // <form id="password-form">
-  const oldPasswordInput = document.getElementById('old-password');             // <input id="old-password">
-  const newPasswordInput = document.getElementById('new-password');             // <input id="new-password">
-  const confirmPasswordInput = document.getElementById('confirm-password');     // <input id="confirm-password">
+  // ------------------------------
+  // Fonctionnalité Formulaire Changer le mot de passe
+  // ------------------------------
+  const passwordToggle = document.getElementById('password-toggle');
+  const passwordFormContainer = document.getElementById('password-form-container');
+  const passwordChevron = document.getElementById('password-chevron');
+  const passwordForm = document.getElementById('password-form');
+  const oldPasswordInput = document.getElementById('old-password');
+  const newPasswordInput = document.getElementById('new-password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
 
-  // -- Ouverture/fermeture au clic sur "Changer le mot de passe"
   passwordToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     passwordFormContainer.classList.toggle('open');
     passwordChevron.classList.toggle('rotate');
-    passwordToggle.classList.toggle('open'); // AJOUTÉ : pour enlever l'arrondi en bas
+    passwordToggle.classList.toggle('open');
   });
 
-  // -- Fermeture si clic en dehors
   document.addEventListener('click', (e) => {
     if (!passwordFormContainer.contains(e.target) && !passwordToggle.contains(e.target)) {
       passwordFormContainer.classList.remove('open');
       passwordChevron.classList.remove('rotate');
-      passwordToggle.classList.remove('open'); // Ajouté pour rétablir l'espacement
+      passwordToggle.classList.remove('open');
     }
   });
 
-  // -- Validation basique du mot de passe
   function validatePassword(pwd) {
-    // Exemple : au moins 6 caractères
     return pwd.length >= 6;
   }
 
@@ -245,49 +229,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // -- Soumission du formulaire "mot de passe" (mise à jour réelle via AJAX)
   passwordForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const currentPassword = oldPasswordInput.value.trim();
     const newPassword = newPasswordInput.value.trim();
     const confirmPassword = confirmPasswordInput.value.trim();
 
-    // Vérifier que tous les champs sont remplis
     if (!currentPassword || !newPassword || !confirmPassword) {
       alert("Veuillez remplir tous les champs.");
       return;
     }
-    // Vérifier la correspondance des nouveaux mots de passe
     if (newPassword !== confirmPassword) {
       alert("Les nouveaux mots de passe ne correspondent pas.");
       return;
     }
-    // Vérifier les critères de sécurité : minimum 8 caractères, au moins une majuscule, un chiffre et un caractère spécial
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
     if (!passwordRegex.test(newPassword)) {
       alert("Le nouveau mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.");
       return;
     }
-    // Vérifier que le nouveau mot de passe est différent de l'ancien
     if (currentPassword === newPassword) {
       alert("Votre nouveau mot de passe doit être différent de l'ancien.");
       return;
     }
 
-    // Désactivation du bouton et affichage du spinner
     const submitButton = passwordForm.querySelector('button[type="submit"]');
     submitButton.disabled = true;
     const spinner = submitButton.querySelector('.spinner-border');
     if (spinner) spinner.classList.remove('d-none');
 
-    // Préparation du payload
     const payload = {
       current_password: currentPassword,
       new_password: newPassword,
       confirm_password: confirmPassword
     };
 
-    // Envoi de la requête AJAX vers le backend pour mettre à jour le mot de passe
     fetch('/auth/user/update_password/', {
       method: 'POST',
       headers: {
@@ -303,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
       submitButton.disabled = false;
       if (data.success) {
         alert("Mot de passe modifié avec succès !");
-        // Réinitialisation du formulaire et fermeture du conteneur
         oldPasswordInput.value = '';
         newPasswordInput.value = '';
         confirmPasswordInput.value = '';
@@ -321,59 +296,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =====================================================
-  // 2. Gestion du Toggle 2FA avec les icônes Bootstrap
-  // =====================================================
-  // Récupération du bouton toggle et de l'icône
+  // ------------------------------
+  // Gestion du Toggle 2FA
+  // ------------------------------
   const twofaBtn = document.getElementById('twofa-btn');
   const twofaIcon = document.getElementById('twofa-icon');
-  // (Optionnel) conteneur du formulaire OTP
   const twofaFormContainer = document.getElementById('2faFormContainer');
-  
-  // Récupération de l'état sauvegardé dans le localStorage (par défaut désactivé)
   let twofaEnabled = localStorage.getItem('twofa_enabled') === 'true';
-  
-  // Fonction qui met à jour l'interface en fonction de l'état
+
   function updateTwofaUI() {
     if (twofaEnabled) {
-      // Si 2FA est activée : on affiche l'icône toggle-on en vert
       twofaIcon.classList.remove('bi-toggle-off', 'text-danger');
       twofaIcon.classList.add('bi-toggle-on', 'text-success');
       twofaBtn.setAttribute('aria-label', 'Désactiver 2FA');
-      // (Optionnel) Afficher le formulaire OTP
-      if(twofaFormContainer) {
+      if (twofaFormContainer) {
         twofaFormContainer.style.display = 'block';
       }
     } else {
-      // Si 2FA est désactivée : on affiche l'icône toggle-off en rouge
       twofaIcon.classList.remove('bi-toggle-on', 'text-success');
       twofaIcon.classList.add('bi-toggle-off', 'text-danger');
       twofaBtn.setAttribute('aria-label', 'Activer 2FA');
-      // (Optionnel) Masquer le formulaire OTP
-      if(twofaFormContainer) {
+      if (twofaFormContainer) {
         twofaFormContainer.style.display = 'none';
       }
     }
   }
-  
-  // Mettre à jour l'interface dès le chargement de la page
+
   updateTwofaUI();
-  
-  // Gestion du clic sur le bouton toggle
+
   twofaBtn.addEventListener('click', function() {
     twofaEnabled = !twofaEnabled;
     localStorage.setItem('twofa_enabled', twofaEnabled);
     updateTwofaUI();
-  });  
+  });
 
-  // Fonction utilitaire pour récupérer le cookie CSRF (si nécessaire)
   function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
       const cookies = document.cookie.split(';');
       for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim();
-        // Vérifie si ce cookie correspond au nom recherché
         if (cookie.substring(0, name.length + 1) === (name + '=')) {
           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
           break;
@@ -383,9 +345,47 @@ document.addEventListener('DOMContentLoaded', () => {
     return cookieValue;
   }
 
-  // Validation basique d'email (si besoin ailleurs)
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
+  }
+});
+
+document.getElementById("export-data-btn").addEventListener("click", () => {
+  fetch("/auth/user/export_data/", {
+      method: "GET",
+      credentials: "include"
+  })
+  .then(response => response.json())
+  .then(data => {
+      const jsonBlob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = window.URL.createObjectURL(jsonBlob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "mes_donnees.json";
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+  })
+  .catch(error => console.error("Erreur lors de l'export des données :", error));
+});
+
+document.getElementById("delete-account-btn").addEventListener("click", () => {
+  if (confirm("Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.")) {
+      fetch("/auth/user/delete_account/", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" }
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert("Votre compte a été supprimé.");
+              window.location.href = "index.html";  // Redirection vers index.html
+          } else {
+              alert("Erreur : " + data.error);
+          }
+      })
+      .catch(error => console.error("Erreur lors de la suppression du compte :", error));
   }
 });
