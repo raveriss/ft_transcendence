@@ -471,3 +471,70 @@ def update_password_view(request):
     user.save()
     
     return JsonResponse({"success": True, "detail": "Mot de passe mis à jour avec succès."}, status=200)
+
+@csrf_exempt
+def export_data_view(request):
+    """
+    Vue permettant d’exporter les données personnelles de l’utilisateur
+    au format JSON. La réponse contient un header Content-Disposition afin
+    d’indiquer qu’il s’agit d’un fichier téléchargeable.
+    """
+    if request.method != "GET":
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+    # Préparer les données à exporter
+    data = {
+        "user_id": user.user_id,
+        "username": user.username,
+        "email_address": user.email_address,
+        "first_name": user.first_name,
+        "is_2fa_enabled": user.is_2fa_enabled,
+        "profile_image": user.profile_image.url if user.profile_image else "",
+        "created_at": user.created_at.isoformat()
+    }
+
+    response = JsonResponse(data)
+    response['Content-Disposition'] = 'attachment; filename="mes_donnees.json"'
+    return response
+
+@csrf_exempt
+def delete_account_view(request):
+    """
+    Vue permettant de supprimer complètement le compte de l’utilisateur.
+    Elle supprime l’utilisateur de la table User42 ainsi que les fichiers médias liés,
+    nettoie la session et renvoie une réponse JSON confirmant la suppression.
+    """
+    if request.method != "POST":
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+    # Suppression de l'image de profil si elle n'est pas celle par défaut
+    if user.profile_image and user.profile_image.name != 'profile_pictures/default_avatar.png':
+        image_path = user.profile_image.path
+        if os.path.exists(image_path):
+            os.remove(image_path)
+
+    # Supprimer l'utilisateur (et toutes les données associées)
+    user.delete()
+
+    # Nettoyer la session
+    request.session.flush()
+
+    return JsonResponse({"success": True, "detail": "Compte supprimé avec succès."})
