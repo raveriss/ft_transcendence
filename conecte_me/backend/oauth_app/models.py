@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password
+from django.utils.timezone import now
+
 
 class User42(models.Model):
     user_id = models.IntegerField(unique=True)
@@ -24,3 +26,15 @@ class User42(models.Model):
 
     def set_password(self, raw_password: str):
         self.password = make_password(raw_password)
+
+class UserLoginHistory(models.Model):
+    user = models.ForeignKey('User42', on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(default=now)
+    ip_address = models.GenericIPAddressField()
+    user_agent = models.TextField()
+
+    class Meta:
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        return f"Connexion de {self.user.username} - {self.timestamp}"
