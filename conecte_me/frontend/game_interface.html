@@ -350,7 +350,6 @@
 
     /* Quand on ouvre le conteneur */
     .game-options-container.open {
-      margin-left: 1rem; /* Ajustez selon vos besoins */
       max-height: 500px;   /* Ajustez la hauteur selon la taille de votre menu */
       opacity: 1;          /* Visible */
       /* 
@@ -396,12 +395,26 @@
       opacity: 0;
       overflow: hidden;
       transition: max-height 0.5s ease, opacity 0.5s ease;
-      margin-top: 0.5rem;
+
     }
 
+    #play-btn.open,
+    #social-btn.open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+
     .social-options-container.open {
-      max-height: 500px; /* ajustez selon votre contenu */
-      opacity: 1;
+      max-height: 500px;          /* hauteur ouverte */
+      opacity: 1;                 /* visible */
+      margin-top: 0;              /* plus de marge en haut */
+      margin-bottom: 1rem;        /* marge en bas (si vous en voulez) */
+      background: rgba(53, 63, 87, 0.5);
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 0;  /* pour aligner avec l’item ouvert */
+      border-top-right-radius: 0; /* idem */
     }
 
     /* Conteneur intérieur (facultatif si vous voulez un style distinct) */
@@ -533,8 +546,8 @@
         </button>
     
         <!-- Conteneur dépliable sous le bouton -->
-        <div id="game-options-container" class="game-options-container">
-          <div class="game-options-inner">
+        <div id="game-options-container" class="social-options-container">
+          <div class="social-options-inner">
             <!-- LOCAL -->
             <strong>LOCAL</strong>
             <div class="game-options-buttons">
