@@ -427,6 +427,14 @@
       transform: scale(1.03);
     }
 
+    .mt-4 {
+      margin-top: 2rem !important; /* Augmente l'espace au besoin */
+    }
+
+    .game-options-buttons:first-of-type {
+      margin-bottom: 1.5rem; /* Ajuste cette valeur selon tes besoins */
+    }
+
   </style>
 </head>
 
@@ -531,23 +539,23 @@
             <strong>LOCAL</strong>
             <div class="game-options-buttons">
               <button class="btn btn-outline-light game-option" data-mode="1p-vs-ia">
-                1P VS IA
+                <i class="bi bi-robot"></i> 1P VS IA
               </button>
               <button class="btn btn-outline-light game-option" data-mode="2p-local">
-                2P
+                <i class="bi bi-people"></i> 2P
               </button>
             </div>
-            <!-- Réseaux -->
-            <strong class="mt-3">RÉSEAUX</strong>
+            <!-- RÉSEAUX -->
+            <strong class="mt-4">RÉSEAUX</strong>
             <div class="game-options-buttons">
               <button class="btn btn-outline-light game-option" data-mode="2p-net">
-                2P
+                <i class="bi bi-diagram-2"></i> 2P
               </button>
               <button class="btn btn-outline-light game-option" data-mode="multiplayer">
-                MULTIPLAYER
+                <i class="bi bi-diagram-3"></i> MULTIPLAYER
               </button>
               <button class="btn btn-outline-light game-option" data-mode="tournament">
-                TOURNAMENT
+                <i class="bi bi-trophy"></i> TOURNAMENT
               </button>
             </div>
           </div>
@@ -569,10 +577,10 @@
           <div class="social-options-inner">
             <div class="social-options-buttons">
               <button class="btn btn-outline-light social-option" data-mode="chat">
-                CHAT
+                <i class="bi bi-chat-text"></i> CHAT
               </button>
               <button class="btn btn-outline-light social-option" data-mode="amis">
-                AMIS
+                <i class="bi bi-person-add"></i> AMIS
               </button>
             </div>
           </div>
