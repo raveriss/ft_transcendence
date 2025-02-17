@@ -12,6 +12,7 @@ from .views import (
     update_password_view,
     export_data_view,
     delete_account_view,
+    user_login_history,
 )
 from . import twofa_views
 
@@ -33,5 +34,6 @@ urlpatterns = [
     path('user/export_data/', export_data_view, name='export_data'),
     path('user/delete_account/', delete_account_view, name='delete_account'),
 
+    path('user/login_history/', user_login_history, name='user_login_history'),
 
 ]

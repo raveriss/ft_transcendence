@@ -14,6 +14,8 @@ from django.utils.crypto import get_random_string
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
 from django.db import IntegrityError, transaction
+from .models import User42, UserLoginHistory
+
 
 from django.middleware.csrf import get_token
 from django.contrib import messages
@@ -239,13 +241,29 @@ def signup_view(request):
         status=405
     )
 
+def user_login_history(request):
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({'error': 'User not authenticated'}, status=401)
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({'error': 'User not found'}, status=404)
+
+    # Récupérer les 3 dernières connexions (déjà ordonnées par -timestamp grâce à Meta)
+    logs = UserLoginHistory.objects.filter(user=user)[:3]
+    data = [
+        {
+            'timestamp': log.timestamp.isoformat(),
+            'ip_address': log.ip_address,
+            'user_agent': log.user_agent,
+        }
+        for log in logs
+    ]
+    return JsonResponse({'login_history': data})
+
 @csrf_exempt
 def login_view(request):
-    """
-    Vue permettant à l'utilisateur de se connecter avec email + password.
-    Retourne un JSON indiquant le succès ou l'échec,
-    ainsi qu'une éventuelle URL de redirection.
-    """
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -256,7 +274,6 @@ def login_view(request):
                 "error": "Champs 'email' et 'password' requis."
             }, status=400)
 
-        # On tente de récupérer l'utilisateur via l’email
         user = User42.objects.filter(email_address=email).first()
         if not user:
             return JsonResponse({
@@ -264,25 +281,37 @@ def login_view(request):
                 "error": "Email ou mot de passe incorrect."
             }, status=401)
 
-        # Vérification du mot de passe
-    if check_password(password, user.password):
-        # Authentification réussie : stocker l'ID dans la session
-        request.session['user_id'] = user.pk
-        request.session['email'] = user.email_address
-        
-        # Vérifier si la 2FA n'est pas activée
-        if not user.is_2fa_enabled:
-            return JsonResponse({
-                "success": True,
-                "redirect": "/auth/2fa/setup/"
-            }, status=200)
-        else:
-            return JsonResponse({
-                "success": True,
-                "redirect": "/game_interface.html"
-            }, status=200)
+        if check_password(password, user.password):
+            # Authentification réussie : mise à jour de la session
+            request.session['user_id'] = user.pk
+            request.session['email'] = user.email_address
 
-    # Méthode non autorisée
+            # --- Enregistrement de la connexion ---
+            ip_address = request.META.get('REMOTE_ADDR')
+            user_agent = request.META.get('HTTP_USER_AGENT', '')
+            UserLoginHistory.objects.create(
+                user=user,
+                ip_address=ip_address,
+                user_agent=user_agent
+            )
+
+            # Redirection ou gestion 2FA selon le cas
+            if not user.is_2fa_enabled:
+                return JsonResponse({
+                    "success": True,
+                    "redirect": "/auth/2fa/setup/"
+                }, status=200)
+            else:
+                return JsonResponse({
+                    "success": True,
+                    "redirect": "/game_interface.html"
+                }, status=200)
+
+        return JsonResponse({
+            "success": False,
+            "error": "Email ou mot de passe incorrect."
+        }, status=401)
+    
     return JsonResponse({
         "success": False,
         "error": "Méthode non autorisée."

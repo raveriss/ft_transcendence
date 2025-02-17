@@ -10,6 +10,34 @@ document.addEventListener('DOMContentLoaded', () => {
     avatarInput.click();
   });
 
+  function parseUserAgent(userAgent) {
+    let platform = 'Unknown';
+    let browser = 'Unknown';
+  
+    // Détection de la plateforme
+    if (userAgent.indexOf('Linux') > -1) {
+      platform = 'Linux';
+    } else if (userAgent.indexOf('Windows') > -1) {
+      platform = 'Windows';
+    } else if (userAgent.indexOf('Macintosh') > -1) {
+      platform = 'Mac';
+    }
+  
+    // Détection du navigateur
+    if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edge') === -1) {
+      browser = 'Chrome';
+    } else if (userAgent.indexOf('Firefox') > -1) {
+      browser = 'Firefox';
+    } else if (userAgent.indexOf('Safari') > -1 && userAgent.indexOf('Chrome') === -1) {
+      browser = 'Safari';
+    } else if (userAgent.indexOf('Edge') > -1) {
+      browser = 'Edge';
+    }
+  
+    return { platform, browser };
+  }
+  
+
   avatarInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -349,7 +377,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
+
+    // Si nous sommes sur user.html, récupérer l'historique des connexions
+    if (window.location.href.includes('user.html')) {
+      fetch('/auth/user/login_history/', { credentials: 'include' })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Données login_history:', data); // Pour vérifier dans la console
+          const tbody = document.getElementById('login-history');
+          tbody.innerHTML = ''; // Vider le contenu existant
+          data.login_history.forEach(log => {
+            const row = document.createElement('tr');
+  
+            // Date formatée
+            const dateCell = document.createElement('td');
+            dateCell.textContent = new Date(log.timestamp).toLocaleString();
+  
+            // Utiliser la fonction de parsing pour obtenir plateforme et navigateur
+            const { platform, browser } = parseUserAgent(log.user_agent);
+  
+            const platformCell = document.createElement('td');
+            platformCell.textContent = platform;
+  
+            const browserCell = document.createElement('td');
+            browserCell.textContent = browser;
+  
+            // Adresse IP
+            const ipCell = document.createElement('td');
+            ipCell.textContent = log.ip_address;
+  
+            // Statut (ici on affiche "Active")
+            const statusCell = document.createElement('td');
+            statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
+  
+            row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
+            tbody.appendChild(row);
+          });
+        })
+        .catch(error => console.error('Erreur lors de la récupération de l\'historique:', error));
+    }
+
 });
+
 
 document.getElementById("export-data-btn").addEventListener("click", () => {
   fetch("/auth/user/export_data/", {
