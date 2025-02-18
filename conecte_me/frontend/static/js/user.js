@@ -378,44 +378,49 @@ document.addEventListener('DOMContentLoaded', () => {
     return re.test(email);
   }
 
-    // Si nous sommes sur user.html, récupérer l'historique des connexions
-    if (window.location.href.includes('user.html')) {
-      fetch('/auth/user/login_history/', { credentials: 'include' })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Données login_history:', data); // Pour vérifier dans la console
-          const tbody = document.getElementById('login-history');
-          tbody.innerHTML = ''; // Vider le contenu existant
-          data.login_history.forEach(log => {
-            const row = document.createElement('tr');
-  
-            // Date formatée
-            const dateCell = document.createElement('td');
-            dateCell.textContent = new Date(log.timestamp).toLocaleString();
-  
-            // Utiliser la fonction de parsing pour obtenir plateforme et navigateur
-            const { platform, browser } = parseUserAgent(log.user_agent);
-  
-            const platformCell = document.createElement('td');
-            platformCell.textContent = platform;
-  
-            const browserCell = document.createElement('td');
-            browserCell.textContent = browser;
-  
-            // Adresse IP
-            const ipCell = document.createElement('td');
-            ipCell.textContent = log.ip_address;
-  
-            // Statut (ici on affiche "Active")
-            const statusCell = document.createElement('td');
+  // Si nous sommes sur user.html, récupérer l'historique des connexions
+  if (window.location.href.includes('user.html')) {
+    fetch('/auth/user/login_history/', { credentials: 'include' })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Données login_history:', data); // Pour vérifier dans la console
+        const tbody = document.getElementById('login-history');
+        tbody.innerHTML = ''; // Vider le contenu existant
+        data.login_history.forEach(record => {  // Utilisation de 'record' pour désigner l'enregistrement
+          const row = document.createElement('tr');
+
+          // Date formatée
+          const dateCell = document.createElement('td');
+          dateCell.textContent = new Date(record.timestamp).toLocaleString();
+
+          // Utiliser la fonction de parsing pour obtenir plateforme et navigateur
+          const { platform, browser } = parseUserAgent(record.user_agent);
+
+          const platformCell = document.createElement('td');
+          platformCell.textContent = platform;
+
+          const browserCell = document.createElement('td');
+          browserCell.textContent = browser;
+
+          // Adresse IP
+          const ipCell = document.createElement('td');
+          ipCell.textContent = record.ip_address;
+
+          // Statut : afficher "Active" si is_connected est vrai
+          const statusCell = document.createElement('td');
+          console.log('login_history:', data.login_history);
+          if (record.is_connected) {
             statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
-  
-            row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
-            tbody.appendChild(row);
-          });
-        })
-        .catch(error => console.error('Erreur lors de la récupération de l\'historique:', error));
-    }
+          } else {
+            statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
+          }
+
+          row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
+          tbody.appendChild(row);
+        });
+      })
+      .catch(error => console.error('Erreur lors de la récupération de l\'historique:', error));
+  }
 
 });
 

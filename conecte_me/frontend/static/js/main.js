@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
   if (userIcon) {
     userIcon.addEventListener('click', () => {
       // Redirection vers user.html

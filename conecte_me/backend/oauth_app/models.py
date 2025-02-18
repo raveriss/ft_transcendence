@@ -32,6 +32,8 @@ class UserLoginHistory(models.Model):
     timestamp = models.DateTimeField(default=now)
     ip_address = models.GenericIPAddressField()
     user_agent = models.TextField()
+    is_connected = models.BooleanField(default=False)  # Nouveau champ pour l'état de connexion
+
 
     class Meta:
         ordering = ['-timestamp']
