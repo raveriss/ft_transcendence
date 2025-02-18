@@ -126,6 +126,7 @@ def callback_42(request):
                 if temp_password:
                     user.password = temp_password
                     del request.session['temp_hashed_password']
+                user.is_connected = True
                 user.save()
             else:
                 # L'utilisateur n'existe pas encore : on lui attribue un user_id unique
@@ -162,7 +163,8 @@ def callback_42(request):
     UserLoginHistory.objects.create(
         user=user,
         ip_address=ip_address,
-        user_agent=user_agent
+        user_agent=user_agent,
+        is_connected=True
     )
 
     # Génération d'un JWT pour la session
@@ -250,6 +252,7 @@ def signup_view(request):
         status=405
     )
 
+@csrf_exempt
 def user_login_history(request):
     user_id = request.session.get('user_id')
     if not user_id:
@@ -259,17 +262,19 @@ def user_login_history(request):
     except User42.DoesNotExist:
         return JsonResponse({'error': 'User not found'}, status=404)
 
-    # Récupérer les 3 dernières connexions (déjà ordonnées par -timestamp grâce à Meta)
+    # Récupérer les 3 dernières connexions
     logs = UserLoginHistory.objects.filter(user=user)[:3]
     data = [
         {
             'timestamp': log.timestamp.isoformat(),
             'ip_address': log.ip_address,
             'user_agent': log.user_agent,
+            'is_connected': log.is_connected  # Conversion de 't' en booléen
         }
         for log in logs
     ]
     return JsonResponse({'login_history': data})
+
 
 @csrf_exempt
 def login_view(request):
@@ -308,7 +313,8 @@ def login_view(request):
                 UserLoginHistory.objects.create(
                     user=user,
                     ip_address=ip_address,
-                    user_agent=user_agent
+                    user_agent=user_agent,
+                    is_connected=True
                 )
                 return JsonResponse({
                     "success": True,
@@ -575,3 +581,39 @@ def delete_account_view(request):
     request.session.flush()
 
     return JsonResponse({"success": True, "detail": "Compte supprimé avec succès."})
+
+@csrf_exempt
+def update_login_status(request):
+    if request.method == "POST":
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+        
+        try:
+            user = User42.objects.get(pk=user_id)
+        except User42.DoesNotExist:
+            return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+        
+        # Récupération de l'état de la connexion
+        try:
+            data = json.loads(request.body)
+            is_connected = data.get('is_connected', False)
+
+            # Vérification du type de is_connected
+            if not isinstance(is_connected, bool):
+                return JsonResponse({"success": False, "error": "'is_connected' doit être un booléen."}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"success": False, "error": "Données mal formatées."}, status=400)
+        
+        # Mise à jour du dernier enregistrement de connexion pour cet utilisateur
+        last_login = UserLoginHistory.objects.filter(user=user).first()
+        if last_login:
+            last_login.is_connected = is_connected
+            last_login.save()
+        else:
+            # Créer un nouvel enregistrement si aucun historique n'existe
+            UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+
+        return JsonResponse({"success": True, "detail": "Statut de connexion mis à jour."}, status=200)
+    
+    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
