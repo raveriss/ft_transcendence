@@ -20,7 +20,7 @@ from .models import User42, UserLoginHistory
 from django.middleware.csrf import get_token
 from django.contrib import messages
 
-from .models import User42
+from .models import User42, UserLoginHistory
 from .utils import generate_jwt
 
 # Ajout de la gestion des logs
@@ -156,6 +156,15 @@ def callback_42(request):
     request.session['user_id'] = user.pk
     request.session['email'] = user.email_address
 
+    # --- Enregistrement du log de connexion pour le login via 42 ---
+    ip_address = request.META.get('REMOTE_ADDR')
+    user_agent = request.META.get('HTTP_USER_AGENT', '')
+    UserLoginHistory.objects.create(
+        user=user,
+        ip_address=ip_address,
+        user_agent=user_agent
+    )
+
     # Génération d'un JWT pour la session
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
 
@@ -286,22 +295,21 @@ def login_view(request):
             request.session['user_id'] = user.pk
             request.session['email'] = user.email_address
 
-            # --- Enregistrement de la connexion ---
-            ip_address = request.META.get('REMOTE_ADDR')
-            user_agent = request.META.get('HTTP_USER_AGENT', '')
-            UserLoginHistory.objects.create(
-                user=user,
-                ip_address=ip_address,
-                user_agent=user_agent
-            )
-
-            # Redirection ou gestion 2FA selon le cas
+            # Si 2FA n'est pas encore activé, rediriger vers la configuration 2FA
             if not user.is_2fa_enabled:
                 return JsonResponse({
                     "success": True,
                     "redirect": "/auth/2fa/setup/"
                 }, status=200)
             else:
+                # Si la 2FA est déjà activée, enregistrer la connexion
+                ip_address = request.META.get('REMOTE_ADDR')
+                user_agent = request.META.get('HTTP_USER_AGENT', '')
+                UserLoginHistory.objects.create(
+                    user=user,
+                    ip_address=ip_address,
+                    user_agent=user_agent
+                )
                 return JsonResponse({
                     "success": True,
                     "redirect": "/game_interface.html"

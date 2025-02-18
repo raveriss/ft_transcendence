@@ -6,7 +6,7 @@ import qrcode
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .models import User42
+from .models import User42, UserLoginHistory
 
 # Optionnel : Limitation des tentatives brute force
 MAX_2FA_ATTEMPTS = 5
@@ -60,7 +60,7 @@ def two_factor_setup(request):
 def two_factor_validate(request):
     """
     Valide le code TOTP envoyé par l'utilisateur.
-    En cas de succès, active le 2FA et renvoie une réponse JSON avec redirection.
+    En cas de succès, active le 2FA, enregistre la connexion et renvoie une réponse JSON avec redirection.
     """
     user = get_current_user(request)
     if not user:
@@ -81,6 +81,16 @@ def two_factor_validate(request):
             user.is_2fa_enabled = True
             user.save()
             request.session['2fa_attempts'] = 0  # Réinitialisation du compteur de tentatives
+            
+            # --- Enregistrement de la connexion 2FA ---
+            ip_address = request.META.get('REMOTE_ADDR')
+            user_agent = request.META.get('HTTP_USER_AGENT', '')
+            UserLoginHistory.objects.create(
+                user=user,
+                ip_address=ip_address,
+                user_agent=user_agent
+            )
+            
             return JsonResponse({
                 "success": True,
                 "message": "2FA validé avec succès.",
