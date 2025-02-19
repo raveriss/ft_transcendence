@@ -1,0 +1,2971 @@
+.
+├── backend
+│   ├── conecte_me_backend
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── settings.cpython-310.pyc
+│   │   │   └── urls.cpython-310.pyc
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── Dockerfile
+│   ├── logs
+│   │   └── django.log
+│   ├── manage.py
+│   ├── media
+│   │   └── profile_pictures
+│   │       └── default_avatar.png
+│   ├── oauth_app
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   ├── 0002_user42_email_address_user42_first_name_and_more.py
+│   │   │   ├── 0003_user42_is_2fa_enabled_user42_totp_secret.py
+│   │   │   ├── 0004_alter_user42_totp_secret.py
+│   │   │   ├── 0005_user42_profile_image.py
+│   │   │   ├── 0006_alter_user42_profile_image_userloginhistory.py
+│   │   │   ├── 0007_userloginhistory_is_connected.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       ├── 0001_initial.cpython-310.pyc
+│   │   │       ├── 0002_user42_email_address_user42_first_name_and_more.cpython-310.pyc
+│   │   │       ├── 0003_user42_is_2fa_enabled_user42_totp_secret.cpython-310.pyc
+│   │   │       ├── 0004_alter_user42_totp_secret.cpython-310.pyc
+│   │   │       ├── 0005_user42_profile_image.cpython-310.pyc
+│   │   │       ├── 0006_alter_user42_profile_image_userloginhistory.cpython-310.pyc
+│   │   │       ├── 0007_userloginhistory_is_connected.cpython-310.pyc
+│   │   │       └── __init__.cpython-310.pyc
+│   │   ├── models.py
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── models.cpython-310.pyc
+│   │   │   ├── tests.cpython-310.pyc
+│   │   │   ├── twofa_views.cpython-310.pyc
+│   │   │   ├── urls.cpython-310.pyc
+│   │   │   ├── utils.cpython-310.pyc
+│   │   │   └── views.cpython-310.pyc
+│   │   ├── templates
+│   │   │   └── 2fa_setup.html
+│   │   ├── tests.py
+│   │   ├── twofa_views.py
+│   │   ├── urls.py
+│   │   ├── utils.py
+│   │   └── views.py
+│   └── requirements.txt
+├── certs
+│   ├── localhost.crt
+│   └── localhost.key
+├── docker-compose.yml
+├── elk
+│   ├── elasticsearch
+│   │   └── elasticsearch.yml
+│   ├── filebeat.yml
+│   ├── kibana
+│   │   └── kibana.yml
+│   └── logstash
+│       ├── logstash.conf
+│       └── logstash.yml
+├── frontend
+│   ├── Dockerfile
+│   ├── game_interface.html
+│   ├── game_setup.html
+│   ├── index.html
+│   ├── login.html
+│   ├── privacy.html
+│   ├── signin42.html
+│   ├── signup.html
+│   ├── static
+│   │   ├── css
+│   │   │   ├── login.css
+│   │   │   ├── main.css
+│   │   │   └── signup.css
+│   │   ├── img
+│   │   │   ├── 42_logo.png
+│   │   │   ├── Game_anime.png
+│   │   │   ├── PONG_Accueil.png
+│   │   │   ├── PONG_seul.png
+│   │   │   ├── return_arrow.png
+│   │   │   ├── Symbole_return.png
+│   │   │   └── User_title.png
+│   │   └── js
+│   │       ├── 2fa.js
+│   │       ├── game.js
+│   │       ├── login.js
+│   │       ├── main.js
+│   │       ├── signin42.js
+│   │       ├── signup.js
+│   │       └── user.js
+│   ├── stats_page.html
+│   ├── team.html
+│   ├── terms.html
+│   └── user.html
+├── nginx.conf
+├── output.log
+└── README.md
+
+21 directories, 83 files
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRfu8m1L/J1Rv2hFpgb8si5+KclW5hqIcWPL6jIoS"
+      crossorigin="anonymous"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="static/css/main.css" />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gradient">
+    <!-- Bloc “titre” au-dessus du container -->
+    <div class="title-block text-center">
+      <!-- Image ou logo “PONG” -->
+      <img
+        src="/static/img/Game_anime.png"
+        alt="Game Title"
+        class="img-fluid"
+      />
+    </div>
+
+    <!-- Container principal -->
+    <div class="container text-center bg-white shadow-lg rounded p-4 welcome-container">
+      <p class="text-muted">Please sign in to continue</p>
+      <h1 class="display-6 text-primary"></h1>
+
+      <!-- Ligne 1: Boutons Login et Sign Up -->
+      <div class="btn-group w-100 mb-3 d-flex" role="group">
+        <button
+          id="login-btn"
+          class="btn active d-flex align-items-center justify-content-center"
+          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+        >
+          <i class="bi bi-box-arrow-in-right" style="font-size: 20px; margin-right: 8px;"></i>
+          Login
+        </button>
+        <button
+          id="signup-btn"
+          class="btn d-flex align-items-center justify-content-center"
+          style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+        >
+          <i class="bi bi-person-plus" style="font-size: 20px; margin-right: 8px;"></i>
+          Sign Up
+        </button>
+      </div>
+
+      <!-- Ligne 2: Case à cocher et texte en deux lignes -->
+      <div class="tos-container mb-3">
+        <div class="tos-line">
+          <input type="checkbox" id="tos-checkbox" />
+          <label for="tos-checkbox">I have read and agree to the</label>
+        </div>
+        <div class="tos-links">
+          <a href="terms.html" target="_blank">Terms of Service</a>
+          <span> and </span>
+          <a href="privacy.html" target="_blank">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Ligne 3: Texte RGPD -->
+      <p class="gdpr-text mb-3">Your data is processed according to GDPR regulations.</p>
+
+      <!-- Ligne 4: Bouton "Sign in with 42" -->
+      <button id="connect-42" class="auth-button">
+        <span>SIGN IN WITH</span>    
+        <img src="static/img/42_logo.png" alt="42 Logo" />
+      </button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <!-- Custom JS -->
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pong - Interface</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons (pour l’icône “person-circle” par ex.) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+
+  <!-- Ici, vous ajoutez votre script main.js -->
+  <script src="static/js/main.js"></script>
+
+  <style>
+    /* -------------------------------------------------------------
+       Fonts (à adapter selon l’emplacement de vos fichiers de police)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NotoSymbols';
+      src: url('static/fonts/NotoSansSymbols-Regular.ttf') format('truetype');
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body + fond dégradé
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Cantarell', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #f1f5f9;
+    }
+
+    /* -------------------------------------------------------------
+       Conteneur principal
+    ------------------------------------------------------------- */
+    .main-container {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .rank {
+     font-weight: bold;
+     margin-left: 15px; /* Ajuste la valeur selon tes besoins */
+     margin-right: 8px; /* Ajuste la valeur selon tes besoins */
+}
+
+    /* -------------------------------------------------------------
+       Titre PONG en dégradé
+    ------------------------------------------------------------- */
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      text-align: center;
+      margin: 0;
+      font-size: 5rem;
+      font-weight: bold;
+
+      /* Dégradé de bleu */
+      background: linear-gradient(
+        to bottom, 
+        #3b82f6,  /* Bleu clair */
+        #2563eb,  /* Bleu moyen */
+        #1e3a8a   /* Bleu foncé */
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent; /* Pour Safari */
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+
+      /* Espacement des lettres */
+      letter-spacing: 15px;
+    }
+
+    /* -------------------------------------------------------------
+       Icône utilisateur (en haut à droite)
+    ------------------------------------------------------------- */
+    .user-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1rem;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Cartes (Historique des matchs / Classement général)
+    ------------------------------------------------------------- */
+    .card-custom {
+      background: rgba(30, 41, 59, 0.4);
+
+      border-radius: 8px;
+      padding: 1rem;
+
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .card-header-custom {
+      font-size: 1.1rem;
+      color: #fff;
+
+      padding-bottom: 0.5rem;
+    }
+    .list-group-item-custom {
+      background: #263246;
+      border: none;
+      color: #f1f5f9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.4rem 0;
+      border-radius: 8px;
+      margin-bottom: 0.5rem; /* Ajoutez cette ligne pour l'espacement */
+
+    }
+
+    .list-group-item-custom:last-child {
+     margin-bottom: 0; /* Supprimez la marge en bas du dernier élément */
+    }
+    
+    .list-group-item-custom:not(:last-child) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .list-group-item-custom .match-date {
+      font-size: 0.7rem;
+      opacity: 0.8;
+      margin-left: 15px; /* Ajuste la valeur selon tes besoins */
+      margin-right: 8px;
+    }
+
+    .list-group-item-custom .match-name {
+      font-size: 0.9rem;
+      align-items: right;
+      font-weight: bold;
+      opacity: 0.8;
+    }
+
+
+    .list-group-item-custom .match-result {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-right: 15px; /* Ajuste la valeur selon tes besoins */
+    }
+
+    .list-unstyled mb-0
+    /* Surbrillance d’un item particulier (ex: #24 Player123) */
+    .highlight {
+      background-color: #1c2f60;
+    }
+
+    /* -------------------------------------------------------------
+       Boutons du bas (“PLAY”, “COMMUNAUTE”, etc.)
+    ------------------------------------------------------------- */
+    .menu-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .menu-button {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      color: #f1f5f9;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+      min-width: 120px;
+    }
+    .menu-button i {
+      font-size: 1.2rem;
+    }
+    .menu-button:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(51, 65, 85, 0.75);
+      transform: scale(1.05);
+    }
+
+    .elo-value {
+      font-weight: 600;       /* ou bold, selon votre préférence */
+      font-size: 1rem;        /* ajustez si vous voulez plus grand/petit */
+      color: #ffffff;         /* ou un bleu clair (#60a5fa), etc. */
+    }
+
+    .wins-text {
+      font-size: 0.7rem;
+      color: #cbd5e1;         /* gris clair, par exemple */
+      opacity: 0.8;           /* pour un effet plus discret */
+      margin-right: 0.7rem;
+    }
+
+    .match-info-left {
+      display: flex;
+      align-items: center;        /* aligne verticalement au centre */
+      justify-content: flex-start;/* reste collé à gauche */
+      gap: 8px;                   /* espace horizontal entre la date et le nom */
+    }
+
+
+    .elo-container {
+      display: inline-block;  /* pour pouvoir fixer une width */
+      width: 50px;            /* ajustez selon la taille max (4 chiffres : ~50px) */
+      text-align: right;      /* aligne la valeur ELO à droite */
+      margin-right: 0.5rem;   /* petit espace après */
+    }
+
+    /* -----------------------------------------------------------------
+      TABLEAU “custom-table” : Même look que .list-group-item-custom
+    ------------------------------------------------------------------- */
+    /* On sépare les cellules (et donc les lignes) 
+      et on ajoute 0.5rem de marge verticale 
+      entre chaque rangée. */
+      .custom-table {
+      table-layout: fixed;            /* Ajouté */
+      border-collapse: separate;
+      border-spacing: 0 0.5rem; /* Espace vertical entre les lignes */
+      width: 100%;
+      background: transparent;  /* Pas de fond imposé pour la table */
+    }
+
+    /* Chaque cellule a un fond #263246 
+      + un trait de séparation en bas, comme dans .list-group-item-custom */
+      .custom-table tbody tr td {
+      background-color: #263246; 
+      border: none;
+  
+      /* Optionnel: un peu de padding interne 
+        pour que le texte ne soit pas collé. */
+      padding: 0.4rem 0.8rem;
+      color: #fff;
+    }
+
+    .player-name-cell {
+      font-size: 0.9rem;
+      font-weight: bold;
+      opacity: 0.8;
+
+    }
+
+    /* Coins arrondis sur la première et la dernière cellule
+      de chaque rangée, ce qui donne 4 coins arrondis à la ligne. */
+      .custom-table tbody tr td:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      color: #fff;
+    }
+
+    /* Supprimer ce trait sur la dernière ligne du tableau */
+    .custom-table tbody tr td:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      color: #fff;
+    }
+
+    /* Ligne surbrillée (ex: #24 Player123) */
+    .custom-table tbody tr.highlight td {
+      background-color: #1c2f60;
+      color: #fff;
+    }
+
+    /* Optionnel : forcer la largeur d'une colonne 
+      par exemple pour le rang, si vous voulez un alignement 
+      standard pour #1, #24, etc. 
+    */
+    .rank-cell {
+      width: 50px;
+      text-align: left; /* #1, #24 seront alignés à droite */
+      padding-right: 8px;
+      opacity: 0.8;
+      align-items: right;
+      font-weight: bold;
+    }
+
+    /* Valeur ELO alignée à droite 
+      (déjà géré par .text-end dans le HTML).
+    */
+    .elo-cell {
+      text-align: right;
+      table-layout: fixed;
+      padding: 0.4rem 0.8rem 0.4rem 0.8rem; /* top right bottom left */
+      padding-left: 1rem;  /* ou 1.5rem selon l’effet voulu */
+
+      /* plus de width: 10px; à retirer */
+      width: 52px;          /* Laisse l’auto, ou fixez p.ex. 50px si vous préférez */
+      font-weight: bold;
+      opacity: 0.8;
+      white-space: nowrap;  /* Pour ne pas couper ELO sur 2 lignes */
+
+    }  
+
+    /* Wins 
+      (texte normal, vous pouvez y appliquer 
+      la classe .wins-text existante si vous voulez) 
+    */
+    .wins-cell {
+      width: 80px;
+      font-size: 0.7rem;
+      text-align: right;
+      white-space: nowrap;  /* Empêche le renvoi à la ligne */
+      opacity: 0.8;
+    }
+
+    .game-options-container {
+      max-height: 0;       /* On part de 0 */
+      opacity: 0;          /* Invisible */
+      overflow: hidden;    /* Masque le contenu */
+      transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out;
+      margin-top: 0.5rem;  /* Pour séparer visuellement du bouton PLAY */
+    }
+
+    /* Quand on ouvre le conteneur */
+    .game-options-container.open {
+      max-height: 500px;   /* Ajustez la hauteur selon la taille de votre menu */
+      opacity: 1;          /* Visible */
+      /* 
+        Vous pouvez aussi ajuster la marge, la bordure, le background, etc.
+        si besoin de répliquer EXACTEMENT l’effet du conteneur email.
+      */
+    }
+
+    /* Empêche le conteneur de s'aligner sur la même ligne que le bouton PLAY */
+    .play-container {
+      display: flex;
+      flex-direction: column; /* le bouton en haut, le menu en bas */
+      position: relative;     /* si vous voulez éventuellement positionner le menu */
+    }
+
+    /* Vous pouvez aussi forcer un alignement "start" ou "center" */
+    .menu-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      /* justify-content: center;  si vous voulez centrer l'ensemble */
+      align-items: flex-start; /* ou baseline, etc. */
+    }
+    
+    game-options-inner {
+      margin-left: 1rem; /* Ajustez selon vos besoins */
+      padding: 1rem; /* Ajustez selon vos besoins */
+      background: #263246; /* Fond du menu déroulant */
+      border-radius: 8px; /* Coins arrondis */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre */
+    }
+
+    /* Pour empiler le bouton SOCIAL + menu en colonne */
+    .social-container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Menu SOCIAL caché par défaut (même transition que le game-options-container) */
+    .social-options-container {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 1.5s ease, opacity 1.5s ease;
+
+    }
+
+    #play-btn.open,
+    #social-btn.open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+
+    .social-options-container.open {
+      max-height: 500px;          /* hauteur ouverte */
+      opacity: 1;                 /* visible */
+      margin-top: 0;              /* plus de marge en haut */
+      margin-bottom: 1rem;        /* marge en bas (si vous en voulez) */
+      background: rgba(53, 63, 87, 0.5);
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 0;  /* pour aligner avec l’item ouvert */
+      border-top-right-radius: 0; /* idem */
+    }
+
+    /* Conteneur intérieur (facultatif si vous voulez un style distinct) */
+    .social-options-inner {
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 8px;
+      padding: 1rem;
+      /* etc. */
+    }
+
+    .social-options-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* Boutons internes */
+    .social-option {
+      transition: transform 0.3s;
+    }
+    .social-option:hover {
+      transform: scale(1.03);
+    }
+
+    .mt-4 {
+      margin-top: 2rem !important; /* Augmente l'espace au besoin */
+    }
+
+    .game-options-buttons:first-of-type {
+      margin-bottom: 1.5rem; /* Ajuste cette valeur selon tes besoins */
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <!-- Icône utilisateur (en haut à droite) -->
+    <div class="user-icon">
+      <i class="bi bi-person-circle"></i>
+    </div>
+
+    <!-- Titre principal -->
+    <h1 class="title mb-5">DASHBOARD</h1>
+
+    <!-- Contenu principal en 2 colonnes : Historique + Classement -->
+    <div class="row">
+      <!-- Colonne gauche : Historique des matchs -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi-clock-history"></i>
+            Historique des matchs
+          </div>
+          <ul class="list-unstyled mb-0">
+            <li class="list-group-item-custom">
+              <div class="match-info-left">
+                <span class="match-date">2025-01-10</span>
+                <span class="match-name">ProGamer</span>
+              </div>
+              <span class="match-result text-success">Victory 11-9</span>
+            </li>
+            <li class="list-group-item-custom">
+              <div class="match-info-left">
+                <span class="match-date">2025-01-08</span>
+                <span class="match-name">PongMaster</span>
+              </div>
+              <span class="match-result text-danger">Defeat 9-11</span>
+            </li>
+            <li class="list-group-item-custom">
+              <div class="match-info-left">
+                <span class="match-date">2025-01-05</span>
+                <span class="match-name">NewPlayer</span>
+              </div>
+              <span class="match-result text-success">Victory 11-7</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Colonne droite : Classement général -->
+      <div class="col-12 col-lg-6 mb-4">
+        <div class="card-custom">
+          <div class="card-header-custom">
+            <i class="bi-mortarboard"></i>
+            Classement général
+          </div>
+        
+          <table class="table table-borderless text-white align-middle mb-0 custom-table">
+            <tbody>
+              <tr>
+                <td class="rank-cell">#1</td>
+                <td class="player-name-cell">TopPlayer1</td>
+                <td class="elo-cell text-end">1850</td>
+                <td class="wins-cell">42 wins</td>
+              </tr>
+              <tr>
+                <td class="rank-cell">#2</td>
+                <td class="player-name-cell">TopPlayer2</td>
+                <td class="elo-cell text-end">2050</td>
+                <td class="wins-cell">142 wins</td>
+              </tr>
+              <tr class="highlight">
+                <td class="rank-cell">#24</td>
+                <td class="player-name-cell">Player123</td>
+                <td class="elo-cell text-end">1850</td>
+                <td class="wins-cell">42 wins</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barre de boutons -->
+    <div class="menu-buttons">
+      <!-- Petit conteneur en “colonne” pour PLAY + son menu -->
+      <div class="play-container">
+        <button class="menu-button" id="play-btn">
+          <i class="bi bi-controller"></i>
+          PLAY
+        </button>
+    
+        <!-- Conteneur dépliable sous le bouton -->
+        <div id="game-options-container" class="social-options-container">
+          <div class="social-options-inner text-center">
+            <!-- LOCAL -->
+            <strong>LOCAL</strong>
+            <div class="game-options-buttons">
+              <button class="btn btn-outline-light game-option" data-mode="1p-vs-ia">
+                <i class="bi bi-robot"></i> 1P VS IA
+              </button>
+              <button class="btn btn-outline-light game-option" data-mode="2p-local">
+                <i class="bi bi-people"></i> 2P
+              </button>
+            </div>
+            <!-- RÉSEAUX -->
+            <strong class="mt-4">RÉSEAUX</strong>
+            <div class="game-options-buttons">
+              <button class="btn btn-outline-light game-option" data-mode="2p-net">
+                <i class="bi bi-diagram-2"></i> 2P
+              </button>
+              <button class="btn btn-outline-light game-option" data-mode="multiplayer">
+                <i class="bi bi-diagram-3"></i> MULTIPLAYER
+              </button>
+              <button class="btn btn-outline-light game-option" data-mode="tournament">
+                <i class="bi bi-trophy"></i> TOURNAMENT
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Autres boutons existants -->
+      <button class="menu-button" id="stats-btn">
+        <i class="bi bi-graph-up-arrow"></i>
+        STATS
+      </button>      
+      <!-- SOCIAL en colonne -->
+      <div class="social-container">
+        <button class="menu-button" id="social-btn">
+          <i class="bi bi-people"></i>
+          SOCIAL
+        </button>
+        <div id="social-options-container" class="social-options-container">
+          <div class="social-options-inner">
+            <div class="social-options-buttons">
+              <button class="btn btn-outline-light social-option" data-mode="chat">
+                <i class="bi bi-chat-text"></i> CHAT
+              </button>
+              <button class="btn btn-outline-light social-option" data-mode="amis">
+                <i class="bi bi-person-add"></i> AMIS
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="menu-button" id="setup-btn">
+        <i class="bi bi-gear"></i>
+        SETUP
+      </button>
+      <button class="menu-button" id="credits-btn">
+        <i class="bi bi-heart"></i>
+        CREDITS
+      </button>
+      <button class="menu-button" id="exit-btn">
+        <i class="bi bi-x-lg"></i>
+        EXIT
+      </button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+
+  <!-- Votre script de gestion de l'UI -->
+  <script src="static/js/game.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profil utilisateur - ft_transcendence</title>
+  <!-- Bootstrap CSS -->
+  <link 
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+    rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+  />
+
+  <style>
+    /* -------------------------------------------------------------
+       Fonts (adaptez selon vos chemins)
+    ------------------------------------------------------------- */
+    @font-face {
+      font-family: 'Pong-Game';
+      src: url('static/fonts/PongGame.woff2') format('woff2'),
+           url('static/fonts/PongGame.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'NotoSymbols';
+      src: url('static/fonts/NotoSansSymbols-Regular.ttf') format('truetype');
+    }
+
+    /* -------------------------------------------------------------
+       Reset box-sizing
+    ------------------------------------------------------------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    /* -------------------------------------------------------------
+       Body : fond + centrage
+    ------------------------------------------------------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cantarell', sans-serif;
+
+      min-height: 100vh;
+      overflow-y: auto; /* on scrolle si trop grand */
+      
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+    }
+
+    .main-container {
+      position: relative;
+      width: 95%;
+      max-width: 1200px;
+      margin: 2rem auto;  /* centrage horizontal + marge verticale */
+      position: relative; /* si vous avez besoin de position:relative */
+    }
+
+    /* -------------------------------------------------------------
+       Header : flèche retour, Titre PONG, icône user (top-right)
+    ------------------------------------------------------------- */
+    .header-bar {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .back-btn {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    }
+    .back-btn:hover {
+      background: rgba(30, 41, 59, 0.9);
+      border-color: rgba(51, 65, 85, 0.75);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .title {
+      font-family: "Pong-Game", sans-serif;
+      margin: 0;
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(
+        to bottom, 
+        #3b82f6, 
+        #2563eb,
+        #1e3a8a
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+      letter-spacing: 15px;
+      text-align: center;
+    }
+
+    .top-user-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.8rem;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+    .top-user-icon:hover {
+      opacity: 1;
+    }
+
+    /* -------------------------------------------------------------
+       Carte principale (Avatar + Player name + Stats)
+    ------------------------------------------------------------- */
+    .main-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Conteneur principal (pour le positionnement de l'icône) */
+    .avatar-bubble {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      background-color: rgba(15, 23, 42, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #f1f5f9;
+      margin: 0 auto 1rem; /* centré, marge en bas */
+      /* Ne pas utiliser overflow: hidden ici, pour que l'icône puisse dépasser */
+    }
+
+    /* Conteneur dédié à l'image qui va être masquée */
+    .avatar-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden; /* l'image sera clipée dans un cercle */
+    }
+
+    .avatar-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* l'image couvre tout le conteneur sans déformation */
+    }
+
+    .camera-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 28px;
+        height: 28px;
+        background: rgba(30, 41, 59, 0.9);
+        border: 1px solid rgba(51,65,85,0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #f1f5f9;
+        font-size: 1rem;
+        cursor: pointer;      /* Important : curseur clic */
+        transition: transform 0.3s;
+        border: none;         /* si c’est un <button>, vous pouvez forcer l’absence de style */
+        outline: none;
+    }
+
+    .camera-icon:hover {
+        transform: scale(1.5);
+    }
+
+    .camera-icon:focus {
+        outline: 2px solid rgba(59,130,246,0.5); /* Pour l’accessibilité focus */
+    }
+
+    .player-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+    }
+    .player-status {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-align: center;
+        margin-bottom: 1rem;
+
+        color: #60a5fa;  /* Couleur demandée */
+    }
+
+    /* Stats en 4 blocs, mais left-align (label au-dessus, value en dessous) */
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+    .stat-item {
+      flex: 1 1 calc(25% - 1rem); /* 4 items sur une ligne */
+      min-width: 120px;
+      background: rgba(53, 63, 87, 0.5);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin: 0;
+      text-align: left; /* Gauche */
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 0.2rem;
+        color: #fff;
+        text-align: left; /* Gauche */
+    }
+
+    .stat-value.highlight-value {
+        color: #60a5fa; /* force la couleur bleue */
+    }
+
+    /* -------------------------------------------------------------
+       Bloc “Sécurité”
+    ------------------------------------------------------------- */
+    .security-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .security-card h5 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .security-item {
+      background: rgba(53, 63, 87, 0.5);
+
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: background-color 0.2s, border-color 0.3s;
+    }
+    .security-item:hover {
+      background: rgba(51, 72, 120, 0.6);
+      border-color: rgba(51,65,85,0.7);
+      color: #f1f5f9;
+    }
+
+    .security-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .security-left i {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .security-right {
+      font-size: 0.9rem;
+      opacity: 0.6;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       Bloc “Logs de connexion”
+    ------------------------------------------------------------- */
+    .logs-card {
+      background: rgba(30, 41, 59, 0.4);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .logs-card h5 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .logs-table {
+      width: 100%;
+      border-collapse: collapse; /* Permet de gérer les bordures de façon fine */
+      background-color: #192434; /* Fond global, si voulu */
+    }
+
+    /* On enlève toutes les bordures par défaut sur th & td */
+    .logs-table th,
+    .logs-table td {
+      border: none; 
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: #f1f5f9;
+      background: rgba(30, 41, 59, 0.4); /* Couleur de fond pour chaque cellule */
+    }
+
+    /* On ne veut pas de lignes verticales → pas de border-left/border-right. 
+      Mais on veut de fines lignes horizontales internes,
+      sauf la toute première (au-dessus du thead) et la toute dernière (après le dernier <tr>). */
+
+    /* Ligne horizontale sous l’en‐tête (thead) */
+    .logs-table thead tr th {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Lignes horizontales entre les rangées du tbody 
+      (on en met une border-bottom sur chaque <tr> du tbody, 
+        sauf le dernier). */
+    .logs-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* On supprime la ligne horizontale après la dernière rangée */
+    .logs-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    /* Style de base pour les badges de statut */
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;        /* Ajustez si vous voulez un badge plus ou moins grand */
+      border-radius: 9999px;    /* donne un aspect “pill” très arrondi */
+      font-size: 0.8rem;        /* taille du texte */
+      font-weight: 600;         /* texte un peu gras */
+      text-align: center;
+      min-width: 60px;          /* optionnel, pour un badge d’au moins 60px de large */
+    }
+
+    /* Couleurs pour “Active” */
+    .status-active {
+      background-color: #22395f; /* Fond #22395f */
+      color: #83b0e6;            /* Texte #83b0e6 */
+    }
+
+    /* Couleurs pour “Inactive” */
+    .status-inactive {
+      background-color: #2a364a; /* Fond #2a364a */
+      color: #9ba5b4;            /* Texte #9ba5b4 */
+    }
+
+    /* Pour l'image à l'intérieur du bouton "back-btn" */
+    .back-btn img.arrow-icon {
+      width: 24px;
+      height: 24px;
+      /* object-fit: contain;  <-- facultatif si tu veux être sûr que l’image ne soit pas déformée */
+    }
+
+    /* -----------------------
+       Email form container
+    -------------------------*/
+    .email-form-container {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    
+    #password-toggle.open {
+      margin-bottom: 0;              /* retire la marge inférieure quand c'est ouvert */
+      border-bottom-left-radius: 0;  /* retire l'arrondi */
+      border-bottom-right-radius: 0; /* retire l'arrondi */
+    }
+
+    .email-form-container.open {
+      max-height: 500px;          /* hauteur ouverte */
+      opacity: 1;                 /* visible */
+      margin-top: 0;              /* plus de marge en haut */
+      margin-bottom: 1rem;        /* marge en bas (si vous en voulez) */
+      background: rgba(53, 63, 87, 0.5);
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 0;  /* pour aligner avec l’item ouvert */
+      border-top-right-radius: 0; /* idem */
+      padding: 1.3rem 1.618rem;
+    }
+
+    /* Rotation de l’icône */
+    .rotate {
+      transform: rotate(180deg);
+      transition: transform 0.3s ease;
+    }
+
+    .password-form-container {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    .password-form-container.open {
+      max-height: 400px;       /* ou 500px, selon la hauteur voulue */
+      opacity: 1;
+      margin-top: 0;           /* on retire la marge au-dessus pour coller au toggle */
+      margin-bottom: 1rem;     /* marge en bas, si vous voulez */
+      background: rgba(53, 63, 87, 0.5);
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 0;  /* pour aligner avec l’item ouvert */
+      border-top-right-radius: 0; /* idem */
+      padding: 1.3rem 1.618rem;
+    }
+
+    /* Animation pour le toggle 2FA */
+    #twofa-btn i {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    #twofa-icon {
+      font-size: 2rem; /* Augmentez la valeur (ex: 2rem, 3rem, etc.) selon vos besoins */
+    }
+
+    #email-toggle.open {
+      margin-bottom: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="main-container">
+
+    <!-- Barre supérieure : flèche retour + Titre + user icon -->
+    <div class="header-bar">
+      <!-- Bouton retour -->
+      <div class="back-btn">
+        <button class="back-btn" onclick="history.back()">
+            <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
+            </button>
+            <!-- Titre PONG -->
+        </div>
+        <h1 class="title">USER</h1>
+    </div>
+
+    <!-- Carte principale (Profil + Stats) -->
+    <div class="main-card">
+      
+      <!-- Bloc avatar -->
+      <div class="avatar-bubble">
+        <div class="avatar-image">
+          <img id="profile-image" src="{% static 'img/default-avatar.png' %}" alt="User Profile">
+        </div>
+        <!-- Bouton pour déclencher la sélection d'image -->
+        <button type="button" class="camera-icon">
+          <i class="bi bi-camera-fill"></i>
+        </button>
+        <!-- Input file caché -->
+        <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+      </div>
+
+      <!-- Nom + statut -->
+      <h2 class="player-name">Loading...</h2>
+      <div class="player-status">Online</div>
+
+      <!-- Stats en 4 blocs, alignés à gauche -->
+      <div class="stats-row">
+        <!-- Classement Elo -->
+        <div class="stat-item">
+          <p class="stat-label">Classement Elo</p>
+          <div class="stat-value">1850</div>
+        </div>
+        <!-- Parties totales -->
+        <div class="stat-item">
+          <p class="stat-label">Parties totales</p>
+          <div class="stat-value">70</div>
+        </div>
+        <!-- Victoires -->
+        <div class="stat-item">
+          <p class="stat-label">Victoires</p>
+          <div class="stat-value highlight-value">42</div>
+        </div>
+        <!-- Défaites -->
+        <div class="stat-item">
+          <p class="stat-label">Défaites</p>
+          <div class="stat-value">28</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Section Sécurité -->
+    <div class="security-card mb-4">
+      <h5 class="mb-3">Sécurité</h5>
+
+      <!-- Item 1 : Ajouter/Changer Email -->
+      <div class="security-item" id="email-toggle">
+        <div class="security-left">
+          <i class="bi bi-envelope"></i>
+          <span>Ajouter/Changer : Email</span>
+        </div>
+        <div class="security-right">
+          <i class="bi bi-chevron-down" id="email-chevron"></i>
+        </div>
+      </div>
+
+      <!-- Conteneur du formulaire d'email (caché par défaut) -->
+      <div id="email-form-container" class="email-form-container">
+        <form id="email-form" novalidate class="mb-3">
+          <div class="mb-3">
+            <label for="old-email" class="form-label">Ancien Email</label>
+            <input type="email" id="old-email" class="form-control" placeholder="user@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="new-email" class="form-label">Nouveau Email</label>
+            <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email" required>
+            <div class="invalid-feedback">
+              Veuillez entrer un email valide.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="confirm-email" class="form-label">Confirmation Email</label>
+            <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email" required>
+            <div class="invalid-feedback">
+              Les emails ne correspondent pas.
+            </div>
+          </div>
+          <!-- Nouveau champ pour le mot de passe -->
+          <div class="mb-3">
+            <label for="email-password" class="form-label">Mot de passe</label>
+            <input type="password" id="email-password" class="form-control" placeholder="Votre mot de passe" required>
+            <div class="invalid-feedback">
+              Mot de passe requis.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            Valider
+          </button>
+        </form>
+      </div>
+      
+
+      <!-- Item 2 : Changer le mot de passe -->
+      <div class="security-item" id="password-toggle">
+        <div class="security-left">
+          <i class="bi bi-key"></i>
+          <span>Changer le mot de passe</span>
+        </div>
+        <div class="security-right">
+          <i class="bi bi-chevron-down" id="password-chevron"></i>
+        </div>
+      </div>
+
+      <!-- Conteneur du formulaire du mot de passe (caché par défaut) -->
+      <div id="password-form-container" class="password-form-container">
+        <form id="password-form" novalidate class="mb-3">
+          <div class="mb-3">
+            <label for="old-password" class="form-label">Ancien mot de passe</label>
+            <input type="password" id="old-password" class="form-control" placeholder="•••••••">
+          </div>
+          <div class="mb-3">
+            <label for="new-password" class="form-label">Nouveau mot de passe</label>
+            <input type="password" id="new-password" class="form-control" placeholder="•••••••">
+            <div class="invalid-feedback">
+              Veuillez entrer un mot de passe valide.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="confirm-password" class="form-label">Confirmation</label>
+            <input type="password" id="confirm-password" class="form-control" placeholder="•••••••">
+            <div class="invalid-feedback">
+              Les mots de passe ne correspondent pas.
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            Valider
+          </button>
+        </form>
+      </div>
+
+
+    <!-- Section 2FA dans la sécurité -->
+    <div class="security-item" id="twofa-toggle">
+      <div class="security-left">
+        <i class="bi bi-shield"></i>
+        <span>Two-factor authentication (2FA)</span>
+      </div>
+      <div class="security-right">
+        <!-- Bouton toggle avec icône initiale "toggle off" en rouge -->
+        <button id="twofa-btn" class="btn btn-link p-0" tabindex="0" aria-label="Activer 2FA">
+          <i id="twofa-icon" class="bi bi-toggle-off text-danger"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- Section Logs de connexion -->
+    <div class="logs-card">
+      <h5 class="mb-3"><i class="bi bi-activity"></i> Logs de connexion</h5>
+      <!-- Conteneur “table-responsive” -->
+      <div class="table-responsive">
+        <table class="logs-table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Plateforme</th>
+                <th>Navigateur</th>
+                <th>Adresse IP</th>
+                <th>Statut</th>
+            </tr>
+            </thead>
+            <tbody id="login-history">
+              <!-- Les logs seront injectés ici par user.js -->
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <!-- Section Gestion de mes données personnelles -->
+  <div class="data-management-card text-center my-4 p-3 rounded" style="background: rgba(30,41,59,0.4); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+    <h5 class="mb-3">
+      <i class="bi bi-person-lines-fill me-2"></i>Mes données personnelles
+    </h5>
+    <div class="export-delete-container d-flex justify-content-center gap-3">
+      <button class="btn btn-secondary" id="export-data-btn">
+        <i class="bi bi-download me-2"></i>Télécharger mes données
+      </button>
+      <button class="btn btn-danger" id="delete-account-btn">
+        <i class="bi bi-trash me-2"></i>Supprimer mon compte
+      </button>
+    </div>
+    <p class="small text-muted mt-2">
+      Vous pouvez télécharger une copie de vos données ou supprimer définitivement votre compte.
+    </p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script src="static/js/main.js"></script>
+  <script src="static/js/user.js"></script>
+</body>
+</html>document.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.getElementById('login-btn');
+  const signupBtn = document.getElementById('signup-btn');
+  const connect42Btn = document.getElementById('connect-42');
+  const userIcon = document.querySelector('.user-icon');
+  const creditsBtn = document.getElementById('credits-btn');
+  const setupBtn = document.getElementById('setup-btn');
+  const statsBtn = document.getElementById('stats-btn');
+  const exitBtn = document.getElementById('exit-btn');
+
+  if (exitBtn) {
+    exitBtn.addEventListener('click', () => {
+      fetch('/auth/user/update_login_status/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ is_connected: false })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Statut mis à jour :", data);
+        // Redirection vers index.html après la mise à jour
+        window.location.href = 'index.html';
+      })
+      .catch(error => {
+        console.error("Erreur lors de la mise à jour du statut :", error);
+        window.location.href = 'index.html';
+      });
+    });
+  }
+
+
+  if (userIcon) {
+    userIcon.addEventListener('click', () => {
+      // Redirection vers user.html
+      window.location.href = 'user.html';
+    });
+  }
+
+  if (setupBtn) {
+    setupBtn.addEventListener('click', () => {
+      // Redirection vers la page game_setup.html
+      window.location.href = 'game_setup.html';
+    });
+  }
+
+  if (statsBtn) {
+    statsBtn.addEventListener('click', () => {
+      // Redirection vers stats_page.html
+      window.location.href = 'stats_page.html';
+    });
+  }
+
+  if (creditsBtn) {
+    creditsBtn.addEventListener('click', () => {
+      // Redirection vers team.html
+      window.location.href = 'team.html';
+    });
+  }
+
+  // ====== GESTION DU BOUTON LOGIN ======
+  if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+      // Ajoute la classe d’état "active"
+      loginBtn.classList.add('btn-primary');
+      signupBtn?.classList.remove('btn-primary');
+      // Redirection vers login.html
+      window.location.href = '/login.html';
+    });
+  }
+
+  // ====== GESTION DU BOUTON SIGNUP ======
+  if (signupBtn) {
+    signupBtn.addEventListener('click', () => {
+      // Ajoute la classe d’état "active"
+      signupBtn.classList.add('btn-primary');
+      loginBtn?.classList.remove('btn-primary');
+      // Redirection vers signup.html
+      window.location.href = 'signup.html';
+    });
+  }
+
+  // ====== GESTION DU BOUTON "CONNECT-42" ======
+  if (connect42Btn) {
+    connect42Btn.addEventListener('click', () => {
+      // Redirection vers la page de saisie du mot de passe pour 42
+      window.location.href = 'signin42.html';
+    });
+  }
+
+  // ====== GESTION DE LA RÉCUPÉRATION DU JWT (SI RETOUR OAUTH) ======
+  const urlParams = new URLSearchParams(window.location.search);
+  const jwt = urlParams.get('jwt');
+  if (jwt) {
+    const container = document.querySelector('.container');
+    if (container) {
+      localStorage.setItem('jwt', jwt);
+    }
+  }
+
+  // ====== GESTION DE LA CASE À COCHER POUR LES POLITIQUES (TOS & Privacy) ======
+  const tosCheckbox = document.getElementById('tos-checkbox');
+  if (tosCheckbox && connect42Btn) {
+    // Désactiver le bouton dès le chargement de la page
+    connect42Btn.disabled = true;
+    connect42Btn.classList.add('disabled');
+
+    tosCheckbox.addEventListener('change', () => {
+      if (tosCheckbox.checked) {
+        connect42Btn.disabled = false;
+        connect42Btn.classList.remove('disabled');
+      } else {
+        connect42Btn.disabled = true;
+        connect42Btn.classList.add('disabled');
+      }
+    });
+  }
+
+  // --- Nouveau code pour mettre à jour le username et la photo de profil dans user.html ---
+  if (window.location.href.includes('user.html')) {
+    const playerNameElement = document.querySelector('.player-name');
+    const profileImageElement = document.getElementById('profile-image');
+    if (playerNameElement && profileImageElement) {
+      fetch('/auth/user/', { credentials: 'include' })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.username) {
+            playerNameElement.textContent = data.username;
+          } else {
+            playerNameElement.textContent = 'Error loading username';
+          }
+          if (data.profile_image) {
+            profileImageElement.src = data.profile_image;
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching user info:', error);
+          playerNameElement.textContent = 'Error loading username';
+          // Utiliser l'avatar par défaut en cas d'erreur
+          profileImageElement.src = '/static/img/default-avatar.png';
+        });
+    }
+  }
+
+  
+});
+document.addEventListener('DOMContentLoaded', () => {
+  // ------------------------------
+  // Fonctionnalité avatar (existante)
+  // ------------------------------
+  const cameraBtn = document.querySelector('.camera-icon');
+  const avatarInput = document.getElementById('avatar-upload');
+  const profileImage = document.getElementById('profile-image');
+
+  cameraBtn.addEventListener('click', () => {
+    avatarInput.click();
+  });
+
+  function parseUserAgent(userAgent) {
+    let platform = 'Unknown';
+    let browser = 'Unknown';
+  
+    // Détection de la plateforme
+    if (userAgent.indexOf('Linux') > -1) {
+      platform = 'Linux';
+    } else if (userAgent.indexOf('Windows') > -1) {
+      platform = 'Windows';
+    } else if (userAgent.indexOf('Macintosh') > -1) {
+      platform = 'Mac';
+    }
+  
+    // Détection du navigateur
+    if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edge') === -1) {
+      browser = 'Chrome';
+    } else if (userAgent.indexOf('Firefox') > -1) {
+      browser = 'Firefox';
+    } else if (userAgent.indexOf('Safari') > -1 && userAgent.indexOf('Chrome') === -1) {
+      browser = 'Safari';
+    } else if (userAgent.indexOf('Edge') > -1) {
+      browser = 'Edge';
+    }
+  
+    return { platform, browser };
+  }
+  
+
+  avatarInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const allowedTypes = ['image/jpeg', 'image/png'];
+    if (!allowedTypes.includes(file.type)) {
+      alert("Format d'image non supporté. Seul JPEG et PNG sont autorisés.");
+      return;
+    }
+    if (file.size > 2 * 1024 * 1024) {
+      alert("La taille de l'image ne doit pas dépasser 2MB.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      profileImage.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    fetch('/auth/user/upload_avatar/', {
+      method: 'POST',
+      credentials: 'include',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        if (data.profile_image_url) {
+          profileImage.src = data.profile_image_url;
+        }
+        console.log("Avatar mis à jour avec succès.");
+      } else {
+        alert("Erreur lors de la mise à jour de l'avatar : " + data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur réseau :", error);
+      alert("Erreur lors de l'envoi de l'image.");
+    });
+  });
+
+  // ------------------------------
+  // Fonctionnalité Formulaire Email
+  // ------------------------------
+  const emailToggle = document.getElementById('email-toggle');
+  const emailFormContainer = document.getElementById('email-form-container');
+  const emailChevron = document.getElementById('email-chevron');
+  const emailForm = document.getElementById('email-form');
+  const newEmailInput = document.getElementById('new-email');
+  const confirmEmailInput = document.getElementById('confirm-email');
+
+  emailToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    emailFormContainer.classList.toggle('open');
+    emailChevron.classList.toggle('rotate');
+    emailToggle.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!emailFormContainer.contains(e.target) && !emailToggle.contains(e.target)) {
+      emailFormContainer.classList.remove('open');
+      emailChevron.classList.remove('rotate');
+      emailToggle.classList.remove('open');
+    }
+  });
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  newEmailInput.addEventListener('input', () => {
+    const emailVal = newEmailInput.value.trim();
+    if (!validateEmail(emailVal)) {
+      newEmailInput.classList.add('is-invalid');
+    } else {
+      newEmailInput.classList.remove('is-invalid');
+    }
+  });
+
+  confirmEmailInput.addEventListener('input', () => {
+    const emailVal = newEmailInput.value.trim();
+    const confirmVal = confirmEmailInput.value.trim();
+    if (emailVal !== confirmVal) {
+      confirmEmailInput.classList.add('is-invalid');
+    } else {
+      confirmEmailInput.classList.remove('is-invalid');
+    }
+  });
+
+  emailForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const currentEmail = document.getElementById('old-email').value.trim();
+    const newEmail = document.getElementById('new-email').value.trim();
+    const confirmEmail = document.getElementById('confirm-email').value.trim();
+    const password = document.getElementById('email-password').value.trim();
+
+    let isValid = true;
+
+    if (!validateEmail(newEmail)) {
+      newEmailInput.classList.add('is-invalid');
+      isValid = false;
+    } else {
+      newEmailInput.classList.remove('is-invalid');
+    }
+
+    if (newEmail !== confirmEmail || confirmEmail === '') {
+      confirmEmailInput.classList.add('is-invalid');
+      isValid = false;
+    } else {
+      confirmEmailInput.classList.remove('is-invalid');
+    }
+
+    const passwordInput = document.getElementById('email-password');
+    if (password === '') {
+      passwordInput.classList.add('is-invalid');
+      isValid = false;
+    } else {
+      passwordInput.classList.remove('is-invalid');
+    }
+
+    if (!isValid) return;
+
+    const submitButton = emailForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    const spinner = submitButton.querySelector('.spinner-border');
+    spinner.classList.remove('d-none');
+
+    const payload = {
+      current_email: currentEmail,
+      new_email: newEmail,
+      password: password
+    };
+
+    fetch('/auth/user/update_email/', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      spinner.classList.add('d-none');
+      submitButton.disabled = false;
+      if (data.success) {
+        alert("Email modifié avec succès !");
+        emailForm.reset();
+        emailFormContainer.classList.remove('open');
+        emailChevron.classList.remove('rotate');
+        emailToggle.classList.remove('open');
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur lors de la requête :", error);
+      spinner.classList.add('d-none');
+      submitButton.disabled = false;
+      alert("Une erreur est survenue lors de la mise à jour de l'email.");
+    });
+  });
+
+  // ------------------------------
+  // Fonctionnalité Formulaire Changer le mot de passe
+  // ------------------------------
+  const passwordToggle = document.getElementById('password-toggle');
+  const passwordFormContainer = document.getElementById('password-form-container');
+  const passwordChevron = document.getElementById('password-chevron');
+  const passwordForm = document.getElementById('password-form');
+  const oldPasswordInput = document.getElementById('old-password');
+  const newPasswordInput = document.getElementById('new-password');
+  const confirmPasswordInput = document.getElementById('confirm-password');
+
+  passwordToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    passwordFormContainer.classList.toggle('open');
+    passwordChevron.classList.toggle('rotate');
+    passwordToggle.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!passwordFormContainer.contains(e.target) && !passwordToggle.contains(e.target)) {
+      passwordFormContainer.classList.remove('open');
+      passwordChevron.classList.remove('rotate');
+      passwordToggle.classList.remove('open');
+    }
+  });
+
+  function validatePassword(pwd) {
+    return pwd.length >= 6;
+  }
+
+  newPasswordInput.addEventListener('input', () => {
+    const val = newPasswordInput.value.trim();
+    if (!validatePassword(val)) {
+      newPasswordInput.classList.add('is-invalid');
+    } else {
+      newPasswordInput.classList.remove('is-invalid');
+    }
+  });
+
+  confirmPasswordInput.addEventListener('input', () => {
+    const newVal = newPasswordInput.value.trim();
+    const confirmVal = confirmPasswordInput.value.trim();
+    if (newVal !== confirmVal) {
+      confirmPasswordInput.classList.add('is-invalid');
+    } else {
+      confirmPasswordInput.classList.remove('is-invalid');
+    }
+  });
+
+  passwordForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const currentPassword = oldPasswordInput.value.trim();
+    const newPassword = newPasswordInput.value.trim();
+    const confirmPassword = confirmPasswordInput.value.trim();
+
+    if (!currentPassword || !newPassword || !confirmPassword) {
+      alert("Veuillez remplir tous les champs.");
+      return;
+    }
+    if (newPassword !== confirmPassword) {
+      alert("Les nouveaux mots de passe ne correspondent pas.");
+      return;
+    }
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+    if (!passwordRegex.test(newPassword)) {
+      alert("Le nouveau mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.");
+      return;
+    }
+    if (currentPassword === newPassword) {
+      alert("Votre nouveau mot de passe doit être différent de l'ancien.");
+      return;
+    }
+
+    const submitButton = passwordForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    const spinner = submitButton.querySelector('.spinner-border');
+    if (spinner) spinner.classList.remove('d-none');
+
+    const payload = {
+      current_password: currentPassword,
+      new_password: newPassword,
+      confirm_password: confirmPassword
+    };
+
+    fetch('/auth/user/update_password/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      credentials: 'include',
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (spinner) spinner.classList.add('d-none');
+      submitButton.disabled = false;
+      if (data.success) {
+        alert("Mot de passe modifié avec succès !");
+        oldPasswordInput.value = '';
+        newPasswordInput.value = '';
+        confirmPasswordInput.value = '';
+        passwordFormContainer.classList.remove('open');
+        passwordChevron.classList.remove('rotate');
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur :", error);
+      if (spinner) spinner.classList.add('d-none');
+      submitButton.disabled = false;
+      alert("Une erreur est survenue lors de la mise à jour du mot de passe.");
+    });
+  });
+
+  // ------------------------------
+  // Gestion du Toggle 2FA
+  // ------------------------------
+  const twofaBtn = document.getElementById('twofa-btn');
+  const twofaIcon = document.getElementById('twofa-icon');
+  const twofaFormContainer = document.getElementById('2faFormContainer');
+  let twofaEnabled = localStorage.getItem('twofa_enabled') === 'true';
+
+  function updateTwofaUI() {
+    if (twofaEnabled) {
+      twofaIcon.classList.remove('bi-toggle-off', 'text-danger');
+      twofaIcon.classList.add('bi-toggle-on', 'text-success');
+      twofaBtn.setAttribute('aria-label', 'Désactiver 2FA');
+      if (twofaFormContainer) {
+        twofaFormContainer.style.display = 'block';
+      }
+    } else {
+      twofaIcon.classList.remove('bi-toggle-on', 'text-success');
+      twofaIcon.classList.add('bi-toggle-off', 'text-danger');
+      twofaBtn.setAttribute('aria-label', 'Activer 2FA');
+      if (twofaFormContainer) {
+        twofaFormContainer.style.display = 'none';
+      }
+    }
+  }
+
+  updateTwofaUI();
+
+  twofaBtn.addEventListener('click', function() {
+    twofaEnabled = !twofaEnabled;
+    localStorage.setItem('twofa_enabled', twofaEnabled);
+    updateTwofaUI();
+  });
+
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  // Si nous sommes sur user.html, récupérer l'historique des connexions
+  if (window.location.href.includes('user.html')) {
+    fetch('/auth/user/login_history/', { credentials: 'include' })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Données login_history:', data); // Pour vérifier dans la console
+        const tbody = document.getElementById('login-history');
+        tbody.innerHTML = ''; // Vider le contenu existant
+        data.login_history.forEach(record => {  // Utilisation de 'record' pour désigner l'enregistrement
+          const row = document.createElement('tr');
+
+          // Date formatée
+          const dateCell = document.createElement('td');
+          dateCell.textContent = new Date(record.timestamp).toLocaleString();
+
+          // Utiliser la fonction de parsing pour obtenir plateforme et navigateur
+          const { platform, browser } = parseUserAgent(record.user_agent);
+
+          const platformCell = document.createElement('td');
+          platformCell.textContent = platform;
+
+          const browserCell = document.createElement('td');
+          browserCell.textContent = browser;
+
+          // Adresse IP
+          const ipCell = document.createElement('td');
+          ipCell.textContent = record.ip_address;
+
+          // Statut : afficher "Active" si is_connected est vrai
+          const statusCell = document.createElement('td');
+          console.log('login_history:', data.login_history);
+          if (record.is_connected) {
+            statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
+          } else {
+            statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
+          }
+
+          row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
+          tbody.appendChild(row);
+        });
+      })
+      .catch(error => console.error('Erreur lors de la récupération de l\'historique:', error));
+  }
+
+});
+
+
+document.getElementById("export-data-btn").addEventListener("click", () => {
+  fetch("/auth/user/export_data/", {
+      method: "GET",
+      credentials: "include"
+  })
+  .then(response => response.json())
+  .then(data => {
+      const jsonBlob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = window.URL.createObjectURL(jsonBlob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "mes_donnees.json";
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+  })
+  .catch(error => console.error("Erreur lors de l'export des données :", error));
+});
+
+document.getElementById("delete-account-btn").addEventListener("click", () => {
+  if (confirm("Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.")) {
+      fetch("/auth/user/delete_account/", {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" }
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              alert("Votre compte a été supprimé.");
+              window.location.href = "index.html";  // Redirection vers index.html
+          } else {
+              alert("Erreur : " + data.error);
+          }
+      })
+      .catch(error => console.error("Erreur lors de la suppression du compte :", error));
+  }
+});#!/usr/bin/env python
+import os
+import sys
+
+def main():
+    """Point d'entrée principal pour les commandes Django."""
+    # Définit les paramètres du projet Django
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'conecte_me_backend.settings')
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Impossible d'importer Django. Assurez-vous qu'il est installé "
+            "et que le virtualenv est activé. Consultez les dépendances "
+            "dans requirements.txt."
+        ) from exc
+    execute_from_command_line(sys.argv)
+
+if __name__ == '__main__':
+    main()
+# backend/conecte_me_backend/settings.py
+import os
+from pathlib import Path
+import logging
+
+
+# Définition du répertoire de base du projet
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Clé secrète (à garder secrète en production)
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'unsafe-secret-key')
+
+# Mode débogage
+DEBUG = os.environ.get('DEBUG', '1') == '1'
+
+# Configuration des hôtes autorisés
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Applications installées
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    # Applications tierces
+    'rest_framework',
+    'oauth2_provider',
+
+    # Applications personnalisées
+    'oauth_app',
+]
+
+# Middleware
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+# Configuration des URL
+ROOT_URLCONF = 'conecte_me_backend.urls'
+
+# Configuration des templates
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            BASE_DIR / 'templates',
+            BASE_DIR / 'oauth_app' / 'templates',  # Ajout du dossier des templates de 2FA
+        ],
+
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+# Configuration WSGI
+WSGI_APPLICATION = 'conecte_me_backend.wsgi.application'
+
+# Configuration de la base de données
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB', 'conecteme_db'),
+        'USER': os.environ.get('POSTGRES_USER', 'conecteme_user'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'conecteme_password'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'db'),
+        'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+    }
+}
+
+# Configuration des mots de passe
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+]
+
+# Paramètres de localisation
+LANGUAGE_CODE = 'fr-fr'
+TIME_ZONE = 'Europe/Paris'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+# Configuration des fichiers statiques
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Configuration des fichiers médias
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Configuration des backends d'authentification
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'oauth2_provider.backends.OAuth2Backend',
+)
+
+# Configuration des paramètres OAuth2
+OAUTH2_PROVIDER = {
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600,
+    'AUTHORIZATION_CODE_EXPIRE_SECONDS': 600,
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.OAuthLibCore',
+    'OAUTH2_VALIDATOR_CLASS': 'oauth2_provider.oauth2_validators.OAuth2Validator',
+    'SCOPES': {'public': 'Accès public'},
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+}
+
+# Configuration des informations client OAuth2
+OAUTH42_WEBSITE = 'https://localhost:8443'
+OAUTH42_CLIENT_ID = 'u-s4t2ud-212adcc9d7bcdde9f1b4072ac7e13a17ce8c3493475514c9c139b3f993a243a6'
+OAUTH42_CLIENT_SECRET = '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'
+OAUTH42_REDIRECT_URI = 'https://localhost:8443/auth/42/callback'
+OAUTH42_AUTH_URL = 'https://api.intra.42.fr/oauth/authorize'
+OAUTH42_TOKEN_URL = 'https://api.intra.42.fr/oauth/token'
+OAUTH42_USER_URL = 'https://api.intra.42.fr/v2/me'
+
+# Configuration des e-mails
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+logger.debug(f"Connecting to DB: {DATABASES['default']}")
+
+# Définition du répertoire où seront stockés les fichiers de logs.
+# Ici, nous créons un dossier "logs" à la racine du projet.
+LOG_DIR = BASE_DIR / 'logs'
+if not LOG_DIR.exists():
+    # Crée le dossier "logs" s'il n'existe pas, en incluant tous les dossiers parents nécessaires.
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+# Configuration de la journalisation (logging) de Django.
+# Cette configuration est définie sous forme de dictionnaire et suit le schéma de configuration du module logging de Python.
+LOGGING = {
+    # Version du schéma de configuration du logging.
+    'version': 1,
+    # Ne pas désactiver les loggers existants (utile pour conserver la configuration par défaut de Django).
+    'disable_existing_loggers': False,
+
+    # Définition des formatters, qui déterminent le format des messages de log.
+    'formatters': {
+        # Formatter "verbose" : fournit des informations détaillées telles que le niveau, l'heure, le module, l'ID du processus, l'ID du thread et le message.
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',  # Utilisation du style "{" pour le formatage
+        },
+        # Formatter "simple" : affiche seulement le niveau de log et le message.
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+
+    # Définition des handlers, qui déterminent où les messages de log seront envoyés.
+    'handlers': {
+        # Handler "file" : enregistre les logs dans un fichier.
+        'file': {
+            'level': 'INFO',  # Seuls les messages d'INFO et plus sont enregistrés dans le fichier.
+            'class': 'logging.FileHandler',  # Utilise le FileHandler pour écrire dans un fichier.
+            'filename': str(LOG_DIR / 'django.log'),  # Chemin complet vers le fichier de log.
+            'formatter': 'verbose',  # Utilise le formatter "verbose" défini ci-dessus.
+        },
+        # Handler "console" : affiche les logs dans la console (stdout).
+        'console': {
+            'level': 'DEBUG',  # Affiche tous les messages de DEBUG et plus dans la console.
+            'class': 'logging.StreamHandler',  # Utilise StreamHandler pour écrire dans la console.
+            'formatter': 'simple',  # Utilise le formatter "simple".
+        },
+    },
+
+    # Configuration des loggers pour différentes parties de l'application.
+    'loggers': {
+        # Logger pour Django (les messages émis par Django lui-même).
+        'django': {
+            'handlers': ['file', 'console'],  # Envoie les logs à la fois dans le fichier et à la console.
+            'level': 'INFO',  # Niveau minimum pour enregistrer les messages.
+            'propagate': True,  # Les messages sont également propagés au logger racine.
+        },
+        # Logger racine (pour capturer les messages non spécifiquement attribués à un autre logger).
+        '': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+        },
+    },
+}
+
+# Par exemple, vous pouvez tester cette configuration en ajoutant un message de log au démarrage :
+import logging
+logger = logging.getLogger(__name__)
+logger.info("La configuration du logging est activée et les logs seront enregistrés dans 'logs/django.log'.")
+from django.contrib import admin
+from django.urls import path, include
+from oauth_app import views  # Remplacez par le nom correct de l'application contenant la vue
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('auth/', include('oauth_app.urls')),  # Toutes les routes d’authentification et 2FA
+    path('auth/42/', include('oauth_app.urls')),  # Routes d’auth OAuth 42
+    path('auth/signup/', views.signup_view, name='signup'),  # Ajoutez cette ligne
+    
+    # AJOUTER la ligne ci-dessous (ou le merge dans votre existant):
+    path('auth/login/', views.login_view, name='login'),     # /auth/login/
+]
+
+# Ajout de la configuration pour servir les fichiers médias en développement
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)import os
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'conecte_me_backend.settings')
+
+application = get_wsgi_application()
+import os
+import requests
+import jwt
+import datetime
+import requests
+import json
+import re
+
+
+from django.shortcuts import redirect, render
+from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
+from django.utils.crypto import get_random_string
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.hashers import check_password, make_password
+from django.db import IntegrityError, transaction
+from .models import User42, UserLoginHistory
+
+
+from django.middleware.csrf import get_token
+from django.contrib import messages
+
+from .models import User42, UserLoginHistory
+from .utils import generate_jwt
+
+# Ajout de la gestion des logs
+import logging
+logger = logging.getLogger(__name__)
+
+# Récupération des variables d'env
+CLIENT_ID = os.environ.get('OAUTH42_CLIENT_ID')
+CLIENT_SECRET = os.environ.get('OAUTH42_CLIENT_SECRET')
+REDIRECT_URI = os.environ.get('OAUTH42_REDIRECT_URI')
+TOKEN_URL = "https://api.intra.42.fr/oauth/token"
+AUTHORIZE_URL = "https://api.intra.42.fr/oauth/authorize"
+
+def redirect_to_42(request):
+    """
+    Redirige vers la page d'authentification 42 en utilisant
+    Authorization Code Grant. On génère un state random pour la protection CSRF.
+    """
+    state = get_random_string(32)
+    request.session['oauth_state'] = state
+
+    params = {
+        'client_id': CLIENT_ID,
+        'redirect_uri': REDIRECT_URI,
+        'response_type': 'code',
+        'scope': 'public',
+        'state': state,
+    }
+    # Construction de l'URL d'authentification
+    query_string = "&".join([f"{k}={v}" for k, v in params.items()])
+    auth_url = f"{AUTHORIZE_URL}?{query_string}"
+    return redirect(auth_url)
+
+
+def callback_42(request):
+    """
+    Gère le callback après authentification 42.
+    Échange le code reçu contre un token, récupère les infos utilisateur et,
+    si un mot de passe temporaire a été défini via signin42, l'utilise pour mettre à jour le compte.
+    """
+    # Vérification du state
+    state_session = request.session.get('oauth_state')
+    state_request = request.GET.get('state')
+    if not state_session or state_session != state_request:
+        return JsonResponse({"error": "Invalid state"}, status=400)
+
+    code = request.GET.get('code')
+    if not code:
+        return JsonResponse({"error": "No code provided"}, status=400)
+
+    # Échange du code contre un access token
+    data = {
+        'grant_type': 'authorization_code',
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
+        'code': code,
+        'redirect_uri': REDIRECT_URI,
+    }
+    try:
+        response = requests.post(TOKEN_URL, data=data)
+        token_data = response.json()
+        access_token = token_data.get('access_token')
+        if not access_token:
+            return JsonResponse({"error": "Failed to retrieve access token"}, status=400)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)
+
+    # Récupération des infos utilisateur depuis l'API 42
+    user_info_url = "https://api.intra.42.fr/v2/me"
+    headers = {
+        'Authorization': f"Bearer {access_token}"
+    }
+    user_resp = requests.get(user_info_url, headers=headers)
+    if user_resp.status_code != 200:
+        return JsonResponse({"error": "Failed to retrieve user info"}, status=400)
+
+    user_data = user_resp.json()
+    user_id_42 = user_data['id']
+    user_name_42 = user_data['login']
+
+    # Récupération de l'email et du prénom depuis l'API 42
+    email_from_api = user_data.get('email')
+    first_name_from_api = user_data.get('first_name')
+
+    # Si l'API ne fournit pas ces informations, on utilise des valeurs par défaut.
+    email_value = email_from_api if email_from_api else 'placeholder@example.com'
+    first_name_value = first_name_from_api if first_name_from_api else 'Unknown'
+
+    try:
+        with transaction.atomic():
+            # Récupération éventuelle d'un mot de passe temporaire défini via signin42
+            temp_password = request.session.get('temp_hashed_password')
+
+            # Recherche de l'utilisateur par email (champ unique dans notre cas)
+            user = User42.objects.filter(email_address=email_value).first()
+            if user:
+                # L'utilisateur existe déjà : on met à jour ses infos si nécessaire
+                if (email_from_api and email_from_api != user.email_address) or \
+                   (first_name_from_api and first_name_from_api != user.first_name):
+                    user.email_address = email_from_api or user.email_address
+                    user.first_name = first_name_from_api or user.first_name
+                # Si un mot de passe temporaire est présent, on l'utilise pour mettre à jour le mot de passe
+                if temp_password:
+                    user.password = temp_password
+                    del request.session['temp_hashed_password']
+                user.is_connected = True
+                user.save()
+            else:
+                # L'utilisateur n'existe pas encore : on lui attribue un user_id unique
+                existing_ids = list(User42.objects.values_list('user_id', flat=True))
+                sorted_ids = sorted(existing_ids)
+                new_user_id = 0
+                for uid in sorted_ids:
+                    if uid == new_user_id:
+                        new_user_id += 1
+                    else:
+                        break
+
+                user = User42(
+                    user_id=new_user_id,
+                    username=user_name_42,
+                    email_address=email_value,
+                    first_name=first_name_value,
+                )
+                # Si un mot de passe temporaire a été défini, on l'utilise dès la création
+                if temp_password:
+                    user.password = temp_password
+                    del request.session['temp_hashed_password']
+                user.save()
+    except IntegrityError:
+        return JsonResponse({"error": "Erreur lors de l'inscription de l'utilisateur"}, status=400)
+
+    # Mise à jour de la session
+    request.session['user_id'] = user.pk
+    request.session['email'] = user.email_address
+
+    # --- Enregistrement du log de connexion pour le login via 42 ---
+    ip_address = request.META.get('REMOTE_ADDR')
+    user_agent = request.META.get('HTTP_USER_AGENT', '')
+    UserLoginHistory.objects.create(
+        user=user,
+        ip_address=ip_address,
+        user_agent=user_agent,
+        is_connected=True
+    )
+
+    # Génération d'un JWT pour la session
+    jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
+
+    # Redirection côté frontend vers l'interface de jeu, en transmettant le token
+    response = HttpResponseRedirect(f"https://localhost:8443/game_interface.html?jwt={jwt_token}")
+    return response
+
+# --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
+@csrf_exempt
+def signup_view(request):
+    if request.method == 'POST':
+        # Récupération des données du formulaire
+        first_name   = request.POST.get('firstname')
+        email        = request.POST.get('email')
+        raw_password = request.POST.get('password')
+        pseudo       = request.POST.get('pseudo', '')
+
+        # Vérification que tous les champs requis sont présents
+        if not all([first_name, email, raw_password]):
+            return JsonResponse(
+                {"success": False, "error": "Tous les champs requis ne sont pas remplis."},
+                status=400
+            )
+
+        # Gestion de l'image de profil
+        profile_image = request.FILES.get('avatar')
+        if profile_image:
+            # Limiter la taille du fichier à 2MB
+            if profile_image.size > 2 * 1024 * 1024:
+                return JsonResponse(
+                    {"success": False, "error": "La taille de l'image ne doit pas dépasser 2MB."},
+                    status=400
+                )
+            # Vérifier le type MIME (seuls JPEG et PNG sont acceptés)
+            if profile_image.content_type not in ['image/jpeg', 'image/png']:
+                return JsonResponse(
+                    {"success": False, "error": "Format d'image non supporté. Seul JPEG et PNG sont autorisés."},
+                    status=400
+                )
+
+        try:
+            with transaction.atomic():
+                # Récupérer tous les user_id existants
+                existing_ids = list(User42.objects.values_list('user_id', flat=True))
+                # Trier les IDs pour faciliter la recherche de la plus petite valeur manquante
+                sorted_ids = sorted(existing_ids)
+
+                # Déterminer le plus petit user_id disponible
+                new_user_id = 0
+                for uid in sorted_ids:
+                    if uid == new_user_id:
+                        new_user_id += 1
+                    else:
+                        # Dès qu'on trouve un gap, on arrête : new_user_id est disponible
+                        break
+
+                # Création de l'utilisateur avec le user_id trouvé
+                user = User42(
+                    user_id=new_user_id,
+                    username=pseudo or email.split('@')[0],
+                    first_name=first_name,
+                    email_address=email,
+                )
+                user.password = make_password(raw_password)
+                if profile_image:
+                    user.profile_image = profile_image
+                user.save()
+
+        except IntegrityError:
+            # Gestion propre des erreurs transactionnelles pour éviter les conflits d'unicité
+            return JsonResponse(
+                {"success": False, "error": "Cette adresse e-mail est déjà utilisée."},
+                status=400
+            )
+
+        return JsonResponse(
+            {"success": True, "detail": "Inscription réussie."},
+            status=201
+        )
+
+    return JsonResponse(
+        {"success": False, "error": "Méthode non autorisée."},
+        status=405
+    )
+
+@csrf_exempt
+def user_login_history(request):
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({'error': 'User not authenticated'}, status=401)
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({'error': 'User not found'}, status=404)
+
+    # Récupérer les 3 dernières connexions
+    logs = UserLoginHistory.objects.filter(user=user)[:3]
+    data = [
+        {
+            'timestamp': log.timestamp.isoformat(),
+            'ip_address': log.ip_address,
+            'user_agent': log.user_agent,
+            'is_connected': log.is_connected  # Conversion de 't' en booléen
+        }
+        for log in logs
+    ]
+    return JsonResponse({'login_history': data})
+
+
+@csrf_exempt
+def login_view(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        if not email or not password:
+            return JsonResponse({
+                "success": False,
+                "error": "Champs 'email' et 'password' requis."
+            }, status=400)
+
+        user = User42.objects.filter(email_address=email).first()
+        if not user:
+            return JsonResponse({
+                "success": False,
+                "error": "Email ou mot de passe incorrect."
+            }, status=401)
+
+        if check_password(password, user.password):
+            # Authentification réussie : mise à jour de la session
+            request.session['user_id'] = user.pk
+            request.session['email'] = user.email_address
+
+            # Si 2FA n'est pas encore activé, rediriger vers la configuration 2FA
+            if not user.is_2fa_enabled:
+                return JsonResponse({
+                    "success": True,
+                    "redirect": "/auth/2fa/setup/"
+                }, status=200)
+            else:
+                # Si la 2FA est déjà activée, enregistrer la connexion
+                ip_address = request.META.get('REMOTE_ADDR')
+                user_agent = request.META.get('HTTP_USER_AGENT', '')
+                UserLoginHistory.objects.create(
+                    user=user,
+                    ip_address=ip_address,
+                    user_agent=user_agent,
+                    is_connected=True
+                )
+                return JsonResponse({
+                    "success": True,
+                    "redirect": "/game_interface.html"
+                }, status=200)
+
+        return JsonResponse({
+            "success": False,
+            "error": "Email ou mot de passe incorrect."
+        }, status=401)
+    
+    return JsonResponse({
+        "success": False,
+        "error": "Méthode non autorisée."
+    }, status=405)
+
+# -------------------------------
+# Nouvelle vue pour récupérer le username
+# -------------------------------
+def user_info(request):
+    logger.debug("Appel de user_info, session: %s", dict(request.session))
+    user_id = request.session.get('user_id')
+    if not user_id:
+        logger.error("Aucun user_id dans la session !")
+        return JsonResponse({'error': 'User not authenticated'}, status=401)
+    try:
+        user = User42.objects.get(pk=user_id)
+        logger.debug("Utilisateur trouvé : %s", user.username)
+        return JsonResponse({'username': user.username, 'profile_image': user.profile_image.url})
+    except User42.DoesNotExist:
+        logger.error("Utilisateur non trouvé pour user_id=%s", user_id)
+        return JsonResponse({'error': 'User not found'}, status=404)
+    
+@csrf_exempt
+def upload_avatar_view(request):
+    if request.method == 'POST':
+        # Vérification de l'authentification via la session
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+        try:
+            user = User42.objects.get(pk=user_id)
+        except User42.DoesNotExist:
+            return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+        # Récupération du fichier envoyé
+        avatar_file = request.FILES.get('avatar')
+        if not avatar_file:
+            return JsonResponse({"success": False, "error": "Aucun fichier envoyé."}, status=400)
+
+        # Vérification de la taille (max 2MB)
+        if avatar_file.size > 2 * 1024 * 1024:
+            return JsonResponse({"success": False, "error": "La taille de l'image ne doit pas dépasser 2MB."}, status=400)
+        # Vérification du format (JPEG/PNG)
+        if avatar_file.content_type not in ['image/jpeg', 'image/png']:
+            return JsonResponse({"success": False, "error": "Format d'image non supporté."}, status=400)
+
+        # Sauvegarde du nouvel avatar dans le modèle (le champ profile_image gère le chemin d'upload)
+        user.profile_image = avatar_file
+        user.save()
+
+        # Retour de l'URL de la nouvelle image pour mise à jour immédiate côté client
+        return JsonResponse({"success": True, "profile_image_url": user.profile_image.url}, status=200)
+    else:
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+@csrf_exempt
+def set_42_password_view(request):
+    """
+    Réception du mot de passe saisi par l’utilisateur lors de sa première connexion via 42.
+    Le mot de passe est validé, haché et stocké temporairement dans la session.
+    """
+    if request.method == 'POST':
+        password = request.POST.get('password')
+        confirm = request.POST.get('confirmPassword')
+
+        if not password or not confirm or password != confirm:
+            return JsonResponse({"success": False, "error": "Les mots de passe ne correspondent pas."}, status=400)
+
+        # Vérification côté serveur : minimum 8 caractères, 1 majuscule, 1 chiffre, 1 caractère spécial
+        pattern = r'^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$'
+        if not re.match(pattern, password):
+            return JsonResponse({"success": False, "error": "Le mot de passe ne respecte pas les critères de sécurité."}, status=400)
+
+        # Hachage sécurisé du mot de passe
+        hashed_password = make_password(password)
+        # Stockage temporaire dans la session
+        request.session['temp_hashed_password'] = hashed_password
+
+        return JsonResponse({
+            "success": True,
+            "detail": "Mot de passe défini avec succès. Vous allez être redirigé vers l'authentification 42."
+        }, status=200)
+    else:
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+@csrf_exempt
+def update_email_view(request):
+    if request.method != 'POST':
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+    # Vérifier que l'utilisateur est authentifié via la session
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+    
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+    
+    # Extraire le JSON envoyé
+    try:
+        data = json.loads(request.body)
+    except Exception:
+        return JsonResponse({"success": False, "error": "JSON invalide."}, status=400)
+    
+    current_email = data.get('current_email', '').strip()
+    new_email = data.get('new_email', '').strip()
+    password = data.get('password', '')
+
+    # Vérification que l'email actuel correspond à celui enregistré
+    if current_email != user.email_address:
+        return JsonResponse({"success": False, "error": "L'email actuel ne correspond pas."}, status=400)
+    
+    # Vérifier le format du nouvel email
+    email_regex = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
+    if not re.match(email_regex, new_email):
+        return JsonResponse({"success": False, "error": "Le nouvel email n'est pas valide."}, status=400)
+    
+    # Vérifier que le nouvel email n'est pas déjà utilisé par un autre compte
+    if User42.objects.filter(email_address=new_email).exclude(pk=user_id).exists():
+        return JsonResponse({"success": False, "error": "Cet email est déjà utilisé par un autre compte."}, status=400)
+    
+    # Vérifier que le mot de passe est correct
+    if not check_password(password, user.password):
+        return JsonResponse({"success": False, "error": "Mot de passe incorrect."}, status=400)
+    
+    # Tout est validé : mise à jour de l'email
+    user.email_address = new_email
+    user.save()
+    
+    # Mettre à jour éventuellement la session
+    request.session['email'] = new_email
+    
+    return JsonResponse({"success": True, "detail": "Email mis à jour avec succès."}, status=200)
+
+@csrf_exempt
+def update_password_view(request):
+    if request.method != "POST":
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+    
+    # Vérifier que l'utilisateur est authentifié via la session
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+    
+    # Extraction des données JSON
+    try:
+        data = json.loads(request.body)
+    except Exception:
+        return JsonResponse({"success": False, "error": "JSON invalide."}, status=400)
+    
+    current_password = data.get("current_password", "").strip()
+    new_password = data.get("new_password", "").strip()
+    confirm_password = data.get("confirm_password", "").strip()
+    
+    # Vérification que tous les champs sont présents
+    if not current_password or not new_password or not confirm_password:
+        return JsonResponse({"success": False, "error": "Tous les champs sont requis."}, status=400)
+    
+    # Vérification de la correspondance des nouveaux mots de passe
+    if new_password != confirm_password:
+        return JsonResponse({"success": False, "error": "Les nouveaux mots de passe ne correspondent pas."}, status=400)
+    
+    # Vérification des critères de sécurité
+    password_pattern = r"^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$"
+    if not re.match(password_pattern, new_password):
+        return JsonResponse({"success": False, "error": "Le nouveau mot de passe ne respecte pas les critères de sécurité."}, status=400)
+    
+    # Récupération de l'utilisateur
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+    
+    # Vérification du mot de passe actuel
+    if not check_password(current_password, user.password):
+        return JsonResponse({"success": False, "error": "Mot de passe actuel incorrect."}, status=400)
+    
+    # Vérifier que le nouveau mot de passe est différent de l'ancien
+    if current_password == new_password:
+        return JsonResponse({"success": False, "error": "Votre nouveau mot de passe doit être différent de l'ancien."}, status=400)
+    
+    # Tout est validé : hachage et mise à jour du mot de passe
+    user.password = make_password(new_password)
+    user.save()
+    
+    return JsonResponse({"success": True, "detail": "Mot de passe mis à jour avec succès."}, status=200)
+
+@csrf_exempt
+def export_data_view(request):
+    """
+    Vue permettant d’exporter les données personnelles de l’utilisateur
+    au format JSON. La réponse contient un header Content-Disposition afin
+    d’indiquer qu’il s’agit d’un fichier téléchargeable.
+    """
+    if request.method != "GET":
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+    # Préparer les données à exporter
+    data = {
+        "user_id": user.user_id,
+        "username": user.username,
+        "email_address": user.email_address,
+        "first_name": user.first_name,
+        "is_2fa_enabled": user.is_2fa_enabled,
+        "profile_image": user.profile_image.url if user.profile_image else "",
+        "created_at": user.created_at.isoformat()
+    }
+
+    response = JsonResponse(data)
+    response['Content-Disposition'] = 'attachment; filename="mes_donnees.json"'
+    return response
+
+@csrf_exempt
+def delete_account_view(request):
+    """
+    Vue permettant de supprimer complètement le compte de l’utilisateur.
+    Elle supprime l’utilisateur de la table User42 ainsi que les fichiers médias liés,
+    nettoie la session et renvoie une réponse JSON confirmant la suppression.
+    """
+    if request.method != "POST":
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+    # Suppression de l'image de profil si elle n'est pas celle par défaut
+    if user.profile_image and user.profile_image.name != 'profile_pictures/default_avatar.png':
+        image_path = user.profile_image.path
+        if os.path.exists(image_path):
+            os.remove(image_path)
+
+    # Supprimer l'utilisateur (et toutes les données associées)
+    user.delete()
+
+    # Nettoyer la session
+    request.session.flush()
+
+    return JsonResponse({"success": True, "detail": "Compte supprimé avec succès."})
+
+@csrf_exempt
+def update_login_status(request):
+    if request.method == "POST":
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+        
+        try:
+            user = User42.objects.get(pk=user_id)
+        except User42.DoesNotExist:
+            return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+        
+        try:
+            data = json.loads(request.body)
+            is_connected = data.get('is_connected', False)
+            if not isinstance(is_connected, bool):
+                return JsonResponse({"success": False, "error": "'is_connected' doit être un booléen."}, status=400)
+        except json.JSONDecodeError:
+            return JsonResponse({"success": False, "error": "Données mal formatées."}, status=400)
+        
+        # On trie par timestamp décroissant pour obtenir le dernier log
+        last_login = UserLoginHistory.objects.filter(user=user).order_by('-timestamp').first()
+        if last_login:
+            last_login.is_connected = is_connected
+            last_login.save()
+        else:
+            # Optionnel : créer un log s'il n'en existe aucun
+            UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+    
+        return JsonResponse({"success": True, "detail": "Statut de connexion mis à jour."}, status=200)
+    
+    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
