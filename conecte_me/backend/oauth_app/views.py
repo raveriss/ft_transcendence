@@ -587,33 +587,36 @@ def update_login_status(request):
     if request.method == "POST":
         user_id = request.session.get('user_id')
         if not user_id:
+            logger.error("Aucun user_id dans la session")
             return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
         
         try:
             user = User42.objects.get(pk=user_id)
         except User42.DoesNotExist:
+            logger.error("Utilisateur non trouvé pour user_id=%s", user_id)
             return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
         
-        # Récupération de l'état de la connexion
         try:
             data = json.loads(request.body)
             is_connected = data.get('is_connected', False)
-
-            # Vérification du type de is_connected
             if not isinstance(is_connected, bool):
+                logger.error("'is_connected' n'est pas un booléen: %s", data.get('is_connected'))
                 return JsonResponse({"success": False, "error": "'is_connected' doit être un booléen."}, status=400)
         except json.JSONDecodeError:
+            logger.error("Données mal formatées: %s", request.body)
             return JsonResponse({"success": False, "error": "Données mal formatées."}, status=400)
         
-        # Mise à jour du dernier enregistrement de connexion pour cet utilisateur
-        last_login = UserLoginHistory.objects.filter(user=user).first()
+        last_login = UserLoginHistory.objects.filter(user=user).order_by('-timestamp').first()
         if last_login:
+            logger.info("Mise à jour du log id=%s pour user_id=%s : is_connected=%s", last_login.id, user_id, is_connected)
             last_login.is_connected = is_connected
             last_login.save()
         else:
-            # Créer un nouvel enregistrement si aucun historique n'existe
+            logger.info("Aucun log existant pour user_id=%s, création d'un nouveau log.", user_id)
             UserLoginHistory.objects.create(user=user, is_connected=is_connected)
-
+    
         return JsonResponse({"success": True, "detail": "Statut de connexion mis à jour."}, status=200)
     
     return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+

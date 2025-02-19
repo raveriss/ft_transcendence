@@ -10,8 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (exitBtn) {
     exitBtn.addEventListener('click', () => {
-      // Redirige vers index.html
-      window.location.href = 'index.html';
+      fetch('/auth/user/update_login_status/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ is_connected: false })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Statut mis à jour :", data);
+        // Redirection vers index.html après la mise à jour
+        window.location.href = 'index.html';
+      })
+      .catch(error => {
+        console.error("Erreur lors de la mise à jour du statut :", error);
+        window.location.href = 'index.html';
+      });
     });
   }
 
