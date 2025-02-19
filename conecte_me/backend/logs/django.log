@@ -920,3 +920,64 @@ INFO 2025-02-19 11:38:00,624 basehttp 11 140402383571768 "GET /auth/user/ HTTP/1
 INFO 2025-02-19 11:38:00,624 basehttp 11 140402383571768 "GET /auth/user/ HTTP/1.0" 200 87
 INFO 2025-02-19 11:38:00,634 basehttp 11 140402382510904 "GET /auth/user/login_history/ HTTP/1.0" 200 461
 INFO 2025-02-19 11:38:00,634 basehttp 11 140402382510904 "GET /auth/user/login_history/ HTTP/1.0" 200 461
+INFO 2025-02-19 12:38:30,104 autoreload 11 139698214480680 Watching for file changes with StatReloader
+INFO 2025-02-19 12:38:30,104 autoreload 11 139698214480680 Watching for file changes with StatReloader
+INFO 2025-02-19 12:39:01,341 basehttp 11 139698135755576 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-19 12:39:01,341 basehttp 11 139698135755576 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-19 12:39:01,359 basehttp 11 139698135755576 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-19 12:39:01,359 basehttp 11 139698135755576 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-19 12:39:02,006 basehttp 11 139698135755576 "GET /auth/42/callback?code=d36869281ab77e725579a7c6d001b5a0337c6dc9c1f44eaccf96b21da240ab5d&state=8rLEK6JyhcPqPCpTnRipZHA0k4scpIjf HTTP/1.0" 302 0
+INFO 2025-02-19 12:39:02,006 basehttp 11 139698135755576 "GET /auth/42/callback?code=d36869281ab77e725579a7c6d001b5a0337c6dc9c1f44eaccf96b21da240ab5d&state=8rLEK6JyhcPqPCpTnRipZHA0k4scpIjf HTTP/1.0" 302 0
+INFO 2025-02-19 12:39:06,467 basehttp 11 139698135792440 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-19 12:39:06,467 basehttp 11 139698135792440 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-19 12:39:06,469 basehttp 11 139698131315512 "GET /auth/user/login_history/ HTTP/1.0" 200 239
+INFO 2025-02-19 12:39:06,469 basehttp 11 139698131315512 "GET /auth/user/login_history/ HTTP/1.0" 200 239
+INFO 2025-02-19 12:39:14,952 views 11 139698135792440 Mise à jour du log id=1 pour user_id=1 : is_connected=False
+INFO 2025-02-19 12:39:14,960 basehttp 11 139698135792440 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-19 12:39:14,960 basehttp 11 139698135792440 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-19 12:39:34,429 basehttp 11 139698135776056 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-19 12:39:34,429 basehttp 11 139698135776056 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-19 12:39:34,464 basehttp 11 139698135776056 "GET /auth/2fa/setup/ HTTP/1.0" 200 11671
+INFO 2025-02-19 12:39:34,464 basehttp 11 139698135776056 "GET /auth/2fa/setup/ HTTP/1.0" 200 11671
+WARNING 2025-02-19 12:39:34,540 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-19 12:39:34,540 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-19 12:39:34,540 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
+WARNING 2025-02-19 12:39:34,540 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
+WARNING 2025-02-19 12:39:34,550 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-19 12:39:34,550 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-19 12:39:34,550 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
+WARNING 2025-02-19 12:39:34,550 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
+INFO 2025-02-19 12:40:20,080 basehttp 11 139698131315512 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-19 12:40:20,080 basehttp 11 139698131315512 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-19 12:42:29,343 views 11 139698131315512 Mise à jour du log id=2 pour user_id=1 : is_connected=False
+INFO 2025-02-19 12:42:29,350 basehttp 11 139698131315512 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-19 12:42:29,350 basehttp 11 139698131315512 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-19 12:43:00,657 autoreload 11 139761529203496 Watching for file changes with StatReloader
+INFO 2025-02-19 12:43:00,657 autoreload 11 139761529203496 Watching for file changes with StatReloader
+INFO 2025-02-19 12:43:37,827 basehttp 11 139761450478392 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-19 12:43:37,827 basehttp 11 139761450478392 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-02-19 12:43:37,845 basehttp 11 139761450478392 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-19 12:43:37,845 basehttp 11 139761450478392 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-02-19 12:43:38,511 basehttp 11 139761450478392 "GET /auth/42/callback?code=3ca1b35df20a9b11708d23d78e3cb7b3f834d755a7f2ecac72981f775f277578&state=VYYPQdjOFm4XOdWrNxfHGoTuXuaOz7if HTTP/1.0" 302 0
+INFO 2025-02-19 12:43:38,511 basehttp 11 139761450478392 "GET /auth/42/callback?code=3ca1b35df20a9b11708d23d78e3cb7b3f834d755a7f2ecac72981f775f277578&state=VYYPQdjOFm4XOdWrNxfHGoTuXuaOz7if HTTP/1.0" 302 0
+INFO 2025-02-19 12:43:43,796 views 11 139761450515256 Mise à jour du log id=1 pour user_id=1 : is_connected=False
+INFO 2025-02-19 12:43:43,797 basehttp 11 139761450515256 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-19 12:43:43,797 basehttp 11 139761450515256 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-19 12:44:05,439 basehttp 11 139761450498872 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-19 12:44:05,439 basehttp 11 139761450498872 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-19 12:44:05,471 basehttp 11 139761450498872 "GET /auth/2fa/setup/ HTTP/1.0" 200 11579
+INFO 2025-02-19 12:44:05,471 basehttp 11 139761450498872 "GET /auth/2fa/setup/ HTTP/1.0" 200 11579
+WARNING 2025-02-19 12:44:05,547 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-19 12:44:05,547 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-19 12:44:05,547 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
+WARNING 2025-02-19 12:44:05,547 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
+WARNING 2025-02-19 12:44:05,558 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-19 12:44:05,558 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-19 12:44:05,558 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
+WARNING 2025-02-19 12:44:05,558 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
+INFO 2025-02-19 12:44:19,165 basehttp 11 139761445972792 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-19 12:44:19,165 basehttp 11 139761445972792 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-19 12:44:24,134 basehttp 11 139761445972792 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-19 12:44:24,134 basehttp 11 139761445972792 "GET /auth/user/ HTTP/1.0" 200 87
+INFO 2025-02-19 12:44:24,135 basehttp 11 139761444911928 "GET /auth/user/login_history/ HTTP/1.0" 200 460
+INFO 2025-02-19 12:44:24,135 basehttp 11 139761444911928 "GET /auth/user/login_history/ HTTP/1.0" 200 460

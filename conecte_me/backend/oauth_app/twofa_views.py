@@ -88,7 +88,8 @@ def two_factor_validate(request):
             UserLoginHistory.objects.create(
                 user=user,
                 ip_address=ip_address,
-                user_agent=user_agent
+                user_agent=user_agent,
+                is_connected=True
             )
             
             return JsonResponse({
