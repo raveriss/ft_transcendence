@@ -15,7 +15,7 @@ from .views import (
     user_login_history,
     update_login_status,
 )
-from . import twofa_views
+from . import twofa_views, views
 
 urlpatterns = [
     path('signup/', signup_view, name='signup'),
@@ -26,6 +26,8 @@ urlpatterns = [
 
     path('2fa/setup/', twofa_views.two_factor_setup, name='two_factor_setup'),
     path('2fa/validate/', twofa_views.two_factor_validate, name='two_factor_validate'),
+    path('user/toggle_2fa/', views.toggle_2fa, name='toggle_2fa'),
+
     # Nouvelle route pour récupérer le username
     path('user/', user_info, name='user_info'),
 

@@ -619,4 +619,27 @@ def update_login_status(request):
     
     return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
 
+@csrf_exempt
+def toggle_2fa(request):
+    """
+    Cette vue met à jour la valeur de 'is_2fa_enabled' dans la base de données
+    lorsqu'un utilisateur clique sur le bouton pour activer/désactiver 2FA.
+    """
+    if request.method == 'POST':
+        user_id = request.session.get('user_id')
+        if not user_id:
+            return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+        
+        try:
+            user = User42.objects.get(pk=user_id)
+        except User42.DoesNotExist:
+            return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+        # Inverser la valeur de 'is_2fa_enabled'
+        user.is_2fa_enabled = not user.is_2fa_enabled
+        user.save()
+
+        return JsonResponse({"success": True, "is_2fa_enabled": user.is_2fa_enabled})
+    
+    return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
 

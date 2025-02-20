@@ -332,30 +332,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const twofaFormContainer = document.getElementById('2faFormContainer');
   let twofaEnabled = localStorage.getItem('twofa_enabled') === 'true';
 
-  function updateTwofaUI() {
-    if (twofaEnabled) {
+  // Fonction pour mettre à jour l'icône selon l'état de 2FA
+  function updateTwofaUI(is2faEnabled) {
+    if (is2faEnabled) {
       twofaIcon.classList.remove('bi-toggle-off', 'text-danger');
       twofaIcon.classList.add('bi-toggle-on', 'text-success');
       twofaBtn.setAttribute('aria-label', 'Désactiver 2FA');
-      if (twofaFormContainer) {
-        twofaFormContainer.style.display = 'block';
-      }
     } else {
       twofaIcon.classList.remove('bi-toggle-on', 'text-success');
       twofaIcon.classList.add('bi-toggle-off', 'text-danger');
       twofaBtn.setAttribute('aria-label', 'Activer 2FA');
-      if (twofaFormContainer) {
-        twofaFormContainer.style.display = 'none';
-      }
     }
   }
 
-  updateTwofaUI();
+  // Vérifier l'état initial de 2FA
+  fetch('/auth/user/info/', { credentials: 'include' })
+    .then(response => response.json())
+    .then(data => {
+      if (data.is_2fa_enabled !== undefined) {
+        updateTwofaUI(data.is_2fa_enabled);
+      }
+    })
+    .catch(error => console.error('Erreur de récupération de l\'état 2FA:', error));
 
-  twofaBtn.addEventListener('click', function() {
-    twofaEnabled = !twofaEnabled;
-    localStorage.setItem('twofa_enabled', twofaEnabled);
-    updateTwofaUI();
+  // Gérer le clic sur le bouton de 2FA
+  twofaBtn.addEventListener('click', () => {
+    fetch('/auth/user/toggle_2fa/', {
+      method: 'POST',
+      credentials: 'include',
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          updateTwofaUI(data.is_2fa_enabled);
+        } else {
+          alert('Erreur lors de la mise à jour de l\'état 2FA');
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors de l\'appel API pour 2FA:', error);
+        alert('Erreur lors de la mise à jour de 2FA');
+      });
   });
 
   function getCookie(name) {
