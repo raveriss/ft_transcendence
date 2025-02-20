@@ -173,6 +173,56 @@
       accent-color: #3b82f6; /* Couleur bleue */
     }
 
+    /* Définir la couleur de la barre en fonction de la valeur du curseur */
+    input[type="range"].form-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: #e5e7eb; /* couleur de fond initiale */
+    }
+
+    input[type="range"].form-range::-webkit-slider-runnable-track {
+      background: #e5e7eb;
+      height: 8px;
+      border-radius: 5px;
+    }
+
+    input[type="range"].form-range::-moz-range-track {
+      background: #e5e7eb;
+      height: 8px;
+      border-radius: 5px;
+    }
+
+    input[type="range"].form-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #3b82f6; /* bleu pour le curseur */
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    input[type="range"].form-range::-moz-range-thumb {
+      background: #3b82f6; /* bleu pour le curseur */
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    /* Modifier la barre de progression en fonction de la valeur */
+    input[type="range"].form-range::-webkit-slider-runnable-track {
+      background: linear-gradient(to right, #3b82f6 0%, #3b82f6 var(--slider-value), #e5e7eb var(--slider-value), #e5e7eb 100%);
+    }
+
+    input[type="range"].form-range::-moz-range-track {
+      background: linear-gradient(to right, #3b82f6 0%, #3b82f6 var(--slider-value), #e5e7eb var(--slider-value), #e5e7eb 100%);
+    }
+
+
     /* Select en style sombre */
     select.form-select {
       background: rgba(15,23,42,0.5);
@@ -489,6 +539,25 @@
   <!-- Bootstrap JS -->
   <script 
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <script>
+    // Sélectionner tous les éléments de type range
+    const sliders = document.querySelectorAll('.form-range');
+
+    // Ajouter un événement de changement pour chaque slider
+    sliders.forEach(slider => {
+      slider.addEventListener('input', function() {
+        // Calculer la valeur du curseur en pourcentage
+        const value = (this.value - this.min) / (this.max - this.min) * 100;
+
+        // Mettre à jour la couleur de la barre de progression
+        this.style.setProperty('--slider-value', value + '%');
+      });
+
+      // Initialiser la couleur au chargement
+      const initialValue = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+      slider.style.setProperty('--slider-value', initialValue + '%');
+    });
   </script>
 </body>
 </html>
