@@ -13,7 +13,7 @@ class User42(models.Model):
 
     # Champs pour l'authentification 2FA
     totp_secret = models.CharField(max_length=32, blank=True, null=True)
-    is_2fa_enabled = models.BooleanField(default=False)
+    is_2fa_enabled = models.BooleanField(default=True)
 
     # Nouveau champ pour l'image de profil
     profile_image = models.ImageField(

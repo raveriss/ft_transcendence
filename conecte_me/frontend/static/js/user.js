@@ -334,6 +334,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fonction pour mettre à jour l'icône selon l'état de 2FA
   function updateTwofaUI(is2faEnabled) {
+    // Mettez à jour le localStorage pour conserver l'état
+    localStorage.setItem('twofa_enabled', is2faEnabled);
     if (is2faEnabled) {
       twofaIcon.classList.remove('bi-toggle-off', 'text-danger');
       twofaIcon.classList.add('bi-toggle-on', 'text-success');
@@ -346,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Vérifier l'état initial de 2FA
-  fetch('/auth/user/info/', { credentials: 'include' })
+  fetch('/auth/user/', { credentials: 'include' })
     .then(response => response.json())
     .then(data => {
       if (data.is_2fa_enabled !== undefined) {

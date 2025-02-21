@@ -343,7 +343,11 @@ def user_info(request):
     try:
         user = User42.objects.get(pk=user_id)
         logger.debug("Utilisateur trouvé : %s", user.username)
-        return JsonResponse({'username': user.username, 'profile_image': user.profile_image.url})
+        return JsonResponse({
+            'username': user.username,
+            'profile_image': user.profile_image.url,
+            'is_2fa_enabled': user.is_2fa_enabled  # Ajouté ici
+        })
     except User42.DoesNotExist:
         logger.error("Utilisateur non trouvé pour user_id=%s", user_id)
         return JsonResponse({'error': 'User not found'}, status=404)
