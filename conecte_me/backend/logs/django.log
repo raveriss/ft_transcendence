@@ -1,1015 +1,231 @@
-INFO 2025-02-13 15:34:53,643 autoreload 18 139885092485928 Watching for file changes with StatReloader
-INFO 2025-02-13 15:34:53,643 autoreload 18 139885092485928 Watching for file changes with StatReloader
-INFO 2025-02-13 15:35:02,568 basehttp 18 139885013756728 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-13 15:35:02,568 basehttp 18 139885013756728 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-13 15:35:02,653 basehttp 18 139885013793592 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-13 15:35:02,653 basehttp 18 139885013793592 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-13 15:35:03,524 basehttp 18 139885013793592 "GET /auth/42/callback?code=039ae1f7a537690069fefa5a87f769d153eb78175121a0acd69aeec68e49ce5f&state=zGIIqMuCKtJ9oQrZvdUC3F6JV24I0KYp HTTP/1.0" 302 0
-INFO 2025-02-13 15:35:03,524 basehttp 18 139885013793592 "GET /auth/42/callback?code=039ae1f7a537690069fefa5a87f769d153eb78175121a0acd69aeec68e49ce5f&state=zGIIqMuCKtJ9oQrZvdUC3F6JV24I0KYp HTTP/1.0" 302 0
-INFO 2025-02-14 11:28:32,003 autoreload 9 140042334391080 Watching for file changes with StatReloader
-INFO 2025-02-14 11:28:32,003 autoreload 9 140042334391080 Watching for file changes with StatReloader
-INFO 2025-02-14 11:28:51,502 basehttp 9 140042255649592 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 11:28:51,502 basehttp 9 140042255649592 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 11:28:51,520 basehttp 9 140042255686456 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 11:28:51,520 basehttp 9 140042255686456 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 11:28:52,181 basehttp 9 140042255686456 "GET /auth/42/callback?code=9d5bdac360340746062fed63841a62d91f10ecb09ffda9a412f401826aba3cb6&state=k3TDzPzVArSnD97r9TWsOfMrsDtH1bPR HTTP/1.0" 302 0
-INFO 2025-02-14 11:28:52,181 basehttp 9 140042255686456 "GET /auth/42/callback?code=9d5bdac360340746062fed63841a62d91f10ecb09ffda9a412f401826aba3cb6&state=k3TDzPzVArSnD97r9TWsOfMrsDtH1bPR HTTP/1.0" 302 0
-INFO 2025-02-14 11:29:17,754 basehttp 9 140042251238200 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-14 11:29:17,754 basehttp 9 140042251238200 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-14 11:29:17,786 basehttp 9 140042251238200 "GET /auth/2fa/setup/ HTTP/1.0" 200 11695
-INFO 2025-02-14 11:29:17,786 basehttp 9 140042251238200 "GET /auth/2fa/setup/ HTTP/1.0" 200 11695
-WARNING 2025-02-14 11:29:17,853 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-14 11:29:17,853 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-14 11:29:17,853 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
-WARNING 2025-02-14 11:29:17,853 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
-WARNING 2025-02-14 11:29:17,864 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-14 11:29:17,864 log 9 140042251238200 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-14 11:29:17,864 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
-WARNING 2025-02-14 11:29:17,864 basehttp 9 140042251238200 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
-INFO 2025-02-14 11:29:36,379 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-14 11:29:36,379 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-14 11:29:38,736 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 11:29:38,736 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 11:29:43,364 basehttp 9 140042250189624 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-14 11:29:43,364 basehttp 9 140042250189624 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-14 11:29:57,336 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-14 11:29:57,336 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-14 11:32:33,114 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-14 11:32:33,114 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-14 11:33:43,148 basehttp 9 140042250189624 "POST /auth/signup/ HTTP/1.0" 201 56
-INFO 2025-02-14 11:33:43,148 basehttp 9 140042250189624 "POST /auth/signup/ HTTP/1.0" 201 56
-WARNING 2025-02-14 11:34:52,610 log 9 140042250189624 Method Not Allowed: /auth/login/
-WARNING 2025-02-14 11:34:52,610 log 9 140042250189624 Method Not Allowed: /auth/login/
-WARNING 2025-02-14 11:34:52,610 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 405 63
-WARNING 2025-02-14 11:34:52,610 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 405 63
-INFO 2025-02-14 11:35:06,860 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-14 11:35:06,860 basehttp 9 140042250189624 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-14 11:35:06,886 basehttp 9 140042250189624 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
-INFO 2025-02-14 11:35:06,886 basehttp 9 140042250189624 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
-WARNING 2025-02-14 11:35:06,950 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-14 11:35:06,950 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-14 11:35:06,950 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
-WARNING 2025-02-14 11:35:06,950 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 4730
-WARNING 2025-02-14 11:35:06,960 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-14 11:35:06,960 log 9 140042250189624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-14 11:35:06,960 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
-WARNING 2025-02-14 11:35:06,960 basehttp 9 140042250189624 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 4727
-INFO 2025-02-14 11:35:25,780 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-14 11:35:25,780 basehttp 9 140042250189624 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-14 11:35:28,726 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
-INFO 2025-02-14 11:35:28,726 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
-INFO 2025-02-14 11:37:32,053 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
-INFO 2025-02-14 11:37:32,053 basehttp 9 140042250189624 "GET /auth/user/ HTTP/1.0" 200 85
-INFO 2025-02-14 12:58:44,204 autoreload 11 139753982798632 Watching for file changes with StatReloader
-INFO 2025-02-14 12:58:44,204 autoreload 11 139753982798632 Watching for file changes with StatReloader
-INFO 2025-02-14 12:59:01,921 basehttp 11 139753904085816 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 12:59:01,921 basehttp 11 139753904085816 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 12:59:01,938 basehttp 11 139753904106296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 12:59:01,938 basehttp 11 139753904106296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 12:59:02,523 basehttp 11 139753904106296 "GET /auth/42/callback?code=3d07315d1da8d810b0e4dde8546c2277674912da9ec4a15e45b344e29769012b&state=A2HEzUnumUsnFSgSuVst6mQcJ1o3pkbG HTTP/1.0" 302 0
-INFO 2025-02-14 12:59:02,523 basehttp 11 139753904106296 "GET /auth/42/callback?code=3d07315d1da8d810b0e4dde8546c2277674912da9ec4a15e45b344e29769012b&state=A2HEzUnumUsnFSgSuVst6mQcJ1o3pkbG HTTP/1.0" 302 0
-INFO 2025-02-14 12:59:04,027 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 12:59:04,027 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 12:59:06,197 basehttp 11 139753899727672 "GET /auth/user/export_data/ HTTP/1.0" 200 243
-INFO 2025-02-14 12:59:06,197 basehttp 11 139753899727672 "GET /auth/user/export_data/ HTTP/1.0" 200 243
-INFO 2025-02-14 13:00:13,337 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-INFO 2025-02-14 13:00:13,337 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-ERROR 2025-02-14 13:00:14,779 log 11 139753899727672 Internal Server Error: /auth/login/
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
-    return view_func(*args, **kwargs)
-  File "/app/oauth_app/views.py", line 268, in login_view
-    if check_password(password, user.password):
-UnboundLocalError: local variable 'password' referenced before assignment
-ERROR 2025-02-14 13:00:14,779 log 11 139753899727672 Internal Server Error: /auth/login/
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
-    return view_func(*args, **kwargs)
-  File "/app/oauth_app/views.py", line 268, in login_view
-    if check_password(password, user.password):
-UnboundLocalError: local variable 'password' referenced before assignment
-ERROR 2025-02-14 13:00:14,779 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
-ERROR 2025-02-14 13:00:14,779 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
-ERROR 2025-02-14 13:00:59,050 views 11 139753899727672 Aucun user_id dans la session !
-WARNING 2025-02-14 13:00:59,051 log 11 139753899727672 Unauthorized: /auth/user/
-WARNING 2025-02-14 13:00:59,051 log 11 139753899727672 Unauthorized: /auth/user/
-WARNING 2025-02-14 13:00:59,052 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 401 35
-WARNING 2025-02-14 13:00:59,052 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 401 35
-WARNING 2025-02-14 13:01:06,747 log 11 139753899727672 Unauthorized: /auth/user/delete_account/
-WARNING 2025-02-14 13:01:06,747 log 11 139753899727672 Unauthorized: /auth/user/delete_account/
-WARNING 2025-02-14 13:01:06,747 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 401 64
-WARNING 2025-02-14 13:01:06,747 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 401 64
-INFO 2025-02-14 13:01:40,443 basehttp 11 139753899727672 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 13:01:40,443 basehttp 11 139753899727672 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 13:01:40,458 basehttp 11 139753899727672 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 13:01:40,458 basehttp 11 139753899727672 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 13:01:41,122 basehttp 11 139753899727672 "GET /auth/42/callback?code=fd8e20afa8e3ea2f99ffed851bf23c16096971222e37f385c991ce58ac5d383b&state=fxvRJutUcarclCC9BqxaeumoAu1BkCK0 HTTP/1.0" 302 0
-INFO 2025-02-14 13:01:41,122 basehttp 11 139753899727672 "GET /auth/42/callback?code=fd8e20afa8e3ea2f99ffed851bf23c16096971222e37f385c991ce58ac5d383b&state=fxvRJutUcarclCC9BqxaeumoAu1BkCK0 HTTP/1.0" 302 0
-INFO 2025-02-14 13:01:43,949 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 13:01:43,949 basehttp 11 139753899727672 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 13:01:47,584 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-INFO 2025-02-14 13:01:47,584 basehttp 11 139753899727672 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-ERROR 2025-02-14 13:01:58,721 log 11 139753899727672 Internal Server Error: /auth/login/
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
-    return view_func(*args, **kwargs)
-  File "/app/oauth_app/views.py", line 268, in login_view
-    if check_password(password, user.password):
-UnboundLocalError: local variable 'password' referenced before assignment
-ERROR 2025-02-14 13:01:58,721 log 11 139753899727672 Internal Server Error: /auth/login/
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
-    response = get_response(request)
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
-    return view_func(*args, **kwargs)
-  File "/app/oauth_app/views.py", line 268, in login_view
-    if check_password(password, user.password):
-UnboundLocalError: local variable 'password' referenced before assignment
-ERROR 2025-02-14 13:01:58,721 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
-ERROR 2025-02-14 13:01:58,721 basehttp 11 139753899727672 "GET /auth/login/ HTTP/1.0" 500 66222
-INFO 2025-02-14 13:07:15,328 autoreload 11 140391225199400 Watching for file changes with StatReloader
-INFO 2025-02-14 13:07:15,328 autoreload 11 140391225199400 Watching for file changes with StatReloader
-INFO 2025-02-14 13:07:27,031 basehttp 11 140391146478392 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 13:07:27,031 basehttp 11 140391146478392 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 13:07:27,048 basehttp 11 140391146515256 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 13:07:27,048 basehttp 11 140391146515256 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 13:07:27,620 basehttp 11 140391146515256 "GET /auth/42/callback?code=8deca3174e9b45227399be37ab40ce61f78c5c9f1666f4337fe286f1debe90d1&state=huEsHCvQkRIQSatm3FKtkYFdOQNvppVm HTTP/1.0" 302 0
-INFO 2025-02-14 13:07:27,620 basehttp 11 140391146515256 "GET /auth/42/callback?code=8deca3174e9b45227399be37ab40ce61f78c5c9f1666f4337fe286f1debe90d1&state=huEsHCvQkRIQSatm3FKtkYFdOQNvppVm HTTP/1.0" 302 0
-INFO 2025-02-14 13:07:29,412 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 13:07:29,412 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 13:08:05,548 basehttp 11 140391142046520 "GET /auth/user/export_data/ HTTP/1.0" 200 243
-INFO 2025-02-14 13:08:05,548 basehttp 11 140391142046520 "GET /auth/user/export_data/ HTTP/1.0" 200 243
-INFO 2025-02-14 13:08:22,676 basehttp 11 140391142046520 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-INFO 2025-02-14 13:08:22,676 basehttp 11 140391142046520 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-INFO 2025-02-14 13:08:55,349 basehttp 11 140391142046520 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 13:08:55,349 basehttp 11 140391142046520 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-14 13:08:55,363 basehttp 11 140391142046520 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 13:08:55,363 basehttp 11 140391142046520 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-14 13:08:55,934 basehttp 11 140391142046520 "GET /auth/42/callback?code=47aece0b26b3dc5e8728218cec65ebd04a770bb0d1c9b556e5191242762793d9&state=USiOv1JShFD1G8GsNbYmPwxrgRIywtSa HTTP/1.0" 302 0
-INFO 2025-02-14 13:08:55,934 basehttp 11 140391142046520 "GET /auth/42/callback?code=47aece0b26b3dc5e8728218cec65ebd04a770bb0d1c9b556e5191242762793d9&state=USiOv1JShFD1G8GsNbYmPwxrgRIywtSa HTTP/1.0" 302 0
-INFO 2025-02-14 13:09:02,806 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-14 13:09:02,806 basehttp 11 140391142046520 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 11:32:34,380 autoreload 11 140238462008104 Watching for file changes with StatReloader
-INFO 2025-02-17 11:32:34,380 autoreload 11 140238462008104 Watching for file changes with StatReloader
-INFO 2025-02-17 11:32:49,896 basehttp 11 140238383307576 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 11:32:49,896 basehttp 11 140238383307576 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 11:32:49,913 basehttp 11 140238383328056 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 11:32:49,913 basehttp 11 140238383328056 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 11:32:50,607 basehttp 11 140238383328056 "GET /auth/42/callback?code=77bf09909a2797a185611f30fb047b3822216930cace7969d31e0de4db7d0f16&state=jt6fzdSSXjhYiXOCjt0v1XTF5HgIP7NI HTTP/1.0" 302 0
-INFO 2025-02-17 11:32:50,607 basehttp 11 140238383328056 "GET /auth/42/callback?code=77bf09909a2797a185611f30fb047b3822216930cace7969d31e0de4db7d0f16&state=jt6fzdSSXjhYiXOCjt0v1XTF5HgIP7NI HTTP/1.0" 302 0
-INFO 2025-02-17 11:33:08,711 basehttp 11 140238378937144 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 11:33:08,711 basehttp 11 140238378937144 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 11:33:22,390 basehttp 11 140238378937144 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-17 11:33:22,390 basehttp 11 140238378937144 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-17 16:01:04,722 autoreload 11 140093032938280 Watching for file changes with StatReloader
-INFO 2025-02-17 16:01:04,722 autoreload 11 140093032938280 Watching for file changes with StatReloader
-INFO 2025-02-17 16:01:16,445 basehttp 11 140092954188600 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 16:01:16,445 basehttp 11 140092954188600 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 16:01:16,464 basehttp 11 140092954188600 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 16:01:16,464 basehttp 11 140092954188600 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 16:01:17,445 basehttp 11 140092954188600 "GET /auth/42/callback?code=560a03667a39d20536666c5d2fc423476573702ecf18806623050da9a4e5944b&state=PfIWCcg7YvWzpw124raV9AOSAeNEtvlN HTTP/1.0" 302 0
-INFO 2025-02-17 16:01:17,445 basehttp 11 140092954188600 "GET /auth/42/callback?code=560a03667a39d20536666c5d2fc423476573702ecf18806623050da9a4e5944b&state=PfIWCcg7YvWzpw124raV9AOSAeNEtvlN HTTP/1.0" 302 0
-INFO 2025-02-17 16:01:34,168 basehttp 11 140092954225464 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-17 16:01:34,168 basehttp 11 140092954225464 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-17 16:01:34,205 basehttp 11 140092954225464 "GET /auth/2fa/setup/ HTTP/1.0" 200 11727
-INFO 2025-02-17 16:01:34,205 basehttp 11 140092954225464 "GET /auth/2fa/setup/ HTTP/1.0" 200 11727
-WARNING 2025-02-17 16:01:34,280 log 11 140092949773112 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-17 16:01:34,280 log 11 140092949773112 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-17 16:01:34,280 basehttp 11 140092949773112 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-17 16:01:34,280 basehttp 11 140092949773112 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-17 16:01:34,288 log 11 140092949773112 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-17 16:01:34,288 log 11 140092949773112 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-17 16:01:34,288 basehttp 11 140092949773112 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-17 16:01:34,288 basehttp 11 140092949773112 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-17 16:01:49,086 basehttp 11 140092949773112 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-17 16:01:49,086 basehttp 11 140092949773112 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-17 16:01:51,923 basehttp 11 140092949773112 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 16:01:51,923 basehttp 11 140092949773112 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 16:01:51,927 basehttp 11 140092947663672 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:01:51,927 basehttp 11 140092947663672 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:32:15,157 autoreload 11 139703127747368 Watching for file changes with StatReloader
-INFO 2025-02-17 16:32:15,157 autoreload 11 139703127747368 Watching for file changes with StatReloader
-INFO 2025-02-17 16:33:42,629 basehttp 11 139703049055032 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 16:33:42,629 basehttp 11 139703049055032 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 16:33:42,647 basehttp 11 139703049055032 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 16:33:42,647 basehttp 11 139703049055032 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 16:33:43,332 basehttp 11 139703049055032 "GET /auth/42/callback?code=c89d22b74e65b19fec5607459d89a902e3de8693700ead0174e35fa3c067508e&state=VqG85lfqoFVg4OLKpbvMiVNbfJ9YmSvQ HTTP/1.0" 302 0
-INFO 2025-02-17 16:33:43,332 basehttp 11 139703049055032 "GET /auth/42/callback?code=c89d22b74e65b19fec5607459d89a902e3de8693700ead0174e35fa3c067508e&state=VqG85lfqoFVg4OLKpbvMiVNbfJ9YmSvQ HTTP/1.0" 302 0
-INFO 2025-02-17 16:36:14,635 basehttp 11 139703049075512 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 16:36:14,635 basehttp 11 139703049075512 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 16:36:14,643 basehttp 11 139703044598584 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-17 16:36:14,643 basehttp 11 139703044598584 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-17 16:36:50,779 basehttp 11 139703049075512 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-17 16:36:50,779 basehttp 11 139703049075512 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-17 16:36:50,811 basehttp 11 139703049075512 "GET /auth/2fa/setup/ HTTP/1.0" 200 11583
-INFO 2025-02-17 16:36:50,811 basehttp 11 139703049075512 "GET /auth/2fa/setup/ HTTP/1.0" 200 11583
-WARNING 2025-02-17 16:36:50,880 log 11 139703049075512 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-17 16:36:50,880 log 11 139703049075512 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-17 16:36:50,881 basehttp 11 139703049075512 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-17 16:36:50,881 basehttp 11 139703049075512 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-17 16:36:50,889 log 11 139703049091896 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-17 16:36:50,889 log 11 139703049091896 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-17 16:36:50,889 basehttp 11 139703049091896 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-17 16:36:50,889 basehttp 11 139703049091896 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-17 16:37:18,977 basehttp 11 139703044598584 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-17 16:37:18,977 basehttp 11 139703044598584 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-17 16:37:35,705 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 16:37:35,705 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 16:37:35,710 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:37:35,710 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:37:47,235 basehttp 11 139703044598584 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-17 16:37:47,235 basehttp 11 139703044598584 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-17 16:41:05,787 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-17 16:41:05,787 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-17 16:41:05,793 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:41:05,793 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:42:03,162 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-17 16:42:03,162 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-17 16:42:03,169 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:42:03,169 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:42:16,319 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-17 16:42:16,319 basehttp 11 139703044598584 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-17 16:42:16,322 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 16:42:16,322 basehttp 11 139703043537720 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-17 17:38:18,496 autoreload 11 140192366279464 Watching for file changes with StatReloader
-INFO 2025-02-17 17:38:18,496 autoreload 11 140192366279464 Watching for file changes with StatReloader
-INFO 2025-02-17 17:38:29,969 basehttp 11 140192287570744 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 17:38:29,969 basehttp 11 140192287570744 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-17 17:38:29,987 basehttp 11 140192287570744 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 17:38:29,987 basehttp 11 140192287570744 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-17 17:38:30,665 basehttp 11 140192287570744 "GET /auth/42/callback?code=1e1573036e5a052320821d812b222e14ea988ba470a3bed9c6b74f59deb125e0&state=ffX2tXq3i9QjTirZMs4iQAsfv0TYteDj HTTP/1.0" 302 0
-INFO 2025-02-17 17:38:30,665 basehttp 11 140192287570744 "GET /auth/42/callback?code=1e1573036e5a052320821d812b222e14ea988ba470a3bed9c6b74f59deb125e0&state=ffX2tXq3i9QjTirZMs4iQAsfv0TYteDj HTTP/1.0" 302 0
-INFO 2025-02-17 17:39:09,099 basehttp 11 140192287583032 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 17:39:09,099 basehttp 11 140192287583032 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-17 17:39:09,102 basehttp 11 140192283286328 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-17 17:39:09,102 basehttp 11 140192283286328 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 09:42:53,721 autoreload 11 140678907005736 Watching for file changes with StatReloader
-INFO 2025-02-18 09:42:53,721 autoreload 11 140678907005736 Watching for file changes with StatReloader
-INFO 2025-02-18 09:43:07,325 basehttp 11 140678828313400 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 09:43:07,325 basehttp 11 140678828313400 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 09:43:07,343 basehttp 11 140678828350264 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 09:43:07,343 basehttp 11 140678828350264 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 09:43:07,980 basehttp 11 140678828350264 "GET /auth/42/callback?code=16e8419f0735f857c00e8bf5bb7295dca0b2f629f4bacb6ce071ddcd7dca2084&state=npNROkHPJYf7qbpxW17eJ0lQXkeZUdYr HTTP/1.0" 302 0
-INFO 2025-02-18 09:43:07,980 basehttp 11 140678828350264 "GET /auth/42/callback?code=16e8419f0735f857c00e8bf5bb7295dca0b2f629f4bacb6ce071ddcd7dca2084&state=npNROkHPJYf7qbpxW17eJ0lQXkeZUdYr HTTP/1.0" 302 0
-INFO 2025-02-18 09:43:19,405 basehttp 11 140678823852856 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 09:43:19,405 basehttp 11 140678823852856 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 09:43:19,409 basehttp 11 140678822791992 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 09:43:19,409 basehttp 11 140678822791992 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 09:43:49,574 basehttp 11 140678823852856 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 09:43:49,574 basehttp 11 140678823852856 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 09:43:49,613 basehttp 11 140678823852856 "GET /auth/2fa/setup/ HTTP/1.0" 200 11619
-INFO 2025-02-18 09:43:49,613 basehttp 11 140678823852856 "GET /auth/2fa/setup/ HTTP/1.0" 200 11619
-WARNING 2025-02-18 09:43:49,681 log 11 140678823852856 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 09:43:49,681 log 11 140678823852856 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 09:43:49,681 basehttp 11 140678823852856 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 09:43:49,681 basehttp 11 140678823852856 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 09:43:49,692 log 11 140678823852856 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 09:43:49,692 log 11 140678823852856 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 09:43:49,692 basehttp 11 140678823852856 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 09:43:49,692 basehttp 11 140678823852856 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-18 09:44:07,405 basehttp 11 140678823852856 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 09:44:07,405 basehttp 11 140678823852856 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 09:44:10,798 basehttp 11 140678823852856 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 09:44:10,798 basehttp 11 140678823852856 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 09:44:10,801 basehttp 11 140678821743416 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 09:44:10,801 basehttp 11 140678821743416 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 09:44:24,315 basehttp 11 140678823852856 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-18 09:44:24,315 basehttp 11 140678823852856 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-18 11:06:21,366 autoreload 11 140070096231208 Watching for file changes with StatReloader
-INFO 2025-02-18 11:06:21,366 autoreload 11 140070096231208 Watching for file changes with StatReloader
-INFO 2025-02-18 11:07:23,052 basehttp 11 140070017514296 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 11:07:23,052 basehttp 11 140070017514296 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 11:07:23,069 basehttp 11 140070017514296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 11:07:23,069 basehttp 11 140070017514296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 11:07:23,746 basehttp 11 140070017514296 "GET /auth/42/callback?code=5e11f46259a26a46faa7e5befe89f43b9a3e9be90883cc256e5567fa166586a7&state=9Dz5aQMutfpwReyMkf9jgNCSU74nvk5Q HTTP/1.0" 302 0
-INFO 2025-02-18 11:07:23,746 basehttp 11 140070017514296 "GET /auth/42/callback?code=5e11f46259a26a46faa7e5befe89f43b9a3e9be90883cc256e5567fa166586a7&state=9Dz5aQMutfpwReyMkf9jgNCSU74nvk5Q HTTP/1.0" 302 0
-INFO 2025-02-18 11:07:40,327 basehttp 11 140070017551160 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:07:40,327 basehttp 11 140070017551160 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:07:40,329 basehttp 11 140070013094712 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 11:07:40,329 basehttp 11 140070013094712 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 11:27:59,131 autoreload 11 140308936989480 Watching for file changes with StatReloader
-INFO 2025-02-18 11:27:59,131 autoreload 11 140308936989480 Watching for file changes with StatReloader
-INFO 2025-02-18 11:28:29,968 basehttp 11 140308858288952 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 11:28:29,968 basehttp 11 140308858288952 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 11:28:29,986 basehttp 11 140308858288952 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 11:28:29,986 basehttp 11 140308858288952 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 11:28:30,661 basehttp 11 140308858288952 "GET /auth/42/callback?code=7383d77b5bfbc24539f6d023fde08b21a29140f493ed14e5c2f1a30e2008d377&state=f55NyFwhE94GUY0RcGYtLCuc8WHEjpu3 HTTP/1.0" 302 0
-INFO 2025-02-18 11:28:30,661 basehttp 11 140308858288952 "GET /auth/42/callback?code=7383d77b5bfbc24539f6d023fde08b21a29140f493ed14e5c2f1a30e2008d377&state=f55NyFwhE94GUY0RcGYtLCuc8WHEjpu3 HTTP/1.0" 302 0
-INFO 2025-02-18 11:28:52,882 basehttp 11 140308854860600 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:28:52,882 basehttp 11 140308854860600 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:28:52,883 basehttp 11 140308853799736 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 11:28:52,883 basehttp 11 140308853799736 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 11:30:45,502 basehttp 11 140308854860600 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 11:30:45,502 basehttp 11 140308854860600 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 11:30:45,536 basehttp 11 140308854860600 "GET /auth/2fa/setup/ HTTP/1.0" 200 11731
-INFO 2025-02-18 11:30:45,536 basehttp 11 140308854860600 "GET /auth/2fa/setup/ HTTP/1.0" 200 11731
-WARNING 2025-02-18 11:30:45,608 log 11 140308854860600 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 11:30:45,608 log 11 140308854860600 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 11:30:45,609 basehttp 11 140308854860600 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 11:30:45,609 basehttp 11 140308854860600 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 11:30:45,618 log 11 140308854860600 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 11:30:45,618 log 11 140308854860600 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 11:30:45,618 basehttp 11 140308854860600 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 11:30:45,618 basehttp 11 140308854860600 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-18 11:31:09,352 basehttp 11 140308853812024 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 11:31:09,352 basehttp 11 140308853812024 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 11:41:47,523 autoreload 11 140188857842472 Watching for file changes with StatReloader
-INFO 2025-02-18 11:41:47,523 autoreload 11 140188857842472 Watching for file changes with StatReloader
-INFO 2025-02-18 11:42:05,005 basehttp 11 140188779125560 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 11:42:05,005 basehttp 11 140188779125560 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 11:42:05,024 basehttp 11 140188779125560 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 11:42:05,024 basehttp 11 140188779125560 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 11:42:05,787 basehttp 11 140188779072312 "GET /auth/42/callback?code=94198c79f28f5980caecb4605be739fec7d01cab2640be49d35c467b18b3da5c&state=BoPWCnjFNwVVComUGlZXuWuRiIvh80si HTTP/1.0" 302 0
-INFO 2025-02-18 11:42:05,787 basehttp 11 140188779072312 "GET /auth/42/callback?code=94198c79f28f5980caecb4605be739fec7d01cab2640be49d35c467b18b3da5c&state=BoPWCnjFNwVVComUGlZXuWuRiIvh80si HTTP/1.0" 302 0
-INFO 2025-02-18 11:42:08,056 basehttp 11 140188779072312 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:42:08,056 basehttp 11 140188779072312 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:42:08,057 basehttp 11 140188774689592 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 11:42:08,057 basehttp 11 140188774689592 "GET /auth/user/login_history/ HTTP/1.0" 200 21
-INFO 2025-02-18 11:42:39,133 basehttp 11 140188779072312 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 11:42:39,133 basehttp 11 140188779072312 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 11:42:39,163 basehttp 11 140188779072312 "GET /auth/2fa/setup/ HTTP/1.0" 200 11591
-INFO 2025-02-18 11:42:39,163 basehttp 11 140188779072312 "GET /auth/2fa/setup/ HTTP/1.0" 200 11591
-WARNING 2025-02-18 11:42:39,230 log 11 140188779072312 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 11:42:39,230 log 11 140188779072312 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 11:42:39,230 basehttp 11 140188779072312 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 11:42:39,230 basehttp 11 140188779072312 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 11:42:39,241 log 11 140188779072312 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 11:42:39,241 log 11 140188779072312 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 11:42:39,241 basehttp 11 140188779072312 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 11:42:39,241 basehttp 11 140188779072312 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-18 11:43:16,186 basehttp 11 140188773641016 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 11:43:16,186 basehttp 11 140188773641016 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 11:43:26,628 basehttp 11 140188773641016 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:43:26,628 basehttp 11 140188773641016 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 11:43:26,641 basehttp 11 140188772580152 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 11:43:26,641 basehttp 11 140188772580152 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 12:45:12,760 autoreload 11 139875085884200 Watching for file changes with StatReloader
-INFO 2025-02-18 12:45:12,760 autoreload 11 139875085884200 Watching for file changes with StatReloader
-INFO 2025-02-18 12:45:45,461 basehttp 11 139875007183672 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 12:45:45,461 basehttp 11 139875007183672 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 12:45:45,479 basehttp 11 139875007204152 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 12:45:45,479 basehttp 11 139875007204152 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 12:45:46,147 basehttp 11 139875007204152 "GET /auth/42/callback?code=8f5f600594381a0e39d71a5ea15f86c1629565dc11f392c6b0a887b10876ef4f&state=wTiJqPFg21O71MGd0NiFM0YcmnpNhP2W HTTP/1.0" 302 0
-INFO 2025-02-18 12:45:46,147 basehttp 11 139875007204152 "GET /auth/42/callback?code=8f5f600594381a0e39d71a5ea15f86c1629565dc11f392c6b0a887b10876ef4f&state=wTiJqPFg21O71MGd0NiFM0YcmnpNhP2W HTTP/1.0" 302 0
-INFO 2025-02-18 12:45:58,666 basehttp 11 139875002714936 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 12:45:58,666 basehttp 11 139875002714936 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 12:45:58,668 basehttp 11 139875001654072 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 12:45:58,668 basehttp 11 139875001654072 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 13:05:29,484 autoreload 11 140648287554344 Watching for file changes with StatReloader
-INFO 2025-02-18 13:05:29,484 autoreload 11 140648287554344 Watching for file changes with StatReloader
-INFO 2025-02-18 13:05:58,232 basehttp 11 140648208862008 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 13:05:58,232 basehttp 11 140648208862008 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 13:05:58,252 basehttp 11 140648208882488 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 13:05:58,252 basehttp 11 140648208882488 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 13:05:59,382 basehttp 11 140648208882488 "GET /auth/42/callback?code=1ccd5b3d346d90ac9f1bc69180d3b7afa39ff6b4ee72fe6f6bba9f1e06ad9893&state=M2z7kmxbLiKlO44JKHiGpLh6xZsSZeUm HTTP/1.0" 302 0
-INFO 2025-02-18 13:05:59,382 basehttp 11 140648208882488 "GET /auth/42/callback?code=1ccd5b3d346d90ac9f1bc69180d3b7afa39ff6b4ee72fe6f6bba9f1e06ad9893&state=M2z7kmxbLiKlO44JKHiGpLh6xZsSZeUm HTTP/1.0" 302 0
-INFO 2025-02-18 13:06:31,339 basehttp 11 140648204442424 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 13:06:31,339 basehttp 11 140648204442424 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 13:06:31,370 basehttp 11 140648204442424 "GET /auth/2fa/setup/ HTTP/1.0" 200 11675
-INFO 2025-02-18 13:06:31,370 basehttp 11 140648204442424 "GET /auth/2fa/setup/ HTTP/1.0" 200 11675
-WARNING 2025-02-18 13:06:31,445 log 11 140648204442424 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 13:06:31,445 log 11 140648204442424 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 13:06:31,445 basehttp 11 140648204442424 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 13:06:31,445 basehttp 11 140648204442424 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 13:06:31,462 log 11 140648204442424 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 13:06:31,462 log 11 140648204442424 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 13:06:31,462 basehttp 11 140648204442424 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 13:06:31,462 basehttp 11 140648204442424 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-18 13:06:49,631 basehttp 11 140648203393848 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 13:06:49,631 basehttp 11 140648203393848 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 13:07:00,064 basehttp 11 140648203393848 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 13:07:00,064 basehttp 11 140648203393848 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 13:07:00,070 basehttp 11 140648202332984 "GET /auth/user/login_history/ HTTP/1.0" 200 415
-INFO 2025-02-18 13:07:00,070 basehttp 11 140648202332984 "GET /auth/user/login_history/ HTTP/1.0" 200 415
-INFO 2025-02-18 13:07:15,490 basehttp 11 140648203393848 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-18 13:07:15,490 basehttp 11 140648203393848 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-18 13:10:04,014 basehttp 11 140648203393848 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-18 13:10:04,014 basehttp 11 140648203393848 "GET /auth/user/ HTTP/1.0" 200 84
-INFO 2025-02-18 13:10:04,018 basehttp 11 140648202332984 "GET /auth/user/login_history/ HTTP/1.0" 200 415
-INFO 2025-02-18 13:10:04,018 basehttp 11 140648202332984 "GET /auth/user/login_history/ HTTP/1.0" 200 415
-INFO 2025-02-18 14:09:47,342 autoreload 11 139664224627496 Watching for file changes with StatReloader
-INFO 2025-02-18 14:09:47,342 autoreload 11 139664224627496 Watching for file changes with StatReloader
-INFO 2025-02-18 14:10:21,704 basehttp 11 139664145881912 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 14:10:21,704 basehttp 11 139664145881912 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 14:10:21,723 basehttp 11 139664145881912 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 14:10:21,723 basehttp 11 139664145881912 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 14:10:22,386 basehttp 11 139664145881912 "GET /auth/42/callback?code=8fac787ecb04a8bdd27f658d27758f215b7550d7d896684384c05a04adbbdb33&state=Sp96VVeU3lFsCLR3dyt5LTdDvuHNCS17 HTTP/1.0" 302 0
-INFO 2025-02-18 14:10:22,386 basehttp 11 139664145881912 "GET /auth/42/callback?code=8fac787ecb04a8bdd27f658d27758f215b7550d7d896684384c05a04adbbdb33&state=Sp96VVeU3lFsCLR3dyt5LTdDvuHNCS17 HTTP/1.0" 302 0
-INFO 2025-02-18 14:10:44,971 basehttp 11 139664145918776 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:10:44,971 basehttp 11 139664145918776 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:10:44,973 basehttp 11 139664141396792 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:10:44,973 basehttp 11 139664141396792 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:11:32,954 basehttp 11 139664145918776 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-18 14:11:32,954 basehttp 11 139664145918776 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-18 14:31:32,277 autoreload 11 140114278386472 Watching for file changes with StatReloader
-INFO 2025-02-18 14:31:32,277 autoreload 11 140114278386472 Watching for file changes with StatReloader
-INFO 2025-02-18 14:31:59,563 basehttp 11 140114199694136 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 14:31:59,563 basehttp 11 140114199694136 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 14:31:59,581 basehttp 11 140114199694136 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 14:31:59,581 basehttp 11 140114199694136 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 14:32:00,229 basehttp 11 140114199694136 "GET /auth/42/callback?code=375fde7fada62d241a02cadb99dff5b9c3e09d05fd229070a7ebd82bafd4d549&state=EKRgzrORYdZjhc2i8fEUyBYV3OANC1Xy HTTP/1.0" 302 0
-INFO 2025-02-18 14:32:00,229 basehttp 11 140114199694136 "GET /auth/42/callback?code=375fde7fada62d241a02cadb99dff5b9c3e09d05fd229070a7ebd82bafd4d549&state=EKRgzrORYdZjhc2i8fEUyBYV3OANC1Xy HTTP/1.0" 302 0
-INFO 2025-02-18 14:32:04,843 basehttp 11 140114199731000 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:32:04,843 basehttp 11 140114199731000 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:32:04,851 basehttp 11 140114195168056 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:32:04,851 basehttp 11 140114195168056 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:32:12,729 basehttp 11 140114199706424 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:32:12,729 basehttp 11 140114199706424 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:32:12,731 basehttp 11 140114195168056 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:32:12,731 basehttp 11 140114195168056 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:33:24,965 basehttp 11 140114199706424 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:33:24,965 basehttp 11 140114199706424 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:33:24,968 basehttp 11 140114195168056 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:33:24,968 basehttp 11 140114195168056 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:36:27,119 autoreload 11 140194961738536 Watching for file changes with StatReloader
-INFO 2025-02-18 14:36:27,119 autoreload 11 140194961738536 Watching for file changes with StatReloader
-INFO 2025-02-18 14:36:46,855 basehttp 11 140194883013432 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 14:36:46,855 basehttp 11 140194883013432 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 14:36:46,876 basehttp 11 140194883050296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 14:36:46,876 basehttp 11 140194883050296 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 14:36:47,522 basehttp 11 140194883050296 "GET /auth/42/callback?code=34cae2b653e520bd5835b7320089080b4d31440ecc0e64838813885fda20337f&state=bnur7rVzXI51ewEgS456V9SQKmCVh7aS HTTP/1.0" 302 0
-INFO 2025-02-18 14:36:47,522 basehttp 11 140194883050296 "GET /auth/42/callback?code=34cae2b653e520bd5835b7320089080b4d31440ecc0e64838813885fda20337f&state=bnur7rVzXI51ewEgS456V9SQKmCVh7aS HTTP/1.0" 302 0
-INFO 2025-02-18 14:37:13,540 basehttp 11 140194878569272 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:37:13,540 basehttp 11 140194878569272 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 14:37:13,545 basehttp 11 140194877508408 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 14:37:13,545 basehttp 11 140194877508408 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:07:30,459 autoreload 11 140485496118056 Watching for file changes with StatReloader
-INFO 2025-02-18 15:07:30,459 autoreload 11 140485496118056 Watching for file changes with StatReloader
-INFO 2025-02-18 15:08:31,981 basehttp 11 140485417384760 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:08:31,981 basehttp 11 140485417384760 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:08:31,999 basehttp 11 140485417384760 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:08:31,999 basehttp 11 140485417384760 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:08:32,678 basehttp 11 140485417384760 "GET /auth/42/callback?code=9a1e1237380112b0d3a75bfe3f9512a7e2ad15ca840363759774fb868ca6fb0d&state=P5TXENdc3SVesTIF9Xb54qJBYqdgjdeR HTTP/1.0" 302 0
-INFO 2025-02-18 15:08:32,678 basehttp 11 140485417384760 "GET /auth/42/callback?code=9a1e1237380112b0d3a75bfe3f9512a7e2ad15ca840363759774fb868ca6fb0d&state=P5TXENdc3SVesTIF9Xb54qJBYqdgjdeR HTTP/1.0" 302 0
-INFO 2025-02-18 15:09:46,686 basehttp 11 140485417421624 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:09:46,686 basehttp 11 140485417421624 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:09:46,691 basehttp 11 140485412887352 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:09:46,691 basehttp 11 140485412887352 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:11:05,531 autoreload 11 140167592426280 Watching for file changes with StatReloader
-INFO 2025-02-18 15:11:05,531 autoreload 11 140167592426280 Watching for file changes with StatReloader
-INFO 2025-02-18 15:11:33,278 basehttp 11 140167513684792 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:11:33,278 basehttp 11 140167513684792 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:11:33,295 basehttp 11 140167513705272 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:11:33,295 basehttp 11 140167513705272 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:11:34,085 basehttp 11 140167513705272 "GET /auth/42/callback?code=537f36eaae996764050988041157eb131eb29520a9d83cd9173701a23a9628fc&state=56MsosTSTfKybD3AXgmbthsfHSSFft48 HTTP/1.0" 302 0
-INFO 2025-02-18 15:11:34,085 basehttp 11 140167513705272 "GET /auth/42/callback?code=537f36eaae996764050988041157eb131eb29520a9d83cd9173701a23a9628fc&state=56MsosTSTfKybD3AXgmbthsfHSSFft48 HTTP/1.0" 302 0
-INFO 2025-02-18 15:11:38,756 basehttp 11 140167509257016 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:11:38,756 basehttp 11 140167509257016 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:11:38,757 basehttp 11 140167508196152 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:11:38,757 basehttp 11 140167508196152 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:12:44,744 autoreload 11 140624008538920 Watching for file changes with StatReloader
-INFO 2025-02-18 15:12:44,744 autoreload 11 140624008538920 Watching for file changes with StatReloader
-INFO 2025-02-18 15:12:59,800 basehttp 11 140623929813816 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:12:59,800 basehttp 11 140623929813816 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:12:59,817 basehttp 11 140623929813816 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:12:59,817 basehttp 11 140623929813816 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:13:00,581 basehttp 11 140623929813816 "GET /auth/42/callback?code=4502c7ff310e7e58fe448a8d29c51dbe1bc3f2b51194c54a0c30b9a82301791d&state=IqHHUxL5eC2xGbRn8vY8MlKj2yhhk0hf HTTP/1.0" 302 0
-INFO 2025-02-18 15:13:00,581 basehttp 11 140623929813816 "GET /auth/42/callback?code=4502c7ff310e7e58fe448a8d29c51dbe1bc3f2b51194c54a0c30b9a82301791d&state=IqHHUxL5eC2xGbRn8vY8MlKj2yhhk0hf HTTP/1.0" 302 0
-INFO 2025-02-18 15:13:01,663 basehttp 11 140623929850680 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:13:01,663 basehttp 11 140623929850680 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:13:01,663 basehttp 11 140623925300024 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:13:01,663 basehttp 11 140623925300024 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:17:30,625 autoreload 11 140588964309800 Watching for file changes with StatReloader
-INFO 2025-02-18 15:17:30,625 autoreload 11 140588964309800 Watching for file changes with StatReloader
-INFO 2025-02-18 15:18:03,524 basehttp 11 140588885584696 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:18:03,524 basehttp 11 140588885584696 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:18:03,542 basehttp 11 140588885584696 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:18:03,542 basehttp 11 140588885584696 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:18:04,271 basehttp 11 140588885584696 "GET /auth/42/callback?code=f0c5d7840f2f4e2cfd2ab7a7ad8c68455f44df458da48430eea06d0fa430783a&state=WmIy8BiFLEr66sfowPOowqkW0Xv6MHyW HTTP/1.0" 302 0
-INFO 2025-02-18 15:18:04,271 basehttp 11 140588885584696 "GET /auth/42/callback?code=f0c5d7840f2f4e2cfd2ab7a7ad8c68455f44df458da48430eea06d0fa430783a&state=WmIy8BiFLEr66sfowPOowqkW0Xv6MHyW HTTP/1.0" 302 0
-INFO 2025-02-18 15:23:56,697 autoreload 11 140265633618728 Watching for file changes with StatReloader
-INFO 2025-02-18 15:23:56,697 autoreload 11 140265633618728 Watching for file changes with StatReloader
-INFO 2025-02-18 15:24:22,534 basehttp 11 140265554877240 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:24:22,534 basehttp 11 140265554877240 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 15:24:22,552 basehttp 11 140265554877240 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:24:22,552 basehttp 11 140265554877240 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 15:24:23,249 basehttp 11 140265554877240 "GET /auth/42/callback?code=1a24a3e3e33091d648ec30738d197195c13d8aa5bda32c056f58c84442d35538&state=OAf1Q3K35wKUlFe4K4jMmmYkHv9oXqGX HTTP/1.0" 302 0
-INFO 2025-02-18 15:24:23,249 basehttp 11 140265554877240 "GET /auth/42/callback?code=1a24a3e3e33091d648ec30738d197195c13d8aa5bda32c056f58c84442d35538&state=OAf1Q3K35wKUlFe4K4jMmmYkHv9oXqGX HTTP/1.0" 302 0
-INFO 2025-02-18 15:24:27,249 basehttp 11 140265551432504 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:24:27,249 basehttp 11 140265551432504 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:24:27,253 basehttp 11 140265550371640 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:24:27,253 basehttp 11 140265550371640 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:45:25,302 basehttp 11 140265551432504 "POST /auth/signup/ HTTP/1.0" 201 56
-INFO 2025-02-18 15:45:25,302 basehttp 11 140265551432504 "POST /auth/signup/ HTTP/1.0" 201 56
-INFO 2025-02-18 15:45:45,915 basehttp 11 140265551432504 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 15:45:45,915 basehttp 11 140265551432504 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 15:45:45,949 basehttp 11 140265551432504 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
-INFO 2025-02-18 15:45:45,949 basehttp 11 140265551432504 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
-WARNING 2025-02-18 15:45:45,977 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 15:45:45,977 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 15:45:45,977 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 15:45:45,977 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 15:45:45,983 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 15:45:45,983 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 15:45:45,984 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 15:45:45,984 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-18 15:46:06,821 basehttp 11 140265551432504 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 15:46:06,821 basehttp 11 140265551432504 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 15:46:16,165 basehttp 11 140265551432504 "GET /auth/user/ HTTP/1.0" 200 85
-INFO 2025-02-18 15:46:16,165 basehttp 11 140265551432504 "GET /auth/user/ HTTP/1.0" 200 85
-INFO 2025-02-18 15:46:16,166 basehttp 11 140265549323064 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:46:16,166 basehttp 11 140265549323064 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 15:46:48,334 basehttp 11 140265551432504 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-INFO 2025-02-18 15:46:48,334 basehttp 11 140265551432504 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
-INFO 2025-02-18 15:47:31,931 basehttp 11 140265551432504 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 15:47:31,931 basehttp 11 140265551432504 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 15:47:31,956 basehttp 11 140265551432504 "GET /auth/2fa/setup/ HTTP/1.0" 200 11627
-INFO 2025-02-18 15:47:31,956 basehttp 11 140265551432504 "GET /auth/2fa/setup/ HTTP/1.0" 200 11627
-WARNING 2025-02-18 15:47:31,980 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 15:47:31,980 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 15:47:31,980 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 15:47:31,980 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 15:47:31,986 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 15:47:31,986 log 11 140265551432504 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 15:47:31,986 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 15:47:31,986 basehttp 11 140265551432504 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 15:47:45,254 log 11 140265551432504 Bad Request: /auth/2fa/validate/
-WARNING 2025-02-18 15:47:45,254 log 11 140265551432504 Bad Request: /auth/2fa/validate/
-WARNING 2025-02-18 15:47:45,254 basehttp 11 140265551432504 "POST /auth/2fa/validate/ HTTP/1.0" 400 49
-WARNING 2025-02-18 15:47:45,254 basehttp 11 140265551432504 "POST /auth/2fa/validate/ HTTP/1.0" 400 49
-INFO 2025-02-18 15:47:54,582 basehttp 11 140265551432504 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 15:47:54,582 basehttp 11 140265551432504 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 15:48:33,657 basehttp 11 140265551432504 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:48:33,657 basehttp 11 140265551432504 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 15:48:33,661 basehttp 11 140265549323064 "GET /auth/user/login_history/ HTTP/1.0" 200 415
-INFO 2025-02-18 15:48:33,661 basehttp 11 140265549323064 "GET /auth/user/login_history/ HTTP/1.0" 200 415
-INFO 2025-02-18 16:12:43,095 autoreload 11 140148517677864 Watching for file changes with StatReloader
-INFO 2025-02-18 16:12:43,095 autoreload 11 140148517677864 Watching for file changes with StatReloader
-INFO 2025-02-18 16:13:06,301 basehttp 11 140148438952760 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:13:06,301 basehttp 11 140148438952760 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:13:06,321 basehttp 11 140148438952760 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:13:06,321 basehttp 11 140148438952760 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:13:07,018 basehttp 11 140148438952760 "GET /auth/42/callback?code=22f232742d953a7e5956b507dcfbff65d1477e3d0e20e5f3a35676006b11efcd&state=PKVphsZQM9TTcudiSP3jNoMCoDfH37jF HTTP/1.0" 302 0
-INFO 2025-02-18 16:13:07,018 basehttp 11 140148438952760 "GET /auth/42/callback?code=22f232742d953a7e5956b507dcfbff65d1477e3d0e20e5f3a35676006b11efcd&state=PKVphsZQM9TTcudiSP3jNoMCoDfH37jF HTTP/1.0" 302 0
-INFO 2025-02-18 16:13:09,119 basehttp 11 140148438989624 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:13:09,119 basehttp 11 140148438989624 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:13:09,121 basehttp 11 140148434463544 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 16:13:09,121 basehttp 11 140148434463544 "GET /auth/user/login_history/ HTTP/1.0" 200 217
-INFO 2025-02-18 16:17:46,962 autoreload 11 140169614482216 Watching for file changes with StatReloader
-INFO 2025-02-18 16:17:46,962 autoreload 11 140169614482216 Watching for file changes with StatReloader
-INFO 2025-02-18 16:18:12,432 basehttp 11 140169535748920 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:18:12,432 basehttp 11 140169535748920 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:18:12,450 basehttp 11 140169535748920 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:18:12,450 basehttp 11 140169535748920 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:18:13,080 basehttp 11 140169535748920 "GET /auth/42/callback?code=50d76054554ba4abc72946850db312a4aaecbe4f6c36487dd2e9703dd8a68a06&state=t7TZK4DKdWELLLPu7qDqoSQIDWBp08N5 HTTP/1.0" 302 0
-INFO 2025-02-18 16:18:13,080 basehttp 11 140169535748920 "GET /auth/42/callback?code=50d76054554ba4abc72946850db312a4aaecbe4f6c36487dd2e9703dd8a68a06&state=t7TZK4DKdWELLLPu7qDqoSQIDWBp08N5 HTTP/1.0" 302 0
-INFO 2025-02-18 16:18:14,734 basehttp 11 140169535769400 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:18:14,734 basehttp 11 140169535769400 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:18:14,739 basehttp 11 140169531312952 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:18:14,739 basehttp 11 140169531312952 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:18:26,652 basehttp 11 140169535769400 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:18:26,652 basehttp 11 140169535769400 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:18:26,658 basehttp 11 140169531312952 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:18:26,658 basehttp 11 140169531312952 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:22:21,355 autoreload 11 140111917538088 Watching for file changes with StatReloader
-INFO 2025-02-18 16:22:21,355 autoreload 11 140111917538088 Watching for file changes with StatReloader
-INFO 2025-02-18 16:23:08,913 basehttp 11 140111838804792 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:23:08,913 basehttp 11 140111838804792 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:23:08,931 basehttp 11 140111838804792 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:23:08,931 basehttp 11 140111838804792 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:23:09,515 basehttp 11 140111838804792 "GET /auth/42/callback?code=a9b671746157e54a7df8f018ae31a656497da972ce7ef768a9a1d8a5cce17fa8&state=Z88KoWQxZAzriaXYBNXoltCEUfPQPtZf HTTP/1.0" 302 0
-INFO 2025-02-18 16:23:09,515 basehttp 11 140111838804792 "GET /auth/42/callback?code=a9b671746157e54a7df8f018ae31a656497da972ce7ef768a9a1d8a5cce17fa8&state=Z88KoWQxZAzriaXYBNXoltCEUfPQPtZf HTTP/1.0" 302 0
-INFO 2025-02-18 16:23:13,469 basehttp 11 140111838841656 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:23:13,469 basehttp 11 140111838841656 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:23:13,471 basehttp 11 140111834323768 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:23:13,471 basehttp 11 140111834323768 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-WARNING 2025-02-18 16:24:10,550 log 11 140111838841656 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:24:10,550 log 11 140111838841656 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:24:10,551 basehttp 11 140111838841656 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-18 16:24:10,551 basehttp 11 140111838841656 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-18 16:26:55,071 autoreload 11 139736121527080 Watching for file changes with StatReloader
-INFO 2025-02-18 16:26:55,071 autoreload 11 139736121527080 Watching for file changes with StatReloader
-INFO 2025-02-18 16:27:20,197 basehttp 11 139736042801976 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:27:20,197 basehttp 11 139736042801976 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:27:20,215 basehttp 11 139736042801976 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:27:20,215 basehttp 11 139736042801976 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:27:20,758 basehttp 11 139736042801976 "GET /auth/42/callback?code=8772a7534b4ee26c304eece0866dd86b17475829972b977d8165e1a814b4b5ff&state=SmnTzHqAfI8NafI70CoZi9hqsFMBYSdw HTTP/1.0" 302 0
-INFO 2025-02-18 16:27:20,758 basehttp 11 139736042801976 "GET /auth/42/callback?code=8772a7534b4ee26c304eece0866dd86b17475829972b977d8165e1a814b4b5ff&state=SmnTzHqAfI8NafI70CoZi9hqsFMBYSdw HTTP/1.0" 302 0
-INFO 2025-02-18 16:27:23,732 basehttp 11 139736042838840 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:27:23,732 basehttp 11 139736042838840 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:27:23,733 basehttp 11 139736038312760 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:27:23,733 basehttp 11 139736038312760 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:31:56,576 autoreload 11 139710659316520 Watching for file changes with StatReloader
-INFO 2025-02-18 16:31:56,576 autoreload 11 139710659316520 Watching for file changes with StatReloader
-INFO 2025-02-18 16:32:19,374 basehttp 11 139710580591416 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:32:19,374 basehttp 11 139710580591416 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:32:19,393 basehttp 11 139710580591416 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:32:19,393 basehttp 11 139710580591416 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:32:20,056 basehttp 11 139710580591416 "GET /auth/42/callback?code=38817e0375f6dac7d3d9ff4dae9eec48a4e9ede616ea19f538ada0903828f79b&state=8e6hL4rP4GlbbB110IbxjkPjrrPcdEsJ HTTP/1.0" 302 0
-INFO 2025-02-18 16:32:20,056 basehttp 11 139710580591416 "GET /auth/42/callback?code=38817e0375f6dac7d3d9ff4dae9eec48a4e9ede616ea19f538ada0903828f79b&state=8e6hL4rP4GlbbB110IbxjkPjrrPcdEsJ HTTP/1.0" 302 0
-INFO 2025-02-18 16:32:23,072 basehttp 11 139710577130296 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:32:23,072 basehttp 11 139710577130296 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:32:23,077 basehttp 11 139710576069432 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:32:23,077 basehttp 11 139710576069432 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:35:06,885 autoreload 11 139790840437544 Watching for file changes with StatReloader
-INFO 2025-02-18 16:35:06,885 autoreload 11 139790840437544 Watching for file changes with StatReloader
-INFO 2025-02-18 16:35:25,172 basehttp 11 139790761704248 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:35:25,172 basehttp 11 139790761704248 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:35:25,190 basehttp 11 139790761704248 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:35:25,190 basehttp 11 139790761704248 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:35:25,798 basehttp 11 139790761704248 "GET /auth/42/callback?code=5f4677397676b924bf8b780216ffa49e3d31b6b2b855932ee0ba503d07ee6867&state=8RDwkQragXmPCDCUygOnE2hkc9VwQUs6 HTTP/1.0" 302 0
-INFO 2025-02-18 16:35:25,798 basehttp 11 139790761704248 "GET /auth/42/callback?code=5f4677397676b924bf8b780216ffa49e3d31b6b2b855932ee0ba503d07ee6867&state=8RDwkQragXmPCDCUygOnE2hkc9VwQUs6 HTTP/1.0" 302 0
-INFO 2025-02-18 16:35:50,503 basehttp 11 139790761741112 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:35:50,503 basehttp 11 139790761741112 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:35:50,504 basehttp 11 139790757186360 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:35:50,504 basehttp 11 139790757186360 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:38:37,227 autoreload 11 140672326175528 Watching for file changes with StatReloader
-INFO 2025-02-18 16:38:37,227 autoreload 11 140672326175528 Watching for file changes with StatReloader
-INFO 2025-02-18 16:38:54,281 basehttp 11 140672247450424 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:38:54,281 basehttp 11 140672247450424 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:38:54,300 basehttp 11 140672247450424 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:38:54,300 basehttp 11 140672247450424 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:38:55,049 basehttp 11 140672247450424 "GET /auth/42/callback?code=d275864aa16e891fe8caf192454b66cbb7f54bb5e55c7b147a8c1017bf46703c&state=amn29nhVz8PohR2uIKf2YlnKicEGkR7X HTTP/1.0" 302 0
-INFO 2025-02-18 16:38:55,049 basehttp 11 140672247450424 "GET /auth/42/callback?code=d275864aa16e891fe8caf192454b66cbb7f54bb5e55c7b147a8c1017bf46703c&state=amn29nhVz8PohR2uIKf2YlnKicEGkR7X HTTP/1.0" 302 0
-INFO 2025-02-18 16:39:35,750 basehttp 11 140672247487288 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:39:35,750 basehttp 11 140672247487288 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:39:35,753 basehttp 11 140672242944824 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:39:35,753 basehttp 11 140672242944824 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-02-18 16:41:50,788 autoreload 11 140180415572776 Watching for file changes with StatReloader
-INFO 2025-02-18 16:41:50,788 autoreload 11 140180415572776 Watching for file changes with StatReloader
-INFO 2025-02-18 16:42:14,128 basehttp 11 140180336847672 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:42:14,128 basehttp 11 140180336847672 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:42:14,145 basehttp 11 140180336847672 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:42:14,145 basehttp 11 140180336847672 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:42:14,856 basehttp 11 140180336847672 "GET /auth/42/callback?code=a4785303c0aaea3aab01d36aa815dbb20d44fbc5350c88ca27e986f6c9d83b1a&state=To7MeSZeqBhjb7Q8oRHKieeLpsJDtDn8 HTTP/1.0" 302 0
-INFO 2025-02-18 16:42:14,856 basehttp 11 140180336847672 "GET /auth/42/callback?code=a4785303c0aaea3aab01d36aa815dbb20d44fbc5350c88ca27e986f6c9d83b1a&state=To7MeSZeqBhjb7Q8oRHKieeLpsJDtDn8 HTTP/1.0" 302 0
-INFO 2025-02-18 16:42:18,261 basehttp 11 140180332342072 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 16:42:18,261 basehttp 11 140180336884536 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:42:18,261 basehttp 11 140180332342072 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 16:42:18,261 basehttp 11 140180336884536 "GET /auth/user/ HTTP/1.0" 200 87
-WARNING 2025-02-18 16:42:40,446 log 11 140180336884536 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:42:40,446 log 11 140180336884536 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:42:40,447 basehttp 11 140180336884536 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-18 16:42:40,447 basehttp 11 140180336884536 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-18 16:45:38,954 autoreload 11 139819101256488 Watching for file changes with StatReloader
-INFO 2025-02-18 16:45:38,954 autoreload 11 139819101256488 Watching for file changes with StatReloader
-INFO 2025-02-18 16:46:00,113 basehttp 11 139819022515000 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:46:00,113 basehttp 11 139819022515000 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:46:00,131 basehttp 11 139819022515000 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:46:00,131 basehttp 11 139819022515000 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:46:00,874 basehttp 11 139819022515000 "GET /auth/42/callback?code=2be5c9ae0c2eb2f1b8002599a2a9c99441aaf471515590ed6cabb78205c67b91&state=JP9mKCLOWJcvwii3etTDfxSJ0og34MVA HTTP/1.0" 302 0
-INFO 2025-02-18 16:46:00,874 basehttp 11 139819022515000 "GET /auth/42/callback?code=2be5c9ae0c2eb2f1b8002599a2a9c99441aaf471515590ed6cabb78205c67b91&state=JP9mKCLOWJcvwii3etTDfxSJ0og34MVA HTTP/1.0" 302 0
-INFO 2025-02-18 16:46:04,080 basehttp 11 139819022551864 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:46:04,080 basehttp 11 139819022551864 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:46:04,085 basehttp 11 139819018013496 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 16:46:04,085 basehttp 11 139819018013496 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-WARNING 2025-02-18 16:46:06,513 log 11 139819022551864 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:46:06,513 log 11 139819022551864 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:46:06,513 basehttp 11 139819022551864 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-18 16:46:06,513 basehttp 11 139819022551864 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-18 16:46:57,073 basehttp 11 139819022551864 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:46:57,073 basehttp 11 139819022551864 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:46:57,087 basehttp 11 139819022551864 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:46:57,087 basehttp 11 139819022551864 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:46:57,707 basehttp 11 139819022551864 "GET /auth/42/callback?code=69c5cff148ea1a99c7d0108f345a353c0898e830b65080cd4d673e9c4a5bff36&state=lodOzkXAWtyOPa1WaXFbESRI6MpO53I5 HTTP/1.0" 302 0
-INFO 2025-02-18 16:46:57,707 basehttp 11 139819022551864 "GET /auth/42/callback?code=69c5cff148ea1a99c7d0108f345a353c0898e830b65080cd4d673e9c4a5bff36&state=lodOzkXAWtyOPa1WaXFbESRI6MpO53I5 HTTP/1.0" 302 0
-INFO 2025-02-18 16:48:59,141 autoreload 11 140134677957416 Watching for file changes with StatReloader
-INFO 2025-02-18 16:48:59,141 autoreload 11 140134677957416 Watching for file changes with StatReloader
-INFO 2025-02-18 16:49:20,404 basehttp 11 140134599232312 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:49:20,404 basehttp 11 140134599232312 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:49:20,423 basehttp 11 140134599232312 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:49:20,423 basehttp 11 140134599232312 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:49:21,011 basehttp 11 140134599232312 "GET /auth/42/callback?code=535770fa2af3fbc0b5fd94d80875a4aafa18552afb7e576c7b000d07518a2354&state=tdA5ESSRNaXQIHQfN4cOHZuno4Blwhfb HTTP/1.0" 302 0
-INFO 2025-02-18 16:49:21,011 basehttp 11 140134599232312 "GET /auth/42/callback?code=535770fa2af3fbc0b5fd94d80875a4aafa18552afb7e576c7b000d07518a2354&state=tdA5ESSRNaXQIHQfN4cOHZuno4Blwhfb HTTP/1.0" 302 0
-INFO 2025-02-18 16:49:23,041 basehttp 11 140134599269176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:49:23,041 basehttp 11 140134599269176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 16:49:23,042 basehttp 11 140134594743096 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 16:49:23,042 basehttp 11 140134594743096 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-WARNING 2025-02-18 16:49:29,826 log 11 140134599269176 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:49:29,826 log 11 140134599269176 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:49:29,826 basehttp 11 140134599269176 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-18 16:49:29,826 basehttp 11 140134599269176 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-18 16:51:33,575 autoreload 11 140557464242984 Watching for file changes with StatReloader
-INFO 2025-02-18 16:51:33,575 autoreload 11 140557464242984 Watching for file changes with StatReloader
-INFO 2025-02-18 16:51:55,472 basehttp 11 140557385517880 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:51:55,472 basehttp 11 140557385517880 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:51:55,490 basehttp 11 140557385517880 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:51:55,490 basehttp 11 140557385517880 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:51:56,102 basehttp 11 140557385517880 "GET /auth/42/callback?code=ea603d960b44e518803e11718dccc0bf4c626af865dddba5ae30d10029b6bb0a&state=a7AarbWieSuIlIIZVO39cQJ2zVYlgZOj HTTP/1.0" 302 0
-INFO 2025-02-18 16:51:56,102 basehttp 11 140557385517880 "GET /auth/42/callback?code=ea603d960b44e518803e11718dccc0bf4c626af865dddba5ae30d10029b6bb0a&state=a7AarbWieSuIlIIZVO39cQJ2zVYlgZOj HTTP/1.0" 302 0
-WARNING 2025-02-18 16:51:59,194 log 11 140557382056760 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:51:59,194 log 11 140557382056760 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:51:59,195 basehttp 11 140557382056760 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-18 16:51:59,195 basehttp 11 140557382056760 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-18 16:53:23,530 autoreload 11 139916895886120 Watching for file changes with StatReloader
-INFO 2025-02-18 16:53:23,530 autoreload 11 139916895886120 Watching for file changes with StatReloader
-INFO 2025-02-18 16:53:43,986 basehttp 11 139916817124152 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:53:43,986 basehttp 11 139916817124152 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:53:44,003 basehttp 11 139916817124152 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:53:44,003 basehttp 11 139916817124152 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:53:44,644 basehttp 11 139916816038712 "GET /auth/42/callback?code=e09a4e9d2fa8b1a8f18e7804d4121c2759414eeeeb52f78f60a7e746064bba11&state=BIXW40bCgc8xX6uorS4LOvQLDgmRM48E HTTP/1.0" 302 0
-INFO 2025-02-18 16:53:44,644 basehttp 11 139916816038712 "GET /auth/42/callback?code=e09a4e9d2fa8b1a8f18e7804d4121c2759414eeeeb52f78f60a7e746064bba11&state=BIXW40bCgc8xX6uorS4LOvQLDgmRM48E HTTP/1.0" 302 0
-WARNING 2025-02-18 16:53:48,244 log 11 139916812651320 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:53:48,244 log 11 139916812651320 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:53:48,244 basehttp 11 139916812651320 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-18 16:53:48,244 basehttp 11 139916812651320 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-18 16:56:29,946 autoreload 11 140053349415720 Watching for file changes with StatReloader
-INFO 2025-02-18 16:56:29,946 autoreload 11 140053349415720 Watching for file changes with StatReloader
-INFO 2025-02-18 16:56:51,822 basehttp 11 140053270707000 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:56:51,822 basehttp 11 140053270707000 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 16:56:51,839 basehttp 11 140053270727480 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:56:51,839 basehttp 11 140053270727480 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 16:56:52,413 basehttp 11 140053270727480 "GET /auth/42/callback?code=52631914280cf80d848ddf343e10678c28ce85dfe2066075a8689080511355e5&state=MIGRSNK1SshxI9AcpAFND5zBd9APF79m HTTP/1.0" 302 0
-INFO 2025-02-18 16:56:52,413 basehttp 11 140053270727480 "GET /auth/42/callback?code=52631914280cf80d848ddf343e10678c28ce85dfe2066075a8689080511355e5&state=MIGRSNK1SshxI9AcpAFND5zBd9APF79m HTTP/1.0" 302 0
-WARNING 2025-02-18 16:56:55,431 log 11 140053266262840 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:56:55,431 log 11 140053266262840 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-18 16:56:55,431 basehttp 11 140053266262840 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-18 16:56:55,431 basehttp 11 140053266262840 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-18 17:14:00,320 autoreload 11 139917622033192 Watching for file changes with StatReloader
-INFO 2025-02-18 17:14:00,320 autoreload 11 139917622033192 Watching for file changes with StatReloader
-INFO 2025-02-18 17:14:24,926 basehttp 11 139917543324472 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:14:24,926 basehttp 11 139917543324472 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:14:24,950 basehttp 11 139917543324472 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:14:24,950 basehttp 11 139917543324472 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:14:25,729 basehttp 11 139917542153016 "GET /auth/42/callback?code=e64e08251575dcbd5c4c09601cf6124d69bd5d23c4b105dbed388b79edebc8c8&state=fuCaSkQCYk7lJuRUUKWf85skxjYnua59 HTTP/1.0" 302 0
-INFO 2025-02-18 17:14:25,729 basehttp 11 139917542153016 "GET /auth/42/callback?code=e64e08251575dcbd5c4c09601cf6124d69bd5d23c4b105dbed388b79edebc8c8&state=fuCaSkQCYk7lJuRUUKWf85skxjYnua59 HTTP/1.0" 302 0
-INFO 2025-02-18 17:21:08,619 autoreload 11 139738865851176 Watching for file changes with StatReloader
-INFO 2025-02-18 17:21:08,619 autoreload 11 139738865851176 Watching for file changes with StatReloader
-INFO 2025-02-18 17:21:30,297 basehttp 11 139738787117880 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:21:30,297 basehttp 11 139738787117880 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:21:30,315 basehttp 11 139738787081016 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:21:30,315 basehttp 11 139738787081016 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:21:31,007 basehttp 11 139738787081016 "GET /auth/42/callback?code=65a6c216e7e9f418ed33399c7c69278badfc5b5eaa5bc30d91919a2d734e4e46&state=WPWOIchCSbr3bLzhpnXmRTUtWZ6w62WD HTTP/1.0" 302 0
-INFO 2025-02-18 17:21:31,007 basehttp 11 139738787081016 "GET /auth/42/callback?code=65a6c216e7e9f418ed33399c7c69278badfc5b5eaa5bc30d91919a2d734e4e46&state=WPWOIchCSbr3bLzhpnXmRTUtWZ6w62WD HTTP/1.0" 302 0
-INFO 2025-02-18 17:21:35,027 basehttp 11 139738782681912 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:21:35,027 basehttp 11 139738782681912 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:21:35,029 basehttp 11 139738781621048 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 17:21:35,029 basehttp 11 139738781621048 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 17:22:25,882 basehttp 11 139738787007288 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:22:25,882 basehttp 11 139738787007288 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:22:25,889 basehttp 11 139738782681912 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 17:22:25,889 basehttp 11 139738782681912 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-18 17:25:02,798 autoreload 11 140298986687272 Watching for file changes with StatReloader
-INFO 2025-02-18 17:25:02,798 autoreload 11 140298986687272 Watching for file changes with StatReloader
-INFO 2025-02-18 17:25:22,890 basehttp 11 140298907962168 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:25:22,890 basehttp 11 140298907962168 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:25:22,908 basehttp 11 140298907962168 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:25:22,908 basehttp 11 140298907962168 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:25:23,568 basehttp 11 140298907962168 "GET /auth/42/callback?code=93740b76988a78b14c85087510f518fe8bbe095675ea290dee2207a722e9501c&state=jCimTaNAJZurJOKelaMnSKQWSlyHWJHT HTTP/1.0" 302 0
-INFO 2025-02-18 17:25:23,568 basehttp 11 140298907962168 "GET /auth/42/callback?code=93740b76988a78b14c85087510f518fe8bbe095675ea290dee2207a722e9501c&state=jCimTaNAJZurJOKelaMnSKQWSlyHWJHT HTTP/1.0" 302 0
-INFO 2025-02-18 17:26:35,062 autoreload 11 139866442484520 Watching for file changes with StatReloader
-INFO 2025-02-18 17:26:35,062 autoreload 11 139866442484520 Watching for file changes with StatReloader
-INFO 2025-02-18 17:26:47,512 basehttp 11 139866363751224 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:26:47,512 basehttp 11 139866363751224 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:26:47,530 basehttp 11 139866363751224 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:26:47,530 basehttp 11 139866363751224 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:26:48,247 basehttp 11 139866363677496 "GET /auth/42/callback?code=c24a27a536ef3df2a4d59c824c1f0b2c615347121c3099bf70c8b50fe3583033&state=RqgOJugMTzSSngY9Edl9vuxhhTkubTm4 HTTP/1.0" 302 0
-INFO 2025-02-18 17:26:48,247 basehttp 11 139866363677496 "GET /auth/42/callback?code=c24a27a536ef3df2a4d59c824c1f0b2c615347121c3099bf70c8b50fe3583033&state=RqgOJugMTzSSngY9Edl9vuxhhTkubTm4 HTTP/1.0" 302 0
-INFO 2025-02-18 17:27:31,893 basehttp 11 139866359241528 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 17:27:31,893 basehttp 11 139866359241528 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 17:27:31,926 basehttp 11 139866359241528 "GET /auth/2fa/setup/ HTTP/1.0" 200 11639
-INFO 2025-02-18 17:27:31,926 basehttp 11 139866359241528 "GET /auth/2fa/setup/ HTTP/1.0" 200 11639
-WARNING 2025-02-18 17:27:32,005 log 11 139866359241528 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 17:27:32,005 log 11 139866359241528 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 17:27:32,006 basehttp 11 139866359241528 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 17:27:32,006 basehttp 11 139866359241528 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 17:27:32,018 log 11 139866358192952 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 17:27:32,018 log 11 139866358192952 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 17:27:32,019 basehttp 11 139866358192952 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 17:27:32,019 basehttp 11 139866358192952 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-18 17:27:56,105 basehttp 11 139866358192952 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 17:27:56,105 basehttp 11 139866358192952 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 17:28:21,228 basehttp 11 139866358192952 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:28:21,228 basehttp 11 139866358192952 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:28:21,237 basehttp 11 139866357132088 "GET /auth/user/login_history/ HTTP/1.0" 200 461
-INFO 2025-02-18 17:28:21,237 basehttp 11 139866357132088 "GET /auth/user/login_history/ HTTP/1.0" 200 461
-INFO 2025-02-18 17:29:35,247 basehttp 11 139866358192952 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:29:35,247 basehttp 11 139866358192952 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:29:35,261 basehttp 11 139866358192952 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:29:35,261 basehttp 11 139866358192952 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:29:35,963 basehttp 11 139866358192952 "GET /auth/42/callback?code=7f5bc98a748847ef25d300c1b69e19b1935707f0b6df8b8d2efb2f895dca1183&state=0veu5wZ0R2fOCoDw4YU0oSbVavLc6a6V HTTP/1.0" 302 0
-INFO 2025-02-18 17:29:35,963 basehttp 11 139866358192952 "GET /auth/42/callback?code=7f5bc98a748847ef25d300c1b69e19b1935707f0b6df8b8d2efb2f895dca1183&state=0veu5wZ0R2fOCoDw4YU0oSbVavLc6a6V HTTP/1.0" 302 0
-INFO 2025-02-18 17:29:41,960 basehttp 11 139866358192952 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:29:41,960 basehttp 11 139866358192952 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:29:41,964 basehttp 11 139866357132088 "GET /auth/user/login_history/ HTTP/1.0" 200 682
-INFO 2025-02-18 17:29:41,964 basehttp 11 139866357132088 "GET /auth/user/login_history/ HTTP/1.0" 200 682
-INFO 2025-02-18 17:34:27,995 autoreload 11 140382656412456 Watching for file changes with StatReloader
-INFO 2025-02-18 17:34:27,995 autoreload 11 140382656412456 Watching for file changes with StatReloader
-INFO 2025-02-18 17:34:52,133 basehttp 11 140382577662776 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:34:52,133 basehttp 11 140382577662776 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-18 17:34:52,152 basehttp 11 140382577662776 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:34:52,152 basehttp 11 140382577662776 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-18 17:34:52,977 basehttp 11 140382577662776 "GET /auth/42/callback?code=44f81da4655681bc5b993cd20021884975256dac337495cc7cae1c0f9b625f22&state=zp8OgA9aqxVEXIFx0DEoOL8vLDozTWxO HTTP/1.0" 302 0
-INFO 2025-02-18 17:34:52,977 basehttp 11 140382577662776 "GET /auth/42/callback?code=44f81da4655681bc5b993cd20021884975256dac337495cc7cae1c0f9b625f22&state=zp8OgA9aqxVEXIFx0DEoOL8vLDozTWxO HTTP/1.0" 302 0
-INFO 2025-02-18 17:35:20,577 basehttp 11 140382577699640 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 17:35:20,577 basehttp 11 140382577699640 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-18 17:35:20,608 basehttp 11 140382577699640 "GET /auth/2fa/setup/ HTTP/1.0" 200 11707
-INFO 2025-02-18 17:35:20,608 basehttp 11 140382577699640 "GET /auth/2fa/setup/ HTTP/1.0" 200 11707
-WARNING 2025-02-18 17:35:20,684 log 11 140382577699640 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 17:35:20,684 log 11 140382577699640 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-18 17:35:20,684 basehttp 11 140382577699640 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 17:35:20,684 basehttp 11 140382577699640 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5312
-WARNING 2025-02-18 17:35:20,699 log 11 140382577699640 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 17:35:20,699 log 11 140382577699640 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-18 17:35:20,699 basehttp 11 140382577699640 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-WARNING 2025-02-18 17:35:20,699 basehttp 11 140382577699640 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5309
-INFO 2025-02-18 17:35:39,652 basehttp 11 140382572133176 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 17:35:39,652 basehttp 11 140382572133176 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-18 17:35:45,877 basehttp 11 140382572133176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:35:45,877 basehttp 11 140382572133176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-18 17:35:45,881 basehttp 11 140382571072312 "GET /auth/user/login_history/ HTTP/1.0" 200 460
-INFO 2025-02-18 17:35:45,881 basehttp 11 140382571072312 "GET /auth/user/login_history/ HTTP/1.0" 200 460
-INFO 2025-02-19 10:42:42,152 autoreload 11 140601564629800 Watching for file changes with StatReloader
-INFO 2025-02-19 10:42:42,152 autoreload 11 140601564629800 Watching for file changes with StatReloader
-INFO 2025-02-19 10:43:13,270 basehttp 11 140601485904696 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 10:43:13,270 basehttp 11 140601485904696 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 10:43:13,288 basehttp 11 140601485904696 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 10:43:13,288 basehttp 11 140601485904696 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 10:43:13,934 basehttp 11 140601485904696 "GET /auth/42/callback?code=b86deb6c261014a3778e450a8a7b71a45d45fa80bca6eb43f8726ef9b4898726&state=UZ3O5pLdljVcbTmjTAWEd5knYSMAqQkd HTTP/1.0" 302 0
-INFO 2025-02-19 10:43:13,934 basehttp 11 140601485904696 "GET /auth/42/callback?code=b86deb6c261014a3778e450a8a7b71a45d45fa80bca6eb43f8726ef9b4898726&state=UZ3O5pLdljVcbTmjTAWEd5knYSMAqQkd HTTP/1.0" 302 0
-INFO 2025-02-19 10:43:23,131 basehttp 11 140601485941560 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 10:43:23,131 basehttp 11 140601485941560 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 10:43:23,137 basehttp 11 140601481399096 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 10:43:23,137 basehttp 11 140601481399096 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 10:43:30,530 basehttp 11 140601485941560 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-19 10:43:30,530 basehttp 11 140601485941560 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 81
-INFO 2025-02-19 10:53:25,535 autoreload 11 140272264006440 Watching for file changes with StatReloader
-INFO 2025-02-19 10:53:25,535 autoreload 11 140272264006440 Watching for file changes with StatReloader
-INFO 2025-02-19 10:54:15,460 basehttp 11 140272185281336 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 10:54:15,460 basehttp 11 140272185281336 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 10:54:15,479 basehttp 11 140272185318200 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 10:54:15,479 basehttp 11 140272185318200 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 10:54:16,198 basehttp 11 140272185318200 "GET /auth/42/callback?code=ed348f3852b016a4b87aca49d81537e9edfff49369ed5a34d70ab01ced3c6756&state=HsBnRHdDMZkg23Ku9Ymds8xiq2OkuOPc HTTP/1.0" 302 0
-INFO 2025-02-19 10:54:16,198 basehttp 11 140272185318200 "GET /auth/42/callback?code=ed348f3852b016a4b87aca49d81537e9edfff49369ed5a34d70ab01ced3c6756&state=HsBnRHdDMZkg23Ku9Ymds8xiq2OkuOPc HTTP/1.0" 302 0
-INFO 2025-02-19 10:55:54,015 basehttp 11 140272180837176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 10:55:54,015 basehttp 11 140272180837176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 10:55:54,017 basehttp 11 140272179776312 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 10:55:54,017 basehttp 11 140272179776312 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 11:03:59,081 basehttp 11 140272180837176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:03:59,081 basehttp 11 140272180837176 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:03:59,083 basehttp 11 140272179776312 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 11:03:59,083 basehttp 11 140272179776312 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 11:23:26,548 autoreload 11 139924783545128 Watching for file changes with StatReloader
-INFO 2025-02-19 11:23:26,548 autoreload 11 139924783545128 Watching for file changes with StatReloader
-INFO 2025-02-19 11:23:57,219 basehttp 11 139924704803640 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 11:23:57,219 basehttp 11 139924704803640 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 11:23:57,237 basehttp 11 139924704840504 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 11:23:57,237 basehttp 11 139924704840504 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 11:23:58,148 basehttp 11 139924704840504 "GET /auth/42/callback?code=b9267972f8c5cdb182fa0c671e4e850f5be50431c49de686f81485a24e8a79fe&state=pJXx5DJa9A6uQSZRcH2An1jhNEyI79Xs HTTP/1.0" 302 0
-INFO 2025-02-19 11:23:58,148 basehttp 11 139924704840504 "GET /auth/42/callback?code=b9267972f8c5cdb182fa0c671e4e850f5be50431c49de686f81485a24e8a79fe&state=pJXx5DJa9A6uQSZRcH2An1jhNEyI79Xs HTTP/1.0" 302 0
-INFO 2025-02-19 11:24:02,230 basehttp 11 139924700359480 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:24:02,230 basehttp 11 139924700359480 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:24:02,236 basehttp 11 139924699298616 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 11:24:02,236 basehttp 11 139924699298616 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-WARNING 2025-02-19 11:24:05,366 log 11 139924700359480 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-19 11:24:05,366 log 11 139924700359480 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-19 11:24:05,367 basehttp 11 139924700359480 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-19 11:24:05,367 basehttp 11 139924700359480 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-19 11:24:34,529 basehttp 11 139924700359480 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 11:24:34,529 basehttp 11 139924700359480 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 11:24:34,545 basehttp 11 139924700359480 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 11:24:34,545 basehttp 11 139924700359480 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 11:24:35,318 basehttp 11 139924700359480 "GET /auth/42/callback?code=8ffe58d463731f4ce5f4bf034a2e39d1a5b864a8260c2b3faa8b267090e43035&state=vAnXNKCDdomRip8FRYMzVyIQJLlri8IF HTTP/1.0" 302 0
-INFO 2025-02-19 11:24:35,318 basehttp 11 139924700359480 "GET /auth/42/callback?code=8ffe58d463731f4ce5f4bf034a2e39d1a5b864a8260c2b3faa8b267090e43035&state=vAnXNKCDdomRip8FRYMzVyIQJLlri8IF HTTP/1.0" 302 0
-INFO 2025-02-19 11:24:42,604 basehttp 11 139924700359480 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:24:42,604 basehttp 11 139924700359480 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:24:42,607 basehttp 11 139924699298616 "GET /auth/user/login_history/ HTTP/1.0" 200 459
-INFO 2025-02-19 11:24:42,607 basehttp 11 139924699298616 "GET /auth/user/login_history/ HTTP/1.0" 200 459
-WARNING 2025-02-19 11:24:52,158 log 11 139924700359480 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-19 11:24:52,158 log 11 139924700359480 Not Found: /auth/user/update_login_status/
-WARNING 2025-02-19 11:24:52,158 basehttp 11 139924700359480 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-WARNING 2025-02-19 11:24:52,158 basehttp 11 139924700359480 "POST /auth/user/update_login_status/ HTTP/1.0" 404 5277
-INFO 2025-02-19 11:36:08,251 autoreload 11 140402467863336 Watching for file changes with StatReloader
-INFO 2025-02-19 11:36:08,251 autoreload 11 140402467863336 Watching for file changes with StatReloader
-INFO 2025-02-19 11:36:24,249 basehttp 11 140402389121848 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 11:36:24,249 basehttp 11 140402389121848 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 11:36:24,271 basehttp 11 140402389121848 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 11:36:24,271 basehttp 11 140402389121848 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 11:36:24,960 basehttp 11 140402389121848 "GET /auth/42/callback?code=611388c9f6d6b0abc6103d8650029ed3aaa8ed11146fc13c50581bd5b5120c98&state=d9aMWmgGcFqOYw6gOL27LytEcUZiRRuu HTTP/1.0" 302 0
-INFO 2025-02-19 11:36:24,960 basehttp 11 140402389121848 "GET /auth/42/callback?code=611388c9f6d6b0abc6103d8650029ed3aaa8ed11146fc13c50581bd5b5120c98&state=d9aMWmgGcFqOYw6gOL27LytEcUZiRRuu HTTP/1.0" 302 0
-INFO 2025-02-19 11:36:39,806 basehttp 11 140402389158712 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:36:39,806 basehttp 11 140402389158712 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:36:39,815 basehttp 11 140402384620344 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 11:36:39,815 basehttp 11 140402384620344 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 11:36:42,931 views 11 140402389158712 Mise à jour du log id=1 pour user_id=1 : is_connected=False
-INFO 2025-02-19 11:36:42,938 basehttp 11 140402389158712 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-INFO 2025-02-19 11:36:42,938 basehttp 11 140402389158712 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-WARNING 2025-02-19 11:37:08,955 log 11 140402389142328 Unauthorized: /auth/login/
-WARNING 2025-02-19 11:37:08,955 log 11 140402389142328 Unauthorized: /auth/login/
-WARNING 2025-02-19 11:37:08,955 basehttp 11 140402389142328 "POST /auth/login/ HTTP/1.0" 401 63
-WARNING 2025-02-19 11:37:08,955 basehttp 11 140402389142328 "POST /auth/login/ HTTP/1.0" 401 63
-INFO 2025-02-19 11:37:22,453 basehttp 11 140402389142328 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-19 11:37:22,453 basehttp 11 140402389142328 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-19 11:37:22,486 basehttp 11 140402389142328 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
-INFO 2025-02-19 11:37:22,486 basehttp 11 140402389142328 "GET /auth/2fa/setup/ HTTP/1.0" 200 11635
-WARNING 2025-02-19 11:37:22,556 log 11 140402389142328 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-19 11:37:22,556 log 11 140402389142328 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-19 11:37:22,557 basehttp 11 140402389142328 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
-WARNING 2025-02-19 11:37:22,557 basehttp 11 140402389142328 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
-WARNING 2025-02-19 11:37:22,568 log 11 140402389142328 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-19 11:37:22,568 log 11 140402389142328 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-19 11:37:22,568 basehttp 11 140402389142328 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
-WARNING 2025-02-19 11:37:22,568 basehttp 11 140402389142328 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
-INFO 2025-02-19 11:37:45,317 basehttp 11 140402383571768 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-19 11:37:45,317 basehttp 11 140402383571768 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-19 11:38:00,624 basehttp 11 140402383571768 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:38:00,624 basehttp 11 140402383571768 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 11:38:00,634 basehttp 11 140402382510904 "GET /auth/user/login_history/ HTTP/1.0" 200 461
-INFO 2025-02-19 11:38:00,634 basehttp 11 140402382510904 "GET /auth/user/login_history/ HTTP/1.0" 200 461
-INFO 2025-02-19 12:38:30,104 autoreload 11 139698214480680 Watching for file changes with StatReloader
-INFO 2025-02-19 12:38:30,104 autoreload 11 139698214480680 Watching for file changes with StatReloader
-INFO 2025-02-19 12:39:01,341 basehttp 11 139698135755576 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 12:39:01,341 basehttp 11 139698135755576 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 12:39:01,359 basehttp 11 139698135755576 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 12:39:01,359 basehttp 11 139698135755576 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 12:39:02,006 basehttp 11 139698135755576 "GET /auth/42/callback?code=d36869281ab77e725579a7c6d001b5a0337c6dc9c1f44eaccf96b21da240ab5d&state=8rLEK6JyhcPqPCpTnRipZHA0k4scpIjf HTTP/1.0" 302 0
-INFO 2025-02-19 12:39:02,006 basehttp 11 139698135755576 "GET /auth/42/callback?code=d36869281ab77e725579a7c6d001b5a0337c6dc9c1f44eaccf96b21da240ab5d&state=8rLEK6JyhcPqPCpTnRipZHA0k4scpIjf HTTP/1.0" 302 0
-INFO 2025-02-19 12:39:06,467 basehttp 11 139698135792440 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 12:39:06,467 basehttp 11 139698135792440 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 12:39:06,469 basehttp 11 139698131315512 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 12:39:06,469 basehttp 11 139698131315512 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-19 12:39:14,952 views 11 139698135792440 Mise à jour du log id=1 pour user_id=1 : is_connected=False
-INFO 2025-02-19 12:39:14,960 basehttp 11 139698135792440 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-INFO 2025-02-19 12:39:14,960 basehttp 11 139698135792440 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-INFO 2025-02-19 12:39:34,429 basehttp 11 139698135776056 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-19 12:39:34,429 basehttp 11 139698135776056 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-19 12:39:34,464 basehttp 11 139698135776056 "GET /auth/2fa/setup/ HTTP/1.0" 200 11671
-INFO 2025-02-19 12:39:34,464 basehttp 11 139698135776056 "GET /auth/2fa/setup/ HTTP/1.0" 200 11671
-WARNING 2025-02-19 12:39:34,540 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-19 12:39:34,540 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-19 12:39:34,540 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
-WARNING 2025-02-19 12:39:34,540 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
-WARNING 2025-02-19 12:39:34,550 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-19 12:39:34,550 log 11 139698135776056 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-19 12:39:34,550 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
-WARNING 2025-02-19 12:39:34,550 basehttp 11 139698135776056 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
-INFO 2025-02-19 12:40:20,080 basehttp 11 139698131315512 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-19 12:40:20,080 basehttp 11 139698131315512 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-19 12:42:29,343 views 11 139698131315512 Mise à jour du log id=2 pour user_id=1 : is_connected=False
-INFO 2025-02-19 12:42:29,350 basehttp 11 139698131315512 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-INFO 2025-02-19 12:42:29,350 basehttp 11 139698131315512 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-INFO 2025-02-19 12:43:00,657 autoreload 11 139761529203496 Watching for file changes with StatReloader
-INFO 2025-02-19 12:43:00,657 autoreload 11 139761529203496 Watching for file changes with StatReloader
-INFO 2025-02-19 12:43:37,827 basehttp 11 139761450478392 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 12:43:37,827 basehttp 11 139761450478392 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-19 12:43:37,845 basehttp 11 139761450478392 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 12:43:37,845 basehttp 11 139761450478392 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-19 12:43:38,511 basehttp 11 139761450478392 "GET /auth/42/callback?code=3ca1b35df20a9b11708d23d78e3cb7b3f834d755a7f2ecac72981f775f277578&state=VYYPQdjOFm4XOdWrNxfHGoTuXuaOz7if HTTP/1.0" 302 0
-INFO 2025-02-19 12:43:38,511 basehttp 11 139761450478392 "GET /auth/42/callback?code=3ca1b35df20a9b11708d23d78e3cb7b3f834d755a7f2ecac72981f775f277578&state=VYYPQdjOFm4XOdWrNxfHGoTuXuaOz7if HTTP/1.0" 302 0
-INFO 2025-02-19 12:43:43,796 views 11 139761450515256 Mise à jour du log id=1 pour user_id=1 : is_connected=False
-INFO 2025-02-19 12:43:43,797 basehttp 11 139761450515256 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-INFO 2025-02-19 12:43:43,797 basehttp 11 139761450515256 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
-INFO 2025-02-19 12:44:05,439 basehttp 11 139761450498872 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-19 12:44:05,439 basehttp 11 139761450498872 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-02-19 12:44:05,471 basehttp 11 139761450498872 "GET /auth/2fa/setup/ HTTP/1.0" 200 11579
-INFO 2025-02-19 12:44:05,471 basehttp 11 139761450498872 "GET /auth/2fa/setup/ HTTP/1.0" 200 11579
-WARNING 2025-02-19 12:44:05,547 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-19 12:44:05,547 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
-WARNING 2025-02-19 12:44:05,547 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
-WARNING 2025-02-19 12:44:05,547 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5517
-WARNING 2025-02-19 12:44:05,558 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-19 12:44:05,558 log 11 139761450498872 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
-WARNING 2025-02-19 12:44:05,558 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
-WARNING 2025-02-19 12:44:05,558 basehttp 11 139761450498872 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5514
-INFO 2025-02-19 12:44:19,165 basehttp 11 139761445972792 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-19 12:44:19,165 basehttp 11 139761445972792 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
-INFO 2025-02-19 12:44:24,134 basehttp 11 139761445972792 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 12:44:24,134 basehttp 11 139761445972792 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-19 12:44:24,135 basehttp 11 139761444911928 "GET /auth/user/login_history/ HTTP/1.0" 200 460
-INFO 2025-02-19 12:44:24,135 basehttp 11 139761444911928 "GET /auth/user/login_history/ HTTP/1.0" 200 460
-INFO 2025-02-20 10:33:22,160 autoreload 11 140020374162216 Watching for file changes with StatReloader
-INFO 2025-02-20 10:33:22,160 autoreload 11 140020374162216 Watching for file changes with StatReloader
-INFO 2025-02-20 10:33:36,257 basehttp 11 140020295437112 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-20 10:33:36,257 basehttp 11 140020295437112 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-20 10:33:36,276 basehttp 11 140020295437112 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-20 10:33:36,276 basehttp 11 140020295437112 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-20 10:33:36,936 basehttp 11 140020295437112 "GET /auth/42/callback?code=2d078e21ef5334524c60db504c6021d7223a33ebd8a1a01d8a68c721f43e08b5&state=itEszkUWiW1qK2fLAJo483cQIHBUgqVb HTTP/1.0" 302 0
-INFO 2025-02-20 10:33:36,936 basehttp 11 140020295437112 "GET /auth/42/callback?code=2d078e21ef5334524c60db504c6021d7223a33ebd8a1a01d8a68c721f43e08b5&state=itEszkUWiW1qK2fLAJo483cQIHBUgqVb HTTP/1.0" 302 0
-INFO 2025-02-20 10:34:40,822 basehttp 11 140020295473976 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-20 10:34:40,822 basehttp 11 140020295473976 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-20 10:34:40,823 basehttp 11 140020290923320 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-20 10:34:40,823 basehttp 11 140020290923320 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-20 11:03:49,119 autoreload 11 139721728260904 Watching for file changes with StatReloader
-INFO 2025-02-20 11:03:49,119 autoreload 11 139721728260904 Watching for file changes with StatReloader
-INFO 2025-02-20 11:04:55,752 basehttp 11 139721649519416 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-20 11:04:55,752 basehttp 11 139721649519416 "POST /auth/42/password/ HTTP/1.0" 200 136
-INFO 2025-02-20 11:04:55,770 basehttp 11 139721649519416 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-20 11:04:55,770 basehttp 11 139721649519416 "GET /auth/42/login-42/ HTTP/1.0" 302 0
-INFO 2025-02-20 11:05:15,339 basehttp 11 139721648397112 "GET /auth/42/callback?code=07c82b9a4ea1b279e3b64e0ed7bac9e6231432967af12e7353bec2c73ac9a74a&state=e3oYXZR1NeJLgoUXksmknHkW2oLuf11e HTTP/1.0" 302 0
-INFO 2025-02-20 11:05:15,339 basehttp 11 139721648397112 "GET /auth/42/callback?code=07c82b9a4ea1b279e3b64e0ed7bac9e6231432967af12e7353bec2c73ac9a74a&state=e3oYXZR1NeJLgoUXksmknHkW2oLuf11e HTTP/1.0" 302 0
-INFO 2025-02-20 11:05:32,516 basehttp 11 139721648417592 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-20 11:05:32,516 basehttp 11 139721648417592 "GET /auth/user/ HTTP/1.0" 200 87
-INFO 2025-02-20 11:05:32,527 basehttp 11 139721644030776 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-INFO 2025-02-20 11:05:32,527 basehttp 11 139721644030776 "GET /auth/user/login_history/ HTTP/1.0" 200 239
-WARNING 2025-02-20 11:05:32,529 log 11 139721645091640 Not Found: /auth/user/info/
-WARNING 2025-02-20 11:05:32,529 log 11 139721645091640 Not Found: /auth/user/info/
-WARNING 2025-02-20 11:05:32,529 basehttp 11 139721645091640 "GET /auth/user/info/ HTTP/1.0" 404 5623
-WARNING 2025-02-20 11:05:32,529 basehttp 11 139721645091640 "GET /auth/user/info/ HTTP/1.0" 404 5623
-INFO 2025-02-20 11:05:55,905 basehttp 11 139721645091640 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 41
-INFO 2025-02-20 11:05:55,905 basehttp 11 139721645091640 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 41
-INFO 2025-02-20 11:06:07,825 basehttp 11 139721645091640 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 42
-INFO 2025-02-20 11:06:07,825 basehttp 11 139721645091640 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 42
+INFO 2025-02-20 12:52:32,630 autoreload 35 140393771367208 Watching for file changes with StatReloader
+INFO 2025-02-20 12:52:32,630 autoreload 35 140393771367208 Watching for file changes with StatReloader
+INFO 2025-02-20 12:53:02,347 basehttp 35 140393692621624 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-20 12:53:02,347 basehttp 35 140393692621624 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-20 12:53:21,516 basehttp 35 140393692621624 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-20 12:53:21,516 basehttp 35 140393692621624 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-20 12:53:21,624 basehttp 35 140393692621624 "GET /auth/2fa/setup/ HTTP/1.0" 200 11623
+INFO 2025-02-20 12:53:21,624 basehttp 35 140393692621624 "GET /auth/2fa/setup/ HTTP/1.0" 200 11623
+WARNING 2025-02-20 12:53:21,699 log 35 140393692621624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-20 12:53:21,699 log 35 140393692621624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-20 12:53:21,700 basehttp 35 140393692621624 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-20 12:53:21,700 basehttp 35 140393692621624 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-20 12:53:21,714 log 35 140393692621624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-20 12:53:21,714 log 35 140393692621624 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-20 12:53:21,715 basehttp 35 140393692621624 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+WARNING 2025-02-20 12:53:21,715 basehttp 35 140393692621624 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-20 12:53:29,566 basehttp 35 140393689967416 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-20 12:53:29,566 basehttp 35 140393689967416 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-20 12:53:30,157 basehttp 35 140393689967416 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-20 12:53:30,157 basehttp 35 140393689967416 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+WARNING 2025-02-20 13:09:10,873 log 35 140393688906552 Not Found: /auth/user/info/
+WARNING 2025-02-20 13:09:10,873 log 35 140393688906552 Not Found: /auth/user/info/
+WARNING 2025-02-20 13:09:10,876 basehttp 35 140393688906552 "GET /auth/user/info/ HTTP/1.0" 404 5623
+WARNING 2025-02-20 13:09:10,876 basehttp 35 140393688906552 "GET /auth/user/info/ HTTP/1.0" 404 5623
+INFO 2025-02-20 13:09:10,948 basehttp 35 140393689967416 "GET /auth/user/ HTTP/1.0" 200 83
+INFO 2025-02-20 13:09:10,948 basehttp 35 140393689967416 "GET /auth/user/ HTTP/1.0" 200 83
+INFO 2025-02-20 13:09:10,953 basehttp 35 140393687845688 "GET /auth/user/login_history/ HTTP/1.0" 200 459
+INFO 2025-02-20 13:09:10,953 basehttp 35 140393687845688 "GET /auth/user/login_history/ HTTP/1.0" 200 459
+INFO 2025-02-20 13:09:14,580 basehttp 35 140393689967416 "GET /auth/user/export_data/ HTTP/1.0" 200 228
+INFO 2025-02-20 13:09:14,580 basehttp 35 140393689967416 "GET /auth/user/export_data/ HTTP/1.0" 200 228
+INFO 2025-02-20 13:31:59,250 autoreload 57 140702032952104 Watching for file changes with StatReloader
+INFO 2025-02-20 13:31:59,250 autoreload 57 140702032952104 Watching for file changes with StatReloader
+INFO 2025-02-20 13:33:43,415 basehttp 57 140701954210616 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-20 13:33:43,415 basehttp 57 140701954210616 "POST /auth/signup/ HTTP/1.0" 201 56
+WARNING 2025-02-20 13:33:49,787 log 57 140701954173752 Unauthorized: /auth/login/
+WARNING 2025-02-20 13:33:49,787 log 57 140701954173752 Unauthorized: /auth/login/
+WARNING 2025-02-20 13:33:49,788 basehttp 57 140701954173752 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-20 13:33:49,788 basehttp 57 140701954173752 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-20 13:44:31,548 autoreload 20 139835719846696 Watching for file changes with StatReloader
+INFO 2025-02-20 13:44:31,548 autoreload 20 139835719846696 Watching for file changes with StatReloader
+INFO 2025-02-20 13:44:43,544 basehttp 20 139835641121592 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-20 13:44:43,544 basehttp 20 139835641121592 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-20 13:45:25,697 basehttp 20 139835641158456 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-20 13:45:25,697 basehttp 20 139835641158456 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-20 13:45:25,895 basehttp 20 139835641158456 "GET /auth/2fa/setup/ HTTP/1.0" 200 11643
+INFO 2025-02-20 13:45:25,895 basehttp 20 139835641158456 "GET /auth/2fa/setup/ HTTP/1.0" 200 11643
+WARNING 2025-02-20 13:45:25,987 log 20 139835641158456 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-20 13:45:25,987 log 20 139835641158456 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-20 13:45:25,988 basehttp 20 139835641158456 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-20 13:45:25,988 basehttp 20 139835641158456 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-20 13:45:26,002 log 20 139835641158456 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-20 13:45:26,002 log 20 139835641158456 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-20 13:45:26,002 basehttp 20 139835641158456 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+WARNING 2025-02-20 13:45:26,002 basehttp 20 139835641158456 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-20 13:45:35,847 basehttp 20 139835638487864 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-20 13:45:35,847 basehttp 20 139835638487864 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-20 14:25:54,730 autoreload 24 140153912359720 Watching for file changes with StatReloader
+INFO 2025-02-20 14:25:54,730 autoreload 24 140153912359720 Watching for file changes with StatReloader
+INFO 2025-02-20 14:34:42,363 autoreload 25 139651532360488 Watching for file changes with StatReloader
+INFO 2025-02-20 14:34:42,363 autoreload 25 139651532360488 Watching for file changes with StatReloader
+INFO 2025-02-20 14:42:11,167 autoreload 18 139666011564840 Watching for file changes with StatReloader
+INFO 2025-02-20 14:42:11,167 autoreload 18 139666011564840 Watching for file changes with StatReloader
+INFO 2025-02-20 14:53:52,898 autoreload 33 139997706767144 Watching for file changes with StatReloader
+INFO 2025-02-20 14:53:52,898 autoreload 33 139997706767144 Watching for file changes with StatReloader
+INFO 2025-02-20 14:57:54,099 autoreload 19 140029710195496 Watching for file changes with StatReloader
+INFO 2025-02-20 14:57:54,099 autoreload 19 140029710195496 Watching for file changes with StatReloader
+INFO 2025-02-20 15:10:44,364 autoreload 27 139899374283560 Watching for file changes with StatReloader
+INFO 2025-02-20 15:10:44,364 autoreload 27 139899374283560 Watching for file changes with StatReloader
+INFO 2025-02-20 15:16:39,770 autoreload 18 140596255673128 Watching for file changes with StatReloader
+INFO 2025-02-20 15:16:39,770 autoreload 18 140596255673128 Watching for file changes with StatReloader
+INFO 2025-02-20 15:24:04,488 autoreload 17 139894618172200 Watching for file changes with StatReloader
+INFO 2025-02-20 15:24:04,488 autoreload 17 139894618172200 Watching for file changes with StatReloader
+INFO 2025-02-20 15:44:27,676 autoreload 53 140559024851752 Watching for file changes with StatReloader
+INFO 2025-02-20 15:44:27,676 autoreload 53 140559024851752 Watching for file changes with StatReloader
+INFO 2025-02-20 15:53:33,206 autoreload 23 140068735384360 Watching for file changes with StatReloader
+INFO 2025-02-20 15:53:33,206 autoreload 23 140068735384360 Watching for file changes with StatReloader
+INFO 2025-02-20 15:56:24,328 autoreload 19 139716352174888 Watching for file changes with StatReloader
+INFO 2025-02-20 15:56:24,328 autoreload 19 139716352174888 Watching for file changes with StatReloader
+INFO 2025-02-20 16:03:18,136 autoreload 21 140578474580776 Watching for file changes with StatReloader
+INFO 2025-02-20 16:03:18,136 autoreload 21 140578474580776 Watching for file changes with StatReloader
+INFO 2025-02-21 10:09:18,515 autoreload 11 140632264973096 Watching for file changes with StatReloader
+INFO 2025-02-21 10:09:18,515 autoreload 11 140632264973096 Watching for file changes with StatReloader
+INFO 2025-02-21 10:22:55,047 autoreload 9 140592168954664 Watching for file changes with StatReloader
+INFO 2025-02-21 10:22:55,047 autoreload 9 140592168954664 Watching for file changes with StatReloader
+INFO 2025-02-21 10:30:16,519 basehttp 9 140592090229560 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-21 10:30:16,519 basehttp 9 140592090229560 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-21 10:30:27,312 basehttp 9 140592090192696 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-21 10:30:27,312 basehttp 9 140592090192696 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-21 10:30:27,342 basehttp 9 140592090192696 "GET /auth/2fa/setup/ HTTP/1.0" 200 11707
+INFO 2025-02-21 10:30:27,342 basehttp 9 140592090192696 "GET /auth/2fa/setup/ HTTP/1.0" 200 11707
+WARNING 2025-02-21 10:30:27,362 log 9 140592090192696 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-21 10:30:27,362 log 9 140592090192696 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-21 10:30:27,362 basehttp 9 140592090192696 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-21 10:30:27,362 basehttp 9 140592090192696 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-21 10:30:27,368 log 9 140592090192696 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-21 10:30:27,368 log 9 140592090192696 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-21 10:30:27,368 basehttp 9 140592090192696 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+WARNING 2025-02-21 10:30:27,368 basehttp 9 140592090192696 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-21 10:30:53,309 basehttp 9 140592087640888 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-21 10:30:53,309 basehttp 9 140592087640888 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+WARNING 2025-02-21 11:01:52,145 log 9 140592086580024 Not Found: /auth/user/info/
+WARNING 2025-02-21 11:01:52,145 log 9 140592086580024 Not Found: /auth/user/info/
+WARNING 2025-02-21 11:01:52,145 basehttp 9 140592086580024 "GET /auth/user/info/ HTTP/1.0" 404 5623
+WARNING 2025-02-21 11:01:52,145 basehttp 9 140592086580024 "GET /auth/user/info/ HTTP/1.0" 404 5623
+INFO 2025-02-21 11:01:52,148 basehttp 9 140592087640888 "GET /auth/user/ HTTP/1.0" 200 83
+INFO 2025-02-21 11:01:52,148 basehttp 9 140592087640888 "GET /auth/user/ HTTP/1.0" 200 83
+INFO 2025-02-21 11:01:52,150 basehttp 9 140592085519160 "GET /auth/user/login_history/ HTTP/1.0" 200 239
+INFO 2025-02-21 11:01:52,150 basehttp 9 140592085519160 "GET /auth/user/login_history/ HTTP/1.0" 200 239
+INFO 2025-02-21 12:45:55,397 autoreload 9 140293581306664 Watching for file changes with StatReloader
+INFO 2025-02-21 12:45:55,397 autoreload 9 140293581306664 Watching for file changes with StatReloader
+INFO 2025-02-21 12:46:41,451 autoreload 9 140636936358696 Watching for file changes with StatReloader
+INFO 2025-02-21 12:46:41,451 autoreload 9 140636936358696 Watching for file changes with StatReloader
+INFO 2025-02-21 12:49:23,661 autoreload 11 139954868460328 Watching for file changes with StatReloader
+INFO 2025-02-21 12:49:23,661 autoreload 11 139954868460328 Watching for file changes with StatReloader
+INFO 2025-02-21 12:59:14,785 autoreload 11 140456080657192 Watching for file changes with StatReloader
+INFO 2025-02-21 12:59:14,785 autoreload 11 140456080657192 Watching for file changes with StatReloader
+INFO 2025-02-21 13:08:10,785 autoreload 11 140351242136360 Watching for file changes with StatReloader
+INFO 2025-02-21 13:08:10,785 autoreload 11 140351242136360 Watching for file changes with StatReloader
+INFO 2025-02-21 13:16:05,202 autoreload 11 140117823687464 Watching for file changes with StatReloader
+INFO 2025-02-21 13:16:05,202 autoreload 11 140117823687464 Watching for file changes with StatReloader
+INFO 2025-02-21 13:22:10,744 autoreload 11 140355664259880 Watching for file changes with StatReloader
+INFO 2025-02-21 13:22:10,744 autoreload 11 140355664259880 Watching for file changes with StatReloader
+INFO 2025-02-21 13:25:14,711 autoreload 11 140682736139048 Watching for file changes with StatReloader
+INFO 2025-02-21 13:25:14,711 autoreload 11 140682736139048 Watching for file changes with StatReloader
+INFO 2025-02-21 13:28:23,259 autoreload 11 139757811161896 Watching for file changes with StatReloader
+INFO 2025-02-21 13:28:23,259 autoreload 11 139757811161896 Watching for file changes with StatReloader
+INFO 2025-02-21 13:31:49,599 autoreload 11 140394313644840 Watching for file changes with StatReloader
+INFO 2025-02-21 13:31:49,599 autoreload 11 140394313644840 Watching for file changes with StatReloader
+INFO 2025-02-21 13:42:39,684 basehttp 11 140394234903352 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-21 13:42:39,684 basehttp 11 140394234903352 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-21 13:43:48,352 basehttp 11 140394234866488 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-21 13:43:48,352 basehttp 11 140394234866488 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-21 13:43:48,383 basehttp 11 140394234866488 "GET /auth/2fa/setup/ HTTP/1.0" 200 11595
+INFO 2025-02-21 13:43:48,383 basehttp 11 140394234866488 "GET /auth/2fa/setup/ HTTP/1.0" 200 11595
+WARNING 2025-02-21 13:43:48,423 log 11 140394234866488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-21 13:43:48,423 log 11 140394234866488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-21 13:43:48,424 basehttp 11 140394234866488 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-21 13:43:48,424 basehttp 11 140394234866488 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-21 13:43:48,438 log 11 140394234866488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-21 13:43:48,438 log 11 140394234866488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-21 13:43:48,439 basehttp 11 140394234866488 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+WARNING 2025-02-21 13:43:48,439 basehttp 11 140394234866488 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-21 13:44:18,962 basehttp 11 140394232236856 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-21 13:44:18,962 basehttp 11 140394232236856 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-21 14:01:13,889 autoreload 11 140036803128104 Watching for file changes with StatReloader
+INFO 2025-02-21 14:01:13,889 autoreload 11 140036803128104 Watching for file changes with StatReloader
+INFO 2025-02-21 14:04:28,083 autoreload 11 140121420540712 Watching for file changes with StatReloader
+INFO 2025-02-21 14:04:28,083 autoreload 11 140121420540712 Watching for file changes with StatReloader
+INFO 2025-02-21 14:11:17,289 autoreload 11 140429663357736 Watching for file changes with StatReloader
+INFO 2025-02-21 14:11:17,289 autoreload 11 140429663357736 Watching for file changes with StatReloader
+INFO 2025-02-21 14:18:15,367 autoreload 11 139979346766632 Watching for file changes with StatReloader
+INFO 2025-02-21 14:18:15,367 autoreload 11 139979346766632 Watching for file changes with StatReloader
+INFO 2025-02-21 14:23:22,479 autoreload 11 140649676749608 Watching for file changes with StatReloader
+INFO 2025-02-21 14:23:22,479 autoreload 11 140649676749608 Watching for file changes with StatReloader
+INFO 2025-02-21 14:26:08,580 autoreload 11 139887267449640 Watching for file changes with StatReloader
+INFO 2025-02-21 14:26:08,580 autoreload 11 139887267449640 Watching for file changes with StatReloader
+INFO 2025-02-21 14:34:27,494 autoreload 11 140335778372392 Watching for file changes with StatReloader
+INFO 2025-02-21 14:34:27,494 autoreload 11 140335778372392 Watching for file changes with StatReloader
+INFO 2025-02-21 14:43:27,442 autoreload 11 139884439173928 Watching for file changes with StatReloader
+INFO 2025-02-21 14:43:27,442 autoreload 11 139884439173928 Watching for file changes with StatReloader
+INFO 2025-02-21 14:56:03,370 autoreload 11 139688149302056 Watching for file changes with StatReloader
+INFO 2025-02-21 14:56:03,370 autoreload 11 139688149302056 Watching for file changes with StatReloader
+INFO 2025-02-21 15:05:59,621 autoreload 11 139874264333096 Watching for file changes with StatReloader
+INFO 2025-02-21 15:05:59,621 autoreload 11 139874264333096 Watching for file changes with StatReloader
+WARNING 2025-02-21 15:08:54,226 log 11 139874183469880 Unauthorized: /auth/user/login_history/
+ERROR 2025-02-21 15:08:54,227 views 11 139874185591608 Aucun user_id dans la session !
+WARNING 2025-02-21 15:08:54,226 log 11 139874183469880 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-21 15:08:54,228 log 11 139874185591608 Unauthorized: /auth/user/
+WARNING 2025-02-21 15:08:54,228 log 11 139874185591608 Unauthorized: /auth/user/
+WARNING 2025-02-21 15:08:54,231 log 11 139874184530744 Not Found: /auth/user/info/
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874183469880 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-21 15:08:54,231 log 11 139874184530744 Not Found: /auth/user/info/
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874185591608 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874183469880 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874185591608 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874184530744 "GET /auth/user/info/ HTTP/1.0" 404 5623
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874184530744 "GET /auth/user/info/ HTTP/1.0" 404 5623
+INFO 2025-02-21 15:08:58,431 basehttp 11 139874184506168 "GET /auth/2fa/setup/ HTTP/1.0" 302 0
+INFO 2025-02-21 15:08:58,431 basehttp 11 139874184506168 "GET /auth/2fa/setup/ HTTP/1.0" 302 0
+WARNING 2025-02-21 15:08:58,433 log 11 139874184506168 Method Not Allowed: /auth/login/
+WARNING 2025-02-21 15:08:58,433 log 11 139874184506168 Method Not Allowed: /auth/login/
+WARNING 2025-02-21 15:08:58,433 basehttp 11 139874184506168 "GET /auth/login/ HTTP/1.0" 405 63
+WARNING 2025-02-21 15:08:58,433 basehttp 11 139874184506168 "GET /auth/login/ HTTP/1.0" 405 63
+WARNING 2025-02-21 15:09:05,753 log 11 139874184506168 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:09:05,753 log 11 139874184506168 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:09:05,753 basehttp 11 139874184506168 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:09:05,753 basehttp 11 139874184506168 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 15:10:15,179 autoreload 11 139738131950376 Watching for file changes with StatReloader
+INFO 2025-02-21 15:10:15,179 autoreload 11 139738131950376 Watching for file changes with StatReloader
+INFO 2025-02-21 15:18:12,604 autoreload 11 139826159889192 Watching for file changes with StatReloader
+INFO 2025-02-21 15:18:12,604 autoreload 11 139826159889192 Watching for file changes with StatReloader
+WARNING 2025-02-21 15:18:57,824 log 11 139826081159992 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:18:57,824 log 11 139826081159992 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:18:57,824 basehttp 11 139826081159992 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:18:57,824 basehttp 11 139826081159992 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:19:04,513 log 11 139826081123128 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:19:04,513 log 11 139826081123128 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:19:04,513 basehttp 11 139826081123128 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:19:04,513 basehttp 11 139826081123128 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 15:49:42,204 autoreload 11 140270670228264 Watching for file changes with StatReloader
+INFO 2025-02-21 15:49:42,204 autoreload 11 140270670228264 Watching for file changes with StatReloader
+WARNING 2025-02-21 15:53:38,701 log 11 140270591503160 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:53:38,701 log 11 140270591503160 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:53:38,701 basehttp 11 140270591503160 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:53:38,701 basehttp 11 140270591503160 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:56:17,467 log 11 140270590425912 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:56:17,467 log 11 140270590425912 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:56:17,467 basehttp 11 140270590425912 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:56:17,467 basehttp 11 140270590425912 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 15:58:30,212 autoreload 11 140109652273960 Watching for file changes with StatReloader
+INFO 2025-02-21 15:58:30,212 autoreload 11 140109652273960 Watching for file changes with StatReloader
+INFO 2025-02-21 16:08:22,557 autoreload 11 140371477719848 Watching for file changes with StatReloader
+INFO 2025-02-21 16:08:22,557 autoreload 11 140371477719848 Watching for file changes with StatReloader
+WARNING 2025-02-21 16:10:03,559 log 11 140371398994744 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:10:03,559 log 11 140371398994744 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:10:03,560 basehttp 11 140371398994744 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 16:10:03,560 basehttp 11 140371398994744 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 16:16:12,639 autoreload 11 139884693117736 Watching for file changes with StatReloader
+INFO 2025-02-21 16:16:12,639 autoreload 11 139884693117736 Watching for file changes with StatReloader
+WARNING 2025-02-21 16:21:32,091 log 11 139884614376248 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:21:32,091 log 11 139884614376248 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:21:32,091 basehttp 11 139884614376248 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 16:21:32,091 basehttp 11 139884614376248 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 16:32:30,227 log 11 139884614339384 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:32:30,227 log 11 139884614339384 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:32:30,227 basehttp 11 139884614339384 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 16:32:30,227 basehttp 11 139884614339384 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 16:37:09,334 log 11 139884614339384 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:37:09,334 log 11 139884614339384 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:37:09,334 basehttp 11 139884614339384 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 16:37:09,334 basehttp 11 139884614339384 "POST /auth/login/ HTTP/1.0" 401 63
