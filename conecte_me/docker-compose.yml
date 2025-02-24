@@ -133,17 +133,19 @@ services:
     networks:
       - conecteme_network
 
-  # Service d'initialisation des mots de passe Elasticsearch
-  es_password_initializer:
+  # Service d'initialisation des mdp Elastic ,du dashbord kibana
+  elk_initializer:
     image: alpine:latest
-    container_name: es_password_initializer
+    container_name: elk_initializer
     env_file:
       - .env
     volumes:
-      - ./elk/init_es_passwords.sh:/init_es_passwords.sh:ro
-    command: sh -c "apk add --no-cache curl && sh /init_es_passwords.sh"
+      - ./elk/elk_initializer.sh:/elk_initializer.sh:ro
+      - ./elk/saved_objects.ndjson:/elk/saved_objects.ndjson:ro
+    command: sh -c "apk add --no-cache curl && sh /elk_initializer.sh"
     depends_on:
       - elasticsearch
+      - kibana
     networks:
       - conecteme_network
     restart: "no"
