@@ -125,7 +125,6 @@ services:
     env_file:
       - .env
     volumes:
-      # Monte la configuration Filebeat
       - ./elk/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
       - ./backend/logs:/usr/share/filebeat/logs:ro  # Monte le dossier contenant les logs de Django
     depends_on:

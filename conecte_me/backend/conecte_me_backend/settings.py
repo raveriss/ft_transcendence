@@ -148,11 +148,11 @@ logger = logging.getLogger(__name__)
 logger.debug(f"Connecting to DB: {DATABASES['default']}")
 
 # Définition du répertoire où seront stockés les fichiers de logs.
-# Ici, nous créons un dossier "logs" à la racine du projet.
+BASE_DIR = Path(__file__).resolve().parent.parent
 LOG_DIR = BASE_DIR / 'logs'
 if not LOG_DIR.exists():
-    # Crée le dossier "logs" s'il n'existe pas, en incluant tous les dossiers parents nécessaires.
     LOG_DIR.mkdir(parents=True, exist_ok=True)
+LOG_FILE = str(LOG_DIR / 'django.log')
 
 # Configuration de la journalisation (logging) de Django.
 # Cette configuration est définie sous forme de dictionnaire et suit le schéma de configuration du module logging de Python.
@@ -181,9 +181,11 @@ LOGGING = {
         # Handler "file" : enregistre les logs dans un fichier.
         'file': {
             'level': 'INFO',  # Seuls les messages d'INFO et plus sont enregistrés dans le fichier.
-            'class': 'logging.FileHandler',  # Utilise le FileHandler pour écrire dans un fichier.
-            'filename': str(LOG_DIR / 'django.log'),  # Chemin complet vers le fichier de log.
-            'formatter': 'verbose',  # Utilise le formatter "verbose" défini ci-dessus.
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': LOG_FILE,
+            'when': 'D',          # Rotation quotidienne
+            'backupCount': 15,     # Conserver les 15 derniers fichiers (15 jours)
+            'formatter': 'verbose',
         },
         # Handler "console" : affiche les logs dans la console (stdout).
         'console': {

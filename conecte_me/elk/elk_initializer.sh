@@ -118,26 +118,9 @@ curl -X PUT "${ELASTICSEARCH_URL}/_template/logs_template?pretty" \
 '
 echo "Template 'logs_template' créé."
 
-
-
 # --- Attendre que Kibana soit prêt et importer les objets sauvegardés ---
 echo "Attente de 30 secondes pour que Kibana soit prêt..."
 sleep 30
-
-# echo "Création de l'index pattern logs-*..."
-# curl -X POST "http://kibana:5601/api/saved_objects/index-pattern?overwrite=true" \
-#   -H "kbn-xsrf: true" \
-#   -H "Content-Type: application/json" \
-#   -u ${ELASTIC_USER}:${ELASTIC_PASSWORD} \
-#   -d'
-# {
-#   "attributes": {
-#     "title": "logs-*",
-#     "timeFieldName": "@timestamp"
-#   }
-# }
-# '
-# echo "Index pattern créé."
 
 echo "Importation des objets sauvegardés dans Kibana..."
 curl -X POST "http://kibana:5601/api/saved_objects/_import?overwrite=true" \
