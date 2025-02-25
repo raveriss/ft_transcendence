@@ -1,3 +1,144 @@
+# version: '3.8'
+
+# services:
+#   db:
+#     image: postgres:15-alpine
+#     container_name: conecteme_db
+#     env_file:
+#       - .env
+#     environment:
+#       - POSTGRES_DB=${POSTGRES_DB}
+#       - POSTGRES_USER=${POSTGRES_USER}
+#       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     networks:
+#       - conecteme_network
+
+#   backend:
+#     build: 
+#       context: ./backend
+#       dockerfile: Dockerfile
+#     container_name: conecteme_backend
+#     env_file:
+#       - .env
+#     environment:
+#       - SECRET_KEY=${SECRET_KEY}
+#       - DEBUG=${DEBUG}
+#       - POSTGRES_DB=${POSTGRES_DB}
+#       - POSTGRES_USER=${POSTGRES_USER}
+#       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+#       - POSTGRES_HOST=db
+#       - POSTGRES_PORT=5432
+#       - OAUTH42_CLIENT_ID=${OAUTH42_CLIENT_ID}
+#       - OAUTH42_CLIENT_SECRET=${OAUTH42_CLIENT_SECRET}
+#       - OAUTH42_REDIRECT_URI=${OAUTH42_REDIRECT_URI}
+#       - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,conecteme_backend
+#     ports:
+#       - "8000:8000"
+#     depends_on:
+#       - db
+#     volumes:
+#       - media_data:/app/media
+#       - ./backend/logs:/app/logs  # Monte le dossier de logs pour que Django y écrive
+#     networks:
+#       - conecteme_network
+
+#   frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     container_name: conecteme_frontend
+#     ports:
+#       - "80"
+#     depends_on:
+#       - backend
+#     networks:
+#       - conecteme_network
+
+#   proxy:
+#     image: nginx:alpine
+#     container_name: conecteme_proxy
+#     # On copie le nginx.conf et on monte le dossier certs
+#     volumes:
+#       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+#       - ./certs:/etc/nginx/certs:ro
+#       - media_data:/app/media
+#     ports:
+#       - "8443:443"
+#     depends_on:
+#       - frontend
+#       - backend
+
+#     networks:
+#       - conecteme_network
+#   # Service ELK
+#   elasticsearch:
+#     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+#     container_name: conecteme_elasticsearch
+#     environment:
+#       - discovery.type=single-node
+#       - ES_JAVA_OPTS=-Xms512m -Xmx512m
+#     ports:
+#       - "9200:9200"
+#     volumes:
+#       - es_data:/usr/share/elasticsearch/data
+#       - ./elk/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#     networks:
+#       - conecteme_network
+
+#   logstash:
+#     image: docker.elastic.co/logstash/logstash:7.10.0
+#     container_name: conecteme_logstash
+#     env_file:
+#     - .env
+#     volumes:
+#       - ./elk/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
+#       - ./elk/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+#     ports:
+#       - "5044:5044"
+#     depends_on:
+#       - elasticsearch
+#     networks:
+#       - conecteme_network
+
+#   kibana:
+#     image: docker.elastic.co/kibana/kibana:7.10.0
+#     container_name: conecteme_kibana
+#     env_file:
+#     - .env
+#     ports:
+#       - "5601:5601"
+#     depends_on:
+#       - elasticsearch
+#     volumes:
+#       - ./elk/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+#     networks:
+#       - conecteme_network
+
+#   filebeat:
+#     image: docker.elastic.co/beats/filebeat:7.10.0
+#     container_name: conecteme_filebeat
+#     env_file:
+#       - .env
+#     volumes:
+#       # Monte la configuration Filebeat
+#       - ./elk/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+#       - ./backend/logs:/usr/share/filebeat/logs:ro  # Monte le dossier contenant les logs de Django
+#     depends_on:
+#       - logstash
+#     networks:
+#       - conecteme_network
+
+# networks:
+#   conecteme_network:
+#     driver: bridge
+
+# volumes:
+#   postgres_data:
+#   media_data:
+#   es_data:  # Volume persistant pour Elasticsearch
+
 version: '3.8'
 
 services:
@@ -12,6 +153,15 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - conecteme_network
+
+  redis:
+    image: redis:alpine
+    container_name: conecteme_redis
+    restart: always
+    ports:
+      - "6380:6379"  # Assure que Redis écoute sur le bon port
     networks:
       - conecteme_network
 
@@ -34,13 +184,15 @@ services:
       - OAUTH42_CLIENT_SECRET=${OAUTH42_CLIENT_SECRET}
       - OAUTH42_REDIRECT_URI=${OAUTH42_REDIRECT_URI}
       - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,conecteme_backend
+      - CHANNEL_LAYERS=redis://redis:6379/0  # Configure Channels pour Redis
     ports:
       - "8000:8000"
     depends_on:
       - db
+      - redis  # Assure que Redis démarre avant le backend
     volumes:
       - media_data:/app/media
-      - ./backend/logs:/app/logs  # Monte le dossier de logs pour que Django y écrive
+      - ./backend/logs:/app/logs  # Logs de Django
     networks:
       - conecteme_network
 
@@ -49,6 +201,8 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: conecteme_frontend
+    volumes:
+      - ./frontend:/app
     ports:
       - "80"
     depends_on:
@@ -59,7 +213,6 @@ services:
   proxy:
     image: nginx:alpine
     container_name: conecteme_proxy
-    # On copie le nginx.conf et on monte le dossier certs
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       - ./certs:/etc/nginx/certs:ro
@@ -69,10 +222,9 @@ services:
     depends_on:
       - frontend
       - backend
-
     networks:
       - conecteme_network
-  # Service ELK
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
     container_name: conecteme_elasticsearch
@@ -91,7 +243,7 @@ services:
     image: docker.elastic.co/logstash/logstash:7.10.0
     container_name: conecteme_logstash
     env_file:
-    - .env
+      - .env
     volumes:
       - ./elk/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./elk/logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
@@ -106,7 +258,7 @@ services:
     image: docker.elastic.co/kibana/kibana:7.10.0
     container_name: conecteme_kibana
     env_file:
-    - .env
+      - .env
     ports:
       - "5601:5601"
     depends_on:
@@ -122,9 +274,8 @@ services:
     env_file:
       - .env
     volumes:
-      # Monte la configuration Filebeat
       - ./elk/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - ./backend/logs:/usr/share/filebeat/logs:ro  # Monte le dossier contenant les logs de Django
+      - ./backend/logs:/usr/share/filebeat/logs:ro  # Logs de Django
     depends_on:
       - logstash
     networks:
@@ -137,4 +288,4 @@ networks:
 volumes:
   postgres_data:
   media_data:
-  es_data:  # Volume persistant pour Elasticsearch
+  es_data:

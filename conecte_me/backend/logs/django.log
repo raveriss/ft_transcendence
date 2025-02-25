@@ -1013,3 +1013,89 @@ INFO 2025-02-20 11:05:55,905 basehttp 11 139721645091640 "POST /auth/user/toggle
 INFO 2025-02-20 11:05:55,905 basehttp 11 139721645091640 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 41
 INFO 2025-02-20 11:06:07,825 basehttp 11 139721645091640 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 42
 INFO 2025-02-20 11:06:07,825 basehttp 11 139721645091640 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 42
+INFO 2025-02-25 11:10:58,938 autoreload 11 139685681031976 Watching for file changes with StatReloader
+INFO 2025-02-25 11:10:58,938 autoreload 11 139685681031976 Watching for file changes with StatReloader
+INFO 2025-02-25 11:16:34,645 basehttp 11 139685602270008 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-25 11:16:34,645 basehttp 11 139685602270008 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-25 11:26:49,939 autoreload 9 139958480702248 Watching for file changes with StatReloader
+INFO 2025-02-25 11:26:49,939 autoreload 9 139958480702248 Watching for file changes with StatReloader
+INFO 2025-02-25 11:30:56,579 basehttp 9 139958401944376 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-25 11:30:56,579 basehttp 9 139958401944376 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-25 11:30:56,612 basehttp 9 139958401981240 "GET /auth/2fa/setup/ HTTP/1.0" 200 11663
+INFO 2025-02-25 11:30:56,612 basehttp 9 139958401981240 "GET /auth/2fa/setup/ HTTP/1.0" 200 11663
+WARNING 2025-02-25 11:30:56,647 log 9 139958401981240 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-25 11:30:56,647 log 9 139958401981240 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-25 11:30:56,647 basehttp 9 139958401981240 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-25 11:30:56,647 basehttp 9 139958401981240 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-25 11:30:56,656 log 9 139958401981240 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-25 11:30:56,656 log 9 139958401981240 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-25 11:30:56,656 basehttp 9 139958401981240 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+WARNING 2025-02-25 11:30:56,656 basehttp 9 139958401981240 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-25 11:31:26,976 basehttp 9 139958399290168 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-25 11:31:26,976 basehttp 9 139958399290168 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-25 11:35:02,104 autoreload 9 140479030328104 Watching for file changes with StatReloader
+INFO 2025-02-25 11:35:02,104 autoreload 9 140479030328104 Watching for file changes with StatReloader
+WARNING 2025-02-25 11:38:44,000 log 9 140478951512888 Unauthorized: /auth/login/
+WARNING 2025-02-25 11:38:44,000 log 9 140478951512888 Unauthorized: /auth/login/
+WARNING 2025-02-25 11:38:44,001 basehttp 9 140478951512888 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-25 11:38:44,001 basehttp 9 140478951512888 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-25 11:39:00,030 basehttp 9 140478951439160 "POST /auth/login/ HTTP/1.0" 200 53
+INFO 2025-02-25 11:39:00,030 basehttp 9 140478951439160 "POST /auth/login/ HTTP/1.0" 200 53
+INFO 2025-02-25 11:44:46,988 autoreload 9 140189250337576 Watching for file changes with StatReloader
+INFO 2025-02-25 11:44:46,988 autoreload 9 140189250337576 Watching for file changes with StatReloader
+INFO 2025-02-25 11:49:01,803 autoreload 9 140609421953832 Watching for file changes with StatReloader
+INFO 2025-02-25 11:49:01,803 autoreload 9 140609421953832 Watching for file changes with StatReloader
+INFO 2025-02-25 11:53:38,978 autoreload 9 140613207796520 Watching for file changes with StatReloader
+INFO 2025-02-25 11:53:38,978 autoreload 9 140613207796520 Watching for file changes with StatReloader
+INFO 2025-02-25 11:56:18,588 autoreload 9 139829677955880 Watching for file changes with StatReloader
+INFO 2025-02-25 11:56:18,588 autoreload 9 139829677955880 Watching for file changes with StatReloader
+INFO 2025-02-25 12:03:55,639 autoreload 9 140458855263016 Watching for file changes with StatReloader
+INFO 2025-02-25 12:03:55,639 autoreload 9 140458855263016 Watching for file changes with StatReloader
+INFO 2025-02-25 12:08:37,278 autoreload 9 140545045408552 Watching for file changes with StatReloader
+INFO 2025-02-25 12:08:37,278 autoreload 9 140545045408552 Watching for file changes with StatReloader
+INFO 2025-02-25 12:10:42,534 autoreload 9 140370389510952 Watching for file changes with StatReloader
+INFO 2025-02-25 12:10:42,534 autoreload 9 140370389510952 Watching for file changes with StatReloader
+INFO 2025-02-25 12:11:12,231 autoreload 9 140015734942504 Watching for file changes with StatReloader
+INFO 2025-02-25 12:11:12,231 autoreload 9 140015734942504 Watching for file changes with StatReloader
+WARNING 2025-02-25 12:11:34,993 log 9 140015656209208 Not Found: /ws/game/
+WARNING 2025-02-25 12:11:34,993 log 9 140015656209208 Not Found: /ws/game/
+WARNING 2025-02-25 12:11:34,994 basehttp 9 140015656209208 "GET /ws/game/ HTTP/1.1" 404 2704
+WARNING 2025-02-25 12:11:34,994 basehttp 9 140015656209208 "GET /ws/game/ HTTP/1.1" 404 2704
+WARNING 2025-02-25 12:12:20,390 log 9 140015654050616 Not Found: /ws/game/
+WARNING 2025-02-25 12:12:20,390 log 9 140015654050616 Not Found: /ws/game/
+WARNING 2025-02-25 12:12:20,390 basehttp 9 140015654050616 "GET /ws/game/ HTTP/1.1" 404 2704
+WARNING 2025-02-25 12:12:20,390 basehttp 9 140015654050616 "GET /ws/game/ HTTP/1.1" 404 2704
+WARNING 2025-02-25 12:13:20,004 log 9 140015654050616 Not Found: /ws/game/
+WARNING 2025-02-25 12:13:20,004 log 9 140015654050616 Not Found: /ws/game/
+WARNING 2025-02-25 12:13:20,004 basehttp 9 140015654050616 "GET /ws/game/ HTTP/1.1" 404 2704
+WARNING 2025-02-25 12:13:20,004 basehttp 9 140015654050616 "GET /ws/game/ HTTP/1.1" 404 2704
+INFO 2025-02-25 12:27:12,150 autoreload 9 140091171601192 Watching for file changes with StatReloader
+INFO 2025-02-25 12:27:12,150 autoreload 9 140091171601192 Watching for file changes with StatReloader
+INFO 2025-02-25 12:27:56,377 autoreload 9 140292244319016 Watching for file changes with StatReloader
+INFO 2025-02-25 12:27:56,377 autoreload 9 140292244319016 Watching for file changes with StatReloader
+INFO 2025-02-25 12:28:43,110 basehttp 9 140292165548856 "POST /auth/login/ HTTP/1.0" 200 53
+INFO 2025-02-25 12:28:43,110 basehttp 9 140292165548856 "POST /auth/login/ HTTP/1.0" 200 53
+WARNING 2025-02-25 12:28:43,150 log 9 140292165548856 Not Found: /ws/game/
+WARNING 2025-02-25 12:28:43,150 log 9 140292165548856 Not Found: /ws/game/
+WARNING 2025-02-25 12:28:43,151 basehttp 9 140292165548856 "GET /ws/game/ HTTP/1.1" 404 2704
+WARNING 2025-02-25 12:28:43,151 basehttp 9 140292165548856 "GET /ws/game/ HTTP/1.1" 404 2704
+INFO 2025-02-25 12:30:40,501 cli 19 139829279128360 Starting server at tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-25 12:30:40,502 server 19 139829279128360 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-25 12:30:40,502 server 19 139829279128360 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+CRITICAL 2025-02-25 12:30:40,503 server 19 139829279128360 Listen failure: Couldn't listen on 0.0.0.0:8000: [Errno 98] Address in use.
+INFO 2025-02-25 12:30:43,341 cli 20 140153349577512 Starting server at tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-25 12:30:43,341 server 20 140153349577512 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-25 12:30:43,341 server 20 140153349577512 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+CRITICAL 2025-02-25 12:30:43,341 server 20 140153349577512 Listen failure: Couldn't listen on 0.0.0.0:8000: [Errno 98] Address in use.
+INFO 2025-02-25 12:31:46,158 autoreload 9 140374280842024 Watching for file changes with StatReloader
+INFO 2025-02-25 12:31:46,158 autoreload 9 140374280842024 Watching for file changes with StatReloader
+INFO 2025-02-25 12:34:18,550 autoreload 9 140225339849512 Watching for file changes with StatReloader
+INFO 2025-02-25 12:34:18,550 autoreload 9 140225339849512 Watching for file changes with StatReloader
+INFO 2025-02-25 12:51:35,490 autoreload 9 139844421479208 Watching for file changes with StatReloader
+INFO 2025-02-25 12:51:35,490 autoreload 9 139844421479208 Watching for file changes with StatReloader
+INFO 2025-02-25 12:58:21,517 autoreload 9 140297603312424 Watching for file changes with StatReloader
+INFO 2025-02-25 12:58:21,517 autoreload 9 140297603312424 Watching for file changes with StatReloader
+INFO 2025-02-25 12:59:32,042 autoreload 9 139991306255144 Watching for file changes with StatReloader
+INFO 2025-02-25 12:59:32,042 autoreload 9 139991306255144 Watching for file changes with StatReloader
+INFO 2025-02-25 13:04:15,617 autoreload 11 139698897230632 Watching for file changes with StatReloader
+INFO 2025-02-25 13:04:15,617 autoreload 11 139698897230632 Watching for file changes with StatReloader
