@@ -398,11 +398,82 @@
 
     }
 
-    #play-btn.open,
     #social-btn.open {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
+
+    /* Bouton PLAY : dimensions fixes, rectangle par défaut */
+    #play-btn {
+      position: relative;
+      width: 170px;
+      height: 54px;
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      transition: background 1s ease, border 1s ease;
+    }
+
+    /* Texte "PLAY" centré */
+    #play-btn .default-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      transition: opacity 1s ease;
+    }
+
+    /* Overlay circulaire pour les icônes, caché par défaut */
+    #play-btn .hover-icons {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      gap: 10px;              /* Espace de 40px entre chaque icône */
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      /* On n'impose pas de width fixe ici pour que le gap s'applique naturellement */
+    }
+
+    /* Au survol, on masque le fond, la bordure et le texte */
+    #play-btn:hover {
+      background: transparent;
+      border: none;
+    }
+    #play-btn:hover .default-label {
+      opacity: 0;
+    }
+
+    /* Au survol, l'overlay des icônes apparaît */
+    #play-btn:hover .hover-icons {
+      opacity: 1;
+    }
+
+    /* Style des icônes contenues dans leur cercle */
+    .icon-circle {
+      width: 49px;
+      height: 49px;
+      border-radius: 50%;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(51, 65, 85, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 1s ease, background 1s ease;
+      cursor: pointer;
+    }
+
+    .icon-circle:hover {
+      transform: scale(1.1);
+      background: rgba(30, 41, 59, 1);
+    }
+
+
 
 
     .social-options-container.open {
@@ -459,7 +530,7 @@
     </div>
 
     <!-- Titre principal -->
-    <h1 class="title mb-5">DASHBOARD</h1>
+    <h1 class="title mb-5">BOARD</h1>
 
     <!-- Contenu principal en 2 colonnes : Historique + Classement -->
     <div class="row">
@@ -533,41 +604,14 @@
     <!-- Barre de boutons -->
     <div class="menu-buttons">
       <!-- Petit conteneur en “colonne” pour PLAY + son menu -->
-      <div class="play-container">
-        <button class="menu-button" id="play-btn">
-          <i class="bi bi-controller"></i>
-          PLAY
-        </button>
-    
-        <!-- Conteneur dépliable sous le bouton -->
-        <div id="game-options-container" class="social-options-container">
-          <div class="social-options-inner text-center">
-            <!-- LOCAL -->
-            <strong>LOCAL</strong>
-            <div class="game-options-buttons">
-              <button class="btn btn-outline-light game-option" data-mode="1p-vs-ia">
-                <i class="bi bi-robot"></i> 1P VS IA
-              </button>
-              <button class="btn btn-outline-light game-option" data-mode="2p-local">
-                <i class="bi bi-people"></i> 2P
-              </button>
-            </div>
-            <!-- RÉSEAUX -->
-            <strong class="mt-4">RÉSEAUX</strong>
-            <div class="game-options-buttons">
-              <button class="btn btn-outline-light game-option" data-mode="2p-net">
-                <i class="bi bi-diagram-2"></i> 2P
-              </button>
-              <button class="btn btn-outline-light game-option" data-mode="multiplayer">
-                <i class="bi bi-diagram-3"></i> MULTIPLAYER
-              </button>
-              <button class="btn btn-outline-light game-option" data-mode="tournament">
-                <i class="bi bi-trophy"></i> TOURNAMENT
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button class="menu-button" id="play-btn">
+        <span class="default-label">PLAY</span>
+        <span class="hover-icons">
+          <span class="icon-circle" data-mode="2p-local"><i class="bi bi-people"></i></span>
+          <span class="icon-circle" data-mode="1p-vs-ia"><i class="bi bi-robot"></i></span>
+          <span class="icon-circle" data-mode="tournament"><i class="bi bi-trophy"></i></span>
+        </span>
+      </button>
 
       <!-- Autres boutons existants -->
       <button class="menu-button" id="stats-btn">
@@ -580,18 +624,6 @@
           <i class="bi bi-people"></i>
           SOCIAL
         </button>
-        <div id="social-options-container" class="social-options-container">
-          <div class="social-options-inner">
-            <div class="social-options-buttons">
-              <button class="btn btn-outline-light social-option" data-mode="chat">
-                <i class="bi bi-chat-text"></i> CHAT
-              </button>
-              <button class="btn btn-outline-light social-option" data-mode="amis">
-                <i class="bi bi-person-add"></i> AMIS
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
       <button class="menu-button" id="setup-btn">
         <i class="bi bi-gear"></i>
