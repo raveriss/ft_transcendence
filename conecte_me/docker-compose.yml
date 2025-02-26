@@ -275,9 +275,18 @@ services:
       - .env
     volumes:
       - ./elk/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - ./backend/logs:/usr/share/filebeat/logs:ro  # Logs de Django
+      - ./backend/logs:/usr/share/fsilebeat/logs:ro  # Logs de Django
     depends_on:
       - logstash
+    networks:
+      - conecteme_network
+
+  redis:
+    image: redis:alpine
+    container_name: conecteme_redis
+    restart: always  # ✅ Redis redémarrera automatiquement en cas d'arrêt
+    ports:
+      - "6380:6379"
     networks:
       - conecteme_network
 

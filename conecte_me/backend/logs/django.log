@@ -1099,3 +1099,721 @@ INFO 2025-02-25 12:59:32,042 autoreload 9 139991306255144 Watching for file chan
 INFO 2025-02-25 12:59:32,042 autoreload 9 139991306255144 Watching for file changes with StatReloader
 INFO 2025-02-25 13:04:15,617 autoreload 11 139698897230632 Watching for file changes with StatReloader
 INFO 2025-02-25 13:04:15,617 autoreload 11 139698897230632 Watching for file changes with StatReloader
+INFO 2025-02-25 15:55:14,360 autoreload 11 140329975606056 Watching for file changes with StatReloader
+INFO 2025-02-25 15:55:14,360 autoreload 11 140329975606056 Watching for file changes with StatReloader
+INFO 2025-02-25 16:05:21,066 autoreload 9 140423378316072 Watching for file changes with StatReloader
+INFO 2025-02-25 16:05:21,066 autoreload 9 140423378316072 Watching for file changes with StatReloader
+INFO 2025-02-25 16:16:32,993 autoreload 9 140085986536232 Watching for file changes with StatReloader
+INFO 2025-02-25 16:16:32,993 autoreload 9 140085986536232 Watching for file changes with StatReloader
+INFO 2025-02-25 16:22:27,369 autoreload 9 140249316694824 Watching for file changes with StatReloader
+INFO 2025-02-25 16:22:27,369 autoreload 9 140249316694824 Watching for file changes with StatReloader
+INFO 2025-02-25 16:25:53,019 autoreload 11 140027217550120 Watching for file changes with StatReloader
+INFO 2025-02-25 16:25:53,019 autoreload 11 140027217550120 Watching for file changes with StatReloader
+INFO 2025-02-25 16:29:45,881 autoreload 9 140111616727848 Watching for file changes with StatReloader
+INFO 2025-02-25 16:29:45,881 autoreload 9 140111616727848 Watching for file changes with StatReloader
+INFO 2025-02-25 16:31:22,381 autoreload 11 140083375930152 Watching for file changes with StatReloader
+INFO 2025-02-25 16:31:22,381 autoreload 11 140083375930152 Watching for file changes with StatReloader
+INFO 2025-02-25 16:35:07,718 autoreload 11 140685683256104 Watching for file changes with StatReloader
+INFO 2025-02-25 16:35:07,718 autoreload 11 140685683256104 Watching for file changes with StatReloader
+INFO 2025-02-26 11:34:49,983 autoreload 71 140299808107304 Watching for file changes with StatReloader
+INFO 2025-02-26 11:34:49,983 autoreload 71 140299808107304 Watching for file changes with StatReloader
+INFO 2025-02-26 11:34:50,622 server 71 140299730471736 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 11:34:50,622 server 71 140299730471736 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 11:34:50,624 server 71 140299730471736 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 11:36:56,329 runserver 71 140299730471736 HTTP POST /auth/signup/ 201 [0.78, 172.18.0.10:55636]
+INFO 2025-02-26 11:36:56,329 runserver 71 140299730471736 HTTP POST /auth/signup/ 201 [0.78, 172.18.0.10:55636]
+INFO 2025-02-26 11:37:09,781 runserver 71 140299730471736 HTTP POST /auth/login/ 200 [0.72, 172.18.0.10:52364]
+INFO 2025-02-26 11:37:09,781 runserver 71 140299730471736 HTTP POST /auth/login/ 200 [0.72, 172.18.0.10:52364]
+INFO 2025-02-26 11:37:09,941 runserver 71 140299730471736 HTTP GET /auth/2fa/setup/ 200 [0.15, 172.18.0.10:52366]
+INFO 2025-02-26 11:37:09,941 runserver 71 140299730471736 HTTP GET /auth/2fa/setup/ 200 [0.15, 172.18.0.10:52366]
+WARNING 2025-02-26 11:37:10,028 log 71 140299713121080 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-26 11:37:10,028 log 71 140299713121080 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-26 11:37:10,029 runserver 71 140299730471736 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff2 404 [0.04, 172.18.0.10:52368]
+WARNING 2025-02-26 11:37:10,029 runserver 71 140299730471736 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff2 404 [0.04, 172.18.0.10:52368]
+WARNING 2025-02-26 11:37:10,051 log 71 140299713121080 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-26 11:37:10,051 log 71 140299713121080 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-26 11:37:10,052 runserver 71 140299730471736 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff 404 [0.02, 172.18.0.10:52382]
+WARNING 2025-02-26 11:37:10,052 runserver 71 140299730471736 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff 404 [0.02, 172.18.0.10:52382]
+WARNING 2025-02-26 11:37:40,503 log 71 140299713121080 Bad Request: /auth/2fa/validate/
+WARNING 2025-02-26 11:37:40,503 log 71 140299713121080 Bad Request: /auth/2fa/validate/
+WARNING 2025-02-26 11:37:40,503 runserver 71 140299730471736 HTTP POST /auth/2fa/validate/ 400 [0.05, 172.18.0.10:44382]
+WARNING 2025-02-26 11:37:40,503 runserver 71 140299730471736 HTTP POST /auth/2fa/validate/ 400 [0.05, 172.18.0.10:44382]
+INFO 2025-02-26 11:37:46,738 runserver 71 140299730471736 HTTP POST /auth/2fa/validate/ 200 [0.07, 172.18.0.10:52312]
+INFO 2025-02-26 11:37:46,738 runserver 71 140299730471736 HTTP POST /auth/2fa/validate/ 200 [0.07, 172.18.0.10:52312]
+INFO 2025-02-26 11:37:47,839 runserver 71 140299730471736 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:57656]
+INFO 2025-02-26 11:37:47,839 runserver 71 140299730471736 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:57656]
+ERROR 2025-02-26 11:37:48,780 server 71 140299730471736 Exception inside application: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 281, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 697, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/usr/local/lib/python3.10/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1084, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 74, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.10/site-packages/channels/generic/websocket.py", line 180, in websocket_connect
+    await self.connect()
+  File "/app/oauth_app/consumers.py", line 12, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 491, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 44, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 261, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/usr/local/lib/python3.10/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 118, in __call__
+    return await application(
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 340, in receive
+    message_channel, message = await self.receive_single(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 395, in receive_single
+    content = await self._brpop_with_clean(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 231, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+INFO 2025-02-26 11:37:48,805 runserver 71 140299730471736 WebSocket DISCONNECT /ws/game/ [172.18.0.1:57656]
+INFO 2025-02-26 11:37:48,805 runserver 71 140299730471736 WebSocket DISCONNECT /ws/game/ [172.18.0.1:57656]
+INFO 2025-02-26 11:48:19,360 autoreload 13 139622998563624 Watching for file changes with StatReloader
+INFO 2025-02-26 11:48:19,360 autoreload 13 139622998563624 Watching for file changes with StatReloader
+INFO 2025-02-26 11:48:19,808 server 13 139622920928056 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 11:48:19,808 server 13 139622920928056 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 11:48:19,808 server 13 139622920928056 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 11:48:23,290 runserver 13 139622920928056 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:48028]
+INFO 2025-02-26 11:48:23,290 runserver 13 139622920928056 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:48028]
+ERROR 2025-02-26 11:48:23,811 server 13 139622920928056 Exception inside application: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 281, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 697, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/usr/local/lib/python3.10/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1084, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 74, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.10/site-packages/channels/generic/websocket.py", line 180, in websocket_connect
+    await self.connect()
+  File "/app/oauth_app/consumers.py", line 12, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 491, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 44, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 261, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/usr/local/lib/python3.10/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 118, in __call__
+    return await application(
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 340, in receive
+    message_channel, message = await self.receive_single(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 395, in receive_single
+    content = await self._brpop_with_clean(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 231, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+INFO 2025-02-26 11:48:23,883 runserver 13 139622920928056 WebSocket DISCONNECT /ws/game/ [172.18.0.1:48028]
+INFO 2025-02-26 11:48:23,883 runserver 13 139622920928056 WebSocket DISCONNECT /ws/game/ [172.18.0.1:48028]
+INFO 2025-02-26 11:48:27,485 runserver 13 139622920928056 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:48040]
+INFO 2025-02-26 11:48:27,485 runserver 13 139622920928056 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:48040]
+ERROR 2025-02-26 11:48:27,889 server 13 139622920928056 Exception inside application: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 281, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 697, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/usr/local/lib/python3.10/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1084, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 74, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.10/site-packages/channels/generic/websocket.py", line 180, in websocket_connect
+    await self.connect()
+  File "/app/oauth_app/consumers.py", line 12, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 491, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 44, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 261, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/usr/local/lib/python3.10/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 118, in __call__
+    return await application(
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 340, in receive
+    message_channel, message = await self.receive_single(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 395, in receive_single
+    content = await self._brpop_with_clean(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 231, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+INFO 2025-02-26 11:48:27,891 runserver 13 139622920928056 WebSocket DISCONNECT /ws/game/ [172.18.0.1:48040]
+INFO 2025-02-26 11:48:27,891 runserver 13 139622920928056 WebSocket DISCONNECT /ws/game/ [172.18.0.1:48040]
+INFO 2025-02-26 11:48:59,432 runserver 13 139622920928056 HTTP GET /auth/2fa/setup/ 302 [0.06, 172.18.0.10:56532]
+INFO 2025-02-26 11:48:59,432 runserver 13 139622920928056 HTTP GET /auth/2fa/setup/ 302 [0.06, 172.18.0.10:56532]
+INFO 2025-02-26 11:48:59,485 runserver 13 139622920928056 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:33508]
+INFO 2025-02-26 11:48:59,485 runserver 13 139622920928056 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:33508]
+ERROR 2025-02-26 11:48:59,923 server 13 139622920928056 Exception inside application: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 281, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 697, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/usr/local/lib/python3.10/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1084, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 74, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.10/site-packages/channels/generic/websocket.py", line 180, in websocket_connect
+    await self.connect()
+  File "/app/oauth_app/consumers.py", line 12, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 491, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 44, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 261, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/usr/local/lib/python3.10/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 118, in __call__
+    return await application(
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 340, in receive
+    message_channel, message = await self.receive_single(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 395, in receive_single
+    content = await self._brpop_with_clean(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 231, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+INFO 2025-02-26 11:48:59,925 runserver 13 139622920928056 WebSocket DISCONNECT /ws/game/ [172.18.0.1:33508]
+INFO 2025-02-26 11:48:59,925 runserver 13 139622920928056 WebSocket DISCONNECT /ws/game/ [172.18.0.1:33508]
+INFO 2025-02-26 11:52:04,631 autoreload 9 140539944725288 Watching for file changes with StatReloader
+INFO 2025-02-26 11:52:04,631 autoreload 9 140539944725288 Watching for file changes with StatReloader
+INFO 2025-02-26 11:52:05,100 server 9 140539867089720 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 11:52:05,114 server 9 140539867089720 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 11:52:05,115 server 9 140539867089720 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 11:52:23,061 runserver 9 140539867089720 HTTP POST /auth/login/ 200 [1.28, 172.18.0.10:42894]
+INFO 2025-02-26 11:52:23,061 runserver 9 140539867089720 HTTP POST /auth/login/ 200 [1.28, 172.18.0.10:42894]
+INFO 2025-02-26 11:52:23,204 runserver 9 140539867089720 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:51322]
+INFO 2025-02-26 11:52:23,204 runserver 9 140539867089720 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:51322]
+ERROR 2025-02-26 11:52:24,130 server 9 140539867089720 Exception inside application: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 281, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 697, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/usr/local/lib/python3.10/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1084, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 74, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.10/site-packages/channels/generic/websocket.py", line 180, in websocket_connect
+    await self.connect()
+  File "/app/oauth_app/consumers.py", line 12, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 491, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 44, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 261, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/usr/local/lib/python3.10/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 118, in __call__
+    return await application(
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 340, in receive
+    message_channel, message = await self.receive_single(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 395, in receive_single
+    content = await self._brpop_with_clean(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 231, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+INFO 2025-02-26 11:52:24,135 runserver 9 140539867089720 WebSocket DISCONNECT /ws/game/ [172.18.0.1:51322]
+INFO 2025-02-26 11:52:24,135 runserver 9 140539867089720 WebSocket DISCONNECT /ws/game/ [172.18.0.1:51322]
+INFO 2025-02-26 11:54:08,684 autoreload 9 140105778051880 Watching for file changes with StatReloader
+INFO 2025-02-26 11:54:08,684 autoreload 9 140105778051880 Watching for file changes with StatReloader
+INFO 2025-02-26 11:54:08,949 server 9 140105700416312 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 11:54:08,949 server 9 140105700416312 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 11:54:08,950 server 9 140105700416312 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 11:54:36,928 runserver 9 140105700416312 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:50984]
+INFO 2025-02-26 11:54:36,928 runserver 9 140105700416312 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:50984]
+ERROR 2025-02-26 11:54:37,990 server 9 140105700416312 Exception inside application: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 281, in connect
+    await self.retry.call_with_retry(
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/retry.py", line 59, in call_with_retry
+    return await do()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 697, in _connect
+    reader, writer = await asyncio.open_connection(
+  File "/usr/local/lib/python3.10/asyncio/streams.py", line 48, in open_connection
+    transport, _ = await loop.create_connection(
+  File "/usr/local/lib/python3.10/asyncio/base_events.py", line 1084, in create_connection
+    raise OSError('Multiple exceptions: {}'.format(
+OSError: Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 50, in await_many_dispatch
+    await dispatch(result)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 74, in dispatch
+    await handler(message)
+  File "/usr/local/lib/python3.10/site-packages/channels/generic/websocket.py", line 180, in websocket_connect
+    await self.connect()
+  File "/app/oauth_app/consumers.py", line 12, in connect
+    await self.channel_layer.group_add(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 491, in group_add
+    await connection.zadd(group_key, {channel: time.time()})
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/staticfiles/handlers.py", line 101, in __call__
+    return await self.application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 48, in __call__
+    return await application(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 44, in __call__
+    return await self.inner(dict(scope, cookies=cookies), receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/sessions.py", line 261, in __call__
+    return await self.inner(wrapper.scope, receive, wrapper.send)
+  File "/usr/local/lib/python3.10/site-packages/channels/auth.py", line 185, in __call__
+    return await super().__call__(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/middleware.py", line 24, in __call__
+    return await self.inner(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/routing.py", line 118, in __call__
+    return await application(
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 95, in app
+    return await consumer(scope, receive, send)
+  File "/usr/local/lib/python3.10/site-packages/channels/consumer.py", line 58, in __call__
+    await await_many_dispatch(
+  File "/usr/local/lib/python3.10/site-packages/channels/utils.py", line 57, in await_many_dispatch
+    await task
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 340, in receive
+    message_channel, message = await self.receive_single(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 395, in receive_single
+    content = await self._brpop_with_clean(
+  File "/usr/local/lib/python3.10/site-packages/channels_redis/core.py", line 231, in _brpop_with_clean
+    await connection.eval(cleanup_script, 0, channel, backup_queue)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/client.py", line 611, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1064, in get_connection
+    await self.ensure_connection(connection)
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1097, in ensure_connection
+    await connection.connect()
+  File "/usr/local/lib/python3.10/site-packages/redis/asyncio/connection.py", line 289, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error Multiple exceptions: [Errno 111] Connect call failed ('::1', 6379, 0, 0), [Errno 111] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+INFO 2025-02-26 11:54:37,995 runserver 9 140105700416312 WebSocket DISCONNECT /ws/game/ [172.18.0.1:50984]
+INFO 2025-02-26 11:54:37,995 runserver 9 140105700416312 WebSocket DISCONNECT /ws/game/ [172.18.0.1:50984]
+INFO 2025-02-26 12:00:47,028 autoreload 8 140628817283880 Watching for file changes with StatReloader
+INFO 2025-02-26 12:00:47,028 autoreload 8 140628817283880 Watching for file changes with StatReloader
+INFO 2025-02-26 12:00:47,418 server 8 140628739648312 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:00:47,428 server 8 140628739648312 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:00:47,431 server 8 140628739648312 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:02:20,965 runserver 8 140628739648312 HTTP POST /auth/login/ 200 [0.74, 172.18.0.10:43172]
+INFO 2025-02-26 12:02:20,965 runserver 8 140628739648312 HTTP POST /auth/login/ 200 [0.74, 172.18.0.10:43172]
+INFO 2025-02-26 12:02:21,052 runserver 8 140628739648312 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:44744]
+INFO 2025-02-26 12:02:21,052 runserver 8 140628739648312 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:44744]
+INFO 2025-02-26 12:02:21,261 runserver 8 140628739648312 WebSocket CONNECT /ws/game/ [172.18.0.1:44744]
+INFO 2025-02-26 12:02:21,261 runserver 8 140628739648312 WebSocket CONNECT /ws/game/ [172.18.0.1:44744]
+INFO 2025-02-26 12:04:08,863 autoreload 9 139807335951144 Watching for file changes with StatReloader
+INFO 2025-02-26 12:04:08,863 autoreload 9 139807335951144 Watching for file changes with StatReloader
+INFO 2025-02-26 12:04:09,098 server 9 139807258315576 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:04:09,099 server 9 139807258315576 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:04:09,100 server 9 139807258315576 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:04:10,281 runserver 9 139807258315576 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:36064]
+INFO 2025-02-26 12:04:10,281 runserver 9 139807258315576 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:36064]
+INFO 2025-02-26 12:04:10,404 runserver 9 139807258315576 WebSocket CONNECT /ws/game/ [172.18.0.1:36064]
+INFO 2025-02-26 12:04:10,404 runserver 9 139807258315576 WebSocket CONNECT /ws/game/ [172.18.0.1:36064]
+INFO 2025-02-26 12:07:48,527 autoreload 9 140289713716008 Watching for file changes with StatReloader
+INFO 2025-02-26 12:07:48,527 autoreload 9 140289713716008 Watching for file changes with StatReloader
+INFO 2025-02-26 12:07:48,770 server 9 140289636080440 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:07:48,770 server 9 140289636080440 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:07:48,771 server 9 140289636080440 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:07:51,512 runserver 9 140289636080440 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:37380]
+INFO 2025-02-26 12:07:51,512 runserver 9 140289636080440 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:37380]
+INFO 2025-02-26 12:07:51,573 runserver 9 140289636080440 WebSocket CONNECT /ws/game/ [172.18.0.1:37380]
+INFO 2025-02-26 12:07:51,573 runserver 9 140289636080440 WebSocket CONNECT /ws/game/ [172.18.0.1:37380]
+INFO 2025-02-26 12:09:21,204 autoreload 9 140247426296616 Watching for file changes with StatReloader
+INFO 2025-02-26 12:09:21,204 autoreload 9 140247426296616 Watching for file changes with StatReloader
+INFO 2025-02-26 12:09:21,562 server 9 140247348661048 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:09:21,573 server 9 140247348661048 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:09:21,575 server 9 140247348661048 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:12:03,832 runserver 9 140247348661048 HTTP POST /auth/login/ 200 [0.67, 172.18.0.10:48416]
+INFO 2025-02-26 12:12:03,832 runserver 9 140247348661048 HTTP POST /auth/login/ 200 [0.67, 172.18.0.10:48416]
+INFO 2025-02-26 12:12:03,895 runserver 9 140247348661048 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:46506]
+INFO 2025-02-26 12:12:03,895 runserver 9 140247348661048 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:46506]
+INFO 2025-02-26 12:12:03,971 runserver 9 140247348661048 WebSocket CONNECT /ws/game/ [172.18.0.1:46506]
+INFO 2025-02-26 12:12:03,971 runserver 9 140247348661048 WebSocket CONNECT /ws/game/ [172.18.0.1:46506]
+INFO 2025-02-26 12:12:43,611 runserver 9 140247348661048 WebSocket DISCONNECT /ws/game/ [172.18.0.1:46506]
+INFO 2025-02-26 12:12:43,611 runserver 9 140247348661048 WebSocket DISCONNECT /ws/game/ [172.18.0.1:46506]
+INFO 2025-02-26 12:16:53,104 runserver 9 140247348661048 HTTP POST /auth/login/ 200 [0.73, 172.18.0.10:57694]
+INFO 2025-02-26 12:16:53,104 runserver 9 140247348661048 HTTP POST /auth/login/ 200 [0.73, 172.18.0.10:57694]
+INFO 2025-02-26 12:16:53,160 runserver 9 140247348661048 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:36766]
+INFO 2025-02-26 12:16:53,160 runserver 9 140247348661048 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:36766]
+INFO 2025-02-26 12:16:53,183 runserver 9 140247348661048 WebSocket CONNECT /ws/game/ [172.18.0.1:36766]
+INFO 2025-02-26 12:16:53,183 runserver 9 140247348661048 WebSocket CONNECT /ws/game/ [172.18.0.1:36766]
+INFO 2025-02-26 12:17:21,449 runserver 9 140247348661048 WebSocket DISCONNECT /ws/game/ [172.18.0.1:36766]
+INFO 2025-02-26 12:17:21,449 runserver 9 140247348661048 WebSocket DISCONNECT /ws/game/ [172.18.0.1:36766]
+INFO 2025-02-26 12:18:18,806 runserver 9 140247348661048 HTTP POST /auth/login/ 200 [0.65, 172.18.0.10:55262]
+INFO 2025-02-26 12:18:18,806 runserver 9 140247348661048 HTTP POST /auth/login/ 200 [0.65, 172.18.0.10:55262]
+INFO 2025-02-26 12:18:18,874 runserver 9 140247348661048 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:35078]
+INFO 2025-02-26 12:18:18,874 runserver 9 140247348661048 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:35078]
+INFO 2025-02-26 12:18:18,880 runserver 9 140247348661048 WebSocket CONNECT /ws/game/ [172.18.0.1:35078]
+INFO 2025-02-26 12:18:18,880 runserver 9 140247348661048 WebSocket CONNECT /ws/game/ [172.18.0.1:35078]
+INFO 2025-02-26 12:18:25,488 runserver 9 140247348661048 WebSocket DISCONNECT /ws/game/ [172.18.0.1:35078]
+INFO 2025-02-26 12:18:25,488 runserver 9 140247348661048 WebSocket DISCONNECT /ws/game/ [172.18.0.1:35078]
+INFO 2025-02-26 12:20:01,251 autoreload 9 139750480128808 Watching for file changes with StatReloader
+INFO 2025-02-26 12:20:01,251 autoreload 9 139750480128808 Watching for file changes with StatReloader
+INFO 2025-02-26 12:20:01,725 server 9 139750402476856 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:20:01,725 server 9 139750402476856 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:20:01,727 server 9 139750402476856 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:21:20,511 runserver 9 139750402476856 HTTP POST /auth/login/ 200 [0.73, 172.18.0.10:58812]
+INFO 2025-02-26 12:21:20,511 runserver 9 139750402476856 HTTP POST /auth/login/ 200 [0.73, 172.18.0.10:58812]
+INFO 2025-02-26 12:21:20,574 runserver 9 139750402476856 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:41934]
+INFO 2025-02-26 12:21:20,574 runserver 9 139750402476856 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:41934]
+INFO 2025-02-26 12:21:20,674 runserver 9 139750402476856 WebSocket CONNECT /ws/game/ [172.18.0.1:41934]
+INFO 2025-02-26 12:21:20,674 runserver 9 139750402476856 WebSocket CONNECT /ws/game/ [172.18.0.1:41934]
+INFO 2025-02-26 12:23:00,847 runserver 9 139750402476856 WebSocket DISCONNECT /ws/game/ [172.18.0.1:41934]
+INFO 2025-02-26 12:23:00,847 runserver 9 139750402476856 WebSocket DISCONNECT /ws/game/ [172.18.0.1:41934]
+INFO 2025-02-26 12:35:56,336 runserver 9 139750402476856 HTTP POST /auth/login/ 200 [0.73, 172.18.0.10:52316]
+INFO 2025-02-26 12:35:56,336 runserver 9 139750402476856 HTTP POST /auth/login/ 200 [0.73, 172.18.0.10:52316]
+INFO 2025-02-26 12:35:56,394 runserver 9 139750402476856 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:59960]
+INFO 2025-02-26 12:35:56,394 runserver 9 139750402476856 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:59960]
+INFO 2025-02-26 12:35:56,474 runserver 9 139750402476856 WebSocket CONNECT /ws/game/ [172.18.0.1:59960]
+INFO 2025-02-26 12:35:56,474 runserver 9 139750402476856 WebSocket CONNECT /ws/game/ [172.18.0.1:59960]
+INFO 2025-02-26 12:36:08,978 runserver 9 139750402476856 WebSocket DISCONNECT /ws/game/ [172.18.0.1:59960]
+INFO 2025-02-26 12:36:08,978 runserver 9 139750402476856 WebSocket DISCONNECT /ws/game/ [172.18.0.1:59960]
+INFO 2025-02-26 12:40:12,430 autoreload 13 140229080914728 Watching for file changes with StatReloader
+INFO 2025-02-26 12:40:12,430 autoreload 13 140229080914728 Watching for file changes with StatReloader
+INFO 2025-02-26 12:40:12,809 server 13 140229003279160 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:40:12,810 server 13 140229003279160 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:40:12,811 server 13 140229003279160 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:41:16,802 runserver 13 140229003279160 HTTP POST /auth/login/ 200 [0.69, 172.18.0.10:36648]
+INFO 2025-02-26 12:41:16,802 runserver 13 140229003279160 HTTP POST /auth/login/ 200 [0.69, 172.18.0.10:36648]
+INFO 2025-02-26 12:42:44,397 autoreload 9 140200198834984 Watching for file changes with StatReloader
+INFO 2025-02-26 12:42:44,397 autoreload 9 140200198834984 Watching for file changes with StatReloader
+INFO 2025-02-26 12:42:44,837 server 9 140200121199416 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:42:44,838 server 9 140200121199416 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:42:44,838 server 9 140200121199416 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:44:53,154 runserver 9 140200121199416 HTTP POST /auth/login/ 200 [0.67, 172.18.0.10:59584]
+INFO 2025-02-26 12:44:53,154 runserver 9 140200121199416 HTTP POST /auth/login/ 200 [0.67, 172.18.0.10:59584]
+INFO 2025-02-26 12:46:34,808 autoreload 9 140447635491624 Watching for file changes with StatReloader
+INFO 2025-02-26 12:46:34,808 autoreload 9 140447635491624 Watching for file changes with StatReloader
+INFO 2025-02-26 12:46:35,175 server 9 140447557856056 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 12:46:35,182 server 9 140447557856056 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 12:46:35,188 server 9 140447557856056 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 12:48:32,423 runserver 9 140447557856056 HTTP POST /auth/login/ 200 [0.65, 172.18.0.10:37590]
+INFO 2025-02-26 12:48:32,423 runserver 9 140447557856056 HTTP POST /auth/login/ 200 [0.65, 172.18.0.10:37590]
+INFO 2025-02-26 12:50:02,225 runserver 9 140447557856056 HTTP POST /auth/login/ 200 [0.69, 172.18.0.10:52314]
+INFO 2025-02-26 12:50:02,225 runserver 9 140447557856056 HTTP POST /auth/login/ 200 [0.69, 172.18.0.10:52314]
+INFO 2025-02-26 13:00:54,205 autoreload 9 140530990488360 Watching for file changes with StatReloader
+INFO 2025-02-26 13:00:54,205 autoreload 9 140530990488360 Watching for file changes with StatReloader
+INFO 2025-02-26 13:00:54,643 server 9 140530912852792 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:00:54,643 server 9 140530912852792 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:00:54,644 server 9 140530912852792 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:01:56,805 runserver 9 140530912852792 HTTP POST /auth/login/ 200 [0.77, 172.18.0.10:38866]
+INFO 2025-02-26 13:01:56,805 runserver 9 140530912852792 HTTP POST /auth/login/ 200 [0.77, 172.18.0.10:38866]
+INFO 2025-02-26 13:02:27,935 runserver 9 140530912852792 HTTP POST /auth/login/ 200 [0.69, 172.18.0.10:59228]
+INFO 2025-02-26 13:02:27,935 runserver 9 140530912852792 HTTP POST /auth/login/ 200 [0.69, 172.18.0.10:59228]
+INFO 2025-02-26 13:02:47,231 autoreload 9 140675711576872 Watching for file changes with StatReloader
+INFO 2025-02-26 13:02:47,231 autoreload 9 140675711576872 Watching for file changes with StatReloader
+INFO 2025-02-26 13:02:47,472 server 9 140675633924920 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:02:47,472 server 9 140675633924920 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:02:47,473 server 9 140675633924920 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:02:56,934 runserver 9 140675633924920 HTTP POST /auth/login/ 200 [0.68, 172.18.0.10:46780]
+INFO 2025-02-26 13:02:56,934 runserver 9 140675633924920 HTTP POST /auth/login/ 200 [0.68, 172.18.0.10:46780]
+INFO 2025-02-26 13:26:00,198 autoreload 9 139818710580008 Watching for file changes with StatReloader
+INFO 2025-02-26 13:26:00,198 autoreload 9 139818710580008 Watching for file changes with StatReloader
+INFO 2025-02-26 13:26:00,662 server 9 139818632944440 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:26:00,675 server 9 139818632944440 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:26:00,676 server 9 139818632944440 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:27:26,157 runserver 9 139818632944440 HTTP POST /auth/login/ 200 [0.67, 172.18.0.10:39614]
+INFO 2025-02-26 13:27:26,157 runserver 9 139818632944440 HTTP POST /auth/login/ 200 [0.67, 172.18.0.10:39614]
+INFO 2025-02-26 13:27:32,232 runserver 9 139818632944440 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:58320]
+INFO 2025-02-26 13:27:32,232 runserver 9 139818632944440 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:58320]
+INFO 2025-02-26 13:27:32,405 runserver 9 139818632944440 WebSocket CONNECT /ws/game/ [172.18.0.1:58320]
+INFO 2025-02-26 13:27:32,405 runserver 9 139818632944440 WebSocket CONNECT /ws/game/ [172.18.0.1:58320]
+INFO 2025-02-26 13:28:01,752 runserver 9 139818632944440 WebSocket DISCONNECT /ws/game/ [172.18.0.1:58320]
+INFO 2025-02-26 13:28:01,752 runserver 9 139818632944440 WebSocket DISCONNECT /ws/game/ [172.18.0.1:58320]
+INFO 2025-02-26 13:28:03,600 runserver 9 139818632944440 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:57602]
+INFO 2025-02-26 13:28:03,600 runserver 9 139818632944440 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:57602]
+INFO 2025-02-26 13:28:03,604 runserver 9 139818632944440 WebSocket CONNECT /ws/game/ [172.18.0.1:57602]
+INFO 2025-02-26 13:28:03,604 runserver 9 139818632944440 WebSocket CONNECT /ws/game/ [172.18.0.1:57602]
+INFO 2025-02-26 13:28:08,699 runserver 9 139818632944440 WebSocket DISCONNECT /ws/game/ [172.18.0.1:57602]
+INFO 2025-02-26 13:28:08,699 runserver 9 139818632944440 WebSocket DISCONNECT /ws/game/ [172.18.0.1:57602]
+INFO 2025-02-26 13:28:27,993 autoreload 10 139778726509352 Watching for file changes with StatReloader
+INFO 2025-02-26 13:28:27,993 autoreload 10 139778726509352 Watching for file changes with StatReloader
+INFO 2025-02-26 13:28:28,336 server 10 139778648873784 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:28:28,343 server 10 139778648873784 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:28:28,344 server 10 139778648873784 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:29:41,047 runserver 10 139778648873784 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:49890]
+INFO 2025-02-26 13:29:41,047 runserver 10 139778648873784 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:49890]
+INFO 2025-02-26 13:29:41,134 runserver 10 139778648873784 WebSocket CONNECT /ws/game/ [172.18.0.1:49890]
+INFO 2025-02-26 13:29:41,134 runserver 10 139778648873784 WebSocket CONNECT /ws/game/ [172.18.0.1:49890]
+INFO 2025-02-26 13:29:45,770 runserver 10 139778648873784 WebSocket DISCONNECT /ws/game/ [172.18.0.1:49890]
+INFO 2025-02-26 13:29:45,770 runserver 10 139778648873784 WebSocket DISCONNECT /ws/game/ [172.18.0.1:49890]
+INFO 2025-02-26 13:30:26,968 autoreload 8 139843905248040 Watching for file changes with StatReloader
+INFO 2025-02-26 13:30:26,968 autoreload 8 139843905248040 Watching for file changes with StatReloader
+INFO 2025-02-26 13:30:27,319 server 8 139843827612472 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:30:27,327 server 8 139843827612472 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:30:27,328 server 8 139843827612472 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:33:15,281 autoreload 11 140479249439528 Watching for file changes with StatReloader
+INFO 2025-02-26 13:33:15,281 autoreload 11 140479249439528 Watching for file changes with StatReloader
+INFO 2025-02-26 13:33:15,649 server 11 140479171803960 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:33:15,671 server 11 140479171803960 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:33:15,672 server 11 140479171803960 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:34:59,528 runserver 11 140479171803960 HTTP POST /auth/login/ 200 [0.68, 172.18.0.10:60060]
+INFO 2025-02-26 13:34:59,528 runserver 11 140479171803960 HTTP POST /auth/login/ 200 [0.68, 172.18.0.10:60060]
+INFO 2025-02-26 13:35:05,086 runserver 11 140479171803960 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:39782]
+INFO 2025-02-26 13:35:05,086 runserver 11 140479171803960 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:39782]
+INFO 2025-02-26 13:35:05,147 runserver 11 140479171803960 WebSocket CONNECT /ws/game/ [172.18.0.1:39782]
+INFO 2025-02-26 13:35:05,147 runserver 11 140479171803960 WebSocket CONNECT /ws/game/ [172.18.0.1:39782]
+INFO 2025-02-26 13:43:34,534 autoreload 15 139642056899368 Watching for file changes with StatReloader
+INFO 2025-02-26 13:43:34,534 autoreload 15 139642056899368 Watching for file changes with StatReloader
+INFO 2025-02-26 13:43:34,919 server 15 139641979263800 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:43:34,920 server 15 139641979263800 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:43:34,920 server 15 139641979263800 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:49:46,845 runserver 15 139641979263800 HTTP POST /auth/login/ 200 [0.88, 172.18.0.10:57394]
+INFO 2025-02-26 13:49:46,845 runserver 15 139641979263800 HTTP POST /auth/login/ 200 [0.88, 172.18.0.10:57394]
+INFO 2025-02-26 13:51:12,173 autoreload 9 140161315732264 Watching for file changes with StatReloader
+INFO 2025-02-26 13:51:12,173 autoreload 9 140161315732264 Watching for file changes with StatReloader
+INFO 2025-02-26 13:51:12,534 server 9 140161238096696 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-26 13:51:12,547 server 9 140161238096696 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-26 13:51:12,549 server 9 140161238096696 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-26 13:52:43,068 runserver 9 140161238096696 HTTP POST /auth/login/ 200 [0.68, 172.18.0.10:53540]
+INFO 2025-02-26 13:52:43,068 runserver 9 140161238096696 HTTP POST /auth/login/ 200 [0.68, 172.18.0.10:53540]
+INFO 2025-02-26 13:52:47,394 runserver 9 140161238096696 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:54184]
+INFO 2025-02-26 13:52:47,394 runserver 9 140161238096696 WebSocket HANDSHAKING /ws/game/ [172.18.0.1:54184]
+INFO 2025-02-26 13:52:47,645 runserver 9 140161238096696 WebSocket CONNECT /ws/game/ [172.18.0.1:54184]
+INFO 2025-02-26 13:52:47,645 runserver 9 140161238096696 WebSocket CONNECT /ws/game/ [172.18.0.1:54184]
+INFO 2025-02-26 13:55:49,838 runserver 9 140161238096696 WebSocket DISCONNECT /ws/game/ [172.18.0.1:54184]
+INFO 2025-02-26 13:55:49,838 runserver 9 140161238096696 WebSocket DISCONNECT /ws/game/ [172.18.0.1:54184]

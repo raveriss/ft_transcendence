@@ -1,54 +1,3 @@
-// // document.addEventListener('DOMContentLoaded', () => {
-// //     // =====================
-// //     // 1. GESTION DE PLAY
-// //     // =====================
-// //     const playBtn = document.getElementById('play-btn');
-// //     const gameOptionsContainer = document.getElementById('game-options-container');
-  
-// //     playBtn.addEventListener('click', (e) => {
-// //       e.stopPropagation();
-// //       gameOptionsContainer.classList.toggle('open');
-// //     });
-  
-// //     document.addEventListener('click', (e) => {
-// //       if (!gameOptionsContainer.contains(e.target) && e.target !== playBtn) {
-// //         gameOptionsContainer.classList.remove('open');
-// //       }
-// //     });
-  
-// //     const gameOptionButtons = document.querySelectorAll('.game-option');
-// //     gameOptionButtons.forEach(btn => {
-// //       btn.addEventListener('click', () => {
-// //         console.log('Mode choisi =', btn.dataset.mode);
-// //         gameOptionsContainer.classList.remove('open');
-// //       });
-// //     });
-  
-// //     // =====================
-// //     // 2. GESTION DE SOCIAL
-// //     // =====================
-// //     const socialBtn = document.getElementById('social-btn');
-// //     const socialOptionsContainer = document.getElementById('social-options-container');
-  
-// //     socialBtn.addEventListener('click', (e) => {
-// //       e.stopPropagation();
-// //       socialOptionsContainer.classList.toggle('open');
-// //     });
-  
-// //     document.addEventListener('click', (e) => {
-// //       if (!socialOptionsContainer.contains(e.target) && e.target !== socialBtn) {
-// //         socialOptionsContainer.classList.remove('open');
-// //       }
-// //     });
-  
-// //     const socialOptionButtons = document.querySelectorAll('.social-option');
-// //     socialOptionButtons.forEach(btn => {
-// //       btn.addEventListener('click', () => {
-// //         console.log('Option SOCIAL choisie =', btn.dataset.mode);
-// //         socialOptionsContainer.classList.remove('open');
-// //       });
-// //     });
-// //   });
 
   document.addEventListener('DOMContentLoaded', () => {
   // =====================
@@ -61,7 +10,7 @@
     e.stopPropagation();
     gameOptionsContainer.classList.toggle('open');
     console.log('playBtn clicked');
-    startPongGame();
+    initGame();
   });
 
   document.addEventListener('click', (e) => {
@@ -107,7 +56,8 @@
   // =======================
   // WebSocket Communication
   // =======================
-  const socket = new WebSocket('ws://localhost:8000/ws/game/');  // Connect to WebSocket server
+  let socket;
+  // const socket = new WebSocket('ws://localhost:8000/ws/game/');  // Connect to WebSocket server
   const gameContainer = document.getElementById("gameContainer");
   const pongCanvas = document.getElementById("pongGame");
   const ctx = pongCanvas.getContext('2d');
@@ -117,7 +67,8 @@
   let leftPaddleSpeed = 0, rightPaddleSpeed = 0;  
   let leftPaddleY = (pongCanvas.height - 100) / 2;  
   let rightPaddleY = (pongCanvas.height - 100) / 2;  
-  let leftPlayerScore = 0, rightPlayerScore = 0;  
+  let leftPlayerScore = 0, rightPlayerScore = 0;
+  let ballX, ballY;
 
   const paddleHeight = 100;
   const paddleWidth = 10;
@@ -125,27 +76,27 @@
   const paddleSpeed = 5;
 
   // Handle WebSocket connection
-  socket.onopen = function() {
-    console.log("WebSocket connection established.");
-  };
+  // socket.onopen = function() {
+  //   console.log("WebSocket connection established.");
+  // };
 
   // Handle messages from the backend
-  socket.onmessage = function(e) {
-    const data = JSON.parse(e.data);
+  // socket.onmessage = function(e) {
+  //   const data = JSON.parse(e.data);
 
-    if (data.event === 'game_started') {
-      console.log(data.message);
-      startPongGame();
-    }
+  //   if (data.event === 'game_started') {
+  //     console.log(data.message);
+  //     startPongGame();
+  //   }
 
-    if (data.event === 'paddle_moved') {
-      updatePaddle(data.player, data.position);
-    }
+  //   if (data.event === 'paddle_moved') {
+  //     updatePaddle(data.player, data.position);
+  //   }
 
-    if (data.event === 'score_updated') {
-      updateScore(data.left_score, data.right_score);
-    }
-  };
+  //   if (data.event === 'score_updated') {
+  //     updateScore(data.left_score, data.right_score);
+  //   }
+  // };
 
   // Game start function
   function startGame(mode) {
@@ -268,6 +219,8 @@
 
   // Draw everything on the canvas
   function draw() {
+    console.log("Drawing frame... Ball at X=${ballX}, Y=${ballY}");
+    console.log(ctx);
     ctx.clearRect(0, 0, pongCanvas.width, pongCanvas.height);
     drawBall();
     drawPaddles();
@@ -299,26 +252,44 @@
   });
 
   // Initialize the game once the WebSocket connection is established
-  startPongGame();
+
+  function initGame() {
+    console.log("🔄 Initialisation du WebSocket et du jeu...");
+    
+    // Vérifie si le WebSocket est déjà ouvert
+    if (!socket || socket.readyState !== WebSocket.OPEN) {
+        socket = new WebSocket('ws://localhost:8000/ws/game/');
+    
+        socket.onopen = function() {
+            console.log("✅ WebSocket connection established.");
+        };
+
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+    
+            if (data.event === 'game_started') {
+                console.log(data.message);
+                startPongGame();
+            }
+
+            if (data.event === 'paddle_moved') {
+                updatePaddle(data.player, data.position);
+                draw();
+            }
+
+            if (data.event === 'score_updated') {
+                updateScore(data.left_score, data.right_score);
+                draw();
+            }
+        };
+
+        socket.onclose = function() {
+            console.warn("⚠️ WebSocket Disconnected. Reconnecting in 3 seconds...");
+            setTimeout(initGame, 3000);
+        };
+    }
+
+    startPongGame();  // Lance le jeu uniquement après avoir cliqué sur "Play"
+}
+
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   // Sélection du bouton PLAY
-//   const playBtn = document.getElementById('play-btn');
-
-//   // Vérifier si l'élément existe
-//   if (playBtn) {
-//       playBtn.addEventListener('click', () => {
-//           console.log("🎮 Bouton PLAY cliqué !");
-          
-//           // Ici, tu peux appeler une autre fonction pour démarrer un jeu ou afficher quelque chose
-//           startGame();
-//       });
-//   }
-// });
-
-// // Fonction de test pour voir si le clic fonctionne
-// function startGame() {
-//   alert("Le jeu va commencer !");
-//   console.log("✅ Le script de jeu a été lancé !");
-// }
