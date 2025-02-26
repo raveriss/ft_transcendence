@@ -1,1 +1,5 @@
 venv/
+
+# Ignorer les fichiers de logs Django
+**/django.log
+
