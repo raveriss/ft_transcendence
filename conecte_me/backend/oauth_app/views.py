@@ -301,7 +301,7 @@ def login_view(request):
             request.session['email'] = user.email_address
 
             # Si 2FA n'est pas encore activé, rediriger vers la configuration 2FA
-            if not user.is_2fa_enabled:
+            if user.is_2fa_enabled:
                 return JsonResponse({
                     "success": True,
                     "redirect": "/auth/2fa/setup/"

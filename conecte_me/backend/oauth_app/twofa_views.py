@@ -39,8 +39,8 @@ def two_factor_setup(request):
         return redirect('/auth/login/')
     
     # Si le 2FA est déjà activé, rediriger directement vers l'interface de jeu
-    if user.is_2fa_enabled:
-        return redirect('/game_interface.html')
+    # if user.is_2fa_enabled:
+    #     return redirect('/game_interface.html')
     
     # Générer le secret TOTP s'il n'existe pas déjà
     if not user.totp_secret:
