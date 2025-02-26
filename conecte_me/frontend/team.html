@@ -171,6 +171,15 @@
       background: linear-gradient(135deg, #3b82f6, #ec4899);
       /* Couleur de fond interne, “vider” le centre */
     }
+
+    .circle-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Assure que l'image couvre entièrement le cercle sans déformation */
+      border-radius: 50%;
+    }
+
+
     .circle-avatar span {
       background: #0f172a; /* Couleur de fond central */
       width: 58px;
@@ -262,13 +271,13 @@
     <!-- Conteneur de cartes -->
     <div class="dev-cards-container">
 
-      <!-- Carte 1 : Anaïs -->
+      <!-- Carte 1 : Jeremy -->
       <div class="dev-card">
         <div class="circle-avatar">
-          <span>A</span>
+          <img src="static/img/jecointr.jpg" alt="Jeremy" class="circle-avatar-img" />
         </div>
-        <h3 class="dev-name">Stud#01</h3>
-        <div class="dev-role">Frontend Developer</div>
+        <h3 class="dev-name">Jeremy</h3>
+        <div class="dev-role">Full Stack Developer</div>
         <p class="dev-desc">
           Passionnée par l'UX/UI et le développement frontend
         </p>
@@ -278,13 +287,13 @@
         </div>
       </div>
 
-      <!-- Carte 2 : Lukas -->
+      <!-- Carte 2 : Marko -->
       <div class="dev-card">
         <div class="circle-avatar">
-          <span>L</span>
+          <img src="static/img/mmaric.jpg" alt="Marko" class="circle-avatar-img" />
         </div>
-        <h3 class="dev-name">Stud#02</h3>
-        <div class="dev-role">Backend Developer</div>
+        <h3 class="dev-name">Marko</h3>
+        <div class="dev-role">Full Stack Developer</div>
         <p class="dev-desc">
           Expert en architecture système et performance
         </p>
@@ -294,12 +303,12 @@
         </div>
       </div>
 
-      <!-- Carte 3 : Paul -->
+      <!-- Carte 3 : Ombeline -->
       <div class="dev-card">
         <div class="circle-avatar">
-          <span>P</span>
+          <img src="static/img/ode-cleb.jpg" alt="Ombeline" class="circle-avatar-img" />
         </div>
-        <h3 class="dev-name">Stud#03</h3>
+        <h3 class="dev-name">Ombeline</h3>
         <div class="dev-role">Full Stack Developer</div>
         <p class="dev-desc">
           Développeur polyvalent et passionné de jeux
@@ -310,28 +319,32 @@
         </div>
       </div>
 
-      <!-- Carte 4 : Sylvanna -->
+      <!-- Carte 4 : Rafael -->
       <div class="dev-card">
         <div class="circle-avatar">
-          <span>S</span>
+          <img src="static/img/raveriss.jpg" alt="Rafael" class="circle-avatar-img" />
         </div>
-        <h3 class="dev-name">Stud#04</h3>
-        <div class="dev-role">Game Developer</div>
+        <h3 class="dev-name">Rafael</h3>
+        <div class="dev-role">Full Stack Developer</div>
         <p class="dev-desc">
           Spécialiste en développement de jeux et animations
         </p>
         <div class="dev-icons">
-          <button><i class="bi bi-github"></i></button>
-          <button><i class="bi bi-linkedin"></i></button>
+          <a href="https://github.com/raveriss" target="_blank">
+            <button><i class="bi bi-github"></i></button>
+          </a>
+          <a href="https://www.linkedin.com/in/rafael-verissimo-8b382b20b" target="_blank">
+            <button><i class="bi bi-linkedin"></i></button>
+          </a>
         </div>
       </div>
 
-      <!-- Carte 5 : Rafael -->
+      <!-- Carte 5 : Sylvanna -->
       <div class="dev-card">
         <div class="circle-avatar">
-          <span>R</span>
+          <img src="static/img/sycourbi.jpg" alt="Sylvanna" class="circle-avatar-img" />
         </div>
-        <h3 class="dev-name">Rafael</h3>
+        <h3 class="dev-name">Sylvanna</h3>
         <div class="dev-role">DevOps Engineer</div>
         <p class="dev-desc">
           Expert en déploiement et infrastructure
@@ -341,6 +354,7 @@
           <button><i class="bi bi-linkedin"></i></button>
         </div>
       </div>
+
 
     </div><!-- dev-cards-container -->
 
