@@ -411,8 +411,8 @@
       border-radius: 8px;
       overflow: hidden;
       background: rgba(30, 41, 59, 0.8);
-      border: 1px solid rgba(51, 65, 85, 0.5);
-      transition: background 1s ease, border 1s ease;
+      border: none; /* Retirer la bordure ici pour éviter l'apparition du trait blanc */
+      transition: background 1s ease, transform 1s ease; /* Ne pas animer la bordure */
     }
 
     /* Texte "PLAY" centré */
