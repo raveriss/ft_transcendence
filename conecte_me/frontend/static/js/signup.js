@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           if (data.success) {
             alert(data.detail);
-            window.location.href = '/index.html';
+            window.location.href = '/home.html';
           } else {
             alert(`Erreur : ${data.error}`);
           }

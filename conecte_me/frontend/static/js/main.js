@@ -19,12 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => response.json())
       .then(data => {
         console.log("Statut mis à jour :", data);
-        // Redirection vers index.html après la mise à jour
-        window.location.href = 'index.html';
+        // Redirection vers home.html après la mise à jour
+        window.location.href = 'home.html';
       })
       .catch(error => {
         console.error("Erreur lors de la mise à jour du statut :", error);
-        window.location.href = 'index.html';
+        window.location.href = 'home.html';
       });
     });
   }
