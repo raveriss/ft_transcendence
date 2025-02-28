@@ -8,7 +8,7 @@ __pycache__/
 venv/
 
 # Ignorer les fichiers de logs
-*.log
+#*.log
 
 # Ignorer les fichiers générés par l'éditeur
 .vscode/

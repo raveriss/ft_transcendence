@@ -160,7 +160,8 @@ LOGGING = {
     # Version du schéma de configuration du logging.
     'version': 1,
     # Ne pas désactiver les loggers existants (utile pour conserver la configuration par défaut de Django).
-    'disable_existing_loggers': False,
+    #'disable_existing_loggers': False,
+    'disable_existing_loggers': True,  # Désactive les loggers par défaut
 
     # Définition des formatters, qui déterminent le format des messages de log.
     'formatters': {
@@ -184,7 +185,7 @@ LOGGING = {
             'class': 'logging.handlers.TimedRotatingFileHandler',
             'filename': LOG_FILE,
             'when': 'D',          # Rotation quotidienne
-            'backupCount': 15,     # Conserver les 15 derniers fichiers (15 jours)
+            'backupCount': 7,     # Conserver les 15 derniers fichiers (15 jours)
             'formatter': 'verbose',
         },
         # Handler "console" : affiche les logs dans la console (stdout).
@@ -201,13 +202,14 @@ LOGGING = {
         'django': {
             'handlers': ['file', 'console'],  # Envoie les logs à la fois dans le fichier et à la console.
             'level': 'INFO',  # Niveau minimum pour enregistrer les messages.
-            'propagate': True,  # Les messages sont également propagés au logger racine.
+            #'propagate': True,  # Les messages sont également propagés au logger racine.
+            'propagate': False,  # Empêche la duplication vers le logger racine
         },
         # Logger racine (pour capturer les messages non spécifiquement attribués à un autre logger).
-        '': {
-            'handlers': ['file', 'console'],
-            'level': 'INFO',
-        },
+        # '': {
+        #     'handlers': ['file', 'console'],
+        #     'level': 'INFO',
+        # },
     },
 }
 
