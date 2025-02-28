@@ -1817,3 +1817,142 @@ INFO 2025-02-26 13:52:47,645 runserver 9 140161238096696 WebSocket CONNECT /ws/g
 INFO 2025-02-26 13:52:47,645 runserver 9 140161238096696 WebSocket CONNECT /ws/game/ [172.18.0.1:54184]
 INFO 2025-02-26 13:55:49,838 runserver 9 140161238096696 WebSocket DISCONNECT /ws/game/ [172.18.0.1:54184]
 INFO 2025-02-26 13:55:49,838 runserver 9 140161238096696 WebSocket DISCONNECT /ws/game/ [172.18.0.1:54184]
+INFO 2025-02-28 10:45:20,841 autoreload 11 140618894261032 Watching for file changes with StatReloader
+INFO 2025-02-28 10:45:20,841 autoreload 11 140618894261032 Watching for file changes with StatReloader
+INFO 2025-02-28 10:45:21,092 server 11 140618816625464 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 10:45:21,092 server 11 140618816625464 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 10:45:21,093 server 11 140618816625464 Listening on TCP address 0.0.0.0:8000
+WARNING 2025-02-28 10:50:41,045 log 11 140618799352632 Unauthorized: /auth/login/
+WARNING 2025-02-28 10:50:41,045 log 11 140618799352632 Unauthorized: /auth/login/
+WARNING 2025-02-28 10:50:41,046 runserver 11 140618816625464 HTTP POST /auth/login/ 401 [0.01, 172.18.0.10:36868]
+WARNING 2025-02-28 10:50:41,046 runserver 11 140618816625464 HTTP POST /auth/login/ 401 [0.01, 172.18.0.10:36868]
+INFO 2025-02-28 10:51:14,993 runserver 11 140618816625464 HTTP POST /auth/signup/ 201 [0.21, 172.18.0.10:60238]
+INFO 2025-02-28 10:51:14,993 runserver 11 140618816625464 HTTP POST /auth/signup/ 201 [0.21, 172.18.0.10:60238]
+INFO 2025-02-28 10:51:24,282 runserver 11 140618816625464 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:53212]
+INFO 2025-02-28 10:51:24,282 runserver 11 140618816625464 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:53212]
+INFO 2025-02-28 10:51:24,316 runserver 11 140618816625464 HTTP GET /auth/2fa/setup/ 200 [0.03, 172.18.0.10:53218]
+INFO 2025-02-28 10:51:24,316 runserver 11 140618816625464 HTTP GET /auth/2fa/setup/ 200 [0.03, 172.18.0.10:53218]
+WARNING 2025-02-28 10:51:24,337 log 11 140618799352632 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-28 10:51:24,337 log 11 140618799352632 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-28 10:51:24,338 runserver 11 140618816625464 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff2 404 [0.01, 172.18.0.10:53226]
+WARNING 2025-02-28 10:51:24,338 runserver 11 140618816625464 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff2 404 [0.01, 172.18.0.10:53226]
+WARNING 2025-02-28 10:51:24,345 log 11 140618799352632 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-28 10:51:24,345 log 11 140618799352632 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-28 10:51:24,346 runserver 11 140618816625464 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff 404 [0.01, 172.18.0.10:53238]
+WARNING 2025-02-28 10:51:24,346 runserver 11 140618816625464 HTTP GET /auth/2fa/setup/static/fonts/PongGame.woff 404 [0.01, 172.18.0.10:53238]
+INFO 2025-02-28 10:51:55,583 runserver 11 140618816625464 HTTP POST /auth/2fa/validate/ 200 [0.02, 172.18.0.10:55966]
+INFO 2025-02-28 10:51:55,583 runserver 11 140618816625464 HTTP POST /auth/2fa/validate/ 200 [0.02, 172.18.0.10:55966]
+INFO 2025-02-28 10:54:22,439 views 11 140618796837688 Mise à jour du log id=1 pour user_id=1 : is_connected=False
+INFO 2025-02-28 10:54:22,447 runserver 11 140618816625464 HTTP POST /auth/user/update_login_status/ 200 [0.02, 172.18.0.10:57962]
+INFO 2025-02-28 10:54:22,447 runserver 11 140618816625464 HTTP POST /auth/user/update_login_status/ 200 [0.02, 172.18.0.10:57962]
+INFO 2025-02-28 10:55:10,164 runserver 11 140618816625464 HTTP POST /auth/login/ 200 [0.20, 172.18.0.10:59438]
+INFO 2025-02-28 10:55:10,164 runserver 11 140618816625464 HTTP POST /auth/login/ 200 [0.20, 172.18.0.10:59438]
+INFO 2025-02-28 11:07:29,490 autoreload 9 140704722316072 Watching for file changes with StatReloader
+INFO 2025-02-28 11:07:29,490 autoreload 9 140704722316072 Watching for file changes with StatReloader
+INFO 2025-02-28 11:07:29,709 server 9 140704644664120 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:07:29,710 server 9 140704644664120 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:07:29,711 server 9 140704644664120 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:09:31,476 runserver 9 140704644664120 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:39402]
+INFO 2025-02-28 11:09:31,476 runserver 9 140704644664120 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:39402]
+INFO 2025-02-28 11:14:52,619 autoreload 9 139789343583016 Watching for file changes with StatReloader
+INFO 2025-02-28 11:14:52,619 autoreload 9 139789343583016 Watching for file changes with StatReloader
+INFO 2025-02-28 11:14:52,790 server 9 139789265947448 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:14:52,791 server 9 139789265947448 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:14:52,792 server 9 139789265947448 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:16:03,290 runserver 9 139789265947448 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:56522]
+INFO 2025-02-28 11:16:03,290 runserver 9 139789265947448 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:56522]
+INFO 2025-02-28 11:16:37,970 runserver 9 139789265947448 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:51910]
+INFO 2025-02-28 11:16:37,970 runserver 9 139789265947448 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:51910]
+INFO 2025-02-28 11:18:35,477 autoreload 9 140304875973416 Watching for file changes with StatReloader
+INFO 2025-02-28 11:18:35,477 autoreload 9 140304875973416 Watching for file changes with StatReloader
+INFO 2025-02-28 11:18:35,666 server 9 140304798321464 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:18:35,666 server 9 140304798321464 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:18:35,667 server 9 140304798321464 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:20:40,313 runserver 9 140304798321464 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:52434]
+INFO 2025-02-28 11:20:40,313 runserver 9 140304798321464 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:52434]
+INFO 2025-02-28 11:25:33,991 autoreload 9 139852386065192 Watching for file changes with StatReloader
+INFO 2025-02-28 11:25:33,991 autoreload 9 139852386065192 Watching for file changes with StatReloader
+INFO 2025-02-28 11:25:34,167 server 9 139852308429624 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:25:34,168 server 9 139852308429624 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:25:34,169 server 9 139852308429624 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:26:46,941 runserver 9 139852308429624 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:55526]
+INFO 2025-02-28 11:26:46,941 runserver 9 139852308429624 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:55526]
+INFO 2025-02-28 11:28:54,256 autoreload 9 140142634621736 Watching for file changes with StatReloader
+INFO 2025-02-28 11:28:54,256 autoreload 9 140142634621736 Watching for file changes with StatReloader
+INFO 2025-02-28 11:28:54,479 server 9 140142556986168 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:28:54,479 server 9 140142556986168 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:28:54,482 server 9 140142556986168 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:29:48,629 runserver 9 140142556986168 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:40292]
+INFO 2025-02-28 11:29:48,629 runserver 9 140142556986168 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:40292]
+INFO 2025-02-28 11:34:10,259 autoreload 9 139921011735336 Watching for file changes with StatReloader
+INFO 2025-02-28 11:34:10,259 autoreload 9 139921011735336 Watching for file changes with StatReloader
+INFO 2025-02-28 11:34:10,491 server 9 139920934099768 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:34:10,492 server 9 139920934099768 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:34:10,493 server 9 139920934099768 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:35:10,753 runserver 9 139920934099768 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:57210]
+INFO 2025-02-28 11:35:10,753 runserver 9 139920934099768 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:57210]
+INFO 2025-02-28 11:40:33,600 autoreload 9 139628878531368 Watching for file changes with StatReloader
+INFO 2025-02-28 11:40:33,600 autoreload 9 139628878531368 Watching for file changes with StatReloader
+INFO 2025-02-28 11:40:33,763 server 9 139628800895800 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:40:33,763 server 9 139628800895800 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:40:33,764 server 9 139628800895800 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:41:58,058 runserver 9 139628800895800 HTTP POST /auth/login/ 200 [0.22, 172.18.0.10:42106]
+INFO 2025-02-28 11:41:58,058 runserver 9 139628800895800 HTTP POST /auth/login/ 200 [0.22, 172.18.0.10:42106]
+INFO 2025-02-28 11:45:08,008 autoreload 9 140631305579304 Watching for file changes with StatReloader
+INFO 2025-02-28 11:45:08,008 autoreload 9 140631305579304 Watching for file changes with StatReloader
+INFO 2025-02-28 11:45:08,225 server 9 140631227927352 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:45:08,226 server 9 140631227927352 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:45:08,227 server 9 140631227927352 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:45:59,290 runserver 9 140631227927352 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:39448]
+INFO 2025-02-28 11:45:59,290 runserver 9 140631227927352 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:39448]
+INFO 2025-02-28 11:47:16,684 runserver 9 140631227927352 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:58410]
+INFO 2025-02-28 11:47:16,684 runserver 9 140631227927352 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:58410]
+INFO 2025-02-28 11:47:37,810 autoreload 9 139989938461480 Watching for file changes with StatReloader
+INFO 2025-02-28 11:47:37,810 autoreload 9 139989938461480 Watching for file changes with StatReloader
+INFO 2025-02-28 11:47:37,993 server 9 139989860825912 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:47:37,993 server 9 139989860825912 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:47:37,994 server 9 139989860825912 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:50:28,144 runserver 9 139989860825912 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:33480]
+INFO 2025-02-28 11:50:28,144 runserver 9 139989860825912 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:33480]
+INFO 2025-02-28 11:54:40,533 autoreload 9 139697429748520 Watching for file changes with StatReloader
+INFO 2025-02-28 11:54:40,533 autoreload 9 139697429748520 Watching for file changes with StatReloader
+INFO 2025-02-28 11:54:40,760 server 9 139697352112952 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:54:40,760 server 9 139697352112952 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:54:40,761 server 9 139697352112952 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:56:33,474 runserver 9 139697352112952 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:57950]
+INFO 2025-02-28 11:56:33,474 runserver 9 139697352112952 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:57950]
+INFO 2025-02-28 11:58:24,896 autoreload 9 140210715355944 Watching for file changes with StatReloader
+INFO 2025-02-28 11:58:24,896 autoreload 9 140210715355944 Watching for file changes with StatReloader
+INFO 2025-02-28 11:58:25,059 server 9 140210637703992 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:58:25,060 server 9 140210637703992 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:58:25,061 server 9 140210637703992 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 11:58:49,751 autoreload 9 139711409015592 Watching for file changes with StatReloader
+INFO 2025-02-28 11:58:49,751 autoreload 9 139711409015592 Watching for file changes with StatReloader
+INFO 2025-02-28 11:58:49,932 server 9 139711331380024 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 11:58:49,932 server 9 139711331380024 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 11:58:49,933 server 9 139711331380024 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 12:00:00,295 runserver 9 139711331380024 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:48554]
+INFO 2025-02-28 12:00:00,295 runserver 9 139711331380024 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:48554]
+INFO 2025-02-28 12:05:36,147 autoreload 9 140201172138792 Watching for file changes with StatReloader
+INFO 2025-02-28 12:05:36,147 autoreload 9 140201172138792 Watching for file changes with StatReloader
+INFO 2025-02-28 12:05:36,355 server 9 140201094503224 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 12:05:36,355 server 9 140201094503224 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 12:05:36,356 server 9 140201094503224 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 12:06:18,964 runserver 9 140201094503224 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:56242]
+INFO 2025-02-28 12:06:18,964 runserver 9 140201094503224 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:56242]
+INFO 2025-02-28 12:10:19,917 autoreload 9 139840523553576 Watching for file changes with StatReloader
+INFO 2025-02-28 12:10:19,917 autoreload 9 139840523553576 Watching for file changes with StatReloader
+INFO 2025-02-28 12:10:20,124 server 9 139840445918008 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 12:10:20,124 server 9 139840445918008 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 12:10:20,126 server 9 139840445918008 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 12:11:40,746 runserver 9 139840445918008 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:41902]
+INFO 2025-02-28 12:11:40,746 runserver 9 139840445918008 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:41902]
+INFO 2025-02-28 12:29:15,676 runserver 9 139840445918008 HTTP POST /auth/login/ 200 [0.20, 172.18.0.10:34394]
+INFO 2025-02-28 12:29:15,676 runserver 9 139840445918008 HTTP POST /auth/login/ 200 [0.20, 172.18.0.10:34394]
+INFO 2025-02-28 12:33:32,713 autoreload 9 139798065437480 Watching for file changes with StatReloader
+INFO 2025-02-28 12:33:32,713 autoreload 9 139798065437480 Watching for file changes with StatReloader
+INFO 2025-02-28 12:33:32,962 server 9 139797987801912 HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+INFO 2025-02-28 12:33:32,962 server 9 139797987801912 Configuring endpoint tcp:port=8000:interface=0.0.0.0
+INFO 2025-02-28 12:33:32,963 server 9 139797987801912 Listening on TCP address 0.0.0.0:8000
+INFO 2025-02-28 12:34:16,399 runserver 9 139797987801912 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:45996]
+INFO 2025-02-28 12:34:16,399 runserver 9 139797987801912 HTTP POST /auth/login/ 200 [0.21, 172.18.0.10:45996]
