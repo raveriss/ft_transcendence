@@ -474,7 +474,7 @@ document.getElementById("delete-account-btn").addEventListener("click", () => {
       .then(data => {
           if (data.success) {
               alert("Votre compte a été supprimé.");
-              window.location.href = "index.html";  // Redirection vers index.html
+              window.location.href = "home.html";  // Redirection vers home.html
           } else {
               alert("Erreur : " + data.error);
           }
