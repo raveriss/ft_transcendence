@@ -620,6 +620,14 @@ def update_login_status(request):
     return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
 
 @csrf_exempt
+def get_registered_users(request):
+    """
+    Retourne la liste des utilisateurs inscrits avec leur ID et leur pseudo.
+    """
+    users = User42.objects.values("user_id", "username")
+    return JsonResponse(list(users), safe=False)
+
+@csrf_exempt
 def toggle_2fa(request):
     """
     Cette vue met à jour la valeur de 'is_2fa_enabled' dans la base de données

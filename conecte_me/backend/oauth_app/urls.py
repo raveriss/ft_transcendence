@@ -14,8 +14,10 @@ from .views import (
     delete_account_view,
     user_login_history,
     update_login_status,
+    get_registered_users,
 )
 from . import twofa_views, views
+
 
 urlpatterns = [
     path('signup/', signup_view, name='signup'),
@@ -39,5 +41,5 @@ urlpatterns = [
 
     path('user/login_history/', user_login_history, name='user_login_history'),
     path('user/update_login_status/', update_login_status, name='update_login_status'),
-
+    path('users/', get_registered_users, name='get_users'),
 ]

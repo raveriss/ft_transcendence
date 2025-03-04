@@ -12,6 +12,7 @@ urlpatterns = [
     
     # AJOUTER la ligne ci-dessous (ou le merge dans votre existant):
     path('auth/login/', views.login_view, name='login'),     # /auth/login/
+    # path('api/', include('oauth_app.urls')),  # ✅ Assure l'accès aux routes API
 ]
 
 # Ajout de la configuration pour servir les fichiers médias en développement

@@ -6,6 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("🎮 Jeu Pong lancé !");
     const ctx = pongCanvas.getContext('2d');
 
+    // ✅ Récupérer les noms des joueurs depuis l'URL
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            player: params.get('player') || "Joueur 1",
+            opponent: params.get('opponent') || "Joueur 2"
+        };
+    }
+    const { player, opponent } = getQueryParams();
+    console.log(`🕹️ Joueur Gauche: ${player}, 🕹️ Joueur Droit: ${opponent}`);
+
     const paddleWidth = 10, paddleHeight = 100;
     let ballX, ballY, ballSpeedX, ballSpeedY;
     let leftPaddleY = (pongCanvas.height - paddleHeight) / 2;
@@ -41,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawScore() {
         ctx.font = "20px Arial";
         ctx.fillStyle = "white";
-        ctx.fillText(`${leftPlayerScore} - ${rightPlayerScore}`, pongCanvas.width / 2 - 20, 30);
+        ctx.fillText(`${player}: ${leftPlayerScore} - ${opponent}: ${rightPlayerScore}`, pongCanvas.width / 4, 30);
     }
 
     function drawWinnerMessage(winner) {
@@ -88,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (gameRunning) {
                 rightPlayerScore++;
                 gameRunning = false;  // Arrêter temporairement le jeu
-                console.log(`⚠️ Point marqué par Droite: ${rightPlayerScore}`);
+                console.log(`⚠️ Point marqué par ${opponent}: ${rightPlayerScore}`);
                 checkGameEnd();
             }
         }
@@ -97,28 +108,28 @@ document.addEventListener('DOMContentLoaded', () => {
             if (gameRunning) {
                 leftPlayerScore++;
                 gameRunning = false;  // Arrêter temporairement le jeu
-                console.log(`⚠️ Point marqué par Gauche: ${leftPlayerScore}`);
+                console.log(`⚠️ Point marqué par ${player}: ${leftPlayerScore}`);
                 checkGameEnd();
             }
         }
     }
 
     function checkGameEnd() {
-        if (leftPlayerScore > maxScore) {
-            console.log(`🏆 Victoire du Joueur Gauche (${leftPlayerScore} - ${rightPlayerScore})`);
+        if (leftPlayerScore >= maxScore) {
+            console.log(`🏆 Victoire de ${player} (${leftPlayerScore} - ${rightPlayerScore})`);
             gameRunning = false;
-            drawWinnerMessage("Joueur Gauche");
-        } else if (rightPlayerScore > maxScore) {
-            console.log(`🏆 Victoire du Joueur Droite (${leftPlayerScore} - ${rightPlayerScore})`);
+            drawWinnerMessage(player);
+        } else if (rightPlayerScore >= maxScore) {
+            console.log(`🏆 Victoire de ${opponent} (${leftPlayerScore} - ${rightPlayerScore})`);
             gameRunning = false;
-            drawWinnerMessage("Joueur Droite");
+            drawWinnerMessage(opponent);
         } else {
-            console.log("⏳ Pause de 5 secondes avant de recommencer...");
+            console.log("⏳ Pause de 3 secondes avant de recommencer...");
             setTimeout(() => {
                 resetBall();
                 gameRunning = true;  // Redémarrer le jeu après la pause
                 draw();
-            }, 5000);
+            }, 3000);
         }
     }
 
@@ -134,7 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ballX += ballSpeedX;
         ballY += ballSpeedY;
-        console.log(leftPlayerScore, maxScore, "draw");
         requestAnimationFrame(draw);
     }
 
@@ -144,12 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
         draw();
     }
 
-    // Gestion du clavier
+    // ✅ Gestion des contrôles pour **deux joueurs en local**
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'w') leftPaddleSpeed = -paddleSpeed;
-        if (e.key === 's') leftPaddleSpeed = paddleSpeed;
-        if (e.key === 'ArrowUp') rightPaddleSpeed = -paddleSpeed;
-        if (e.key === 'ArrowDown') rightPaddleSpeed = paddleSpeed;
+        if (e.key === 'w') leftPaddleSpeed = -paddleSpeed;  // Joueur 1 (Gauche) - Monte
+        if (e.key === 's') leftPaddleSpeed = paddleSpeed;   // Joueur 1 (Gauche) - Descend
+        if (e.key === 'ArrowUp') rightPaddleSpeed = -paddleSpeed; // Joueur 2 (Droite) - Monte
+        if (e.key === 'ArrowDown') rightPaddleSpeed = paddleSpeed; // Joueur 2 (Droite) - Descend
     });
 
     document.addEventListener('keyup', (e) => {
