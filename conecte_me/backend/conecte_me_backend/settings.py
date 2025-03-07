@@ -187,6 +187,8 @@ LOGGING = {
             'when': 'D',          # Rotation quotidienne
             'backupCount': 7,     # Conserver les 15 derniers fichiers (15 jours)
             'formatter': 'verbose',
+            'delay': True,      # Ouverture du fichier seulement à la première écriture
+            'utc': True,        # Utilise l'UTC pour déterminer le rollover
         },
         # Handler "console" : affiche les logs dans la console (stdout).
         'console': {
@@ -205,11 +207,11 @@ LOGGING = {
             #'propagate': True,  # Les messages sont également propagés au logger racine.
             'propagate': False,  # Empêche la duplication vers le logger racine
         },
-        # Logger racine (pour capturer les messages non spécifiquement attribués à un autre logger).
-        # '': {
-        #     'handlers': ['file', 'console'],
-        #     'level': 'INFO',
-        # },
+        Logger racine (pour capturer les messages non spécifiquement attribués à un autre logger).
+        '': {
+            'handlers': ['file', 'console'],
+            'level': 'INFO',
+        },
     },
 }
 
