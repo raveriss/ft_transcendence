@@ -3,6 +3,7 @@ from django.urls import path, include
 from oauth_app import views  # Remplacez par le nom correct de l'application contenant la vue
 from django.conf import settings
 from django.conf.urls.static import static
+from conecte_me_backend.views import receive_frontend_log
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -12,6 +13,7 @@ urlpatterns = [
     
     # AJOUTER la ligne ci-dessous (ou le merge dans votre existant):
     path('auth/login/', views.login_view, name='login'),     # /auth/login/
+    path('api/logs/', receive_frontend_log, name='receive_frontend_log'),
 ]
 
 # Ajout de la configuration pour servir les fichiers médias en développement

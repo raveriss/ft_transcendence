@@ -201,3 +201,17 @@ INFO 2025-03-04 10:16:14,004 basehttp 9 140008841534264 "POST /auth/user/update_
 INFO 2025-03-04 10:16:44,358 basehttp 9 140008841550648 "POST /auth/login/ HTTP/1.0" 200 53
 INFO 2025-03-07 13:25:37,836 autoreload 11 140469040405288 Watching for file changes with StatReloader
 INFO 2025-03-07 13:33:18,572 autoreload 11 140352759274280 Watching for file changes with StatReloader
+INFO 2025-03-07 14:15:43,894 autoreload 11 140346508778280 Watching for file changes with StatReloader
+INFO 2025-03-07 14:16:29,315 basehttp 11 140346429975352 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-03-07 14:16:36,701 basehttp 11 140346429938488 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-03-07 14:16:36,735 basehttp 11 140346429938488 "GET /auth/2fa/setup/ HTTP/1.0" 200 11615
+WARNING 2025-03-07 14:16:36,758 log 11 140346429938488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-03-07 14:16:36,758 basehttp 11 140346429938488 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5842
+WARNING 2025-03-07 14:16:36,766 log 11 140346429938488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-03-07 14:16:36,766 basehttp 11 140346429938488 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5839
+INFO 2025-03-07 14:17:05,419 basehttp 11 140346427386680 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-03-07 14:17:08,487 basehttp 11 140346427386680 "GET /auth/user/ HTTP/1.0" 200 107
+INFO 2025-03-07 14:17:08,501 basehttp 11 140346426325816 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-07 14:17:08,509 basehttp 11 140346427386680 "GET /auth/user/ HTTP/1.0" 200 107
+INFO 2025-03-07 14:17:12,638 basehttp 11 140346427386680 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 76
+INFO 2025-03-07 14:17:19,877 basehttp 11 140346427386680 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 42

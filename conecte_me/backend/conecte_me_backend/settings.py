@@ -152,17 +152,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 LOG_DIR = BASE_DIR / 'logs'
 if not LOG_DIR.exists():
     LOG_DIR.mkdir(parents=True, exist_ok=True)
-LOG_FILE = str(LOG_DIR / 'django.log')
 
 # Configuration de la journalisation (logging) de Django.
 # Cette configuration est définie sous forme de dictionnaire et suit le schéma de configuration du module logging de Python.
 LOGGING = {
     # Version du schéma de configuration du logging.
     'version': 1,
-    # Ne pas désactiver les loggers existants (utile pour conserver la configuration par défaut de Django).
-    #'disable_existing_loggers': False,
     'disable_existing_loggers': True,  # Désactive les loggers par défaut
-
     # Définition des formatters, qui déterminent le format des messages de log.
     'formatters': {
         # Formatter "verbose" : fournit des informations détaillées telles que le niveau, l'heure, le module, l'ID du processus, l'ID du thread et le message.
@@ -180,15 +176,21 @@ LOGGING = {
     # Définition des handlers, qui déterminent où les messages de log seront envoyés.
     'handlers': {
         # Handler "file" : enregistre les logs dans un fichier.
-        'file': {
+        'file_backend': {
             'level': 'INFO',  # Seuls les messages d'INFO et plus sont enregistrés dans le fichier.
             'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': LOG_FILE,
+            'filename': str(LOG_DIR / 'django.log'),
             'when': 'D',          # Rotation quotidienne
             'backupCount': 7,     # Conserver les 15 derniers fichiers (15 jours)
             'formatter': 'verbose',
             'delay': True,      # Ouverture du fichier seulement à la première écriture
             'utc': True,        # Utilise l'UTC pour déterminer le rollover
+        },
+        'file_frontend': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',  # Pas de rotation si vous préférez, ou adaptez si nécessaire
+            'filename': str(LOG_DIR / 'frontend.log'),
+            'formatter': 'verbose',
         },
         # Handler "console" : affiche les logs dans la console (stdout).
         'console': {
@@ -202,20 +204,19 @@ LOGGING = {
     'loggers': {
         # Logger pour Django (les messages émis par Django lui-même).
         'django': {
-            'handlers': ['file', 'console'],  # Envoie les logs à la fois dans le fichier et à la console.
+            'handlers': ['file_backend', 'console'],  # Envoie les logs à la fois dans le fichier et à la console.
             'level': 'INFO',  # Niveau minimum pour enregistrer les messages.
-            #'propagate': True,  # Les messages sont également propagés au logger racine.
             'propagate': False,  # Empêche la duplication vers le logger racine
         },
-        Logger racine (pour capturer les messages non spécifiquement attribués à un autre logger).
-        '': {
-            'handlers': ['file', 'console'],
+        'frontend': {
+            'handlers': ['file_frontend', 'console'],
             'level': 'INFO',
+            'propagate': False,
         },
     },
 }
 
 # Par exemple, vous pouvez tester cette configuration en ajoutant un message de log au démarrage :
-import logging
-logger = logging.getLogger(__name__)
-logger.info("La configuration du logging est activée et les logs seront enregistrés dans 'logs/django.log'.")
+# import logging
+# logger = logging.getLogger(__name__)
+# logger.info("La configuration du logging est activée et les logs seront enregistrés dans 'logs/django.log'.")
