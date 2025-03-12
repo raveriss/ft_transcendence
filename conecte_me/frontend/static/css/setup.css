@@ -1,0 +1,253 @@
+    /* -------------------------------------------------------------
+       Fonts (adaptez selon vos fichiers réels)
+    ------------------------------------------------------------- */
+    @font-face {
+        font-family: 'Pong-Game';
+        src: url('/static/fonts/PongGame.woff2') format('woff2'),
+             url('/static/fonts/PongGame.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+  
+      /* -------------------------------------------------------------
+         Reset box-sizing
+      ------------------------------------------------------------- */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+  
+      /* -------------------------------------------------------------
+         Body : fond dégradé, police, etc.
+      ------------------------------------------------------------- */
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        overflow-y: auto;
+        font-family: 'Cantarell', sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: #f1f5f9;
+      }
+  
+      .main-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 2rem auto;
+      }
+  
+      /* -------------------------------------------------------------
+         HEADER BAR : flèche, Titre PONG, icône user
+      ------------------------------------------------------------- */
+      .header-bar {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      /* Bouton retour (flèche) */
+      .back-btn {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(30,41,59,0.8);
+        border: 1px solid rgba(51,65,85,0.5);
+        border-radius: 50%;
+        width: 40px; 
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+      }
+      .back-btn:hover {
+        background: rgba(30,41,59,0.9);
+        border-color: rgba(51,65,85,0.75);
+        transform: translateY(-50%) scale(1.05);
+      }
+  
+      .back-btn img.arrow-icon {
+        width: 24px;
+        height: 24px;
+      }    
+  
+      /* Titre PONG */
+      .title {
+        font-family: "Pong-Game", sans-serif;
+        margin: 0;
+        font-size: 3.5rem;
+        font-weight: bold;
+        background: linear-gradient(to bottom, #3b82f6, #2563eb, #1e3a8a);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 15px rgba(59,130,246,0.3);
+        letter-spacing: 15px;
+        text-align: center;
+      }
+      /* Icône user top-right */
+      .top-user-icon {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+      }
+      .top-user-icon:hover {
+        opacity: 1;
+      }
+  
+      /* -------------------------------------------------------------
+         Cards commun
+      ------------------------------------------------------------- */
+      .card-custom {
+        background: rgba(30,41,59,0.4);
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        width: 100%;
+      }
+      .card-header-custom {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .card-body-custom {
+        font-size: 0.9rem;
+      }
+  
+      /* Boutons radio-like */
+      .toggle-group {
+        display: flex;
+        flex-wrap: wrap; /* pour passer à la ligne si trop large */
+        gap: 0.5rem;
+      }
+      .toggle-group button {
+        background: rgba(15,23,42,0.6);
+        border: 1px solid rgba(51,65,85,0.5);
+        border-radius: 6px;
+        padding: 0.4rem 0.8rem;
+        color: #f1f5f9;
+        transition: background 0.3s, transform 0.3s;
+        flex: 1;  /* Pour AI difficulty => 3 boutons de même largeur */
+        min-width: 60px;
+      }
+      .toggle-group button:hover {
+        background: rgba(15,23,42,0.8);
+        transform: scale(1.05);
+      }
+  
+      /* Sliders + color accent */
+      .form-range {
+        width: 100%;
+        accent-color: #3b82f6; /* Couleur bleue */
+      }
+  
+      /* Définir la couleur de la barre en fonction de la valeur du curseur */
+      input[type="range"].form-range {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        background: #e5e7eb; /* couleur de fond initiale */
+      }
+  
+      input[type="range"].form-range::-webkit-slider-runnable-track {
+        background: #e5e7eb;
+        height: 8px;
+        border-radius: 5px;
+      }
+  
+      input[type="range"].form-range::-moz-range-track {
+        background: #e5e7eb;
+        height: 8px;
+        border-radius: 5px;
+      }
+  
+      input[type="range"].form-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background: #3b82f6; /* bleu pour le curseur */
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+  
+      input[type="range"].form-range::-moz-range-thumb {
+        background: #3b82f6; /* bleu pour le curseur */
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+  
+      /* Modifier la barre de progression en fonction de la valeur */
+      input[type="range"].form-range::-webkit-slider-runnable-track {
+        background: linear-gradient(to right, #3b82f6 0%, #3b82f6 var(--slider-value), #e5e7eb var(--slider-value), #e5e7eb 100%);
+      }
+  
+      input[type="range"].form-range::-moz-range-track {
+        background: linear-gradient(to right, #3b82f6 0%, #3b82f6 var(--slider-value), #e5e7eb var(--slider-value), #e5e7eb 100%);
+      }
+  
+  
+      /* Select en style sombre */
+      select.form-select {
+        background: rgba(15,23,42,0.5);
+        border: 1px solid rgba(51,65,85,0.5);
+        color: #f1f5f9;
+      }
+      /* Input number (LIVES) */
+      .number-spinner {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .number-spinner input[type="number"] {
+        background: rgba(15,23,42,0.5);
+        border: 1px solid rgba(51,65,85,0.5);
+        color: #f1f5f9;
+        border-radius: 6px;
+        width: 50px;
+        text-align: center;
+      }
+  
+      /* Checkboxes */
+      .form-check-input {
+        background-color: rgba(15,23,42,0.5);
+        border: 1px solid rgba(51,65,85,0.5);
+      }
+  
+      /* Range label min / max */
+      .range-labels {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        opacity: 0.7;
+        margin-top: 0.3rem;
+      }
+  
+      .toggle-group-2x2 {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); /* 2 colonnes de même largeur */
+          gap: 0.5rem;                           /* espace entre les boutons */
+      }
+  
+      /* Disposition spécifique : pour correspondre EXACTEMENT à la capture,
+         on place les blocs manuellement en row/col. 
+         On peut superposer plus de row / col pour un contrôle précis. */

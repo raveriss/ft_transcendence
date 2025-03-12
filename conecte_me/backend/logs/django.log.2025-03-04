@@ -1,0 +1,201 @@
+INFO 2025-02-20 12:52:32,630 autoreload 35 140393771367208 Watching for file changes with StatReloader
+INFO 2025-02-20 12:52:32,630 autoreload 35 140393771367208 Watching for file changes with StatReloader
+WARNING 2025-02-20 12:53:21,715 basehttp 35 140393692621624 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-20 12:53:29,566 basehttp 35 140393689967416 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+WARNING 2025-02-20 13:09:10,876 basehttp 35 140393688906552 "GET /auth/user/info/ HTTP/1.0" 404 5623
+WARNING 2025-02-20 13:09:10,876 basehttp 35 140393688906552 "GET /auth/user/info/ HTTP/1.0" 404 5623
+INFO 2025-02-20 13:33:43,415 basehttp 57 140701954210616 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-02-20 13:33:43,415 basehttp 57 140701954210616 "POST /auth/signup/ HTTP/1.0" 201 56
+WARNING 2025-02-20 13:33:49,787 log 57 140701954173752 Unauthorized: /auth/login/
+WARNING 2025-02-20 13:33:49,787 log 57 140701954173752 Unauthorized: /auth/login/
+WARNING 2025-02-20 13:33:49,788 basehttp 57 140701954173752 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-20 13:45:25,697 basehttp 20 139835641158456 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-02-20 13:45:25,895 basehttp 20 139835641158456 "GET /auth/2fa/setup/ HTTP/1.0" 200 11643
+INFO 2025-02-20 13:45:25,895 basehttp 20 139835641158456 "GET /auth/2fa/setup/ HTTP/1.0" 200 11643
+WARNING 2025-02-20 13:45:25,987 log 20 139835641158456 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-20 13:45:25,987 log 20 139835641158456 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-20 13:45:26,002 basehttp 20 139835641158456 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-20 15:53:33,206 autoreload 23 140068735384360 Watching for file changes with StatReloader
+INFO 2025-02-20 15:53:33,206 autoreload 23 140068735384360 Watching for file changes with StatReloader
+INFO 2025-02-20 15:56:24,328 autoreload 19 139716352174888 Watching for file changes with StatReloader
+INFO 2025-02-20 15:56:24,328 autoreload 19 139716352174888 Watching for file changes with StatReloader
+INFO 2025-02-20 16:03:18,136 autoreload 21 140578474580776 Watching for file changes with StatReloader
+INFO 2025-02-20 16:03:18,136 autoreload 21 140578474580776 Watching for file changes with StatReloader
+INFO 2025-02-21 10:09:18,515 autoreload 11 140632264973096 Watching for file changes with StatReloader
+WARNING 2025-02-21 10:30:27,368 log 9 140592090192696 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-21 10:30:27,368 log 9 140592090192696 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-21 10:30:27,368 basehttp 9 140592090192696 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-21 10:30:53,309 basehttp 9 140592087640888 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+WARNING 2025-02-21 11:01:52,145 log 9 140592086580024 Not Found: /auth/user/info/
+WARNING 2025-02-21 11:01:52,145 basehttp 9 140592086580024 "GET /auth/user/info/ HTTP/1.0" 404 5623
+INFO 2025-02-21 11:01:52,148 basehttp 9 140592087640888 "GET /auth/user/ HTTP/1.0" 200 83
+INFO 2025-02-21 13:43:48,383 basehttp 11 140394234866488 "GET /auth/2fa/setup/ HTTP/1.0" 200 11595
+INFO 2025-02-21 13:43:48,383 basehttp 11 140394234866488 "GET /auth/2fa/setup/ HTTP/1.0" 200 11595
+WARNING 2025-02-21 13:43:48,423 log 11 140394234866488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-21 13:43:48,424 basehttp 11 140394234866488 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+WARNING 2025-02-21 13:43:48,438 log 11 140394234866488 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff
+WARNING 2025-02-21 13:43:48,439 basehttp 11 140394234866488 "GET /auth/2fa/setup/static/fonts/PongGame.woff HTTP/1.0" 404 5701
+INFO 2025-02-21 13:44:18,962 basehttp 11 140394232236856 "POST /auth/2fa/validate/ HTTP/1.0" 200 101
+INFO 2025-02-21 15:05:59,621 autoreload 11 139874264333096 Watching for file changes with StatReloader
+WARNING 2025-02-21 15:08:54,226 log 11 139874183469880 Unauthorized: /auth/user/login_history/
+ERROR 2025-02-21 15:08:54,227 views 11 139874185591608 Aucun user_id dans la session !
+WARNING 2025-02-21 15:08:54,226 log 11 139874183469880 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-21 15:08:54,228 log 11 139874185591608 Unauthorized: /auth/user/
+WARNING 2025-02-21 15:08:54,228 log 11 139874185591608 Unauthorized: /auth/user/
+WARNING 2025-02-21 15:08:54,231 log 11 139874184530744 Not Found: /auth/user/info/
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874183469880 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-21 15:08:54,231 log 11 139874184530744 Not Found: /auth/user/info/
+WARNING 2025-02-21 15:08:54,232 basehttp 11 139874184530744 "GET /auth/user/info/ HTTP/1.0" 404 5623
+INFO 2025-02-21 15:08:58,431 basehttp 11 139874184506168 "GET /auth/2fa/setup/ HTTP/1.0" 302 0
+WARNING 2025-02-21 15:08:58,433 log 11 139874184506168 Method Not Allowed: /auth/login/
+WARNING 2025-02-21 15:08:58,433 basehttp 11 139874184506168 "GET /auth/login/ HTTP/1.0" 405 63
+WARNING 2025-02-21 15:09:05,753 log 11 139874184506168 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:09:05,753 basehttp 11 139874184506168 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 15:18:12,604 autoreload 11 139826159889192 Watching for file changes with StatReloader
+WARNING 2025-02-21 15:18:57,824 log 11 139826081159992 Unauthorized: /auth/login/
+WARNING 2025-02-21 15:19:04,513 basehttp 11 139826081123128 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:19:04,513 basehttp 11 139826081123128 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 15:49:42,204 autoreload 11 140270670228264 Watching for file changes with StatReloader
+WARNING 2025-02-21 15:56:17,467 basehttp 11 140270590425912 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-21 15:56:17,467 basehttp 11 140270590425912 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 15:58:30,212 autoreload 11 140109652273960 Watching for file changes with StatReloader
+INFO 2025-02-21 16:08:22,557 autoreload 11 140371477719848 Watching for file changes with StatReloader
+WARNING 2025-02-21 16:10:03,559 log 11 140371398994744 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:10:03,560 basehttp 11 140371398994744 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-21 16:16:12,639 autoreload 11 139884693117736 Watching for file changes with StatReloader
+INFO 2025-02-21 16:16:12,639 autoreload 11 139884693117736 Watching for file changes with StatReloader
+WARNING 2025-02-21 16:21:32,091 log 11 139884614376248 Unauthorized: /auth/login/
+WARNING 2025-02-21 16:21:32,091 log 11 139884614376248 Unauthorized: /auth/login/
+INFO 2025-02-24 11:49:48,018 basehttp 11 140164959255352 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-02-24 11:49:48,026 basehttp 11 140164960316216 "GET /auth/user/ HTTP/1.0" 200 107
+INFO 2025-02-24 11:49:48,026 basehttp 11 140164960316216 "GET /auth/user/ HTTP/1.0" 200 107
+WARNING 2025-02-24 12:11:53,553 basehttp 11 140164960316216 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-24 12:12:01,517 basehttp 11 140164960316216 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-24 12:44:51,880 basehttp 11 140164960316216 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 42
+INFO 2025-02-24 12:45:25,743 basehttp 11 140164960316216 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+WARNING 2025-02-24 12:45:56,552 log 11 140164960316216 Bad Request: /auth/signup/
+WARNING 2025-02-24 12:45:56,552 basehttp 11 140164960316216 "POST /auth/signup/ HTTP/1.0" 400 85
+INFO 2025-02-24 12:46:07,446 basehttp 11 140164960316216 "POST /auth/login/ HTTP/1.0" 200 49
+WARNING 2025-02-24 12:46:07,499 log 11 140164960316216 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+WARNING 2025-02-24 12:46:07,499 basehttp 11 140164960316216 "GET /auth/2fa/setup/static/fonts/PongGame.woff2 HTTP/1.0" 404 5704
+INFO 2025-02-24 12:46:12,514 basehttp 11 140164956080952 "GET /auth/2fa/setup/ HTTP/1.0" 200 11659
+WARNING 2025-02-24 12:46:12,531 log 11 140164956080952 Not Found: /auth/2fa/setup/static/fonts/PongGame.woff2
+INFO 2025-02-24 13:03:51,893 autoreload 11 140576547134248 Watching for file changes with StatReloader
+ERROR 2025-02-24 13:04:38,807 views 11 140576468359992 Aucun user_id dans la session !
+WARNING 2025-02-24 13:04:38,809 basehttp 11 140576468359992 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-24 13:04:38,809 basehttp 11 140576468359992 "GET /auth/user/ HTTP/1.0" 401 35
+ERROR 2025-02-24 13:04:38,818 views 11 140576468359992 Aucun user_id dans la session !
+WARNING 2025-02-24 13:04:38,818 log 11 140576468359992 Unauthorized: /auth/user/
+WARNING 2025-02-24 13:04:38,818 basehttp 11 140576468359992 "GET /auth/user/ HTTP/1.0" 401 35
+ERROR 2025-02-24 13:12:56,280 views 11 140576468323128 Aucun user_id dans la session !
+WARNING 2025-02-24 13:12:56,280 log 11 140576468323128 Unauthorized: /auth/user/
+WARNING 2025-02-24 13:12:56,282 basehttp 11 140576468323128 "GET /auth/user/ HTTP/1.0" 401 35
+ERROR 2025-02-24 13:12:56,288 views 11 140576468323128 Aucun user_id dans la session !
+WARNING 2025-02-24 13:12:56,288 log 11 140576468323128 Unauthorized: /auth/user/
+WARNING 2025-02-24 13:12:56,288 basehttp 11 140576468323128 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-02-24 13:15:41,844 autoreload 11 139921655843624 Watching for file changes with StatReloader
+INFO 2025-02-24 15:52:48,687 basehttp 11 139957258615608 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 76
+WARNING 2025-02-24 15:53:44,618 basehttp 11 139957258615608 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-02-24 15:53:44,618 basehttp 11 139957258615608 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-24 15:53:55,082 basehttp 11 139957258615608 "POST /auth/login/ HTTP/1.0" 200 53
+INFO 2025-02-25 11:52:07,229 views 57 139911453575992 Mise à jour du log id=1 pour user_id=1 : is_connected=False
+INFO 2025-02-25 11:52:07,242 basehttp 57 139911453575992 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-25 11:52:07,242 basehttp 57 139911453575992 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+WARNING 2025-02-25 11:52:13,335 log 57 139911453575992 Unauthorized: /auth/login/
+WARNING 2025-02-25 11:52:13,335 log 57 139911453575992 Unauthorized: /auth/login/
+WARNING 2025-02-25 11:52:13,335 basehttp 57 139911453575992 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-25 12:22:07,194 basehttp 57 139911453522744 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 41
+INFO 2025-02-25 12:22:34,290 views 57 139911453522744 Mise à jour du log id=2 pour user_id=1 : is_connected=False
+INFO 2025-02-25 12:22:34,318 basehttp 57 139911453522744 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-02-25 12:22:34,318 basehttp 57 139911453522744 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+WARNING 2025-02-25 12:22:43,726 log 57 139911453522744 Unauthorized: /auth/login/
+WARNING 2025-02-25 12:33:32,051 basehttp 57 139911453522744 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-25 12:39:53,514 autoreload 61 140408591260456 Watching for file changes with StatReloader
+INFO 2025-02-25 12:39:53,514 autoreload 61 140408591260456 Watching for file changes with StatReloader
+WARNING 2025-02-25 12:40:00,490 log 61 140408512412472 Unauthorized: /auth/user/upload_avatar/
+WARNING 2025-02-25 12:40:17,226 basehttp 61 140408512375608 "POST /auth/user/toggle_2fa/ HTTP/1.0" 401 64
+ERROR 2025-02-25 12:40:29,615 views 61 140408512375608 Aucun user_id dans la session
+WARNING 2025-02-25 12:40:29,615 log 61 140408512375608 Unauthorized: /auth/user/update_login_status/
+WARNING 2025-02-25 12:40:29,615 log 61 140408512375608 Unauthorized: /auth/user/update_login_status/
+WARNING 2025-02-25 12:40:29,616 basehttp 61 140408512375608 "POST /auth/user/update_login_status/ HTTP/1.0" 401 64
+WARNING 2025-02-25 12:40:29,616 basehttp 61 140408512375608 "POST /auth/user/update_login_status/ HTTP/1.0" 401 64
+INFO 2025-02-25 12:44:58,388 autoreload 33 140132012358440 Watching for file changes with StatReloader
+INFO 2025-02-25 12:44:58,388 autoreload 33 140132012358440 Watching for file changes with StatReloader
+WARNING 2025-02-25 12:45:03,937 log 33 140131933563704 Unauthorized: /auth/login/
+WARNING 2025-02-25 12:45:03,937 log 33 140131933563704 Unauthorized: /auth/login/
+WARNING 2025-02-25 12:45:03,939 basehttp 33 140131933563704 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-02-25 13:02:35,594 basehttp 18 139931708402488 "GET /auth/user/ HTTP/1.0" 200 100
+INFO 2025-02-25 13:16:11,545 autoreload 18 140663958002472 Watching for file changes with StatReloader
+INFO 2025-02-25 13:16:11,545 autoreload 18 140663958002472 Watching for file changes with StatReloader
+ERROR 2025-02-25 13:31:48,188 views 17 139795496409912 Aucun user_id dans la session !
+WARNING 2025-02-25 13:31:48,188 log 17 139795497470776 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-25 13:31:48,189 log 17 139795496409912 Unauthorized: /auth/user/
+WARNING 2025-02-25 13:31:48,189 log 17 139795496409912 Unauthorized: /auth/user/
+WARNING 2025-02-25 13:31:48,190 basehttp 17 139795497470776 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-25 13:31:48,196 basehttp 17 139795496409912 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-25 13:31:48,196 basehttp 17 139795496409912 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-25 13:31:48,190 basehttp 17 139795497470776 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+ERROR 2025-02-25 13:31:48,203 views 17 139795496409912 Aucun user_id dans la session !
+WARNING 2025-02-25 13:31:48,203 log 17 139795496409912 Unauthorized: /auth/user/
+WARNING 2025-02-25 13:31:48,203 log 17 139795496409912 Unauthorized: /auth/user/
+WARNING 2025-02-25 13:31:48,204 basehttp 17 139795496409912 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-25 14:13:43,855 log 19 140659771267896 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-25 14:13:43,855 log 19 140659771267896 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-25 14:13:43,859 basehttp 19 140659771267896 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-25 14:13:43,859 basehttp 19 140659771267896 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+ERROR 2025-02-25 14:13:43,862 views 19 140659772328760 Aucun user_id dans la session !
+WARNING 2025-02-25 14:13:43,865 log 19 140659772328760 Unauthorized: /auth/user/
+WARNING 2025-02-25 14:28:23,567 basehttp 32 140716383255352 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-25 14:28:23,567 basehttp 32 140716383255352 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-25 14:28:23,575 log 32 140716383255352 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-25 14:28:23,575 log 32 140716383255352 Unauthorized: /auth/user/login_history/
+ERROR 2025-02-25 14:28:23,578 views 32 140716382194488 Aucun user_id dans la session !
+WARNING 2025-02-25 14:28:23,578 log 32 140716382194488 Unauthorized: /auth/user/
+WARNING 2025-02-25 14:28:23,578 log 32 140716382194488 Unauthorized: /auth/user/
+WARNING 2025-02-25 14:28:23,579 basehttp 32 140716382194488 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-25 14:28:23,579 basehttp 32 140716382194488 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-25 14:28:23,586 basehttp 32 140716383255352 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-25 14:28:23,586 basehttp 32 140716383255352 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+INFO 2025-02-25 14:41:11,879 autoreload 38 140043706567464 Watching for file changes with StatReloader
+INFO 2025-02-25 14:41:11,879 autoreload 38 140043706567464 Watching for file changes with StatReloader
+ERROR 2025-02-25 14:42:06,759 views 38 140043627817784 Aucun user_id dans la session !
+WARNING 2025-02-25 14:42:06,760 log 38 140043627817784 Unauthorized: /auth/user/
+WARNING 2025-02-25 14:42:06,760 log 38 140043627817784 Unauthorized: /auth/user/
+WARNING 2025-02-25 14:42:06,761 basehttp 38 140043627817784 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-02-28 13:21:24,112 autoreload 11 140126885514024 Watching for file changes with StatReloader
+INFO 2025-02-28 13:21:24,112 autoreload 11 140126885514024 Watching for file changes with StatReloader
+INFO 2025-02-28 13:23:31,706 autoreload 11 140253768833832 Watching for file changes with StatReloader
+INFO 2025-02-28 13:23:31,706 autoreload 11 140253768833832 Watching for file changes with StatReloader
+INFO 2025-02-28 13:24:14,681 autoreload 11 140382089018152 Watching for file changes with StatReloader
+WARNING 2025-02-28 13:25:41,680 log 11 140382009187128 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-28 13:25:41,681 basehttp 11 140382009187128 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-28 13:25:41,682 log 11 140382010247992 Unauthorized: /auth/user/
+WARNING 2025-02-28 13:25:41,682 basehttp 11 140382010247992 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-28 13:25:41,692 log 11 140382010247992 Unauthorized: /auth/user/
+WARNING 2025-02-28 13:25:41,692 basehttp 11 140382010247992 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-28 13:25:46,004 log 11 140382010174264 Unauthorized: /auth/user/upload_avatar/
+WARNING 2025-02-28 13:25:46,004 basehttp 11 140382010174264 "POST /auth/user/upload_avatar/ HTTP/1.0" 401 64
+WARNING 2025-02-28 13:25:52,244 log 11 140382010174264 Unauthorized: /auth/user/
+WARNING 2025-02-28 13:25:52,245 log 11 140382009113400 Unauthorized: /auth/user/login_history/
+WARNING 2025-02-28 13:25:52,245 basehttp 11 140382010174264 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-28 13:25:52,245 basehttp 11 140382009113400 "GET /auth/user/login_history/ HTTP/1.0" 401 35
+WARNING 2025-02-28 13:25:52,249 log 11 140382010174264 Unauthorized: /auth/user/
+WARNING 2025-02-28 13:25:52,249 basehttp 11 140382010174264 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-02-28 13:25:53,376 log 11 140382010174264 Unauthorized: /auth/user/toggle_2fa/
+WARNING 2025-02-28 13:25:53,377 basehttp 11 140382010174264 "POST /auth/user/toggle_2fa/ HTTP/1.0" 401 64
+WARNING 2025-02-28 13:25:58,968 log 11 140382010174264 Unauthorized: /auth/user/update_login_status/
+WARNING 2025-02-28 13:25:58,969 basehttp 11 140382010174264 "POST /auth/user/update_login_status/ HTTP/1.0" 401 64
+INFO 2025-03-04 10:07:46,810 autoreload 9 140008920300328 Watching for file changes with StatReloader
+INFO 2025-03-04 10:15:22,345 basehttp 9 140008841513784 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-03-04 10:15:22,365 basehttp 9 140008841513784 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-04 10:15:23,168 basehttp 9 140008841513784 "GET /auth/42/callback?code=849eeb82c716a3958cce1bdfe23c29d1bd8e43036695f76a753956c5f8eab413&state=2w7QqF0yf2oqraKNIuhnYujx5Yx0bMO3 HTTP/1.0" 302 0
+INFO 2025-03-04 10:15:26,279 basehttp 9 140008841550648 "GET /auth/user/ HTTP/1.0" 200 111
+INFO 2025-03-04 10:15:26,287 basehttp 9 140008837049144 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-04 10:15:26,293 basehttp 9 140008841550648 "GET /auth/user/ HTTP/1.0" 200 111
+INFO 2025-03-04 10:15:29,758 basehttp 9 140008837049144 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 78
+INFO 2025-03-04 10:15:33,220 basehttp 9 140008837049144 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 42
+INFO 2025-03-04 10:15:35,972 basehttp 9 140008841550648 "GET /auth/user/ HTTP/1.0" 200 106
+INFO 2025-03-04 10:15:35,976 basehttp 9 140008837049144 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-04 10:15:35,992 basehttp 9 140008841550648 "GET /auth/user/ HTTP/1.0" 200 106
+INFO 2025-03-04 10:16:14,004 basehttp 9 140008841534264 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-03-04 10:16:44,358 basehttp 9 140008841550648 "POST /auth/login/ HTTP/1.0" 200 53

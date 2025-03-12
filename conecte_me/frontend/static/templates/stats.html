@@ -1,0 +1,180 @@
+<div class="main-container">
+  <!-- HEADER -->
+  <div class="header-bar">
+    <div class="back-btn" onclick="history.back()">
+      <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
+    </div>
+    <h1 class="title">STATS</h1>
+  </div>
+
+  <!-- 1) 4 stats top row, en 4 colonnes de taille identique -->
+  <div class="row mb-3">
+    <!-- Win Rate -->
+    <div class="col-6 col-md-3">
+      <div class="card-custom stats-badge-card">
+        <i class="bi bi-trophy mb-1 text-primary" style="font-size:1.2rem;"></i>
+        <div class="stats-badge">65%</div>
+        <div class="stats-label">Win Rate</div>
+        <div class="stats-desc">Ratio de victoires</div>
+      </div>
+    </div>
+    <!-- Win Streak -->
+    <div class="col-6 col-md-3">
+      <div class="card-custom stats-badge-card">
+        <i class="bi bi-lightning-fill mb-1 text-warning" style="font-size:1.2rem;"></i>
+        <div class="stats-badge">4</div>
+        <div class="stats-label">Win Streak</div>
+        <div class="stats-desc">Plus longue série actuelle</div>
+      </div>
+    </div>
+    <!-- Avg Duration -->
+    <div class="col-6 col-md-3">
+      <div class="card-custom stats-badge-card">
+        <i class="bi bi-stopwatch mb-1 text-success" style="font-size:1.2rem;"></i>
+        <div class="stats-badge">12.5min</div>
+        <div class="stats-label">Avg Duration</div>
+        <div class="stats-desc">Durée moyenne par match</div>
+      </div>
+    </div>
+    <!-- Rank Progress -->
+    <div class="col-6 col-md-3">
+      <div class="card-custom stats-badge-card">
+        <i class="bi bi-graph-up-arrow mb-1 text-indigo-400" style="font-size:1.2rem;"></i>
+        <div class="stats-badge text-success">+25</div>
+        <div class="stats-label">Rank Progress</div>
+        <div class="stats-desc">Points gagnés cette semaine</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2) Evolution ELO (placeholder) -->
+  <div class="card-custom mb-3">
+    <div class="card-header-custom">
+      <i class="bi bi-bar-chart-line"></i>
+      L'évolution ELO
+    </div>
+    <div class="card-body-custom">
+      <div class="chart-placeholder">
+        [Courbe ELO sur 7 derniers jours]
+      </div>
+    </div>
+  </div>
+
+  <!-- 3) Style de jeu & Victoires par mode -->
+  <div class="row mb-3">
+    <!-- Style de jeu (radar) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom">
+          <i class="bi bi-bullseye"></i>
+          Style de jeu
+        </div>
+        <div class="card-body-custom">
+          <div class="chart-placeholder" style="height:220px;">
+            [Graphique radar: Speed, Precision, Aggressive, Defensive, Consistency]
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Victoires par mode (pie chart) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom">
+          <i class="bi bi-pie-chart"></i>
+          Victoires par mode
+        </div>
+        <div class="card-body-custom">
+          <div class="chart-placeholder" style="height:220px;">
+            [Camembert: 1v1, Tournament, Casual]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4) Derniers matchs -->
+  <div class="card-custom mb-3">
+    <div class="card-header-custom">
+      <i class="bi bi-list-check"></i>
+      Derniers matchs
+    </div>
+    <div class="card-body-custom">
+      <table class="match-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Adversaire</th>
+            <th>Score</th>
+            <th>Durée</th>
+            <th>Elo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-01-15</td>
+            <td>Player1</td>
+            <td>11-6</td>
+            <td>12 min</td>
+            <td>1870</td>
+          </tr>
+          <tr>
+            <td>2025-01-14</td>
+            <td>Player2</td>
+            <td>9-11</td>
+            <td>15 min</td>
+            <td>1850</td>
+          </tr>
+          <tr>
+            <td>2025-01-13</td>
+            <td>Player3</td>
+            <td>11-7</td>
+            <td>10 min</td>
+            <td>1860</td>
+          </tr>
+          <tr>
+            <td>2025-01-12</td>
+            <td>Player4</td>
+            <td>11-9</td>
+            <td>14 min</td>
+            <td>1840</td>
+          </tr>
+          <tr>
+            <td>2025-01-11</td>
+            <td>Player5</td>
+            <td>8-11</td>
+            <td>11 min</td>
+            <td>1830</td>
+          </tr>
+          <tr>
+            <td>2025-01-10</td>
+            <td>Player6</td>
+            <td>11-6</td>
+            <td>13 min</td>
+            <td>1845</td>
+          </tr>
+          <tr>
+            <td>2025-01-09</td>
+            <td>Player7</td>
+            <td>7-11</td>
+            <td>12 min</td>
+            <td>1835</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 5) Distribution horaire (bar chart) -->
+  <div class="card-custom">
+    <div class="card-header-custom">
+      <i class="bi bi-clock"></i>
+      Distribution horaire
+    </div>
+    <div class="card-body-custom">
+      <div class="chart-placeholder" style="height:180px;">
+        [Barres: morning / afternoon / evening / night]
+      </div>
+    </div>
+  </div>
+
+</div><!-- main-container -->

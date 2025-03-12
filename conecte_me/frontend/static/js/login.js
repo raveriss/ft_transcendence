@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
       fetch('/auth/login/', {
         method: 'POST',
         body: formData,
+        credentials: 'include'
         // Pour Django, si vous utilisez le décorateur @csrf_exempt, 
         // vous n’avez pas besoin du header X-CSRFToken. Sinon, il faudrait l'ajouter.
       })
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(data);
         if (data.success) {
           // Connexion réussie
-          // Redirection vers game_interface.html
+          // Redirection vers board.html
           window.location.href = data.redirect; 
         } else {
           // Afficher l’erreur renvoyée par le backend
