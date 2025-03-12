@@ -432,15 +432,15 @@
           ipCell.textContent = record.ip_address;
 
           // Statut : afficher "Active" si is_connected est vrai
-          // const statusCell = document.createElement('td');
-          // console.log('login_history:', data.login_history);
-          // if (record.is_connected) {
-          //   statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
-          // } else {
-          //   statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
-          // }
+          const statusCell = document.createElement('td');
+          console.log('login_history:', data.login_history);
+          if (record.is_connected) {
+            statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
+          } else {
+            statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
+          }
 
-          row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
+          row.append(dateCell, platformCell, browserCell, ipCell);
           tbody.appendChild(row);
         });
       })
