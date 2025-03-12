@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ft_transcendence - SPA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS (ex. Bootstrap et éventuellement des styles globaux) -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+  <link rel="icon" href="static/img/favicon.ico" type="image/x-icon">
+  <!-- Vous pouvez aussi ajouter ici un fichier global si besoin -->
+</head>
+<body>
+  <!-- Conteneur unique où l'on injectera les pages dynamiques -->
+  <div id="app"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Votre router JS et autres scripts -->
+  <script src="static/js/router.js"></script>
+
+  <!-- Gestion des erreurs frontend -->
+  <script>
+    // Fonction d'envoi de log vers le backend
+    function sendLog(logData) {
+      fetch('/api/logs/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(logData)
+      }).catch(function(error) {
+        console.error("Erreur lors de l'envoi du log :", error);
+      });
+    }
+
+    // Gestion des erreurs globales
+    window.onerror = function(message, source, lineno, colno, error) {
+      sendLog({
+        message: message,
+        source: source,
+        lineno: lineno,
+        colno: colno,
+        error: error ? error.stack : null,
+        level: 'ERROR'
+      });
+      // Retourne false pour laisser le navigateur traiter l'erreur normalement
+      return false;
+    };
+
+    // Gestion des promesses non gérées
+    window.onunhandledrejection = function(event) {
+      sendLog({
+        message: event.reason ? event.reason.toString() : 'Unhandled promise rejection',
+        level: 'ERROR',
+        source: 'Promise',
+        type: 'promise-rejection'
+      });
+    };
+
+    // Capture des erreurs de ressources (ex: 404, 401) en mode capture
+    window.addEventListener('error', function(event) {
+      // Si l'événement concerne un élément (ex: <img>, <link>, <script>...) et non une erreur JS globale
+      if (event.target && (event.target.src || event.target.href)) {
+        const resource = event.target.src || event.target.href;
+        sendLog({
+          message: 'Erreur de chargement de ressource',
+          resource: resource,
+          tagName: event.target.tagName,
+          level: 'ERROR',
+          type: 'resource-error'
+        });
+      }
+    }, true);
+
+    // (Optionnel) Redéfinir console.error pour capturer d'autres logs manuels
+    (function(){
+      const originalConsoleError = console.error;
+      console.error = function(...args) {
+        sendLog({
+          message: args.join(' '),
+          level: 'ERROR',
+          type: 'console-error'
+        });
+        originalConsoleError.apply(console, args);
+      };
+    })();
+  </script>
+</body>
+</html>

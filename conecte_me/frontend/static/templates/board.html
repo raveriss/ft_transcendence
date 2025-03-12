@@ -1,0 +1,116 @@
+<div class="main-container">
+  <!-- Icône utilisateur (en haut à droite) -->
+  <div class="user-icon">
+    <i class="bi bi-person-circle"></i>
+  </div>
+
+  <!-- Titre principal -->
+  <h1 class="title mb-5">BOARD</h1>
+
+  <!-- Contenu principal en 2 colonnes : Historique + Classement -->
+  <div class="row">
+    <!-- Colonne gauche : Historique des matchs -->
+    <div class="col-12 col-lg-6 mb-4">
+      <div class="card-custom">
+        <div class="card-header-custom">
+          <i class="bi-clock-history"></i>
+          Historique des matchs
+        </div>
+        <ul class="list-unstyled mb-0">
+          <li class="list-group-item-custom">
+            <div class="match-info-left">
+              <span class="match-date">2025-01-10</span>
+              <span class="match-name">ProGamer</span>
+            </div>
+            <span class="match-result text-success">Victory 11-9</span>
+          </li>
+          <li class="list-group-item-custom">
+            <div class="match-info-left">
+              <span class="match-date">2025-01-08</span>
+              <span class="match-name">PongMaster</span>
+            </div>
+            <span class="match-result text-danger">Defeat 9-11</span>
+          </li>
+          <li class="list-group-item-custom">
+            <div class="match-info-left">
+              <span class="match-date">2025-01-05</span>
+              <span class="match-name">NewPlayer</span>
+            </div>
+            <span class="match-result text-success">Victory 11-7</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Colonne droite : Classement général -->
+    <div class="col-12 col-lg-6 mb-4">
+      <div class="card-custom">
+        <div class="card-header-custom">
+          <i class="bi-mortarboard"></i>
+          Classement général
+        </div>
+      
+        <table class="table table-borderless text-white align-middle mb-0 custom-table">
+          <tbody>
+            <tr>
+              <td class="rank-cell">#1</td>
+              <td class="player-name-cell">TopPlayer1</td>
+              <td class="elo-cell text-end">1850</td>
+              <td class="wins-cell">42 wins</td>
+            </tr>
+            <tr>
+              <td class="rank-cell">#2</td>
+              <td class="player-name-cell">TopPlayer2</td>
+              <td class="elo-cell text-end">2050</td>
+              <td class="wins-cell">142 wins</td>
+            </tr>
+            <tr class="highlight">
+              <td class="rank-cell">#24</td>
+              <td class="player-name-cell">Player123</td>
+              <td class="elo-cell text-end">1850</td>
+              <td class="wins-cell">42 wins</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barre de boutons -->
+  <div class="menu-buttons">
+    <!-- Petit conteneur en “colonne” pour PLAY + son menu -->
+    <button class="menu-button" id="play-btn">
+      <span class="default-label">PLAY</span>
+      <span class="hover-icons">
+        <span class="icon-circle" data-mode="2p-local"><i class="bi bi-people"></i></span>
+        <span class="icon-circle" data-mode="1p-vs-ia"><i class="bi bi-robot"></i></span>
+        <span class="icon-circle" data-mode="tournament"><i class="bi bi-trophy"></i></span>
+      </span>
+    </button>
+
+    <!-- Autres boutons existants -->
+    <button class="menu-button" id="stats-btn">
+      <i class="bi bi-graph-up-arrow"></i>
+      STATS
+    </button>      
+    <!-- SOCIAL en colonne -->
+    <div class="social-container">
+      <button class="menu-button" id="social-btn">
+        <i class="bi bi-people"></i>
+        SOCIAL
+      </button>
+    </div>
+    <button class="menu-button" id="setup-btn">
+      <i class="bi bi-gear"></i>
+      SETUP
+    </button>
+    <button class="menu-button" id="credits-btn">
+      <i class="bi bi-heart"></i>
+      CREDITS
+    </button>
+    <button class="menu-button" id="exit-btn">
+      <i class="bi bi-x-lg"></i>
+      EXIT
+    </button>
+  </div>
+</div>

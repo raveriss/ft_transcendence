@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+(function() {
   // ------------------------------
   // Fonctionnalité avatar (existante)
   // ------------------------------
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function parseUserAgent(userAgent) {
     let platform = 'Unknown';
     let browser = 'Unknown';
-  
+
     // Détection de la plateforme
     if (userAgent.indexOf('Linux') > -1) {
       platform = 'Linux';
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (userAgent.indexOf('Macintosh') > -1) {
       platform = 'Mac';
     }
-  
+
     // Détection du navigateur
     if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edge') === -1) {
       browser = 'Chrome';
@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (userAgent.indexOf('Edge') > -1) {
       browser = 'Edge';
     }
-  
+
     return { platform, browser };
   }
-  
+
 
   avatarInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
@@ -349,13 +349,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Vérifier l'état initial de 2FA
   fetch('/auth/user/', { credentials: 'include' })
-    .then(response => response.json())
+  .then(response => response.json())
     .then(data => {
+      if (data.username) {
+        document.querySelector('.player-name').textContent = data.username;
+      }
+      if (data.profile_image) {
+        document.getElementById('profile-image').src = data.profile_image;
+      }
       if (data.is_2fa_enabled !== undefined) {
         updateTwofaUI(data.is_2fa_enabled);
       }
     })
-    .catch(error => console.error('Erreur de récupération de l\'état 2FA:', error));
+    .catch(error => console.error('Erreur de récupération des informations utilisateur:', error));
 
   // Gérer le clic sur le bouton de 2FA
   twofaBtn.addEventListener('click', () => {
@@ -398,7 +404,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Si nous sommes sur user.html, récupérer l'historique des connexions
-  if (window.location.href.includes('user.html')) {
+  if (window.location.pathname === '/user') {
     fetch('/auth/user/login_history/', { credentials: 'include' })
       .then(response => response.json())
       .then(data => {
@@ -426,13 +432,13 @@ document.addEventListener('DOMContentLoaded', () => {
           ipCell.textContent = record.ip_address;
 
           // Statut : afficher "Active" si is_connected est vrai
-          const statusCell = document.createElement('td');
-          console.log('login_history:', data.login_history);
-          if (record.is_connected) {
-            statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
-          } else {
-            statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
-          }
+          // const statusCell = document.createElement('td');
+          // console.log('login_history:', data.login_history);
+          // if (record.is_connected) {
+          //   statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
+          // } else {
+          //   statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
+          // }
 
           row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
           tbody.appendChild(row);
@@ -441,10 +447,10 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(error => console.error('Erreur lors de la récupération de l\'historique:', error));
   }
 
-});
 
 
-document.getElementById("export-data-btn").addEventListener("click", () => {
+
+  document.getElementById("export-data-btn").addEventListener("click", () => {
   fetch("/auth/user/export_data/", {
       method: "GET",
       credentials: "include"
@@ -461,9 +467,9 @@ document.getElementById("export-data-btn").addEventListener("click", () => {
       window.URL.revokeObjectURL(url);
   })
   .catch(error => console.error("Erreur lors de l'export des données :", error));
-});
+  });
 
-document.getElementById("delete-account-btn").addEventListener("click", () => {
+  document.getElementById("delete-account-btn").addEventListener("click", () => {
   if (confirm("Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.")) {
       fetch("/auth/user/delete_account/", {
           method: "POST",
@@ -474,11 +480,13 @@ document.getElementById("delete-account-btn").addEventListener("click", () => {
       .then(data => {
           if (data.success) {
               alert("Votre compte a été supprimé.");
-              window.location.href = "home.html";  // Redirection vers home.html
+              navigateTo('/home');
+              
           } else {
               alert("Erreur : " + data.error);
           }
       })
       .catch(error => console.error("Erreur lors de la suppression du compte :", error));
   }
-});
+  });
+})();

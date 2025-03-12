@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
     container_name: conecteme_backend
     env_file:
-      - .env
+      - .env 
     environment:
       - SECRET_KEY=${SECRET_KEY}
       - DEBUG=${DEBUG}
@@ -32,7 +32,7 @@ services:
       - OAUTH42_CLIENT_ID=${OAUTH42_CLIENT_ID}
       - OAUTH42_CLIENT_SECRET=${OAUTH42_CLIENT_SECRET}
       - OAUTH42_REDIRECT_URI=${OAUTH42_REDIRECT_URI}
-      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,conecteme_backend
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,conecteme_backend,10.25.2.3
     ports:
       - "8000:8000"
     depends_on:

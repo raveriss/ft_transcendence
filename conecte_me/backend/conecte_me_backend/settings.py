@@ -14,7 +14,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'unsafe-secret-key')
 DEBUG = os.environ.get('DEBUG', '1') == '1'
 
 # Configuration des hôtes autorisés
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,10.25.2.3').split(',')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -131,10 +131,10 @@ REST_FRAMEWORK = {
 }
 
 # Configuration des informations client OAuth2
-OAUTH42_WEBSITE = 'https://localhost:8443'
+OAUTH42_WEBSITE = 'https://10.25.2.3:8443'
 OAUTH42_CLIENT_ID = 'u-s4t2ud-212adcc9d7bcdde9f1b4072ac7e13a17ce8c3493475514c9c139b3f993a243a6'
 OAUTH42_CLIENT_SECRET = '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'
-OAUTH42_REDIRECT_URI = 'https://localhost:8443/auth/42/callback'
+OAUTH42_REDIRECT_URI = 'https://10.25.2.3:8443/auth/42/callback'
 OAUTH42_AUTH_URL = 'https://api.intra.42.fr/oauth/authorize'
 OAUTH42_TOKEN_URL = 'https://api.intra.42.fr/oauth/token'
 OAUTH42_USER_URL = 'https://api.intra.42.fr/v2/me'
@@ -215,8 +215,3 @@ LOGGING = {
         },
     },
 }
-
-# Par exemple, vous pouvez tester cette configuration en ajoutant un message de log au démarrage :
-# import logging
-# logger = logging.getLogger(__name__)
-# logger.info("La configuration du logging est activée et les logs seront enregistrés dans 'logs/django.log'.")

@@ -40,7 +40,7 @@ def two_factor_setup(request):
     
     # Si le 2FA est déjà activé, rediriger directement vers l'interface de jeu
     # if user.is_2fa_enabled:
-    #     return redirect('/game_interface.html')
+    #     return redirect('/board.html')
     
     # Générer le secret TOTP s'il n'existe pas déjà
     if not user.totp_secret:
@@ -95,7 +95,7 @@ def two_factor_validate(request):
             return JsonResponse({
                 "success": True,
                 "message": "2FA validé avec succès.",
-                "redirect": "/game_interface.html"
+                "redirect": "/board"
             }, status=200)
         else:
             request.session['2fa_attempts'] = attempts + 1

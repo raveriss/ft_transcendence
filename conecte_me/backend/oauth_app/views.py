@@ -171,7 +171,7 @@ def callback_42(request):
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
 
     # Redirection côté frontend vers l'interface de jeu, en transmettant le token
-    response = HttpResponseRedirect(f"https://localhost:8443/game_interface.html?jwt={jwt_token}")
+    response = HttpResponseRedirect(f"https://10.25.2.3:8443/board?jwt={jwt_token}")
     return response
 
 # --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
@@ -179,10 +179,10 @@ def callback_42(request):
 def signup_view(request):
     if request.method == 'POST':
         # Récupération des données du formulaire
-        first_name   = request.POST.get('firstname')
-        email        = request.POST.get('email')
+        first_name   = request.POST.get('first_name')
+        email        = request.POST.get('email_address')
         raw_password = request.POST.get('password')
-        pseudo       = request.POST.get('pseudo', '')
+        pseudo       = request.POST.get('username', '')
 
         # Vérification que tous les champs requis sont présents
         if not all([first_name, email, raw_password]):
@@ -307,7 +307,6 @@ def login_view(request):
                     "redirect": "/auth/2fa/setup/"
                 }, status=200)
             else:
-                # Si la 2FA est déjà activée, enregistrer la connexion
                 ip_address = request.META.get('REMOTE_ADDR')
                 user_agent = request.META.get('HTTP_USER_AGENT', '')
                 UserLoginHistory.objects.create(
@@ -318,7 +317,7 @@ def login_view(request):
                 )
                 return JsonResponse({
                     "success": True,
-                    "redirect": "/game_interface.html"
+                    "redirect": "/board"
                 }, status=200)
 
         return JsonResponse({
