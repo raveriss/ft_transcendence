@@ -14,6 +14,15 @@ services:
     networks:
       - conecteme_network
 
+  redis:
+    image: redis:alpine
+    container_name: conecteme_redis
+    restart: always
+    ports:
+      - "6380:6379"
+    networks:
+      - conecteme_network
+
   backend:
     build: 
       context: ./backend
