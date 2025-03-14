@@ -135,6 +135,10 @@ def callback_42(request):
     except IntegrityError:
         return JsonResponse({"error": "Erreur lors de l'inscription de l'utilisateur"}, status=400)
 
+    # Mise à jour de la session pour que checkAuth détecte l'utilisateur authentifié
+    request.session['user_id'] = user.pk
+    request.session['email'] = user.email_address
+
     # Mise à jour de la session, création du log de connexion, etc.
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
     response = HttpResponseRedirect(f"https://10.25.2.3:8443/board?jwt={jwt_token}")
