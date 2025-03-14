@@ -20,6 +20,28 @@ const routes = {
     '/stats': 'static/templates/stats.html'
   };
 
+// Définir la liste des routes nécessitant une authentification
+const protectedRoutes = ['/board', '/user', '/stats', '/setup'];
+
+function isRouteProtected(path) {
+  return protectedRoutes.includes(path);
+}
+
+// Fonction qui interroge le backend pour vérifier l'authentification
+async function checkAuth() {
+  try {
+    // On utilise la route '/auth/user/' qui renvoie les infos utilisateur si authentifié
+    const res = await fetch('/auth/user/', { method: 'GET', credentials: 'include' });
+    if (res.ok) {
+      return await res.json();
+    }
+    return null;
+  } catch (error) {
+    console.error("Erreur lors de la vérification d'authentification :", error);
+    return null;
+  }
+}
+
 
   function loadCSSForRoute(route) {
     return new Promise((resolve, reject) => {
@@ -115,6 +137,16 @@ const routes = {
 // Fonction principale pour charger une vue
 async function navigateTo(path) {
   console.log("Navigating to:", path);
+
+  // Si la route est protégée, vérifier l'authentification
+  if (isRouteProtected(path)) {
+    const user = await checkAuth();
+    if (!user) {
+      // Si l'utilisateur n'est pas authentifié, rediriger vers /home
+      console.log("Utilisateur non authentifié, redirection vers /home");
+      path = '/home';
+    }
+  }
 
   // Pour la configuration 2FA, redirige sans SPA
   if (path.startsWith("/auth/2fa/setup")) {
