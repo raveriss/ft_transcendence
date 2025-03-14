@@ -1,0 +1,2 @@
+INFO 2025-03-14 15:48:23,964 views 11 140403835710264 {"message": "TypeError: Failed to execute 'fetch' on 'Window': Request with GET/HEAD method cannot have body.", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-14 16:06:50,866 views 11 140381381499704 {"message": "TypeError: Failed to execute 'fetch' on 'Window': Request with GET/HEAD method cannot have body.", "level": "ERROR", "type": "console-error", "origin": "frontend"}

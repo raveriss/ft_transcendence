@@ -1,3 +1,236 @@
+Arborescence du projet :
+.
+├── backend
+│   ├── chat
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   └── views.py
+│   ├── conecte_me_backend
+│   │   ├── __init__.py
+│   │   ├── middleware.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── views.py
+│   │   └── wsgi.py
+│   ├── Dockerfile
+│   ├── logs
+│   │   ├── django.log
+│   │   ├── django.log.2025-03-04
+│   │   └── frontend.log
+│   ├── manage.py
+│   ├── media
+│   │   └── profile_pictures
+│   │       └── default_avatar.png
+│   ├── oauth_app
+│   │   ├── __init__.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   ├── 0002_user42_email_address_user42_first_name_and_more.py
+│   │   │   ├── 0003_user42_is_2fa_enabled_user42_totp_secret.py
+│   │   │   ├── 0004_alter_user42_totp_secret.py
+│   │   │   ├── 0005_user42_profile_image.py
+│   │   │   ├── 0006_alter_user42_profile_image_userloginhistory.py
+│   │   │   ├── 0007_userloginhistory_is_connected.py
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── templates
+│   │   │   └── 2fa_setup.html
+│   │   ├── tests.py
+│   │   ├── twofa_views.py
+│   │   ├── urls.py
+│   │   ├── utils.py
+│   │   └── views.py
+│   └── requirements.txt
+├── certs
+│   ├── localhost.crt
+│   └── localhost.key
+├── docker-compose.yml
+├── elk
+│   ├── elasticsearch
+│   │   └── elasticsearch.yml
+│   ├── elk_initializer.sh
+│   ├── filebeat.yml
+│   ├── kibana
+│   │   └── kibana.yml
+│   ├── logstash
+│   │   ├── logstash.conf
+│   │   └── logstash.yml
+│   └── saved_objects.ndjson
+├── frontend
+│   ├── Dockerfile
+│   ├── index.html
+│   └── static
+│       ├── css
+│       │   ├── board.css
+│       │   ├── login.css
+│       │   ├── main.css
+│       │   ├── privacy.css
+│       │   ├── setup.css
+│       │   ├── signup.css
+│       │   ├── stats.css
+│       │   ├── team.css
+│       │   ├── terms.css
+│       │   └── user.css
+│       ├── fonts
+│       │   ├── PongGame.woff
+│       │   └── PongGame.woff2
+│       ├── img
+│       │   ├── 42_logo.png
+│       │   ├── default_avatar.png
+│       │   ├── favicon.ico
+│       │   ├── Game_anime.png
+│       │   ├── jecointr.jpg
+│       │   ├── mmaric.jpg
+│       │   ├── ode-cleb.jpg
+│       │   ├── PONG_Accueil.png
+│       │   ├── PONG_seul.png
+│       │   ├── raveriss.jpg
+│       │   ├── return_arrow.png
+│       │   ├── sycourbi.jpg
+│       │   └── Symbole_return.png
+│       ├── js
+│       │   ├── 2fa.js
+│       │   ├── board.js
+│       │   ├── login.js
+│       │   ├── main.js
+│       │   ├── router.js
+│       │   ├── setup.js
+│       │   ├── signin42.js
+│       │   ├── signup.js
+│       │   └── user.js
+│       └── templates
+│           ├── board.html
+│           ├── home.html
+│           ├── login.html
+│           ├── privacy.html
+│           ├── setup.html
+│           ├── signin42.html
+│           ├── signup.html
+│           ├── stats.html
+│           ├── team.html
+│           ├── terms.html
+│           └── user.html
+├── nginx.conf
+├── output.log
+└── README.md
+
+22 directories, 96 files
+
+--- Fin de l'arborescence ---
+
+
+--- Nginx ---
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    # Logs
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log warn;
+
+    server {
+        listen 443 ssl;
+        server_name 10.25.2.3;
+
+        ssl_certificate     /etc/nginx/certs/localhost.crt;
+        ssl_certificate_key /etc/nginx/certs/localhost.key;
+        ssl_session_cache shared:SSL:10m;
+        ssl_session_timeout 10m;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_ciphers HIGH:!aNULL:!MD5;
+
+        location /static/ {
+            proxy_pass http://conecteme_frontend:80/static/;
+        }
+
+        location ~* \.(html|htm|css|js|png|jpg|jpeg|gif|ico)$ {
+            proxy_pass http://conecteme_frontend:80;
+        }
+
+        location /auth/ {
+            proxy_set_header Host $host;
+            proxy_pass http://conecteme_backend:8000;
+        }
+
+        location /api/ {
+            proxy_set_header Host $host;
+            proxy_pass http://conecteme_backend:8000;
+        }
+        
+        location ^~ /media/ {
+            alias /app/media/;
+        }
+
+        # Pour la SPA : redirige vers index.html si le fichier n’existe pas
+        location / {
+            try_files $uri /index.html;
+        }
+
+
+    }
+
+    server {
+        listen 80;
+        server_name localhost;
+        return 301 https://$host$request_uri;
+    }
+}
+
+--- Frontend ---
+
+# backend/oauth_app/urls.py
+from django.urls import path
+from .views import (
+    redirect_to_42,
+    callback_42,
+    signup_view,
+    login_view,
+    user_info,  # <--- Import de la nouvelle vue
+    upload_avatar_view,
+    set_42_password_view,
+    update_email_view,  # Import de la nouvelle vue
+    update_password_view,
+    export_data_view,
+    delete_account_view,
+    user_login_history,
+    update_login_status,
+)
+from . import twofa_views, views
+
+urlpatterns = [
+    path('signup/', signup_view, name='signup'),
+    path('login/', login_view, name='login'),
+    path('login-42/', redirect_to_42, name='redirect_to_42'),
+    path('callback', callback_42, name='callback_42'),
+    path('42/password/', set_42_password_view, name='set_42_password'),  # <== Ajouté ici
+
+    path('2fa/setup/', twofa_views.two_factor_setup, name='two_factor_setup'),
+    path('2fa/validate/', twofa_views.two_factor_validate, name='two_factor_validate'),
+    path('user/toggle_2fa/', views.toggle_2fa, name='toggle_2fa'),
+
+    # Nouvelle route pour récupérer le username
+    path('user/', user_info, name='user_info'),
+
+    path('user/upload_avatar/', upload_avatar_view, name='upload_avatar'),
+    path('user/update_email/', update_email_view, name='update_email'),
+    path("user/update_password/", update_password_view, name="update_password"),
+    path('user/export_data/', export_data_view, name='export_data'),
+    path('user/delete_account/', delete_account_view, name='delete_account'),
+
+    path('user/login_history/', user_login_history, name='user_login_history'),
+    path('user/update_login_status/', update_login_status, name='update_login_status'),
+
+]
 import os
 import requests
 import jwt
@@ -612,3 +845,4 @@ def toggle_2fa(request):
     
     return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
 
+cd: no such file or directory: templates

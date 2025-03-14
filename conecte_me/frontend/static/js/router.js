@@ -10,7 +10,6 @@ const routes = {
     '/home': 'static/templates/home.html',
     '/login': 'static/templates/login.html',
     '/signup': 'static/templates/signup.html',
-    '/signin42': 'static/templates/signin42.html',
     '/terms': 'static/templates/terms.html',
     '/privacy': 'static/templates/privacy.html',
     '/board': 'static/templates/board.html',
@@ -268,7 +267,8 @@ function attachListeners() {
         alert("Vous devez accepter les TOS avant de continuer !");
         return;
       }
-      navigateTo('/signin42');
+      // Redirection directe vers l'endpoint OAuth 42
+      window.location.href = '/auth/login-42/';
     });
   }
 
