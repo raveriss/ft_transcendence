@@ -87,6 +87,17 @@ DATABASES = {
     }
 }
 
+# Configuration Redis
+REDIS_HOST = os.environ.get('REDIS_HOST', 'redis')  # Utilise le nom du service dans docker-compose
+REDIS_PORT = os.environ.get('REDIS_PORT', '6379')
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/1",
+    }
+}
+
 # Configuration des mots de passe
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
