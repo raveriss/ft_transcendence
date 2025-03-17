@@ -11,6 +11,9 @@
   // Image du terrain
   var fondcanvas = new Image();
   fondcanvas.src = '/static/img/map_handball.png';
+  // Vitesse de base
+  const ballSpeedX = 10;
+  const ballSpeedY = 10;
   // Global pour suivre l'état des touches
   let keysPressed = {};
 
@@ -38,8 +41,6 @@
 
     const paddleSpeed = 10;
     const ballRadius = 10;
-    const ballSpeedX = 5;
-    const ballSpeedY = 5;
 
     // Chronomètre
     const startTime = Date.now();
@@ -199,6 +200,9 @@
       isGameOver = true;
       confirmQuit = false;
       const duration = Math.floor((Date.now() - startTime) / 1000);
+      //
+      // Route pour enregistrer le match
+      //
       console.log(`Durée du match : ${duration} sec`);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
@@ -271,6 +275,34 @@
       requestAnimationFrame(gameLoop);
     }
     gameLoop();
+    // Gestion du retour arrière du navigateur (popstate) : lorsqu'on quitte "/game"
+    function handlePopState() {
+      if (location.pathname !== "/game") {
+        // Enregistrer le match avant de quitter
+        const duration = Math.floor((Date.now() - startTime) / 1000);
+        const matchData = {
+          player1: player1Name,
+          player2: player2Name,
+          score1: player1.score,
+          score2: player2.score,
+          duration: duration,
+          date: dateStart,
+          recorded: true
+        };
+        //
+        //rajouter fonction pour sauvegarder le match
+        console.log("Match enregistré via popstate:", matchData);
+        //
+        //
+        // Arrêter le jeu et retirer le canvas
+        isGameOver = true;
+        if (canvas.parentNode) {
+          canvas.parentNode.removeChild(canvas);
+        }
+        window.removeEventListener("popstate", handlePopState);
+      }
+    }
+    window.addEventListener("popstate", handlePopState);
   }
 
   // Lancement du jeu dès que le DOM est prêt
