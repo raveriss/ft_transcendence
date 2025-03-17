@@ -39,5 +39,5 @@ urlpatterns = [
 
     path('user/login_history/', user_login_history, name='user_login_history'),
     path('user/update_login_status/', update_login_status, name='update_login_status'),
-
+    path('logout/', views.logout_view, name='logout'),
 ]

@@ -154,3 +154,358 @@ INFO 2025-03-14 16:45:51,836 basehttp 11 140053058014008 "GET /auth/user/ HTTP/1
 INFO 2025-03-14 16:45:59,366 basehttp 11 140053057997624 "GET /auth/user/ HTTP/1.0" 200 112
 INFO 2025-03-14 16:45:59,426 basehttp 11 140053057997624 "GET /auth/user/ HTTP/1.0" 200 112
 INFO 2025-03-14 16:45:59,427 basehttp 11 140053053614904 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:50:13,298 autoreload 11 140673133644584 Watching for file changes with StatReloader
+INFO 2025-03-17 14:52:11,743 autoreload 11 140521203669800 Watching for file changes with StatReloader
+INFO 2025-03-17 14:52:13,261 basehttp 11 140521124850488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:52:31,229 basehttp 11 140521123765048 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:53:29,111 autoreload 11 139770932644648 Watching for file changes with StatReloader
+INFO 2025-03-17 14:53:32,902 basehttp 11 139770853829432 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:53:36,475 basehttp 11 139770852743992 "GET /auth/42/callback?code=7508fd9ce05063cae128dc114ccd55b5c97ed8d1d77d8acefe70ed5988dc68f5&state=AW6mThToDmG8yCdEa2TCwvEn9FlZWfyi HTTP/1.0" 302 0
+INFO 2025-03-17 14:53:36,832 basehttp 11 139770852780856 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:53:38,911 basehttp 11 139770852780856 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:53:39,074 basehttp 11 139770852780856 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:53:39,083 basehttp 11 139770849561400 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:53:40,695 basehttp 11 139770849561400 "GET /auth/user/ HTTP/1.0" 200 112
+ERROR 2025-03-17 14:54:05,343 log 11 139770849561400 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:54:05.318265+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:54:05.318265+00, null, , 1, f).
+
+ERROR 2025-03-17 14:54:05,345 basehttp 11 139770849561400 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151453
+INFO 2025-03-17 14:54:05,354 basehttp 11 139770849561400 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 14:54:41,861 autoreload 11 140341258271528 Watching for file changes with StatReloader
+WARNING 2025-03-17 14:55:05,785 log 11 140341179476792 Unauthorized: /auth/user/
+WARNING 2025-03-17 14:55:05,785 basehttp 11 140341179476792 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 14:55:13,285 basehttp 11 140341179439928 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:55:14,171 basehttp 11 140341179439928 "GET /auth/42/callback?code=655ea0362f4bee83da474bba00626257a30b83852fe4829cfefa2d2482611a07&state=JmwU5rxPK88fmKnvVaWUQgohzAlN30CB HTTP/1.0" 302 0
+INFO 2025-03-17 14:55:14,341 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:16,202 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:16,249 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:16,266 basehttp 11 140341179480888 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:19,330 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+ERROR 2025-03-17 14:55:20,547 log 11 140341179480888 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:55:20.523619+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:55:20.523619+00, null, , 1, f).
+
+ERROR 2025-03-17 14:55:20,549 basehttp 11 140341179480888 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151460
+INFO 2025-03-17 14:55:20,557 basehttp 11 140341179480888 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 14:55:25,149 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:25,195 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:25,196 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:31,870 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:31,897 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:31,898 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:33,849 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:33,875 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:33,877 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,120 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,151 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,152 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,368 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,397 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,397 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,560 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,586 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,588 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,786 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,811 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,812 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:35,033 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,059 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,059 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:35,698 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,721 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,723 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:38,034 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:38,058 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:38,060 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:25:58,846 basehttp 11 140341175159608 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 16:25:59,654 basehttp 11 140341175159608 "GET /auth/42/callback?code=35fb508efd7f5089d6dee9cc416506593ba6c6a1be18dc7d016011948139626e&state=elygE5LmBsDer0QhTr0a69zN93dpSXKc HTTP/1.0" 302 0
+INFO 2025-03-17 16:25:59,826 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:26:01,254 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:26:01,316 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:26:01,317 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:26:08,962 basehttp 11 140341175159608 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 76
+INFO 2025-03-17 16:26:14,430 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:16,585 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:17,758 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:19,012 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:20,551 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:21,749 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:35,416 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:36,393 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:37,670 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:37,694 basehttp 11 140341175159608 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 16:26:38,614 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:41,103 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+ERROR 2025-03-17 16:26:46,117 log 11 140341175159608 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (2, 2025-03-17 15:26:46.09593+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (2, 2025-03-17 15:26:46.09593+00, null, , 1, f).
+
+ERROR 2025-03-17 16:26:46,118 basehttp 11 140341175159608 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151445
+INFO 2025-03-17 16:26:46,126 basehttp 11 140341175159608 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 16:26:52,600 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:52,658 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:52,660 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:27:10,294 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:27:10,428 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:27:10,429 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+WARNING 2025-03-17 16:27:17,024 log 11 140341175159608 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:27:17,024 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:27:37,531 log 11 140341175159608 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:27:37,531 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:27:42,331 log 11 140341175159608 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:27:42,331 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 16:31:31,692 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:31:31,743 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:31:31,744 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:31:42,182 basehttp 11 140341175159608 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 16:31:43,078 basehttp 11 140341175159608 "GET /auth/42/callback?code=cedb7c1dba072943734785ae348ef71c62da0e2d2797b75935b410939b0a64ff&state=iU69XShcH4ZMkY3xsT1Q4sDjJ54taALR HTTP/1.0" 302 0
+INFO 2025-03-17 16:31:43,229 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+ERROR 2025-03-17 16:32:09,719 log 11 140341175159608 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (3, 2025-03-17 15:32:09.697272+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (3, 2025-03-17 15:32:09.697272+00, null, , 1, f).
+
+ERROR 2025-03-17 16:32:09,719 basehttp 11 140341175159608 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151453
+INFO 2025-03-17 16:32:09,728 basehttp 11 140341175159608 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 16:32:35,841 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:32:36,005 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:32:36,006 basehttp 11 140341171510072 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:46:21,594 autoreload 11 140304037255976 Watching for file changes with StatReloader
+INFO 2025-03-17 16:46:44,272 basehttp 11 140303958448952 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 16:46:45,171 basehttp 11 140303958448952 "GET /auth/42/callback?code=8e82c70a1bcb17af56219cffc0ce4da5f93e737e2e1616d1751c5e929958f700&state=JK746ESCuiMupb7k53LyZRZqyE3dZ8oF HTTP/1.0" 302 0
+INFO 2025-03-17 16:46:45,346 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:46:49,323 basehttp 11 140303955254072 "POST /auth/logout/ HTTP/1.0" 200 38
+WARNING 2025-03-17 16:47:05,612 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:05,613 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:47:05,954 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:05,955 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:47:09,501 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:09,501 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:47:10,141 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:10,141 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 16:49:48,096 basehttp 11 140303955254072 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-17 16:49:48,108 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:49,200 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:49,274 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:49,277 basehttp 11 140303954193208 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-17 16:49:51,265 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:52,698 basehttp 11 140303955254072 "POST /auth/logout/ HTTP/1.0" 200 38
+WARNING 2025-03-17 16:50:02,897 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:50:02,898 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:50:07,790 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:50:07,791 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 16:53:02,351 basehttp 11 140303955254072 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-17 16:53:02,363 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:53:04,884 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:53:04,949 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:53:04,952 basehttp 11 140303954193208 "GET /auth/user/login_history/ HTTP/1.0" 200 461
+INFO 2025-03-17 16:53:26,858 basehttp 11 140303955254072 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 76
+INFO 2025-03-17 17:31:00,068 autoreload 13 139790408649512 Watching for file changes with StatReloader
+INFO 2025-03-17 17:31:20,379 basehttp 13 139790329871160 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 17:31:21,275 basehttp 13 139790329871160 "GET /auth/42/callback?code=80519d3436199e9a9230429f4450972146f03d7dd53da59ffaaf016c35ec8e5a&state=PAw3H6JkUDyVngGrud59B78hMB3NmcW2 HTTP/1.0" 302 0
+INFO 2025-03-17 17:31:21,447 basehttp 13 139790329908024 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 17:31:34,282 basehttp 13 139790329891640 "POST /auth/logout/ HTTP/1.0" 200 38
+INFO 2025-03-17 17:31:50,965 basehttp 13 139790329891640 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-17 17:31:50,974 basehttp 13 139790329891640 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 17:31:54,781 basehttp 13 139790329891640 "POST /auth/logout/ HTTP/1.0" 200 38
+INFO 2025-03-17 17:49:44,682 autoreload 10 140197757856552 Watching for file changes with StatReloader
+INFO 2025-03-17 17:50:01,978 basehttp 10 140197679090488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 17:50:02,854 basehttp 10 140197679090488 "GET /auth/42/callback?code=903e933a48c06c6c5f559624ca34ec77e0e6890023f45c09640381d6d8e6ae0c&state=1hGiuCVtKb01Y6813lzauJ7UG9f0MKDe HTTP/1.0" 302 0
+INFO 2025-03-17 17:50:03,043 basehttp 10 140197679094584 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 17:50:19,982 basehttp 10 140197679094584 "POST /auth/logout/ HTTP/1.0" 200 38
+WARNING 2025-03-17 17:50:41,406 log 10 140197679094584 Unauthorized: /auth/user/
+WARNING 2025-03-17 17:50:41,406 basehttp 10 140197679094584 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 17:50:58,490 log 10 140197674699576 Unauthorized: /auth/user/
+WARNING 2025-03-17 17:50:58,490 basehttp 10 140197674699576 "GET /auth/user/ HTTP/1.0" 401 35

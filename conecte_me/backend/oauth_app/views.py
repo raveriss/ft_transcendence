@@ -136,12 +136,20 @@ def callback_42(request):
         return JsonResponse({"error": "Erreur lors de l'inscription de l'utilisateur"}, status=400)
 
     # Mise à jour de la session pour que checkAuth détecte l'utilisateur authentifié
+    ip_address = request.META.get('REMOTE_ADDR')
+    user_agent = request.META.get('HTTP_USER_AGENT', '')
+    UserLoginHistory.objects.create(
+        user=user,
+        ip_address=ip_address,
+        user_agent=user_agent,
+        is_connected=True
+    )
     request.session['user_id'] = user.pk
     request.session['email'] = user.email_address
 
     # Mise à jour de la session, création du log de connexion, etc.
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
-    response = HttpResponseRedirect(f"https://10.25.2.3:8443/board?jwt={jwt_token}")
+    response = HttpResponseRedirect(f"https://10.31.5.3:8443/board?jwt={jwt_token}")
     return response
 
 # --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
@@ -221,6 +229,27 @@ def signup_view(request):
         {"success": False, "error": "Méthode non autorisée."},
         status=405
     )
+
+@csrf_exempt
+def logout_view(request):
+    """
+    Vue de déconnexion qui met à jour is_connected à False,
+    puis nettoie la session et redirige vers /home.
+    """
+    user_id = request.session.get('user_id')
+    if user_id:
+        try:
+            user = User42.objects.get(pk=user_id)
+            # Mise à jour du dernier log de connexion
+            last_login = UserLoginHistory.objects.filter(user=user).order_by('-timestamp').first()
+            if last_login:
+                last_login.is_connected = False
+                last_login.save()
+        except User42.DoesNotExist:
+            pass
+
+    request.session.flush()
+    return JsonResponse({"success": True, "redirect": "/home"}, status=200)
 
 @csrf_exempt
 def user_login_history(request):

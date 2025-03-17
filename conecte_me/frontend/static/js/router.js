@@ -321,17 +321,15 @@ function attachListeners() {
 
   if (exitBtn) {
     exitBtn.addEventListener('click', () => {
-      fetch('/auth/user/update_login_status/', {
+      fetch('/auth/logout/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ is_connected: false })
       })
       .then(response => response.json())
       .then(data => {
-        console.log("Statut mis à jour :", data);
+        console.log("Déconnexion réussie :", data);
         // Redirection vers home.html après la mise à jour
-        navigateTo('/home');
+        navigateTo('data.redirect');
       })
       .catch(error => {
         console.error("Erreur lors de la mise à jour du statut :", error);
