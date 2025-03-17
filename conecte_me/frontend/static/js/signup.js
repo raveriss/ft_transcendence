@@ -75,7 +75,7 @@
     const formData = new FormData(signupForm);
 
     // Envoi de la requête POST au backend
-    fetch('https://10.25.2.3:8443/auth/signup/', {
+    fetch('/auth/signup/', {
       method: 'POST',
       body: formData,
       credentials: 'include'

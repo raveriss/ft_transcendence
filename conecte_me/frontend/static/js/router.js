@@ -17,7 +17,8 @@ const routes = {
     '/setup': 'static/templates/setup.html',
     '/user': 'static/templates/user.html',
     '/team': 'static/templates/team.html',
-    '/stats': 'static/templates/stats.html'
+    '/stats': 'static/templates/stats.html',
+    '/game': 'static/templates/game.html'
   };
 
 
@@ -48,6 +49,8 @@ const routes = {
         cssFile = 'static/css/team.css';
       } else if (route === '/stats') {
         cssFile = 'static/css/stats.css';
+      } else if (route === '/game') {
+        cssFile = 'static/css/game.css';
       } else {
         cssFile = 'static/css/main.css';
       }
@@ -98,6 +101,8 @@ const routes = {
       scriptFile = 'static/js/setup.js';
     } else if (route === '/user') {
       scriptFile = 'static/js/user.js';
+    } else if (route === '/game') {
+      scriptFile = 'static/js/game.js';
     // } else if (route === '/stats') {
     //   scriptFile = 'static/js/stats.js';
     } else {
@@ -307,6 +312,15 @@ function attachListeners() {
       });
     });
   }
+  const modeButtons = document.querySelectorAll('.icon-circle');
+  modeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      const mode = event.currentTarget.getAttribute('data-mode');
+      if (mode === "2p-local") {
+        navigateTo('/game');  // Redirige vers la page du jeu
+      }
+    });
+  });
   
   // Etc. Répliquez la logique de vos anciens scripts qui faisaient du "window.location.href"
 }
