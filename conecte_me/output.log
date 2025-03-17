@@ -140,7 +140,7 @@ http {
 
     server {
         listen 443 ssl;
-        server_name 10.31.5.3;
+        server_name localhost;
 
         ssl_certificate     /etc/nginx/certs/localhost.crt;
         ssl_certificate_key /etc/nginx/certs/localhost.key;
@@ -478,7 +478,7 @@ def callback_42(request):
 
     # Mise à jour de la session, création du log de connexion, etc.
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
-    response = HttpResponseRedirect(f"https://10.31.5.3:8443/board?jwt={jwt_token}")
+    response = HttpResponseRedirect(f"https://localhost:8443/board?jwt={jwt_token}")
     return response
 
 # --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
@@ -1057,7 +1057,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'unsafe-secret-key')
 DEBUG = os.environ.get('DEBUG', '1') == '1'
 
 # Configuration des hôtes autorisés
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,10.31.5.3').split(',')
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,localhost').split(',')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -1186,10 +1186,10 @@ REST_FRAMEWORK = {
 }
 
 # Configuration des informations client OAuth2
-OAUTH42_WEBSITE = 'https://10.31.5.3:8443'
+OAUTH42_WEBSITE = 'https://localhost:8443'
 OAUTH42_CLIENT_ID = 'u-s4t2ud-212adcc9d7bcdde9f1b4072ac7e13a17ce8c3493475514c9c139b3f993a243a6'
 OAUTH42_CLIENT_SECRET = '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'
-OAUTH42_REDIRECT_URI = 'https://10.31.5.3:8443/auth/42/callback'
+OAUTH42_REDIRECT_URI = 'https://localhost:8443/auth/42/callback'
 OAUTH42_AUTH_URL = 'https://api.intra.42.fr/oauth/authorize'
 OAUTH42_TOKEN_URL = 'https://api.intra.42.fr/oauth/token'
 OAUTH42_USER_URL = 'https://api.intra.42.fr/v2/me'
@@ -1778,7 +1778,7 @@ form.addEventListener('submit', (e) => {
     .then((data) => {
       if (data.success) {
         // Redirige vers l'authentification OAuth 42
-        window.location.href = 'https://10.31.5.3:8443/auth/42/login-42/';
+        window.location.href = 'https://localhost:8443/auth/42/login-42/';
       } else {
         alert("Erreur : " + data.error);
       }
