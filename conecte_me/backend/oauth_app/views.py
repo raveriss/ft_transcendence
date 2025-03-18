@@ -149,12 +149,7 @@ def callback_42(request):
 
     # Mise à jour de la session, création du log de connexion, etc.
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
-<<<<<<< HEAD
-
-    # Redirection côté frontend vers l'interface de jeu, en transmettant le token
-=======
->>>>>>> main
-    response = HttpResponseRedirect(f"/board?jwt={jwt_token}")
+    response = HttpResponseRedirect(f"https://localhost:8443/board?jwt={jwt_token}")
     return response
 
 # --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
