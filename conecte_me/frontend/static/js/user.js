@@ -440,7 +440,7 @@
           //   statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
           // }
 
-          row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
+          row.append(dateCell, platformCell, browserCell, ipCell);
           tbody.appendChild(row);
         });
       })

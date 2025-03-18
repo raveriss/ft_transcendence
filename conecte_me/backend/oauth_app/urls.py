@@ -22,7 +22,7 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('login-42/', redirect_to_42, name='redirect_to_42'),
     path('callback', callback_42, name='callback_42'),
-    path('42/password/', set_42_password_view, name='set_42_password'),  # <== Ajouté ici
+    # path('42/password/', set_42_password_view, name='set_42_password'),  # <== Ajouté ici
 
     path('2fa/setup/', twofa_views.two_factor_setup, name='two_factor_setup'),
     path('2fa/validate/', twofa_views.two_factor_validate, name='two_factor_validate'),
@@ -39,5 +39,5 @@ urlpatterns = [
 
     path('user/login_history/', user_login_history, name='user_login_history'),
     path('user/update_login_status/', update_login_status, name='update_login_status'),
-
+    path('logout/', views.logout_view, name='logout'),
 ]

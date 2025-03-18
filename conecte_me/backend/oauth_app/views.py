@@ -56,17 +56,7 @@ def redirect_to_42(request):
 
 
 def callback_42(request):
-    """
-    Gère le callback après authentification 42.
-    Échange le code reçu contre un token, récupère les infos utilisateur et,
-    si un mot de passe temporaire a été défini via signin42, l'utilise pour mettre à jour le compte.
-    """
-    # Vérification du state
-    state_session = request.session.get('oauth_state')
-    state_request = request.GET.get('state')
-    if not state_session or state_session != state_request:
-        return JsonResponse({"error": "Invalid state"}, status=400)
-
+    # Vérification du state et récupération du code OAuth (code déjà présent)
     code = request.GET.get('code')
     if not code:
         return JsonResponse({"error": "No code provided"}, status=400)
@@ -80,8 +70,8 @@ def callback_42(request):
         'redirect_uri': REDIRECT_URI,
     }
     try:
-        response = requests.post(TOKEN_URL, data=data)
-        token_data = response.json()
+        token_response = requests.post(TOKEN_URL, data=data)
+        token_data = token_response.json()
         access_token = token_data.get('access_token')
         if not access_token:
             return JsonResponse({"error": "Failed to retrieve access token"}, status=400)
@@ -96,40 +86,34 @@ def callback_42(request):
     user_resp = requests.get(user_info_url, headers=headers)
     if user_resp.status_code != 200:
         return JsonResponse({"error": "Failed to retrieve user info"}, status=400)
+    user_data = user_resp.json()  # Maintenant, user_resp est défini
 
-    user_data = user_resp.json()
     user_id_42 = user_data['id']
     user_name_42 = user_data['login']
-
-    # Récupération de l'email et du prénom depuis l'API 42
     email_from_api = user_data.get('email')
     first_name_from_api = user_data.get('first_name')
-
-    # Si l'API ne fournit pas ces informations, on utilise des valeurs par défaut.
     email_value = email_from_api if email_from_api else 'placeholder@example.com'
     first_name_value = first_name_from_api if first_name_from_api else 'Unknown'
 
+    # Définir le mot de passe par défaut (haché)
+    default_password = make_password("42sch@@L")
+
     try:
         with transaction.atomic():
-            # Récupération éventuelle d'un mot de passe temporaire défini via signin42
-            temp_password = request.session.get('temp_hashed_password')
-
             # Recherche de l'utilisateur par email (champ unique dans notre cas)
             user = User42.objects.filter(email_address=email_value).first()
             if user:
-                # L'utilisateur existe déjà : on met à jour ses infos si nécessaire
+                # Mise à jour des informations si nécessaire
                 if (email_from_api and email_from_api != user.email_address) or \
                    (first_name_from_api and first_name_from_api != user.first_name):
                     user.email_address = email_from_api or user.email_address
                     user.first_name = first_name_from_api or user.first_name
-                # Si un mot de passe temporaire est présent, on l'utilise pour mettre à jour le mot de passe
-                if temp_password:
-                    user.password = temp_password
-                    del request.session['temp_hashed_password']
+                # Affectation du mot de passe par défaut haché
+                user.password = default_password
                 user.is_connected = True
                 user.save()
             else:
-                # L'utilisateur n'existe pas encore : on lui attribue un user_id unique
+                # Attribution d'un user_id unique
                 existing_ids = list(User42.objects.values_list('user_id', flat=True))
                 sorted_ids = sorted(existing_ids)
                 new_user_id = 0
@@ -139,25 +123,19 @@ def callback_42(request):
                     else:
                         break
 
+                # Création d'un nouvel utilisateur avec le mot de passe par défaut
                 user = User42(
                     user_id=new_user_id,
                     username=user_name_42,
                     email_address=email_value,
                     first_name=first_name_value,
+                    password=default_password  # Mot de passe haché
                 )
-                # Si un mot de passe temporaire a été défini, on l'utilise dès la création
-                if temp_password:
-                    user.password = temp_password
-                    del request.session['temp_hashed_password']
                 user.save()
     except IntegrityError:
         return JsonResponse({"error": "Erreur lors de l'inscription de l'utilisateur"}, status=400)
 
-    # Mise à jour de la session
-    request.session['user_id'] = user.pk
-    request.session['email'] = user.email_address
-
-    # --- Enregistrement du log de connexion pour le login via 42 ---
+    # Mise à jour de la session pour que checkAuth détecte l'utilisateur authentifié
     ip_address = request.META.get('REMOTE_ADDR')
     user_agent = request.META.get('HTTP_USER_AGENT', '')
     UserLoginHistory.objects.create(
@@ -166,11 +144,16 @@ def callback_42(request):
         user_agent=user_agent,
         is_connected=True
     )
+    request.session['user_id'] = user.pk
+    request.session['email'] = user.email_address
 
-    # Génération d'un JWT pour la session
+    # Mise à jour de la session, création du log de connexion, etc.
     jwt_token = generate_jwt(user_id=user_id_42, username=user_name_42)
+<<<<<<< HEAD
 
     # Redirection côté frontend vers l'interface de jeu, en transmettant le token
+=======
+>>>>>>> main
     response = HttpResponseRedirect(f"/board?jwt={jwt_token}")
     return response
 
@@ -251,6 +234,27 @@ def signup_view(request):
         {"success": False, "error": "Méthode non autorisée."},
         status=405
     )
+
+@csrf_exempt
+def logout_view(request):
+    """
+    Vue de déconnexion qui met à jour is_connected à False,
+    puis nettoie la session et redirige vers /home.
+    """
+    user_id = request.session.get('user_id')
+    if user_id:
+        try:
+            user = User42.objects.get(pk=user_id)
+            # Mise à jour du dernier log de connexion
+            last_login = UserLoginHistory.objects.filter(user=user).order_by('-timestamp').first()
+            if last_login:
+                last_login.is_connected = False
+                last_login.save()
+        except User42.DoesNotExist:
+            pass
+
+    request.session.flush()
+    return JsonResponse({"success": True, "redirect": "/home"}, status=200)
 
 @csrf_exempt
 def user_login_history(request):

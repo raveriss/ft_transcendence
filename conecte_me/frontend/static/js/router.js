@@ -10,7 +10,6 @@ const routes = {
     '/home': 'static/templates/home.html',
     '/login': 'static/templates/login.html',
     '/signup': 'static/templates/signup.html',
-    '/signin42': 'static/templates/signin42.html',
     '/terms': 'static/templates/terms.html',
     '/privacy': 'static/templates/privacy.html',
     '/board': 'static/templates/board.html',
@@ -20,6 +19,28 @@ const routes = {
     '/stats': 'static/templates/stats.html',
     '/game': 'static/templates/game.html'
   };
+
+// Définir la liste des routes nécessitant une authentification
+const protectedRoutes = ['/board', '/user', '/stats', '/setup'];
+
+function isRouteProtected(path) {
+  return protectedRoutes.includes(path);
+}
+
+// Fonction qui interroge le backend pour vérifier l'authentification
+async function checkAuth() {
+  try {
+    // On utilise la route '/auth/user/' qui renvoie les infos utilisateur si authentifié
+    const res = await fetch('/auth/user/', { method: 'GET', credentials: 'include' });
+    if (res.ok) {
+      return await res.json();
+    }
+    return null;
+  } catch (error) {
+    console.error("Erreur lors de la vérification d'authentification :", error);
+    return null;
+  }
+}
 
 
   function loadCSSForRoute(route) {
@@ -120,6 +141,16 @@ const routes = {
 // Fonction principale pour charger une vue
 async function navigateTo(path) {
   console.log("Navigating to:", path);
+
+  // Si la route est protégée, vérifier l'authentification
+  if (isRouteProtected(path)) {
+    const user = await checkAuth();
+    if (!user) {
+      // Si l'utilisateur n'est pas authentifié, rediriger vers /home
+      console.log("Utilisateur non authentifié, redirection vers /home");
+      path = '/home';
+    }
+  }
 
   // Pour la configuration 2FA, redirige sans SPA
   if (path.startsWith("/auth/2fa/setup")) {
@@ -241,7 +272,8 @@ function attachListeners() {
         alert("Vous devez accepter les TOS avant de continuer !");
         return;
       }
-      navigateTo('/signin42');
+      // Redirection directe vers l'endpoint OAuth 42
+      window.location.href = '/auth/login-42/';
     });
   }
 
@@ -294,17 +326,15 @@ function attachListeners() {
 
   if (exitBtn) {
     exitBtn.addEventListener('click', () => {
-      fetch('/auth/user/update_login_status/', {
+      fetch('/auth/logout/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ is_connected: false })
       })
       .then(response => response.json())
       .then(data => {
-        console.log("Statut mis à jour :", data);
+        console.log("Déconnexion réussie :", data);
         // Redirection vers home.html après la mise à jour
-        navigateTo('/home');
+        navigateTo('data.redirect');
       })
       .catch(error => {
         console.error("Erreur lors de la mise à jour du statut :", error);
@@ -312,6 +342,8 @@ function attachListeners() {
       });
     });
   }
+  
+  // gere bouton pour lancer le jeu /game
   const modeButtons = document.querySelectorAll('.icon-circle');
   modeButtons.forEach(button => {
     button.addEventListener('click', (event) => {
