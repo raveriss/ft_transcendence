@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Applications tierces
+    'channels',
     'rest_framework',
     'oauth2_provider',
 
@@ -72,6 +73,8 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = 'conecte_me_backend.asgi.application'
+
 # Configuration WSGI
 WSGI_APPLICATION = 'conecte_me_backend.wsgi.application'
 
@@ -96,6 +99,15 @@ CACHES = {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": f"redis://{REDIS_HOST}:{REDIS_PORT}/1",
     }
+}
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [(os.environ.get('REDIS_HOST', 'redis'), int(os.environ.get('REDIS_PORT', 6379)))]
+        },
+    },
 }
 
 # Configuration des mots de passe
