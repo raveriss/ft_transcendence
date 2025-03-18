@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     # Applications tierces
     'channels',
+    'chat',
     'rest_framework',
     'oauth2_provider',
 
