@@ -55,7 +55,7 @@ form.addEventListener('submit', (e) => {
     .then((data) => {
       if (data.success) {
         // Redirige vers l'authentification OAuth 42
-        window.location.href = '/auth/42/login-42/';
+        window.location.href = 'https://localhost:8443/auth/42/login-42/';
       } else {
         alert("Erreur : " + data.error);
       }

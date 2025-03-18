@@ -3,17 +3,17 @@
   let paddleWidth = 20;
   let paddleHeight = 100;
   // Le match se termine à 5 points
-  let WINNING_SCORE = 5;
+  let WINNING_SCORE = 25;
   const WINNING_TIME = 300; // 5 min de jeu en secondes
   // Pseudos (à récupérer ultérieurement)
   const player1Name = 'Joueur 1';
   const player2Name = 'Joueur 2';
   // Image du terrain
   var fondcanvas = new Image();
-  fondcanvas.src = '/static/img/map_handball.png';
+  fondcanvas.src = '/static/img/terrain-football-americain.jpg';
   // Vitesse de base
-  const ballSpeedX = 10;
-  const ballSpeedY = 10;
+  const ballSpeedX = 7;
+  const ballSpeedY = 7;
   // Global pour suivre l'état des touches
   let keysPressed = {};
 
@@ -97,9 +97,10 @@
         ball.y >= player1.y &&
         ball.y <= player1.y + player1.height
       ) {
-        ball.speedX = -ball.speedX;
-        ball.speedY = (ball.y - (player1.y + player1.height / 2)) * 0.1;
-      }
+        // Inverser la direction et appliquer un facteur d'accélération (par exemple 1.05)
+        ball.speedX = -ball.speedX * 1.05;
+        ball.speedY = ball.speedY * 1.05;
+        }
 
       // Collision avec la raquette droite
       if (
@@ -107,8 +108,8 @@
         ball.y >= player2.y &&
         ball.y <= player2.y + player2.height
       ) {
-        ball.speedX = -ball.speedX;
-        ball.speedY = (ball.y - (player2.y + player2.height / 2)) * 0.1;
+        ball.speedX = -ball.speedX * 1.05;
+        ball.speedY = ball.speedY * 1.05;
       }
     }
 
@@ -139,7 +140,7 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Dessiner l'image de fond si chargée, sinon un fond noir
-      if (fondcanvas.complete) {
+      if (fondcanvas.complete && fondcanvas.naturalWidth !== 0) {
         ctx.drawImage(fondcanvas, 0, 0, canvas.width, canvas.height);
       } else {
         ctx.fillStyle = "black";
