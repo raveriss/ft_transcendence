@@ -138,6 +138,33 @@ async function checkAuth() {
     document.body.appendChild(script);
   }
 
+function addToHistory(route) {
+  // Récupère la pile existante ou initialise une liste vide
+  let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+  // Évite d'ajouter plusieurs fois la même route consécutivement
+  if (historyStack.length === 0 || historyStack[historyStack.length - 1] !== route) {
+    historyStack.push(route);
+    sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+  }
+}
+
+function customBack() {
+  let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+  if (historyStack.length > 1) {
+    // Supprime la route courante
+    historyStack.pop();
+    // Récupère la route précédente
+    const previousRoute = historyStack[historyStack.length - 1];
+    // Mette à jour la pile dans le sessionStorage
+    sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+    // Navigue vers la route précédente
+    navigateTo(previousRoute);
+  } else {
+    // Si aucune route précédente n'existe, rediriger vers une page par défaut (ex. /home)
+    navigateTo('/home');
+  }
+}
+
 // Fonction principale pour charger une vue
 async function navigateTo(path) {
   console.log("Navigating to:", path);
@@ -157,6 +184,8 @@ async function navigateTo(path) {
     window.location.href = path;
     return;
   }
+
+  addToHistory(path);
 
   history.pushState({}, '', path);
 

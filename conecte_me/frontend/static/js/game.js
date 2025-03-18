@@ -10,7 +10,7 @@
   const player2Name = 'Joueur 2';
   // Image du terrain
   var fondcanvas = new Image();
-  fondcanvas.src = '/static/img/terrain-football-americain.jpg';
+  fondcanvas.src = '/static/img/field_NFL.png';
   // Vitesse de base
   const ballSpeedX = 7;
   const ballSpeedY = 7;
