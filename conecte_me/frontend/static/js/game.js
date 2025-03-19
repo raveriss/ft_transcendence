@@ -1,12 +1,11 @@
 console.log("game.js loaded");
 
-// Récupération du token JWT stocké (par exemple, lors de la connexion)
-const token = localStorage.getItem('jwtToken');
-console.log("Token récupéré dans game.js:", token);
-
 // Fonction pour récupérer les réglages du jeu via l'API
 async function fetchGameSettings() {
   console.log("fetchGameSettings() called");
+  // Récupération du token JWT stocké (par exemple, lors de la connexion)
+  const token = localStorage.getItem('jwtToken');
+  console.log("Token récupéré dans game.js:", token);
   try {
     const response = await fetch("/api/game_settings/", {
       method: "GET",
@@ -27,7 +26,7 @@ async function fetchGameSettings() {
     return {
       time: 5,
       score_limit: 5,
-      lives: 3,
+      lives: 5,
       ball_speed: 2
     };
   }
@@ -45,14 +44,15 @@ async function fetchGameSettings() {
   const ballSpeedX = settings.ball_speed;
   const ballSpeedY = settings.ball_speed;
 
-  const player1Name = 'Sysy';
+  const player1Name = settings.username;
+  // const player1Name = "Joueur 1"
   const player2Name = 'Joueur 2';
 
   console.log("Configuration du jeu:", { WINNING_SCORE, WINNING_TIME, ballSpeedX, ballSpeedY });
 
   // Image du terrain
   var fondcanvas = new Image();
-  fondcanvas.src = '/static/img/terrain-football-americain.jpg';
+  fondcanvas.src = '/static/img/field_baseball.png';
 
   // Global pour suivre l'état des touches
   let keysPressed = {};
@@ -244,8 +244,17 @@ async function fetchGameSettings() {
       isGameOver = true;
       confirmQuit = false;
       const duration = Math.floor((Date.now() - startTime) / 1000);
+      const matchData = {
+        player1: player1Name,
+        player2: player2Name,
+        score1: player1.score,
+        score2: player2.score,
+        duration: duration,
+        date: dateStart,
+        recorded: true
+      };
       //
-      // Route pour enregistrer le match
+      // Route pour enregistrer le match (donne de match data)
       //
       console.log(`Durée du match : ${duration} sec`);
       ctx.clearRect(0, 0, canvas.width, canvas.height);

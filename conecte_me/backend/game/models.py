@@ -11,10 +11,10 @@ class GameSettings(models.Model):
         on_delete=models.CASCADE,
         related_name='game_settings'
     )
-    time = models.PositiveIntegerField(default=5)         # Temps en minutes (défaut : 5)
-    score_limit = models.PositiveIntegerField(default=2)    # Score limite (défaut : 5)
+    time = models.PositiveIntegerField(default=2)         # Temps en minutes (défaut : 5)
+    score_limit = models.PositiveIntegerField(default=5)    # Score limite (défaut : 5)
     lives = models.PositiveIntegerField(default=3)          # Vies (défaut : 3)
-    ball_speed = models.PositiveIntegerField(default=1)     # Vitesse de balle (défaut : 2)
+    ball_speed = models.PositiveIntegerField(default=7)     # Vitesse de balle (défaut : 2)
 
     def __str__(self):
         return f"GameSettings for {self.user.username}"

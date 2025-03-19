@@ -687,34 +687,105 @@ INFO 2025-03-18 14:06:40,795 basehttp 11 139924139289400 "GET /auth/user/ HTTP/1
 INFO 2025-03-18 14:08:12,021 autoreload 11 140215367691048 Watching for file changes with StatReloader
 INFO 2025-03-18 14:08:14,123 basehttp 11 140215288888120 "GET /auth/login-42/ HTTP/1.0" 302 0
 INFO 2025-03-18 14:08:14,966 basehttp 11 140215288888120 "GET /auth/42/callback?code=60bb3ec5b198fafdb29c8618868c38f908e89ca49e731bfb140c3c6f6aab52aa&state=hajQh5OfPqx64t6084YvVUdt08gPw6kx HTTP/1.0" 302 0
-INFO 2025-03-18 14:08:15,015 basehttp 11 140215288924984 "GET /auth/user/ HTTP/1.0" 200 112INFO 2025-03-19 17:55:37,853 autoreload 11 140538848004904 Watching for file changes with StatReloader
-INFO 2025-03-19 17:55:40,059 basehttp 11 140538767563576 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 17:55:41,092 basehttp 11 140538767563576 "GET /auth/42/callback?code=1692be135f1c08127ffd14fb750be888e4724ff8a6f1a4e660b5a69b1032210f&state=4xDvjNSUxLroi6VimXGFGUCJoTiqLIPu HTTP/1.0" 302 0
-INFO 2025-03-19 17:55:41,493 basehttp 11 140538767563576 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:43,734 basehttp 11 140538767563576 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:43,827 basehttp 11 140538767563576 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:43,835 basehttp 11 140538763307832 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-03-19 17:55:44,678 basehttp 11 140538767563576 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 41
-INFO 2025-03-19 17:55:46,752 basehttp 11 140538767563576 "GET /auth/user/ HTTP/1.0" 200 111
-INFO 2025-03-19 17:55:50,421 basehttp 11 140538767563576 "POST /auth/logout/ HTTP/1.0" 200 38
-WARNING 2025-03-19 17:56:02,137 log 11 140538767563576 Unauthorized: /auth/login/
-WARNING 2025-03-19 17:56:02,137 basehttp 11 140538767563576 "POST /auth/login/ HTTP/1.0" 401 63
-INFO 2025-03-19 17:56:12,238 basehttp 11 140538767563576 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-03-19 17:56:12,276 basehttp 11 140538767563576 "GET /auth/2fa/setup/ HTTP/1.0" 200 11643
-INFO 2025-03-19 18:02:34,224 autoreload 11 139961722768168 Watching for file changes with StatReloader
-INFO 2025-03-19 18:02:39,506 basehttp 11 139961642388280 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 18:02:40,784 basehttp 11 139961642388280 "GET /auth/42/callback?code=9f405beb056e86d146e577310f59e7a20b0e0eec07e44f314a96a943091a5a16&state=foXtEtOQMR1JejERwYX2kdLPOxtWeuP8 HTTP/1.0" 302 0
-INFO 2025-03-19 18:02:41,081 basehttp 11 139961642351416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:02:42,435 basehttp 11 139961642351416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:02:42,585 basehttp 11 139961642351416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:02:42,595 basehttp 11 139961638120248 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-03-19 18:02:43,286 basehttp 11 139961642351416 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 41
-INFO 2025-03-19 18:02:44,485 basehttp 11 139961642351416 "GET /auth/user/ HTTP/1.0" 200 111
-INFO 2025-03-19 18:02:45,838 basehttp 11 139961642351416 "POST /auth/logout/ HTTP/1.0" 200 38
-INFO 2025-03-19 18:02:58,227 basehttp 11 139961642351416 "POST /auth/login/ HTTP/1.0" 200 49
-INFO 2025-03-19 18:02:58,271 basehttp 11 139961642351416 "GET /auth/2fa/setup/ HTTP/1.0" 200 11671
-INFO 2025-03-19 18:03:12,033 basehttp 11 139961638120248 "POST /auth/2fa/validate/ HTTP/1.0" 200 87
-INFO 2025-03-19 18:03:13,169 basehttp 11 139961638120248 "GET /auth/user/ HTTP/1.0" 200 111
-INFO 2025-03-19 18:03:18,212 basehttp 11 139961638120248 "POST /auth/logout/ HTTP/1.0" 200 38
-WARNING 2025-03-19 18:03:23,749 log 11 139961638120248 Unauthorized: /auth/user/
-WARNING 2025-03-19 18:03:23,750 basehttp 11 139961638120248 "GET /auth/user/ HTTP/1.0" 401 35
+
+INFO 2025-03-18 14:08:15,015 basehttp 11 140215288924984 "GET /auth/user/ HTTP/1.0" 200 112INFO 2025-03-19 17:52:36,147 autoreload 11 139921978342184 Watching for file changes with StatReloader
+INFO 2025-03-19 17:52:56,965 basehttp 11 139921897937720 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 17:52:57,904 basehttp 11 139921897937720 "GET /auth/42/callback?code=9fc5466768e05995c2cf045c92ec81fb987a4f8116e50331ab31688d69f0b78e&state=KIX1K58CcgioMQLfA2jvNncShlfzl8PN HTTP/1.0" 302 0
+INFO 2025-03-19 17:52:57,934 basehttp 11 139921897937720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:53:04,683 basehttp 11 139921893751608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:53:04,716 basehttp 11 139921893751608 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:53:19,014 basehttp 11 139921893751608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:53:20,711 basehttp 11 139921893751608 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:53:26,406 basehttp 11 139921893751608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:54:35,589 autoreload 11 140365717781288 Watching for file changes with StatReloader
+INFO 2025-03-19 17:54:56,815 basehttp 11 140365637401400 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 17:54:57,589 basehttp 11 140365637401400 "GET /auth/42/callback?code=98f331b61a30ef73403a21c74a1a001f03e41058e0c5824e8ec7d54353986cf2&state=fvSb4ksQj20vXFf2jAaQAqnLuhgAc43X HTTP/1.0" 302 0
+INFO 2025-03-19 17:54:57,632 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:55:03,024 basehttp 11 140365637401400 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:55:15,469 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:55:18,352 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:55:20,324 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:55:21,489 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:55:21,531 basehttp 11 140365637401400 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:55:23,502 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:55:24,744 basehttp 11 140365637401400 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 18:01:35,223 autoreload 11 140209291725608 Watching for file changes with StatReloader
+INFO 2025-03-19 18:01:43,218 basehttp 11 140209211345720 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 18:01:44,343 basehttp 11 140209211345720 "GET /auth/42/callback?code=a9b301344b0da46a2ee434572d58d169ed9e516e8488fb72cf6699f307ea6479&state=WCpnXZbisapYsoJyf4dc5OdrcAHexi5L HTTP/1.0" 302 0
+INFO 2025-03-19 18:01:44,398 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:01:47,052 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 18:01:49,697 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:01:51,236 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 18:01:53,408 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:01:55,169 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:01:55,212 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 18:01:56,967 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:01:57,891 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:01:57,915 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 18:01:59,454 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:20:47,581 autoreload 13 140075790113576 Watching for file changes with StatReloader
+INFO 2025-03-19 18:20:54,609 basehttp 13 140075709774648 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 18:20:55,462 basehttp 13 140075709774648 "GET /auth/42/callback?code=54e5901ed7b7b9b955b009524ad5d0ca88dacaf802a351ea8fa0d1c5639d1c8e&state=KpyPaJBglo5IHHVTCqzqFNPcw2erHnH2 HTTP/1.0" 302 0
+INFO 2025-03-19 18:20:55,520 basehttp 13 140075709774648 "GET /auth/user/ HTTP/1.0" 200 112
+ERROR 2025-03-19 18:20:57,885 log 13 140075709774648 Internal Server Error: /api/game_settings/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/http.py", line 43, in inner
+    return func(request, *args, **kwargs)
+  File "/app/oauth_app/jwt_decorator.py", line 42, in wrapper
+    return view_func(request, *args, **kwargs)
+  File "/app/game/views.py", line 30, in game_settings_api
+    "lives": settings_obj.lives,
+AttributeError: 'GameSettings' object has no attribute 'lives'
+ERROR 2025-03-19 18:20:57,886 basehttp 13 140075709774648 "GET /api/game_settings/ HTTP/1.0" 500 75639
+INFO 2025-03-19 18:20:57,895 basehttp 13 140075709774648 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 18:22:29,899 autoreload 11 140382992001832 Watching for file changes with StatReloader
+INFO 2025-03-19 18:22:40,720 basehttp 11 140382911621944 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 18:22:41,659 basehttp 11 140382911621944 "GET /auth/42/callback?code=f76ee1e37486a787229160bb4d55a22b875817517a1a8bda17f771817749242c&state=78hPGFdNzQzHUoLE7hOliCj7rwWKd7H2 HTTP/1.0" 302 0
+INFO 2025-03-19 18:22:41,702 basehttp 11 140382911621944 "GET /auth/user/ HTTP/1.0" 200 112
+ERROR 2025-03-19 18:22:43,345 log 11 140382911621944 Internal Server Error: /api/game_settings/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/http.py", line 43, in inner
+    return func(request, *args, **kwargs)
+  File "/app/oauth_app/jwt_decorator.py", line 42, in wrapper
+    return view_func(request, *args, **kwargs)
+  File "/app/game/views.py", line 30, in game_settings_api
+    "lives": settings_obj.lives,
+AttributeError: 'GameSettings' object has no attribute 'lives'
+ERROR 2025-03-19 18:22:43,346 basehttp 11 140382911621944 "GET /api/game_settings/ HTTP/1.0" 500 75641
+INFO 2025-03-19 18:22:43,351 basehttp 11 140382911621944 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 18:22:48,957 basehttp 11 140382907312952 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:25:15,735 autoreload 11 140233400064808 Watching for file changes with StatReloader
+INFO 2025-03-19 18:25:28,945 basehttp 11 140233319672632 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 18:25:30,037 basehttp 11 140233319672632 "GET /auth/42/callback?code=ce0698ad982d066c209e66db348f3cb925c2e0f10252c165d9cfc5fa1d9b9757&state=HR4vYgZDaWZF7RXv2NuyZvA9g8q2a9Fq HTTP/1.0" 302 0
+INFO 2025-03-19 18:25:30,065 basehttp 11 140233319672632 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:25:31,894 basehttp 11 140233319672632 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 18:25:40,838 basehttp 11 140233319672632 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:25:42,129 basehttp 11 140233319672632 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 18:25:54,450 basehttp 11 140233319672632 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:26:50,375 autoreload 11 140098765650728 Watching for file changes with StatReloader
+INFO 2025-03-19 18:26:55,653 basehttp 11 140098685238072 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 18:26:56,630 basehttp 11 140098685238072 "GET /auth/42/callback?code=f40af2b070ef8cb3a0fa25e609b3cd368eca944b4e188d31aa669a7062d202f4&state=2OkEAA7RWDP5rtmOQAIJXaYq252p9yTC HTTP/1.0" 302 0
+INFO 2025-03-19 18:26:56,679 basehttp 11 140098685274936 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:26:58,339 basehttp 11 140098685274936 "GET /api/game_settings/ HTTP/1.0" 200 82
+INFO 2025-03-19 18:28:08,957 basehttp 11 140098685258552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:28:11,306 basehttp 11 140098685258552 "GET /api/game_settings/ HTTP/1.0" 200 82
+INFO 2025-03-19 18:29:10,015 basehttp 11 140098685258552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:29:18,139 basehttp 11 140098685258552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:29:18,191 basehttp 11 140098685258552 "GET /api/game_settings/ HTTP/1.0" 200 82
+WARNING 2025-03-19 18:29:22,060 log 11 140098685258552 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
+WARNING 2025-03-19 18:29:22,060 basehttp 11 140098685258552 "POST /api/game_settings/ HTTP/1.0" 403 2593
+INFO 2025-03-19 18:29:22,063 basehttp 11 140098685258552 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 18:29:25,764 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:29:34,262 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:29:36,669 basehttp 11 140098680961848 "GET /api/game_settings/ HTTP/1.0" 200 82
+INFO 2025-03-19 18:29:40,831 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 18:29:54,119 basehttp 11 140098680961848 "GET /api/game_settings/ HTTP/1.0" 200 82
+INFO 2025-03-19 18:29:55,072 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112
