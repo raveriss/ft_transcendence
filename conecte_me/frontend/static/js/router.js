@@ -103,6 +103,10 @@ async function checkAuth() {
   
 
   function loadScriptForRoute(route) {
+
+      // Pour la page /team, aucun script n'est nécessaire
+    if (route === '/team') return;
+
     // Supprimez le script dynamique existant (s'il existe)
     const existingScript = document.getElementById('route-script');
     if (existingScript) {
@@ -148,25 +152,30 @@ function addToHistory(route) {
   }
 }
 
+// 2. Modifier customBack pour ne pas rajouter la route dans l'historique lors d'une navigation "retour"
 function customBack() {
   let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
   if (historyStack.length > 1) {
-    // Supprime la route courante
+    // Retirer la route courante
     historyStack.pop();
-    // Récupère la route précédente
+    // Récupérer la route précédente
     const previousRoute = historyStack[historyStack.length - 1];
-    // Mette à jour la pile dans le sessionStorage
     sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
-    // Navigue vers la route précédente
-    navigateTo(previousRoute);
+    
+    /**
+     * replaceState permet de modifier l'URL sans ajouter une nouvelle entrée dans l'historique
+     */
+    history.replaceState({}, '', previousRoute);
+    
+    // Naviguer sans pousser de nouvelle entrée dans l'historique
+    navigateTo(previousRoute, false);
   } else {
-    // Si aucune route précédente n'existe, rediriger vers une page par défaut (ex. /home)
-    navigateTo('/home');
+    navigateTo('/home', false);
   }
 }
 
 // Fonction principale pour charger une vue
-async function navigateTo(path) {
+async function navigateTo(path, pushHistory = true) {
   console.log("Navigating to:", path);
 
   // Si la route est protégée, vérifier l'authentification
@@ -185,9 +194,11 @@ async function navigateTo(path) {
     return;
   }
 
-  addToHistory(path);
-
-  history.pushState({}, '', path);
+  // Ajout dans l'historique et pushState seulement si demandé
+  if (pushHistory) {
+    addToHistory(path);
+    history.pushState({}, '', path);
+  }
 
   // Masque temporairement le contenu pour éviter le FOUC
   appDiv.style.visibility = 'hidden';
@@ -221,10 +232,9 @@ async function navigateTo(path) {
 }
 
 
-// Gère le “Back” / “Forward” du navigateur
+// 3. Utiliser customBack() pour gérer l'événement popstate (bouton retour du navigateur)
 window.addEventListener('popstate', () => {
-  // On relit l’URL actuelle => recharge la vue
-  navigateTo(window.location.pathname);
+  customBack();
 });
 
 // Interception des clics sur liens <a data-link> pour naviguer en SPA
@@ -351,8 +361,8 @@ function attachListeners() {
     });
   }
 
+  // 4. Corriger le bouton exitBtn : rediriger vers "/home" et vider customHistory
   const exitBtn = document.getElementById('exit-btn');
-
   if (exitBtn) {
     exitBtn.addEventListener('click', () => {
       fetch('/auth/logout/', {
@@ -362,11 +372,14 @@ function attachListeners() {
       .then(response => response.json())
       .then(data => {
         console.log("Déconnexion réussie :", data);
-        // Redirection vers home.html après la mise à jour
-        navigateTo('data.redirect');
+        // Vider l'historique personnalisé lors de la déconnexion
+        sessionStorage.removeItem('customHistory');
+        // Rediriger vers '/home'
+        navigateTo('/home');
       })
       .catch(error => {
         console.error("Erreur lors de la mise à jour du statut :", error);
+        sessionStorage.removeItem('customHistory');
         navigateTo('/home');
       });
     });
