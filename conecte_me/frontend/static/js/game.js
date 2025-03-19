@@ -1,24 +1,67 @@
-(function() {
-  // Paramètres globaux pour les paddles (peuvent être ajustés si besoin)
-  let paddleWidth = 20;
-  let paddleHeight = 100;
-  // Le match se termine à 5 points
-  let WINNING_SCORE = 25;
-  const WINNING_TIME = 300; // 5 min de jeu en secondes
-  // Pseudos (à récupérer ultérieurement)
-  const player1Name = 'Joueur 1';
+console.log("game.js loaded");
+
+// Récupération du token JWT stocké (par exemple, lors de la connexion)
+const token = localStorage.getItem('jwtToken');
+console.log("Token récupéré dans game.js:", token);
+
+// Fonction pour récupérer les réglages du jeu via l'API
+async function fetchGameSettings() {
+  console.log("fetchGameSettings() called");
+  try {
+    const response = await fetch("/api/game_settings/", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+    }
+    const data = await response.json();
+    console.log("Données récupérées depuis game.js:", data);
+    return data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des réglages :", error);
+    // Valeurs par défaut en cas d'erreur
+    return {
+      time: 5,
+      score_limit: 5,
+      lives: 3,
+      ball_speed: 2
+    };
+  }
+}
+
+// Fonction principale pour initialiser le jeu avec les réglages récupérés
+(async function initGame() {
+  const settings = await fetchGameSettings();
+
+  // Paramètres de configuration du jeu, récupérés depuis l'API
+  const paddleWidth = 20;
+  const paddleHeight = 100;
+  const WINNING_SCORE = settings.score_limit;     // Par exemple, 5
+  const WINNING_TIME = settings.time * 60;          // Conversion en secondes
+  const ballSpeedX = settings.ball_speed;
+  const ballSpeedY = settings.ball_speed;
+
+  const player1Name = 'Sysy';
   const player2Name = 'Joueur 2';
+
+  console.log("Configuration du jeu:", { WINNING_SCORE, WINNING_TIME, ballSpeedX, ballSpeedY });
+
   // Image du terrain
   var fondcanvas = new Image();
   fondcanvas.src = '/static/img/terrain-football-americain.jpg';
-  // Vitesse de base
-  const ballSpeedX = 7;
-  const ballSpeedY = 7;
+
   // Global pour suivre l'état des touches
   let keysPressed = {};
 
   function startLocalGame() {
     console.log("Démarrage du jeu Pong");
+    console.log("Le win score de vie est ", WINNING_SCORE);
+    console.log("Le temp de jeu est ", WINNING_TIME);
+    console.log("la vitesse de balle est ", ballSpeedX);
 
     // Création du canvas unique
     const canvas = document.createElement('canvas');

@@ -27,6 +27,16 @@ class User42(models.Model):
     def set_password(self, raw_password: str):
         self.password = make_password(raw_password)
 
+    # service game_gamesettings
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email_address']
+    @property
+    def is_anonymous(self):
+        return False
+    @property
+    def is_authenticated(self):
+        return True
+
 class UserLoginHistory(models.Model):
     user = models.ForeignKey('User42', on_delete=models.CASCADE)
     timestamp = models.DateTimeField(default=now)

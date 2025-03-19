@@ -1,3 +1,16 @@
+// board.js
+document.addEventListener("DOMContentLoaded", () => {
+    // Lire le paramètre jwt dans l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('jwt');
+    if (token) {
+      localStorage.setItem('jwtToken', token);
+      console.log("Token stocké:", token);
+    } else {
+      console.log("Pas de token JWT dans l'URL");
+    }
+});
+
 // // =====================
 // // 1. GESTION DE PLAY
 // // =====================
@@ -17,12 +30,6 @@
 //       // par exemple rediriger vers la page de jeu ou lancer une animation spécifique.
 //     });
 //   });
-
-
-
-
-  
-  
   
 //   // =====================
 //   // 2. GESTION DE SOCIAL

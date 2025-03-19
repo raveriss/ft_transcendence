@@ -688,3 +688,1111 @@ INFO 2025-03-18 14:08:12,021 autoreload 11 140215367691048 Watching for file cha
 INFO 2025-03-18 14:08:14,123 basehttp 11 140215288888120 "GET /auth/login-42/ HTTP/1.0" 302 0
 INFO 2025-03-18 14:08:14,966 basehttp 11 140215288888120 "GET /auth/42/callback?code=60bb3ec5b198fafdb29c8618868c38f908e89ca49e731bfb140c3c6f6aab52aa&state=hajQh5OfPqx64t6084YvVUdt08gPw6kx HTTP/1.0" 302 0
 INFO 2025-03-18 14:08:15,015 basehttp 11 140215288924984 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 14:44:59,787 autoreload 11 140178012093224 Watching for file changes with StatReloader
+INFO 2025-03-18 14:45:06,307 basehttp 11 140177933269816 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 14:45:07,247 basehttp 11 140177933269816 "GET /auth/42/callback?code=860e71ff50084f9b76b2ef375828224735bb20efd546af7a832ed6d9ca6d50ec&state=Wj6aDyMhjIMIOxvcuUiPY4ezOq5srjE1 HTTP/1.0" 302 0
+INFO 2025-03-18 14:45:07,293 basehttp 11 140177930107704 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 14:45:14,307 basehttp 11 140177930107704 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 14:56:26,873 autoreload 11 139890470587176 Watching for file changes with StatReloader
+INFO 2025-03-18 14:56:31,584 basehttp 11 139890391817016 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 14:56:32,639 basehttp 11 139890391817016 "GET /auth/42/callback?code=969b2c5796e3cacc9c33d7e6b09193eddf7dd50c1d6f9af1bdcd218b4138694b&state=9slfvh2WMbDHwpZzjp7z03EEGCUPO6gZ HTTP/1.0" 302 0
+INFO 2025-03-18 14:56:32,727 basehttp 11 139890391853880 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 14:56:39,376 basehttp 11 139890391853880 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 15:08:18,364 autoreload 11 140664387345192 Watching for file changes with StatReloader
+INFO 2025-03-18 15:08:25,827 basehttp 11 140664308566840 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 15:08:26,805 basehttp 11 140664308566840 "GET /auth/42/callback?code=8f007479a737961b8e3ddda53a48396dd28004299b29cc1f9179ef275aca4a25&state=aOMvOjk2BE3y9fG3Gm65MkbzIkoi7JR1 HTTP/1.0" 302 0
+INFO 2025-03-18 15:08:26,855 basehttp 11 140664304106296 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 15:08:37,399 basehttp 11 140664304106296 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 15:18:59,483 autoreload 11 140174272764712 Watching for file changes with StatReloader
+INFO 2025-03-18 15:19:02,234 basehttp 11 140174193974072 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 15:19:03,280 basehttp 11 140174193974072 "GET /auth/42/callback?code=7d846bc76fae2cc0a5db6c03c8c2f980a6018adbeb93682cee4f0e9c648f46a0&state=VW27GHlvRiWGx2yziuvCbrE85FDBpxul HTTP/1.0" 302 0
+INFO 2025-03-18 15:19:03,339 basehttp 11 140174194010936 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-18 15:20:32,061 log 11 140174193986360 Not Found: /api/gmae-settings
+WARNING 2025-03-18 15:20:32,061 basehttp 11 140174193986360 "GET /api/gmae-settings HTTP/1.0" 404 3008
+INFO 2025-03-18 15:24:45,578 basehttp 11 140174189554488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 15:24:46,527 basehttp 11 140174189554488 "GET /auth/42/callback?code=96767683341609e900126ff6b5d57cf564d3dfc43799e51f7511d6b7036a0362&state=dDKUHiWpiXo8ce1eozFgYNE0xvCzJTlr HTTP/1.0" 302 0
+INFO 2025-03-18 15:24:46,548 basehttp 11 140174189554488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 15:24:50,202 basehttp 11 140174189554488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 15:24:53,430 basehttp 11 140174189554488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 15:24:57,198 basehttp 11 140174189554488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 15:24:57,235 basehttp 11 140174189554488 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-18 15:25:05,745 basehttp 11 140174189554488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:07:27,610 autoreload 11 140510572976936 Watching for file changes with StatReloader
+INFO 2025-03-18 16:07:31,568 basehttp 11 140510494153528 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 16:07:33,099 basehttp 11 140510493068088 "GET /auth/42/callback?code=dc06d3676aab3c6e50d4128016952044d641d340102e04a43fbee5f5c564479b&state=2rXnKp9m3JIIVD5mJBx0W1tVkyML7NL2 HTTP/1.0" 302 0
+INFO 2025-03-18 16:07:33,161 basehttp 11 140510489877304 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:09:51,648 autoreload 11 139831807261480 Watching for file changes with StatReloader
+INFO 2025-03-18 16:11:06,732 basehttp 11 139831728417592 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 16:11:07,659 basehttp 11 139831728417592 "GET /auth/42/callback?code=63a8032e8cfeacc68c36d8ed3f9da7dcab186bfdb4760cebc1ee2b7e9cf43ff8&state=LzuTZaCMzvLwlfwvdmjwwQtAM7e7Z8bN HTTP/1.0" 302 0
+INFO 2025-03-18 16:11:07,678 basehttp 11 139831728417592 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:11:10,266 basehttp 11 139831724100408 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:11:10,327 basehttp 11 139831724100408 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:11:10,329 basehttp 11 139831723039544 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-18 16:11:11,585 basehttp 11 139831724100408 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:11:27,643 basehttp 11 139831724100408 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:11:29,095 basehttp 11 139831724100408 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:34:55,622 autoreload 11 140579410799400 Watching for file changes with StatReloader
+INFO 2025-03-18 16:35:18,484 autoreload 11 140410053991208 Watching for file changes with StatReloader
+INFO 2025-03-18 16:35:23,739 basehttp 11 140409975188280 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 16:35:24,758 basehttp 11 140409975188280 "GET /auth/42/callback?code=57ba8bea48b22f8f809690c1fab4e3f8d978593892651627dcee261f9fdc738a&state=4bPDKH9qSkBK6EUo7kTO9JilVdJXXoHJ HTTP/1.0" 302 0
+INFO 2025-03-18 16:35:24,799 basehttp 11 140409975208760 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:35:33,777 basehttp 11 140409975171896 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:41:15,315 autoreload 11 140630315883304 Watching for file changes with StatReloader
+INFO 2025-03-18 16:41:27,672 basehttp 11 140630237084472 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 16:41:28,618 basehttp 11 140630237084472 "GET /auth/42/callback?code=56334d843a873e673da0417fb03acf7b1ba9b412d4097c2b3649e122e71bf22b&state=GFSMr7nGwZ7jM1umsNFvmWGdW2B9Nl1c HTTP/1.0" 302 0
+INFO 2025-03-18 16:41:28,635 basehttp 11 140630237121336 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 16:42:27,465 basehttp 11 140630237088568 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-03-18 16:42:34,770 basehttp 11 140630237088568 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-18 16:42:34,779 basehttp 11 140630237088568 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 16:42:36,288 basehttp 11 140630237088568 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 16:42:36,315 basehttp 11 140630237088568 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 16:42:36,324 basehttp 11 140630232750904 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-18 16:43:34,823 basehttp 11 140630237088568 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-03-18 16:44:18,787 basehttp 11 140630237088568 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-03-18 16:44:26,882 basehttp 11 140630237088568 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-18 16:44:26,892 basehttp 11 140630237088568 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:05:27,111 autoreload 11 140486762527528 Watching for file changes with StatReloader
+INFO 2025-03-18 17:05:31,039 basehttp 11 140486683679544 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 17:05:32,189 log 11 140486683679544 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 37, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 17:05:32,192 basehttp 11 140486683679544 "GET /auth/42/callback?code=9eb5a28720f487ba4f0767c0de08e336841e20052280195bd4768eab9ace119c&state=MfGzwstBg5WRXOkJ9wiI3yWPVOcFkrns HTTP/1.0" 500 180412
+ERROR 2025-03-18 17:06:01,547 log 11 140486675966776 Internal Server Error: /auth/signup/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 214, in signup_view
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 37, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 17:06:01,548 basehttp 11 140486675966776 "POST /auth/signup/ HTTP/1.0" 500 174871
+INFO 2025-03-18 17:06:01,552 basehttp 11 140486675966776 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-18 17:07:27,399 autoreload 11 140379900939048 Watching for file changes with StatReloader
+INFO 2025-03-18 17:07:30,552 basehttp 11 140379822086968 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 17:07:31,561 basehttp 11 140379822086968 "GET /auth/42/callback?code=f01b8cf58e2fee50d4393ad5b3488604e63ca26ed816422ebef7ed69ed7ddde6&state=X6mtWGek3EuHKIOjpk1KuTKLF13N3wNp HTTP/1.0" 302 0
+INFO 2025-03-18 17:07:31,640 basehttp 11 140379822086968 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 17:20:29,252 autoreload 11 140457579920168 Watching for file changes with StatReloader
+INFO 2025-03-18 17:20:31,386 basehttp 11 140457501100856 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 17:20:32,263 basehttp 11 140457501100856 "GET /auth/42/callback?code=7abf492b4c5aefe2f1d077df0652b935b16b70cf40662ee41b974d95801ef408&state=HHYFIjy8tpjczuoHhw4Dw0xNYl2Pn5eA HTTP/1.0" 302 0
+INFO 2025-03-18 17:20:32,315 basehttp 11 140457501137720 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 17:20:56,962 autoreload 11 140273099631400 Watching for file changes with StatReloader
+INFO 2025-03-18 17:20:59,394 basehttp 11 140273020848952 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 17:21:00,447 log 11 140273020848952 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 17:21:00,471 basehttp 11 140273020848952 "GET /auth/42/callback?code=ce38c8dc8a9e8f499f88b3819bd077d21ef6ca6b28f14476a4479785b4a66543&state=eJmNdbe568rWhDL5ziXuozoFYWvigQBf HTTP/1.0" 500 180183
+INFO 2025-03-18 17:22:30,736 autoreload 11 140027377330984 Watching for file changes with StatReloader
+INFO 2025-03-18 17:22:33,406 basehttp 11 140027298528056 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 17:22:34,276 basehttp 11 140027298528056 "GET /auth/42/callback?code=046a5bdb5ff39ca9b6437c00fda58c572f7884040ed0b6d96543fd9b239b128d&state=EdztopjpydKavclqvArYQK3yBCYLkWjt HTTP/1.0" 302 0
+INFO 2025-03-18 17:22:34,351 basehttp 11 140027298564920 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 17:27:09,001 autoreload 11 140590218918696 Watching for file changes with StatReloader
+INFO 2025-03-18 17:27:15,658 basehttp 11 140590140099384 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 17:27:16,719 log 11 140590140099384 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 17:27:16,722 basehttp 11 140590140099384 "GET /auth/42/callback?code=18670592d8bb212db2bc125bc87d30b8d269873092d7bcaed0b50924f63f0bf3&state=9THETn3p8dasug2EFHxHwfwOLBpp879n HTTP/1.0" 500 180190
+WARNING 2025-03-18 17:29:49,197 log 11 140590133545784 Bad Request: /auth/42/callback
+WARNING 2025-03-18 17:29:49,197 basehttp 11 140590133545784 "GET /auth/42/callback?code=18670592d8bb212db2bc125bc87d30b8d269873092d7bcaed0b50924f63f0bf3&state=9THETn3p8dasug2EFHxHwfwOLBpp879n HTTP/1.0" 400 44
+INFO 2025-03-18 17:29:52,082 basehttp 11 140590133545784 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 17:29:52,849 basehttp 11 140590133545784 "GET /auth/42/callback?code=4e920e40887b3c977d9d87cd2c506dbcd061445f484160ae9f0bba29df155b2e&state=BNaNZidCZ45SIxW4wh9MheI4crGAJq5R HTTP/1.0" 302 0
+INFO 2025-03-18 17:29:52,869 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 17:30:58,479 basehttp 11 140590133545784 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-03-18 17:31:13,950 basehttp 11 140590133545784 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-18 17:31:13,960 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:32:18,108 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:32:21,747 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:32:29,682 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:32:29,710 basehttp 11 140590133545784 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-18 17:32:38,384 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:34:10,595 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:34:10,658 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:34:10,664 basehttp 11 140590132394808 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-18 17:34:14,098 basehttp 11 140590133545784 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-03-18 17:34:40,403 basehttp 11 140590133545784 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-03-18 17:34:48,694 basehttp 11 140590133545784 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-18 17:34:48,704 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:35:47,935 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:35:47,984 basehttp 11 140590133545784 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-18 17:35:47,990 basehttp 11 140590132394808 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-18 17:35:59,379 basehttp 11 140590133545784 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-03-18 17:37:00,742 autoreload 11 139775006952232 Watching for file changes with StatReloader
+INFO 2025-03-18 17:37:34,235 basehttp 11 139774928173880 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 17:37:35,213 log 11 139774928173880 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 17:37:35,215 basehttp 11 139774928173880 "GET /auth/42/callback?code=59a2daaa9a35c4ecce4fa60086a7646b4ca9da3c2b1518283622c044eebcb9ce&state=TLXwW10ZuahSomWMpBdTTcygKsFsyELF HTTP/1.0" 500 180190
+INFO 2025-03-18 17:46:46,849 autoreload 11 140090684939048 Watching for file changes with StatReloader
+INFO 2025-03-18 17:58:03,322 autoreload 11 139741570083624 Watching for file changes with StatReloader
+INFO 2025-03-18 17:58:35,158 basehttp 11 139741490936632 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 17:58:36,077 log 11 139741490936632 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 17:58:36,079 basehttp 11 139741490936632 "GET /auth/42/callback?code=c63d6a9a54d84e47a1b419a596328604dcd387db839a4e6195a5b06f25c54752&state=BTYXFfLIVM7Gs2L6OW76MvhCKq5OWizm HTTP/1.0" 500 180190
+WARNING 2025-03-18 17:59:57,392 log 11 139741483379512 Bad Request: /auth/42/callback
+WARNING 2025-03-18 17:59:57,392 basehttp 11 139741483379512 "GET /auth/42/callback?code=c63d6a9a54d84e47a1b419a596328604dcd387db839a4e6195a5b06f25c54752&state=BTYXFfLIVM7Gs2L6OW76MvhCKq5OWizm HTTP/1.0" 400 44
+INFO 2025-03-18 18:00:02,239 basehttp 11 139741483379512 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 18:00:03,629 basehttp 11 139741483379512 "GET /auth/42/callback?code=398bb05497049ba5ab545d26964638475d9f5b03897f67aff7577cd2bfa6618e&state=5pLRLhH3iMnhWQFcFGZJ3zKmZJZMddiK HTTP/1.0" 302 0
+INFO 2025-03-18 18:00:03,648 basehttp 11 139741483379512 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 18:06:24,910 autoreload 11 140014054644520 Watching for file changes with StatReloader
+INFO 2025-03-18 18:06:30,261 basehttp 11 140013975481144 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 18:06:31,264 log 11 140013975481144 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 18:06:31,267 basehttp 11 140013975481144 "GET /auth/42/callback?code=69c80ec3819ddffd4e946a9077c1321b6404bb1902a93714f029308c4215714e&state=A3ucqpevTKh2KABMki1vITxj65Ms97BY HTTP/1.0" 500 180190
+WARNING 2025-03-18 18:06:52,657 log 11 140013967952696 Bad Request: /auth/42/callback
+WARNING 2025-03-18 18:06:52,658 basehttp 11 140013967952696 "GET /auth/42/callback?code=69c80ec3819ddffd4e946a9077c1321b6404bb1902a93714f029308c4215714e&state=A3ucqpevTKh2KABMki1vITxj65Ms97BY HTTP/1.0" 400 44
+INFO 2025-03-18 18:06:57,970 basehttp 11 140013967952696 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 18:06:58,938 log 11 140013967952696 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 18:06:58,939 basehttp 11 140013967952696 "GET /auth/42/callback?code=2d8cf114661f1abcfce7856054a9fda71edd2db4a50238293e91535bfbfb8f07&state=pRc3OwrX59hLG8SKGm4A8CMVys88otxG HTTP/1.0" 500 180190
+INFO 2025-03-18 18:16:06,400 autoreload 11 140127162522408 Watching for file changes with StatReloader
+INFO 2025-03-18 18:16:12,676 basehttp 11 140127083440952 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 18:16:13,727 log 11 140127083440952 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 18:16:13,731 basehttp 11 140127083440952 "GET /auth/42/callback?code=355ce7cea5d0dbe4fe5c0cbfed9b5c12628a922962b47aa6a6de9242a27030c3&state=ESaZgOegzkflm3rik9MFrAtvNPzK6ndV HTTP/1.0" 500 180190
+INFO 2025-03-18 18:17:49,979 basehttp 11 140127075826488 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 18:17:50,874 log 11 140127075826488 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 18:17:50,875 basehttp 11 140127075826488 "GET /auth/42/callback?code=db06e2db4a973cb01cedb09ff297758aa793d25591bd15cf35fc0f9b4947277f&state=cku7tN1eJKQzqGE6nTobcFcjh620dbpN HTTP/1.0" 500 180190
+INFO 2025-03-18 18:18:10,962 basehttp 11 140127075826488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 18:18:11,695 basehttp 11 140127075826488 "GET /auth/42/callback?code=d9aa310864a486c539d516c7df3b109b2f4285000bc72eb098dbb7851158ec8c&state=825IRCQOPbsyRVwPHeUldmPgNLH2SfbU HTTP/1.0" 302 0
+INFO 2025-03-18 18:18:11,724 basehttp 11 140127075826488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 18:20:17,151 autoreload 11 139629013162792 Watching for file changes with StatReloader
+INFO 2025-03-18 18:20:47,694 basehttp 11 139628934060856 "GET /auth/login-42/ HTTP/1.0" 302 0
+ERROR 2025-03-18 18:20:48,608 log 11 139628934060856 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/app/oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/game/models.py", line 20, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-18 18:20:48,611 basehttp 11 139628934060856 "GET /auth/42/callback?code=06f6fce03fa3e77405397501f967e9abd194431617fee3106071fdd7b126518a&state=u7mYuWKOblPIuE2KN6EPVhIpc619xRbw HTTP/1.0" 500 180190
+INFO 2025-03-18 18:22:10,572 autoreload 11 140422963256104 Watching for file changes with StatReloader
+INFO 2025-03-18 18:24:06,760 autoreload 11 139631531977512 Watching for file changes with StatReloader
+INFO 2025-03-18 18:24:23,870 basehttp 11 139631451630392 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 18:24:24,712 basehttp 11 139631451630392 "GET /auth/42/callback?code=ecb6e9f08457423f84f5fcc129d0768cce593843d7ccd4c9606ba1e28dbb457b&state=C7GHbGAs6VblcSHnz1RodbC1amluVF6D HTTP/1.0" 302 0
+INFO 2025-03-18 18:24:24,731 basehttp 11 139631451667256 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 18:24:48,981 basehttp 11 139631451667256 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 18:24:49,008 basehttp 11 139631451667256 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-18 18:24:49,012 basehttp 11 139631447280440 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-18 18:24:51,244 basehttp 11 139631451650872 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-03-18 18:24:57,715 basehttp 11 139631451650872 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 18:24:58,657 basehttp 11 139631447247672 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-18 18:24:59,430 basehttp 11 139631451667256 "GET /auth/42/callback?code=0b804b47211d5f1e40c83afe3190d282ba271b50c078423a3216b297e0329484&state=u42N1gPfVTbv084fsEMuu4lBocwxrqm7 HTTP/1.0" 302 0
+INFO 2025-03-18 18:24:59,451 basehttp 11 139631451667256 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:32:50,083 autoreload 11 139920423574312 Watching for file changes with StatReloader
+INFO 2025-03-19 11:32:55,914 basehttp 11 139920343186232 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 11:32:56,806 basehttp 11 139920343186232 "GET /auth/42/callback?code=ac4f63eeeec2817f6d1354a259c8f2c5e72d6170e0de751ed6f5d3c95b507825&state=kJOxGGGe9VeEVKspbt9le79EQPfJsE62 HTTP/1.0" 302 0
+INFO 2025-03-19 11:32:56,847 basehttp 11 139920343206712 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:32:59,633 basehttp 11 139920343206712 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:33:34,132 autoreload 11 140705489427240 Watching for file changes with StatReloader
+INFO 2025-03-19 11:33:46,160 basehttp 11 140705409092408 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 11:33:46,927 basehttp 11 140705409092408 "GET /auth/42/callback?code=33902d6c9b3365561963c24ce6172e3e8b5d8c8c549e873fa4b4070810695baa&state=e0WuS7XU8Lc6jAxhNiLvIPtkCnyRdp6p HTTP/1.0" 302 0
+INFO 2025-03-19 11:33:46,946 basehttp 11 140705409129272 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:34:00,785 basehttp 11 140705409129272 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:34:04,668 basehttp 11 140705409121080 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:34:08,100 basehttp 11 140705409121080 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:34:08,138 basehttp 11 140705409121080 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 11:43:02,573 autoreload 11 139815291988776 Watching for file changes with StatReloader
+INFO 2025-03-19 11:43:35,533 basehttp 11 139815211621176 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 11:43:36,442 basehttp 11 139815211621176 "GET /auth/42/callback?code=81793f08e35989941db4cf45461b792206ff2d5d2c1cdc05347a8c878d9ae2d8&state=bhYnmkGmC2jcv19GfLBjclA8xnFktUTp HTTP/1.0" 302 0
+INFO 2025-03-19 11:43:36,469 basehttp 11 139815211621176 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:43:37,823 basehttp 11 139815208340280 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:43:39,769 basehttp 11 139815208340280 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:50:20,259 autoreload 11 139829279697704 Watching for file changes with StatReloader
+INFO 2025-03-19 11:50:31,417 basehttp 11 139829199330104 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 11:50:32,416 basehttp 11 139829199330104 "GET /auth/42/callback?code=733cd312af2e98fc031a66b7e7d6208f1d4187809901e30fbf775084281a8294&state=1wPZUHltAVXSANuaFdo3rKR6xQpJN4OZ HTTP/1.0" 302 0
+INFO 2025-03-19 11:50:32,477 basehttp 11 139829199366968 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:50:35,360 basehttp 11 139829199366968 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:52:38,761 autoreload 9 140427155385128 Watching for file changes with StatReloader
+INFO 2025-03-19 11:52:39,357 basehttp 9 140427076225848 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:52:45,596 basehttp 9 140427075140408 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 11:52:46,598 basehttp 9 140427075140408 "GET /auth/42/callback?code=ad6c388c3f8bd4ef5b4ad9bdb1721261fed287bcb34f4143f2a6d7466f6cc4aa&state=FlmeD16328N05SSXlsezYZXdTeFLwJfX HTTP/1.0" 302 0
+INFO 2025-03-19 11:52:46,656 basehttp 9 140427075177272 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:52:49,147 basehttp 9 140427075177272 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 11:53:30,863 basehttp 9 140427075152696 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:09:30,235 autoreload 11 139817064631080 Watching for file changes with StatReloader
+INFO 2025-03-19 12:09:34,554 basehttp 11 139816984226616 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:09:35,711 basehttp 11 139816984226616 "GET /auth/42/callback?code=502552fc6e43f54513bfd9faca3ae6388fbd078425d3892cfaf1c1605ddd4a4a&state=APMc1o7KtUywTNOQq9en5RCa5QaBYp0R HTTP/1.0" 302 0
+INFO 2025-03-19 12:09:35,798 basehttp 11 139816984226616 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:09:42,426 basehttp 11 139816984226616 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:14:03,617 autoreload 11 140323522951976 Watching for file changes with StatReloader
+INFO 2025-03-19 12:14:07,256 basehttp 11 140323442535224 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:14:08,757 basehttp 11 140323442535224 "GET /auth/42/callback?code=6a96410db7e06cfc7c740e7d800436cd5e9ee7e26063b6ea28469ef9ad303b03&state=wlO3Uml8hI1DU4V4Zi7VyaWsCWI7kQFk HTTP/1.0" 302 0
+INFO 2025-03-19 12:14:08,900 basehttp 11 140323442535224 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:14:11,600 basehttp 11 140323442535224 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:17:23,277 autoreload 11 139715895839528 Watching for file changes with StatReloader
+INFO 2025-03-19 12:17:43,309 basehttp 11 139715815455544 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:17:44,189 basehttp 11 139715815455544 "GET /auth/42/callback?code=52b118a7beb50b0b61738f6284842facd5e30e2b77cd7e0c6d450d00d31375c4&state=3JfUdMbXfUL5WGGtgYQBnoyeoa1EVWZt HTTP/1.0" 302 0
+INFO 2025-03-19 12:17:44,218 basehttp 11 139715815455544 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:17:46,078 basehttp 11 139715811150648 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:18:43,418 autoreload 11 139671963376424 Watching for file changes with StatReloader
+INFO 2025-03-19 12:18:45,832 basehttp 11 139671883008824 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:18:47,055 basehttp 11 139671883008824 "GET /auth/42/callback?code=52383e335c2f8a6bfcc81a6c3dba1374e057ea00f6289185137a8b5a2255c7ef&state=R8zdSH3ODFXiU8agXPsSFZOJNB9p6qRd HTTP/1.0" 302 0
+INFO 2025-03-19 12:18:47,151 basehttp 11 139671883045688 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:18:51,467 basehttp 11 139671883045688 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:22:17,336 autoreload 11 140161810193192 Watching for file changes with StatReloader
+INFO 2025-03-19 12:22:22,255 basehttp 11 140161729784632 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:22:23,436 basehttp 11 140161729784632 "GET /auth/42/callback?code=a729420d2fbe8822bcba7a28f5aed7d02084368210b6558ac3056e7604e32879&state=0PUuVCMqe8YCn0x0FrUkJvfbMb9NcEEu HTTP/1.0" 302 0
+INFO 2025-03-19 12:22:23,503 basehttp 11 140161729784632 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:22:25,458 basehttp 11 140161729784632 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:26:59,065 autoreload 11 139628586048296 Watching for file changes with StatReloader
+INFO 2025-03-19 12:27:06,276 basehttp 11 139628505660216 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:27:07,407 basehttp 11 139628505660216 "GET /auth/42/callback?code=3f770ae89d8f5e72074500e91a8580a8771229049bf7d2e6692410a9da45928f&state=0x0xUJgfZAH8EIGFn9W4RlJLhXTieSd4 HTTP/1.0" 302 0
+INFO 2025-03-19 12:27:07,450 basehttp 11 139628505660216 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:27:13,551 basehttp 11 139628505660216 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 12:27:13,603 log 11 139628505660216 Not Found: /api/game_settings/
+WARNING 2025-03-19 12:27:13,604 basehttp 11 139628505660216 "GET /api/game_settings/ HTTP/1.0" 404 3076
+INFO 2025-03-19 12:27:13,610 basehttp 11 139628505660216 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 12:37:48,776 autoreload 11 140338834852648 Watching for file changes with StatReloader
+INFO 2025-03-19 12:37:55,800 basehttp 11 140338754460472 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:37:56,820 basehttp 11 140338754460472 "GET /auth/42/callback?code=e3df3a03ba0f006f3b8ec3a9b809a65d9af5f6c30a739f8585da288490df86ba&state=LfrMXnEnX6WGdpY2pMaD9wzaXu2aJivF HTTP/1.0" 302 0
+INFO 2025-03-19 12:37:56,886 basehttp 11 140338754460472 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:38:00,411 basehttp 11 140338754460472 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:38:00,462 basehttp 11 140338754460472 "GET /api/game_settings/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:38:00,470 basehttp 11 140338754460472 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 12:48:00,395 autoreload 11 140282739751720 Watching for file changes with StatReloader
+INFO 2025-03-19 12:48:04,285 basehttp 11 140282659326776 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:48:05,796 basehttp 11 140282659326776 "GET /auth/42/callback?code=768a1c7284a405d4cbe15471498664b6989954d0c242f01d2e096c2405e1976a&state=Y5km2qR0umD0Cb4dNs3APyao0ClkeRRe HTTP/1.0" 302 0
+INFO 2025-03-19 12:48:05,857 basehttp 11 140282659326776 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:48:10,139 basehttp 11 140282659326776 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:48:10,202 basehttp 11 140282659326776 "GET /api/game_settings/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:48:10,214 basehttp 11 140282659326776 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 12:55:22,473 autoreload 11 140714198784808 Watching for file changes with StatReloader
+INFO 2025-03-19 12:55:26,465 basehttp 11 140714118384440 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 12:55:27,484 basehttp 11 140714118384440 "GET /auth/42/callback?code=b48840026d2d31b2767e20f7e901dd97425bb7469f98668e7618275cf3602737&state=pqoLcAgjPNA8PxVJzcm3QE2rvP63kamg HTTP/1.0" 302 0
+INFO 2025-03-19 12:55:27,547 basehttp 11 140714118421304 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 12:55:31,482 basehttp 11 140714118421304 "GET /auth/user/ HTTP/1.0" 200 112
+ERROR 2025-03-19 12:55:31,587 log 11 140714118421304 Internal Server Error: /api/game_settings/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/http.py", line 43, in inner
+    return func(request, *args, **kwargs)
+  File "/app/game/views.py", line 11, in game_settings_api
+    settings_obj = request.user.game_settings
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute 'game_settings'
+ERROR 2025-03-19 12:55:31,588 basehttp 11 140714118421304 "GET /api/game_settings/ HTTP/1.0" 500 74120
+INFO 2025-03-19 12:55:31,598 basehttp 11 140714118421304 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 13:58:15,824 autoreload 11 140321248004904 Watching for file changes with StatReloader
+INFO 2025-03-19 13:58:27,446 basehttp 11 140321167600440 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 13:58:28,630 basehttp 11 140321167600440 "GET /auth/42/callback?code=e4df01239ee2dc2ddba7e7e33b9c7ee3053c0ffc313bfd06d790f9104e973fb1&state=Bw9sBoHVnccVDUU9jBydf9xbIpFUixgK HTTP/1.0" 302 0
+INFO 2025-03-19 13:58:28,649 basehttp 11 140321167600440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 13:58:34,769 basehttp 11 140321167600440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 13:58:34,819 basehttp 11 140321167600440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 13:58:34,826 basehttp 11 140321163242296 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-19 13:58:39,692 basehttp 11 140321167600440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 13:58:46,258 basehttp 11 140321167600440 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 13:58:46,290 log 11 140321167600440 Unauthorized: /api/game_settings/
+WARNING 2025-03-19 13:58:46,291 basehttp 11 140321167600440 "GET /api/game_settings/ HTTP/1.0" 401 27
+INFO 2025-03-19 13:58:46,297 basehttp 11 140321167600440 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 14:07:52,462 basehttp 11 140321167600440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 14:49:45,159 autoreload 11 140071908707112 Watching for file changes with StatReloader
+INFO 2025-03-19 14:49:54,700 basehttp 11 140071828339512 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 14:49:55,571 basehttp 11 140071827254072 "GET /auth/42/callback?code=62598dab28c91426f5193f63d2e84437d6df30dc008b02684b8037cb9bf3389d&state=CIcZ4l5lcRLB2DXnEy10nKAa2G2n7s7s HTTP/1.0" 302 0
+INFO 2025-03-19 14:49:55,638 basehttp 11 140071827254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 14:50:08,758 basehttp 11 140071824010040 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 14:50:08,784 log 11 140071824010040 Unauthorized: /api/game_settings/
+WARNING 2025-03-19 14:50:08,784 basehttp 11 140071824010040 "GET /api/game_settings/ HTTP/1.0" 401 27
+INFO 2025-03-19 14:50:08,789 basehttp 11 140071824010040 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 14:50:42,459 basehttp 11 140071824010040 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 14:50:43,348 basehttp 11 140071824010040 "GET /auth/42/callback?code=ac3511741456068cf5bba154c32b0fc10f48ac8f5d7560a2b4e6fe2dd04f3b2e&state=fGnOnBNvaq3RDHGlxNx2gecNQjOk0N63 HTTP/1.0" 302 0
+INFO 2025-03-19 14:50:43,377 basehttp 11 140071824010040 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 14:59:28,588 autoreload 11 140681476094760 Watching for file changes with StatReloader
+INFO 2025-03-19 14:59:39,005 basehttp 11 140681395698488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 14:59:40,108 basehttp 11 140681395698488 "GET /auth/42/callback?code=66ad62a346c3b00761f09578425757503c37cb3c179b890757f8284ba7a61548&state=6M954DJ9qxV01HEbvUPnbbPshKAb7YMy HTTP/1.0" 302 0
+INFO 2025-03-19 14:59:40,162 basehttp 11 140681395698488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:00:01,039 basehttp 11 140681395661624 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 15:00:01,078 log 11 140681395661624 Unauthorized: /api/game_settings/
+WARNING 2025-03-19 15:00:01,078 basehttp 11 140681395661624 "GET /api/game_settings/ HTTP/1.0" 401 27
+INFO 2025-03-19 15:00:01,085 basehttp 11 140681395661624 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 15:18:07,319 autoreload 11 140511082375976 Watching for file changes with StatReloader
+INFO 2025-03-19 15:18:13,499 basehttp 11 140511001967416 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 15:18:14,590 basehttp 11 140511001967416 "GET /auth/42/callback?code=1e8c2d4b3548e4c0fc03f6d32062e4cad9bf95b356b27f2bcc722592ad1ff1f4&state=bAHnrR6tfthzb4PNoIoRuHsDgfGHFdfi HTTP/1.0" 302 0
+INFO 2025-03-19 15:18:14,653 basehttp 11 140511001967416 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:18:20,885 basehttp 11 140511001967416 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:18:20,939 basehttp 11 140511001967416 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:18:20,940 basehttp 11 140510997678904 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-19 15:18:28,359 basehttp 11 140511001967416 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:18:33,824 basehttp 11 140511001967416 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:18:47,091 basehttp 11 140511001967416 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 15:18:47,968 basehttp 11 140511001967416 "GET /auth/42/callback?code=c1dffa5bae6b0bc2a1786f5a59a722b70a336643f50a310b2682a47238f9e106&state=iWYP0nSkcxHTRfw7NB0JjX8PY3mx7ecR HTTP/1.0" 302 0
+INFO 2025-03-19 15:18:47,998 basehttp 11 140511001967416 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:18:50,766 basehttp 11 140511001967416 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 15:18:50,826 log 11 140511001967416 Unauthorized: /api/game_settings/
+WARNING 2025-03-19 15:18:50,827 basehttp 11 140511001967416 "GET /api/game_settings/ HTTP/1.0" 401 27
+INFO 2025-03-19 15:18:50,843 basehttp 11 140511001967416 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 15:23:58,370 autoreload 11 139834057476904 Watching for file changes with StatReloader
+INFO 2025-03-19 15:24:23,414 basehttp 11 139833977105208 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 15:24:24,278 basehttp 11 139833977105208 "GET /auth/42/callback?code=b9f61ffefc94ed0263bca952c5b350dbd2b7743cb987bdc316dea65d861f0eb7&state=xKOgM8JBICfNLOmuH582JECRdO51zf6J HTTP/1.0" 302 0
+INFO 2025-03-19 15:24:24,305 basehttp 11 139833977142072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:25:05,072 basehttp 11 139833977125688 "POST /auth/signup/ HTTP/1.0" 201 56
+INFO 2025-03-19 15:25:15,532 basehttp 11 139833977125688 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-19 15:25:15,542 basehttp 11 139833977125688 "GET /auth/user/ HTTP/1.0" 200 108
+INFO 2025-03-19 15:37:02,768 autoreload 11 140240130833192 Watching for file changes with StatReloader
+INFO 2025-03-19 15:37:10,334 basehttp 11 140240050432824 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 15:37:11,322 basehttp 11 140240050432824 "GET /auth/42/callback?code=3d00e78be2358a1c9e4478638e2c1b7655e34d7d0f33e10acf5dd6819ce7f4a0&state=PxME4kdXraWdg4nfdUBGTAML63LIoTyV HTTP/1.0" 302 0
+INFO 2025-03-19 15:37:11,366 basehttp 11 140240050469688 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:37:37,744 basehttp 11 140240050432824 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 15:37:37,787 log 11 140240050432824 Unauthorized: /api/game_settings/
+WARNING 2025-03-19 15:37:37,787 basehttp 11 140240050432824 "GET /api/game_settings/ HTTP/1.0" 401 27
+INFO 2025-03-19 15:37:37,789 basehttp 11 140240050432824 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 15:42:51,246 autoreload 11 140323498552104 Watching for file changes with StatReloader
+INFO 2025-03-19 15:53:49,141 autoreload 11 139664108489512 Watching for file changes with StatReloader
+INFO 2025-03-19 15:54:02,357 basehttp 11 139664028089144 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 15:54:03,271 basehttp 11 139664028089144 "GET /auth/42/callback?code=a659645ae97285db1fe74d64280b27bce413b5326d2f28f93339c98365a1d3b2&state=jD02Yv0J0X9ffmlNUsAbyq3zq81yAtAJ HTTP/1.0" 302 0
+INFO 2025-03-19 15:54:03,308 basehttp 11 139664028089144 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 15:54:14,751 basehttp 11 139664028089144 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 15:54:14,785 log 11 139664028089144 Unauthorized: /api/game_settings/
+WARNING 2025-03-19 15:54:14,785 basehttp 11 139664028089144 "GET /api/game_settings/ HTTP/1.0" 401 27
+INFO 2025-03-19 15:54:14,789 basehttp 11 139664028089144 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 16:08:53,463 autoreload 11 140613986929448 Watching for file changes with StatReloader
+INFO 2025-03-19 16:09:04,625 basehttp 11 140613906512696 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 16:09:05,425 basehttp 11 140613906512696 "GET /auth/42/callback?code=425c66afccd5873c4d78b9616b3e9fc153b6eae1e5bd191ad93a84ac5382a7e7&state=7Z3BDS4aaulullmfkaJ6nqJVjoyaTENU HTTP/1.0" 302 0
+INFO 2025-03-19 16:09:05,450 basehttp 11 140613906512696 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:09:15,393 basehttp 11 140613906512696 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:09:15,458 basehttp 11 140613906512696 "GET /api/game_settings/ HTTP/1.0" 200 58
+WARNING 2025-03-19 16:09:56,840 log 11 140613906512696 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
+WARNING 2025-03-19 16:09:56,840 basehttp 11 140613906512696 "POST /api/game_settings/ HTTP/1.0" 403 2593
+INFO 2025-03-19 16:09:56,845 basehttp 11 140613906512696 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 16:10:00,216 basehttp 11 140613906512696 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:10:02,332 basehttp 11 140613906512696 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:10:02,381 basehttp 11 140613906512696 "GET /api/game_settings/ HTTP/1.0" 200 58
+WARNING 2025-03-19 16:10:13,714 log 11 140613906512696 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
+WARNING 2025-03-19 16:10:13,715 basehttp 11 140613906512696 "POST /api/game_settings/ HTTP/1.0" 403 2593
+INFO 2025-03-19 16:10:13,718 basehttp 11 140613906512696 "POST /api/logs/ HTTP/1.0" 200 16
+WARNING 2025-03-19 16:10:17,059 log 11 140613906512696 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
+WARNING 2025-03-19 16:10:17,059 basehttp 11 140613906512696 "POST /api/game_settings/ HTTP/1.0" 403 2593
+INFO 2025-03-19 16:10:17,063 basehttp 11 140613906512696 "POST /api/logs/ HTTP/1.0" 200 16
+WARNING 2025-03-19 16:10:19,468 log 11 140613906512696 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
+WARNING 2025-03-19 16:10:19,469 basehttp 11 140613906512696 "POST /api/game_settings/ HTTP/1.0" 403 2593
+INFO 2025-03-19 16:10:19,479 basehttp 11 140613906512696 "POST /api/logs/ HTTP/1.0" 200 16
+WARNING 2025-03-19 16:10:23,754 log 11 140613906512696 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
+WARNING 2025-03-19 16:10:23,754 basehttp 11 140613906512696 "POST /api/game_settings/ HTTP/1.0" 403 2593
+INFO 2025-03-19 16:10:23,758 basehttp 11 140613906512696 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 16:31:39,958 autoreload 11 140236731091752 Watching for file changes with StatReloader
+INFO 2025-03-19 16:31:47,296 basehttp 11 140236650740536 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 16:31:48,213 basehttp 11 140236650740536 "GET /auth/42/callback?code=d6109d712af461e0831196fc2d814d54ef98250771d0efff0318147f069345aa&state=vHJRTy8ixssK2J7B61O8DQe1Rf1RBjvK HTTP/1.0" 302 0
+INFO 2025-03-19 16:31:48,259 basehttp 11 140236650740536 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:32:55,553 autoreload 11 140646136625960 Watching for file changes with StatReloader
+INFO 2025-03-19 16:33:03,078 basehttp 11 140646056233784 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 16:33:04,177 basehttp 11 140646056233784 "GET /auth/42/callback?code=ef4d5e6d732c1b4a5ece0f4e228cc7a6d4d50def2bd2ba5ad00131bc71109333&state=nKEk6zXtbTrg2lIrfDBRtmVmH1KW5ZUA HTTP/1.0" 302 0
+INFO 2025-03-19 16:33:04,227 basehttp 11 140646051928888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:33:16,711 basehttp 11 140646051928888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:33:16,751 basehttp 11 140646051928888 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 16:33:20,364 basehttp 11 140646051928888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:33:28,063 basehttp 11 140646051928888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:33:28,099 basehttp 11 140646051928888 "GET /api/game_settings/ HTTP/1.0" 200 58
+WARNING 2025-03-19 16:33:45,298 log 11 140646051928888 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
+WARNING 2025-03-19 16:33:45,298 basehttp 11 140646051928888 "POST /api/game_settings/ HTTP/1.0" 403 2593
+INFO 2025-03-19 16:34:13,024 autoreload 11 140603391216424 Watching for file changes with StatReloader
+INFO 2025-03-19 16:34:19,264 basehttp 11 140603310832440 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 16:34:20,213 basehttp 11 140603310832440 "GET /auth/42/callback?code=2140acd4722dc4e3157c277ba5522bd220f21c4187096988546732fb77bd2f7e&state=D9pNIa21wgBnDa67OvLWkpkdyzzbu8Fq HTTP/1.0" 302 0
+INFO 2025-03-19 16:34:20,256 basehttp 11 140603310832440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:34:22,774 basehttp 11 140603310832440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:34:22,892 basehttp 11 140603310832440 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 16:34:37,993 basehttp 11 140603310832440 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:53:06,081 autoreload 11 139712897702696 Watching for file changes with StatReloader
+INFO 2025-03-19 16:53:10,796 basehttp 11 139712817347384 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 16:53:19,109 basehttp 11 139712817310520 "GET /auth/42/callback?code=0c6d7245418b63de0bbeeb3a9cbe39b253794a395dbb09164fee32c9da467cab&state=PpluSxpVy9VFBJ6TflHByhn3qYnSL9Eb HTTP/1.0" 302 0
+INFO 2025-03-19 16:53:19,183 basehttp 11 139712817331000 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:53:23,334 basehttp 11 139712817331000 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 16:53:23,343 log 11 139712817331000 Not Found: /api/game-settings
+WARNING 2025-03-19 16:53:23,343 basehttp 11 139712817331000 "GET /api/game-settings HTTP/1.0" 404 2982
+INFO 2025-03-19 16:53:23,348 basehttp 11 139712817331000 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 16:53:31,903 basehttp 11 139712817331000 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:53:36,439 basehttp 11 139712817331000 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:53:36,483 basehttp 11 139712817331000 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 16:53:39,817 basehttp 11 139712817314616 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:53:41,879 basehttp 11 139712817314616 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 16:53:41,889 log 11 139712817314616 Not Found: /api/game-settings
+WARNING 2025-03-19 16:53:41,890 basehttp 11 139712817314616 "GET /api/game-settings HTTP/1.0" 404 2982
+INFO 2025-03-19 16:53:41,894 basehttp 11 139712817314616 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 16:53:43,547 basehttp 11 139712817314616 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:56:16,190 autoreload 11 139914185685800 Watching for file changes with StatReloader
+INFO 2025-03-19 16:56:53,685 basehttp 11 139914105293624 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 16:56:54,506 basehttp 11 139914105293624 "GET /auth/42/callback?code=b0df16c866263551f0bc0aff4e696d5f9f5c3ffe5813e43c17c6cca563386c7c&state=TaXO6xC32vR4ZFQwF5mL0tYKSLe82Y8C HTTP/1.0" 302 0
+INFO 2025-03-19 16:56:54,533 basehttp 11 139914105314104 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 16:56:59,634 basehttp 11 139914105314104 "GET /auth/user/ HTTP/1.0" 200 112
+WARNING 2025-03-19 16:56:59,651 log 11 139914105314104 Not Found: /api/game-settings
+WARNING 2025-03-19 16:56:59,651 basehttp 11 139914105314104 "GET /api/game-settings HTTP/1.0" 404 2982
+INFO 2025-03-19 16:56:59,659 basehttp 11 139914105330488 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 16:57:07,618 basehttp 11 139914105330488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:04:18,634 autoreload 11 140260932901672 Watching for file changes with StatReloader
+INFO 2025-03-19 17:04:52,635 autoreload 11 139763194145576 Watching for file changes with StatReloader
+INFO 2025-03-19 17:04:56,783 basehttp 11 139763113773880 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 17:04:57,734 basehttp 11 139763113773880 "GET /auth/42/callback?code=07e396f1783b31f074751ec7c2bc1b3b662e3104863eec0f2a6f3bc1e28d1924&state=6oLsdkbF6Kc4oejUes6MN3J94ek9oClg HTTP/1.0" 302 0
+INFO 2025-03-19 17:04:57,783 basehttp 11 139763113810744 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:04:59,814 basehttp 11 139763113810744 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:04:59,915 basehttp 11 139763113810744 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:05:01,528 basehttp 11 139763113810744 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:05:03,619 basehttp 11 139763113810744 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:05:03,627 basehttp 11 139763113810744 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 17:07:17,056 autoreload 11 139935782947624 Watching for file changes with StatReloader
+INFO 2025-03-19 17:07:28,007 basehttp 11 139935702588216 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 17:07:28,963 basehttp 11 139935702588216 "GET /auth/42/callback?code=4f8cb8c3029d3bd46fea3615cc5fecfd7085dd4eb717149d80a5dcd3c4df4a5c&state=srNGLGXnbAUB2ofYSs9IF45mRx2IfZJx HTTP/1.0" 302 0
+INFO 2025-03-19 17:07:29,009 basehttp 11 139935702592312 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:07:32,120 basehttp 11 139935702592312 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:07:36,942 basehttp 11 139935702592312 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:07:39,541 basehttp 11 139935702592312 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 17:07:41,520 basehttp 11 139935702592312 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:07:49,408 basehttp 11 139935702592312 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-19 17:07:50,269 basehttp 11 139935702592312 "GET /auth/42/callback?code=a44e492b770c696cfc46cc7c021190101b141745db7a66f892a8866d6c15ebee&state=85HdOls2pdsIT8Y5Xzl83KvPckxm0aw5 HTTP/1.0" 302 0
+INFO 2025-03-19 17:07:50,287 basehttp 11 139935702592312 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:07:51,874 basehttp 11 139935702592312 "GET /api/game_settings/ HTTP/1.0" 200 58
+INFO 2025-03-19 17:08:14,503 basehttp 11 139935698221880 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:08:16,729 basehttp 11 139935698221880 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-19 17:08:22,666 basehttp 11 139935698221880 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:08:43,848 basehttp 11 139935698221880 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:08:43,892 basehttp 11 139935698221880 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-19 17:08:43,895 basehttp 11 139935697161016 "GET /auth/user/login_history/ HTTP/1.0" 200 461
+INFO 2025-03-19 17:08:51,901 basehttp 11 139935698221880 "GET /auth/user/ HTTP/1.0" 200 112

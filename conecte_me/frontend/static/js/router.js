@@ -142,6 +142,27 @@ async function checkAuth() {
 async function navigateTo(path) {
   console.log("Navigating to:", path);
 
+  // -- Ajout minimal : gère "?jwt=..." s'il existe dans l'URL --
+  const idx = path.indexOf('?');
+  console.log("idx =", idx);
+  if (idx !== -1) {
+    // On sépare "/board" de "?jwt=xxxx"
+    const mainRoute = path.substring(0, idx);   // ex: "/board"
+    const queryString = path.substring(idx + 1); // ex: "jwt=xxxx"
+
+    // On parse la query string
+    const params = new URLSearchParams(queryString);
+    const token = params.get('jwt');
+    if (token) {
+      localStorage.setItem('jwtToken', token);
+      console.log("Token stocké (on supprime ?jwt=... de l'URL):", token);
+    }
+
+    // On retire la query string de l'URL qu'on va push dans l'historique
+    path = mainRoute;
+  }
+  // -- Fin du bloc ajouté --
+
   // Si la route est protégée, vérifier l'authentification
   if (isRouteProtected(path)) {
     const user = await checkAuth();
@@ -192,10 +213,12 @@ async function navigateTo(path) {
 }
 
 
+
 // Gère le “Back” / “Forward” du navigateur
 window.addEventListener('popstate', () => {
   // On relit l’URL actuelle => recharge la vue
-  navigateTo(window.location.pathname);
+  const path = window.location.pathname + window.location.search;
+  navigateTo(path);
 });
 
 // Interception des clics sur liens <a data-link> pour naviguer en SPA
@@ -359,4 +382,5 @@ function attachListeners() {
 
 // Au premier chargement, on charge la vue correspondant à la route en cours
 // (ex: si l’URL est https://localhost:8443/login, on charge login.html)
-navigateTo(window.location.pathname);
+const initialPath = window.location.pathname + window.location.search;
+navigateTo(initialPath);
