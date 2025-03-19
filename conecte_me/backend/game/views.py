@@ -29,6 +29,8 @@ def game_settings_api(request):
             "score_limit": settings_obj.score_limit,
             "lives": settings_obj.lives,
             "ball_speed": settings_obj.ball_speed,
+            # On renvoie le username depuis l'utilisateur (pas stocké dans GameSettings)
+            "username": user.username
         }
         return JsonResponse(data, status=200)
     else:  # POST => mise à jour des champs
