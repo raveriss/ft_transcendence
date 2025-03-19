@@ -178,6 +178,27 @@ function customBack() {
 async function navigateTo(path, pushHistory = true) {
   console.log("Navigating to:", path);
 
+  // -- Ajout minimal : gère "?jwt=..." s'il existe dans l'URL --
+  const idx = path.indexOf('?');
+  console.log("idx =", idx);
+  if (idx !== -1) {
+    // On sépare "/board" de "?jwt=xxxx"
+    const mainRoute = path.substring(0, idx);   // ex: "/board"
+    const queryString = path.substring(idx + 1); // ex: "jwt=xxxx"
+
+    // On parse la query string
+    const params = new URLSearchParams(queryString);
+    const token = params.get('jwt');
+    if (token) {
+      localStorage.setItem('jwtToken', token);
+      console.log("Token stocké (on supprime ?jwt=... de l'URL):", token);
+    }
+
+    // On retire la query string de l'URL qu'on va push dans l'historique
+    path = mainRoute;
+  }
+  // -- Fin du bloc ajouté --
+
   // Si la route est protégée, vérifier l'authentification
   if (isRouteProtected(path)) {
     const user = await checkAuth();
@@ -230,7 +251,6 @@ async function navigateTo(path, pushHistory = true) {
     appDiv.style.visibility = 'visible';
   }
 }
-
 
 // 3. Utiliser customBack() pour gérer l'événement popstate (bouton retour du navigateur)
 window.addEventListener('popstate', () => {
@@ -401,4 +421,5 @@ function attachListeners() {
 
 // Au premier chargement, on charge la vue correspondant à la route en cours
 // (ex: si l’URL est https://localhost:8443/login, on charge login.html)
-navigateTo(window.location.pathname);
+const initialPath = window.location.pathname + window.location.search;
+navigateTo(initialPath);

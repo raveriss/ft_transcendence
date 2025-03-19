@@ -10,6 +10,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Clé secrète (à garder secrète en production)
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'unsafe-secret-key')
 
+# Ajoutez cette ligne pour utiliser votre modèle personnalisé
+AUTH_USER_MODEL = 'oauth_app.User42'
+
 # Mode débogage
 DEBUG = os.environ.get('DEBUG', '1') == '1'
 
@@ -34,6 +37,7 @@ INSTALLED_APPS = [
 
     # Applications personnalisées
     'oauth_app',
+    'game',
 ]
 
 # Middleware

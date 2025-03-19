@@ -1,9 +1,11 @@
 import os
 import jwt
 import datetime
+from django.conf import settings  # Importer les settings de Django
 
 def generate_jwt(user_id, username):
-    secret_key = os.environ.get('SECRET_KEY', 'unsafe-default-key')
+    # Utiliser la même clé secrète que celle définie dans settings.py
+    secret_key = settings.SECRET_KEY
     expiration = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
     payload = {
         'user_id': user_id,
