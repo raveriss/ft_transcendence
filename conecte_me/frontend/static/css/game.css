@@ -25,8 +25,11 @@ body {
   background: black;
   border: none;
   border-radius: 10px;
+  width: 100%;
   /* Les dimensions peuvent être définies dans le JS ou ici : */
-  width: 800px;
-  height: 400px;
+  max-width: 1200px; /* Taille maximale en largeur */
+  min-width: 800px;  /* Taille minimale en largeur */
+  aspect-ratio: 4 / 3; /* Maintient le ratio 4:3 (donc 800x600 min) */
+  height: auto;
 }
 

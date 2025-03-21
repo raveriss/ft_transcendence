@@ -1,24 +1,80 @@
-(function() {
-  // Paramètres globaux pour les paddles (peuvent être ajustés si besoin)
-  let paddleWidth = 20;
-  let paddleHeight = 100;
-  // Le match se termine à 5 points
-  let WINNING_SCORE = 5;
-  const WINNING_TIME = 300; // 5 min de jeu en secondes
-  // Pseudos (à récupérer ultérieurement)
-  const player1Name = 'Joueur 1';
+console.log("game.js loaded");
+
+// Fonction pour récupérer les réglages du jeu via l'API
+async function fetchGameSettings() {
+  console.log("fetchGameSettings() called");
+  // Récupération du token JWT stocké (par exemple, lors de la connexion)
+  const token = localStorage.getItem('jwtToken');
+  console.log("Token récupéré dans game.js:", token);
+  try {
+    const response = await fetch("/api/game_settings/", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + token,
+        "Content-Type": "application/json"
+      }
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+    }
+    const data = await response.json();
+    console.log("Données récupérées depuis game.js:", data);
+    return data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des réglages :", error);
+    // Valeurs par défaut en cas d'erreur
+    return {
+      time: 5,
+      score_limit: 5,
+      lives: 5,
+      ball_speed: 2
+    };
+  }
+}
+
+// Fonction principale pour initialiser le jeu avec les réglages récupérés
+(async function initGame() {
+  const settings = await fetchGameSettings();
+
+  // Paramètres de configuration du jeu, récupérés depuis l'API
+  const paddleWidth = 20;
+  const paddleHeight = 100;
+  const WINNING_SCORE = settings.score_limit;     // Par exemple, 5
+  const WINNING_TIME = settings.time * 60;          // Conversion en secondes
+  const ballSpeedX = settings.ball_speed;
+  const ballSpeedY = settings.ball_speed;
+
+  const player1Name = settings.username;
+  // const player1Name = "Joueur 1"
   const player2Name = 'Joueur 2';
+
+  console.log("Configuration du jeu:", { WINNING_SCORE, WINNING_TIME, ballSpeedX, ballSpeedY });
+
   // Image du terrain
-  var fondcanvas = new Image();
-  fondcanvas.src = '/static/img/map_handball.png';
-  // Vitesse de base
-  const ballSpeedX = 10;
-  const ballSpeedY = 10;
+  const mapChoice = settings.map_choice;
+  let fondcanvas;
+  if (mapChoice === "retro") {
+    // Soit un fond noir
+    fondcanvas = null; // On gère un background noir en canvas
+  } else {
+    fondcanvas = new Image();
+    if (mapChoice === "basketball") {
+      fondcanvas.src = '/static/img/field_basketball.png';
+    } else if (mapChoice === "hockey") {
+      fondcanvas.src = '/static/img/field_hockey.png';
+    } else if (mapChoice === "nfl") {
+      fondcanvas.src = '/static/img/field_NFL.png';
+    }
+  }
+
   // Global pour suivre l'état des touches
   let keysPressed = {};
 
   function startLocalGame() {
     console.log("Démarrage du jeu Pong");
+    console.log("Le win score est ", WINNING_SCORE);
+    console.log("Le temp de jeu est ", WINNING_TIME);
+    console.log("La vitesse de balle est ", ballSpeedX);
 
     // Création du canvas unique
     const canvas = document.createElement('canvas');
@@ -49,7 +105,7 @@
 
     // Initialisation des joueurs
     const player1 = {
-      x: 10,
+      x: 1,
       y: canvas.height / 2 - paddleHeight / 2,
       width: paddleWidth,
       height: paddleHeight,
@@ -57,7 +113,7 @@
     };
 
     const player2 = {
-      x: canvas.width - paddleWidth - 10,
+      x: canvas.width - paddleWidth - 1,
       y: canvas.height / 2 - paddleHeight / 2,
       width: paddleWidth,
       height: paddleHeight,
@@ -97,9 +153,10 @@
         ball.y >= player1.y &&
         ball.y <= player1.y + player1.height
       ) {
-        ball.speedX = -ball.speedX;
-        ball.speedY = (ball.y - (player1.y + player1.height / 2)) * 0.1;
-      }
+        // Inverser la direction et appliquer un facteur d'accélération (par exemple 1.05)
+        ball.speedX = -ball.speedX * 1.05;
+        ball.speedY = ball.speedY * 1.05;
+        }
 
       // Collision avec la raquette droite
       if (
@@ -107,8 +164,8 @@
         ball.y >= player2.y &&
         ball.y <= player2.y + player2.height
       ) {
-        ball.speedX = -ball.speedX;
-        ball.speedY = (ball.y - (player2.y + player2.height / 2)) * 0.1;
+        ball.speedX = -ball.speedX * 1.05;
+        ball.speedY = ball.speedY * 1.05;
       }
     }
 
@@ -139,7 +196,7 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Dessiner l'image de fond si chargée, sinon un fond noir
-      if (fondcanvas.complete) {
+      if (fondcanvas && fondcanvas.complete && fondcanvas.naturalWidth !== 0) {
         ctx.drawImage(fondcanvas, 0, 0, canvas.width, canvas.height);
       } else {
         ctx.fillStyle = "black";
@@ -200,8 +257,17 @@
       isGameOver = true;
       confirmQuit = false;
       const duration = Math.floor((Date.now() - startTime) / 1000);
+      const matchData = {
+        player1: player1Name,
+        player2: player2Name,
+        score1: player1.score,
+        score2: player2.score,
+        duration: duration,
+        date: dateStart,
+        recorded: true
+      };
       //
-      // Route pour enregistrer le match
+      // Route pour enregistrer le match (donne de match data)
       //
       console.log(`Durée du match : ${duration} sec`);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
