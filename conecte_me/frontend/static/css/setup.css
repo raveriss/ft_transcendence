@@ -247,7 +247,12 @@
           grid-template-columns: repeat(2, 1fr); /* 2 colonnes de même largeur */
           gap: 0.5rem;                           /* espace entre les boutons */
       }
-  
+      
+      #mapChoiceGroup button.active {
+        background-color: #3b82f6; /* Bleu */
+        color: #fff; /* Texte blanc */
+        border-color: #3b82f6;
+      }
       /* Disposition spécifique : pour correspondre EXACTEMENT à la capture,
          on place les blocs manuellement en row/col. 
          On peut superposer plus de row / col pour un contrôle précis. */

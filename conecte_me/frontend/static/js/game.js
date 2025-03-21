@@ -51,17 +51,30 @@ async function fetchGameSettings() {
   console.log("Configuration du jeu:", { WINNING_SCORE, WINNING_TIME, ballSpeedX, ballSpeedY });
 
   // Image du terrain
-  var fondcanvas = new Image();
-  fondcanvas.src = '/static/img/field_baseball.png';
+  const mapChoice = settings.map_choice;
+  let fondcanvas;
+  if (mapChoice === "retro") {
+    // Soit un fond noir
+    fondcanvas = null; // On gère un background noir en canvas
+  } else {
+    fondcanvas = new Image();
+    if (mapChoice === "basketball") {
+      fondcanvas.src = '/static/img/field_basketball.png';
+    } else if (mapChoice === "hockey") {
+      fondcanvas.src = '/static/img/field_hockey.png';
+    } else if (mapChoice === "nfl") {
+      fondcanvas.src = '/static/img/field_NFL.png';
+    }
+  }
 
   // Global pour suivre l'état des touches
   let keysPressed = {};
 
   function startLocalGame() {
     console.log("Démarrage du jeu Pong");
-    console.log("Le win score de vie est ", WINNING_SCORE);
+    console.log("Le win score est ", WINNING_SCORE);
     console.log("Le temp de jeu est ", WINNING_TIME);
-    console.log("la vitesse de balle est ", ballSpeedX);
+    console.log("La vitesse de balle est ", ballSpeedX);
 
     // Création du canvas unique
     const canvas = document.createElement('canvas');
@@ -92,7 +105,7 @@ async function fetchGameSettings() {
 
     // Initialisation des joueurs
     const player1 = {
-      x: 10,
+      x: 1,
       y: canvas.height / 2 - paddleHeight / 2,
       width: paddleWidth,
       height: paddleHeight,
@@ -100,7 +113,7 @@ async function fetchGameSettings() {
     };
 
     const player2 = {
-      x: canvas.width - paddleWidth - 10,
+      x: canvas.width - paddleWidth - 1,
       y: canvas.height / 2 - paddleHeight / 2,
       width: paddleWidth,
       height: paddleHeight,
@@ -183,7 +196,7 @@ async function fetchGameSettings() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
       // Dessiner l'image de fond si chargée, sinon un fond noir
-      if (fondcanvas.complete && fondcanvas.naturalWidth !== 0) {
+      if (fondcanvas && fondcanvas.complete && fondcanvas.naturalWidth !== 0) {
         ctx.drawImage(fondcanvas, 0, 0, canvas.width, canvas.height);
       } else {
         ctx.fillStyle = "black";

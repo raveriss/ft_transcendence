@@ -4,7 +4,10 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 from oauth_app.jwt_decorator import jwt_required
 from .models import GameSettings
+from django.views.decorators.csrf import csrf_exempt
 
+
+@csrf_exempt  # <-- on désactive la vérification CSRF car on utilise JWT
 @require_http_methods(["GET", "POST"])
 @jwt_required  # On protège cette vue par un token JWT
 def game_settings_api(request):
@@ -29,8 +32,9 @@ def game_settings_api(request):
             "score_limit": settings_obj.score_limit,
             "lives": settings_obj.lives,
             "ball_speed": settings_obj.ball_speed,
+            "map_choice": settings_obj.map_choice,
             # On renvoie le username depuis l'utilisateur (pas stocké dans GameSettings)
-            "username": user.username
+            "username": user.username,
         }
         return JsonResponse(data, status=200)
     else:  # POST => mise à jour des champs
@@ -43,5 +47,6 @@ def game_settings_api(request):
         settings_obj.score_limit = payload.get("score_limit", settings_obj.score_limit)
         settings_obj.lives = payload.get("lives", settings_obj.lives)
         settings_obj.ball_speed = payload.get("ball_speed", settings_obj.ball_speed)
+        settings_obj.map_choice = payload.get("map_choice", settings_obj.map_choice)
         settings_obj.save()
         return JsonResponse({"success": True}, status=200)
