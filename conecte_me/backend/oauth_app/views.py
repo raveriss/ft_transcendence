@@ -149,7 +149,7 @@ def callback_42(request):
 
     # Mise à jour de la session, création du log de connexion, etc.
     jwt_token = generate_jwt(user_id=user.user_id, username=user_name_42)
-    response = HttpResponseRedirect(f"https://localhost:8443/board?jwt={jwt_token}")
+    response = HttpResponseRedirect(f"/board?jwt={jwt_token}")
     return response
 
 # --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
@@ -299,11 +299,15 @@ def login_view(request):
             request.session['user_id'] = user.pk
             request.session['email'] = user.email_address
 
+            # Génération du token JWT
+            jwt_token = generate_jwt(user_id=user.user_id, username=user.username)
+            
             # Si 2FA n'est pas encore activé, rediriger vers la configuration 2FA
             if user.is_2fa_enabled:
                 return JsonResponse({
                     "success": True,
-                    "redirect": "/auth/2fa/setup/"
+                    "redirect": "/auth/2fa/setup/",
+                    "token": jwt_token
                 }, status=200)
             else:
                 ip_address = request.META.get('REMOTE_ADDR')
@@ -316,7 +320,8 @@ def login_view(request):
                 )
                 return JsonResponse({
                     "success": True,
-                    "redirect": "/board"
+                    "redirect": f"/board?jwt={jwt_token}",
+                    "token": jwt_token
                 }, status=200)
 
         return JsonResponse({

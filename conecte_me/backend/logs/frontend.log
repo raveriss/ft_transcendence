@@ -39,3 +39,17 @@ INFO 2025-03-19 18:29:22,063 views 11 140098685258552 {"message": "Erreur: Error
 INFO 2025-03-21 11:40:12,018 views 11 139943973161784 {"message": "Erreur: Error: HTTP 403 - Forbidden", "level": "ERROR", "type": "console-error", "origin": "frontend"}
 INFO 2025-03-21 12:10:17,840 views 11 139736520276792 {"message": "TypeError: Cannot read properties of null (reading 'complete')", "level": "ERROR", "source": "Promise", "type": "promise-rejection", "origin": "frontend"}
 INFO 2025-03-21 12:10:40,577 views 11 139736520276792 {"message": "TypeError: Cannot read properties of null (reading 'complete')", "level": "ERROR", "source": "Promise", "type": "promise-rejection", "origin": "frontend"}
+INFO 2025-03-21 16:01:52,369 views 11 139836745268024 {"message": "Erreur WebSocket du chat : [object Event]", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:08:18,848 views 11 139836745268024 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:08:21,014 views 11 139836745268024 {"message": "Erreur: Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:08:22,422 views 11 139836745268024 {"message": "Erreur: Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:08:24,384 views 11 139836745268024 {"message": "Erreur: Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:11:15,498 views 11 139836745268024 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:11:41,831 views 11 139836745268024 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:17:27,222 views 11 139836745268024 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 404 - Not Found", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:23:30,027 views 11 140665606908728 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:40:36,531 views 11 140573309553464 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 404 - Not Found", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:40:47,560 views 11 140573309553464 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 404 - Not Found", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 16:43:26,166 views 11 140169895537464 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 404 - Not Found", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 18:38:01,392 views 11 139817269218104 {"message": "Erreur WebSocket du chat : [object Event]", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-21 18:47:00,693 views 11 140267415948088 {"message": "Erreur WebSocket du game : [object Event]", "level": "ERROR", "type": "console-error", "origin": "frontend"}
