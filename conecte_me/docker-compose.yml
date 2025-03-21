@@ -27,6 +27,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: conecteme_backend
+    command: daphne -b 0.0.0.0 -p 8000 conecte_me_backend.asgi:application
     env_file:
       - .env 
     environment:
@@ -45,6 +46,7 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - redis
     volumes:
       - media_data:/app/media
       - ./backend/logs:/app/logs  # Monte le dossier de logs pour que Django y écrive

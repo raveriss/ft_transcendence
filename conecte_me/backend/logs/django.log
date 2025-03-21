@@ -572,382 +572,209 @@ INFO 2025-03-17 18:47:09,351 basehttp 11 140600145951544 "GET /auth/user/ HTTP/1
 INFO 2025-03-17 18:47:26,970 basehttp 11 140600145935160 "GET /auth/user/ HTTP/1.0" 200 112
 INFO 2025-03-17 18:47:28,289 basehttp 11 140600145935160 "GET /auth/user/ HTTP/1.0" 200 112
 INFO 2025-03-17 18:47:46,119 basehttp 11 140600145935160 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:40:49,248 autoreload 11 139948409236264 Watching for file changes with StatReloader
-INFO 2025-03-18 12:40:51,568 basehttp 11 139948330449720 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 12:40:52,448 basehttp 11 139948330412856 "GET /auth/42/callback?code=4b3c0e9f9d8f22481a1f3503d47db17c48abe0317f6e9ae6f66bc20b10ad980a&state=7N71JvFf6RB0FQ2uqEsOlgOlBqICMJyV HTTP/1.0" 302 0
-INFO 2025-03-18 12:40:52,511 basehttp 11 139948330412856 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:42:31,496 basehttp 11 139948326214456 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:42:49,599 basehttp 11 139948326214456 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:45:59,165 autoreload 11 140450962860840 Watching for file changes with StatReloader
-INFO 2025-03-18 12:46:02,670 basehttp 11 140450884074296 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 12:46:03,759 basehttp 11 140450884074296 "GET /auth/42/callback?code=13b92599b7329d79a462f7faeef03d42c050aa358d4af4afae2d739e9d408a89&state=s0XjYL3fLPviY7VcYqryeTYoqRu3EXQ3 HTTP/1.0" 302 0
-INFO 2025-03-18 12:46:03,822 basehttp 11 140450884094776 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:46:07,516 basehttp 11 140450884094776 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:46:07,583 basehttp 11 140450884094776 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:46:07,588 basehttp 11 140450879675192 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-03-18 12:46:10,966 basehttp 11 140450884094776 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:46:23,558 basehttp 11 140450884078392 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:46:41,422 basehttp 11 140450884078392 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:49:44,191 autoreload 11 140183197928232 Watching for file changes with StatReloader
-INFO 2025-03-18 12:49:48,742 basehttp 11 140183119145784 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 12:49:49,792 basehttp 11 140183119145784 "GET /auth/42/callback?code=3474f3d852111571e83c5d92d91d2ca0514b1f62ef968ff52924439e6e2470c9&state=PoIPfNQjIVQdFrYxyBp2P9dqtiAJI4Hm HTTP/1.0" 302 0
-INFO 2025-03-18 12:49:49,834 basehttp 11 140183119166264 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:50:14,623 basehttp 11 140183114779448 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:50:50,634 autoreload 11 139956826745640 Watching for file changes with StatReloader
-INFO 2025-03-18 12:51:09,352 basehttp 11 139956747946808 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 12:51:10,305 basehttp 11 139956747946808 "GET /auth/42/callback?code=386fa231b23427e283b621eb244de1fbbe7a8dd4c207ebefadf2b6380bf688ce&state=PsK3VKJMJm0YJnUVG0RS9Xtkuppy3d40 HTTP/1.0" 302 0
-INFO 2025-03-18 12:51:10,334 basehttp 11 139956747946808 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:51:51,683 autoreload 11 140366104058664 Watching for file changes with StatReloader
-INFO 2025-03-18 12:52:00,379 basehttp 11 140366025284408 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 12:52:01,527 basehttp 11 140366025284408 "GET /auth/42/callback?code=faf6a0d2802ef34b43e368dc05543b1fa8a43a1b0993bf5fd9ea0537b6a53b88&state=iEFZqsBknYkVgtIuYsVrexw6EjMXMFMG HTTP/1.0" 302 0
-INFO 2025-03-18 12:52:01,589 basehttp 11 140366025321272 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 12:52:35,258 basehttp 11 140366020909880 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:27:53,901 autoreload 11 139837885274920 Watching for file changes with StatReloader
-INFO 2025-03-18 13:28:17,097 basehttp 11 139837806508856 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:28:17,912 basehttp 11 139837806508856 "GET /auth/42/callback?code=af7290915ab2c2f0cde96c5573265981793b8682d56cb17a67a89e8bb749a0e2&state=gug7H1oiMl68V8Kx9dOSAL9Qz5tx2xbl HTTP/1.0" 302 0
-INFO 2025-03-18 13:28:17,947 basehttp 11 139837806529336 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:29:30,911 autoreload 11 140621568023336 Watching for file changes with StatReloader
-INFO 2025-03-18 13:29:35,048 basehttp 11 140621489195832 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:29:36,027 basehttp 11 140621489195832 "GET /auth/42/callback?code=96f0ecf42c1ef4b847e6dc6c232c0496119f5c1890cfd4de3c91e2fe41963b20&state=uB7SjJ9AQEg3Rez0wwGkm0ZlMlCwfvFE HTTP/1.0" 302 0
-INFO 2025-03-18 13:29:36,063 basehttp 11 140621489232696 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:30:05,094 basehttp 11 140621489208120 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:31:50,239 autoreload 11 140221799660328 Watching for file changes with StatReloader
-INFO 2025-03-18 13:31:58,755 basehttp 11 140221720828728 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:31:59,747 basehttp 11 140221720828728 "GET /auth/42/callback?code=c50390ed343db418b2cfb865b501ee1b35e10b90748e3ed037d824da1df6b85b&state=5xdIIUA8o2oD9bRH6lZrNndjtIdeK22l HTTP/1.0" 302 0
-INFO 2025-03-18 13:31:59,795 basehttp 11 140221720832824 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:33:03,516 autoreload 11 140621618199336 Watching for file changes with StatReloader
-INFO 2025-03-18 13:33:05,167 basehttp 11 140621539408696 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:33:06,086 basehttp 11 140621539408696 "GET /auth/42/callback?code=ae2cd75ab6e6ca14c5f1ff0a3a47cc489eb60826a5cef64959afcc8add74ce69&state=XxViSm76CzqiDklLezVPHj2UcaEm3tmx HTTP/1.0" 302 0
-INFO 2025-03-18 13:33:06,130 basehttp 11 140621539429176 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:38:52,957 autoreload 11 140322918394664 Watching for file changes with StatReloader
-INFO 2025-03-18 13:38:53,483 basehttp 11 140322840705848 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:38:54,331 basehttp 11 140322840705848 "GET /auth/42/callback?code=5424929029044874074858b6c2333c41794a5a021789560f77d5ed99915dabb3&state=qDXfEHjlUQ4ERtga6NeC0mVa728XyVSL HTTP/1.0" 302 0
-INFO 2025-03-18 13:38:54,372 basehttp 11 140322840705848 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:39:07,123 basehttp 11 140322836396856 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:39:23,530 basehttp 11 140322840705848 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:39:36,678 basehttp 11 140322835348280 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:39:53,535 basehttp 11 140322835348280 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:40:15,764 basehttp 11 140322840705848 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:40:26,862 basehttp 11 140322840705848 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:40:37,943 basehttp 11 140322835348280 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:41:01,702 basehttp 11 140322835348280 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:41:22,294 basehttp 11 140322835348280 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:41:36,695 basehttp 11 140322835348280 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:42:42,382 autoreload 11 140716679727912 Watching for file changes with StatReloader
-INFO 2025-03-18 13:43:00,234 autoreload 11 139729108593448 Watching for file changes with StatReloader
-INFO 2025-03-18 13:43:03,872 basehttp 11 139729029823288 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:43:04,980 basehttp 11 139729029823288 "GET /auth/42/callback?code=4ca91e786574d64ab648119d4506379a1152c5f3b56d79c030bfb94cf2e88000&state=Bx1V5xIunfmf7g66U8UHYZWrwJ7QpTMW HTTP/1.0" 302 0
-INFO 2025-03-18 13:43:05,036 basehttp 11 139729029860152 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:43:58,214 basehttp 11 139729025444664 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:45:17,514 basehttp 11 139729025444664 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:45:19,385 basehttp 11 139729025444664 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:45:19,464 basehttp 11 139729025444664 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:45:19,468 basehttp 11 139729024383800 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-03-18 13:46:01,956 basehttp 11 139729029827384 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:46:03,770 basehttp 11 139729029827384 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:46:03,838 basehttp 11 139729025444664 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:46:03,842 basehttp 11 139729024383800 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-03-18 13:46:08,483 basehttp 11 139729029827384 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:46:17,416 basehttp 11 139729029827384 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:46:21,470 basehttp 11 139729029827384 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:50:00,391 autoreload 11 139965633989416 Watching for file changes with StatReloader
-INFO 2025-03-18 13:50:13,305 basehttp 11 139965555186488 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:50:14,097 basehttp 11 139965555186488 "GET /auth/42/callback?code=5ed499c8d0a0ec927b39a48c058f539effa370821d847e10bc17e3f241ef6a31&state=gaj8uax6NZx3Iwuosh2Wz0feMdYbPZ7Q HTTP/1.0" 302 0
-INFO 2025-03-18 13:50:14,114 basehttp 11 139965555206968 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:50:15,535 basehttp 11 139965555206968 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-18 13:52:28,979 autoreload 11 139945161218856 Watching for file changes with StatReloader
-INFO 2025-03-18 13:52:43,677 basehttp 11 139945082415928 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:52:44,645 basehttp 11 139945082415928 "GET /auth/42/callback?code=7c5b19705fe73b43c4243ea1877fb0c0987655ab03ad2ee8ad887cf9e8c80ee7&state=2vPpbVTmIJFrgdNcqjszgs25fwmeUulb HTTP/1.0" 302 0
-INFO 2025-03-18 13:52:44,674 basehttp 11 139945077979960 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:52:49,472 basehttp 11 139945077979960 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-18 13:52:59,347 basehttp 11 139945077979960 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:58:09,669 autoreload 11 140004736305960 Watching for file changes with StatReloader
-INFO 2025-03-18 13:58:25,941 basehttp 11 140004657523512 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:58:27,089 basehttp 11 140004657523512 "GET /auth/42/callback?code=af422cc59a1c4bf41c8f2a051369be4325eec2169b11dcdb8df6723819a22385&state=NSH9LshhpqN0o4LdggTMXxSCg6xhaVwV HTTP/1.0" 302 0
-INFO 2025-03-18 13:58:27,108 basehttp 11 140004657527608 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:59:00,355 basehttp 11 140004657527608 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:59:37,887 autoreload 11 140127995521832 Watching for file changes with StatReloader
-INFO 2025-03-18 13:59:40,962 basehttp 11 140127916727096 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 13:59:41,834 basehttp 11 140127916727096 "GET /auth/42/callback?code=761f7429ca96fbd8e41aad82bc83cb718db0b8df9fd4ac7b6508f6f25dc5ab76&state=TbhoBftPNnR7srkzwTQ5eigJmFBFjnWi HTTP/1.0" 302 0
-INFO 2025-03-18 13:59:41,872 basehttp 11 140127916763960 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 13:59:46,715 basehttp 11 140127916763960 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 14:01:33,512 autoreload 11 140058890746664 Watching for file changes with StatReloader
-INFO 2025-03-18 14:01:38,172 basehttp 11 140058811960120 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 14:01:39,408 basehttp 11 140058811960120 "GET /auth/42/callback?code=70615383805f8cf2f435c20f295057ff49bc0114eeb31911b242c79f83fefc8a&state=d09vWRGwwjYSIcjECBO4h2qfl5WWEcWF HTTP/1.0" 302 0
-INFO 2025-03-18 14:01:39,445 basehttp 11 140058811996984 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 14:02:34,633 basehttp 11 140058807597880 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 14:04:33,749 autoreload 11 140552113191720 Watching for file changes with StatReloader
-INFO 2025-03-18 14:04:38,736 basehttp 11 140552034405176 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 14:04:39,773 basehttp 11 140552034405176 "GET /auth/42/callback?code=a5936dace08012c18f7cca405461bcc133fbf47b4e510e5ed191bb6407d8859b&state=ptyM6BPtIvIZhJIYwsLSCAy90oAUBGvp HTTP/1.0" 302 0
-INFO 2025-03-18 14:04:39,809 basehttp 11 140552034442040 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 14:06:06,066 autoreload 11 139924218080040 Watching for file changes with StatReloader
-INFO 2025-03-18 14:06:38,388 basehttp 11 139924139285304 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 14:06:40,772 basehttp 11 139924139248440 "GET /auth/42/callback?code=6f13d5917d893f503d3c2caac6db9447aa918d1f6ad12c73fbc1014d6307621a&state=ChholVG5bqPpl1yX0UPAWKJvPSUTvh1C HTTP/1.0" 302 0
-INFO 2025-03-18 14:06:40,795 basehttp 11 139924139289400 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-18 14:08:12,021 autoreload 11 140215367691048 Watching for file changes with StatReloader
-INFO 2025-03-18 14:08:14,123 basehttp 11 140215288888120 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-18 14:08:14,966 basehttp 11 140215288888120 "GET /auth/42/callback?code=60bb3ec5b198fafdb29c8618868c38f908e89ca49e731bfb140c3c6f6aab52aa&state=hajQh5OfPqx64t6084YvVUdt08gPw6kx HTTP/1.0" 302 0
 
-INFO 2025-03-18 14:08:15,015 basehttp 11 140215288924984 "GET /auth/user/ HTTP/1.0" 200 112INFO 2025-03-19 17:52:36,147 autoreload 11 139921978342184 Watching for file changes with StatReloader
-INFO 2025-03-19 17:52:56,965 basehttp 11 139921897937720 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 17:52:57,904 basehttp 11 139921897937720 "GET /auth/42/callback?code=9fc5466768e05995c2cf045c92ec81fb987a4f8116e50331ab31688d69f0b78e&state=KIX1K58CcgioMQLfA2jvNncShlfzl8PN HTTP/1.0" 302 0
-INFO 2025-03-19 17:52:57,934 basehttp 11 139921897937720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:53:04,683 basehttp 11 139921893751608 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:53:04,716 basehttp 11 139921893751608 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 17:53:19,014 basehttp 11 139921893751608 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:53:20,711 basehttp 11 139921893751608 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 17:53:26,406 basehttp 11 139921893751608 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:54:35,589 autoreload 11 140365717781288 Watching for file changes with StatReloader
-INFO 2025-03-19 17:54:56,815 basehttp 11 140365637401400 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 17:54:57,589 basehttp 11 140365637401400 "GET /auth/42/callback?code=98f331b61a30ef73403a21c74a1a001f03e41058e0c5824e8ec7d54353986cf2&state=fvSb4ksQj20vXFf2jAaQAqnLuhgAc43X HTTP/1.0" 302 0
-INFO 2025-03-19 17:54:57,632 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:03,024 basehttp 11 140365637401400 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 17:55:15,469 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:18,352 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:20,324 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:21,489 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:21,531 basehttp 11 140365637401400 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 17:55:23,502 basehttp 11 140365637401400 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 17:55:24,744 basehttp 11 140365637401400 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-19 18:01:35,223 autoreload 11 140209291725608 Watching for file changes with StatReloader
-INFO 2025-03-19 18:01:43,218 basehttp 11 140209211345720 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 18:01:44,343 basehttp 11 140209211345720 "GET /auth/42/callback?code=a9b301344b0da46a2ee434572d58d169ed9e516e8488fb72cf6699f307ea6479&state=WCpnXZbisapYsoJyf4dc5OdrcAHexi5L HTTP/1.0" 302 0
-INFO 2025-03-19 18:01:44,398 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:01:47,052 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 18:01:49,697 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:01:51,236 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 18:01:53,408 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:01:55,169 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:01:55,212 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 18:01:56,967 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:01:57,891 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:01:57,915 basehttp 11 140209211345720 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 18:01:59,454 basehttp 11 140209211345720 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:20:47,581 autoreload 13 140075790113576 Watching for file changes with StatReloader
-INFO 2025-03-19 18:20:54,609 basehttp 13 140075709774648 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 18:20:55,462 basehttp 13 140075709774648 "GET /auth/42/callback?code=54e5901ed7b7b9b955b009524ad5d0ca88dacaf802a351ea8fa0d1c5639d1c8e&state=KpyPaJBglo5IHHVTCqzqFNPcw2erHnH2 HTTP/1.0" 302 0
-INFO 2025-03-19 18:20:55,520 basehttp 13 140075709774648 "GET /auth/user/ HTTP/1.0" 200 112
-ERROR 2025-03-19 18:20:57,885 log 13 140075709774648 Internal Server Error: /api/game_settings/
+WARNING 2025-03-18 06:57:45,945 log 1 140229213879096 Not Found: /
+WARNING 2025-03-18 06:58:04,430 log 1 140229213879096 Not Found: /
+INFO 2025-03-18 07:04:33,395 autoreload 23 140615117998888 Watching for file changes with StatReloader
+INFO 2025-03-18 07:06:46,153 autoreload 7 140194472606504 Watching for file changes with StatReloader
+INFO 2025-03-18 07:09:07,685 autoreload 7 140077636610856 Watching for file changes with StatReloader
+WARNING 2025-03-18 07:17:07,208 log 1 140024868567864 Not Found: /favicon.ico
+ERROR 2025-03-21 13:45:08,594 log 1 140195380034360 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
     response = get_response(request)
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/http.py", line 43, in inner
-    return func(request, *args, **kwargs)
-  File "/app/oauth_app/jwt_decorator.py", line 42, in wrapper
-    return view_func(request, *args, **kwargs)
-  File "/app/game/views.py", line 30, in game_settings_api
-    "lives": settings_obj.lives,
-AttributeError: 'GameSettings' object has no attribute 'lives'
-ERROR 2025-03-19 18:20:57,886 basehttp 13 140075709774648 "GET /api/game_settings/ HTTP/1.0" 500 75639
-INFO 2025-03-19 18:20:57,895 basehttp 13 140075709774648 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-19 18:22:29,899 autoreload 11 140382992001832 Watching for file changes with StatReloader
-INFO 2025-03-19 18:22:40,720 basehttp 11 140382911621944 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 18:22:41,659 basehttp 11 140382911621944 "GET /auth/42/callback?code=f76ee1e37486a787229160bb4d55a22b875817517a1a8bda17f771817749242c&state=78hPGFdNzQzHUoLE7hOliCj7rwWKd7H2 HTTP/1.0" 302 0
-INFO 2025-03-19 18:22:41,702 basehttp 11 140382911621944 "GET /auth/user/ HTTP/1.0" 200 112
-ERROR 2025-03-19 18:22:43,345 log 11 140382911621944 Internal Server Error: /api/game_settings/
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+ERROR 2025-03-21 13:46:47,615 log 1 140712948661048 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
 Traceback (most recent call last):
   File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
     response = get_response(request)
-  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/http.py", line 43, in inner
-    return func(request, *args, **kwargs)
-  File "/app/oauth_app/jwt_decorator.py", line 42, in wrapper
-    return view_func(request, *args, **kwargs)
-  File "/app/game/views.py", line 30, in game_settings_api
-    "lives": settings_obj.lives,
-AttributeError: 'GameSettings' object has no attribute 'lives'
-ERROR 2025-03-19 18:22:43,346 basehttp 11 140382911621944 "GET /api/game_settings/ HTTP/1.0" 500 75641
-INFO 2025-03-19 18:22:43,351 basehttp 11 140382911621944 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-19 18:22:48,957 basehttp 11 140382907312952 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:25:15,735 autoreload 11 140233400064808 Watching for file changes with StatReloader
-INFO 2025-03-19 18:25:28,945 basehttp 11 140233319672632 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 18:25:30,037 basehttp 11 140233319672632 "GET /auth/42/callback?code=ce0698ad982d066c209e66db348f3cb925c2e0f10252c165d9cfc5fa1d9b9757&state=HR4vYgZDaWZF7RXv2NuyZvA9g8q2a9Fq HTTP/1.0" 302 0
-INFO 2025-03-19 18:25:30,065 basehttp 11 140233319672632 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:25:31,894 basehttp 11 140233319672632 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 18:25:40,838 basehttp 11 140233319672632 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:25:42,129 basehttp 11 140233319672632 "GET /api/game_settings/ HTTP/1.0" 200 58
-INFO 2025-03-19 18:25:54,450 basehttp 11 140233319672632 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:26:50,375 autoreload 11 140098765650728 Watching for file changes with StatReloader
-INFO 2025-03-19 18:26:55,653 basehttp 11 140098685238072 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-19 18:26:56,630 basehttp 11 140098685238072 "GET /auth/42/callback?code=f40af2b070ef8cb3a0fa25e609b3cd368eca944b4e188d31aa669a7062d202f4&state=2OkEAA7RWDP5rtmOQAIJXaYq252p9yTC HTTP/1.0" 302 0
-INFO 2025-03-19 18:26:56,679 basehttp 11 140098685274936 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:26:58,339 basehttp 11 140098685274936 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-19 18:28:08,957 basehttp 11 140098685258552 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:28:11,306 basehttp 11 140098685258552 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-19 18:29:10,015 basehttp 11 140098685258552 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:29:18,139 basehttp 11 140098685258552 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:29:18,191 basehttp 11 140098685258552 "GET /api/game_settings/ HTTP/1.0" 200 82
-WARNING 2025-03-19 18:29:22,060 log 11 140098685258552 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
-WARNING 2025-03-19 18:29:22,060 basehttp 11 140098685258552 "POST /api/game_settings/ HTTP/1.0" 403 2593
-INFO 2025-03-19 18:29:22,063 basehttp 11 140098685258552 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-19 18:29:25,764 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:29:34,262 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:29:36,669 basehttp 11 140098680961848 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-19 18:29:40,831 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-19 18:29:54,119 basehttp 11 140098680961848 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-19 18:29:55,072 basehttp 11 140098680961848 "GET /auth/user/ HTTP/1.0" 200 112INFO 2025-03-21 11:04:48,149 autoreload 11 140611380173608 Watching for file changes with StatReloader
-INFO 2025-03-21 11:05:32,576 basehttp 11 140611299822392 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 11:05:33,395 basehttp 11 140611299822392 "GET /auth/42/callback?code=527bbc8711983038d3df1c3cebe6349176f41be74e74e76b2479e2751a3a5101&state=1ufBQXXpjYgtBbguXi4PM9r7UtOf96qb HTTP/1.0" 302 0
-INFO 2025-03-21 11:05:33,418 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:05:37,969 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:05:37,999 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:05:38,004 basehttp 11 140611295501112 "GET /auth/user/login_history/ HTTP/1.0" 200 240
-INFO 2025-03-21 11:05:47,475 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:05:54,451 basehttp 11 140611299842872 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:06:05,389 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:06:29,854 basehttp 11 140611299842872 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:07:00,303 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:09:05,406 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:09:11,494 basehttp 11 140611299842872 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:09:17,377 basehttp 11 140611299842872 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:09:45,347 autoreload 11 140446368897832 Watching for file changes with StatReloader
-INFO 2025-03-21 11:09:49,353 basehttp 11 140446288485176 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 11:09:50,362 basehttp 11 140446288485176 "GET /auth/42/callback?code=f5226db4c17a440868024cc8b8ec905061086b8d47cec17ec667ad282f0d1c29&state=bthk4hgszoB5LEYY5Iqlf49KdCTfy9AV HTTP/1.0" 302 0
-INFO 2025-03-21 11:09:50,431 basehttp 11 140446288485176 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:09:53,117 basehttp 11 140446288485176 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:10:03,797 basehttp 11 140446288485176 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:11:02,170 autoreload 11 140338770443048 Watching for file changes with StatReloader
-INFO 2025-03-21 11:11:10,723 basehttp 11 140338689997624 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 11:11:11,637 basehttp 11 140338688949048 "GET /auth/42/callback?code=d8bba24a948106431961ca3b6dbbd2eb45bc1e22bb61bf53e3efe661c9ebe84a&state=DDpqq6J306gTJFrNG1GkFTsCZSkqb1wR HTTP/1.0" 302 0
-INFO 2025-03-21 11:11:11,698 basehttp 11 140338688949048 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:11:18,960 basehttp 11 140338685745976 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:11:51,501 basehttp 11 140338685745976 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:12:31,385 autoreload 11 139657858775848 Watching for file changes with StatReloader
-INFO 2025-03-21 11:12:45,074 basehttp 11 139657778367288 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 11:12:45,861 basehttp 11 139657778367288 "GET /auth/42/callback?code=e018fc25d22f94ca72257c35d3134bdc33b902331692dcff76b42a580ba55cd2&state=TdjUOa5PS6ckXgvkibwYJ9C5XyWnwK8M HTTP/1.0" 302 0
-INFO 2025-03-21 11:12:45,887 basehttp 11 139657778367288 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:12:53,611 basehttp 11 139657774185272 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:13:05,762 basehttp 11 139657774185272 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:13:22,832 basehttp 11 139657774185272 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:13:25,342 basehttp 11 139657774185272 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:39:24,554 autoreload 11 139944057854760 Watching for file changes with StatReloader
-INFO 2025-03-21 11:39:28,163 basehttp 11 139943977487160 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 11:39:29,069 basehttp 11 139943977487160 "GET /auth/42/callback?code=c7d3997fb44df68e8a0144d832d2a191f9a6637bf06679073a0b3b97d4192a33&state=WyUmxMXuOimQQmDGXz4U1x9Nu47jeSgA HTTP/1.0" 302 0
-INFO 2025-03-21 11:39:29,121 basehttp 11 139943973161784 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:39:32,238 basehttp 11 139943973161784 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:39:32,281 basehttp 11 139943973161784 "GET /api/game_settings/ HTTP/1.0" 200 82
-WARNING 2025-03-21 11:40:12,013 log 11 139943973161784 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /api/game_settings/
-WARNING 2025-03-21 11:40:12,013 basehttp 11 139943973161784 "POST /api/game_settings/ HTTP/1.0" 403 2593
-INFO 2025-03-21 11:40:12,018 basehttp 11 139943973161784 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-21 11:50:07,555 autoreload 10 140368069946152 Watching for file changes with StatReloader
-INFO 2025-03-21 11:50:09,418 basehttp 10 140367989558072 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 11:50:10,430 basehttp 10 140367989558072 "GET /auth/42/callback?code=d606e38516f7fcb7dcae5afecb57ee7e505fa1e90e5d1cfa0c4a78807feb5707&state=eO0sjUCir4cVjzT9xNku4Cfnqwy0neAi HTTP/1.0" 302 0
-INFO 2025-03-21 11:50:10,478 basehttp 10 140367989578552 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:50:15,175 basehttp 10 140367989578552 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:50:15,247 basehttp 10 140367989578552 "GET /api/game_settings/ HTTP/1.0" 200 82
-INFO 2025-03-21 11:50:19,153 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:22,776 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:25,952 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:26,921 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:28,025 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:32,954 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:34,130 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:34,969 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:35,859 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:37,225 basehttp 10 140367989578552 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:43,497 basehttp 10 140367989562168 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:44,874 basehttp 10 140367989562168 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:50,291 basehttp 10 140367989562168 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:52,102 basehttp 10 140367989562168 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 11:50:57,446 basehttp 10 140367989562168 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:50:59,437 basehttp 10 140367989562168 "GET /api/game_settings/ HTTP/1.0" 200 84
-INFO 2025-03-21 11:51:13,378 basehttp 10 140367989562168 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:52:04,782 basehttp 10 140367989562168 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 11:52:04,809 basehttp 10 140367989562168 "GET /api/game_settings/ HTTP/1.0" 200 84
-INFO 2025-03-21 12:10:03,732 autoreload 11 139736600705832 Watching for file changes with StatReloader
-INFO 2025-03-21 12:10:15,271 basehttp 11 139736520276792 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 12:10:16,062 basehttp 11 139736520276792 "GET /auth/42/callback?code=e232ab25f7aaf606e02b80c7261230243c2447f012da98941594ef60b25046da&state=K3AQv9sD2SJMlrpe35R1cxLeynZ0Fhmw HTTP/1.0" 302 0
-INFO 2025-03-21 12:10:16,092 basehttp 11 139736520276792 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:10:17,834 basehttp 11 139736520276792 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:10:17,840 basehttp 11 139736520276792 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-21 12:10:22,754 basehttp 11 139736520276792 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:10:27,811 basehttp 11 139736520276792 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:10:28,862 basehttp 11 139736520276792 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:10:28,899 basehttp 11 139736520276792 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:10:31,204 basehttp 11 139736520276792 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:10:32,856 basehttp 11 139736520276792 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:10:36,030 basehttp 11 139736520276792 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:10:36,549 basehttp 11 139736520276792 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:10:39,386 basehttp 11 139736520276792 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:10:40,573 basehttp 11 139736520276792 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:10:40,578 basehttp 11 139736520276792 "POST /api/logs/ HTTP/1.0" 200 16
-INFO 2025-03-21 12:13:41,235 autoreload 11 140384655506216 Watching for file changes with StatReloader
-INFO 2025-03-21 12:13:49,312 basehttp 11 140384575093560 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 12:13:50,331 basehttp 11 140384575093560 "GET /auth/42/callback?code=e42a60a699eaf0e979e09c251aa2a4de36fca299a0e562f47a3b6691e43e7dc7&state=o7Tzcrbv3KG3wBd89GXzFfzkw7jSm0Qc HTTP/1.0" 302 0
-INFO 2025-03-21 12:13:50,392 basehttp 11 140384575093560 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:13:52,529 basehttp 11 140384575093560 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:14:04,402 basehttp 11 140384575093560 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:14:06,145 basehttp 11 140384575093560 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:14:06,169 basehttp 11 140384575093560 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:14:09,579 basehttp 11 140384575093560 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:14:13,928 basehttp 11 140384575093560 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:23:14,455 autoreload 11 140528887348008 Watching for file changes with StatReloader
-INFO 2025-03-21 12:23:15,962 basehttp 11 140528806943544 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 12:23:17,163 basehttp 11 140528806943544 "GET /auth/42/callback?code=cb7022bbc73c86e00ccc00d17e0c25208977652b9fb9332387b80674e4255d29&state=9fdeTY3AONcrKRgPMz24kCJZ1W9ZWX2B HTTP/1.0" 302 0
-INFO 2025-03-21 12:23:17,241 basehttp 11 140528806943544 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:23:19,047 basehttp 11 140528806943544 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:23:19,125 basehttp 11 140528806943544 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:23:21,766 basehttp 11 140528806943544 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:23:23,854 basehttp 11 140528806943544 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:23:26,512 basehttp 11 140528806943544 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:23:29,528 basehttp 11 140528806943544 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:23:31,560 basehttp 11 140528806943544 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:23:32,585 basehttp 11 140528806943544 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:23:33,952 basehttp 11 140528806943544 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:30:00,772 autoreload 11 140297757596456 Watching for file changes with StatReloader
-INFO 2025-03-21 12:30:03,449 basehttp 11 140297677187896 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 12:30:04,824 basehttp 11 140297677187896 "GET /auth/42/callback?code=2f5f9b4f0cb3d1041c1e90feea608ab885eeecfdbe6f018882bbb7e892ebc174&state=m9E58TUKnnm4991jf5qVCXNTS5X4JcX2 HTTP/1.0" 302 0
-INFO 2025-03-21 12:30:04,899 basehttp 11 140297677187896 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:30:07,048 basehttp 11 140297677187896 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:30:07,103 basehttp 11 140297677187896 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:30:11,167 basehttp 11 140297677187896 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:30:14,338 basehttp 11 140297677187896 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:30:18,375 basehttp 11 140297677187896 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:30:22,628 basehttp 11 140297677187896 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:30:24,096 basehttp 11 140297677187896 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:30:24,124 basehttp 11 140297677187896 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:30:27,566 basehttp 11 140297677187896 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:30:31,467 basehttp 11 140297677187896 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:31:01,560 basehttp 11 140297677187896 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:31:04,340 basehttp 11 140297677187896 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:34:29,533 autoreload 11 140623853423400 Watching for file changes with StatReloader
-INFO 2025-03-21 12:34:32,870 basehttp 11 140623773043512 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 12:34:33,761 basehttp 11 140623773043512 "GET /auth/42/callback?code=80f5ad781c375efa6e1d15a7d0107ff3b4c6335bb14d9bcddedf119099133544&state=lZvP9eCOw6jWke7xGtzIbesRqCgpz2w4 HTTP/1.0" 302 0
-INFO 2025-03-21 12:34:33,814 basehttp 11 140623773080376 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:34:50,929 basehttp 11 140623773080376 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:34:50,969 basehttp 11 140623773080376 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:34:52,394 basehttp 11 140623773080376 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:34:58,326 basehttp 11 140623773080376 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:35:02,713 basehttp 11 140623773072184 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:40:23,666 autoreload 11 139927647398696 Watching for file changes with StatReloader
-INFO 2025-03-21 12:40:28,124 basehttp 11 139927567018808 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 12:40:29,455 basehttp 11 139927565896504 "GET /auth/42/callback?code=a082637c4f8424e965206454517cadeaa5df968232ff8f67ee6997946e43d0cc&state=oqBdzzTewTc7SSJ1PopFqnn5Kx7KuWOR HTTP/1.0" 302 0
-INFO 2025-03-21 12:40:29,515 basehttp 11 139927565900600 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:40:32,518 basehttp 11 139927565900600 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:40:32,596 basehttp 11 139927565900600 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:40:35,406 basehttp 11 139927565900600 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:41:00,050 basehttp 11 139927565900600 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:41:04,272 basehttp 11 139927562738488 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:41:09,140 basehttp 11 139927562738488 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:41:10,778 basehttp 11 139927562738488 "GET /api/game_settings/ HTTP/1.0" 200 106
-INFO 2025-03-21 12:41:12,943 basehttp 11 139927562738488 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:43:11,694 autoreload 11 140700966292264 Watching for file changes with StatReloader
-INFO 2025-03-21 12:43:35,269 basehttp 11 140700885871416 "GET /auth/login-42/ HTTP/1.0" 302 0
-INFO 2025-03-21 12:43:36,114 basehttp 11 140700885871416 "GET /auth/42/callback?code=eb9d2e971da4bb41e9255d6068c05f641786fc85d59bfe6f7654f847a3bbc92e&state=nmyudwjlTep15KvyIZELTSxtXWvDDCfo HTTP/1.0" 302 0
-INFO 2025-03-21 12:43:36,139 basehttp 11 140700885871416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:43:40,631 basehttp 11 140700885871416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:43:40,661 basehttp 11 140700885871416 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:43:42,449 basehttp 11 140700885871416 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:43:46,538 basehttp 11 140700885871416 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:43:49,574 basehttp 11 140700885871416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:43:56,955 basehttp 11 140700885871416 "GET /api/game_settings/ HTTP/1.0" 200 103
-INFO 2025-03-21 12:44:26,069 basehttp 11 140700885871416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:44:31,893 basehttp 11 140700885871416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:44:31,934 basehttp 11 140700881627960 "GET /api/game_settings/ HTTP/1.0" 200 103
-INFO 2025-03-21 12:44:39,220 basehttp 11 140700885871416 "POST /api/game_settings/ HTTP/1.0" 200 17
-INFO 2025-03-21 12:44:39,825 basehttp 11 140700885871416 "GET /auth/user/ HTTP/1.0" 200 112
-INFO 2025-03-21 12:44:41,230 basehttp 11 140700885871416 "GET /api/game_settings/ HTTP/1.0" 200 105
-INFO 2025-03-21 12:45:13,085 basehttp 11 140700885871416 "GET /auth/user/ HTTP/1.0" 200 112
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+ERROR 2025-03-21 13:46:53,980 log 1 140712948661048 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+ERROR 2025-03-21 13:51:56,088 log 1 139708023081784 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             

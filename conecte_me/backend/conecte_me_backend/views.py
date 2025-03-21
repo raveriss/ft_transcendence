@@ -27,3 +27,6 @@ def receive_frontend_log(request):
         return response
     else:
         return JsonResponse({"error": "Méthode non autorisée"}, status=405)
+
+def health_check(request):
+    return JsonResponse({"status": "ok", "message": "Daphne and Django are working!"})
