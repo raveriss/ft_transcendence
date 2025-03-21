@@ -21,6 +21,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Applications installées
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
