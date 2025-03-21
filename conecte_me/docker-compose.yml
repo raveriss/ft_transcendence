@@ -27,7 +27,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     container_name: conecteme_backend
-    command: daphne -b 0.0.0.0 -p 8000 conecte_me_backend.asgi:application
+    command: ./entrypoint.sh
     env_file:
       - .env 
     environment:
@@ -50,6 +50,7 @@ services:
     volumes:
       - media_data:/app/media
       - ./backend/logs:/app/logs  # Monte le dossier de logs pour que Django y écrive
+      - ./backend/entrypoint.sh:/app/entrypoint.sh
     networks:
       - conecteme_network
 

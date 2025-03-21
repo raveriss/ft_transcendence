@@ -36,6 +36,10 @@ RUN apk del gcc musl-dev libffi-dev openssl-dev && rm -rf /var/cache/apk/*
 # Copier le code source du backend
 COPY . /app
 
+# copie le script dans le conteneur
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
 # Exposer le port 8000
 EXPOSE 8000
 
