@@ -5,7 +5,7 @@ from django.utils.timezone import now
 
 class User42(models.Model):
     user_id = models.IntegerField(unique=True)
-    username = models.CharField(max_length=255)
+    username = models.CharField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     first_name = models.CharField(max_length=50, null=False, default="Unknown")
     email_address = models.EmailField(unique=True, null=False, default="placeholder@example.com")

@@ -916,3 +916,5 @@ django.db.utils.ProgrammingError: relation "django_session" does not exist
 LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
                                                              ^
 
+INFO 2025-03-21 16:03:30,546 autoreload 375891 139739099313984 Watching for file changes with StatReloader
+INFO 2025-03-21 16:06:28,704 autoreload 376346 139974296246080 Watching for file changes with StatReloader
