@@ -914,8 +914,6 @@ Traceback (most recent call last):
     return self.cursor.execute(sql, params)
 django.db.utils.ProgrammingError: relation "django_session" does not exist
 LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
-                                                             ^
-
 WARNING 2025-03-21 16:08:18,844 log 11 139836746328888 Unauthorized: /api/game_settings/
 WARNING 2025-03-21 16:08:21,010 log 11 139836747389752 Unauthorized: /api/game_settings/
 WARNING 2025-03-21 16:08:22,417 log 11 139836746328888 Unauthorized: /api/game_settings/
