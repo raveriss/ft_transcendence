@@ -15,6 +15,7 @@ class GameSettings(models.Model):
     score_limit = models.PositiveIntegerField(default=5)    # Score limite (défaut : 5)
     lives = models.PositiveIntegerField(default=3)          # Vies (défaut : 3)
     ball_speed = models.PositiveIntegerField(default=7)     # Vitesse de balle (défaut : 2)
+    map_choice = models.CharField(max_length=30, default='retro')
 
     def __str__(self):
         return f"GameSettings for {self.user.username}"
