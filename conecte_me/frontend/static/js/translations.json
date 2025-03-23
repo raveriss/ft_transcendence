@@ -1,0 +1,32 @@
+{
+    "en": {
+        "title": "Welcome to our website",
+        "login": "Login",
+        "signup": "Sign up",
+        "logout": "Logout",
+        "home": "Home",
+        "settings": "Settings",
+        "profile": "Profile",
+        "language": "Language"
+    },
+    "fr": {
+        "title": "Bienvenue sur notre site",
+        "login": "Connexion",
+        "signup": "S'inscrire",
+        "logout": "Déconnexion",
+        "home": "Accueil",
+        "settings": "Paramètres",
+        "profile": "Profil",
+        "language": "Langue"
+    },
+    "es": {
+        "title": "Bienvenido a nuestro sitio web",
+        "login": "Iniciar sesión",
+        "signup": "Regístrate",
+        "logout": "Cerrar sesión",
+        "home": "Inicio",
+        "settings": "Configuraciones",
+        "profile": "Perfil",
+        "language": "Idioma"
+    }
+}
