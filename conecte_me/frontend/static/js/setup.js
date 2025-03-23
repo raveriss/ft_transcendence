@@ -9,12 +9,103 @@ function debounce(func, delay) {
   };
 }
 
+// Sauvegarde via POST
+function updateSettings() {
+  // Récupérer le score limit
+  let scoreLimit = scoreLimitSelect.value;
+  const match = scoreLimit.match(/(\d+)/);
+  scoreLimit = match ? parseInt(match[1]) : parseInt(scoreLimit);
+
+  // Construire l'objet
+  const settings = {
+    time: parseInt(timeRange.value),
+    score_limit: scoreLimit,
+    lives: parseInt(livesInput.value),
+    ball_speed: parseInt(ballSpeedRange.value),
+    map_choice: selectedMapChoice
+  };
+
+  console.log("Envoi du POST avec settings:", settings);
+
+  fetch("/api/game_settings/", {
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + token,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(settings)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    if (!data.success) {
+      console.error("Erreur lors de l'enregistrement des réglages:", data);
+    } else {
+      console.log("Réglages mis à jour avec succès.");
+    }
+  })
+  .catch(error => {
+    console.error("Erreur:", error);
+  });
+}
+
+const updateSettingsDebounced = debounce(updateSettings, 500);
+
 function initSetupPage() {
   console.log("initSetupPage() déclenchée");
 
   // Récupérer le token JWT
   const token = localStorage.getItem('jwtToken');
   console.log("Token récupéré dans setup.js:", token);
+
+  // Sélection du conteneur setup
+  const setupContainer = document.getElementById("setup-container");
+  if (!setupContainer) {
+      console.error("setup-container non trouvé !");
+      return;
+  }
+
+  // Initialiser la langue sélectionnée
+  const langSelector = document.getElementById("language-selector");
+  if (!langSelector) {
+    console.error("Sélecteur de langue introuvable !");
+    return;
+  }
+  let currentLang = localStorage.getItem("lang") || "en";
+  langSelector.value = currentLang;
+
+  // Fonction pour charger et appliquer les traductions
+  function loadTranslations(lang) {
+      fetch("/static/js/translations.json")
+          .then(response => response.json())
+          .then(data => {
+              translatePage(data[lang]);
+              localStorage.setItem("lang", lang);
+          })
+          .catch(error => console.error("Erreur de chargement des traductions :", error));
+  }
+
+  function translatePage(translations) {
+      document.querySelectorAll("[data-i18n]").forEach(elem => {
+          let key = elem.getAttribute("data-i18n");
+          if (translations[key]) {
+              elem.innerHTML = translations[key];
+          }
+      });
+  }
+
+  // Événement pour changer la langue
+  langSelector.addEventListener("change", (event) => {
+      let selectedLang = event.target.value;
+      loadTranslations(selectedLang);
+  });
+
+  // Charger la langue actuelle au démarrage
+  loadTranslations(currentLang);
 
   // Récupération des éléments
   const timeRange = document.getElementById("timeRange");
@@ -51,22 +142,16 @@ function initSetupPage() {
   });
 
   // Sliders & inputs => déclenche la sauvegarde
-  timeRange.addEventListener('input', () => {
-    const value = (timeRange.value - timeRange.min) / (timeRange.max - timeRange.min) * 100;
-    timeRange.style.setProperty('--slider-value', value + '%');
+  function handleSliderInput(slider) {
+    const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
+    slider.style.setProperty('--slider-value', value + '%');
     updateSettingsDebounced();
-  });
-  ballSpeedRange.addEventListener('input', () => {
-    const value = (ballSpeedRange.value - ballSpeedRange.min) / (ballSpeedRange.max - ballSpeedRange.min) * 100;
-    ballSpeedRange.style.setProperty('--slider-value', value + '%');
-    updateSettingsDebounced();
-  });
-  scoreLimitSelect.addEventListener('change', () => {
-    updateSettingsDebounced();
-  });
-  livesInput.addEventListener('input', () => {
-    updateSettingsDebounced();
-  });
+  }
+
+  timeRange.addEventListener('input', () => handleSliderInput(timeRange));
+  ballSpeedRange.addEventListener('input', () => handleSliderInput(ballSpeedRange));
+  scoreLimitSelect.addEventListener('change', updateSettingsDebounced);
+  livesInput.addEventListener('input', updateSettingsDebounced);
 
   // Charge les réglages depuis l’API
   function loadSettings() {
@@ -117,51 +202,7 @@ function initSetupPage() {
     });
   }
 
-  // Sauvegarde via POST
-  function updateSettings() {
-    // Récupérer le score limit
-    let scoreLimit = scoreLimitSelect.value;
-    const match = scoreLimit.match(/(\d+)/);
-    scoreLimit = match ? parseInt(match[1]) : parseInt(scoreLimit);
 
-    // Construire l'objet
-    const settings = {
-      time: parseInt(timeRange.value),
-      score_limit: scoreLimit,
-      lives: parseInt(livesInput.value),
-      ball_speed: parseInt(ballSpeedRange.value),
-      map_choice: selectedMapChoice
-    };
-
-    console.log("Envoi du POST avec settings:", settings);
-
-    fetch("/api/game_settings/", {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(settings)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status} - ${response.statusText}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (!data.success) {
-        console.error("Erreur lors de l'enregistrement des réglages:", data);
-      } else {
-        console.log("Réglages mis à jour avec succès.");
-      }
-    })
-    .catch(error => {
-      console.error("Erreur:", error);
-    });
-  }
-
-  const updateSettingsDebounced = debounce(updateSettings, 500);
 
   // Charger les réglages au démarrage
   loadSettings();

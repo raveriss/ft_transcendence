@@ -1,10 +1,19 @@
-<div class="main-container">
+<div id="setup-container">
+</div><div class="main-container">
   <!-- HEADER -->
   <div class="header-bar">
     <div class="back-btn" onclick="customBack()">
       <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
     </div>
-    <h1 class="title">SETUP</h1>
+    <h1 class="title" data-i18n="setup_title">SETUP</h1>
+    <div class="language-selector-container">
+      <label for="language-selector" data-i18n="language">Language:</label>
+      <select id="language-selector">
+          <option value="en">🇬🇧 English</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="es">🇪🇸 Español</option>
+      </select>
+    </div>  
   </div>
 
   <!-- GRID : 2 COLONNES, + plus de lignes pour reproduire EXACTEMENT l’image. -->
@@ -14,23 +23,23 @@
       <div class="card-custom">
         <div class="card-header-custom"><i class="bi bi-map"></i> MAP</div>
         <div class="card-body-custom toggle-group toggle-group-2x2" id="mapChoiceGroup">
-          <button data-map="retro">Retro</button>
-          <button data-map="basketball">Basketball</button>
-          <button data-map="hockey">Hockey</button>
-          <button data-map="nfl">NFL</button>
+          <button data-map="retro" data-i18n="map_retro">Retro</button>
+          <button data-map="basketball" data-i18n="map_basketball">Basketball</button>
+          <button data-map="hockey" data-i18n="map_hockey">Hockey</button>
+          <button data-map="nfl" data-i18n="map_nfl">NFL</button>
         </div>
       </div>
     </div>
     <!-- 2) TIME (col-right) -->
     <div class="col-12 col-md-6">
       <div class="card-custom">
-        <div class="card-header-custom"><i class="bi bi-clock"></i> TIME</div>
+        <div class="card-header-custom"><i class="bi bi-clock"></i> <span data-i18n="time">TIME</span></div>
         <div class="card-body-custom">
           <input type="range" class="form-range" min="1" max="10" value="5" id="timeRange">
           <div class="range-labels">
-            <span>1 min</span>
-            <span>5 min</span>
-            <span>10 min</span>
+            <span data-i18n="time_min">1 min</span>
+            <span data-i18n="time_mid">5 min</span>
+            <span data-i18n="time_max">10 min</span>
           </div>
         </div>
       </div>
@@ -262,3 +271,4 @@
     </div>
   </div><!-- row -->
 </div><!-- main-container -->
+</div>
