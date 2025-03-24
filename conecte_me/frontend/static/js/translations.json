@@ -229,7 +229,16 @@
         
         "contact": "10. Contact",
         "contact_text": "For any questions regarding data protection, contact us at: privacy@ft_transcendence.com.",
-        "terms_text": "Insert here the content of your terms of service."
+        "terms_text": "Insert here the content of your terms of service.",
+
+        "player_name_prompt": "Enter Player 2 name:",
+        "player2_default_name": "Player 2",
+        "pause_message": "Game paused, press P to resume.",
+        "quit_confirmation": "Press Q again to quit.",
+        "win_message": "Victory for {winner}!",
+        "return_to_board": "Press Enter to return to the board.",
+        "score_display": "{name}: {score}",
+        "timer_display": "{minutes}:{seconds}"
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -461,7 +470,16 @@
 
         "contact": "10. Contact",
         "contact_text": "Pour toute question relative à la protection des données, contactez-nous : privacy@ft_transcendence.com.",
-        "terms_text": "Insérez ici le contenu de vos conditions d'utilisation."
+        "terms_text": "Insérez ici le contenu de vos conditions d'utilisation.",
+
+        "player_name_prompt": "Veuillez entrer le nom du deuxième joueur :",
+        "player2_default_name": "Joueur 2",
+        "pause_message": "Jeu en pause, appuyez sur P pour reprendre.",
+        "quit_confirmation": "Appuyez sur Q à nouveau pour quitter.",
+        "win_message": "Victoire de {winner} !",
+        "return_to_board": "Appuyez sur Entrée pour revenir au board.",
+        "score_display": "{name} : {score}",
+        "timer_display": "{minutes}:{seconds}"
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -689,6 +707,16 @@
         "policy_modification_text": "Nos reservamos el derecho de modificar esta política. Cualquier cambio se comunicará en nuestro sitio web.",
         "contact": "10. Contacto",
         "contact_text": "Para cualquier pregunta sobre protección de datos, contáctenos en: privacy@ft_transcendence.com.",
-        "terms_text": "Inserte aquí el contenido de sus términos de servicio."
+        "terms_text": "Inserte aquí el contenido de sus términos de servicio.",
+
+        "player_name_prompt": "Ingrese el nombre del Jugador 2:",
+        "player2_default_name": "Jugador 2",
+        "pause_message": "Juego en pausa, presiona P para continuar.",
+        "quit_confirmation": "Presiona Q otra vez para salir.",
+        "win_message": "¡Victoria de {winner}!",
+        "return_to_board": "Presiona Enter para volver al tablero.",
+        "score_display": "{name}: {score}",
+        "timer_display": "{minutes}:{seconds}"
+            
     }
 }

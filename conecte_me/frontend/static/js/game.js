@@ -52,9 +52,9 @@ async function fetchGameSettings() {
 
   const player1Name = settings.username;
   // Demander à l'utilisateur de saisir un alias pour le joueur 2
-  let player2Name = prompt("Veuillez entrer le nom du deuxième joueur :", "Joueur 2");
+  let player2Name = prompt(t("player_name_prompt"), t("player2_default_name"));
   if (!player2Name || player2Name.trim() === "") {
-    player2Name = "Joueur 2";
+    player2Name = t("player2_default_name");
   }
   // const player1Name = "Joueur 1"
   //const player2Name = 'Joueur 2';
@@ -240,25 +240,40 @@ async function fetchGameSettings() {
       // Affichage des scores
       ctx.font = "40px Arial";
       ctx.textAlign = "center";
-      ctx.fillText(`${player1Name}: ${player1.score}`, canvas.width / 4, 40);
-      ctx.fillText(`${player2Name}: ${player2.score}`, (canvas.width * 3) / 4, 40);
+      ctx.fillText(
+        t("score_display").replace("{name}", player1Name).replace("{score}", player1.score),
+        canvas.width / 4,
+        40
+      );
+      ctx.fillText(
+        t("score_display").replace("{name}", player2Name).replace("{score}", player2.score),
+        (canvas.width * 3) / 4,
+        40
+      );
+      
       
       // Affichage du chronomètre
       const minutes = Math.floor(elapsedTime / 60).toString().padStart(2, '0');
       const seconds = (elapsedTime % 60).toString().padStart(2, '0');
-      ctx.fillText(`${minutes}:${seconds}`, canvas.width / 2, 40);
-      
+      ctx.fillText(
+        t("timer_display")
+          .replace("{minutes}", minutes)
+          .replace("{seconds}", seconds),
+        canvas.width / 2,
+        40
+      );
+            
       // Message de confirmation pour quitter (si jamais activé)
       if (confirmQuit) {
         ctx.fillStyle = "red";
         ctx.font = "50px Arial";
-        ctx.fillText("Appuyez sur Q à nouveau pour quitter.", canvas.width / 2, canvas.height / 2);
+        ctx.fillText(t("quit_confirmation"), canvas.width / 2, canvas.height / 2);
       }
       // Message de pause
       else if (isPaused) {
         ctx.fillStyle = "red";
         ctx.font = "50px Arial";
-        ctx.fillText("Jeu en pause, appuyez sur P pour reprendre.", canvas.width / 2, canvas.height / 2);
+        ctx.fillText(t("pause_message"), canvas.width / 2, canvas.height / 2);
       }
     }
 
@@ -313,9 +328,13 @@ async function fetchGameSettings() {
       ctx.fillStyle = "white";
       ctx.font = "70px Arial";
       ctx.textAlign = "center";
-      ctx.fillText(`Victoire de ${winner}!`, canvas.width / 2, canvas.height / 2 - 50);
+      ctx.fillText(
+        t("win_message").replace("{winner}", winner),
+        canvas.width / 2,
+        canvas.height / 2 - 50
+      );      
       ctx.font = "50px Arial";
-      ctx.fillText("Appuyez sur Entrée pour revenir au board.", canvas.width / 2, canvas.height / 2 + 50);
+      ctx.fillText(t("return_to_board"), canvas.width / 2, canvas.height / 2 + 50);
       document.addEventListener("keydown", function handleReturn(e) {
         if (e.key === "Enter") {
           navigateTo("/board");
