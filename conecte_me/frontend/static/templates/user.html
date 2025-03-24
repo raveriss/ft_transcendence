@@ -6,10 +6,10 @@
     <div class="back-btn">
       <button class="back-btn" onclick="customBack()">
           <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
-          </button>
+        </button>
           <!-- Titre PONG -->
       </div>
-      <h1 class="title">USER</h1>
+      <h1 class="title" data-i18n="user_profile">USER</h1>
   </div>
 
   <!-- Carte principale (Profil + Stats) -->
@@ -30,28 +30,28 @@
 
     <!-- Nom + statut -->
     <h2 class="player-name">Loading...</h2>
-    <div class="player-status">Online</div>
+    <div class="player-status" data-i18n="user_status_online">Online</div>
 
     <!-- Stats en 4 blocs, alignés à gauche -->
     <div class="stats-row">
       <!-- Classement Elo -->
       <div class="stat-item">
-        <p class="stat-label">Classement Elo</p>
+        <p class="stat-label" data-i18n="elo_ranking">Classement Elo</p>
         <div class="stat-value">1850</div>
       </div>
       <!-- Parties totales -->
       <div class="stat-item">
-        <p class="stat-label">Parties totales</p>
+        <p class="stat-label" data-i18n="total_games">Parties totales</p>
         <div class="stat-value">70</div>
       </div>
       <!-- Victoires -->
       <div class="stat-item">
-        <p class="stat-label">Victoires</p>
+        <p class="stat-label" data-i18n="Wins">Victoires</p>
         <div class="stat-value highlight-value">42</div>
       </div>
       <!-- Défaites -->
       <div class="stat-item">
-        <p class="stat-label">Défaites</p>
+        <p class="stat-label" data-i18n="losses">Défaites</p>
         <div class="stat-value">28</div>
       </div>
     </div>
@@ -60,7 +60,7 @@
 
   <!-- Section Sécurité -->
   <div class="security-card mb-4">
-    <h5 class="mb-3">Sécurité</h5>
+    <h5 class="mb-3" data-i18n="security">Sécurité</h5>
 
     <!-- Item 1 : Ajouter/Changer Email -->
     <div class="security-item" id="email-toggle">
@@ -77,18 +77,18 @@
     <div id="email-form-container" class="email-form-container">
       <form id="email-form" novalidate class="mb-3">
         <div class="mb-3">
-          <label for="old-email" class="form-label">Ancien Email</label>
+          <label for="old-email" class="form-label" data-i18n="old_email">Ancien Email</label>
           <input type="email" id="old-email" class="form-control" placeholder="user@example.com" required>
         </div>
         <div class="mb-3">
-          <label for="new-email" class="form-label">Nouveau Email</label>
+          <label for="new-email" class="form-label" data-i18n="new_email">Nouveau Email</label>
           <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email" required>
           <div class="invalid-feedback">
             Veuillez entrer un email valide.
           </div>
         </div>
         <div class="mb-3">
-          <label for="confirm-email" class="form-label">Confirmation Email</label>
+          <label for="confirm-email" class="form-label" data-i18n="confirm_email">Confirmation Email</label>
           <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email" required>
           <div class="invalid-feedback">
             Les emails ne correspondent pas.
@@ -96,13 +96,13 @@
         </div>
         <!-- Nouveau champ pour le mot de passe -->
         <div class="mb-3">
-          <label for="email-password" class="form-label">Mot de passe</label>
+          <label for="email-password" class="form-label" data-i18n="password">Mot de passe</label>
           <input type="password" id="email-password" class="form-control" placeholder="Votre mot de passe" required>
           <div class="invalid-feedback">
             Mot de passe requis.
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" data-i18n="validate">
           <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
           Valider
         </button>
@@ -114,7 +114,7 @@
     <div class="security-item" id="password-toggle">
       <div class="security-left">
         <i class="bi bi-key"></i>
-        <span>Changer le mot de passe</span>
+        <span data-i18n="change_password">Changer le mot de passe</span>
       </div>
       <div class="security-right">
         <i class="bi bi-chevron-down" id="password-chevron"></i>
@@ -125,24 +125,24 @@
     <div id="password-form-container" class="password-form-container">
       <form id="password-form" novalidate class="mb-3">
         <div class="mb-3">
-          <label for="old-password" class="form-label">Ancien mot de passe</label>
+          <label for="old-password" class="form-label" data-i18n="old_password">Ancien mot de passe</label>
           <input type="password" id="old-password" class="form-control" placeholder="•••••••">
         </div>
         <div class="mb-3">
-          <label for="new-password" class="form-label">Nouveau mot de passe</label>
+          <label for="new-password" class="form-label" data-i18n="new_password">Nouveau mot de passe</label>
           <input type="password" id="new-password" class="form-control" placeholder="•••••••">
           <div class="invalid-feedback">
             Veuillez entrer un mot de passe valide.
           </div>
         </div>
         <div class="mb-3">
-          <label for="confirm-password" class="form-label">Confirmation</label>
+          <label for="confirm-password" class="form-label" data-i18n="confirm_password">Confirmation</label>
           <input type="password" id="confirm-password" class="form-control" placeholder="•••••••">
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" data-i18n="password_mismatch">
             Les mots de passe ne correspondent pas.
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" data-i18n="validate">
           <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
           Valider
         </button>
@@ -166,16 +166,16 @@
 
   <!-- Section Logs de connexion -->
   <div class="logs-card">
-    <h5 class="mb-3"><i class="bi bi-activity"></i> Logs de connexion</h5>
+    <h5 class="mb-3"><i class="bi bi-activity"></i> <span data-i18n="login_logs">Logs de connexion</span></h5>
     <!-- Conteneur “table-responsive” -->
     <div class="table-responsive">
       <table class="logs-table">
           <thead>
           <tr>
-              <th>Date</th>
-              <th>Plateforme</th>
-              <th>Navigateur</th>
-              <th>Adresse IP</th>
+              <th data-i18n="log_date">Date</th>
+              <th data-i18n="log_platform">Plateforme</th>
+              <th data-i18n="log_browser">Navigateur</th>
+              <th data-i18n="log_ip_address">Adresse IP</th>
           </tr>
           </thead>
           <tbody id="login-history">
@@ -187,17 +187,17 @@
 <!-- Section Gestion de mes données personnelles -->
 <div class="data-management-card text-center my-4 p-3 rounded" style="background: rgba(30,41,59,0.4); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
   <h5 class="mb-3">
-    <i class="bi bi-person-lines-fill me-2"></i>Mes données personnelles
+    <i class="bi bi-person-lines-fill me-2"></i> <span data-i18n="personal_data">Mes données personnelles</span>
   </h5>
   <div class="export-delete-container d-flex justify-content-center gap-3">
     <button class="btn btn-secondary" id="export-data-btn">
-      <i class="bi bi-download me-2"></i>Télécharger mes données
+      <i class="bi bi-download me-2"></i> <span data-i18n="download_data">Télécharger mes données</span>
     </button>
     <button class="btn btn-danger" id="delete-account-btn">
-      <i class="bi bi-trash me-2"></i>Supprimer mon compte
+      <i class="bi bi-trash me-2"></i> <span data-i18n="delete_account">Supprimer mon compte</span>
     </button>
   </div>
-  <p class="small text-muted mt-2">
+  <p class="small text-muted mt-2" data-i18n="data_info">
     Vous pouvez télécharger une copie de vos données ou supprimer définitivement votre compte.
   </p>
 </div>
