@@ -19,6 +19,11 @@ async function fetchGameSettings() {
     }
     const data = await response.json();
     console.log("Données récupérées depuis game.js:", data);
+    // Stocker aussi l'user_id si disponible
+    // if(data.user_id) {
+    //   localStorage.setItem('user_id', data.user_id);
+    //   console.log("user_id stocké:", data.user_id);
+    // }
     return data;
   } catch (error) {
     console.error("Erreur lors de la récupération des réglages :", error);
@@ -27,7 +32,8 @@ async function fetchGameSettings() {
       time: 5,
       score_limit: 5,
       lives: 5,
-      ball_speed: 2
+      ball_speed: 2,
+      user_id: null
     };
   }
 }
@@ -45,8 +51,13 @@ async function fetchGameSettings() {
   const ballSpeedY = settings.ball_speed;
 
   const player1Name = settings.username;
+  // Demander à l'utilisateur de saisir un alias pour le joueur 2
+  let player2Name = prompt("Veuillez entrer le nom du deuxième joueur :", "Joueur 2");
+  if (!player2Name || player2Name.trim() === "") {
+    player2Name = "Joueur 2";
+  }
   // const player1Name = "Joueur 1"
-  const player2Name = 'Joueur 2';
+  //const player2Name = 'Joueur 2';
 
   console.log("Configuration du jeu:", { WINNING_SCORE, WINNING_TIME, ballSpeedX, ballSpeedY });
 
@@ -251,24 +262,50 @@ async function fetchGameSettings() {
       }
     }
 
+    function saveMatchData(matchData) {
+      // Envoi d'une requête POST à l'API qui enregistre l'historique des matchs
+      fetch('/api/game_settings/match_history/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Si vous utilisez JWT pour protéger l'API, ajoutez l'en-tête Authorization
+          'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+        },
+        body: JSON.stringify(matchData)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Match enregistré :", data);
+      })
+      .catch(error => {
+        console.error("Erreur lors de l'enregistrement du match :", error);
+      });
+    }
+
     // Quitte le jeu en affichant le vainqueur et revient sur /board via le routeur SPA
     function quitGame(winner, loser, winnerScore, loserScore) {
       console.log(`Victoire de ${winner} contre ${loser}`);
       isGameOver = true;
       confirmQuit = false;
       const duration = Math.floor((Date.now() - startTime) / 1000);
+     
       const matchData = {
+        // player1: player1Name,
         player1: player1Name,
         player2: player2Name,
         score1: player1.score,
         score2: player2.score,
         duration: duration,
-        date: dateStart,
         recorded: true
       };
-      //
       // Route pour enregistrer le match (donne de match data)
-      //
+      saveMatchData(matchData);
+
       console.log(`Durée du match : ${duration} sec`);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "black";
