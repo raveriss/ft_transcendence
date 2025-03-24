@@ -244,6 +244,11 @@ async function navigateTo(path, pushHistory = true) {
     appDiv.innerHTML = html;
     attachListeners();
     loadScriptForRoute(path);
+
+    // 🛠 FORCER LA TRADUCTION APRÈS LE CHANGEMENT DE PAGE
+    changeLanguage(getCurrentLang());
+    console.log("🔄 Forçage de la traduction après navigation :", getCurrentLang());
+    
   } catch (err) {
     console.error(err);
   } finally {

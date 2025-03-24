@@ -1,6 +1,5 @@
 // board.js
 document.addEventListener("DOMContentLoaded", () => {
-    changeLanguage(getCurrentLang());
     // Lire le paramètre jwt dans l'URL
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('jwt');
@@ -10,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       console.log("Pas de token JWT dans l'URL");
     }
+    const storedLang = getCurrentLang();
+    loadTranslations(storedLang, () => {
+        console.log("🔹 Traductions appliquées après navigation :", storedLang);
+    });
 });
 
 // // =====================

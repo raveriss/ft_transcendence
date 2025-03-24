@@ -51,6 +51,7 @@ function applyTranslations(translations) {
     }
   });
 
+  console.log("✅ Traductions appliquées sur :", window.location.pathname);
   // 🔹 Émet un événement global après application des traductions
   document.dispatchEvent(new CustomEvent("languageChanged", { detail: { lang: getCurrentLang() } }));
 }
