@@ -90,7 +90,18 @@
         "social": "SOCIAL",
         "setup": "SETUP",
         "credits": "CREDITS",
-        "exit": "EXIT"
+        "exit": "EXIT",
+
+        "pong_title": "PONG",
+        "login_title": "Login",
+        "email_label": "Email",
+        "email_placeholder": "your@email.com",
+        "password_label": "Password",
+        "password_placeholder": "••••••••",
+        "forgot_password": "Forgot password?",
+        "login_button": "Log in",
+        "no_account": "Don't have an account?",
+        "signup_link": "Sign up"
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -183,7 +194,18 @@
         "social": "SOCIAL",
         "setup": "CONFIGURATION",
         "credits": "CRÉDITS",
-        "exit": "SORTIE"
+        "exit": "SORTIE",
+
+        "pong_title": "PONG",
+        "login_title": "Connexion",
+        "email_label": "Email",
+        "email_placeholder": "votre@email.com",
+        "password_label": "Mot de passe",
+        "password_placeholder": "••••••••",
+        "forgot_password": "Mot de passe oublié ?",
+        "login_button": "Se connecter",
+        "no_account": "Pas encore de compte ?",
+        "signup_link": "S'inscrire"
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -276,6 +298,17 @@
         "social": "SOCIAL",
         "setup": "CONFIGURACIÓN",
         "credits": "CRÉDITOS",
-        "exit": "SALIR"
+        "exit": "SALIR",
+
+        "pong_title": "PONG",
+        "login_title": "Iniciar sesión",
+        "email_label": "Correo electrónico",
+        "email_placeholder": "tu@email.com",
+        "password_label": "Contraseña",
+        "password_placeholder": "••••••••",
+        "forgot_password": "¿Olvidaste tu contraseña?",
+        "login_button": "Iniciar sesión",
+        "no_account": "¿No tienes una cuenta?",
+        "signup_link": "Regístrate"
     }
 }

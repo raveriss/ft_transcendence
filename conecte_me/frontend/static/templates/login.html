@@ -4,26 +4,27 @@
         <button class="back-btn" onclick="customBack()">
         <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
         </button>
-        <h1 class="title">PONG</h1>
+        <h1 class="title" data-i18n="pong_title">PONG</h1>
     </div>
     <div class="form-container">
-        <h2 class="form-title">Connexion</h2>
+        <h2 class="form-title" data-i18n="login_title">Connexion</h2>
         <form id="loginForm" method="POST">
             <div class="input-group">
-                <label for="email" class="label">Email</label>
-                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                <label for="email" class="label" data-i18n="email_label">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" data-i18n="email_placeholder" required>
             </div>
             <div class="input-group">
-                <label for="password" class="label">Mot de passe</label>
-                <a href="#" class="forgot-link">Mot de passe oublié ?</a>
-                <input type="password" id="password" name="password" placeholder="••••••••" required>
+                <label for="password" class="label" data-i18n="password_label">Mot de passe</label>
+                <a href="#" class="forgot-link" data-i18n="forgot_password">Mot de passe oublié ?</a>
+                <input type="password" id="password" name="password" placeholder="••••••••" data-i18n="password_placeholder" required>
             </div>
             <button type="submit" class="btn-primary">
-                &#x21AA; Se connecter
+                &#x21AA; <span data-i18n="login_button">Se connecter</span>
             </button>
         </form>
         <p class="signup-link">
-            Pas encore de compte ? <a href="/signup">S'inscrire</a>
+            <span data-i18n="no_account">Pas encore de compte ?</span>
+            <a href="/signup" data-i18n="signup_link">S'inscrire</a>
         </p>
     </div>
 </div>

@@ -1,6 +1,7 @@
 // frontend/static/js/login.js
 
 document.addEventListener('DOMContentLoaded', function() {
+  changeLanguage(getCurrentLang());
   const loginForm = document.getElementById('loginForm');
   if (!loginForm) return;
 
