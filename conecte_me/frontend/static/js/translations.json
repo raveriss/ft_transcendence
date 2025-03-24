@@ -172,7 +172,18 @@
         "terms_of_service": "Terms of Service",
         "privacy_policy": "Privacy Policy",
         "gdpr_notice": "Your data is processed according to GDPR regulations.",
-        "sign_in_with": "SIGN IN WITH"
+        "sign_in_with": "SIGN IN WITH",
+
+        "team_title": "TEAM",
+        "team_subtitle": "Our Development Team",
+        "full_stack_dev": "Full Stack Developer",
+        "devops_engineer": "DevOps Engineer",
+        "jeremy_desc": "Passionate about UX/UI and frontend development",
+        "marko_desc": "Expert in system architecture and performance",
+        "ombeline_desc": "Versatile developer and gaming enthusiast",
+        "rafael_desc": "Specialist in game development and animations",
+        "sylvanna_desc": "Expert in deployment and infrastructure",
+        "footer_made_with_love": "Made with <i class='bi bi-heart-fill heart'></i> by the PONG team"
 
     },
     "fr": {
@@ -348,7 +359,18 @@
         "terms_of_service": "Conditions d'utilisation",
         "privacy_policy": "Politique de confidentialité",
         "gdpr_notice": "Vos données sont traitées conformément aux réglementations RGPD.",
-        "sign_in_with": "SE CONNECTER AVEC"
+        "sign_in_with": "SE CONNECTER AVEC",
+
+        "team_title": "ÉQUIPE",
+        "team_subtitle": "Notre équipe de développement",
+        "full_stack_dev": "Développeur Full Stack",
+        "devops_engineer": "Ingénieur DevOps",
+        "jeremy_desc": "Passionné par l'UX/UI et le développement frontend",
+        "marko_desc": "Expert en architecture système et performance",
+        "ombeline_desc": "Développeur polyvalent et passionné de jeux",
+        "rafael_desc": "Spécialiste en développement de jeux et animations",
+        "sylvanna_desc": "Expert en déploiement et infrastructure",
+        "footer_made_with_love": "Fait avec <i class='bi bi-heart-fill heart'></i> par l’équipe PONG"
 
     },
     "es": {
@@ -524,6 +546,17 @@
         "terms_of_service": "Términos de servicio",
         "privacy_policy": "Política de privacidad",
         "gdpr_notice": "Sus datos se procesan de acuerdo con las regulaciones de GDPR.",
-        "sign_in_with": "INICIAR SESIÓN CON"
+        "sign_in_with": "INICIAR SESIÓN CON",
+
+        "team_title": "EQUIPO",
+        "team_subtitle": "Nuestro equipo de desarrollo",
+        "full_stack_dev": "Desarrollador Full Stack",
+        "devops_engineer": "Ingeniero DevOps",
+        "jeremy_desc": "Apasionado por UX/UI y el desarrollo frontend",
+        "marko_desc": "Experto en arquitectura de sistemas y rendimiento",
+        "ombeline_desc": "Desarrollador versátil y entusiasta de los juegos",
+        "rafael_desc": "Especialista en desarrollo de juegos y animaciones",
+        "sylvanna_desc": "Experto en despliegue e infraestructura",
+        "footer_made_with_love": "Hecho con <i class='bi bi-heart-fill heart'></i> por el equipo PONG"
     }
 }
