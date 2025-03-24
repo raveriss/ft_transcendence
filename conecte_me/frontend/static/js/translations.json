@@ -132,7 +132,8 @@
         
         "network_error": "A network error occurred. Please try again later.",
         "signup_confirm": "Are you sure you want to sign up?",
-        "unknown_error": "An unknown error occurred. Please try again later."
+        "unknown_error": "An unknown error occurred. Please try again later.",
+        "signup_terms_and_privacy": "and"
 
     },
     "fr": {
@@ -230,7 +231,7 @@
 
         "pong_title": "PONG",
         "login_title": "Connexion",
-        "email_label": "Email",
+        "email_label": "Adresse e-mail",
         "email_placeholder": "votre@email.com",
         "password_label": "Mot de passe",
         "password_placeholder": "••••••••",
@@ -268,7 +269,8 @@
 
         "network_error": "Une erreur réseau s'est produite. Veuillez réessayer plus tard.",
         "signup_confirm": "Êtes-vous sûr de vouloir vous inscrire ?",
-        "unknown_error": "Une erreur inconnue est survenue. Veuillez réessayer plus tard."
+        "unknown_error": "Une erreur inconnue est survenue. Veuillez réessayer plus tard.",
+        "signup_terms_and_privacy": "et"
 
     },
     "es": {
@@ -404,7 +406,8 @@
 
         "network_error": "Se produjo un error de red. Por favor, inténtelo de nuevo más tarde.",
         "signup_confirm": "¿Está seguro de que desea registrarse?",
-        "unknown_error": "Ocurrió un error desconocido. Por favor, inténtelo de nuevo más tarde."
+        "unknown_error": "Ocurrió un error desconocido. Por favor, inténtelo de nuevo más tarde.",
+        "signup_terms_and_privacy": "y"
 
     }
 }

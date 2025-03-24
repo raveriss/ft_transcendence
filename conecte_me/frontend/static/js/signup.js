@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  changeLanguage(getCurrentLang()); // Appliquer immédiatement la langue actuelle
+});
+
 (function() {
   const signupForm = document.getElementById('signup-form');
 

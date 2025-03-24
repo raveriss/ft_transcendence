@@ -1,8 +1,8 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
   <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
     <div class="card-header bg-white text-center">
-      <h2 class="mb-0">Créer un compte</h2>
-      <p class="text-muted">Entrez vos informations pour commencer</p>
+      <h2 class="mb-0" data-i18n="signup_title">Créer un compte</h2>
+      <p class="text-muted" data-i18n="signup_subtitle">Entrez vos informations pour commencer</p>
     </div>
 
     <div class="card-body">
@@ -43,34 +43,34 @@
 
         <!-- Champ Pseudo -->
         <div class="mb-3">
-          <label for="pseudo" class="form-label">Pseudo</label>
+          <label for="pseudo" class="form-label" data-i18n="signup_pseudo">Pseudo</label>
           <input type="text" class="form-control" id="pseudo" name="username" placeholder="johndoe" required minlength="3" maxlength="20" />
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" data-i18n="signup_error_pseudo">
             Le pseudo doit contenir entre 3 et 20 caractères.
           </div>
         </div>
 
         <!-- Champ Prénom -->
         <div class="mb-3">
-          <label for="firstname" class="form-label">Prénom</label>
+          <label for="firstname" class="form-label" data-i18n="signup_firstname">Prénom</label>
           <input type="text" class="form-control" id="firstname" name="first_name" placeholder="John" required minlength="2" maxlength="50" />
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" data-i18n="signup_error_firstname">
             Le prénom doit contenir entre 2 et 50 caractères.
           </div>
         </div>
 
         <!-- Champ Email -->
         <div class="mb-3">
-          <label for="email" class="form-label">Adresse e-mail</label>
+          <label for="email" class="form-label" data-i18n="signup_email">Adresse e-mail</label>
           <input type="email" class="form-control" id="email" name="email_address" placeholder="john.doe@example.com" required />
-          <div class="invalid-feedback">
+          <div class="invalid-feedback" data-i18n="signup_error_email">
             Veuillez saisir une adresse e-mail valide.
           </div>
         </div>
 
         <!-- Champ Mot de passe -->
         <div class="mb-3">
-          <label for="password" class="form-label">Mot de passe</label>
+          <label for="password" class="form-label" data-i18n="signup_password">Mot de passe</label>
           <div class="input-group">
             <input
               type="password"
@@ -89,12 +89,12 @@
             >
               <i class="bi bi-eye"></i>
             </button>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" data-i18n="signup_error_password">
               Le mot de passe doit contenir au moins 8 caractères,
               une majuscule, une minuscule, un chiffre et un caractère spécial.
             </div>
           </div>
-          <small class="form-text text-muted">
+          <small class="form-text text-muted" data-i18n="signup_password_hint">
             Le mot de passe doit contenir au moins 8 caractères, une majuscule,
             une minuscule, un chiffre et un caractère spécial.
           </small>
@@ -102,7 +102,7 @@
 
         <!-- Champ Confirmation du mot de passe -->
         <div class="mb-3">
-          <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+          <label for="confirmPassword" class="form-label" data-i18n="signup_confirm_password">Confirmer le mot de passe</label>
           <div class="input-group">
             <input
               type="password"
@@ -120,7 +120,7 @@
             >
               <i class="bi bi-eye"></i>
             </button>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" data-i18n="signup_error_confirm_password">
               Les mots de passe ne correspondent pas.
             </div>
           </div>
@@ -134,20 +134,20 @@
               class="form-check-input"
               id="terms-checkbox"
             />
-            <label class="form-check-label" for="terms-checkbox">
+            <label class="form-check-label" for="terms-checkbox" data-i18n="signup_terms">
               I have read and agree to the
             </label>
           </div>
           <div class="terms-links">
-            <a href="static/templates/terms.html" target="_blank">Terms of Service</a>
-            and
-            <a href="static/templates/privacy.html" target="_blank">Privacy Policy</a>.
+            <a href="static/templates/terms.html" target="_blank" data-i18n="signup_terms_link">Terms of Service</a>
+            <span data-i18n="signup_terms_and_privacy"> and </span>
+            <a href="static/templates/privacy.html" target="_blank" data-i18n="signup_privacy_link">Privacy Policy</a>.
           </div>
         </div>
 
         <!-- Bouton de soumission (désactivé par défaut) -->
         <button type="submit" class="btn btn-primary w-100" disabled>
-          S'inscrire
+         <span data-i18n="signup_button">S'inscrire</span>
         </button>
       </form>
     </div>
