@@ -1,6 +1,7 @@
 # game/views.py
 import json
 from django.http import JsonResponse
+from django.db.models import Q, F
 from django.views.decorators.http import require_http_methods
 from oauth_app.jwt_decorator import jwt_required
 from django.views.decorators.csrf import csrf_exempt
@@ -170,5 +171,31 @@ def leaderboard(request):
             import traceback
             traceback.print_exc()  # Affiche la trace complète dans les logs du serveur
             return JsonResponse({"error": str(e)}, status=500)
+    else:
+        return JsonResponse({"error": "Méthode non autorisée."}, status=405)
+
+# stat leger dans vue user
+@csrf_exempt
+@jwt_required
+def user_stats(request):
+    if request.method == "GET":
+        user = getattr(request, 'user', None)
+        if not user:
+            return JsonResponse({"error": "No user in request."}, status=401)
+        username = user.username
+        
+        # Calculer le nombre total de matchs où l'utilisateur est player1
+        total_games = MatchHistory.objects.filter(player1=username).count()
+        # Calculer les victoires : victoire quand score1 > score2 et l'utilisateur est player1
+        wins = MatchHistory.objects.filter(player1=username, score1__gt=F('score2')).count()
+        losses = total_games - wins
+        
+        # Pour l'instant, on fixe l'Elo à 0
+        return JsonResponse({
+            "elo": 0,
+            "total_games": total_games,
+            "wins": wins,
+            "losses": losses,
+        }, status=200)
     else:
         return JsonResponse({"error": "Méthode non autorisée."}, status=405)

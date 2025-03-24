@@ -1,8 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
   changeLanguage(getCurrentLang()); // Appliquer immédiatement la langue actuelle
+  // loadUserStats(); // Charger et mettre à jour les stats utilisateur
 });
 
 (function() {
+  // ------------------------------
+  // Fonction pour charger les statistiques utilisateur
+  // ------------------------------
+  function loadUserStats() {
+    console.log("loadUserStats called");
+    const token = localStorage.getItem('jwtToken');
+    console.log("Token dans user est = ", token);
+    fetch('/api/game_settings/user_stats/', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + token
+      }
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then(stats => {
+      console.log("Stats utilisateur récupérées :", stats);
+      // Mettre à jour les éléments de la page user.html
+      document.getElementById('elo').textContent = stats.elo;
+      document.getElementById('total_games').textContent = stats.total_games;
+      document.getElementById('wins').textContent = stats.wins;
+      document.getElementById('losses').textContent = stats.losses;
+    })
+    .catch(error => {
+      console.error("Erreur lors du chargement des stats utilisateur :", error);
+    });
+  }
+  loadUserStats();
   // ------------------------------
   // Fonctionnalité avatar (existante)
   // ------------------------------
@@ -450,9 +484,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(error => console.error('Erreur lors de la récupération de l\'historique:', error));
   }
-
-
-
 
   document.getElementById("export-data-btn").addEventListener("click", () => {
   fetch("/auth/user/export_data/", {

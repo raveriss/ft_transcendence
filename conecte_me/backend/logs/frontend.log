@@ -105,3 +105,5 @@ INFO 2025-03-24 16:19:21,233 views 1 139730592504632 {"message": "Erreur de char
 INFO 2025-03-24 16:19:21,258 views 1 139730606381880 {"message": "Erreur de chargement des traductions : SyntaxError: Expected ',' or '}' after property value in JSON at position 32914 (line 685 column 9)", "level": "ERROR", "type": "console-error", "origin": "frontend"}
 INFO 2025-03-24 16:19:23,356 views 1 139730606381880 {"message": "Erreur de chargement des traductions : SyntaxError: Expected ',' or '}' after property value in JSON at position 32914 (line 685 column 9)", "level": "ERROR", "type": "console-error", "origin": "frontend"}
 >>>>>>> Stashed changes
+INFO 2025-03-24 17:32:30,112 views 1 140247990676280 {"message": "Erreur lors du chargement des stats utilisateur : TypeError: Cannot set properties of null (setting 'textContent')", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-24 17:41:41,994 views 1 139863773420344 {"message": "Erreur lors du chargement des stats utilisateur : TypeError: Cannot set properties of null (setting 'textContent')", "level": "ERROR", "type": "console-error", "origin": "frontend"}
