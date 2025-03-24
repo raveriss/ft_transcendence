@@ -674,9 +674,18 @@
         "data_protection_text": "Implementamos medidas de seguridad para proteger su información contra accesos, modificaciones o divulgaciones no autorizadas.",
         
         "user_rights": "6. Derechos del Usuario",
+        "user_rights_text": "Según la normativa aplicable, usted tiene los siguientes derechos:",
+        "right_access": "Acceder a sus datos personales.",
+        "right_modify": "Modificar o eliminar su información.",
+        "right_object": "Oponerse al tratamiento de sus datos.",
+        "right_portability": "Solicitar la portabilidad de sus datos.",
         "data_retention": "7. Retención de Datos",
+        "data_retention_text": "Su información se conserva mientras su cuenta esté activa y hasta 12 meses después de su eliminación.",
         "cookies": "8. Cookies",
+        "cookies_text": "La Aplicación utiliza cookies estrictamente necesarias para su funcionamiento. Puede configurar su navegador para rechazarlas.",
         "policy_modification": "9. Modificación de la Política",
-        "contact": "10. Contacto"
+        "policy_modification_text": "Nos reservamos el derecho de modificar esta política. Cualquier cambio se comunicará en nuestro sitio web.",
+        "contact": "10. Contacto",
+        "contact_text": "Para cualquier pregunta sobre protección de datos, contáctenos en: privacy@ft_transcendence.com."
     }
 }
