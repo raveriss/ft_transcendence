@@ -389,11 +389,10 @@ async function fetchGameSettings() {
           score1: player1.score,
           score2: player2.score,
           duration: duration,
-          date: dateStart,
           recorded: true
         };
-        //
-        //rajouter fonction pour sauvegarder le match
+        // Route pour enregistrer le match (donne de match data)
+        saveMatchData(matchData);
         console.log("Match enregistré via popstate:", matchData);
         //
         //
