@@ -1,5 +1,6 @@
 // board.js
 document.addEventListener("DOMContentLoaded", () => {
+    changeLanguage(getCurrentLang());
     // Lire le paramètre jwt dans l'URL
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('jwt');

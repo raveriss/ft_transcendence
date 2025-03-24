@@ -1,7 +1,14 @@
 console.log("setup.js loaded");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const storedLang = getCurrentLang();
+  changeLanguage(storedLang);
+});
+
 // Récupérer le token JWT globalement
-const token = localStorage.getItem('jwtToken');
+if (typeof token === 'undefined') {
+  var token = localStorage.getItem('jwtToken');
+}
 console.log("Token récupéré dans setup.js:", token);
 
 // Fonction debounce pour retarder la sauvegarde
@@ -14,15 +21,21 @@ function debounce(func, delay) {
 }
 
 // Définition des variables globales
-let timeRange, scoreLimitSelect, livesInput, ballSpeedRange, selectedMapChoice;
-const updateSettingsDebounced = debounce(updateSettings, 500);
+if (typeof timeRange === "undefined") {
+  var timeRange, scoreLimitSelect, livesInput, ballSpeedRange, selectedMapChoice;
+}
+if (typeof updateSettingsDebounced === "undefined") {
+  var updateSettingsDebounced = debounce(updateSettings, 500);
+}
 
 // Sauvegarde via POST
 function updateSettings() {
   if (!scoreLimitSelect) return; // Sécurité si la page n'est pas encore prête
 
   // Récupérer le score limit
-  let scoreLimit = parseInt(scoreLimitSelect.value.match(/\d+/)[0]) || 5;
+  let match = scoreLimitSelect.value.match(/\d+/);
+  let scoreLimit = match ? parseInt(match[0]) : 5;
+
 
   // Construire l'objet de configuration
   const settings = {
@@ -107,16 +120,17 @@ function initSetupPage() {
   scoreLimitSelect.addEventListener('change', updateSettingsDebounced);
   livesInput.addEventListener('input', updateSettingsDebounced);
 
-  // Vérifier s'il y a un sélecteur de langue et l'initialiser
   const langSelector = document.getElementById("language-selector");
   if (langSelector) {
     langSelector.value = getCurrentLang();
     langSelector.addEventListener("change", (event) => {
-      const selectedLang = event.target.value;
-      changeLanguage(selectedLang);
-      console.log("Langue changée en :", selectedLang); // Log pour vérification
+        const selectedLang = event.target.value;
+        changeLanguage(selectedLang);
+        localStorage.setItem("lang", selectedLang); // S'assurer qu'on stocke bien la langue
+        console.log("Langue changée en :", selectedLang);
     });
   }
+
   
   // Charger les réglages depuis l’API
   function loadSettings() {

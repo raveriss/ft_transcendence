@@ -77,7 +77,20 @@
         "accessibility_high_contrast": "High Contrast Mode",
         "accessibility_keyboard_nav": "Keyboard Navigation",
         "accessibility_text_size": "Text Size",
-        "accessibility_check_updates": "Check for Updates"
+        "accessibility_check_updates": "Check for Updates",
+
+        "board_title": "BOARD",
+        "match_history": "Match History",
+        "match_victory": "Victory",
+        "match_defeat": "Defeat",
+        "leaderboard": "Leaderboard",
+        "wins": "wins",
+        "play": "PLAY",
+        "stats": "STATS",
+        "social": "SOCIAL",
+        "setup": "SETUP",
+        "credits": "CREDITS",
+        "exit": "EXIT"
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -157,7 +170,20 @@
         "accessibility_high_contrast": "Mode contraste élevé",
         "accessibility_keyboard_nav": "Navigation au clavier",
         "accessibility_text_size": "Taille du texte",
-        "accessibility_check_updates": "Vérifier les mises à jour"
+        "accessibility_check_updates": "Vérifier les mises à jour",
+
+        "board_title": "TABLEAU",
+        "match_history": "Historique des matchs",
+        "match_victory": "Victoire",
+        "match_defeat": "Défaite",
+        "leaderboard": "Classement général",
+        "wins": "victoires",
+        "play": "JOUER",
+        "stats": "STATISTIQUES",
+        "social": "SOCIAL",
+        "setup": "CONFIGURATION",
+        "credits": "CRÉDITS",
+        "exit": "SORTIE"
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -237,6 +263,19 @@
         "accessibility_high_contrast": "Modo alto contraste",
         "accessibility_keyboard_nav": "Navegación con teclado",
         "accessibility_text_size": "Tamaño del texto",
-        "accessibility_check_updates": "Verificar actualizaciones"
+        "accessibility_check_updates": "Verificar actualizaciones",
+
+        "board_title": "TABLERO",
+        "match_history": "Historial de partidos",
+        "match_victory": "Victoria",
+        "match_defeat": "Derrota",
+        "leaderboard": "Clasificación general",
+        "wins": "victorias",
+        "play": "JUGAR",
+        "stats": "ESTADÍSTICAS",
+        "social": "SOCIAL",
+        "setup": "CONFIGURACIÓN",
+        "credits": "CRÉDITOS",
+        "exit": "SALIR"
     }
 }
