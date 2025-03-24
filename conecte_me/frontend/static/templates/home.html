@@ -11,7 +11,7 @@
 
 <!-- Container principal -->
 <div class="container text-center bg-white shadow-lg rounded p-4 welcome-container">
-  <p class="text-muted">Please sign in to continue</p>
+  <p class="text-muted" data-i18n="please_sign_in">Please sign in to continue</p>
   <h1 class="display-6 text-primary"></h1>
 
   <!-- Ligne 1: Boutons Login et Sign Up -->
@@ -20,6 +20,7 @@
       id="login-btn"
       class="btn active d-flex align-items-center justify-content-center"
       style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+      data-i18n="login"
     >
       <i class="bi bi-box-arrow-in-right" style="font-size: 20px; margin-right: 8px;"></i>
       Login
@@ -28,6 +29,7 @@
       id="signup-btn"
       class="btn d-flex align-items-center justify-content-center"
       style="font-size: 16px; flex: 1; border-radius: 9px; border: none;"
+      data-i18n="sign_up"
     >
       <i class="bi bi-person-plus" style="font-size: 20px; margin-right: 8px;"></i>
       Sign Up
@@ -38,21 +40,21 @@
   <div class="tos-container mb-3">
     <div class="tos-line">
       <input type="checkbox" id="tos-checkbox" />
-      <label for="tos-checkbox">I have read and agree to the</label>
+      <label for="tos-checkbox" data-i18n="agree_terms">I have read and agree to the</label>
     </div>
     <div class="tos-links">
-      <a href="static/templates/terms.html" target="_blank">Terms of Service</a>
+      <a href="static/templates/terms.html" target="_blank" data-i18n="terms_of_service">Terms of Service</a>
       <span> and </span>
-      <a href="static/templates/privacy.html" target="_blank">Privacy Policy</a>
+      <a href="static/templates/privacy.html" target="_blank" data-i18n="privacy_policy">Privacy Policy</a>
     </div>
   </div>
 
   <!-- Ligne 3: Texte RGPD -->
-  <p class="gdpr-text mb-3">Your data is processed according to GDPR regulations.</p>
+  <p class="gdpr-text mb-3" data-i18n="gdpr_notice">Your data is processed according to GDPR regulations.</p>
 
   <!-- Ligne 4: Bouton "Sign in with 42" -->
   <button id="connect-42" class="auth-button">
-    <span>SIGN IN WITH</span>    
+    <span data-i18n="sign_in_with">SIGN IN WITH</span>    
     <img src="static/img/42_logo.png" alt="42 Logo" />
   </button>
 </div>

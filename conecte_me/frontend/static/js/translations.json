@@ -139,7 +139,7 @@
         "user_status_online": "Online",
         "elo_ranking": "Elo Ranking",
         "total_games": "Total Games",
-        "wins": "Wins",
+        "Wins": "Wins",
         "losses": "Losses",
         "security": "Security",
         "change_email": "Add/Change: Email",
@@ -154,7 +154,6 @@
         "old_password": "Old Password",
         "new_password": "New Password",
         "confirm_password": "Confirmation",
-        "password_mismatch": "Passwords do not match.",
         "login_logs": "Login Logs",
         "personal_data": "My Personal Data",
         "export_data": "Download My Data",
@@ -164,8 +163,72 @@
         "log_date": "Date",
         "log_platform": "Platform",
         "log_browser": "Browser",
-        "log_ip_address": "IP Address"
+        "log_ip_address": "IP Address",
 
+        "please_sign_in": "Please sign in to continue",
+        "login": "Login",
+        "signup": "Sign Up",
+        "agree_terms": "I have read and agree to the",
+        "terms_of_service": "Terms of Service",
+        "privacy_policy": "Privacy Policy",
+        "gdpr_notice": "Your data is processed according to GDPR regulations.",
+        "sign_in_with": "SIGN IN WITH",
+
+        "team_title": "TEAM",
+        "team_subtitle": "Our Development Team",
+        "full_stack_dev": "Full Stack Developer",
+        "devops_engineer": "DevOps Engineer",
+        "jeremy_desc": "Passionate about UX/UI and frontend development",
+        "marko_desc": "Expert in system architecture and performance",
+        "ombeline_desc": "Versatile developer and gaming enthusiast",
+        "rafael_desc": "Specialist in game development and animations",
+        "sylvanna_desc": "Expert in deployment and infrastructure",
+        "footer_made_with_love": "Made with <i class='bi bi-heart-fill heart'></i> by the PONG team",
+
+        "privacy_policy_title": "Privacy Policy - ft_transcendence",
+        "privacy_intro": "1. Introduction",
+        "privacy_intro_text": "This Privacy Policy explains how ft_transcendence (\"the Application\") collects, uses, and protects your personal data when using our service.",
+        
+        "data_collected": "2. Collected Data",
+        "data_collected_text": "We collect the following information when using the Application:",
+        "account_info": "Account Information: email, username, profile picture, and user ID.",
+        "login_data": "Login Data: IP address, activity logs, and device information.",
+        "game_data": "Game Data: scores, match history, and interactions with other users.",
+        
+        "data_usage": "3. Use of Data",
+        "data_usage_text": "Your data is used for:",
+        "manage_account": "Managing your account and authentication (including via OAuth 42).",
+        "ensure_security": "Ensuring the proper functioning and security of the Application.",
+        "improve_services": "Improving our services and analyzing performance.",
+        "communicate_with_users": "Communicating with you when necessary.",
+        
+        "data_sharing": "4. Data Sharing",
+        "data_sharing_text": "We do not share your personal data with third parties, except in the following cases:",
+        "explicit_consent": "With your explicit consent.",
+        "legal_requirement": "To comply with a legal obligation.",
+        "service_providers": "With service providers ensuring the hosting and maintenance of the Application.",
+        
+        "data_protection": "5. Data Protection",
+        "data_protection_text": "We implement security measures to protect your information from unauthorized access, modification, or disclosure.",
+        
+        "user_rights": "6. User Rights",
+        "user_rights_text": "According to applicable regulations, you have the following rights:",
+        "right_access": "Access your personal data.",
+        "right_modify": "Modify or delete your information.",
+        "right_object": "Object to the processing of your data.",
+        "right_portability": "Request data portability.",
+        
+        "data_retention": "7. Data Retention",
+        "data_retention_text": "Your information is retained as long as your account is active and up to 12 months after its deletion.",
+        
+        "cookies": "8. Cookies",
+        "cookies_text": "The Application uses strictly necessary cookies for its operation. You can configure your browser to refuse them.",
+        
+        "policy_modification": "9. Policy Modification",
+        "policy_modification_text": "We reserve the right to modify this policy. Any changes will be communicated on our website.",
+        
+        "contact": "10. Contact",
+        "contact_text": "For any questions regarding data protection, contact us at: privacy@ft_transcendence.com."
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -307,7 +370,7 @@
         "user_status_online": "En ligne",
         "elo_ranking": "Classement Elo",
         "total_games": "Parties totales",
-        "wins": "Victoires",
+        "Wins": "Victoires",
         "losses": "Défaites",
         "security": "Sécurité",
         "change_email": "Ajouter/Changer : Email",
@@ -322,7 +385,6 @@
         "old_password": "Ancien mot de passe",
         "new_password": "Nouveau mot de passe",
         "confirm_password": "Confirmation",
-        "password_mismatch": "Les mots de passe ne correspondent pas.",
         "login_logs": "Logs de connexion",
         "personal_data": "Mes données personnelles",
         "export_data": "Télécharger mes données",
@@ -332,8 +394,72 @@
         "log_date": "Date",
         "log_platform": "Plateforme",
         "log_browser": "Navigateur",
-        "log_ip_address": "Adresse IP"
+        "log_ip_address": "Adresse IP",
 
+        "please_sign_in": "Veuillez vous connecter pour continuer",
+        "login": "Se connecter",
+        "signup": "S'inscrire",
+        "agree_terms": "J'ai lu et j'accepte les",
+        "terms_of_service": "Conditions d'utilisation",
+        "privacy_policy": "Politique de confidentialité",
+        "gdpr_notice": "Vos données sont traitées conformément aux réglementations RGPD.",
+        "sign_in_with": "SE CONNECTER AVEC",
+
+        "team_title": "ÉQUIPE",
+        "team_subtitle": "Notre équipe de développement",
+        "full_stack_dev": "Développeur Full Stack",
+        "devops_engineer": "Ingénieur DevOps",
+        "jeremy_desc": "Passionné par l'UX/UI et le développement frontend",
+        "marko_desc": "Expert en architecture système et performance",
+        "ombeline_desc": "Développeur polyvalent et passionné de jeux",
+        "rafael_desc": "Spécialiste en développement de jeux et animations",
+        "sylvanna_desc": "Expert en déploiement et infrastructure",
+        "footer_made_with_love": "Fait avec <i class='bi bi-heart-fill heart'></i> par l’équipe PONG",
+
+        "privacy_policy_title": "Politique de Confidentialité - ft_transcendence",
+        "privacy_intro": "1. Introduction",
+        "privacy_intro_text": "La présente Politique de Confidentialité explique comment ft_transcendence (« l'Application ») collecte, utilise et protège vos données personnelles lorsque vous utilisez notre service.",
+
+        "data_collected": "2. Données Collectées",
+        "data_collected_text": "Nous collectons les informations suivantes lors de l'utilisation de l'Application :",
+        "account_info": "Informations de compte : email, pseudo, image de profil, et identifiant utilisateur.",
+        "login_data": "Données de connexion : adresse IP, journaux d'activité et informations sur l'appareil.",
+        "game_data": "Données de jeu : scores, historique des parties, interactions avec d'autres utilisateurs.",
+
+        "data_usage": "3. Utilisation des Données",
+        "data_usage_text": "Vos données sont utilisées pour :",
+        "manage_account": "Gérer votre compte et votre authentification (notamment via OAuth 42).",
+        "ensure_security": "Assurer le bon fonctionnement et la sécurité de l'Application.",
+        "improve_services": "Améliorer nos services et analyser les performances.",
+        "communicate_with_users": "Communiquer avec vous en cas de besoin.",
+
+        "data_sharing": "4. Partage des Données",
+        "data_sharing_text": "Nous ne partageons pas vos données personnelles avec des tiers, sauf dans les cas suivants :",
+        "explicit_consent": "Avec votre consentement explicite.",
+        "legal_requirement": "Pour respecter une obligation légale.",
+        "service_providers": "Avec des prestataires de services assurant l'hébergement et la maintenance de l'Application.",
+
+        "data_protection": "5. Protection des Données",
+        "data_protection_text": "Nous mettons en place des mesures de sécurité pour protéger vos informations contre tout accès, modification ou divulgation non autorisés.",
+
+        "user_rights": "6. Droits des Utilisateurs",
+        "user_rights_text": "Conformément à la réglementation applicable, vous disposez des droits suivants :",
+        "right_access": "Accéder à vos données personnelles.",
+        "right_modify": "Rectifier ou supprimer vos informations.",
+        "right_object": "S'opposer au traitement de vos données.",
+        "right_portability": "Demander la portabilité de vos données.",
+
+        "data_retention": "7. Conservation des Données",
+        "data_retention_text": "Vos informations sont conservées tant que votre compte est actif et jusqu'à 12 mois après sa suppression.",
+
+        "cookies": "8. Cookies",
+        "cookies_text": "L'Application utilise des cookies strictement nécessaires pour son fonctionnement. Vous pouvez configurer votre navigateur pour les refuser.",
+
+        "policy_modification": "9. Modification de la Politique",
+        "policy_modification_text": "Nous nous réservons le droit de modifier cette politique. Toute modification sera communiquée sur notre site.",
+
+        "contact": "10. Contact",
+        "contact_text": "Pour toute question relative à la protection des données, contactez-nous : privacy@ft_transcendence.com."
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -499,7 +625,58 @@
         "log_date": "Fecha",
         "log_platform": "Plataforma",
         "log_browser": "Navegador",
-        "log_ip_address": "Dirección IP"
+        "log_ip_address": "Dirección IP",
 
+        "please_sign_in": "Por favor, inicie sesión para continuar",
+        "login": "Iniciar sesión",
+        "signup": "Registrarse",
+        "agree_terms": "He leído y acepto los",
+        "terms_of_service": "Términos de servicio",
+        "privacy_policy": "Política de privacidad",
+        "gdpr_notice": "Sus datos se procesan de acuerdo con las regulaciones de GDPR.",
+        "sign_in_with": "INICIAR SESIÓN CON",
+
+        "team_title": "EQUIPO",
+        "team_subtitle": "Nuestro equipo de desarrollo",
+        "full_stack_dev": "Desarrollador Full Stack",
+        "devops_engineer": "Ingeniero DevOps",
+        "jeremy_desc": "Apasionado por UX/UI y el desarrollo frontend",
+        "marko_desc": "Experto en arquitectura de sistemas y rendimiento",
+        "ombeline_desc": "Desarrollador versátil y entusiasta de los juegos",
+        "rafael_desc": "Especialista en desarrollo de juegos y animaciones",
+        "sylvanna_desc": "Experto en despliegue e infraestructura",
+        "footer_made_with_love": "Hecho con <i class='bi bi-heart-fill heart'></i> por el equipo PONG",
+
+        "privacy_policy_title": "Política de Privacidad - ft_transcendence",
+        "privacy_intro": "1. Introducción",
+        "privacy_intro_text": "Esta Política de Privacidad explica cómo ft_transcendence (\"la Aplicación\") recopila, usa y protege sus datos personales cuando utiliza nuestro servicio.",
+        
+        "data_collected": "2. Datos Recopilados",
+        "data_collected_text": "Recopilamos la siguiente información cuando usa la Aplicación:",
+        "account_info": "Información de cuenta: correo electrónico, nombre de usuario, imagen de perfil e identificador de usuario.",
+        "login_data": "Datos de inicio de sesión: dirección IP, registros de actividad e información del dispositivo.",
+        "game_data": "Datos del juego: puntuaciones, historial de partidas, interacciones con otros usuarios.",
+        
+        "data_usage": "3. Uso de los Datos",
+        "data_usage_text": "Sus datos se utilizan para:",
+        "manage_account": "Gestionar su cuenta y autenticación (incluyendo OAuth 42).",
+        "ensure_security": "Garantizar el correcto funcionamiento y seguridad de la Aplicación.",
+        "improve_services": "Mejorar nuestros servicios y analizar el rendimiento.",
+        "communicate_with_users": "Comunicarse con usted cuando sea necesario.",
+        
+        "data_sharing": "4. Compartición de Datos",
+        "data_sharing_text": "No compartimos sus datos personales con terceros, salvo en los siguientes casos:",
+        "explicit_consent": "Con su consentimiento explícito.",
+        "legal_requirement": "Para cumplir con una obligación legal.",
+        "service_providers": "Con proveedores de servicios que garantizan el alojamiento y mantenimiento de la Aplicación.",
+        
+        "data_protection": "5. Protección de Datos",
+        "data_protection_text": "Implementamos medidas de seguridad para proteger su información contra accesos, modificaciones o divulgaciones no autorizadas.",
+        
+        "user_rights": "6. Derechos del Usuario",
+        "data_retention": "7. Retención de Datos",
+        "cookies": "8. Cookies",
+        "policy_modification": "9. Modificación de la Política",
+        "contact": "10. Contacto"
     }
 }
