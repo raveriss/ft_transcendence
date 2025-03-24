@@ -228,7 +228,8 @@
         "policy_modification_text": "We reserve the right to modify this policy. Any changes will be communicated on our website.",
         
         "contact": "10. Contact",
-        "contact_text": "For any questions regarding data protection, contact us at: privacy@ft_transcendence.com."
+        "contact_text": "For any questions regarding data protection, contact us at: privacy@ft_transcendence.com.",
+        "terms_text": "Insert here the content of your terms of service."
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -459,7 +460,8 @@
         "policy_modification_text": "Nous nous réservons le droit de modifier cette politique. Toute modification sera communiquée sur notre site.",
 
         "contact": "10. Contact",
-        "contact_text": "Pour toute question relative à la protection des données, contactez-nous : privacy@ft_transcendence.com."
+        "contact_text": "Pour toute question relative à la protection des données, contactez-nous : privacy@ft_transcendence.com.",
+        "terms_text": "Insérez ici le contenu de vos conditions d'utilisation."
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -686,6 +688,7 @@
         "policy_modification": "9. Modificación de la Política",
         "policy_modification_text": "Nos reservamos el derecho de modificar esta política. Cualquier cambio se comunicará en nuestro sitio web.",
         "contact": "10. Contacto",
-        "contact_text": "Para cualquier pregunta sobre protección de datos, contáctenos en: privacy@ft_transcendence.com."
+        "contact_text": "Para cualquier pregunta sobre protección de datos, contáctenos en: privacy@ft_transcendence.com.",
+        "terms_text": "Inserte aquí el contenido de sus términos de servicio."
     }
 }
