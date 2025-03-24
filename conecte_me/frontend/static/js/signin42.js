@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  changeLanguage(getCurrentLang()); // Appliquer immédiatement la langue actuelle
+});
+
 const form = document.getElementById('signin42-form');
 const passwordInput = document.getElementById('password');
 const confirmInput = document.getElementById('confirmPassword');
@@ -13,11 +17,7 @@ function validateForm() {
   const pattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
   let valid = pattern.test(password) && (password === confirm);
   submitButton.disabled = !valid;
-  if (password !== confirm) {
-    confirmInput.setCustomValidity("Les mots de passe ne correspondent pas.");
-  } else {
-    confirmInput.setCustomValidity("");
-  }
+  confirmInput.setCustomValidity(password !== confirm ? translationsCache[getCurrentLang()]["password_mismatch"] : "");
 }
 
 passwordInput.addEventListener('input', validateForm);
@@ -57,11 +57,12 @@ form.addEventListener('submit', (e) => {
         // Redirige vers l'authentification OAuth 42
         window.location.href = window.location.protocol + '//' + window.location.hostname + ':8443/auth/42/login-42/';
       } else {
-        alert("Erreur : " + data.error);
+        const errorMessage = data.error ? data.error : translationsCache[getCurrentLang()]["unknown_error"];
+        alert(`${translationsCache[getCurrentLang()]["error"]}: ${errorMessage}`);
       }
     })
     .catch((err) => {
-      console.error("Erreur réseau :", err);
-      alert("Une erreur réseau s'est produite.");
+      console.error(`${translationsCache[getCurrentLang()]["network_error"]}:`, err);
+      alert(translationsCache[getCurrentLang()]["network_error"]);
     });
 });  

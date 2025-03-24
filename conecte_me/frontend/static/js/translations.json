@@ -101,7 +101,39 @@
         "forgot_password": "Forgot password?",
         "login_button": "Log in",
         "no_account": "Don't have an account?",
-        "signup_link": "Sign up"
+        "signup_link": "Sign up",
+
+        "password_mismatch": "Passwords do not match.",
+        "signup_success": "Your account has been successfully created!",
+        "error": "Error",
+
+        "signup_title": "Create an Account",
+        "signup_subtitle": "Enter your information to get started",
+        "signup_pseudo": "Username",
+        "signup_firstname": "First Name",
+        "signup_email": "Email Address",
+        "signup_password": "Password",
+        "signup_confirm_password": "Confirm Password",
+        "signup_placeholder_pseudo": "johndoe",
+        "signup_placeholder_firstname": "John",
+        "signup_placeholder_email": "john.doe@example.com",
+        "signup_placeholder_password": "••••••••",
+        "signup_placeholder_confirm_password": "••••••••",
+        "signup_error_pseudo": "The username must be between 3 and 20 characters long.",
+        "signup_error_firstname": "The first name must be between 2 and 50 characters long.",
+        "signup_error_email": "Please enter a valid email address.",
+        "signup_error_password": "The password must contain at least 8 characters, one uppercase, one lowercase, one digit, and one special character.",
+        "signup_password_hint": "The password must contain at least 8 characters, one uppercase, one lowercase, one digit, and one special character.",
+        "signup_error_confirm_password": "Passwords do not match.",
+        "signup_terms": "I have read and agree to the",
+        "signup_terms_link": "Terms of Service",
+        "signup_privacy_link": "Privacy Policy",
+        "signup_button": "Sign Up",
+        
+        "network_error": "A network error occurred. Please try again later.",
+        "signup_confirm": "Are you sure you want to sign up?",
+        "unknown_error": "An unknown error occurred. Please try again later."
+
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -205,7 +237,39 @@
         "forgot_password": "Mot de passe oublié ?",
         "login_button": "Se connecter",
         "no_account": "Pas encore de compte ?",
-        "signup_link": "S'inscrire"
+        "signup_link": "S'inscrire",
+
+        "password_mismatch": "Les mots de passe ne correspondent pas.",
+        "signup_success": "Votre compte a été créé avec succès !",
+        "error": "Erreur",
+
+        "signup_title": "Créer un compte",
+        "signup_subtitle": "Entrez vos informations pour commencer",
+        "signup_pseudo": "Pseudo",
+        "signup_firstname": "Prénom",
+        "signup_email": "Adresse e-mail",
+        "signup_password": "Mot de passe",
+        "signup_confirm_password": "Confirmer le mot de passe",
+        "signup_placeholder_pseudo": "johndoe",
+        "signup_placeholder_firstname": "John",
+        "signup_placeholder_email": "john.doe@example.com",
+        "signup_placeholder_password": "••••••••",
+        "signup_placeholder_confirm_password": "••••••••",
+        "signup_error_pseudo": "Le pseudo doit contenir entre 3 et 20 caractères.",
+        "signup_error_firstname": "Le prénom doit contenir entre 2 et 50 caractères.",
+        "signup_error_email": "Veuillez saisir une adresse e-mail valide.",
+        "signup_error_password": "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.",
+        "signup_password_hint": "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.",
+        "signup_error_confirm_password": "Les mots de passe ne correspondent pas.",
+        "signup_terms": "J'ai lu et j'accepte les",
+        "signup_terms_link": "Conditions d'utilisation",
+        "signup_privacy_link": "Politique de confidentialité",
+        "signup_button": "S'inscrire",
+
+        "network_error": "Une erreur réseau s'est produite. Veuillez réessayer plus tard.",
+        "signup_confirm": "Êtes-vous sûr de vouloir vous inscrire ?",
+        "unknown_error": "Une erreur inconnue est survenue. Veuillez réessayer plus tard."
+
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -309,6 +373,38 @@
         "forgot_password": "¿Olvidaste tu contraseña?",
         "login_button": "Iniciar sesión",
         "no_account": "¿No tienes una cuenta?",
-        "signup_link": "Regístrate"
+        "signup_link": "Regístrate",
+
+        "password_mismatch": "Las contraseñas no coinciden.",
+        "signup_success": "¡Tu cuenta ha sido creada con éxito!",
+        "error": "Error",
+
+        "signup_title": "Crear una cuenta",
+        "signup_subtitle": "Ingrese su información para comenzar",
+        "signup_pseudo": "Nombre de usuario",
+        "signup_firstname": "Nombre",
+        "signup_email": "Correo electrónico",
+        "signup_password": "Contraseña",
+        "signup_confirm_password": "Confirmar contraseña",
+        "signup_placeholder_pseudo": "johndoe",
+        "signup_placeholder_firstname": "Juan",
+        "signup_placeholder_email": "juan.perez@example.com",
+        "signup_placeholder_password": "••••••••",
+        "signup_placeholder_confirm_password": "••••••••",
+        "signup_error_pseudo": "El nombre de usuario debe tener entre 3 y 20 caracteres.",
+        "signup_error_firstname": "El nombre debe tener entre 2 y 50 caracteres.",
+        "signup_error_email": "Por favor, ingrese un correo electrónico válido.",
+        "signup_error_password": "La contraseña debe contener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.",
+        "signup_password_hint": "La contraseña debe contener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.",
+        "signup_error_confirm_password": "Las contraseñas no coinciden.",
+        "signup_terms": "He leído y acepto los",
+        "signup_terms_link": "Términos de servicio",
+        "signup_privacy_link": "Política de privacidad",
+        "signup_button": "Registrarse",
+
+        "network_error": "Se produjo un error de red. Por favor, inténtelo de nuevo más tarde.",
+        "signup_confirm": "¿Está seguro de que desea registrarse?",
+        "unknown_error": "Ocurrió un error desconocido. Por favor, inténtelo de nuevo más tarde."
+
     }
 }

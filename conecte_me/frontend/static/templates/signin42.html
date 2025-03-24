@@ -1,15 +1,15 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
   <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
     <div class="card-header bg-white text-center">
-      <h2 class="mb-0">Définir votre mot de passe</h2>
-      <p class="text-muted">Créez un mot de passe pour votre compte 42</p>
+      <h2 class="mb-0" data-i18n="define_password">Définir votre mot de passe</h2>
+      <p class="text-muted" data-i18n="create_password_info">Créez un mot de passe pour votre compte 42</p>
     </div>
 
     <div class="card-body">
       <form id="signin42-form" class="needs-validation" novalidate>
         <!-- Champ Mot de passe -->
         <div class="mb-3">
-          <label for="password" class="form-label">Mot de passe</label>
+          <label for="password" class="form-label" data-i18n="password_label">Mot de passe</label>
           <div class="input-group">
             <input
               type="password"
@@ -24,7 +24,7 @@
             <button class="btn btn-outline-secondary" type="button" id="togglePassword">
               <i class="bi bi-eye"></i>
             </button>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" data-i18n="password_invalid">
               Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.
             </div>
           </div>
@@ -32,7 +32,7 @@
 
         <!-- Champ Confirmation du mot de passe -->
         <div class="mb-3">
-          <label for="confirmPassword" class="form-label">Confirmer le mot de passe</label>
+          <label for="confirmPassword" class="form-label" data-i18n="confirm_password_label">Confirmer le mot de passe</label>
           <div class="input-group">
             <input
               type="password"
@@ -46,7 +46,7 @@
             <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
               <i class="bi bi-eye"></i>
             </button>
-            <div class="invalid-feedback">
+            <div class="invalid-feedback" data-i18n="password_mismatch">
               Les mots de passe ne correspondent pas.
             </div>
           </div>
@@ -54,7 +54,7 @@
 
         <!-- Bouton de soumission (désactivé par défaut) -->
         <button type="submit" class="btn btn-primary w-100" disabled>
-          Valider
+          <span data-i18n="validate">Valider</span>
         </button>
       </form>
     </div>
