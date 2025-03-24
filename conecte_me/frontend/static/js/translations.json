@@ -139,7 +139,7 @@
         "user_status_online": "Online",
         "elo_ranking": "Elo Ranking",
         "total_games": "Total Games",
-        "wins": "Wins",
+        "Wins": "Wins",
         "losses": "Losses",
         "security": "Security",
         "change_email": "Add/Change: Email",
@@ -154,7 +154,6 @@
         "old_password": "Old Password",
         "new_password": "New Password",
         "confirm_password": "Confirmation",
-        "password_mismatch": "Passwords do not match.",
         "login_logs": "Login Logs",
         "personal_data": "My Personal Data",
         "export_data": "Download My Data",
@@ -164,7 +163,16 @@
         "log_date": "Date",
         "log_platform": "Platform",
         "log_browser": "Browser",
-        "log_ip_address": "IP Address"
+        "log_ip_address": "IP Address",
+
+        "please_sign_in": "Please sign in to continue",
+        "login": "Login",
+        "signup": "Sign Up",
+        "agree_terms": "I have read and agree to the",
+        "terms_of_service": "Terms of Service",
+        "privacy_policy": "Privacy Policy",
+        "gdpr_notice": "Your data is processed according to GDPR regulations.",
+        "sign_in_with": "SIGN IN WITH"
 
     },
     "fr": {
@@ -307,7 +315,7 @@
         "user_status_online": "En ligne",
         "elo_ranking": "Classement Elo",
         "total_games": "Parties totales",
-        "wins": "Victoires",
+        "Wins": "Victoires",
         "losses": "Défaites",
         "security": "Sécurité",
         "change_email": "Ajouter/Changer : Email",
@@ -322,7 +330,6 @@
         "old_password": "Ancien mot de passe",
         "new_password": "Nouveau mot de passe",
         "confirm_password": "Confirmation",
-        "password_mismatch": "Les mots de passe ne correspondent pas.",
         "login_logs": "Logs de connexion",
         "personal_data": "Mes données personnelles",
         "export_data": "Télécharger mes données",
@@ -332,7 +339,16 @@
         "log_date": "Date",
         "log_platform": "Plateforme",
         "log_browser": "Navigateur",
-        "log_ip_address": "Adresse IP"
+        "log_ip_address": "Adresse IP",
+
+        "please_sign_in": "Veuillez vous connecter pour continuer",
+        "login": "Se connecter",
+        "signup": "S'inscrire",
+        "agree_terms": "J'ai lu et j'accepte les",
+        "terms_of_service": "Conditions d'utilisation",
+        "privacy_policy": "Politique de confidentialité",
+        "gdpr_notice": "Vos données sont traitées conformément aux réglementations RGPD.",
+        "sign_in_with": "SE CONNECTER AVEC"
 
     },
     "es": {
@@ -499,7 +515,15 @@
         "log_date": "Fecha",
         "log_platform": "Plataforma",
         "log_browser": "Navegador",
-        "log_ip_address": "Dirección IP"
+        "log_ip_address": "Dirección IP",
 
+        "please_sign_in": "Por favor, inicie sesión para continuar",
+        "login": "Iniciar sesión",
+        "signup": "Registrarse",
+        "agree_terms": "He leído y acepto los",
+        "terms_of_service": "Términos de servicio",
+        "privacy_policy": "Política de privacidad",
+        "gdpr_notice": "Sus datos se procesan de acuerdo con las regulaciones de GDPR.",
+        "sign_in_with": "INICIAR SESIÓN CON"
     }
 }
