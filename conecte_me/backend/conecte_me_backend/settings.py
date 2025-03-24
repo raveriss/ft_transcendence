@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Applications personnalisées
     'oauth_app',
     'game',
+    'tournament',
 ]
 
 # Middleware

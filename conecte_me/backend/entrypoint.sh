@@ -29,8 +29,14 @@ echo "✅ Redis est prêt !"
 echo "⚙️ Génération des migrations pour l'app 'game'..."
 python manage.py makemigrations game --noinput
 
+echo "⚙️ Génération des migrations pour l'app 'game'..."
+python manage.py makemigrations tournament --noinput
+
 echo "⚙️ Application des migrations pour l'app 'game'..."
 python manage.py migrate game --noinput
+
+echo "⚙️ Application des migrations pour l'app 'game'..."
+python manage.py migrate tournament --noinput
 
 echo "⚙️ Application de toutes les migrations restantes..."
 python manage.py migrate --noinput

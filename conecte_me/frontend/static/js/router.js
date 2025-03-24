@@ -17,7 +17,8 @@ const routes = {
     '/user': 'static/templates/user.html',
     '/team': 'static/templates/team.html',
     '/stats': 'static/templates/stats.html',
-    '/game': 'static/templates/game.html'
+    '/game': 'static/templates/game.html',
+    '/tournament' : 'static/templates/tournament.html',
   };
 
 // Définir la liste des routes nécessitant une authentification
@@ -128,6 +129,8 @@ async function checkAuth() {
       scriptFile = 'static/js/user.js';
     } else if (route === '/game') {
       scriptFile = 'static/js/game.js';
+    } else if (route === '/tournament') {
+        scriptFile = 'static/js/tournament.js';
     // } else if (route === '/stats') {
     //   scriptFile = 'static/js/stats.js';
     } else {
