@@ -16,28 +16,8 @@
           <i class="bi-clock-history"></i>
           <span data-i18n="match_history">Historique des matchs</span>
         </div>
-        <ul class="list-unstyled mb-0">
-          <li class="list-group-item-custom">
-            <div class="match-info-left">
-              <span class="match-date">2025-01-10</span>
-              <span class="match-name">ProGamer</span>
-            </div>
-            <span class="match-result text-success">Victory 11-9</span>
-          </li>
-          <li class="list-group-item-custom">
-            <div class="match-info-left">
-              <span class="match-date">2025-01-08</span>
-              <span class="match-name">PongMaster</span>
-            </div>
-            <span class="match-result text-danger">Defeat 9-11</span>
-          </li>
-          <li class="list-group-item-custom">
-            <div class="match-info-left">
-              <span class="match-date">2025-01-05</span>
-              <span class="match-name">NewPlayer</span>
-            </div>
-            <span class="match-result text-success">Victory 11-7</span>
-          </li>
+        <ul class="list-unstyled mb-0" id="match-history-list">
+          <!-- Les éléments de match seront insérés ici dynamiquement -->
         </ul>
       </div>
     </div>
@@ -51,25 +31,8 @@
         </div>
       
         <table class="table table-borderless text-white align-middle mb-0 custom-table">
-          <tbody>
-            <tr>
-              <td class="rank-cell">#1</td>
-              <td class="player-name-cell">TopPlayer1</td>
-              <td class="elo-cell text-end">1850</td>
-              <td class="wins-cell">42 <span data-i18n="wins">wins</span></td>
-            </tr>
-            <tr>
-              <td class="rank-cell">#2</td>
-              <td class="player-name-cell">TopPlayer2</td>
-              <td class="elo-cell text-end">2050</td>
-              <td class="wins-cell">142 <span data-i18n="wins">wins</span></td>
-            </tr>
-            <tr class="highlight">
-              <td class="rank-cell">#24</td>
-              <td class="player-name-cell">Player123</td>
-              <td class="elo-cell text-end">1850</td>
-              <td class="wins-cell">42 <span data-i18n="wins">wins</span></td>
-            </tr>
+          <tbody id="leaderboard-body">
+            <!-- Les rangs seront insérés ici dynamiquement -->
           </tbody>
         </table>
       </div>

@@ -33,3 +33,15 @@ def create_user_game_settings(sender, instance, created, **kwargs):
 def save_user_game_settings(sender, instance, **kwargs):
     if hasattr(instance, 'game_settings'):
         instance.game_settings.save()
+
+class MatchHistory(models.Model):
+    match_date = models.DateTimeField(auto_now_add=True)
+    player1 = models.CharField(max_length=100)
+    player2 = models.CharField(max_length=100)
+    score1 = models.PositiveIntegerField()
+    score2 = models.PositiveIntegerField()
+    duration = models.PositiveIntegerField(help_text="Durée du match en secondes")
+    recorded = models.BooleanField(default=True)
+
+    def __str__(self):
+        return f"{self.match_date:%Y-%m-%d %H:%M} - {self.player1} vs {self.player2} : {self.score1} - {self.score2}"
