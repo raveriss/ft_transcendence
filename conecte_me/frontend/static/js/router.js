@@ -397,43 +397,22 @@ function attachListeners() {
       .then(response => response.json())
       .then(data => {
         console.log("Déconnexion réussie :", data);
-        // Vider l'historique personnalisé lors de la déconnexion
+        // Vider l'historique personnalisé et le token JWT lors de la déconnexion
         sessionStorage.removeItem('customHistory');
+        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('username');
+        localStorage.removeItem('user_id');
         // Rediriger vers '/home'
         navigateTo('/home');
       })
       .catch(error => {
         console.error("Erreur lors de la mise à jour du statut :", error);
         sessionStorage.removeItem('customHistory');
+        localStorage.removeItem('jwtToken');
         navigateTo('/home');
       });
     });
   }
-//   // 4. Corriger le bouton exitBtn : rediriger vers "/home" et vider customHistory
-// const exitBtn = document.getElementById('exit-btn');
-// if (exitBtn) {
-//   exitBtn.addEventListener('click', () => {
-//     fetch('/auth/logout/', {
-//       method: 'POST',
-//       credentials: 'include',
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//       console.log("Déconnexion réussie :", data);
-//       // Vider l'historique personnalisé et le token JWT lors de la déconnexion
-//       sessionStorage.removeItem('customHistory');
-//       localStorage.removeItem('jwtToken');
-//       // Rediriger vers '/home'
-//       navigateTo('/home');
-//     })
-//     .catch(error => {
-//       console.error("Erreur lors de la mise à jour du statut :", error);
-//       sessionStorage.removeItem('customHistory');
-//       localStorage.removeItem('jwtToken');
-//       navigateTo('/home');
-//     });
-//   });
-// }
   
   // gere bouton pour lancer le jeu /game
   const modeButtons = document.querySelectorAll('.icon-circle');
