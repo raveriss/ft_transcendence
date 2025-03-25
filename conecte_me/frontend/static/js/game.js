@@ -155,6 +155,41 @@ async function fetchGameSettings() {
       speedY: ballSpeedY * (Math.random() < 0.5 ? 1 : -1)
     };
 
+    const particles = [];
+
+    function createParticle(x, y) {
+      return {
+        x,
+        y,
+        alpha: 1,
+        radius: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2
+      };
+    }
+    
+    function updateParticles() {
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha -= 0.02;
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+        }
+      }
+    }
+
+    function drawParticles(ctx) {
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+
     // Réinitialise la balle au centre avec une direction aléatoire
     function resetBall() {
       ball.x = canvas.width / 2;
@@ -167,6 +202,10 @@ async function fetchGameSettings() {
     function updateBall() {
       ball.x += ball.speedX;
       ball.y += ball.speedY;
+
+      for (let i = 0; i < 3; i++) {
+        particles.push(createParticle(ball.x, ball.y));
+      }
 
       // Rebonds sur le haut et le bas
       if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
@@ -244,6 +283,9 @@ async function fetchGameSettings() {
       ctx.fillStyle = "white";
       ctx.fillRect(player1.x, player1.y, player1.width, player1.height);
       ctx.fillRect(player2.x, player2.y, player2.width, player2.height);
+
+      updateParticles();
+      drawParticles(ctx);
       
       // Dessiner la balle
       ctx.beginPath();
