@@ -34,6 +34,7 @@ def game_settings_api(request):
             "map_choice": settings_obj.map_choice,
             "username": user.username,
             "user_id": user.user_id,
+            "paddle_size": settings_obj.paddle_size,
         }
         return JsonResponse(data, status=200)
     else:
@@ -46,6 +47,7 @@ def game_settings_api(request):
         settings_obj.lives = payload.get("lives", settings_obj.lives)
         settings_obj.ball_speed = payload.get("ball_speed", settings_obj.ball_speed)
         settings_obj.map_choice = payload.get("map_choice", settings_obj.map_choice)
+        settings_obj.paddle_size = payload.get("paddle_size", settings_obj.paddle_size)
         settings_obj.save()
         return JsonResponse({"success": True}, status=200)
 

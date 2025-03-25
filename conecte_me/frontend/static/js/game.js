@@ -46,7 +46,20 @@ async function fetchGameSettings() {
 
   // Paramètres de configuration du jeu, récupérés depuis l'API
   const paddleWidth = 20;
-  const paddleHeight = 100;
+  let paddleHeight;
+  switch (settings.paddle_size) {
+    case 'small':
+      paddleHeight = 60;
+      break;
+    case 'large':
+      paddleHeight = 140;
+      break;
+    case 'medium':
+    default:
+      paddleHeight = 100;
+      break;
+  }
+  console.log("Paddle size:", settings.paddle_size);
   let WINNING_SCORE = settings.score_limit;     // Par exemple, 5
   const WINNING_TIME = settings.time * 60;          // Conversion en secondes
   const ballSpeedX = settings.ball_speed;

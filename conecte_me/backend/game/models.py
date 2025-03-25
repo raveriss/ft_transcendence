@@ -16,6 +16,13 @@ class GameSettings(models.Model):
     lives = models.PositiveIntegerField(default=3)          # Vies (défaut : 3)
     ball_speed = models.PositiveIntegerField(default=7)     # Vitesse de balle (défaut : 2)
     map_choice = models.CharField(max_length=30, default='retro')
+    paddle_size = models.CharField(
+    max_length=10,
+    choices=[('small', 'Small'), ('medium', 'Medium'), ('large', 'Large')],
+    default='medium'
+    )
+    test_dummy = models.BooleanField(default=False)
+
 
     def __str__(self):
         return f"GameSettings for {self.user.username}"

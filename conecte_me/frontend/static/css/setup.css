@@ -256,3 +256,10 @@
       /* Disposition spécifique : pour correspondre EXACTEMENT à la capture,
          on place les blocs manuellement en row/col. 
          On peut superposer plus de row / col pour un contrôle précis. */
+
+      #paddleSizeGroup button.active {
+        background-color: #3b82f6;
+        color: #fff;
+        border-color: #3b82f6;
+      }
+        

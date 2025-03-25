@@ -1555,3 +1555,7 @@ WARNING 2025-03-25 12:20:02,249 log 1 140055333284664 Bad Request: /api/game_set
 WARNING 2025-03-25 12:22:47,814 log 1 140076128684856 Bad Request: /api/game_settings/match_history/
 WARNING 2025-03-25 12:35:34,705 log 1 139708440484664 Bad Request: /api/game_settings/match_history/
 WARNING 2025-03-25 13:01:44,398 log 1 140447156136760 Not Found: /api/game_settings/match_history/
+WARNING 2025-03-25 16:07:22,340 log 1 140077020830520 Unauthorized: /auth/user/
+WARNING 2025-03-25 17:10:01,133 log 1 140500813802296 Unauthorized: /auth/user/
+WARNING 2025-03-25 17:15:02,558 log 1 139683445762872 Unauthorized: /auth/user/
+WARNING 2025-03-25 17:30:14,177 log 1 139864311778104 Unauthorized: /auth/user/

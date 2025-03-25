@@ -22,7 +22,7 @@ function debounce(func, delay) {
 
 // Définition des variables globales
 if (typeof timeRange === "undefined") {
-  var timeRange, scoreLimitSelect, livesInput, ballSpeedRange, selectedMapChoice;
+  var timeRange, scoreLimitSelect, livesInput, ballSpeedRange, selectedMapChoice, selectedPaddleSize;
 }
 if (typeof updateSettingsDebounced === "undefined") {
   var updateSettingsDebounced = debounce(updateSettings, 500);
@@ -43,7 +43,8 @@ function updateSettings() {
     score_limit: scoreLimit,
     lives: parseInt(livesInput.value),
     ball_speed: parseInt(ballSpeedRange.value),
-    map_choice: selectedMapChoice
+    map_choice: selectedMapChoice,
+    paddle_size: selectedPaddleSize || 'medium'
   };
 
   console.log("Envoi du POST avec settings:", settings);
@@ -108,6 +109,27 @@ function initSetupPage() {
     });
   });
 
+  // Gestion des boutons PADDLE SIZE
+  const paddleSizeButtons = document.querySelectorAll('[data-i18n^="paddle_size_"]');
+  selectedPaddleSize = "medium";
+
+  paddleSizeButtons.forEach(btn => {
+    const btnSize = btn.dataset.i18n.replace('paddle_size_', '').toLowerCase();
+    if (btnSize === selectedPaddleSize) {
+      btn.classList.add('active');
+    }
+  });
+
+  paddleSizeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      paddleSizeButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedPaddleSize = btn.dataset.i18n.replace('paddle_size_', '').toLowerCase();
+      console.log("Paddle size sélectionné:", selectedPaddleSize);
+      updateSettingsDebounced();
+    });
+  });
+
   // Gestion des sliders et inputs
   function handleSliderInput(slider) {
     const value = (slider.value - slider.min) / (slider.max - slider.min) * 100;
@@ -167,6 +189,13 @@ function initSetupPage() {
       mapChoiceButtons.forEach(b => b.classList.remove('active'));
       const btnFound = [...mapChoiceButtons].find(b => b.dataset.map === selectedMapChoice);
       if (btnFound) btnFound.classList.add('active');
+
+      selectedPaddleSize = data.paddle_size || 'medium';
+      paddleSizeButtons.forEach(btn => {
+        const btnSize = btn.dataset.i18n.replace('paddle_size_', '').toLowerCase();
+        btn.classList.toggle('active', btnSize === selectedPaddleSize);
+      });
+
     })
     .catch(error => {
       console.error("Erreur lors de la récupération des réglages :", error);
