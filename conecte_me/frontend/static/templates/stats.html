@@ -13,7 +13,7 @@
     <div class="col-6 col-md-3">
       <div class="card-custom stats-badge-card">
         <i class="bi bi-trophy mb-1 text-primary" style="font-size:1.2rem;"></i>
-        <div class="stats-badge">65%</div>
+        <div class="stats-badge" id="win-rate">0%</div>
         <div class="stats-label">Win Rate</div>
         <div class="stats-desc">Ratio de victoires</div>
       </div>
@@ -22,7 +22,7 @@
     <div class="col-6 col-md-3">
       <div class="card-custom stats-badge-card">
         <i class="bi bi-lightning-fill mb-1 text-warning" style="font-size:1.2rem;"></i>
-        <div class="stats-badge">4</div>
+        <div class="stats-badge" id="win-streak">0</div>
         <div class="stats-label">Win Streak</div>
         <div class="stats-desc">Plus longue série actuelle</div>
       </div>
@@ -31,7 +31,7 @@
     <div class="col-6 col-md-3">
       <div class="card-custom stats-badge-card">
         <i class="bi bi-stopwatch mb-1 text-success" style="font-size:1.2rem;"></i>
-        <div class="stats-badge">12.5min</div>
+        <div class="stats-badge" id="avg-duration">0 min</div>
         <div class="stats-label">Avg Duration</div>
         <div class="stats-desc">Durée moyenne par match</div>
       </div>
@@ -40,14 +40,14 @@
     <div class="col-6 col-md-3">
       <div class="card-custom stats-badge-card">
         <i class="bi bi-graph-up-arrow mb-1 text-indigo-400" style="font-size:1.2rem;"></i>
-        <div class="stats-badge text-success">+25</div>
-        <div class="stats-label">Rank Progress</div>
-        <div class="stats-desc">Points gagnés cette semaine</div>
+        <div class="stats-badge" id="week_win">0</div>
+        <div class="stats-label">Weekly win</div>
+        <div class="stats-desc">Match gagnés cette semaine</div>
       </div>
     </div>
   </div>
 
-  <!-- 2) Evolution ELO (placeholder) -->
+  <!-- 2) Evolution ELO (placeholder)
   <div class="card-custom mb-3">
     <div class="card-header-custom">
       <i class="bi bi-bar-chart-line"></i>
@@ -58,7 +58,7 @@
         [Courbe ELO sur 7 derniers jours]
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- 3) Style de jeu & Victoires par mode -->
   <div class="row mb-3">
@@ -109,56 +109,8 @@
             <th>Elo</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>2025-01-15</td>
-            <td>Player1</td>
-            <td>11-6</td>
-            <td>12 min</td>
-            <td>1870</td>
-          </tr>
-          <tr>
-            <td>2025-01-14</td>
-            <td>Player2</td>
-            <td>9-11</td>
-            <td>15 min</td>
-            <td>1850</td>
-          </tr>
-          <tr>
-            <td>2025-01-13</td>
-            <td>Player3</td>
-            <td>11-7</td>
-            <td>10 min</td>
-            <td>1860</td>
-          </tr>
-          <tr>
-            <td>2025-01-12</td>
-            <td>Player4</td>
-            <td>11-9</td>
-            <td>14 min</td>
-            <td>1840</td>
-          </tr>
-          <tr>
-            <td>2025-01-11</td>
-            <td>Player5</td>
-            <td>8-11</td>
-            <td>11 min</td>
-            <td>1830</td>
-          </tr>
-          <tr>
-            <td>2025-01-10</td>
-            <td>Player6</td>
-            <td>11-6</td>
-            <td>13 min</td>
-            <td>1845</td>
-          </tr>
-          <tr>
-            <td>2025-01-09</td>
-            <td>Player7</td>
-            <td>7-11</td>
-            <td>12 min</td>
-            <td>1835</td>
-          </tr>
+        <tbody id="match-history-all">
+          <!-- Les données seront insérées ici par stats.js -->
         </tbody>
       </table>
     </div>

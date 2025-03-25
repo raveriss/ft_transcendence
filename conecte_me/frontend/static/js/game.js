@@ -406,14 +406,11 @@ async function fetchGameSettings() {
     function handlePopState() {
       if (location.pathname !== "/game") {
         // Récupérer l'user_id du joueur 1 depuis le localStorage
-        // const player1Id = localStorage.getItem('user_id');
-        // if (!player1Id) {
-        //   console.error("player1Id non trouvé dans le localStorage");
-        // }
-        // Enregistrer le match avant de quitter
-        const duration = Math.floor((Date.now() - startTime) / 1000);
+        const player1Id = localStorage.getItem('user_id');
+        console.log("player1Id =", player1Id);
+        
         const matchData = {
-          player1: player1Name,
+          player1: player1Id,
           player2: player2Name,
           score1: player1.score,
           score2: player2.score,

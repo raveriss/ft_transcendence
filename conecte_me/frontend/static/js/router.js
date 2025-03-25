@@ -128,8 +128,8 @@ async function checkAuth() {
       scriptFile = 'static/js/user.js';
     } else if (route === '/game') {
       scriptFile = 'static/js/game.js';
-    // } else if (route === '/stats') {
-    //   scriptFile = 'static/js/stats.js';
+    } else if (route === '/stats') {
+      scriptFile = 'static/js/stats.js';
     } else {
       // Par défaut, chargez le script global
       scriptFile = 'static/js/main.js';
