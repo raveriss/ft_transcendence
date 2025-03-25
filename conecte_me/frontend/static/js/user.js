@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   changeLanguage(getCurrentLang()); // Appliquer immédiatement la langue actuelle
-  // loadUserStats(); // Charger et mettre à jour les stats utilisateur
 });
 
 (function() {

@@ -8,9 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import GameSettings, MatchHistory
 
 # Gère les réglages de chaque joueur
-@csrf_exempt
+@csrf_exempt # Désactive CSRF car on utilise JWT
 @require_http_methods(["GET", "POST"])
-@jwt_required
+@jwt_required # Protection par token JWT
 def game_settings_api(request):
     """
     Cette vue permet de récupérer ou mettre à jour les réglages du jeu 
@@ -33,6 +33,7 @@ def game_settings_api(request):
             "ball_speed": settings_obj.ball_speed,
             "map_choice": settings_obj.map_choice,
             "username": user.username,
+            "user_id": user.user_id,
         }
         return JsonResponse(data, status=200)
     else:
@@ -55,12 +56,12 @@ def match_history_api(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body)
-            # On s'attend à recevoir player1 sous forme de username (string)
-            player1_value = data.get('player1')
-            if not player1_value:
-                return JsonResponse({"success": False, "error": "player1 non fourni"}, status=400)
+            # Utiliser directement l'utilisateur connecté pour player1
+            player1_userid = request.user
+            
+            # Créer l'enregistrement du match dans l'historique
             match = MatchHistory.objects.create(
-                player1=player1_value,       # On enregistre le username
+                player1=player1_userid,      # Enregistre le user_id via la relation ForeignKey
                 player2=data.get('player2'),
                 score1=data.get('score1'),
                 score2=data.get('score2'),
@@ -81,13 +82,13 @@ def match_history_list(request):
         user = getattr(request, 'user', None)
         if not user:
             return JsonResponse({"detail": "No user in request."}, status=401)
-        # Filtrer par username
-        matches = MatchHistory.objects.filter(player1=user.username).order_by('-match_date')[:3]
+        # Filtrer les matchs où l'utilisateur connecté est player1
+        matches = MatchHistory.objects.filter(player1=user).order_by('-match_date')[:3]
         matches_data = []
         for match in matches:
             matches_data.append({
                 "match_date": match.match_date.isoformat(),
-                "player1": match.player1,
+                "player1": match.player1.username if match.player1 else None,
                 "player2": match.player2,
                 "score1": match.score1,
                 "score2": match.score2,
@@ -107,62 +108,66 @@ def leaderboard(request):
             user = getattr(request, 'user', None)
             if not user:
                 return JsonResponse({"error": "No user in request."}, status=401)
-            
+
             from django.db.models import Count, F
-            # Agréger les victoires par player1 (qui stocke le username)
+            # Agréger les victoires pour chaque joueur (player1)
             all_players = (
                 MatchHistory.objects
+                # 1) On compte seulement les victoires
                 .filter(score1__gt=F('score2'))
-                .values('player1')
+                # 2) On exclut les matchs où player1 est NULL
+                .filter(player1__isnull=False)
+                .values('player1__user_id', 'player1__username')
                 .annotate(win_count=Count('id'))
                 .order_by('-win_count')
             )
             all_players = list(all_players)
             print("All players:", all_players)  # Pour débogage
-            
+
+            current_username = user.username
             userIndex = None
             for i, entry in enumerate(all_players):
-                if entry['player1'] == user.username:
+                if entry['player1__username'] == current_username:
                     userIndex = i
                     break
 
             leaderboard_result = []
             if userIndex is None:
-                # Si l'utilisateur n'a aucune victoire, on affiche les 2 premiers puis l'entrée de l'utilisateur avec 0 victoire
+                # L'utilisateur n'a aucune victoire : afficher les 2 premiers et l'utilisateur avec 0 victoire
                 top2 = all_players[:2]
                 for i, e in enumerate(top2):
                     leaderboard_result.append({
-                        'player1': e['player1'],
+                        'player1': e['player1__username'],
                         'win_count': e['win_count'],
                         'rank': i + 1,
                     })
                 leaderboard_result.append({
-                    'player1': user.username,
+                    'player1': current_username,
                     'win_count': 0,
                     'rank': len(all_players) + 1,
                 })
             else:
                 userRank = userIndex + 1
                 if userRank <= 2:
-                    # Si l'utilisateur est dans le top 2, afficher les 3 premières entrées
+                    # Si l'utilisateur est dans le top 2, afficher les 3 premiers
                     top3 = all_players[:3]
                     for i, e in enumerate(top3):
                         leaderboard_result.append({
-                            'player1': e['player1'],
+                            'player1': e['player1__username'],
                             'win_count': e['win_count'],
                             'rank': i + 1,
                         })
                 else:
-                    # Sinon, afficher les 2 premières entrées puis l'entrée de l'utilisateur
+                    # Sinon, afficher les 2 premiers puis l'entrée de l'utilisateur
                     top2 = all_players[:2]
                     for i, e in enumerate(top2):
                         leaderboard_result.append({
-                            'player1': e['player1'],
+                            'player1': e['player1__username'],
                             'win_count': e['win_count'],
                             'rank': i + 1,
                         })
                     leaderboard_result.append({
-                        'player1': all_players[userIndex]['player1'],
+                        'player1': all_players[userIndex]['player1__username'],
                         'win_count': all_players[userIndex]['win_count'],
                         'rank': userRank,
                     })
@@ -182,12 +187,10 @@ def user_stats(request):
         user = getattr(request, 'user', None)
         if not user:
             return JsonResponse({"error": "No user in request."}, status=401)
-        username = user.username
-        
-        # Calculer le nombre total de matchs où l'utilisateur est player1
-        total_games = MatchHistory.objects.filter(player1=username).count()
-        # Calculer les victoires : victoire quand score1 > score2 et l'utilisateur est player1
-        wins = MatchHistory.objects.filter(player1=username, score1__gt=F('score2')).count()
+        # Filtrer les matchs où l'utilisateur connecté est enregistré comme player1
+        total_games = MatchHistory.objects.filter(player1=user).count()
+        # Pour le joueur connecté, une victoire est définie par score1 > score2
+        wins = MatchHistory.objects.filter(player1=user, score1__gt=F('score2')).count()
         losses = total_games - wins
         
         # Pour l'instant, on fixe l'Elo à 0

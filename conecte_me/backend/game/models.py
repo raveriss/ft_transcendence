@@ -36,7 +36,12 @@ def save_user_game_settings(sender, instance, **kwargs):
 
 class MatchHistory(models.Model):
     match_date = models.DateTimeField(auto_now_add=True)
-    player1 = models.CharField(max_length=100)
+    player1 = models.ForeignKey(
+        User42,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='matches_as_player1'
+    )
     player2 = models.CharField(max_length=100)
     score1 = models.PositiveIntegerField()
     score2 = models.PositiveIntegerField()
