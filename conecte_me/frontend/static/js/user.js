@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(stats => {
       console.log("Stats utilisateur récupérées :", stats);
       // Mettre à jour les éléments de la page user.html
-      document.getElementById('elo').textContent = stats.elo;
+      // document.getElementById('elo').textContent = stats.elo;
       document.getElementById('total_games').textContent = stats.total_games;
       document.getElementById('wins').textContent = stats.wins;
       document.getElementById('losses').textContent = stats.losses;

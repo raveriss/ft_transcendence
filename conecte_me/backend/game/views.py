@@ -1,7 +1,8 @@
 # game/views.py
 import json
 from django.http import JsonResponse
-from django.db.models import Q, F
+from django.db.models import Q, F, Count, Avg
+from django.utils import timezone
 from django.views.decorators.http import require_http_methods
 from oauth_app.jwt_decorator import jwt_required
 from django.views.decorators.csrf import csrf_exempt
@@ -86,6 +87,30 @@ def match_history_list(request):
             return JsonResponse({"detail": "No user in request."}, status=401)
         # Filtrer les matchs où l'utilisateur connecté est player1
         matches = MatchHistory.objects.filter(player1=user).order_by('-match_date')[:3]
+        matches_data = []
+        for match in matches:
+            matches_data.append({
+                "match_date": match.match_date.isoformat(),
+                "player1": match.player1.username if match.player1 else None,
+                "player2": match.player2,
+                "score1": match.score1,
+                "score2": match.score2,
+                "duration": match.duration,
+                "recorded": match.recorded,
+            })
+        return JsonResponse(matches_data, safe=False, status=200)
+    else:
+        return JsonResponse({"error": "Method not allowed."}, status=405)
+
+@csrf_exempt
+@jwt_required
+def match_history_all(request):
+    if request.method == "GET":
+        user = getattr(request, 'user', None)
+        if not user:
+            return JsonResponse({"detail": "No user in request."}, status=401)
+        # Retourne tous les matchs où l'utilisateur est player1
+        matches = MatchHistory.objects.filter(player1=user).order_by('-match_date')
         matches_data = []
         for match in matches:
             matches_data.append({
@@ -189,18 +214,43 @@ def user_stats(request):
         user = getattr(request, 'user', None)
         if not user:
             return JsonResponse({"error": "No user in request."}, status=401)
-        # Filtrer les matchs où l'utilisateur connecté est enregistré comme player1
+
+        # Calcul des parties totales (où l'utilisateur est player1)
         total_games = MatchHistory.objects.filter(player1=user).count()
-        # Pour le joueur connecté, une victoire est définie par score1 > score2
+        # Victoires : quand score1 > score2
         wins = MatchHistory.objects.filter(player1=user, score1__gt=F('score2')).count()
         losses = total_games - wins
-        
-        # Pour l'instant, on fixe l'Elo à 0
+
+        # Calcul du win streak (nombre de victoires consécutives en commençant par le match le plus récent)
+        matches = list(MatchHistory.objects.filter(player1=user).order_by('-match_date'))
+        win_streak = 0
+        for match in matches:
+            if match.score1 > match.score2:
+                win_streak += 1
+            else:
+                break
+
+        # Calcul de la durée moyenne des matchs (en secondes)
+        avg_duration_dict = MatchHistory.objects.filter(player1=user).aggregate(avg_duration=Avg('duration'))
+        avg_duration = avg_duration_dict['avg_duration'] if avg_duration_dict['avg_duration'] is not None else 0
+
+        # Calcul du rank progress : nombre de victoires obtenues dans la dernière semaine
+        one_week_ago = timezone.now() - timezone.timedelta(days=7)
+        weekly_wins = MatchHistory.objects.filter(
+            player1=user, 
+            match_date__gte=one_week_ago, 
+            score1__gt=F('score2')
+        ).count()
+
+        # Pour l'instant, l'Elo reste fixé à 0
         return JsonResponse({
             "elo": 0,
             "total_games": total_games,
             "wins": wins,
             "losses": losses,
+            "win_streak": win_streak,
+            "avg_duration": avg_duration,
+            "rank_progress": weekly_wins,
         }, status=200)
     else:
         return JsonResponse({"error": "Méthode non autorisée."}, status=405)
