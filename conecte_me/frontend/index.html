@@ -84,5 +84,103 @@
     ></script>
     <!-- Custom JS -->
     <script src="static/js/main.js"></script>
+
+    <script>
+      (function() {
+        const MAX_LOGS_PER_SESSION = 100;
+        let logCount = 0;
+        let isSendingLog = false;
+        const recentLogs = new Set(); // pour éviter les doublons immédiats
+    
+        // Fonction utilitaire : génère une signature simple d’un log
+        function getLogSignature(logData) {
+          return `${logData.message}-${logData.source || ''}-${logData.lineno || ''}`;
+        }
+    
+        // Fonction d’envoi de log vers le backend
+        function sendLog(logData) {
+          if (logCount >= MAX_LOGS_PER_SESSION) return;
+          const signature = getLogSignature(logData);
+          if (recentLogs.has(signature)) return;
+    
+          recentLogs.add(signature);
+          setTimeout(() => recentLogs.delete(signature), 5000); // nettoie après 5 sec
+    
+          isSendingLog = true;
+          logCount++;
+    
+          fetch('/api/logs/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(logData)
+          }).catch(function(error) {
+            // On log l'erreur dans la console d'origine, sans relancer sendLog
+            originalConsoleError("Erreur lors de l'envoi du log :", error);
+          }).finally(() => {
+            isSendingLog = false;
+          });
+        }
+    
+        // Gestion des erreurs JS globales
+        window.onerror = function(message, source, lineno, colno, error) {
+          sendLog({
+            message,
+            source,
+            lineno,
+            colno,
+            error: error ? error.stack : null,
+            level: 'ERROR',
+            type: 'js-error'
+          });
+          return false;
+        };
+    
+        // Gestion des promesses non gérées
+        window.onunhandledrejection = function(event) {
+          sendLog({
+            message: event.reason ? event.reason.toString() : 'Unhandled promise rejection',
+            level: 'ERROR',
+            source: 'Promise',
+            type: 'promise-rejection'
+          });
+        };
+    
+        // Erreurs de chargement de ressources
+        window.addEventListener('error', function(event) {
+          if (event.target && (event.target.src || event.target.href)) {
+            const resource = event.target.src || event.target.href;
+            sendLog({
+              message: 'Erreur de chargement de ressource',
+              resource,
+              tagName: event.target.tagName,
+              level: 'ERROR',
+              type: 'resource-error'
+            });
+          }
+        }, true);
+    
+        // Redéfinir console.error avec précaution
+        const originalConsoleError = console.error;
+        console.error = function(...args) {
+          const message = args.join(' ');
+    
+          // Ne pas logger les erreurs générées par sendLog
+          if (isSendingLog || message.includes('Erreur lors de l\'envoi du log')) {
+            originalConsoleError.apply(console, args);
+            return;
+          }
+    
+          sendLog({
+            message,
+            level: 'ERROR',
+            type: 'console-error'
+          });
+    
+          originalConsoleError.apply(console, args);
+        };
+      })();
+    </script> 
   </body>
 </html>
