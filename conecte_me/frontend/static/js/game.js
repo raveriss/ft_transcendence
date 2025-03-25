@@ -157,6 +157,13 @@ async function fetchGameSettings() {
 
     const particles = [];
 
+    // 🟩 Effet particules collisions
+    function spawnCollisionParticles(x, y) {
+      for (let i = 0; i < 10; i++) {
+        particles.push(createParticle(x, y));
+      }
+    }
+
     function createParticle(x, y) {
       return {
         x,
@@ -210,6 +217,7 @@ async function fetchGameSettings() {
       // Rebonds sur le haut et le bas
       if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
         ball.speedY = -ball.speedY;
+        spawnCollisionParticles(ball.x, ball.y);
       }
 
       // Collision avec la raquette gauche
@@ -221,6 +229,7 @@ async function fetchGameSettings() {
         // Inverser la direction et appliquer un facteur d'accélération (par exemple 1.05)
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
+        spawnCollisionParticles(ball.x, ball.y);
         }
 
       // Collision avec la raquette droite
@@ -231,6 +240,7 @@ async function fetchGameSettings() {
       ) {
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
+        spawnCollisionParticles(ball.x, ball.y);
       }
     }
 
