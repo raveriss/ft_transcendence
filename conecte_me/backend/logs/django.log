@@ -1335,3 +1335,58 @@ WARNING 2025-03-24 16:11:59,740 log 1 140204818021176 Unauthorized: /auth/login/
 WARNING 2025-03-24 16:12:15,597 log 1 140204818021176 Bad Request: /auth/signup/
 WARNING 2025-03-24 17:24:49,099 log 1 139990734805816 Unauthorized: /auth/login/
 WARNING 2025-03-24 17:24:49,810 log 1 139990734805816 Unauthorized: /auth/login/
+WARNING 2025-03-25 09:56:52,205 log 1 140688576043832 Unauthorized: /auth/user/
+WARNING 2025-03-25 10:08:50,204 log 1 140112123497272 Not Found: /tournament/create/
+ERROR 2025-03-25 10:14:49,961 log 1 140635120868152 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 12, in create_tournament
+    num_players = int(request.POST.get("num_players"))
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+WARNING 2025-03-25 10:16:03,298 log 1 140635120868152 Unauthorized: /auth/user/
+WARNING 2025-03-25 10:49:18,500 log 1 140682937916216 Unauthorized: /auth/login/
+INFO 2025-03-25 11:29:20,006 autoreload 23 139671125592872 Watching for file changes with StatReloader
+WARNING 2025-03-25 12:05:11,686 log 1 140523001285432 Unauthorized: /auth/login/
+WARNING 2025-03-25 12:05:12,604 log 1 140523001285432 Unauthorized: /auth/login/
+WARNING 2025-03-25 12:05:14,299 log 1 140523001285432 Unauthorized: /auth/login/
+WARNING 2025-03-25 12:05:14,418 log 1 140523001285432 Unauthorized: /auth/login/
+ERROR 2025-03-25 12:22:25,475 log 1 140145073728312 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 68, in create_tournament
+    create_matches(tournament, players, round_number=1)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 85, in create_matches
+    matches = [
+  File "/app/./tournament/views.py", line 89, in <listcomp>
+    player2=players[i + 1],
+IndexError: list index out of range

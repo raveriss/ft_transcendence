@@ -1,9 +1,8 @@
 from django.db import models
 
 class Tournament(models.Model):
-    name = models.CharField(max_length=255, unique=True)
+    name = models.CharField(max_length=255)
     num_players = models.IntegerField()
-    created_at = models.DateTimeField(auto_now_add=True)
     winner = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
@@ -18,11 +17,11 @@ class Player(models.Model):
 
 class Match(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name="matches")
-    player1 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="match_player1")
-    player2 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="match_player2")
-    winner = models.ForeignKey(Player, on_delete=models.SET_NULL, null=True, blank=True, related_name="match_winner")
+    player1 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="matches_as_player1")
+    player2 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="matches_as_player2")
     round_number = models.IntegerField()
     is_finished = models.BooleanField(default=False)
+    winner = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
-        return f"Match {self.player1.nickname} vs {self.player2.nickname}"
+        return f"Match {self.round_number} : {self.player1.nickname} vs {self.player2.nickname}"

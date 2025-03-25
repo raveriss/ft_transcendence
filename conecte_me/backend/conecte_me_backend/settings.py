@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'chat',
     'rest_framework',
     'oauth2_provider',
+    'django_extensions',
 
     # Applications personnalisées
     'oauth_app',

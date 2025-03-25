@@ -24,3 +24,7 @@ Pillow>=9.0.0  # Gestion et manipulation des images dans Django
 
 # --- SERVER ---
 gunicorn==21.2.0  # Serveur WSGI performant pour Django en production
+
+# --- DJANGO EXTENSIONS ---
+django-extensions==3.2.1  # Outils supplémentaires pour Django, y compris la commande show_urls
+
