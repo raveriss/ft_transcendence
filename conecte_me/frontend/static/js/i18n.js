@@ -66,6 +66,11 @@ function changeLanguage(lang) {
   });
 }
 
+function t(key) {
+  const lang = getCurrentLang();
+  return translationsCache[lang]?.[key] || key;
+}
+
 // Exécuter immédiatement la traduction avant le chargement du DOM pour éviter un effet flash
 document.addEventListener("DOMContentLoaded", () => {
   loadTranslations();
