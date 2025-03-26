@@ -513,3 +513,8 @@ async function fetchGameSettings() {
     startLocalGame();
   }
 })();
+
+window.stopGame = function stopGame() {
+  const canvas = document.getElementById("pongCanvas");
+  if (canvas) canvas.remove();
+};

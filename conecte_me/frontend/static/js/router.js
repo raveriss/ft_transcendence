@@ -167,6 +167,10 @@ function customBack() {
      */
     history.replaceState({}, '', previousRoute);
     
+    if (typeof window.stopGame === 'function') {
+      window.stopGame();
+    }
+
     // Naviguer sans pousser de nouvelle entrée dans l'historique
     navigateTo(previousRoute, false);
   } else {
@@ -241,6 +245,9 @@ async function navigateTo(path, pushHistory = true) {
     }
     const html = await res.text();
     console.log("Contenu récupéré (truncated):", html.substring(0, 100));
+    if (typeof window.stopGame === 'function') {
+      window.stopGame();
+    }
     appDiv.innerHTML = html;
     attachListeners();
     loadScriptForRoute(path);
