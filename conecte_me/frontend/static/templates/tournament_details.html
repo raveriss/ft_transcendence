@@ -1,0 +1,18 @@
+<!-- static/templates/tournament_details.html -->
+<div class="container mt-4">
+	<h2 id="tournamentName"></h2>
+	<p>Vainqueur : <span id="winnerDisplay">–</span></p>
+  
+	<h4>Joueurs</h4>
+	<ul id="playerList"></ul>
+  
+	<h4>Matchs à venir</h4>
+	<ul id="upcomingMatches"></ul>
+  
+	<h4>Matchs déjà joués</h4>
+	<ul id="playedMatches"></ul>
+  
+	<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+	<button class="btn btn-success mt-3" id="playNextMatchButton">Jouer le prochain match</button>
+  </div>
+  

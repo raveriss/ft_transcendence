@@ -19,6 +19,8 @@ const routes = {
     '/stats': 'static/templates/stats.html',
     '/game': 'static/templates/game.html',
     '/tournament' : 'static/templates/tournament.html',
+	'/tournament-details' : 'static/templates/tournament_details.html',
+	'/game-tournament' : 'static/templates/game_tournament.html',
   };
 
 // Définir la liste des routes nécessitant une authentification
@@ -131,6 +133,10 @@ async function checkAuth() {
       scriptFile = 'static/js/game.js';
     } else if (route === '/tournament') {
         scriptFile = 'static/js/tournament.js';
+	} else if (route === '/tournament-details') {
+		scriptFile = 'static/js/tournament_details.js';
+	} else if (route === '/game-tournament') {
+		scriptFile = 'static/js/game_tournament.js';
     // } else if (route === '/stats') {
     //   scriptFile = 'static/js/stats.js';
     } else {
@@ -247,6 +253,10 @@ async function navigateTo(path, pushHistory = true) {
     appDiv.innerHTML = html;
     attachListeners();
     loadScriptForRoute(path);
+	if (path === '/tournament-details' && typeof renderTournamentDetails === 'function') {
+		renderTournamentDetails();
+	}
+	  
 
     // 🛠 FORCER LA TRADUCTION APRÈS LE CHANGEMENT DE PAGE
     changeLanguage(getCurrentLang());

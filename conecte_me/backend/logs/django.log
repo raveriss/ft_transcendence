@@ -1767,3 +1767,45 @@ WARNING 2025-03-26 16:16:57,683 log 1 140007632108344 Method Not Allowed: /tourn
 WARNING 2025-03-26 16:17:30,178 log 1 140007632108344 Method Not Allowed: /tournament/3/play_next/
 WARNING 2025-03-26 16:17:32,688 log 1 140007632108344 Method Not Allowed: /tournament/3/play_next/
 WARNING 2025-03-26 16:18:23,315 log 1 140007632108344 Not Found: /tournament/
+WARNING 2025-03-26 17:05:39,326 log 1 140376233990968 Bad Request: /tournament/1/play_next/
+WARNING 2025-03-26 17:05:42,748 log 1 140376233990968 Bad Request: /tournament/1/play_next/
+ERROR 2025-03-26 17:11:40,599 log 1 140626310683448 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 36, in create_tournament
+    "matches": [
+TypeError: 'NoneType' object is not iterable
+WARNING 2025-03-26 19:30:58,393 log 1 140658736225080 Not Found: /tournament/29/details/
+WARNING 2025-03-26 19:32:23,464 log 1 140158160804664 Not Found: /tournament/30/details/
+ERROR 2025-03-26 20:02:39,498 log 1 140401245100856 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 13, in create_tournament
+    num_players = int(data.get("num_players"))
+ValueError: invalid literal for int() with base 10: ''
