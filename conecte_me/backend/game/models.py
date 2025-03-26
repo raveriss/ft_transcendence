@@ -21,8 +21,8 @@ class GameSettings(models.Model):
     choices=[('small', 'Small'), ('medium', 'Medium'), ('large', 'Large')],
     default='medium'
     )
-    test_dummy = models.BooleanField(default=False)
-
+    test_dummy = models.BooleanField(default=False) #À retirer
+    particles_enabled = models.BooleanField(default=True)
 
     def __str__(self):
         return f"GameSettings for {self.user.username}"

@@ -35,7 +35,8 @@ async function fetchGameSettings() {
       score_limit: 5,
       lives: 5,
       ball_speed: 2,
-      user_id: null
+      user_id: null,
+      particles_enabled: true,
     };
   }
 }
@@ -155,6 +156,7 @@ async function fetchGameSettings() {
       speedY: ballSpeedY * (Math.random() < 0.5 ? 1 : -1)
     };
 
+    const particlesEnabled = settings.particles_enabled === true;
     const particles = [];
 
     // 🟩 Effet particules collisions
@@ -210,14 +212,16 @@ async function fetchGameSettings() {
       ball.x += ball.speedX;
       ball.y += ball.speedY;
 
-      for (let i = 0; i < 3; i++) {
-        particles.push(createParticle(ball.x, ball.y));
+      if (particlesEnabled) {
+        for (let i = 0; i < 3; i++) {
+          particles.push(createParticle(ball.x, ball.y));
+        }
       }
-
+      
       // Rebonds sur le haut et le bas
       if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
         ball.speedY = -ball.speedY;
-        spawnCollisionParticles(ball.x, ball.y);
+        if (particlesEnabled) spawnCollisionParticles(ball.x, ball.y);
       }
 
       // Collision avec la raquette gauche
@@ -229,8 +233,8 @@ async function fetchGameSettings() {
         // Inverser la direction et appliquer un facteur d'accélération (par exemple 1.05)
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
-        spawnCollisionParticles(ball.x, ball.y);
-        }
+        if (particlesEnabled) spawnCollisionParticles(ball.x, ball.y);
+      }
 
       // Collision avec la raquette droite
       if (
@@ -240,7 +244,7 @@ async function fetchGameSettings() {
       ) {
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
-        spawnCollisionParticles(ball.x, ball.y);
+        if (particlesEnabled) spawnCollisionParticles(ball.x, ball.y);
       }
     }
 

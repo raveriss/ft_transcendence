@@ -36,6 +36,7 @@ def game_settings_api(request):
             "username": user.username,
             "user_id": user.user_id,
             "paddle_size": settings_obj.paddle_size,
+            "particles_enabled": settings_obj.particles_enabled,  # 🟢 AJOUT ICI
         }
         return JsonResponse(data, status=200)
     else:
@@ -49,6 +50,7 @@ def game_settings_api(request):
         settings_obj.ball_speed = payload.get("ball_speed", settings_obj.ball_speed)
         settings_obj.map_choice = payload.get("map_choice", settings_obj.map_choice)
         settings_obj.paddle_size = payload.get("paddle_size", settings_obj.paddle_size)
+        settings_obj.particles_enabled = payload.get("particles_enabled", settings_obj.particles_enabled)
         settings_obj.save()
         return JsonResponse({"success": True}, status=200)
 

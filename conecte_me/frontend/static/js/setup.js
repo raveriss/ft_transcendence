@@ -44,7 +44,8 @@ function updateSettings() {
     lives: parseInt(livesInput.value),
     ball_speed: parseInt(ballSpeedRange.value),
     map_choice: selectedMapChoice,
-    paddle_size: selectedPaddleSize || 'medium'
+    paddle_size: selectedPaddleSize || 'medium',
+    particles_enabled: document.getElementById('particlesToggle').checked
   };
 
   console.log("Envoi du POST avec settings:", settings);
@@ -141,6 +142,8 @@ function initSetupPage() {
   ballSpeedRange.addEventListener('input', () => handleSliderInput(ballSpeedRange));
   scoreLimitSelect.addEventListener('change', updateSettingsDebounced);
   livesInput.addEventListener('input', updateSettingsDebounced);
+  
+  document.getElementById("particlesToggle").addEventListener("change", updateSettingsDebounced);
 
   const langSelector = document.getElementById("language-selector");
   if (langSelector) {
@@ -178,6 +181,8 @@ function initSetupPage() {
       livesInput.value = parseInt(data.lives);
       ballSpeedRange.value = parseInt(data.ball_speed);
       scoreLimitSelect.value = data.score_limit + " Points";
+      
+      document.getElementById('particlesToggle').checked = !!data.particles_enabled;
 
       handleSliderInput(timeRange);
       handleSliderInput(ballSpeedRange);
