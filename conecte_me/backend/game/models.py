@@ -23,6 +23,7 @@ class GameSettings(models.Model):
     )
     test_dummy = models.BooleanField(default=False) #À retirer
     particles_enabled = models.BooleanField(default=True)
+    paddle_hit_sound_enabled = models.BooleanField(default=True)
 
     def __str__(self):
         return f"GameSettings for {self.user.username}"

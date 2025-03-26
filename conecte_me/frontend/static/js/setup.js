@@ -45,7 +45,8 @@ function updateSettings() {
     ball_speed: parseInt(ballSpeedRange.value),
     map_choice: selectedMapChoice,
     paddle_size: selectedPaddleSize || 'medium',
-    particles_enabled: document.getElementById('particlesToggle').checked
+    particles_enabled: document.getElementById('particlesToggle').checked,
+    paddle_hit_sound_enabled: document.getElementById('paddleSoundToggle').checked
   };
 
   console.log("Envoi du POST avec settings:", settings);
@@ -144,6 +145,7 @@ function initSetupPage() {
   livesInput.addEventListener('input', updateSettingsDebounced);
   
   document.getElementById("particlesToggle").addEventListener("change", updateSettingsDebounced);
+  document.getElementById("paddleSoundToggle").addEventListener("change", updateSettingsDebounced);
 
   const langSelector = document.getElementById("language-selector");
   if (langSelector) {
@@ -183,6 +185,7 @@ function initSetupPage() {
       scoreLimitSelect.value = data.score_limit + " Points";
       
       document.getElementById('particlesToggle').checked = !!data.particles_enabled;
+      document.getElementById('paddleSoundToggle').checked = !!data.paddle_hit_sound_enabled;
 
       handleSliderInput(timeRange);
       handleSliderInput(ballSpeedRange);

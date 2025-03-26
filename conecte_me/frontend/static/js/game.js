@@ -37,6 +37,7 @@ async function fetchGameSettings() {
       ball_speed: 2,
       user_id: null,
       particles_enabled: true,
+      paddle_hit_sound_enabled: true,
     };
   }
 }
@@ -44,6 +45,7 @@ async function fetchGameSettings() {
 // Fonction principale pour initialiser le jeu avec les réglages récupérés
 (async function initGame() {
   const settings = await fetchGameSettings();
+  const hitSound = new Audio("/static/sounds/hit.mp3");
 
   // Paramètres de configuration du jeu, récupérés depuis l'API
   const paddleWidth = 20;
@@ -233,6 +235,7 @@ async function fetchGameSettings() {
         // Inverser la direction et appliquer un facteur d'accélération (par exemple 1.05)
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
+        if (settings.paddle_hit_sound_enabled) hitSound.play();
         if (particlesEnabled) spawnCollisionParticles(ball.x, ball.y);
       }
 
@@ -244,6 +247,7 @@ async function fetchGameSettings() {
       ) {
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
+        if (settings.paddle_hit_sound_enabled) hitSound.play();
         if (particlesEnabled) spawnCollisionParticles(ball.x, ball.y);
       }
     }
