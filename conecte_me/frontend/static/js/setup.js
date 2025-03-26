@@ -182,7 +182,14 @@ function initSetupPage() {
       timeRange.value = parseInt(data.time);
       livesInput.value = parseInt(data.lives);
       ballSpeedRange.value = parseInt(data.ball_speed);
-      scoreLimitSelect.value = data.score_limit + " Points";
+      scoreLimitSelect.value = data.score_limit.toString();
+      
+      if (scoreLimitSelect.selectedIndex === -1) {
+        const fallbackOption = [...scoreLimitSelect.options].find(
+          opt => parseInt(opt.textContent) === data.score_limit
+        );
+        if (fallbackOption) fallbackOption.selected = true;
+      }
       
       document.getElementById('particlesToggle').checked = !!data.particles_enabled;
       document.getElementById('paddleSoundToggle').checked = !!data.paddle_hit_sound_enabled;
@@ -210,9 +217,13 @@ function initSetupPage() {
     });
   }
 
-  // Charger les réglages au démarrage
-  loadSettings();
-  changeLanguage(getCurrentLang());
+  changeLanguage(getCurrentLang()); // Applique la traduction d'abord
+
+  // Attendre un petit délai pour que le DOM soit traduit
+  setTimeout(() => {
+    loadSettings();
+  }, 100);
+
 }
 
 // Initialiser la page setup
