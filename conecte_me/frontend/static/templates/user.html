@@ -109,6 +109,33 @@
       </form>
     </div>
     
+    <!-- Item 1.5 : Changer le nom d'utilisateur -->
+    <div class="security-item" id="username-toggle">
+      <div class="security-left">
+        <i class="bi bi-person"></i>
+        <span>Changer le nom d'utilisateur</span>
+      </div>
+      <div class="security-right">
+        <i class="bi bi-chevron-down" id="username-chevron"></i>
+      </div>
+    </div>
+
+    <div id="username-form-container" class="username-form-container">
+      <form id="username-form" novalidate class="mb-3">
+        <div class="mb-3">
+          <label for="new-username" class="form-label">Nouveau nom d'utilisateur</label>
+          <input type="text" id="new-username" class="form-control" placeholder="Entrez le nouveau pseudo" required>
+        </div>
+        <div class="mb-3">
+          <label for="username-password" class="form-label">Mot de passe</label>
+          <input type="password" id="username-password" class="form-control" placeholder="Mot de passe" required>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          Valider
+        </button>
+      </form>
+    </div>
 
     <!-- Item 2 : Changer le mot de passe -->
     <div class="security-item" id="password-toggle">

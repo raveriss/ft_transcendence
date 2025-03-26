@@ -470,6 +470,42 @@ def update_email_view(request):
     return JsonResponse({"success": True, "detail": "Email mis à jour avec succès."}, status=200)
 
 @csrf_exempt
+def update_username_view(request):
+    if request.method != 'POST':
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur non trouvé."}, status=404)
+
+    try:
+        data = json.loads(request.body)
+    except Exception:
+        return JsonResponse({"success": False, "error": "JSON invalide."}, status=400)
+
+    new_username = data.get("new_username", "").strip()
+    password = data.get("password", "")
+
+    if not new_username or not password:
+        return JsonResponse({"success": False, "error": "Champs requis manquants."}, status=400)
+
+    if not check_password(password, user.password):
+        return JsonResponse({"success": False, "error": "Mot de passe incorrect."}, status=400)
+
+    if User42.objects.filter(username=new_username).exclude(pk=user_id).exists():
+        return JsonResponse({"success": False, "error": "Ce nom d'utilisateur est déjà pris."}, status=400)
+
+    user.username = new_username
+    user.save()
+
+    return JsonResponse({"success": True, "detail": "Nom d'utilisateur mis à jour avec succès."}, status=200)
+
+@csrf_exempt
 def update_password_view(request):
     if request.method != "POST":
         return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)

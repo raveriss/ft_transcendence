@@ -388,6 +388,26 @@
     border-top-right-radius: 0; /* idem */
     padding: 1.3rem 1.618rem;
   }
+
+  .username-form-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .username-form-container.open {
+    max-height: 400px;
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    background: rgba(53, 63, 87, 0.5);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 1.3rem 1.618rem;
+  }  
   
   /* Rotation de l’icône */
   .rotate {

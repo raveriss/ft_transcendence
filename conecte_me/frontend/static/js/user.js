@@ -246,6 +246,72 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ------------------------------
+  // Fonctionnalité Formulaire Username
+  // ------------------------------
+  const usernameForm = document.getElementById('username-form');
+  const newUsernameInput = document.getElementById('new-username');
+  const usernamePasswordInput = document.getElementById('username-password');
+  const usernameToggle = document.getElementById('username-toggle');
+  const usernameFormContainer = document.getElementById('username-form-container');
+  const usernameChevron = document.getElementById('username-chevron');
+
+  usernameToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    usernameFormContainer.classList.toggle('open');
+    usernameChevron.classList.toggle('rotate');
+    usernameToggle.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!usernameFormContainer.contains(e.target) && !usernameToggle.contains(e.target)) {
+      usernameFormContainer.classList.remove('open');
+      usernameChevron.classList.remove('rotate');
+      usernameToggle.classList.remove('open');
+    }
+  });
+
+  usernameForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const newUsername = newUsernameInput.value.trim();
+    const password = usernamePasswordInput.value.trim();
+
+    if (!newUsername || !password) {
+      alert("Tous les champs sont requis.");
+      return;
+    }
+
+    const payload = {
+      new_username: newUsername,
+      password: password
+    };
+
+    fetch('/auth/user/update_username/', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert("Nom d'utilisateur mis à jour !");
+        document.querySelector('.player-name').textContent = newUsername;
+        usernameForm.reset();
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur réseau :", error);
+      alert("Une erreur est survenue.");
+    });
+  });
+
+  // ------------------------------
   // Fonctionnalité Formulaire Changer le mot de passe
   // ------------------------------
   const passwordToggle = document.getElementById('password-toggle');
