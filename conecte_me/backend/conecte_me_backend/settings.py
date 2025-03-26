@@ -57,6 +57,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_COOKIE_SECURE = True
+
 # Configuration des URL
 ROOT_URLCONF = 'conecte_me_backend.urls'
 

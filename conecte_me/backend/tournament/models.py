@@ -17,11 +17,11 @@ class Player(models.Model):
 
 class Match(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name="matches")
-    player1 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="matches_as_player1")
-    player2 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="matches_as_player2")
+    player1 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="match_player1")
+    player2 = models.ForeignKey(Player, on_delete=models.CASCADE, related_name="match_player2")
+    winner = models.ForeignKey(Player, on_delete=models.SET_NULL, null=True, blank=True, related_name="won_matches")
     round_number = models.IntegerField()
     is_finished = models.BooleanField(default=False)
-    winner = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return f"Match {self.round_number} : {self.player1.nickname} vs {self.player2.nickname}"

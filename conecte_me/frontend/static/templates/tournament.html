@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!--  <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tournament</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    Ajouter un meta tag pour le CSRF Token -->
+    <!-- <meta name="csrf-token" content="{{ csrf_token }}">
+
     <style>
         body {
             background-color: #007bff; /* Bleu uni */
@@ -26,10 +30,75 @@
         <h2>Créer un Tournoi</h2>
         <div class="mb-3">
             <label class="form-label">Nom du tournoi</label>
-            <input type="text" class="form-control" id="tournamentName">
+            <input type="text" class="form-control" id="tournament-name">
         </div>
         <div class="mb-3">
             <label class="form-label">Nombre de joueurs</label>
+            <input type="number" class="form-control" id="num-players" min="2" step="2" onchange="generatePlayerFields()">
+        </div>
+        <div id="player-inputs" class="mb-3"></div>
+        <button class="btn btn-primary" onclick="createTournament()">Créer</button>
+
+        <hr>
+
+        <h2 id="tournamentNameDisplay"></h2>
+        <p>Vainqueur: <span id="winnerDisplay"></span></p>
+
+        <h3>Joueurs</h3>
+        <ul id="playerList"></ul>
+
+        <h3>Matchs</h3>
+        <ul id="matchList"></ul>
+
+        <button class="btn btn-success" id="playNextMatchButton" onclick="playNextMatch()">Jouer le prochain match</button>
+    </div>
+
+    Ajout du token CSRF dans un meta tag -->
+    <!-- <script type="text/javascript">
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    </script>
+
+    Lien vers le fichier JS externe -->
+    <!-- <script src="/static/js/tournament.js"></script> -->
+<!-- </body> -->
+<!--</html> -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+        <style>
+        body {
+            background-color: #007bff; /* Bleu uni */
+            color: rgb(190, 26, 26);
+        }
+        .container {
+            background-color: rgba(13, 35, 238, 0.507);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+        <script type="text/javascript">
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        </script>
+    <div class="container mt-5">
+        <h2>Créer un Tournoi</h2>
+        <div class="mb-3">
+            <label class="form-label" for="tournamentName">Nom du tournoi</label>
+            <input type="text" class="form-control" id="tournamentName">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="numPlayers">Nombre de joueurs</label>
             <input type="number" class="form-control" id="numPlayers" min="2" step="2" onchange="generatePlayerFields()">
         </div>
         <div id="playersContainer" class="mb-3"></div>
@@ -48,11 +117,6 @@
 
         <button class="btn btn-success" id="playNextMatchButton" onclick="playNextMatch()">Jouer le prochain match</button>
     </div>
-
-    <!-- Ajout du token CSRF -->
-    <script type="text/javascript">
-        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    </script>
 
     <script src="/static/js/tournament.js"></script>  <!-- Le fichier JS externe -->
 </body>

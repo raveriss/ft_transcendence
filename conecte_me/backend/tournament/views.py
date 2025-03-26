@@ -1,101 +1,92 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Tournament, Player, Match
+from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
-import random
 from django.views.decorators.csrf import csrf_exempt
-import json
-
-@csrf_exempt
-# def create_tournament(request):
-#     if request.method == "POST":
-#         try:
-#             # Charger le corps de la requête JSON
-#             data = json.loads(request.body)
-#             name = data.get("name")
-#             num_players = int(data.get("num_players"))
-#             player_nicknames = data.get("player_nicknames", [])
-
-#             # Validation des données d'entrée
-#             if not name or not player_nicknames:
-#                 return JsonResponse({"error": "Le nom du tournoi et les pseudos des joueurs sont requis."}, status=400)
-            
-#             if len(player_nicknames) != num_players:
-#                 return JsonResponse({"error": "Le nombre de pseudos ne correspond pas au nombre de joueurs."}, status=400)
-
-#             # Création du tournoi et des joueurs
-#             tournament = Tournament.objects.create(name=name, num_players=num_players)
-#             players = [Player.objects.create(tournament=tournament, nickname=nick) for nick in player_nicknames]
-
-#             # Tirage au sort des joueurs
-#             random.shuffle(players)
-
-#             # Création des matchs
-#             create_matches(tournament, players, round_number=1)
-
-#             return JsonResponse({"message": "Tournoi créé avec succès !", "tournament_id": tournament.id})
-
-#         except json.JSONDecodeError:
-#             return JsonResponse({"error": "Données JSON malformées."}, status=400)
-
-#     return JsonResponse({"error": "Méthode non autorisée."}, status=405)
-
+from .models import Tournament, Player, Match
+import random, json
+from django.db.models import F
 
 @csrf_exempt
 def create_tournament(request):
-    if request.method == "POST":
-        try:
-            # Charger le corps de la requête JSON
-            data = json.loads(request.body)
-            name = data.get("name")
-            num_players = int(data.get("num_players"))
-            player_nicknames = data.get("player_nicknames", [])
+    if request.method != "POST":
+        return JsonResponse({"error": "Méthode non autorisée."}, status=405)
 
-            # Validation des données d'entrée
-            if not name or not player_nicknames:
-                return JsonResponse({"error": "Le nom du tournoi et les pseudos des joueurs sont requis."}, status=400)
-            
-            if len(player_nicknames) != num_players:
-                return JsonResponse({"error": "Le nombre de pseudos ne correspond pas au nombre de joueurs."}, status=400)
+    try:
+        data = json.loads(request.body)
+        name = data.get("name")
+        num_players = int(data.get("num_players"))
+        player_nicknames = data.get("player_nicknames", [])
 
-            # Création du tournoi et des joueurs
-            tournament = Tournament.objects.create(name=name, num_players=num_players)
-            players = [Player.objects.create(tournament=tournament, nickname=nick) for nick in player_nicknames]
+        if not name or not player_nicknames or len(player_nicknames) != num_players:
+            return JsonResponse({"error": "Données invalides."}, status=400)
 
-            # Tirage au sort des joueurs
-            random.shuffle(players)
+        tournament = Tournament.objects.create(name=name, num_players=num_players)
+        players = [Player.objects.create(tournament=tournament, nickname=nick) for nick in player_nicknames]
+        random.shuffle(players)
 
-            # Création des matchs
-            create_matches(tournament, players, round_number=1)
+        create_matches(tournament, players, round_number=1)
 
-            # Retourne la réponse avec le tournament_id
-            return JsonResponse({
-                "message": "Tournoi créé avec succès !", 
-                "tournament_id": tournament.id
-            })
+        return JsonResponse({
+            "message": tournament.name,
+            "tournament_id": tournament.id,
+            "players": [p.nickname for p in players],
+            "matches": list(Match.objects.filter(tournament=tournament).values(
+                player1_nickname=F("player1__nickname"),
+                player2_nickname=F("player2__nickname"),
+                round=F("round_number")
+            ))
+        })
 
-        except json.JSONDecodeError:
-            return JsonResponse({"error": "Données JSON malformées."}, status=400)
+    except json.JSONDecodeError:
+        return JsonResponse({"error": "Données JSON malformées."}, status=400)
 
-    return JsonResponse({"error": "Méthode non autorisée."}, status=405)
+
+def create_matches(tournament, players, round_number):
+    if len(players) < 2:
+        return
+
+    next_round_players = []
+
+    for i in range(0, len(players), 2):
+        if i + 1 < len(players):
+            p1 = players[i]
+            p2 = players[i + 1]
+            Match.objects.create(
+                tournament=tournament,
+                player1=p1,
+                player2=p2,
+                round_number=round_number
+            )
+            # on ajoute arbitrairement p1 comme "gagnant par défaut" pour permettre de générer tous les matchs
+            next_round_players.append(p1)
+
+    if len(next_round_players) > 1:
+        create_matches(tournament, next_round_players, round_number + 1)
 
 
 @csrf_exempt
-def create_matches(tournament, players, round_number):
-    """Créer les matchs pour chaque tour"""
-    matches = [
-        Match.objects.create(
-            tournament=tournament,
-            player1=players[i],
-            player2=players[i + 1],
-            round_number=round_number
-        )
-        for i in range(0, len(players), 2)
-    ]
-    return matches
+def get_tournament(request, tournament_id):
+    tournament = get_object_or_404(Tournament, id=tournament_id)
+    data = {
+        "id": tournament.id,
+        "name": tournament.name,
+        "players": [player.nickname for player in tournament.players.all()],
+        "matches": [
+            {
+                "player1": match.player1.nickname,
+                "player2": match.player2.nickname,
+                "round": match.round_number,
+                "finished": match.is_finished,
+                "winner": match.winner.nickname if match.winner else None
+            } for match in tournament.matches.all()
+        ],
+        "winner": tournament.winner
+    }
+    return JsonResponse(data)
 
 
 @csrf_exempt
 def play_next_match(request, tournament_id):
+    print("➡️ play_next_match appelée avec", request.method)
     if request.method != 'POST':
         return JsonResponse({"error": "Méthode non autorisée, utilisez POST."}, status=405)
 
@@ -105,31 +96,27 @@ def play_next_match(request, tournament_id):
     if not match:
         return JsonResponse({"error": "Tous les matchs sont terminés."}, status=400)
 
-    # Lancer le jeu (à adapter avec ta fonction réelle)
-    # game_response = start_game(match.player1.nickname, match.player2.nickname)
-    game_response = {"winner": random.choice([match.player1.nickname, match.player2.nickname])}  # Exemple de réponse pour test
-
-    if not game_response:
-        return JsonResponse({"error": "Erreur dans le lancement du jeu."}, status=500)
-
-    # Sauvegarde du gagnant et fin du match
-    match.winner = game_response["winner"]
+    winner = random.choice([match.player1, match.player2])
+    match.winner = winner
     match.is_finished = True
     match.save()
 
-    # Vérifier si le tournoi est terminé
-    remaining_matches = tournament.matches.filter(is_finished=False).count()
-    if remaining_matches == 0:
-        # Trouver les gagnants du tour
-        winners = [m.winner for m in tournament.matches.filter(is_finished=True)]
-
+    # Vérifier s'il reste des matchs
+    if not tournament.matches.filter(is_finished=False).exists():
+        # Dernier round : déterminer le gagnant
+        winners = [
+            m.winner for m in tournament.matches.filter(is_finished=True)
+            if m.round_number == match.round_number
+        ]
         if len(winners) == 1:
-            tournament.winner = winners[0]
+            tournament.winner = winners[0].nickname
             tournament.save()
             return JsonResponse({"message": f"Tournoi terminé. Vainqueur: {tournament.winner}"})
+        else:
+            # Créer les matchs du prochain tour
+            create_matches(tournament, winners, round_number=match.round_number + 1)
 
-        # Création des matchs pour le prochain tour avec les gagnants
-        create_matches(tournament, winners, round_number=tournament.matches.aggregate(
-            max_round=models.Max('round_number'))['max_round'] + 1)
-
-    return JsonResponse({"message": f"Match terminé. Vainqueur: {match.winner}"})
+    return JsonResponse({
+        "message": f"{match.player1.nickname} vs {match.player2.nickname} terminé.",
+        "gagnant": winner.nickname
+    })
