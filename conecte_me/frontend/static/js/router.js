@@ -213,6 +213,15 @@ async function navigateTo(path, pushHistory = true) {
     }
   }
 
+  const authPages = ['/home', '/login', '/signup'];
+  if (authPages.includes(path)) {
+    const user = await checkAuth();
+    if (user) {
+      console.log("Déjà connecté → redirection vers /board");
+      path = '/board';
+    }
+  }
+
   // Pour la configuration 2FA, redirige sans SPA
   if (path.startsWith("/auth/2fa/setup")) {
     window.location.href = path;
