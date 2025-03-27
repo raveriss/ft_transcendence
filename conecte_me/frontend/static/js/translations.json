@@ -257,7 +257,12 @@
         "match_score_col": "Score",
         "match_duration_col": "Duration",
         "match_elo_col": "Elo",
-        "time_distribution_title": "Hourly Distribution"
+        "time_distribution_title": "Hourly Distribution",
+
+        "change_username": "Change username",
+        "new_username_label": "New username",
+        "new_username_placeholder": "Enter new username",
+        "password_placeholder2": "Password"
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -517,7 +522,12 @@
         "match_score_col": "Score",
         "match_duration_col": "Durée",
         "match_elo_col": "Élo",
-        "time_distribution_title": "Distribution horaire"
+        "time_distribution_title": "Distribution horaire",
+
+        "change_username": "Changer le nom d'utilisateur",
+        "new_username_label": "Nouveau nom d'utilisateur",
+        "new_username_placeholder": "Entrez le nouveau pseudo",
+        "password_placeholder2": "Mot de passe"
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -773,6 +783,11 @@
         "match_score_col": "Puntuación",
         "match_duration_col": "Duración",
         "match_elo_col": "Elo",
-        "time_distribution_title": "Distribución horaria"
+        "time_distribution_title": "Distribución horaria",
+
+        "change_username": "Cambiar nombre de usuario",
+        "new_username_label": "Nuevo nombre de usuario",
+        "new_username_placeholder": "Ingresa el nuevo nombre de usuario",
+        "password_placeholder2": "Contraseña"
     }
 }

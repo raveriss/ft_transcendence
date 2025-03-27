@@ -113,7 +113,7 @@
     <div class="security-item" id="username-toggle">
       <div class="security-left">
         <i class="bi bi-person"></i>
-        <span>Changer le nom d'utilisateur</span>
+        <span data-i18n="change_username">Changer le nom d'utilisateur</span>
       </div>
       <div class="security-right">
         <i class="bi bi-chevron-down" id="username-chevron"></i>
@@ -123,14 +123,14 @@
     <div id="username-form-container" class="username-form-container">
       <form id="username-form" novalidate class="mb-3">
         <div class="mb-3">
-          <label for="new-username" class="form-label">Nouveau nom d'utilisateur</label>
-          <input type="text" id="new-username" class="form-control" placeholder="Entrez le nouveau pseudo" required>
+          <label for="new-username" class="form-label" data-i18n="new_username_label">Nouveau nom d'utilisateur</label>
+          <input type="text" id="new-username" class="form-control" placeholder="Entrez le nouveau pseudo" data-i18n="new_username_placeholder" required>
         </div>
         <div class="mb-3">
-          <label for="username-password" class="form-label">Mot de passe</label>
-          <input type="password" id="username-password" class="form-control" placeholder="Mot de passe" required>
+          <label for="username-password" class="form-label" data-i18n="password_label">Mot de passe</label>
+          <input type="password" id="username-password" class="form-control" placeholder="Mot de passe" data-i18n="password_placeholder2" required>
         </div>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" data-i18n="validate">
           <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
           Valider
         </button>
