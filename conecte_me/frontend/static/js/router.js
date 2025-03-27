@@ -153,13 +153,30 @@ function addToHistory(route) {
 }
 
 // 2. Modifier customBack pour ne pas rajouter la route dans l'historique lors d'une navigation "retour"
-function customBack() {
+async function customBack() {
   let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
   if (historyStack.length > 1) {
     // Retirer la route courante
     historyStack.pop();
     // Récupérer la route précédente
     const previousRoute = historyStack[historyStack.length - 1];
+
+    // 🔒 Vérification d'accès
+    const user = await checkAuth();
+
+    const authPages = ['/home', '/login', '/signup'];
+    const isAuthPage = authPages.includes(previousRoute);
+    const isProtected = isRouteProtected(previousRoute);
+
+    if ((user && isAuthPage) || (!user && isProtected)) {
+      console.log("🔁 Navigation arrière interdite. Redirection forcée vers /board ou /home.");
+      const safeRoute = user ? '/board' : '/home';
+      sessionStorage.setItem('customHistory', JSON.stringify([...historyStack, safeRoute]));
+      history.replaceState({}, '', safeRoute);
+      navigateTo(safeRoute, false);
+      return;
+    }
+    
     sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
     
     /**
