@@ -476,34 +476,34 @@ async function fetchGameSettings() {
     }
     gameLoop();
     // Gestion du retour arrière du navigateur (popstate) : lorsqu'on quitte "/game"
-    function handlePopState() {
-      if (location.pathname !== "/game") {
-        // Récupérer l'user_id du joueur 1 depuis le localStorage
-        const player1Id = localStorage.getItem('user_id');
-        console.log("player1Id =", player1Id);
+    // function handlePopState() {
+    //   if (location.pathname !== "/game") {
+    //     // Récupérer l'user_id du joueur 1 depuis le localStorage
+    //     const player1Id = localStorage.getItem('user_id');
+    //     console.log("player1Id =", player1Id);
         
-        const matchData = {
-          player1: player1Id,
-          player2: player2Name,
-          score1: player1.score,
-          score2: player2.score,
-          duration: duration,
-          recorded: true
-        };
-        // Route pour enregistrer le match (donne de match data)
-        saveMatchData(matchData);
-        console.log("Match enregistré via popstate:", matchData);
-        //
-        //
-        // Arrêter le jeu et retirer le canvas
-        isGameOver = true;
-        if (canvas.parentNode) {
-          canvas.parentNode.removeChild(canvas);
-        }
-        window.removeEventListener("popstate", handlePopState);
-      }
-    }
-    window.addEventListener("popstate", handlePopState);
+    //     const matchData = {
+    //       player1: player1Id,
+    //       player2: player2Name,
+    //       score1: player1.score,
+    //       score2: player2.score,
+    //       duration: duration,
+    //       recorded: true
+    //     };
+    //     // Route pour enregistrer le match (donne de match data)
+    //     saveMatchData(matchData);
+    //     console.log("Match enregistré via popstate:", matchData);
+    //     //
+    //     //
+    //     // Arrêter le jeu et retirer le canvas
+    //     isGameOver = true;
+    //     if (canvas.parentNode) {
+    //       canvas.parentNode.removeChild(canvas);
+    //     }
+    //     window.removeEventListener("popstate", handlePopState);
+    //   }
+    // }
+    // window.addEventListener("popstate", handlePopState);
   }
 
   // Lancement du jeu dès que le DOM est prêt

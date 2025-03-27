@@ -23,6 +23,7 @@
         // Calcul du win rate en pourcentage
         const totalGames = stats.total_games;
         const wins = stats.wins;
+        const losses = stats.losses;
         const winRate = totalGames > 0 ? Math.round((wins / totalGames) * 100) + '%' : '0%';
 
         // Mise à jour des éléments de la page stats.html
@@ -31,11 +32,50 @@
         // Affichage de la durée moyenne en minutes avec deux décimales
         document.getElementById('avg-duration').textContent = (stats.avg_duration / 60).toFixed(2) + ' min';
         document.getElementById('week_win').textContent = stats.rank_progress;
-    })
+    
+        // Construire le camembert Wins vs Losses
+        buildWinsLossesPie(wins, losses);
+      })
       .catch(error => {
         console.error("Erreur lors du chargement des stats utilisateur pour la page stats:", error);
       });
     }
+    // 2) Construit le camembert (Wins vs. Losses)
+    function buildWinsLossesPie(wins, losses) {
+      console.log("[stats.js] buildWinsLossesPie:", { wins, losses });
+      const ctx = document.getElementById('winsModeChart');
+      if (!ctx) {
+        console.warn("winsModeChart canvas introuvable");
+        return;
+      }
+      // Créer le chart via Chart.js
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Victoires', 'Défaites'],
+          datasets: [{
+            label: 'Stats 1v1',
+            data: [wins, losses],
+            backgroundColor: ['#36A2EB', '#FF6384'],
+          }]
+        },
+        options: {
+          responsive: true,
+          // Indispensable pour s’adapter au conteneur 300×220
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom'
+            },
+            title: {
+              display: true,
+              text: 'Répartition Victoires/Défaites'
+            }
+          }
+        }
+      });
+    }
+
     function loadAllMatchHistory() {
         console.log("loadAllMatchHistory called");
         const token = localStorage.getItem('jwtToken');
