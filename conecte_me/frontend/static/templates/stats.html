@@ -4,7 +4,7 @@
     <div class="back-btn" onclick="customBack()">
       <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
     </div>
-    <h1 class="title">STATS</h1>
+    <h1 class="title" data-i18n="stats_title" >STATS</h1>
   </div>
 
   <!-- 1) 4 stats top row, en 4 colonnes de taille identique -->
@@ -14,8 +14,8 @@
       <div class="card-custom stats-badge-card">
         <i class="bi bi-trophy mb-1 text-primary" style="font-size:1.2rem;"></i>
         <div class="stats-badge" id="win-rate">0%</div>
-        <div class="stats-label">Win Rate</div>
-        <div class="stats-desc">Ratio de victoires</div>
+        <div class="stats-label" data-i18n="win_rate_label">Win Rate</div>
+        <div class="stats-desc" data-i18n="win_rate_desc">Ratio de victoires</div>
       </div>
     </div>
     <!-- Win Streak -->
@@ -23,8 +23,8 @@
       <div class="card-custom stats-badge-card">
         <i class="bi bi-lightning-fill mb-1 text-warning" style="font-size:1.2rem;"></i>
         <div class="stats-badge" id="win-streak">0</div>
-        <div class="stats-label">Win Streak</div>
-        <div class="stats-desc">Plus longue série actuelle</div>
+        <div class="stats-label" data-i18n="win_streak_label">Win Streak</div>
+        <div class="stats-desc" data-i18n="win_streak_desc">Plus longue série actuelle</div>
       </div>
     </div>
     <!-- Avg Duration -->
@@ -32,8 +32,8 @@
       <div class="card-custom stats-badge-card">
         <i class="bi bi-stopwatch mb-1 text-success" style="font-size:1.2rem;"></i>
         <div class="stats-badge" id="avg-duration">0 min</div>
-        <div class="stats-label">Avg Duration</div>
-        <div class="stats-desc">Durée moyenne par match</div>
+        <div class="stats-label" data-i18n="avg_duration_label">Avg Duration</div>
+        <div class="stats-desc" data-i18n="avg_duration_desc">Durée moyenne par match</div>
       </div>
     </div>
     <!-- Rank Progress -->
@@ -41,8 +41,8 @@
       <div class="card-custom stats-badge-card">
         <i class="bi bi-graph-up-arrow mb-1 text-indigo-400" style="font-size:1.2rem;"></i>
         <div class="stats-badge" id="week_win">0</div>
-        <div class="stats-label">Weekly win</div>
-        <div class="stats-desc">Match gagnés cette semaine</div>
+        <div class="stats-label" data-i18n="weekly_win_label">Weekly win</div>
+        <div class="stats-desc" data-i18n="weekly_win_desc">Match gagnés cette semaine</div>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
     <!-- Style de jeu (radar) -->
     <div class="col-12 col-md-6">
       <div class="card-custom">
-        <div class="card-header-custom">
+        <div class="card-header-custom" data-i18n="playstyle_style">
           <i class="bi bi-bullseye"></i>
           Style de jeu
         </div>
@@ -79,7 +79,7 @@
     <!-- 2) Un camembert Wins vs. Losses -->
     <div class="col-12 col-md-6">
       <div class="card-custom">
-        <div class="card-header-custom">
+        <div class="card-header-custom" data-i18n="win_loss_title">
           <i class="bi bi-pie-chart"></i>
           Victoires / Défaites
         </div>
@@ -95,7 +95,7 @@
 
   <!-- 4) Derniers matchs -->
   <div class="card-custom mb-3">
-    <div class="card-header-custom">
+    <div class="card-header-custom" data-i18n="recent_matches_title">
       <i class="bi bi-list-check"></i>
       Derniers matchs
     </div>
@@ -103,11 +103,11 @@
       <table class="match-table">
         <thead>
           <tr>
-            <th>Date</th>
-            <th>Adversaire</th>
-            <th>Score</th>
-            <th>Durée</th>
-            <th>Elo</th>
+            <th data-i18n="match_date_col">Date</th>
+            <th data-i18n="match_opponent_col">Adversaire</th>
+            <th data-i18n="match_score_col">Score</th>
+            <th data-i18n="match_duration_col">Durée</th>
+            <th data-i18n="match_elo_col">Elo</th>
           </tr>
         </thead>
         <tbody id="match-history-all">
@@ -118,8 +118,13 @@
   </div>
 
   <!-- 5) Distribution horaire (bar chart) -->
+<<<<<<< Updated upstream
   <!-- <div class="card-custom">
     <div class="card-header-custom">
+=======
+  <div class="card-custom">
+    <div class="card-header-custom" data-i18n="time_distribution_title">
+>>>>>>> Stashed changes
       <i class="bi bi-clock"></i>
       Distribution horaire
     </div>

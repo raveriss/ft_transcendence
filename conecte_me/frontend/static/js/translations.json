@@ -238,7 +238,26 @@
         "win_message": "Victory for {winner}!",
         "return_to_board": "Press Enter to return to the board.",
         "score_display": "{name}: {score}",
-        "timer_display": "{minutes}:{seconds}"
+        "timer_display": "{minutes}:{seconds}",
+
+        "stats_title": "STATS",
+        "win_rate_label": "Win Rate",
+        "win_rate_desc": "Victory ratio",
+        "win_streak_label": "Win Streak",
+        "win_streak_desc": "Current longest streak",
+        "avg_duration_label": "Avg Duration",
+        "avg_duration_desc": "Average match time",
+        "weekly_win_label": "Weekly win",
+        "weekly_win_desc": "Matches won this week",
+        "playstyle_title": "Play Style",
+        "win_loss_title": "Wins / Losses",
+        "recent_matches_title": "Recent Matches",
+        "match_date_col": "Date",
+        "match_opponent_col": "Opponent",
+        "match_score_col": "Score",
+        "match_duration_col": "Duration",
+        "match_elo_col": "Elo",
+        "time_distribution_title": "Hourly Distribution"
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -479,7 +498,26 @@
         "win_message": "Victoire de {winner} !",
         "return_to_board": "Appuyez sur Entrée pour revenir au board.",
         "score_display": "{name} : {score}",
-        "timer_display": "{minutes}:{seconds}"
+        "timer_display": "{minutes}:{seconds}",
+
+        "stats_title": "STATISTIQUES",
+        "win_rate_label": "Taux de victoire",
+        "win_rate_desc": "Ratio de victoires",
+        "win_streak_label": "Série de victoires",
+        "win_streak_desc": "Plus longue série actuelle",
+        "avg_duration_label": "Durée moyenne",
+        "avg_duration_desc": "Temps moyen par match",
+        "weekly_win_label": "Victoires hebdo",
+        "weekly_win_desc": "Matchs gagnés cette semaine",
+        "playstyle_title": "Style de jeu",
+        "win_loss_title": "Victoires / Défaites",
+        "recent_matches_title": "Matchs récents",
+        "match_date_col": "Date",
+        "match_opponent_col": "Adversaire",
+        "match_score_col": "Score",
+        "match_duration_col": "Durée",
+        "match_elo_col": "Élo",
+        "time_distribution_title": "Distribution horaire"
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -716,7 +754,25 @@
         "win_message": "¡Victoria de {winner}!",
         "return_to_board": "Presiona Enter para volver al tablero.",
         "score_display": "{name}: {score}",
-        "timer_display": "{minutes}:{seconds}"
-            
+        "timer_display": "{minutes}:{seconds}",
+
+        "stats_title": "ESTADÍSTICAS",
+        "win_rate_label": "Tasa de victoria",
+        "win_rate_desc": "Proporción de victorias",
+        "win_streak_label": "Racha de victorias",
+        "win_streak_desc": "Racha actual más larga",
+        "avg_duration_label": "Duración media",
+        "avg_duration_desc": "Tiempo promedio por partida",
+        "weekly_win_label": "Victorias semanales",
+        "weekly_win_desc": "Partidos ganados esta semana",
+        "playstyle_title": "Estilo de juego",
+        "win_loss_title": "Victorias / Derrotas",
+        "recent_matches_title": "Partidas recientes",
+        "match_date_col": "Fecha",
+        "match_opponent_col": "Rival",
+        "match_score_col": "Puntuación",
+        "match_duration_col": "Duración",
+        "match_elo_col": "Elo",
+        "time_distribution_title": "Distribución horaria"
     }
 }
