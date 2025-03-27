@@ -203,10 +203,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!isValid) return;
 
-    const submitButton = emailForm.querySelector('button[type="submit"]');
+    const submitButton = document.getElementById('email-submit');
     submitButton.disabled = true;
     const spinner = submitButton.querySelector('.spinner-border');
-    spinner.classList.remove('d-none');
+    if (spinner )spinner.classList.remove('d-none');
 
     const payload = {
       current_email: currentEmail,
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(response => response.json())
     .then(data => {
-      spinner.classList.add('d-none');
+      if (spinner) spinner.classList.add('d-none');
       submitButton.disabled = false;
       if (data.success) {
         alert("Email modifié avec succès !");
