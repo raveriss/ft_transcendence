@@ -188,7 +188,8 @@ if not LOG_DIR.exists():
 LOGGING = {
     # Version du schéma de configuration du logging.
     'version': 1,
-    'disable_existing_loggers': True,  # Désactive les loggers par défaut
+    'disable_existing_loggers': True,  # Désactive les loggers par défaut pour éviter les doublons
+
     # Définition des formatters, qui déterminent le format des messages de log.
     'formatters': {
         # Formatter "verbose" : fournit des informations détaillées telles que le niveau, l'heure, le module, l'ID du processus, l'ID du thread et le message.
@@ -205,28 +206,28 @@ LOGGING = {
 
     # Définition des handlers, qui déterminent où les messages de log seront envoyés.
     'handlers': {
-        # Handler "file" : enregistre les logs dans un fichier.
+        # Handler "file_backend" : enregistre les logs dans un fichier django.log sans rotation.
         'file_backend': {
             'level': 'INFO',  # Seuls les messages d'INFO et plus sont enregistrés dans le fichier.
-            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'class': 'logging.FileHandler',  # Utilisation d'un FileHandler sans rotation automatique
             'filename': str(LOG_DIR / 'django.log'),
-            'when': 'D',          # Rotation quotidienne
-            'backupCount': 7,     # Conserver les 15 derniers fichiers (15 jours)
             'formatter': 'verbose',
-            'delay': True,      # Ouverture du fichier seulement à la première écriture
-            'utc': True,        # Utilise l'UTC pour déterminer le rollover
+            # Le fichier django.log contiendra l'ensemble des logs du backend
         },
+        # Handler "file_frontend" : enregistre les logs dans un fichier frontend.log sans rotation.
         'file_frontend': {
             'level': 'INFO',
-            'class': 'logging.FileHandler',  # Pas de rotation si vous préférez, ou adaptez si nécessaire
+            'class': 'logging.FileHandler',  # Même principe que pour django.log, sans rotation automatique
             'filename': str(LOG_DIR / 'frontend.log'),
             'formatter': 'verbose',
+            # Le fichier frontend.log contiendra l'ensemble des logs du frontend
         },
         # Handler "console" : affiche les logs dans la console (stdout).
         'console': {
             'level': 'DEBUG',  # Affiche tous les messages de DEBUG et plus dans la console.
             'class': 'logging.StreamHandler',  # Utilise StreamHandler pour écrire dans la console.
-            'formatter': 'simple',  # Utilise le formatter "simple".
+            'formatter': 'simple',  # Utilise le formatter "simple" pour un affichage épuré
+            # Ce handler est utile pour le développement et le débogage en temps réel.
         },
     },
 
@@ -234,12 +235,13 @@ LOGGING = {
     'loggers': {
         # Logger pour Django (les messages émis par Django lui-même).
         'django': {
-            'handlers': ['file_backend', 'console'],  # Envoie les logs à la fois dans le fichier et à la console.
+            'handlers': ['file_backend', 'console'],  # Envoie les logs à la fois dans django.log et à la console.
             'level': 'INFO',  # Niveau minimum pour enregistrer les messages.
-            'propagate': False,  # Empêche la duplication vers le logger racine
+            'propagate': False,  # Empêche la duplication des messages vers le logger racine
         },
+        # Logger pour le frontend.
         'frontend': {
-            'handlers': ['file_frontend', 'console'],
+            'handlers': ['file_frontend', 'console'],  # Envoie les logs à la fois dans frontend.log et à la console.
             'level': 'INFO',
             'propagate': False,
         },
