@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_GET
 from .models import Tournament, Player, Match
 import random, json
 
@@ -19,7 +20,18 @@ def create_tournament(request):
             if len(player_nicknames) != num_players:
                 return JsonResponse({"error": "Le nombre de pseudos ne correspond pas au nombre de joueurs."}, status=400)
 
-            tournament = Tournament.objects.create(name=name, num_players=num_players)
+            score_limit = data.get("game_settings", {}).get("score_limit", 5)
+            time = data.get("game_settings", {}).get("time", 120)
+
+            tournament = Tournament.objects.create(
+                name=name,
+                num_players=num_players,
+                score_limit=score_limit,
+                time=time
+            )
+
+            request.session["current_tournament_id"] = tournament.id
+
             players = [Player.objects.create(tournament=tournament, nickname=nick) for nick in player_nicknames]
 
             random.shuffle(players)
@@ -27,17 +39,23 @@ def create_tournament(request):
             first_round_matches = create_matches(tournament, players, round_number=1)
 
             return JsonResponse({
-                "message": name,
-                "tournament_id": tournament.id,
-                "players": [p.nickname for p in players],
-                "matches": [
-                    {
-                        "player1_nickname": m.player1.nickname,
-                        "player2_nickname": m.player2.nickname,
-                        "round": m.round_number
-                    } for m in first_round_matches
-                ]
-            })
+			    "tournament": {
+			        "id": tournament.id,
+			        "name": tournament.name,
+			        "time": tournament.time,
+			        "score_limit": tournament.score_limit
+			    },
+			    "players": [p.nickname for p in players],
+			    "matches": [
+			        {
+			            "id": m.id,
+			            "player1": m.player1.nickname,
+			            "player2": m.player2.nickname,
+			            "round": m.round_number,
+			            "winner": m.winner.nickname if m.winner else None
+			        } for m in first_round_matches
+			    ]
+			})
 
         except json.JSONDecodeError:
             return JsonResponse({"error": "Données JSON malformées."}, status=400)
@@ -57,23 +75,66 @@ def create_matches(tournament, players, round_number):
             matches.append(match)
     return matches
 
-@csrf_exempt
-def tournament_details(request, tournament_id):
+#@csrf_exempt
+def get_tournament_details(request, tournament_id):
+    print("✅ Vue API /tournament/api/details/ appelée avec ID:", tournament_id)
+    print("✅ Appel à get_tournament_details avec ID:", tournament_id)
+    
+    try:
+        tournament = Tournament.objects.get(id=tournament_id)
+        players = list(tournament.players.values_list('nickname', flat=True))
+        matches = list(tournament.matches.values(
+            'id', 'round_number', 'is_finished',
+            'player1__nickname', 'player2__nickname', 'winner__nickname'
+        ))
+        formatted_matches = []
+        for m in matches:
+            formatted_matches.append({
+                'id': m['id'],
+                'round': m['round_number'],
+                'player1': m['player1__nickname'],
+                'player2': m['player2__nickname'],
+                'winner': m['winner__nickname'],
+            })
+        return JsonResponse({
+            'tournament': {
+                'id': tournament.id,
+                'name': tournament.name,
+                'time': tournament.time,
+                'score_limit': tournament.score_limit,
+            },
+            'players': players,
+            'matches': formatted_matches,
+        })
+    except Tournament.DoesNotExist:
+        return JsonResponse({'error': 'Tournoi non trouvé'}, status=404)
+#     return JsonResponse(data)
+
+
+@require_GET
+def tournament_details_json(request, tournament_id):
     tournament = get_object_or_404(Tournament, id=tournament_id)
+    players = tournament.players.all()
+    matches = tournament.matches.all().order_by('round_number')
+
     data = {
-        "id": tournament.id,
-        "name": tournament.name,
-        "winner": tournament.winner,
-        "players": [player.nickname for player in tournament.players.all()],
+        "tournament": {
+            "id": tournament.id,
+            "name": tournament.name,
+            "date": tournament.date,
+			"score_limit": tournament.score_limit,
+			"time": tournament.time,
+        },
+        "players": [p.nickname for p in players],
         "matches": [
             {
-                "player1": match.player1.nickname,
-                "player2": match.player2.nickname,
-                "round": match.round_number,
-                "is_finished": match.is_finished,
-                "winner": match.winner.nickname if match.winner else None
+                "id": m.id,
+                "round": m.round_number,
+                "player1": m.player1.nickname if m.player1 else None,
+                "player2": m.player2.nickname if m.player2 else None,
+                "winner": m.winner.nickname if m.winner else None
             }
-            for match in tournament.matches.all()
+            for m in matches
         ]
     }
     return JsonResponse(data)
@@ -96,6 +157,12 @@ def play_next_match(request, tournament_id):
         "match_id": match.id,
         "round": match.round_number
     })
+
+def get_current_tournament_id(request):
+    tid = request.session.get("current_tournament_id")
+    if not tid:
+        return JsonResponse({"error": "Aucun tournoi actif"}, status=404)
+    return JsonResponse({"tournament_id": tid})
 
 @csrf_exempt
 def finish_match(request, tournament_id, match_id):

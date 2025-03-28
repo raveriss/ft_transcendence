@@ -4,6 +4,8 @@ class Tournament(models.Model):
     name = models.CharField(max_length=255)
     num_players = models.IntegerField()
     winner = models.CharField(max_length=255, null=True, blank=True)
+    score_limit = models.IntegerField(default=5)
+    time = models.IntegerField(default=120)  # durée en secondes
 
     def __str__(self):
         return self.name
@@ -24,4 +26,4 @@ class Match(models.Model):
     is_finished = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Match {self.round_number} : {self.player1.nickname} vs {self.player2.nickname}"
+        return f"Match {self.round_number} : {self.player1.nickname if self.player1 else '???'} vs {self.player2.nickname if self.player2 else '???'}"

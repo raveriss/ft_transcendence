@@ -76,7 +76,7 @@ async function checkAuth() {
       } else if (route === '/game') {
         cssFile = 'static/css/game.css';
       } else {
-        cssFile = 'static/css/main.css';
+        cssFile = '/static/css/main.css';
       }
     
       // Crée un nouveau <link> avec un ID temporaire
@@ -105,7 +105,7 @@ async function checkAuth() {
   
   
 
-  function loadScriptForRoute(route) {
+  function loadScriptForRoute(route, callback) {
 
       // Pour la page /team, aucun script n'est nécessaire
     if (route === '/team') return;
@@ -147,7 +147,11 @@ async function checkAuth() {
     const script = document.createElement('script');
     script.id = 'route-script';
     script.src = scriptFile;
-    script.async = false;
+    // script.async = false;
+	script.defer = true; // Préfère defer à async=false
+	if (typeof callback === 'function') {
+  		script.addEventListener('load', callback);
+	}
     document.body.appendChild(script);
   }
 
@@ -185,7 +189,10 @@ function customBack() {
 
 // Fonction principale pour charger une vue
 async function navigateTo(path, pushHistory = true) {
+  console.log("🧭 Entree dans navigateTo avec path:", path);
   console.log("Navigating to:", path);
+
+  const originalPath = path;
 
   // -- Ajout minimal : gère "?jwt=..." s'il existe dans l'URL --
   const idx = path.indexOf('?');
@@ -236,12 +243,16 @@ async function navigateTo(path, pushHistory = true) {
   try {
     // Attend que le nouveau CSS soit chargé
     await loadCSSForRoute(path);
+	console.log("✅ CSS chargé pour :", path);
+
   } catch (err) {
     console.error("Erreur lors du chargement du CSS :", err);
   }
   
   const file = routes[path] || routes['/'];
   console.log("Fetching file:", file);
+  console.log("🚧 Juste avant le bloc try dans navigateTo");
+
   try {
     const res = await fetch(file, { method: 'GET' });
     if (!res.ok) {
@@ -252,11 +263,17 @@ async function navigateTo(path, pushHistory = true) {
     console.log("Contenu récupéré (truncated):", html.substring(0, 100));
     appDiv.innerHTML = html;
     attachListeners();
-    loadScriptForRoute(path);
-	if (path === '/tournament-details' && typeof renderTournamentDetails === 'function') {
-		renderTournamentDetails();
-	}
-	  
+	console.log("🔍 Path dans navigateTo avant JS:", path);
+
+	loadScriptForRoute(path, () => {
+    	if (originalPath === '/tournament-details') {
+		  if (typeof renderTournamentDetails === 'function') {
+			console.log("📢 Appel explicite de renderTournamentDetails après chargement du JS");
+			renderTournamentDetails();
+		  } else {
+			console.warn("⚠️ renderTournamentDetails non défini après chargement du JS");
+		  }
+		}});
 
     // 🛠 FORCER LA TRADUCTION APRÈS LE CHANGEMENT DE PAGE
     changeLanguage(getCurrentLang());

@@ -1,262 +1,213 @@
-// game_tournament.js
-console.log("game_tournament.js loaded");
+console.log("✅ game_tournament.js loaded");
 
-function getTournamentGameSettings() {
-  const player1 = localStorage.getItem("player1");
-    const player2 = localStorage.getItem("player2");
-    const rawSettings = localStorage.getItem("gameSettings");
+async function getTournamentIdFromSession() {
+	const res = await fetch('/tournament/get_current_id/');
+	const data = await res.json();
+	return data.tournament_id;
+}
 
-    let time = 5;
-    let score_limit = 5;
-    let ball_speed = 2;
-
-    try {
-        if (rawSettings) {
-            const parsed = JSON.parse(rawSettings);
-            time = parseInt(parsed.time);
-            score_limit = parseInt(parsed.score_limit);
-        }
-    } catch (e) {
-        console.warn("Échec de parsing des settings, utilisation des valeurs par défaut.");
-    }
-
-    return {
-		time,
-		score_limit,
-		ball_speed,
-		map_choice: "retro",
-		username: player1,
-		player1,
-		player2
-    };
+async function fetchCurrentMatch(tournamentId) {
+	const res = await fetch(`/tournament/${tournamentId}/play_next/`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' }
+	});
+	return await res.json();
 }
 
 (async function initGame() {
-  const settings = getTournamentGameSettings();
+	const tournamentId = await getTournamentIdFromSession();
+	const matchInfo = await fetchCurrentMatch(tournamentId);
 
-  const paddleWidth = 20;
-  const paddleHeight = 100;
-  const WINNING_SCORE = settings.score_limit;
-  const WINNING_TIME = settings.time * 60;
-  const ballSpeedX = settings.ball_speed;
-  const ballSpeedY = settings.ball_speed;
+	if (!matchInfo || !matchInfo.match_id || !matchInfo.player1 || !matchInfo.player2) {
+		alert("Aucun match disponible.");
+		return;
+	}
 
-  const player1Name = settings.player1;
-  const player2Name = settings.player2;
-  const matchId = localStorage.getItem("currentMatchId");
-  const tournamentId = localStorage.getItem("currentTournamentId");
+	const matchId = matchInfo.match_id;
+	const player1 = matchInfo.player1;
+	const player2 = matchInfo.player2;
+	const response = await fetch(`/tournament/api/details/${tournamentId}/`);
+	const data = await response.json();
+	const scoreLimit = data.tournament.score_limit;
+	const timeLimit = data.tournament.time;
 
-  const mapChoice = settings.map_choice;
-  let fondcanvas = null;
-  if (mapChoice !== "retro") {
-    fondcanvas = new Image();
-    fondcanvas.src = `/static/img/field_${mapChoice}.png`;
-  }
+	// 🎮 Initialisation du canvas
+	const canvas = document.createElement("canvas");
+	canvas.id = "pongCanvas";
+	canvas.width = 1200;
+	canvas.height = 900;
+	canvas.style.position = "absolute";
+	canvas.style.top = "50%";
+	canvas.style.left = "50%";
+	canvas.style.transform = "translate(-50%, -50%)";
+	document.body.appendChild(canvas);
+	const ctx = canvas.getContext("2d");
 
-  let keysPressed = {};
+	// 🏓 Logique du jeu
+	const paddleWidth = 20;
+	const paddleHeight = 100;
+	const paddleSpeed = 10;
+	const ballRadius = 10;
+	let isPaused = false;
+	let isGameOver = false;
 
-  function startLocalGame() {
-    const canvas = document.createElement("canvas");
-    canvas.id = "pongCanvas";
-    canvas.width = 1200;
-    canvas.height = 900;
-    canvas.style.position = "absolute";
-    canvas.style.top = "50%";
-    canvas.style.left = "50%";
-    canvas.style.transform = "translate(-50%, -50%)";
-    document.body.appendChild(canvas);
+	const player1State = { x: 1, y: canvas.height / 2 - paddleHeight / 2, width: paddleWidth, height: paddleHeight, score: 0 };
+	const player2State = { x: canvas.width - paddleWidth - 1, y: canvas.height / 2 - paddleHeight / 2, width: paddleWidth, height: paddleHeight, score: 0 };
+	const ball = {
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		radius: ballRadius,
+		speedX: 4 * (Math.random() < 0.5 ? 1 : -1),
+		speedY: 4 * (Math.random() < 0.5 ? 1 : -1)
+	};
 
-    const ctx = canvas.getContext("2d");
+	function resetBall() {
+		ball.x = canvas.width / 2;
+		ball.y = canvas.height / 2;
+		ball.speedX = 4 * (Math.random() < 0.5 ? 1 : -1);
+		ball.speedY = 4 * (Math.random() < 0.5 ? 1 : -1);
+	}
 
-    let isPaused = false;
-    let isGameOver = false;
-    let confirmQuit = false;
-    const paddleSpeed = 10;
-    const ballRadius = 10;
-    const startTime = Date.now();
-    let elapsedTime = 0;
+	function updateBall() {
+		ball.x += ball.speedX;
+		ball.y += ball.speedY;
 
-    const player1 = {
-      x: 1,
-      y: canvas.height / 2 - paddleHeight / 2,
-      width: paddleWidth,
-      height: paddleHeight,
-      score: 0,
-    };
+		if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) ball.speedY = -ball.speedY;
 
-    const player2 = {
-      x: canvas.width - paddleWidth - 1,
-      y: canvas.height / 2 - paddleHeight / 2,
-      width: paddleWidth,
-      height: paddleHeight,
-      score: 0,
-    };
+		if (
+			ball.x - ball.radius <= player1State.x + player1State.width &&
+			ball.y >= player1State.y &&
+			ball.y <= player1State.y + player1State.height
+		) {
+			ball.speedX *= -1.05;
+			ball.speedY *= 1.05;
+		}
 
-    const ball = {
-      x: canvas.width / 2,
-      y: canvas.height / 2,
-      radius: ballRadius,
-      speedX: ballSpeedX * (Math.random() < 0.5 ? 1 : -1),
-      speedY: ballSpeedY * (Math.random() < 0.5 ? 1 : -1),
-    };
+		if (
+			ball.x + ball.radius >= player2State.x &&
+			ball.y >= player2State.y &&
+			ball.y <= player2State.y + player2State.height
+		) {
+			ball.speedX *= -1.05;
+			ball.speedY *= 1.05;
+		}
+	}
 
-    function resetBall() {
-      ball.x = canvas.width / 2;
-      ball.y = canvas.height / 2;
-      ball.speedX = ballSpeedX * (Math.random() < 0.5 ? 1 : -1);
-      ball.speedY = ballSpeedY * (Math.random() < 0.5 ? 1 : -1);
-    }
+	function checkScore() {
+		if (ball.x + ball.radius < 0) {
+			player2State.score++;
+			resetBall();
+		} else if (ball.x - ball.radius > canvas.width) {
+			player1State.score++;
+			resetBall();
+		}
 
-    function updateBall() {
-      ball.x += ball.speedX;
-      ball.y += ball.speedY;
+		if (player1State.score >= scoreLimit || player2State.score >= scoreLimit) {
+			const winner = player1State.score > player2State.score ? player1 : player2;
+			const loser = player1State.score > player2State.score ? player2 : player1;
+			quitGame(winner, loser, player1State.score, player2State.score);
+		}
+	}
 
-      if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
-        ball.speedY = -ball.speedY;
-      }
+	let startTime = Date.now();
 
-      if (
-        ball.x - ball.radius <= player1.x + player1.width &&
-        ball.y >= player1.y &&
-        ball.y <= player1.y + player1.height
-      ) {
-        ball.speedX = -ball.speedX * 1.05;
-        ball.speedY = ball.speedY * 1.05;
-      }
+	function updateTimer() {
+		const elapsed = Math.floor((Date.now() - startTime) / 1000);
+		if (elapsed >= timeLimit * 60) {
+			const winner = player1State.score > player2State.score ? player1 : player2;
+			const loser = player1State.score > player2State.score ? player2 : player1;
+			quitGame(winner, loser, player1State.score, player2State.score);
+		}
+	}
 
-      if (
-        ball.x + ball.radius >= player2.x &&
-        ball.y >= player2.y &&
-        ball.y <= player2.y + player2.height
-      ) {
-        ball.speedX = -ball.speedX * 1.05;
-        ball.speedY = ball.speedY * 1.05;
-      }
-    }
+	function draw() {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = "#0d1117";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    function updateTimer() {
-      elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-    }
+		ctx.setLineDash([10, 10]);
+		ctx.beginPath();
+		ctx.moveTo(canvas.width / 2, 0);
+		ctx.lineTo(canvas.width / 2, canvas.height);
+		ctx.strokeStyle = "white";
+		ctx.lineWidth = 4;
+		ctx.stroke();
+		ctx.setLineDash([]);
 
-    function checkScore() {
-      if (ball.x + ball.radius < 0) {
-        player2.score++;
-        resetBall();
-      } else if (ball.x - ball.radius > canvas.width) {
-        player1.score++;
-        resetBall();
-      }
-      if (player1.score >= WINNING_SCORE) {
-        quitGame(player1Name, player2Name, player1.score, player2.score);
-      } else if (player2.score >= WINNING_SCORE) {
-        quitGame(player2Name, player1Name, player2.score, player1.score);
-      }
-    }
+		ctx.fillStyle = "white";
+		ctx.fillRect(player1State.x, player1State.y, player1State.width, player1State.height);
+		ctx.fillRect(player2State.x, player2State.y, player2State.width, player2State.height);
 
-    function draw() {
-      if (isGameOver) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      if (fondcanvas && fondcanvas.complete && fondcanvas.naturalWidth !== 0) {
-        ctx.drawImage(fondcanvas, 0, 0, canvas.width, canvas.height);
-      }
-      ctx.beginPath();
-      ctx.setLineDash([15, 10]);
-      ctx.moveTo(canvas.width / 2, 60);
-      ctx.lineTo(canvas.width / 2, canvas.height);
-      ctx.strokeStyle = "white";
-      ctx.lineWidth = 4;
-      ctx.stroke();
-      ctx.closePath();
-      ctx.setLineDash([]);
-      ctx.fillStyle = "white";
-      ctx.fillRect(player1.x, player1.y, player1.width, player1.height);
-      ctx.fillRect(player2.x, player2.y, player2.width, player2.height);
-      ctx.beginPath();
-      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-      ctx.fillStyle = "white";
-      ctx.fill();
-      ctx.closePath();
-      ctx.font = "40px Arial";
-      ctx.textAlign = "center";
-      ctx.fillText(`${player1Name}: ${player1.score}`, canvas.width / 4, 40);
-      ctx.fillText(`${player2Name}: ${player2.score}`, (canvas.width * 3) / 4, 40);
-      const minutes = Math.floor(elapsedTime / 60).toString().padStart(2, '0');
-      const seconds = (elapsedTime % 60).toString().padStart(2, '0');
-      ctx.fillText(`${minutes}:${seconds}`, canvas.width / 2, 40);
-    }
+		ctx.beginPath();
+		ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+		ctx.fill();
 
-    function quitGame(winner, loser, winnerScore, loserScore) {
-      isGameOver = true;
-      const duration = Math.floor((Date.now() - startTime) / 1000);
-      const data = {
-        winner,
-        score1: winner === player1Name ? winnerScore : loserScore,
-        score2: winner === player1Name ? loserScore : winnerScore,
-      };
-      fetch(`/tournament/${tournamentId}/match/${matchId}/finish/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      }).then(() => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "white";
-        ctx.font = "70px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText(`Victoire de ${winner}!`, canvas.width / 2, canvas.height / 2 - 50);
-        ctx.font = "50px Arial";
-        ctx.fillText("Appuyez sur Entrée pour revenir au tournoi.", canvas.width / 2, canvas.height / 2 + 50);
-        document.addEventListener("keydown", function handleReturn(e) {
-          if (e.key === "Enter") {
-            navigateTo("/static/templates/tournament_details.html");
-            document.removeEventListener("keydown", handleReturn);
-          }
-        });
-      });
-    }
+		ctx.font = "40px Orbitron, sans-serif";
+		ctx.textAlign = "center";
+		ctx.fillText(`${player1}: ${player1State.score}`, canvas.width / 4, 40);
+		ctx.fillText(`${player2}: ${player2State.score}`, canvas.width * 3 / 4, 40);
 
-    document.addEventListener("keydown", function(event) {
-      keysPressed[event.key] = true;
-      if (event.key === "p" || event.key === "P") isPaused = !isPaused;
-    });
-    document.addEventListener("keyup", function(event) {
-      keysPressed[event.key] = false;
-    });
+		const elapsed = Math.floor((Date.now() - startTime) / 1000);
+		const min = String(Math.floor(elapsed / 60)).padStart(2, '0');
+		const sec = String(elapsed % 60).padStart(2, '0');
+		ctx.fillText(`${min}:${sec}`, canvas.width / 2, 40);
+	}
 
-    function gameLoop() {
-      if (isGameOver) return;
-      if (!isPaused) {
-        if (keysPressed["ArrowUp"]) player2.y = Math.max(0, player2.y - paddleSpeed);
-        if (keysPressed["ArrowDown"]) player2.y = Math.min(canvas.height - player2.height, player2.y + paddleSpeed);
-        if (keysPressed["w"] || keysPressed["W"]) player1.y = Math.max(0, player1.y - paddleSpeed);
-        if (keysPressed["s"] || keysPressed["S"]) player1.y = Math.min(canvas.height - player1.height, player1.y + paddleSpeed);
-        updateBall();
-        checkScore();
-        updateTimer();
-        if (elapsedTime >= WINNING_TIME) {
-          const winner = player1.score > player2.score ? player1Name : player2Name;
-          const loser = player1.score > player2.score ? player2Name : player1Name;
-          const score1 = player1.score;
-          const score2 = player2.score;
-          quitGame(winner, loser, score1, score2);
-          return;
-        }
-      }
-      draw();
-      requestAnimationFrame(gameLoop);
-    }
+	function quitGame(winner, loser, winnerScore, loserScore) {
+		isGameOver = true;
 
-    gameLoop();
-  }
+		const data = {
+			winner,
+			score1: winner === player1 ? winnerScore : loserScore,
+			score2: winner === player1 ? loserScore : winnerScore
+		};
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", startLocalGame);
-  } else {
-    startLocalGame();
-  }
+		fetch(`/tournament/${tournamentId}/match/${matchId}/finish/`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data)
+		}).then(() => {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.fillStyle = "#0d1117";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+			ctx.fillStyle = "#3b82f6";
+			ctx.font = "60px Orbitron, sans-serif";
+			ctx.textAlign = "center";
+			ctx.fillText(`Victoire de ${winner} !`, canvas.width / 2, canvas.height / 2 - 40);
+
+			ctx.font = "30px Orbitron, sans-serif";
+			ctx.fillStyle = "#f1f5f9";
+			ctx.fillText("Appuie sur Entrée pour continuer", canvas.width / 2, canvas.height / 2 + 40);
+
+			document.addEventListener("keydown", function handler(e) {
+				if (e.key === "Enter") {
+					window.location.replace(`/tournament-details`);
+					document.removeEventListener("keydown", handler);
+				}
+			});
+		});
+	}
+
+	const keys = {};
+	document.addEventListener("keydown", e => keys[e.key] = true);
+	document.addEventListener("keyup", e => keys[e.key] = false);
+
+	function loop() {
+		if (isGameOver) return;
+		if (!isPaused) {
+			if (keys["w"] || keys["W"]) player1State.y = Math.max(0, player1State.y - paddleSpeed);
+			if (keys["s"] || keys["S"]) player1State.y = Math.min(canvas.height - player1State.height, player1State.y + paddleSpeed);
+			if (keys["ArrowUp"]) player2State.y = Math.max(0, player2State.y - paddleSpeed);
+			if (keys["ArrowDown"]) player2State.y = Math.min(canvas.height - player2State.height, player2State.y + paddleSpeed);
+
+			updateBall();
+			checkScore();
+			updateTimer();
+		}
+		draw();
+		requestAnimationFrame(loop);
+	}
+
+	loop();
 })();
