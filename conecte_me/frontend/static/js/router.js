@@ -259,7 +259,7 @@ async function navigateTo(path, pushHistory = true) {
 	console.log("🔍 Path dans navigateTo avant JS:", path);
 
 	loadScriptForRoute(path, () => {
-    	if (originalPath === '/tournament-details') {
+    	if (path === '/tournament-details') {
 		  if (typeof renderTournamentDetails === 'function') {
 			console.log("📢 Appel explicite de renderTournamentDetails après chargement du JS");
 			renderTournamentDetails();
