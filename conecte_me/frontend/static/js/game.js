@@ -3,16 +3,15 @@ console.log("game.js loaded");
 // Fonction pour récupérer les réglages du jeu via l'API
 async function fetchGameSettings() {
   console.log("fetchGameSettings() called");
-  // Récupération du token JWT stocké (par exemple, lors de la connexion)
-  const token = localStorage.getItem('jwtToken');
-  console.log("Token récupéré dans game.js:", token);
   try {
+    // Appel à l'API sans inclure manuellement le token,
+    // le cookie sécurisé sera automatiquement envoyé.
     const response = await fetch("/api/game_settings/", {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
-      }
+      },
+      credentials: "same-origin" // Permet d'inclure les cookies dans la requête
     });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status} - ${response.statusText}`);
@@ -357,10 +356,10 @@ async function fetchGameSettings() {
       fetch('/api/game_settings/match_history/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          // Si vous utilisez JWT pour protéger l'API, ajoutez l'en-tête Authorization
-          'Authorization': 'Bearer ' + localStorage.getItem('jwtToken')
+          'Content-Type': 'application/json'
+          // Plus besoin d'ajouter l'en-tête Authorization, le token est transmis via le cookie sécurisé
         },
+        credentials: 'same-origin', // Permet d'envoyer les cookies avec la requête pour le domaine courant
         body: JSON.stringify(matchData)
       })
       .then(response => {

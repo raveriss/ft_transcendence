@@ -196,29 +196,6 @@ async function navigateTo(path, pushHistory = true) {
   console.log("🧭 Entree dans navigateTo avec path:", path);
   console.log("Navigating to:", path);
 
-  const originalPath = path;
-
-  // -- Ajout minimal : gère "?jwt=..." s'il existe dans l'URL --
-  const idx = path.indexOf('?');
-  console.log("idx =", idx);
-  if (idx !== -1) {
-    // On sépare "/board" de "?jwt=xxxx"
-    const mainRoute = path.substring(0, idx);   // ex: "/board"
-    const queryString = path.substring(idx + 1); // ex: "jwt=xxxx"
-
-    // On parse la query string
-    const params = new URLSearchParams(queryString);
-    const token = params.get('jwt');
-    if (token) {
-      localStorage.setItem('jwtToken', token);
-      console.log("Token stocké (on supprime ?jwt=... de l'URL):", token);
-    }
-
-    // On retire la query string de l'URL qu'on va push dans l'historique
-    path = mainRoute;
-  }
-  // -- Fin du bloc ajouté --
-
   // Si la route est protégée, vérifier l'authentification
   if (isRouteProtected(path)) {
     const user = await checkAuth();
@@ -445,7 +422,6 @@ function attachListeners() {
         console.log("Déconnexion réussie :", data);
         // Vider l'historique personnalisé et le token JWT lors de la déconnexion
         sessionStorage.removeItem('customHistory');
-        localStorage.removeItem('jwtToken');
         localStorage.removeItem('username');
         localStorage.removeItem('user_id');
         // Rediriger vers '/home'
@@ -454,7 +430,6 @@ function attachListeners() {
       .catch(error => {
         console.error("Erreur lors de la mise à jour du statut :", error);
         sessionStorage.removeItem('customHistory');
-        localStorage.removeItem('jwtToken');
         navigateTo('/home');
       });
     });

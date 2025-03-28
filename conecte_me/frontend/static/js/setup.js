@@ -54,9 +54,10 @@ function updateSettings() {
   fetch("/api/game_settings/", {
     method: "POST",
     headers: {
-      "Authorization": "Bearer " + token,
       "Content-Type": "application/json"
+      // Le header Authorization n'est plus nécessaire, le cookie sécurisé transmet le token automatiquement
     },
+    credentials: "same-origin", // Permet d'envoyer les cookies avec la requête
     body: JSON.stringify(settings)
   })
   .then(response => {
@@ -162,12 +163,14 @@ function initSetupPage() {
   // Charger les réglages depuis l’API
   function loadSettings() {
     console.log("loadSettings() called");
+    // Appel à l'API pour charger les réglages, le token est transmis via le cookie sécurisé
     fetch("/api/game_settings/", {
       method: "GET",
       headers: {
-        "Authorization": "Bearer " + token,
         "Content-Type": "application/json"
-      }
+        // On ne fournit plus le header Authorization puisque le token est dans le cookie
+      },
+      credentials: "same-origin" // Permet d'envoyer les cookies avec la requête
     })
     .then(response => {
       if (!response.ok) {

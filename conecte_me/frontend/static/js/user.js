@@ -8,14 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------
   function loadUserStats() {
     console.log("loadUserStats called");
-    const token = localStorage.getItem('jwtToken');
-    console.log("Token dans user est = ", token);
     fetch('/api/game_settings/user_stats/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token
-      }
+      },
+      credentials: 'same-origin' // Assure que les cookies sont envoyés avec la requête
     })
     .then(response => {
       if (!response.ok) {

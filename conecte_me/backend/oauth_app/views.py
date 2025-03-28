@@ -346,20 +346,23 @@ def callback_42(request):
     request.session['user_id'] = user.pk
     request.session['email'] = user.email_address
 
-    # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
-    # /*    Génération du token JWT et redirection vers l'interface principale     */
-    # /*                 Un token JWT est généré pour authentifier                 */
-    # /*        l'utilisateur dans l'application et est passé en paramètre         */
-    # /*             dans l'URL lors de la redirection vers le board.              */
-    # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
-
-    # Génération d'un token JWT pour l'utilisateur.
+    # Mise à jour de la session, création du log de connexion, etc.
+    # jwt_token = generate_jwt(user_id=user.user_id, username=user_name_42)
+    # response = HttpResponseRedirect(f"/board?jwt={jwt_token}")
+    # return response
     jwt_token = generate_jwt(user_id=user.user_id, username=user_name_42)
-
-    # Création d'une redirection HTTP vers l'interface principale avec le token JWT ajouté dans l'URL.
-    response = HttpResponseRedirect(f"/board?jwt={jwt_token}")
-
-    # Retourne la réponse de redirection pour finaliser le callback.
+    response = HttpResponseRedirect("/board")
+    # Définir un cookie sécurisé :
+    # - httponly=True empêche l'accès via JavaScript (augmente la sécurité)
+    # - secure=True garantit que le cookie n'est envoyé que sur HTTPS
+    # - samesite peut être 'Lax' ou 'Strict' selon vos besoins
+    response.set_cookie(
+        key="jwtToken", 
+        value=jwt_token, 
+        httponly=True, 
+        secure=True, 
+        samesite="Lax"
+    )
     return response
 
 
@@ -527,9 +530,11 @@ def logout_view(request):
 
     # Nettoyage complet de la session pour supprimer toutes les informations d'authentification
     request.session.flush()
-
-    # Retourne une réponse JSON indiquant le succès de la déconnexion et la redirection vers /home
-    return JsonResponse({"success": True, "redirect": "/home"}, status=200)
+    # Créer une réponse JSON
+    response = JsonResponse({"success": True, "redirect": "/home"}, status=200)
+    # Supprimer le cookie jwtToken en le définissant avec une date d'expiration passée
+    response.delete_cookie('jwtToken')
+    return response
 
 
 

@@ -1,6 +1,6 @@
 # oauth_app/jwt_decorator.py
 """
-Ce décorateur vérifie la présence d'un token JWT dans l'en-tête Authorization.
+Ce décorateur vérifie la présence d'un token JWT dans le cookie 'jwtToken'.
 S'il est invalide ou absent, on renvoie un code 401 en JSON.
 S'il est valide, on récupère l'utilisateur et on le stocke dans request.user.
 """
@@ -53,24 +53,14 @@ def jwt_required(view_func):
 
     # Définition d'une fonction wrapper qui encapsule la logique de vérification du JWT.
     def wrapper(request, *args, **kwargs):
-
-        # Récupération de l'en-tête Authorization dans les métadonnées de la requête.
-        auth_header = request.META.get('HTTP_AUTHORIZATION', '')
-
-        # Vérification que l'en-tête commence par "Bearer ", format requis pour un token JWT.
-        if not auth_header.startswith('Bearer '):
-
-            # Affichage d'un message d'erreur pour le débogage.
-            print("JWT ERROR: Missing or invalid Authorization header")
-
-            # Retourne une réponse JSON avec le détail de l'erreur et le statut HTTP 401 (non autorisé).
-            return JsonResponse({"detail": "Missing or invalid Authorization header"}, status=401)
+        # Récupère le token depuis le cookie sécurisé 'jwtToken'
+        token = request.COOKIES.get('jwtToken', '')
+        if not token:
+            print("JWT ERROR: Token manquant dans le cookie")
+            return JsonResponse({"detail": "Token manquant"}, status=401)
         
-        # Extraction du token en retirant le préfixe "Bearer " de l'en-tête.
-        token = auth_header[len('Bearer '):]
         try:
-
-            # Décodage du token avec la clé secrète et l'algorithme HS256.
+            # Décode le token en utilisant la clé secrète et l'algorithme HS256
             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=['HS256'])
 
         # Gestion de l'exception si le token a expiré.
@@ -88,24 +78,21 @@ def jwt_required(view_func):
 
         # Vérification que le payload contient bien un user_id ; sinon, le token est considéré comme invalide.
         if user_id is None:
-            print("JWT ERROR: user_id is None in payload")
-            return JsonResponse({"detail": "Invalid token payload"}, status=401)
+            print("JWT ERROR: user_id est None dans le payload")
+            return JsonResponse({"detail": "Payload de token invalide"}, status=401)
         
         try:
-
             # Tentative de récupération de l'utilisateur correspondant dans la base de données.
             user = User42.objects.get(user_id=user_id)
-
         # Si l'utilisateur n'existe pas, on retourne une réponse JSON indiquant que l'utilisateur n'a pas été trouvé.
         except User42.DoesNotExist:
-            print(f"JWT ERROR: user_id={user_id} not found in DB")
-            return JsonResponse({"detail": "User not found"}, status=404)
+            print(f"JWT ERROR: user_id={user_id} non trouvé dans la base")
+            return JsonResponse({"detail": "Utilisateur non trouvé"}, status=404)
 
         # Affectation de l'utilisateur récupéré à request.user pour que la vue puisse l'utiliser.
         request.user = user
 
         # Appel de la fonction de vue originale avec la requête et les éventuels arguments supplémentaires.
         return view_func(request, *args, **kwargs)
-    
     # Retourne le wrapper qui englobe la logique de vérification du token JWT.
     return wrapper
