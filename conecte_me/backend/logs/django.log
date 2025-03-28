@@ -1,0 +1,8 @@
+WARNING 2025-03-28 13:30:26,541 log 1 139720866667320 Unauthorized: /auth/user/
+WARNING 2025-03-28 13:32:41,208 log 1 139720866667320 Unauthorized: /auth/user/
+WARNING 2025-03-28 13:32:44,232 log 1 139720866667320 Unauthorized: /auth/user/
+WARNING 2025-03-28 13:32:51,871 log 1 139720866667320 Unauthorized: /auth/login/
+WARNING 2025-03-28 13:41:49,943 log 1 140309905115960 Unauthorized: /auth/user/
+WARNING 2025-03-28 13:41:51,127 log 1 140309905115960 Unauthorized: /auth/user/
+WARNING 2025-03-28 13:43:27,648 log 1 140309905115960 Unauthorized: /auth/user/
+WARNING 2025-03-28 13:43:37,184 log 1 140309905115960 Unauthorized: /auth/user/
