@@ -148,8 +148,22 @@ def callback_42(request):
     request.session['email'] = user.email_address
 
     # Mise à jour de la session, création du log de connexion, etc.
+    # jwt_token = generate_jwt(user_id=user.user_id, username=user_name_42)
+    # response = HttpResponseRedirect(f"/board?jwt={jwt_token}")
+    # return response
     jwt_token = generate_jwt(user_id=user.user_id, username=user_name_42)
-    response = HttpResponseRedirect(f"/board?jwt={jwt_token}")
+    response = HttpResponseRedirect("/board")
+    # Définir un cookie sécurisé :
+    # - httponly=True empêche l'accès via JavaScript (augmente la sécurité)
+    # - secure=True garantit que le cookie n'est envoyé que sur HTTPS
+    # - samesite peut être 'Lax' ou 'Strict' selon vos besoins
+    response.set_cookie(
+        key="jwtToken", 
+        value=jwt_token, 
+        httponly=True, 
+        secure=True, 
+        samesite="Lax"
+    )
     return response
 
 # --- Vue d'inscription modifiée pour gérer l'upload de l'image de profil ---
@@ -249,7 +263,11 @@ def logout_view(request):
             pass
 
     request.session.flush()
-    return JsonResponse({"success": True, "redirect": "/home"}, status=200)
+    # Créer une réponse JSON
+    response = JsonResponse({"success": True, "redirect": "/home"}, status=200)
+    # Supprimer le cookie jwtToken en le définissant avec une date d'expiration passée
+    response.delete_cookie('jwtToken')
+    return response
 
 @csrf_exempt
 def user_login_history(request):

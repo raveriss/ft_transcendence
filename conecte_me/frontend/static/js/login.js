@@ -18,17 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/auth/login/', {
       method: 'POST',
       body: formData,
-      credentials: 'include'
+      credentials: 'include' // Envoie les cookies avec la requête
     })
     .then(response => response.json())
     .then(data => {
       console.log("Réponse JSON du backend:", data);
       if (data.success) {
-        // 1) Stocker le token si présent
-        if (data.token) {
-          localStorage.setItem('jwtToken', data.token);
-        }
-        // 2) Rediriger vers la page indiquée
+        // Rediriger vers la page indiquée
         window.location.href = data.redirect;
       } else {
         alert(data.error || "Erreur de connexion");
@@ -40,3 +36,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+

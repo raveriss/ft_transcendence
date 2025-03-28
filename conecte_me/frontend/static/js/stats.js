@@ -3,14 +3,14 @@
   
     function loadUserStatsForStatsPage() {
       console.log("loadUserStatsForStatsPage called");
-      const token = localStorage.getItem('jwtToken');
-      console.log("Token in stats page:", token);
+      // Le token n'est plus récupéré depuis le localStorage, car il est transmis via un cookie sécurisé.
       fetch('/api/game_settings/user_stats/', {
         method: 'GET',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + token
-        }
+          'Content-Type': 'application/json'
+          // Pas besoin d'ajouter l'en-tête Authorization, le cookie sécurisé est envoyé automatiquement.
+        },
+        credentials: 'same-origin' // Permet d'envoyer les cookies avec la requête pour le domaine courant.
       })
       .then(response => {
         if (!response.ok) {
@@ -78,13 +78,12 @@
 
     function loadAllMatchHistory() {
         console.log("loadAllMatchHistory called");
-        const token = localStorage.getItem('jwtToken');
         fetch('/api/game_settings/match_history/all/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token
             },
+            credentials: 'same-origin', // Permet d'envoyer les cookies avec la requête pour le même domaine
             cache: 'no-cache'
         })
         .then(response => {

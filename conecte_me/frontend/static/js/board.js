@@ -1,29 +1,20 @@
 (function() {
   console.log("Chargement de board.js");
 
-  // Récupérer le token JWT depuis l'URL (s'il existe) et le stocker
-  const urlParams = new URLSearchParams(window.location.search);
-  const token = urlParams.get('jwt');
-  if (token) {
-    localStorage.setItem('jwtToken', token);
-    console.log("Token stocké:", token);
-  } else {
-    console.log("Pas de token JWT dans l'URL");
-  }
-
   // Appliquer les traductions et charger l'historique & le leaderboard
   const storedLang = getCurrentLang();
   loadTranslations(storedLang, () => {
     console.log("🔹 Traductions appliquées après navigation :", storedLang);
   });
 
-  // Toujours mettre à jour le username depuis l'API
+  // Toujours mettre à jour le username depuis l'API sans ajouter manuellement le token
   fetch("/api/game_settings/", {
     method: "GET",
     headers: {
-      "Authorization": "Bearer " + localStorage.getItem('jwtToken'),
       "Content-Type": "application/json"
-    }
+    },
+    // Permet d'envoyer les cookies avec la requête (si le domaine est identique)
+    credentials: "same-origin"
   })
   .then(response => {
     if (!response.ok) {
@@ -44,13 +35,14 @@
 
   function loadMatchHistory() {
     console.log("Fonction historique des matchs");
-    const token = localStorage.getItem('jwtToken');
+    // Le token n'est plus récupéré depuis le localStorage,
     fetch('/api/game_settings/match_history/list/', {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token
+        'Content-Type': 'application/json'
+        // Pas besoin d'ajouter l'en-tête Authorization.
       },
+      credentials: 'same-origin', // Permet d'envoyer les cookies avec la requête
       cache: 'no-cache'
     })
     .then(response => {
@@ -90,16 +82,16 @@
   }
 
   function loadLeaderboard() {
-    const token = localStorage.getItem('jwtToken');
     const currentUser = localStorage.getItem('username') || '';
     console.log("currentUser =", currentUser);
-    
+
     fetch('/api/game_settings/leaderboard/', {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token
+        'Content-Type': 'application/json'
+        // L'en-tête Authorization n'est plus nécessaire.
       },
+      credentials: 'same-origin', // Assure que le cookie est inclus dans la requête
       cache: 'no-cache'
     })
     .then(response => {

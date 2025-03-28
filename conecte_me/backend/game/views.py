@@ -22,10 +22,10 @@ from .models import GameSettings, MatchHistory
 @require_http_methods(["GET", "POST"])# Limite la vue aux méthodes HTTP GET et POST
 @jwt_required # Protection par token JWT
 def game_settings_api(request):
-"""
-Cette vue permet de récupérer ou mettre à jour les réglages du jeu 
-pour l'utilisateur identifié par son token JWT.
-"""
+    """
+    Cette vue permet de récupérer ou mettre à jour les réglages du jeu 
+    pour l'utilisateur identifié par son token JWT.
+    """
     # Récupère l'utilisateur attaché à la requête (grâce au décorateur jwt_required)
     user = getattr(request, 'user', None)
     # Si aucun utilisateur n'est trouvé, renvoie une réponse d'erreur 401 (Non autorisé)
