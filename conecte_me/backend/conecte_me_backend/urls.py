@@ -19,6 +19,8 @@ urlpatterns = [
     path('', health_check, name='health_check'),
     # Ajoutez directement la vue pour les réglages de jeu
     path('api/game_settings/', include('game.urls')),  # Cette inclusion met à disposition l'API
+    path('tournament/', include('tournament.urls')),
+	
 ]
 
 # Ajout de la configuration pour servir les fichiers médias en développement

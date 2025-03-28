@@ -135,4 +135,14 @@
       console.error("Erreur lors du chargement du leaderboard :", error);
     });
   }
-})();
+	// Redirection vers /tournament quand on clique sur l'icône trophée
+	document.querySelectorAll('.icon-circle').forEach(circle => {
+	  circle.addEventListener('click', function () {
+		const mode = this.dataset.mode;
+		if (mode === 'tournament') {
+		  window.navigateTo('/tournament');
+		}
+	  });
+	});
+ })();
+ 

@@ -11,6 +11,8 @@ class AuthenticationRequiredMiddleware:
         self.protected_paths = ['/board', '/user', '/stats', '/setup']
 
     def __call__(self, request):
+        if request.path.startswith("/tournament/api/"):
+            return self.get_response(request)  # Ne pas rediriger les appels API
         if request.path in self.protected_paths:
             if not request.session.get('user_id'):
                 return redirect('/home')

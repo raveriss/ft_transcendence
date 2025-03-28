@@ -6,6 +6,39 @@ WARNING 2025-03-28 13:41:49,943 log 1 140309905115960 Unauthorized: /auth/user/
 WARNING 2025-03-28 13:41:51,127 log 1 140309905115960 Unauthorized: /auth/user/
 WARNING 2025-03-28 13:43:27,648 log 1 140309905115960 Unauthorized: /auth/user/
 WARNING 2025-03-28 13:43:37,184 log 1 140309905115960 Unauthorized: /auth/user/
-WARNING 2025-03-28 17:33:18,228 log 1 140301286644536 Unauthorized: /auth/user/
-WARNING 2025-03-28 17:36:35,820 log 1 140383934548792 Unauthorized: /auth/user/
-WARNING 2025-03-28 17:36:42,464 log 1 140383934548792 Unauthorized: /auth/user/
+WARNING 2025-03-28 12:27:43,437 log 1 140184401345336 Bad Request: /tournament/1/match/1/finish/
+WARNING 2025-03-28 12:47:51,628 log 1 140402055445304 Bad Request: /tournament/37/match/46/finish/
+WARNING 2025-03-28 13:15:59,299 log 1 140402055445304 Bad Request: /tournament/37/match/46/finish/
+WARNING 2025-03-28 13:28:46,953 log 1 140115468991288 Bad Request: /tournament/38/match/55/finish/
+WARNING 2025-03-28 13:43:58,230 log 1 140641825602360 Bad Request: /tournament/42/match/66/finish/
+WARNING 2025-03-28 13:44:05,821 log 1 140641825602360 Bad Request: /tournament/42/match/66/finish/
+WARNING 2025-03-28 13:50:12,400 log 1 139719942064952 Bad Request: /tournament/43/match/69/finish/
+WARNING 2025-03-28 13:50:17,808 log 1 139719942064952 Bad Request: /tournament/43/match/69/finish/
+WARNING 2025-03-28 13:50:26,551 log 1 139719942064952 Bad Request: /tournament/43/match/69/finish/
+WARNING 2025-03-28 14:20:24,003 log 1 140637766646584 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:22:19,059 log 1 140208776371000 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:22:21,870 log 1 140208776371000 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:22:23,616 log 1 140208776371000 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:22:39,643 log 1 140208776371000 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:24:09,790 log 1 140208776371000 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:26:21,727 log 1 140432729361208 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:34:02,430 log 1 140432729361208 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:46:29,105 log 1 140622878882616 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:46:51,150 log 1 140622878882616 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:54:08,206 log 1 140636685114168 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:57:54,144 log 1 140636685114168 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 14:59:14,652 log 1 140250374282040 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 15:06:43,773 log 1 140250374282040 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 15:10:35,419 log 1 140609217755960 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 15:10:44,958 log 1 140609217755960 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 15:16:13,294 log 1 140193395804984 Not Found: /tournament/get_current_id/
+WARNING 2025-03-28 16:59:28,940 log 1 140690324908856 Unauthorized: /auth/user/
+WARNING 2025-03-28 16:59:30,025 log 1 140690324908856 Unauthorized: /auth/user/
+WARNING 2025-03-28 16:59:44,759 log 1 140690324908856 Bad Request: /auth/signup/
+WARNING 2025-03-28 16:59:52,277 log 1 140690324908856 Bad Request: /auth/signup/
+WARNING 2025-03-28 16:59:57,982 log 1 140690324908856 Bad Request: /auth/signup/
+WARNING 2025-03-28 17:00:05,850 log 1 140690324908856 Bad Request: /auth/signup/
+WARNING 2025-03-28 17:00:23,664 log 1 140690324908856 Bad Request: /auth/signup/
+WARNING 2025-03-28 17:12:27,610 log 1 140149891681080 Unauthorized: /auth/user/
+WARNING 2025-03-28 17:12:41,756 log 1 140149891681080 Unauthorized: /auth/user/
+WARNING 2025-03-28 17:12:43,102 log 1 140149891681080 Unauthorized: /auth/user/

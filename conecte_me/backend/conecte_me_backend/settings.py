@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     # 'chat',
     'rest_framework',
     'oauth2_provider',
+    'django_extensions',
 
     # Applications personnalisées
     'oauth_app',
     'game',
+    'tournament',
 ]
 
 # Middleware
@@ -54,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_COOKIE_SECURE = True
 
 # Configuration des URL
 ROOT_URLCONF = 'conecte_me_backend.urls'

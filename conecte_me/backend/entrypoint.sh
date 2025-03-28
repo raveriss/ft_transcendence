@@ -3,6 +3,24 @@ set -e
 
 echo "🚀 Démarrage du backend..."
 
+# Génération et application des migrations
+echo "⚙️ Génération des migrations pour l'app 'game'..."
+python manage.py makemigrations game --noinput
+
+echo "⚙️ Génération des migrations pour l'app 'game'..."
+python manage.py makemigrations tournament --noinput
+
+echo "⚙️ Application des migrations pour l'app 'game'..."
+python manage.py migrate game --noinput
+
+echo "⚙️ Application des migrations pour l'app 'game'..."
+python manage.py migrate tournament --noinput
+
+echo "⚙️ Application de toutes les migrations restantes..."
+python manage.py migrate --noinput
+
+echo "✅ Migrations appliquées automatiquement."
+
 # Attente de la base de données PostgreSQL
 echo "⏳ Attente de la disponibilité de la base de données..."
 max_retries=20
@@ -25,17 +43,6 @@ while ! nc -z "$REDIS_HOST" "$REDIS_PORT"; do
 done
 echo "✅ Redis est prêt !"
 
-# Génération et application des migrations
-echo "⚙️ Génération des migrations pour l'app 'game'..."
-python manage.py makemigrations game --noinput
-
-echo "⚙️ Application des migrations pour l'app 'game'..."
-python manage.py migrate game --noinput
-
-echo "⚙️ Application de toutes les migrations restantes..."
-python manage.py migrate --noinput
-
-echo "✅ Migrations appliquées automatiquement."
 
 # Collecte des fichiers statiques pour éviter les erreurs de fichiers statiques en production
 echo "📦 Collecte des fichiers statiques..."
