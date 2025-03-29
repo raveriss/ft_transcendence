@@ -3,23 +3,31 @@ set -e
 
 echo "🚀 Démarrage du backend..."
 
-# Génération et application des migrations
+# Génération des migrations pour chaque app
 echo "⚙️ Génération des migrations pour l'app 'game'..."
 python manage.py makemigrations game --noinput
 
-echo "⚙️ Génération des migrations pour l'app 'game'..."
+echo "⚙️ Génération des migrations pour l'app 'tournament'..."
 python manage.py makemigrations tournament --noinput
 
+echo "⚙️ Génération des migrations pour l'app 'oauth_app'..."
+python manage.py makemigrations oauth_app --noinput
+
+# Application des migrations spécifiques
 echo "⚙️ Application des migrations pour l'app 'game'..."
 python manage.py migrate game --noinput
 
-echo "⚙️ Application des migrations pour l'app 'game'..."
+echo "⚙️ Application des migrations pour l'app 'tournament'..."
 python manage.py migrate tournament --noinput
 
+echo "⚙️ Application des migrations pour l'app 'oauth_app'..."
+python manage.py migrate oauth_app --noinput
+
+# Application de tout ce qui reste
 echo "⚙️ Application de toutes les migrations restantes..."
 python manage.py migrate --noinput
 
-echo "✅ Migrations appliquées automatiquement."
+echo "✅ Toutes les migrations ont été appliquées."
 
 # Attente de la base de données PostgreSQL
 echo "⏳ Attente de la disponibilité de la base de données..."
@@ -43,8 +51,7 @@ while ! nc -z "$REDIS_HOST" "$REDIS_PORT"; do
 done
 echo "✅ Redis est prêt !"
 
-
-# Collecte des fichiers statiques pour éviter les erreurs de fichiers statiques en production
+# Collecte des fichiers statiques
 echo "📦 Collecte des fichiers statiques..."
 python manage.py collectstatic --noinput
 

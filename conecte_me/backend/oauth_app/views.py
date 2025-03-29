@@ -25,7 +25,11 @@ import requests
 # Importation de la bibliothèque jwt pour encoder et décoder des JSON Web Tokens.
 import jwt
 
+# /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
+# /*                      IMPORTS FRIENDSHIP                       */
+# /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
 
+from .utils import remove_friendship
 
 # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
 # /*                      IMPORTS DU FRAMEWORK DJANGO                          */
@@ -1107,3 +1111,119 @@ def toggle_2fa(request):
     
     return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
 
+# /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
+# /*                   FRIENDSHIP                                              */
+# /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
+
+
+@csrf_exempt
+def remove_friend_view(request):
+    """
+    Vue pour refuser une demande d'ami ou supprimer un ami existant.
+    Elle prend en paramètre `target_id` : l'ID de l'utilisateur concerné.
+    """
+    if request.method != "POST":
+        return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
+
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
+
+    try:
+        user = User42.objects.get(pk=user_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur introuvable."}, status=404)
+
+    # Extraction du corps JSON
+    try:
+        data = json.loads(request.body)
+        target_id = data.get('target_id')
+        if target_id is None:
+            return JsonResponse({"success": False, "error": "Champ 'target_id' manquant."}, status=400)
+    except Exception:
+        return JsonResponse({"success": False, "error": "Format JSON invalide."}, status=400)
+
+    # Récupération de l'autre utilisateur
+    try:
+        target_user = User42.objects.get(pk=target_id)
+    except User42.DoesNotExist:
+        return JsonResponse({"success": False, "error": "Utilisateur ciblé introuvable."}, status=404)
+
+    # Appel de la fonction utilitaire
+    success, message = remove_friendship(user, target_user)
+    status_code = 200 if success else 400
+
+    return JsonResponse({"success": success, "message": message}, status=status_code)
+
+@csrf_exempt
+def friend_request_view(request):
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'Méthode non autorisée.'}, status=405)
+
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({'success': False, 'error': 'Utilisateur non authentifié.'}, status=401)
+
+    try:
+        data = json.loads(request.body)
+        target_id = data.get('target_id')
+        if target_id is None:
+            raise ValueError("ID cible manquant")
+    except Exception:
+        return JsonResponse({'success': False, 'error': 'Requête invalide.'}, status=400)
+
+    from oauth_app.models import User42, Friendship
+
+    try:
+        sender = User42.objects.get(pk=user_id)
+        receiver = User42.objects.get(user_id=target_id)
+    except User42.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Utilisateur cible introuvable.'}, status=404)
+
+    # On vérifie si une demande existe déjà
+    if Friendship.objects.filter(sender=sender, receiver=receiver).exists():
+        return JsonResponse({'success': False, 'error': 'Demande déjà envoyée.'}, status=400)
+
+    Friendship.objects.create(sender=sender, receiver=receiver)
+    return JsonResponse({'success': True, 'message': 'Demande d\'ami envoyée.'})
+
+@csrf_exempt
+def accept_friend_request_view(request):
+    """
+    Vue pour qu'un utilisateur accepte une demande d'amitié entrante.
+    Nécessite un champ `sender_id` dans le body.
+    """
+    if request.method != 'POST':
+        return JsonResponse({'success': False, 'error': 'Méthode non autorisée.'}, status=405)
+
+    user_id = request.session.get('user_id')
+    if not user_id:
+        return JsonResponse({'success': False, 'error': 'Utilisateur non authentifié.'}, status=401)
+
+    try:
+        data = json.loads(request.body)
+        sender_id = data.get('sender_id')
+        if sender_id is None:
+            raise ValueError("ID de l'expéditeur manquant")
+    except Exception:
+        return JsonResponse({'success': False, 'error': 'Requête invalide.'}, status=400)
+
+    from oauth_app.models import User42, Friendship
+
+    try:
+        receiver = User42.objects.get(pk=user_id)
+        sender = User42.objects.get(user_id=sender_id)
+    except User42.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Utilisateur introuvable.'}, status=404)
+
+    try:
+        # On cherche une demande d’amitié existante
+        friendship = Friendship.objects.get(sender=sender, receiver=receiver)
+    except Friendship.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Aucune demande à accepter.'}, status=404)
+
+    # Mise à jour du statut pour marquer l’amitié comme acceptée
+    friendship.status = 'accepted'
+    friendship.save()
+
+    return JsonResponse({'success': True, 'message': 'Demande d\'ami acceptée.'})

@@ -11,6 +11,8 @@ from django.contrib.auth.hashers import make_password
 # Importation de now depuis django.utils.timezone pour obtenir la date et l'heure actuelles.
 from django.utils.timezone import now
 
+from django.db.models import Q #importation de Q pour gerer les requetes d'amis
+
 # Définition du modèle User42 pour représenter un utilisateur provenant de l'école 42.
 class User42(models.Model):
 
@@ -77,6 +79,15 @@ class User42(models.Model):
     @property
     def is_authenticated(self):
         return True
+    
+    # Méthode pour obtenir les amis de l'utilisateur.
+    def get_friends(self):
+        from oauth_app.models import Friendship
+        return User42.objects.filter(
+        Q(sent_friend_requests__receiver=self, sent_friend_requests__is_accepted=True) |
+        Q(received_friend_requests__sender=self, received_friend_requests__is_accepted=True)
+    ).distinct()
+
 
 # Définition du modèle UserLoginHistory pour conserver un historique des connexions des utilisateurs.
 class UserLoginHistory(models.Model):
@@ -106,3 +117,34 @@ class UserLoginHistory(models.Model):
     # Méthode spéciale __str__ pour fournir une représentation lisible de l'historique de connexion.
     def __str__(self):
         return f"Connexion de {self.user.username} - {self.timestamp}"
+    
+    # Modèle représentant une relation d'amitié entre deux utilisateurs.
+class Friendship(models.Model):
+    # L'utilisateur qui envoie la demande d'amitié.
+    sender = models.ForeignKey(
+        User42,
+        related_name='sent_friend_requests',
+        on_delete=models.CASCADE
+    )
+
+    # L'utilisateur qui reçoit la demande d'amitié.
+    receiver = models.ForeignKey(
+        User42,
+        related_name='received_friend_requests',
+        on_delete=models.CASCADE
+    )
+
+    # Statut de la demande : False = en attente, True = acceptée.
+    is_accepted = models.BooleanField(default=False)
+
+    # Date de création de la demande.
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        # Empêche les doublons (une même relation sender→receiver ne peut pas être créée deux fois).
+        unique_together = ('sender', 'receiver')
+
+    def __str__(self):
+        status = "amis" if self.is_accepted else "en attente"
+        return f"{self.sender.username} → {self.receiver.username} ({status})"
+

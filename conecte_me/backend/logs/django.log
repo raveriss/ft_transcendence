@@ -42,3 +42,58 @@ WARNING 2025-03-28 17:00:23,664 log 1 140690324908856 Bad Request: /auth/signup/
 WARNING 2025-03-28 17:12:27,610 log 1 140149891681080 Unauthorized: /auth/user/
 WARNING 2025-03-28 17:12:41,756 log 1 140149891681080 Unauthorized: /auth/user/
 WARNING 2025-03-28 17:12:43,102 log 1 140149891681080 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:38:20,297 log 1 140403071146808 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:38:36,421 log 1 140403071146808 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:38:37,285 log 1 140403071146808 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:38:46,155 log 1 140403071146808 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:38:46,155 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:38:52,375 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:10,594 log 1 140403071146808 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:10,594 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:14,087 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:14,087 log 1 140403071146808 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:15,548 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:15,549 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:16,059 log 1 140403071146808 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:16,060 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:16,837 log 1 140403071146808 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:16,837 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:17,240 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:17,241 log 1 140403071146808 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:17,913 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:17,914 log 1 140403071146808 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:21,783 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:21,783 log 1 140403071146808 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:25,754 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:25,754 log 1 140403071146808 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:28,457 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:33,858 log 1 140403071146808 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:33,858 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:37,498 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:40,799 log 1 140403071146808 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:39:40,799 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:39:41,623 log 1 140403071146808 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:39:45,321 log 1 140403066915640 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:39:47,677 log 1 140403066915640 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:39:49,716 log 1 140403071146808 Unauthorized: /auth/user/
+WARNING 2025-03-29 09:40:01,920 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:40:01,920 log 1 140403066915640 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:41:19,342 log 1 140403066915640 Bad Request: /tournament/1/play_next/
+WARNING 2025-03-29 09:41:20,934 log 1 140403071146808 Bad Request: /tournament/1/play_next/
+WARNING 2025-03-29 09:41:24,259 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:41:33,758 log 1 140403071146808 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:41:33,758 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:41:34,441 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:41:34,441 log 1 140403071146808 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:41:34,930 log 1 140403066915640 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 09:41:34,930 log 1 140403071146808 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 09:44:14,651 log 1 140403066915640 Bad Request: /tournament/2/play_next/
+WARNING 2025-03-29 09:44:16,985 log 1 140403071146808 Bad Request: /tournament/2/play_next/
+WARNING 2025-03-29 10:44:46,981 log 1 140315340098360 Not Found: /favicon.ico
+WARNING 2025-03-29 10:47:16,180 log 1 140315340098360 Not Found: /login/
+WARNING 2025-03-29 10:52:11,515 log 1 140315340098360 Unauthorized: /auth/user/
+WARNING 2025-03-29 11:01:29,321 log 1 140315340098360 Not Found: /auth/42/friends/remove/
+WARNING 2025-03-29 11:08:04,140 log 1 140315340098360 Not Found: /auth/42/friends/request/
+WARNING 2025-03-29 11:08:54,938 log 1 140315340098360 Not Found: /auth/42/friends/request/
+WARNING 2025-03-29 11:10:01,576 log 1 140315340098360 Not Found: /auth/42/friends/request/
+WARNING 2025-03-29 11:10:10,531 log 1 140315340098360 Not Found: /auth/42/friends/request/

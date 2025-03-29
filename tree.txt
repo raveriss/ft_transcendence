@@ -1,0 +1,59 @@
+-rw-r--r-- 1 ode-cleb 2022_paris  2248 Mar 25 10:21 42_logo.svg
+-rw-r--r-- 1 ode-cleb 2022_paris 15969 Mar 25 10:21 README.md
+
+assets:
+total 35600
+drwxr-xr-x 2 ode-cleb 2022_paris     4096 Mar 25 10:21 .
+drwxr-xr-x 6 ode-cleb 2022_paris      132 Mar 29 12:24 ..
+-rw-r--r-- 1 ode-cleb 2022_paris 27976277 Mar 25 10:21 Accueil_pong.gif
+-rw-r--r-- 1 ode-cleb 2022_paris   898048 Mar 25 10:21 Screencast from 03-10-2025 02:26:38 PM.webm
+-rw-r--r-- 1 ode-cleb 2022_paris  1079385 Mar 25 10:21 Screenshot_accueil.png
+-rw-r--r-- 1 ode-cleb 2022_paris   243664 Mar 25 10:21 Screenshot_add_friends_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris    50342 Mar 25 10:21 Screenshot_chat.png
+-rw-r--r-- 1 ode-cleb 2022_paris    53830 Mar 25 10:21 Screenshot_chat_prive.png
+-rw-r--r-- 1 ode-cleb 2022_paris    78906 Mar 25 10:21 Screenshot_chat_salon.png
+-rw-r--r-- 1 ode-cleb 2022_paris   265737 Mar 25 10:21 Screenshot_credits.png
+-rw-r--r-- 1 ode-cleb 2022_paris   326708 Mar 25 10:21 Screenshot from 2025-01-20 18-44-29.png
+-rw-r--r-- 1 ode-cleb 2022_paris   627820 Mar 25 10:21 Screenshot from 2025-01-20 18-51-18.png
+-rw-r--r-- 1 ode-cleb 2022_paris   334678 Mar 25 10:21 Screenshot from 2025-01-25 16-03-00.png
+-rw-r--r-- 1 ode-cleb 2022_paris   233665 Mar 25 10:21 Screenshot_game_interface_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris   265778 Mar 25 10:21 Screenshot_game_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris   332879 Mar 25 10:21 Screenshot_log_ELK.png
+-rw-r--r-- 1 ode-cleb 2022_paris   190226 Mar 25 10:21 Screenshot_login.png
+-rw-r--r-- 1 ode-cleb 2022_paris   369584 Mar 25 10:21 Screenshot_monitoring_prometheus_grafana.png
+-rw-r--r-- 1 ode-cleb 2022_paris   477279 Mar 25 10:21 Screenshot_setup_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris    82975 Mar 25 10:21 Screenshot_signup_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris   351293 Mar 25 10:21 Screenshot_social_networks_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris   704301 Mar 25 10:21 Screenshot_statistique_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris   165225 Mar 25 10:21 Screenshot_tournament_scores_ethereum_connected.png
+-rw-r--r-- 1 ode-cleb 2022_paris   158777 Mar 25 10:21 Screenshot_tournament_scores_ethereum.png
+-rw-r--r-- 1 ode-cleb 2022_paris   221346 Mar 25 10:21 Screenshot_user_windows.png
+-rw-r--r-- 1 ode-cleb 2022_paris   696103 Mar 25 10:21 Screnshot_tournament_game.png
+-rw-r--r-- 1 ode-cleb 2022_paris   211143 Mar 25 10:21 Screnshot_tournament.png
+
+conecte_me:
+total 32
+drwxr-xr-x 6 ode-cleb 2022_paris  207 Mar 29 11:55 .
+drwxr-xr-x 6 ode-cleb 2022_paris  132 Mar 29 12:24 ..
+drwxr-xr-x 9 ode-cleb 2022_paris  203 Mar 29 09:33 backend
+drwxr-xr-x 2 ode-cleb 2022_paris   48 Mar 25 10:21 certs
+-rw-r--r-- 1 ode-cleb 2022_paris  219 Mar 29 11:55 cookies_user_a.txt
+-rw-r--r-- 1 ode-cleb 2022_paris  219 Mar 29 11:55 cookies_user_b.txt
+-rw-r--r-- 1 ode-cleb 2022_paris 4306 Mar 29 09:33 docker-compose.yml
+-rw-r--r-- 1 ode-cleb 2022_paris   40 Mar 25 10:21 .dockerignore
+drwxr-xr-x 5 ode-cleb 2022_paris  131 Mar 29 09:33 elk
+-rw-r--r-- 1 ode-cleb 2022_paris 1371 Mar 29 09:33 .env
+drwxr-xr-x 3 ode-cleb 2022_paris   56 Mar 27 14:45 frontend
+-rw-r--r-- 1 ode-cleb 2022_paris 3869 Mar 29 09:33 nginx.conf
+-rw-r--r-- 1 ode-cleb 2022_paris 3086 Mar 25 10:21 README.md
+
+docs:
+total 27848
+drwxr-xr-x 2 ode-cleb 2022_paris      240 Mar 25 10:21 .
+drwxr-xr-x 6 ode-cleb 2022_paris      132 Mar 29 12:24 ..
+-rw-r--r-- 1 ode-cleb 2022_paris   242598 Mar 25 10:21 comprendre-oauth-2-0-par-lexemple.pdf
+-rw-r--r-- 1 ode-cleb 2022_paris 10093427 Mar 25 10:21 django-readthedocs-io-en-5.1.x.pdf
+-rw-r--r-- 1 ode-cleb 2022_paris  1697686 Mar 25 10:21 ft_transcendence.en.subject.pdf
+-rw-r--r-- 1 ode-cleb 2022_paris   126552 Mar 25 10:21 Guides API de 42 _ Flux d'application Web.pdf
+-rw-r--r-- 1 ode-cleb 2022_paris 16229542 Mar 25 10:21 Manuel.PostgreSQL.17.pdf
+-rw-r--r-- 1 ode-cleb 2022_paris   112898 Mar 25 10:21 rfc6749.txt.pdf

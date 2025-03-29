@@ -18,6 +18,8 @@ from .views import (
     delete_account_view,        # Vue pour supprimer le compte utilisateur.
     user_login_history,         # Vue pour afficher l'historique des connexions de l'utilisateur.
     update_login_status,        # Vue pour mettre à jour le statut de connexion de l'utilisateur.
+    friend_request_view,        # Vue pour gérer les demandes d'ami.
+    accept_friend_request_view, # Vue pour accepter une demande d'ami.
 )
 
 # Importation des modules twofa_views et views qui contiennent respectivement les vues de l'authentification à deux facteurs et d'autres vues complémentaires.
@@ -76,4 +78,9 @@ urlpatterns = [
 
     # Route pour déconnecter l'utilisateur.
     path('logout/', views.logout_view, name='logout'),
+
+    # Route pour refuser une demande d'ami ou supprimer une relation.
+    path('friends/remove/', views.remove_friend_view, name='remove_friend'),
+    path('friends/request/', friend_request_view, name='friend_request'),
+    path('friends/accept/', accept_friend_request_view, name='accept_friend'),
 ]
