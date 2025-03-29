@@ -87,7 +87,7 @@ urlpatterns = [
     path('friends/remove/', remove_friend_view, name='remove_friend'),
     path('friends/request/', friend_request_view, name='friend_request'),
     path('friends/accept/', accept_friend_request_view, name='accept_friend'),
-    path('users/search/', search_users_view, name='search_users'),
+    path('user/search/', search_users_view, name='search_users'),
     path('friends/incoming/', list_incoming_requests_view, name='list_incoming_requests'),
     path('friends/list/', list_friends_view, name='list_friends'),
 ]

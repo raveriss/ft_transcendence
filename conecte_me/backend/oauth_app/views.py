@@ -1237,51 +1237,41 @@ def accept_friend_request_view(request):
     return JsonResponse({'success': True, 'message': 'Demande d\'ami acceptée.'})
 
 
+from oauth_app.models import User42, Friendship
+
 @csrf_exempt
 def search_users_view(request):
-    """
-    Retourne les utilisateurs qui ne sont ni l'utilisateur actuel,
-    ni ses amis, ni ceux avec qui une demande est en attente.
-    """
-    print("🔍 [search_users_view] Appel de la vue")
-
     if request.method != 'GET':
-        print("❌ Méthode non autorisée :", request.method)
         return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
 
     user_id = request.session.get("user_id")
-    print(f"📦 user_id récupéré depuis la session: {user_id}")
-
     if not user_id:
-        print("🚫 Aucun user_id en session — utilisateur non authentifié")
         return JsonResponse({"success": False, "error": "Utilisateur non authentifié."}, status=401)
 
     query = request.GET.get("q", "").strip()
-    print(f"🔎 Paramètre de recherche 'q': '{query}'")
 
     try:
         current_user = User42.objects.get(pk=user_id)
-        print(f"✅ Utilisateur actuel trouvé : {current_user.username}")
     except User42.DoesNotExist:
-        print(f"❌ Utilisateur avec ID {user_id} introuvable")
         return JsonResponse({"success": False, "error": "Utilisateur introuvable."}, status=404)
 
-    # Collecte des IDs à exclure
+    # IDs des amis
     friends_ids = set(friend.user_id for friend in current_user.get_friends())
-    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
-    outgoing = set(req.to_user.user_id for req in current_user.outgoing_requests.all())
-    excluded_ids = friends_ids.union(incoming).union(outgoing).union({user_id})
 
-    print(f"🚫 IDs exclus ({len(excluded_ids)}): {excluded_ids}")
+    # Requêtes en attente où le user est le destinataire
+    incoming = Friendship.objects.filter(receiver=current_user, is_accepted=False).values_list('sender__user_id', flat=True)
+
+    # Requêtes en attente envoyées par le user
+    outgoing = Friendship.objects.filter(sender=current_user, is_accepted=False).values_list('receiver__user_id', flat=True)
+
+    excluded_ids = friends_ids.union(incoming).union(outgoing).union({user_id})
 
     if query:
         results = User42.objects.filter(
             Q(username__icontains=query) | Q(first_name__icontains=query)
         ).exclude(user_id__in=excluded_ids)
-        print(f"🔍 Résultats filtrés avec query '{query}': {results.count()}")
     else:
         results = User42.objects.exclude(user_id__in=excluded_ids)
-        print(f"🔍 Résultats sans filtre: {results.count()}")
 
     data = [{
         "user_id": user.user_id,
@@ -1290,7 +1280,6 @@ def search_users_view(request):
         "avatar_url": user.profile_image.url if user.profile_image else "/media/profile_pictures/default_avatar.png"
     } for user in results]
 
-    print(f"📤 Utilisateurs renvoyés ({len(data)}): {[u['username'] for u in data]}")
     return JsonResponse({"success": True, "results": data}, status=200)
 
 @csrf_exempt

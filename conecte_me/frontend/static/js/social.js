@@ -4,7 +4,7 @@ console.log("✅ social.js chargé !");
   // 🔍 Charger tous les utilisateurs (hors amis et demandes)
   async function loadAllUsers() {
     console.log("🔍 Chargement de tous les utilisateurs...");
-    const res = await fetch('/auth/users/search?q=', {
+    const res = await fetch('/auth/user/search?q=', {
       credentials: 'include'
     });
     const data = await res.json();
@@ -49,7 +49,7 @@ console.log("✅ social.js chargé !");
       method: 'POST',
       credentials: 'include',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ target_id: fromUserId })
+      body: JSON.stringify({ sender_id: fromUserId })
     });
     const data = await res.json();
     alert(data.message || data.error);
