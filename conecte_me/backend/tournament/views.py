@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from django.views.decorators.http import require_GET
 from .models import Tournament, Player, Match
 import random, json
@@ -13,6 +14,9 @@ def create_tournament(request):
             name = data.get("name")
             num_players = int(data.get("num_players"))
             player_nicknames = data.get("player_nicknames", [])
+            
+            if num_players % 2 != 0:
+                return JsonResponse({"error": "Le nombre de joueurs doit être pair."}, status=400)
 
             if not name or not player_nicknames:
                 return JsonResponse({"error": "Le nom du tournoi et les pseudos des joueurs sont requis."}, status=400)
@@ -64,16 +68,21 @@ def create_tournament(request):
 
 def create_matches(tournament, players, round_number):
     matches = []
-    for i in range(0, len(players), 2):
-        if i + 1 < len(players):
-            match = Match.objects.create(
-                tournament=tournament,
-                player1=players[i],
-                player2=players[i + 1],
-                round_number=round_number
-            )
-            matches.append(match)
+    i = 0
+    while i + 1 < len(players):
+        match = Match.objects.create(
+            tournament=tournament,
+            player1=players[i],
+            player2=players[i + 1],
+            round_number=round_number
+        )
+        matches.append(match)
+        i += 2
     return matches
+
+
+
+
 
 #@csrf_exempt
 def get_tournament_details(request, tournament_id):
@@ -139,6 +148,25 @@ def tournament_details_json(request, tournament_id):
     }
     return JsonResponse(data)
 
+@csrf_exempt
+@require_POST
+def play_specific_match(request, tournament_id, match_id):
+    try:
+        match = Match.objects.get(id=match_id, tournament_id=tournament_id)
+
+        if match.is_finished:
+            return JsonResponse({"error": "Ce match est déjà terminé."}, status=400)
+
+        return JsonResponse({
+            "player1": match.player1.nickname,
+            "player2": match.player2.nickname,
+            "match_id": match.id,
+            "round": match.round_number
+        })
+
+    except Match.DoesNotExist:
+        return JsonResponse({"error": "Match introuvable."}, status=404)
+
 
 @csrf_exempt
 def play_next_match(request, tournament_id):
@@ -165,10 +193,8 @@ def get_current_tournament_id(request):
     return JsonResponse({"tournament_id": tid})
 
 @csrf_exempt
+@require_POST
 def finish_match(request, tournament_id, match_id):
-    if request.method != 'POST':
-        return JsonResponse({"error": "Méthode non autorisée."}, status=405)
-
     match = get_object_or_404(Match, id=match_id, tournament_id=tournament_id)
     if match.is_finished:
         return JsonResponse({"error": "Ce match est déjà terminé."}, status=400)
@@ -192,16 +218,65 @@ def finish_match(request, tournament_id, match_id):
         tournament = match.tournament
         current_round = match.round_number
 
-        if not tournament.matches.filter(round_number=current_round, is_finished=False).exists():
-            winners = [m.winner for m in tournament.matches.filter(round_number=current_round, is_finished=True)]
-            if len(winners) == 1:
-                tournament.winner = winners[0].nickname
-                tournament.save()
-                return JsonResponse({"message": f"Tournoi terminé. Vainqueur: {tournament.winner}"})
-            else:
-                create_matches(tournament, winners, round_number=current_round + 1)
+        # Vérifie si tous les matchs du round sont terminés
+        if tournament.matches.filter(round_number=current_round, is_finished=False).exists():
+            return JsonResponse({"message": "Match terminé et enregistré."})
 
-        return JsonResponse({"message": "Match terminé et enregistré."})
+        # Tous les matchs sont terminés
+        winners = list(tournament.matches.filter(round_number=current_round).values_list('winner', flat=True))
+        winner_players = list(Player.objects.filter(id__in=winners))
+
+        if len(winner_players) == 1:
+            tournament.winner = winner_players[0].nickname
+            tournament.save()
+            return JsonResponse({"message": f"Tournoi terminé. Vainqueur: {tournament.winner}"})
+
+        # Si impair, on met de côté un joueur pour plus tard
+        exempted_player = None
+        if len(winner_players) % 2 == 1:
+            exempted_player = winner_players.pop()
+
+        # Crée les matchs suivants
+        new_matches = create_matches(tournament, winner_players, round_number=current_round + 1)
+
+        # Si on avait mis un joueur de côté, on le fait avancer directement au prochain round
+        if exempted_player:
+            match = Match.objects.create(
+                tournament=tournament,
+                player1=exempted_player,
+                player2=exempted_player,
+                winner=exempted_player,
+                is_finished=True,
+                round_number=current_round + 1
+            )
+
+        return JsonResponse({"message": "Match terminé et round suivant généré."})
 
     except json.JSONDecodeError:
         return JsonResponse({"error": "Requête invalide (JSON)."}, status=400)
+
+
+
+
+@require_GET
+def list_tournaments(request):
+    tournois = Tournament.objects.all().order_by('-id')[:10]  # tri par ID descendant
+    return JsonResponse({
+        "tournaments": [
+            {"id": t.id, "name": t.name, "num_players": t.num_players, "winner": t.winner}
+            for t in tournois
+        ]
+    })
+
+@csrf_exempt
+@require_POST
+def set_current_tournament_id(request):
+    try:
+        data = json.loads(request.body)
+        tid = data.get("tournament_id")
+        if not Tournament.objects.filter(id=tid).exists():
+            return JsonResponse({"error": "Tournoi introuvable"}, status=404)
+        request.session["current_tournament_id"] = tid
+        return JsonResponse({"success": True})
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=400)

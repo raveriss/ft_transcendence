@@ -75,6 +75,8 @@ async function checkAuth() {
         cssFile = 'static/css/stats.css';
       } else if (route === '/game') {
         cssFile = 'static/css/game.css';
+      } else if (route === '/tournament-details') {
+        cssFile = 'static/css/tournament_details.css';
       } else {
         cssFile = '/static/css/main.css';
       }
@@ -135,7 +137,9 @@ async function checkAuth() {
         scriptFile = 'static/js/tournament.js';
 	} else if (route === '/tournament-details') {
 		scriptFile = 'static/js/tournament_details.js';
-	} else if (route === '/game-tournament') {
+	} else if (route === '/tournament/list') {
+		scriptFile = 'static/js/tournament.js';
+	}else if (route === '/game-tournament') {
 		scriptFile = 'static/js/game_tournament.js';
     } else if (route === '/stats') {
       scriptFile = 'static/js/stats.js';
@@ -266,7 +270,16 @@ async function navigateTo(path, pushHistory = true) {
 		  } else {
 			console.warn("⚠️ renderTournamentDetails non défini après chargement du JS");
 		  }
-		}});
+		}
+		if (path === '/tournament') {
+			if (typeof initTournamentPage === 'function') {
+				console.log("📢 Appel explicite de initTournamentPage après chargement du JS");
+				initTournamentPage();
+			} else {
+				console.warn("⚠️ initTournamentPage non défini après chargement du JS");
+			}
+		}
+	});
 
     // 🛠 FORCER LA TRADUCTION APRÈS LE CHANGEMENT DE PAGE
     changeLanguage(getCurrentLang());

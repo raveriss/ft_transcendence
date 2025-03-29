@@ -97,3 +97,208 @@ WARNING 2025-03-29 11:08:04,140 log 1 140315340098360 Not Found: /auth/42/friend
 WARNING 2025-03-29 11:08:54,938 log 1 140315340098360 Not Found: /auth/42/friends/request/
 WARNING 2025-03-29 11:10:01,576 log 1 140315340098360 Not Found: /auth/42/friends/request/
 WARNING 2025-03-29 11:10:10,531 log 1 140315340098360 Not Found: /auth/42/friends/request/
+WARNING 2025-03-29 15:40:15,108 log 1 140179468172088 Not Found: /favicon.ico
+WARNING 2025-03-29 15:51:23,450 log 1 140601449651000 Not Found: /favicon.ico
+WARNING 2025-03-29 16:03:36,648 log 1 139956592970552 Not Found: /favicon.ico
+WARNING 2025-03-29 16:07:46,339 log 1 140606683446072 Bad Request: /tournament/1/play_next/
+WARNING 2025-03-29 16:48:40,940 log 1 140427546753848 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 16:48:40,943 log 1 140427546753848 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 16:48:42,429 log 1 140427546753848 Unauthorized: /api/game_settings/user_stats/
+WARNING 2025-03-29 16:48:47,235 log 1 140427546753848 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 16:48:47,237 log 1 140427546753848 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 16:48:49,420 log 1 140427546753848 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 16:49:09,800 log 1 140427546753848 Unauthorized: /api/game_settings/match_history/
+WARNING 2025-03-29 16:49:11,672 log 1 140427546753848 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 16:49:11,672 log 1 140427546753848 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 16:49:15,395 log 1 140427546753848 Unauthorized: /api/game_settings/user_stats/
+WARNING 2025-03-29 16:50:24,752 log 1 140300170517304 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 16:50:24,755 log 1 140300170517304 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 16:51:44,778 log 1 140300170517304 Bad Request: /tournament/create/
+ERROR 2025-03-29 16:59:42,852 log 1 139900017568568 Internal Server Error: /tournament/10/match/19/finish/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 220, in finish_match
+    create_matches(tournament, winners, round_number=current_round + 1)
+  File "/app/./tournament/views.py", line 91, in create_matches
+    create_matches(tournament, next_round_qualified, round_number + 1)
+  File "/app/./tournament/views.py", line 91, in create_matches
+    create_matches(tournament, next_round_qualified, round_number + 1)
+  File "/app/./tournament/views.py", line 91, in create_matches
+    create_matches(tournament, next_round_qualified, round_number + 1)
+  [Previous line repeated 971 more times]
+  File "/app/./tournament/views.py", line 74, in create_matches
+    while i < len(players):
+RecursionError: maximum recursion depth exceeded while calling a Python object
+ERROR 2025-03-29 17:04:35,772 log 1 140614750448440 Internal Server Error: /tournament/11/match/23/finish/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "player2_id" of relation "tournament_match" violates not-null constraint
+DETAIL:  Failing row contains (25, 2, t, 41, null, 11, 41).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 230, in finish_match
+    create_matches(tournament, winners, round_number=current_round + 1)
+  File "/app/./tournament/views.py", line 86, in create_matches
+    match = Match.objects.create(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "player2_id" of relation "tournament_match" violates not-null constraint
+DETAIL:  Failing row contains (25, 2, t, 41, null, 11, 41).
+
+ERROR 2025-03-29 17:07:30,263 log 1 140170802035512 Internal Server Error: /tournament/12/match/28/finish/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 234, in finish_match
+    create_matches(tournament, winners, round_number=current_round + 1)
+  File "/app/./tournament/views.py", line 103, in create_matches
+    matches += create_matches(tournament, next_round_qualified, round_number + 1)
+  File "/app/./tournament/views.py", line 103, in create_matches
+    matches += create_matches(tournament, next_round_qualified, round_number + 1)
+  File "/app/./tournament/views.py", line 103, in create_matches
+    matches += create_matches(tournament, next_round_qualified, round_number + 1)
+  [Previous line repeated 946 more times]
+  File "/app/./tournament/views.py", line 86, in create_matches
+    bye_player, _ = Player.objects.get_or_create(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 916, in get_or_create
+    return self.get(**kwargs), False
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1547, in execute_sql
+    sql, params = self.as_sql()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 734, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 85, in pre_sql_setup
+    order_by = self.get_order_by()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 457, in get_order_by
+    for expr, is_ref in self._order_by_pairs():
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 339, in _order_by_pairs
+    selected_exprs[expr] = pos_expr
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/expressions.py", line 502, in __hash__
+    return hash(self.identity)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/expressions.py", line 479, in identity
+    constructor_signature = inspect.signature(self.__init__)
+  File "/usr/local/lib/python3.10/inspect.py", line 3254, in signature
+    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,
+  File "/usr/local/lib/python3.10/inspect.py", line 3002, in from_callable
+    return _signature_from_callable(obj, sigcls=cls,
+  File "/usr/local/lib/python3.10/inspect.py", line 2401, in _signature_from_callable
+    sig = _get_signature_of(obj.__func__)
+  File "/usr/local/lib/python3.10/inspect.py", line 2463, in _signature_from_callable
+    return _signature_from_function(sigcls, obj,
+  File "/usr/local/lib/python3.10/inspect.py", line 2325, in _signature_from_function
+    parameters.append(Parameter(name, annotation=annotation,
+  File "/usr/local/lib/python3.10/inspect.py", line 2639, in __init__
+    self._kind = _ParameterKind(kind)
+  File "/usr/local/lib/python3.10/enum.py", line 385, in __call__
+    return cls.__new__(cls, value)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+ERROR 2025-03-29 17:16:24,178 log 1 139881516145464 Internal Server Error: /tournament/14/match/988/finish/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 265, in _get_response_async
+    self.check_response(response, callback)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view tournament.views.finish_match didn't return an HttpResponse object. It returned None instead.
+ERROR 2025-03-29 17:16:28,167 log 1 139881516145464 Internal Server Error: /tournament/14/match/989/finish/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 265, in _get_response_async
+    self.check_response(response, callback)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view tournament.views.finish_match didn't return an HttpResponse object. It returned None instead.
+WARNING 2025-03-29 17:46:38,237 log 1 140708212755256 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 17:46:38,238 log 1 140708211694392 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 17:53:58,198 log 1 140310278527800 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 17:53:58,203 log 1 140310278527800 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 17:55:20,273 log 1 140310278527800 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 17:55:20,278 log 1 140310278527800 Unauthorized: /api/game_settings/match_history/list/

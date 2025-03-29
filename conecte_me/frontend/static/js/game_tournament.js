@@ -1,37 +1,19 @@
 console.log("✅ game_tournament.js loaded");
 
-async function getTournamentIdFromSession() {
-	const res = await fetch('/tournament/get_current_id/');
-	const data = await res.json();
-	return data.tournament_id;
-}
-
-async function fetchCurrentMatch(tournamentId) {
-	const res = await fetch(`/tournament/${tournamentId}/play_next/`, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' }
-	});
-	return await res.json();
-}
-
 (async function initGame() {
-	const tournamentId = await getTournamentIdFromSession();
-	const matchInfo = await fetchCurrentMatch(tournamentId);
-
-	if (!matchInfo || !matchInfo.match_id || !matchInfo.player1 || !matchInfo.player2) {
-		alert("Aucun match disponible.");
+	const currentMatch = JSON.parse(localStorage.getItem("currentMatch"));
+	if (!currentMatch || !currentMatch.match_id || !currentMatch.player1 || !currentMatch.player2 || !currentMatch.tournament_id) {
+		alert("Aucune donnée de match valide.");
 		return;
 	}
 
-	const matchId = matchInfo.match_id;
-	const player1 = matchInfo.player1;
-	const player2 = matchInfo.player2;
-	const response = await fetch(`/tournament/api/details/${tournamentId}/`);
-	const data = await response.json();
+	const { match_id: matchId, player1, player2, tournament_id: tournamentId } = currentMatch;
+
+	const res = await fetch(`/tournament/api/details/${tournamentId}/`);
+	const data = await res.json();
 	const scoreLimit = data.tournament.score_limit;
 	const timeLimit = data.tournament.time;
 
-	// 🎮 Initialisation du canvas
 	const canvas = document.createElement("canvas");
 	canvas.id = "pongCanvas";
 	canvas.width = 1200;
@@ -43,7 +25,6 @@ async function fetchCurrentMatch(tournamentId) {
 	document.body.appendChild(canvas);
 	const ctx = canvas.getContext("2d");
 
-	// 🏓 Logique du jeu
 	const paddleWidth = 20;
 	const paddleHeight = 100;
 	const paddleSpeed = 10;
@@ -72,7 +53,8 @@ async function fetchCurrentMatch(tournamentId) {
 		ball.x += ball.speedX;
 		ball.y += ball.speedY;
 
-		if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) ball.speedY = -ball.speedY;
+		if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height)
+			ball.speedY = -ball.speedY;
 
 		if (
 			ball.x - ball.radius <= player1State.x + player1State.width &&
@@ -104,18 +86,17 @@ async function fetchCurrentMatch(tournamentId) {
 
 		if (player1State.score >= scoreLimit || player2State.score >= scoreLimit) {
 			const winner = player1State.score > player2State.score ? player1 : player2;
-			const loser = player1State.score > player2State.score ? player2 : player1;
+			const loser = winner === player1 ? player2 : player1;
 			quitGame(winner, loser, player1State.score, player2State.score);
 		}
 	}
 
 	let startTime = Date.now();
-
 	function updateTimer() {
 		const elapsed = Math.floor((Date.now() - startTime) / 1000);
 		if (elapsed >= timeLimit * 60) {
 			const winner = player1State.score > player2State.score ? player1 : player2;
-			const loser = player1State.score > player2State.score ? player2 : player1;
+			const loser = winner === player1 ? player2 : player1;
 			quitGame(winner, loser, player1State.score, player2State.score);
 		}
 	}
@@ -167,6 +148,7 @@ async function fetchCurrentMatch(tournamentId) {
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(data)
 		}).then(() => {
+			localStorage.removeItem("currentMatch");
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 			ctx.fillStyle = "#0d1117";
 			ctx.fillRect(0, 0, canvas.width, canvas.height);

@@ -10,4 +10,8 @@ urlpatterns = [
 	path('api/details/<int:tournament_id>/', views.get_tournament_details, name='tournament_api_details'),
 	path('<int:tournament_id>/match/<int:match_id>/finish/', views.finish_match, name='finish_match'),
 	path("get_current_id/", views.get_current_tournament_id, name="get_current_tournament_id"),
+	path("list/", views.list_tournaments, name="list_tournaments"),
+	path("set_current_id/", views.set_current_tournament_id, name="set_current_tournament_id"),
+	path('<int:tournament_id>/play/<int:match_id>/', views.play_specific_match, name='play_specific_match'),
+
 ]

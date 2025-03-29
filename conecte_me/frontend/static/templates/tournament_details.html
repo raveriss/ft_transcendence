@@ -1,10 +1,12 @@
 <!-- static/templates/tournament_details.html -->
-<div class="container mt-4 bg-dark text-light p-4 rounded">
-	<h1 id="tournament-name" class="text-center mb-4 text-info"></h1>
-
-	<h4 class="text-light">Joueurs</h4>
-	<ul id="players-list" class="list-group list-group-flush mb-4"></ul>
-
-	<h4 class="text-light">Bracket</h4>
-	<div id="bracket-container" class="bracket"></div>
+<div class="tournament-full-container">
+   	<div class="top-bar">
+		<div style="flex: 1; text-align: center;">
+		  <h1 id="tournamentTitle" class="bracket-title" style="margin: 0 auto;"></h1>
+		</div>
+		<button class="back-btn" onclick="navigateTo('/board')">← Retour au board</button>
+	  </div> 
+    <div id="bracketContainer" class="bracket-container">
+        <!-- Bracket généré dynamiquement ici -->
+    </div>
 </div>
