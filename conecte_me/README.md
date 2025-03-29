@@ -43,7 +43,7 @@ ft_transcendence/
 ├── docker-compose.yml
 ├── frontend
 │   ├── Dockerfile
-│   ├── index.html
+│   ├── home.html
 │   └── static
 │       ├── css
 │       │   └── main.css

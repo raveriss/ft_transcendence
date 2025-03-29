@@ -1,0 +1,79 @@
+<div class="main-container">
+  <!-- Icône utilisateur (en haut à droite) -->
+  <div class="user-icon">
+    <i class="bi bi-person-circle"></i>
+  </div>
+
+  <!-- Titre principal -->
+  <h1 class="title mb-5" data-i18n="board_title">BOARD</h1>
+
+  <!-- Contenu principal en 2 colonnes : Historique + Classement -->
+  <div class="row">
+    <!-- Colonne gauche : Historique des matchs -->
+    <div class="col-12 col-lg-6 mb-4">
+      <div class="card-custom">
+        <div class="card-header-custom">
+          <i class="bi-clock-history"></i>
+          <span data-i18n="match_history">Historique des matchs</span>
+        </div>
+        <ul class="list-unstyled mb-0" id="match-history-list">
+          <!-- Les éléments de match seront insérés ici dynamiquement -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Colonne droite : Classement général -->
+    <div class="col-12 col-lg-6 mb-4">
+      <div class="card-custom">
+        <div class="card-header-custom">
+          <i class="bi-mortarboard"></i>
+          <span data-i18n="leaderboard">Classement général</span>
+        </div>
+      
+        <table class="table table-borderless text-white align-middle mb-0 custom-table">
+          <tbody id="leaderboard-body">
+            <!-- Les rangs seront insérés ici dynamiquement -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barre de boutons -->
+  <div class="menu-buttons">
+    <!-- Petit conteneur en “colonne” pour PLAY + son menu -->
+    <button class="menu-button" id="play-btn">
+      <span class="default-label" data-i18n="play">PLAY</span>
+      <span class="hover-icons">
+        <span class="icon-circle" data-mode="2p-local"><i class="bi bi-people"></i></span>
+        <!-- <span class="icon-circle" data-mode="1p-vs-ia"><i class="bi bi-robot"></i></span> -->
+        <span class="icon-circle" data-mode="tournament"><i class="bi bi-trophy"></i></span>
+      </span>
+    </button>
+
+    <!-- Autres boutons existants -->
+    <button class="menu-button" id="stats-btn">
+      <i class="bi bi-graph-up-arrow"></i>
+      <span data-i18n="stats">STATS</span>
+    </button>      
+    <!-- SOCIAL en colonne -->
+    <div class="social-container">
+      <button class="menu-button" id="social-btn">
+        <i class="bi bi-people"></i>
+        <span data-i18n="social">SOCIAL</span>
+      </button>
+    </div>
+    <button class="menu-button" id="setup-btn">
+      <i class="bi bi-gear"></i>
+      <span data-i18n="setup">SETUP</span>
+    </button>
+    <button class="menu-button" id="credits-btn">
+      <i class="bi bi-heart"></i>
+      <span data-i18n="credits">CREDITS</span>
+    </button>
+    <button class="menu-button" id="exit-btn">
+      <i class="bi bi-x-lg"></i>
+      <span data-i18n="exit">EXIT</span>
+    </button>
+  </div>
+</div>

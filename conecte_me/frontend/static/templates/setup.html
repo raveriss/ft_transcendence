@@ -1,0 +1,274 @@
+<div id="setup-container">
+</div><div class="main-container">
+  <!-- HEADER -->
+  <div class="header-bar">
+    <div class="back-btn" onclick="customBack()">
+      <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
+    </div>
+    <h1 class="title" data-i18n="setup_title">SETUP</h1>
+    <div class="language-selector-container">
+      <!-- <label for="language-selector" data-i18n="language">Language:</label> -->
+      <select id="language-selector">
+          <option value="en">🇬🇧</option>
+          <option value="fr">🇫🇷</option>
+          <option value="es">🇪🇸</option>
+      </select>
+    </div>  
+  </div>
+
+  <!-- GRID : 2 COLONNES, + plus de lignes pour reproduire EXACTEMENT l’image. -->
+  <div class="row">
+    <!-- 1) MAP (col-left) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-map"></i> <span data-i18n="map">MAP</span></div>
+        <div class="card-body-custom toggle-group toggle-group-2x2" id="mapChoiceGroup">
+          <button data-map="retro" data-i18n="map_retro">Retro</button>
+          <button data-map="basketball" data-i18n="map_basketball">Basketball</button>
+          <button data-map="hockey" data-i18n="map_hockey">Hockey</button>
+          <button data-map="nfl" data-i18n="map_nfl">NFL</button>
+        </div>
+      </div>
+    </div>
+    <!-- 2) TIME (col-right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-clock"></i> <span data-i18n="time">TIME</span></div>
+        <div class="card-body-custom">
+          <input type="range" class="form-range" min="1" max="10" value="5" id="timeRange">
+          <div class="range-labels">
+            <span data-i18n="time_min">1 min</span>
+            <span data-i18n="time_mid">5 min</span>
+            <span data-i18n="time_max">10 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3) LIVES (left)  & 4) SCORE LIMIT (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-heart"></i> <span data-i18n="lives">LIVES</span></div>
+        <div class="card-body-custom number-spinner">
+          <span>-</span>
+          <input type="number" min="1" max="9" value="3" id="livesInput">
+          <span>+</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-flag"></i> <span data-i18n="score_limit">SCORE LIMIT</span></div>
+        <div class="card-body-custom">
+          <select class="form-select" id="scoreLimitSelect">
+            <option value="5" data-i18n="score_5">5 Points</option>
+            <option value="10" data-i18n="score_10">10 Points</option>
+            <option value="15" data-i18n="score_15">15 Points</option>
+            <option value="20" data-i18n="score_20">20 Points</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5) AI DIFFICULTY (left) & 6) PADDLE (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-cpu"></i> <span data-i18n="ai_difficulty">AI DIFFICULTY</span></div>
+        <!-- 3 boutons occupant la même largeur : .toggle-group + .flex:1 -->
+        <div class="card-body-custom toggle-group">
+          <button data-i18n="ai_easy">Easy</button>
+          <button data-i18n="ai_medium">Medium</button>
+          <button data-i18n="ai_hard">Hard</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-stickies"></i> <span data-i18n="paddle">PADDLE</span></div>
+        <div class="card-body-custom toggle-group">
+          <button data-i18n="paddle_classic">Classic</button>
+          <button data-i18n="paddle_modern">Modern</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7) WEATHER (left) & 8) BALL SPEED (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-cloud"></i> <span data-i18n="weather">WEATHER</span></div>
+        <div class="card-body-custom toggle-group toggle-group-2x2">
+          <button data-i18n="weather_rain">Rain</button>
+          <button data-i18n="weather_snow">Snow</button>
+          <button data-i18n="weather_wind">Wind</button>
+          <button data-i18n="weather_none">None</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-lightning"></i> <span data-i18n="ball_speed">BALL SPEED</span></div>
+        <div class="card-body-custom">
+          <input type="range" class="form-range" min="5" max="9" value="7" id="ballSpeedRange">
+          <div class="range-labels">
+            <span data-i18n="ball_speed_slow">Slow</span>
+            <span data-i18n="ball_speed_normal">Normal</span>
+            <span data-i18n="ball_speed_fast">Fast</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9) PADDLE SIZE (left) & 10) POWER-UPS (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-arrows-expand"></i> <span data-i18n="paddle_size">PADDLE SIZE</span></div>
+        <div class="card-body-custom toggle-group" id="paddleSizeGroup">
+          <button data-i18n="paddle_size_small">Small</button>
+          <button data-i18n="paddle_size_medium">Medium</button>
+          <button data-i18n="paddle_size_large">Large</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-magic"></i> <span data-i18n="power_ups">POWER-UPS</span></div>
+        <div class="card-body-custom">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="puSpeed">
+            <label class="form-check-label" for="puSpeed" data-i18n="power_ups_speed">Speed Boost</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="puSize">
+            <label class="form-check-label" for="puSize" data-i18n="power_ups_size">Size Change</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="paddleSoundToggle">
+            <label class="form-check-label" for="paddleSoundToggle" data-i18n="paddle_hit_sound">Enable Paddle Sound</label>
+          </div>    
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="particlesToggle">
+            <label class="form-check-label" for="particlesToggle" data-i18n="particles_enabled">Enable Ball Particles</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11) MUSIC & SOUND EFFECTS (left) & 12) BACKGROUND THEME (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-music-note-beamed"></i> <span data-i18n="music_sound">MUSIC & SOUND EFFECTS</span></div>
+        <div class="card-body-custom">
+          <label class="form-label" data-i18n="music_volume">Music Volume</label>
+          <input type="range" class="form-range" min="0" max="100" value="30">
+          <label class="form-label mt-2" data-i18n="effects_volume">Effects Volume</label>
+          <input type="range" class="form-range" min="0" max="100" value="50">
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-palette"></i> <span data-i18n="background_theme"> BACKGROUND THEME</span></div>
+        <!-- 6 options en 2 lignes de 3 colonnes => on peut faire .toggle-group en flex-wrap, 
+              chaque bouton 30% width par ex. -->
+        <div class="card-body-custom toggle-group" style="flex-wrap: wrap;">
+          <button style="flex:1 1 30%;" data-i18n="theme_dark">Dark</button>
+          <button style="flex:1 1 30%;" data-i18n="theme_light">Light</button>
+          <button style="flex:1 1 30%;" data-i18n="theme_retro">Retro</button>
+          <button style="flex:1 1 30%;" data-i18n="theme_neon">Neon</button>
+          <button style="flex:1 1 30%;" data-i18n="theme_space">Space</button>
+          <button style="flex:1 1 30%;" data-i18n="theme_ocean">Ocean</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13) BALL TRAIL EFFECTS (left) & 14) CONTROLS (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-slash-circle"></i> <span data-i18n="ball_trail">BALL TRAIL EFFECTS</span></div>
+        <div class="card-body-custom toggle-group toggle-group-2x2">
+          <button data-i18n="trail_none">None</button>
+          <button data-i18n="trail_fire">Fire</button>
+          <button data-i18n="trail_neon">Neon</button>
+          <button data-i18n="trail_rainbow">Rainbow</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-controller"></i> <span data-i18n="controls">CONTROLS</span></div>
+        <div class="card-body-custom">
+          <div class="mb-2" data-i18n="configure_keyboard">Configure Keyboard</div>
+          <div class="mb-2" data-i18n="configure_gamepad">Configure Gamepad</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15) GRAVITY (left) & 16) FPS LIMIT (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-droplet"></i> <span data-i18n="gravity">GRAVITY</span></div>
+        <div class="card-body-custom toggle-group toggle-group-2x2">
+          <button data-i18n="gravity_normal">Normal</button>
+          <button data-i18n="gravity_high">High</button>
+          <button data-i18n="gravity_low">Low</button>
+          <button data-i18n="gravity_zero">Zero</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-speedometer2"></i> <span data-i18n="fps_limit">FPS LIMIT</span></div>
+        <div class="card-body-custom">
+          <select class="form-select">
+            <option>30 FPS</option>
+            <option>60 FPS</option>
+            <option>120 FPS</option>
+            <option>144 FPS</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17) VISUAL MODE (left) & 18) ACCESSIBILITY (right) -->
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-easel"></i> <span data-i18n="visual_mode">VISUAL MODE</span></div>
+        <div class="card-body-custom toggle-group toggle-group-2x2">
+          <button data-i18n="visual_2d">2D Classic</button>
+          <button data-i18n="visual_3d">3D Modern</button>
+          <button data-i18n="visual_retro">Retro</button>
+          <button data-i18n="visual_minimalist">Minimalist</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card-custom">
+        <div class="card-header-custom"><i class="bi bi-universal-access"></i> <span data-i18n="accessibility">ACCESSIBILITY</span></div>
+        <div class="card-body-custom">
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="srSupport">
+            <label class="form-check-label" for="srSupport" data-i18n="accessibility_screen_reader">Screen Reader Support</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="altText">
+            <label class="form-check-label" for="altText" data-i18n="accessibility_alt_text">Alt Text for Images</label>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="highContrast">
+            <label class="form-check-label" for="highContrast" data-i18n="accessibility_high_contrast">High Contrast Mode</label>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="keyboardNav">
+            <label class="form-check-label" for="keyboardNav" data-i18n="accessibility_keyboard_nav">Keyboard Navigation</label>
+          </div>
+          <label class="form-label mt-2" data-i18n="accessibility_text_size">Text Size</label>
+          <input type="range" class="form-range" min="10" max="24" value="14">
+          <div class="mt-3">
+            <button class="btn btn-sm btn-secondary" data-i18n="accessibility_check_updates">Check for Updates</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- row -->
+</div><!-- main-container -->
+</div><!-- setup-container -->

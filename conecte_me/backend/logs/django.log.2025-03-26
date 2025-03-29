@@ -1,0 +1,1811 @@
+INFO 2025-03-14 10:58:07,756 autoreload 11 140369189546792 Watching for file changes with StatReloader
+WARNING 2025-03-14 10:58:15,928 log 11 140369110768440 Unauthorized: /auth/user/
+WARNING 2025-03-14 10:58:15,929 basehttp 11 140369110768440 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-14 10:58:30,096 basehttp 11 140369110731576 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-03-14 10:58:30,121 basehttp 11 140369110731576 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-14 10:58:30,833 basehttp 11 140369110731576 "GET /auth/42/callback?code=2ac5176f25dbd27dcae0570cc977df201d9550d51d3f991dbbc177c2d02c35ef&state=UcusLJtRoXSmoTqWbUoBiMqd8vxM7IvC HTTP/1.0" 302 0
+INFO 2025-03-14 10:58:31,014 basehttp 11 140369110772536 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 10:58:32,323 basehttp 11 140369110772536 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 10:58:32,409 basehttp 11 140369110772536 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 10:58:32,414 basehttp 11 140369106275128 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 10:58:36,348 basehttp 11 140369110690616 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 93
+INFO 2025-03-14 10:58:39,562 basehttp 11 140369110690616 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:48,630 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:48,733 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:48,737 basehttp 11 140369106275128 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 10:58:50,365 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:50,397 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:50,398 basehttp 11 140369106275128 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 10:58:51,011 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:51,041 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:51,041 basehttp 11 140369106275128 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 10:58:51,152 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:51,181 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:51,184 basehttp 11 140369106275128 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 10:58:52,141 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:52,164 basehttp 11 140369110756152 "GET /auth/user/ HTTP/1.0" 200 121
+INFO 2025-03-14 10:58:52,166 basehttp 11 140369106275128 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+WARNING 2025-03-14 10:59:18,628 log 11 140369110739768 Unauthorized: /auth/login/
+WARNING 2025-03-14 10:59:18,628 basehttp 11 140369110739768 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-03-14 10:59:20,852 log 11 140369110739768 Unauthorized: /auth/login/
+WARNING 2025-03-14 10:59:20,853 basehttp 11 140369110739768 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-03-14 10:59:28,787 log 11 140369110739768 Unauthorized: /auth/login/
+WARNING 2025-03-14 10:59:28,787 basehttp 11 140369110739768 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-03-14 10:59:32,676 log 11 140369110739768 Unauthorized: /auth/login/
+WARNING 2025-03-14 10:59:32,677 basehttp 11 140369110739768 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-03-14 11:00:01,878 log 11 140369110739768 Unauthorized: /auth/login/
+WARNING 2025-03-14 11:00:01,878 basehttp 11 140369110739768 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-03-14 11:00:03,476 log 11 140369110747960 Unauthorized: /auth/login/
+WARNING 2025-03-14 11:00:03,476 basehttp 11 140369110747960 "POST /auth/login/ HTTP/1.0" 401 63
+WARNING 2025-03-14 11:00:05,308 log 11 140369110747960 Unauthorized: /auth/login/
+WARNING 2025-03-14 11:00:05,308 basehttp 11 140369110747960 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-03-14 11:02:28,947 autoreload 11 139798744996648 Watching for file changes with StatReloader
+WARNING 2025-03-14 11:03:00,820 log 11 139798666238776 Unauthorized: /auth/user/
+WARNING 2025-03-14 11:03:00,821 basehttp 11 139798666238776 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-14 15:46:07,286 autoreload 9 140135415876392 Watching for file changes with StatReloader
+INFO 2025-03-14 15:46:29,958 autoreload 11 140403919821608 Watching for file changes with StatReloader
+INFO 2025-03-14 15:47:05,629 basehttp 11 140403841030968 "POST /auth/42/password/ HTTP/1.0" 200 136
+INFO 2025-03-14 15:47:05,653 basehttp 11 140403841030968 "GET /auth/42/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-14 15:47:06,522 basehttp 11 140403841030968 "GET /auth/42/callback?code=63e7bcca64faffe62d35ba338d8512ed9a7657f1ddc82368d939e821e5485523&state=mHwumEwb31FsqYRB9taxNacXTV89FIoC HTTP/1.0" 302 0
+WARNING 2025-03-14 15:47:06,686 log 11 140403841035064 Unauthorized: /auth/user/
+WARNING 2025-03-14 15:47:06,686 basehttp 11 140403841035064 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-14 15:47:39,068 log 11 140403836771128 Unauthorized: /auth/login/
+WARNING 2025-03-14 15:47:39,068 basehttp 11 140403836771128 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-03-14 15:48:02,990 basehttp 11 140403836771128 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-14 15:48:03,000 basehttp 11 140403836771128 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 15:48:04,537 basehttp 11 140403836771128 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 15:48:04,605 basehttp 11 140403836771128 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 15:48:04,605 basehttp 11 140403835710264 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 15:48:23,966 basehttp 11 140403835710264 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-14 15:48:24,372 basehttp 11 140403836771128 "POST /auth/user/update_password/ HTTP/1.0" 200 77
+INFO 2025-03-14 15:51:24,177 basehttp 11 140403841035064 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 15:51:27,491 basehttp 11 140403836771128 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-03-14 16:01:34,505 autoreload 11 140381464644392 Watching for file changes with StatReloader
+INFO 2025-03-14 16:01:51,365 basehttp 11 140381385911096 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-14 16:01:52,207 basehttp 11 140381385911096 "GET /auth/42/callback?code=c78bfff34808ae19b4b21b03c4b7bc2f63b8961b4f760a15e306de92511cc605&state=BWUaLNQu47R6r6tPI0isJpoodrZydDRU HTTP/1.0" 302 0
+WARNING 2025-03-14 16:01:52,384 log 11 140381385947960 Unauthorized: /auth/user/
+WARNING 2025-03-14 16:01:52,385 basehttp 11 140381385947960 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-14 16:02:30,082 basehttp 11 140381385931576 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-14 16:02:30,093 basehttp 11 140381385931576 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:02:31,444 basehttp 11 140381385931576 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:02:31,493 basehttp 11 140381385931576 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:02:31,495 basehttp 11 140381381413688 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 16:02:36,704 basehttp 11 140381385931576 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 76
+INFO 2025-03-14 16:02:39,859 basehttp 11 140381385915192 "POST /auth/user/toggle_2fa/ HTTP/1.0" 200 41
+INFO 2025-03-14 16:02:41,093 basehttp 11 140381385915192 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:02:42,124 basehttp 11 140381385915192 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+WARNING 2025-03-14 16:02:58,137 log 11 140381385915192 Unauthorized: /auth/login/
+WARNING 2025-03-14 16:02:58,137 basehttp 11 140381385915192 "POST /auth/login/ HTTP/1.0" 401 63
+INFO 2025-03-14 16:03:05,000 basehttp 11 140381385915192 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-03-14 16:03:05,034 basehttp 11 140381385915192 "GET /auth/2fa/setup/ HTTP/1.0" 200 11657
+INFO 2025-03-14 16:03:20,308 basehttp 11 140381381499704 "POST /auth/2fa/validate/ HTTP/1.0" 200 87
+INFO 2025-03-14 16:03:21,410 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:03:22,783 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:03:22,817 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:03:22,829 basehttp 11 140381380438840 "GET /auth/user/login_history/ HTTP/1.0" 200 462
+INFO 2025-03-14 16:03:36,588 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:03:41,766 basehttp 11 140381381499704 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-03-14 16:03:47,855 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:03:47,997 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:03:48,000 basehttp 11 140381380438840 "GET /auth/user/login_history/ HTTP/1.0" 200 463
+INFO 2025-03-14 16:04:06,266 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:04:07,838 basehttp 11 140381381499704 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-03-14 16:04:13,591 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:04:18,990 basehttp 11 140381381499704 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+WARNING 2025-03-14 16:04:27,831 log 11 140381381499704 Unauthorized: /auth/user/
+WARNING 2025-03-14 16:04:27,832 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-14 16:04:34,228 log 11 140381381499704 Unauthorized: /auth/user/
+WARNING 2025-03-14 16:04:34,229 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-14 16:04:37,742 log 11 140381381499704 Unauthorized: /auth/user/
+WARNING 2025-03-14 16:04:37,743 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-14 16:04:58,564 basehttp 11 140381381499704 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-03-14 16:04:58,590 basehttp 11 140381381499704 "GET /auth/2fa/setup/ HTTP/1.0" 200 11657
+INFO 2025-03-14 16:05:08,303 basehttp 11 140381381499704 "POST /auth/2fa/validate/ HTTP/1.0" 200 87
+INFO 2025-03-14 16:05:09,400 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:05:10,815 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:05:10,881 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:05:10,884 basehttp 11 140381380438840 "GET /auth/user/login_history/ HTTP/1.0" 200 684
+INFO 2025-03-14 16:05:12,775 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:05:17,495 basehttp 11 140381381499704 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-03-14 16:05:47,568 basehttp 11 140381381499704 "POST /auth/login/ HTTP/1.0" 200 49
+INFO 2025-03-14 16:05:47,594 basehttp 11 140381381499704 "GET /auth/2fa/setup/ HTTP/1.0" 200 11657
+INFO 2025-03-14 16:05:57,680 basehttp 11 140381381499704 "POST /auth/2fa/validate/ HTTP/1.0" 200 87
+INFO 2025-03-14 16:05:58,782 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:05,520 basehttp 11 140381381499704 "POST /auth/user/update_login_status/ HTTP/1.0" 200 67
+INFO 2025-03-14 16:06:08,886 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:09,667 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:09,707 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:09,714 basehttp 11 140381380438840 "GET /auth/user/login_history/ HTTP/1.0" 200 685
+INFO 2025-03-14 16:06:50,867 basehttp 11 140381381499704 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-14 16:06:51,274 basehttp 11 140381380438840 "POST /auth/user/update_password/ HTTP/1.0" 200 77
+INFO 2025-03-14 16:06:54,856 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:54,885 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:54,890 basehttp 11 140381380438840 "GET /auth/user/login_history/ HTTP/1.0" 200 685
+INFO 2025-03-14 16:06:57,001 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:57,024 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:57,026 basehttp 11 140381380438840 "GET /auth/user/login_history/ HTTP/1.0" 200 685
+INFO 2025-03-14 16:06:58,817 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:58,844 basehttp 11 140381381499704 "GET /auth/user/ HTTP/1.0" 200 103
+INFO 2025-03-14 16:06:58,846 basehttp 11 140381380438840 "GET /auth/user/login_history/ HTTP/1.0" 200 685
+INFO 2025-03-14 16:18:23,319 autoreload 8 140204478356264 Watching for file changes with StatReloader
+INFO 2025-03-14 16:18:31,870 basehttp 8 140204399573816 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-14 16:18:40,887 basehttp 8 140204398488376 "GET /auth/42/callback?code=6c3ca95e5a51b36efe72d0c477f83d5ddbd267c983b3e5fce541b9c19550291e&state=hnfMVPURKcmjgl4lFMwHLXn72CtsQRcO HTTP/1.0" 302 0
+WARNING 2025-03-14 16:18:41,055 log 8 140204395338552 Unauthorized: /auth/user/
+WARNING 2025-03-14 16:18:41,056 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-14 16:19:03,009 basehttp 8 140204395338552 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-14 16:19:03,020 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:19:04,720 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:19:04,782 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:19:04,783 basehttp 8 140204394277688 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-14 16:38:54,859 basehttp 8 140204395338552 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-14 16:38:54,870 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:38:56,832 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:38:56,891 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:38:56,892 basehttp 8 140204394277688 "GET /auth/user/login_history/ HTTP/1.0" 200 461
+INFO 2025-03-14 16:38:59,619 basehttp 8 140204395338552 "POST /auth/user/delete_account/ HTTP/1.0" 200 69
+INFO 2025-03-14 16:39:06,538 basehttp 8 140204395338552 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-14 16:39:07,475 basehttp 8 140204395338552 "GET /auth/42/callback?code=c43629186463995c66b93d74ea5d905c9be1b776a9158ca0d967732b3417c06e&state=8ah69jDH42gfBGNGKvS96FTAMV745XhH HTTP/1.0" 302 0
+WARNING 2025-03-14 16:39:07,647 log 8 140204395338552 Not Found: /auth/user/
+WARNING 2025-03-14 16:39:07,648 basehttp 8 140204395338552 "GET /auth/user/ HTTP/1.0" 404 27
+INFO 2025-03-14 16:45:31,793 autoreload 11 140053136763688 Watching for file changes with StatReloader
+INFO 2025-03-14 16:45:50,797 basehttp 11 140053057977144 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-14 16:45:51,668 basehttp 11 140053057977144 "GET /auth/42/callback?code=d09c9ccef4ad4020dcc8892b7a5a3b9954ed7c49f1d7e84ae8945eadf2da906b&state=kQIzt4z7tpSz0GVd80GAbzLAj3phYAT4 HTTP/1.0" 302 0
+INFO 2025-03-14 16:45:51,836 basehttp 11 140053058014008 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:45:59,366 basehttp 11 140053057997624 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:45:59,426 basehttp 11 140053057997624 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-14 16:45:59,427 basehttp 11 140053053614904 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:50:13,298 autoreload 11 140673133644584 Watching for file changes with StatReloader
+INFO 2025-03-17 14:52:11,743 autoreload 11 140521203669800 Watching for file changes with StatReloader
+INFO 2025-03-17 14:52:13,261 basehttp 11 140521124850488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:52:31,229 basehttp 11 140521123765048 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:53:29,111 autoreload 11 139770932644648 Watching for file changes with StatReloader
+INFO 2025-03-17 14:53:32,902 basehttp 11 139770853829432 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:53:36,475 basehttp 11 139770852743992 "GET /auth/42/callback?code=7508fd9ce05063cae128dc114ccd55b5c97ed8d1d77d8acefe70ed5988dc68f5&state=AW6mThToDmG8yCdEa2TCwvEn9FlZWfyi HTTP/1.0" 302 0
+INFO 2025-03-17 14:53:36,832 basehttp 11 139770852780856 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:53:38,911 basehttp 11 139770852780856 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:53:39,074 basehttp 11 139770852780856 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:53:39,083 basehttp 11 139770849561400 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:53:40,695 basehttp 11 139770849561400 "GET /auth/user/ HTTP/1.0" 200 112
+ERROR 2025-03-17 14:54:05,343 log 11 139770849561400 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:54:05.318265+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:54:05.318265+00, null, , 1, f).
+
+ERROR 2025-03-17 14:54:05,345 basehttp 11 139770849561400 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151453
+INFO 2025-03-17 14:54:05,354 basehttp 11 139770849561400 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 14:54:41,861 autoreload 11 140341258271528 Watching for file changes with StatReloader
+WARNING 2025-03-17 14:55:05,785 log 11 140341179476792 Unauthorized: /auth/user/
+WARNING 2025-03-17 14:55:05,785 basehttp 11 140341179476792 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 14:55:13,285 basehttp 11 140341179439928 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 14:55:14,171 basehttp 11 140341179439928 "GET /auth/42/callback?code=655ea0362f4bee83da474bba00626257a30b83852fe4829cfefa2d2482611a07&state=JmwU5rxPK88fmKnvVaWUQgohzAlN30CB HTTP/1.0" 302 0
+INFO 2025-03-17 14:55:14,341 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:16,202 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:16,249 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:16,266 basehttp 11 140341179480888 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:19,330 basehttp 11 140341179480888 "GET /auth/user/ HTTP/1.0" 200 112
+ERROR 2025-03-17 14:55:20,547 log 11 140341179480888 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:55:20.523619+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (1, 2025-03-17 13:55:20.523619+00, null, , 1, f).
+
+ERROR 2025-03-17 14:55:20,549 basehttp 11 140341179480888 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151460
+INFO 2025-03-17 14:55:20,557 basehttp 11 140341179480888 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 14:55:25,149 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:25,195 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:25,196 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:31,870 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:31,897 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:31,898 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:33,849 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:33,875 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:33,877 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,120 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,151 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,152 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,368 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,397 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,397 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,560 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,586 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,588 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:34,786 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,811 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:34,812 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:35,033 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,059 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,059 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:35,698 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,721 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:35,723 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 14:55:38,034 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:38,058 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 14:55:38,060 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:25:58,846 basehttp 11 140341175159608 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 16:25:59,654 basehttp 11 140341175159608 "GET /auth/42/callback?code=35fb508efd7f5089d6dee9cc416506593ba6c6a1be18dc7d016011948139626e&state=elygE5LmBsDer0QhTr0a69zN93dpSXKc HTTP/1.0" 302 0
+INFO 2025-03-17 16:25:59,826 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:26:01,254 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:26:01,316 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:26:01,317 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:26:08,962 basehttp 11 140341175159608 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 76
+INFO 2025-03-17 16:26:14,430 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:16,585 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:17,758 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:19,012 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:20,551 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:21,749 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:35,416 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:36,393 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:37,670 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:37,694 basehttp 11 140341175159608 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 16:26:38,614 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:41,103 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+ERROR 2025-03-17 16:26:46,117 log 11 140341175159608 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (2, 2025-03-17 15:26:46.09593+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (2, 2025-03-17 15:26:46.09593+00, null, , 1, f).
+
+ERROR 2025-03-17 16:26:46,118 basehttp 11 140341175159608 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151445
+INFO 2025-03-17 16:26:46,126 basehttp 11 140341175159608 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 16:26:52,600 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:52,658 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:26:52,660 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:27:10,294 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:27:10,428 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:27:10,429 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+WARNING 2025-03-17 16:27:17,024 log 11 140341175159608 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:27:17,024 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:27:37,531 log 11 140341175159608 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:27:37,531 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:27:42,331 log 11 140341175159608 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:27:42,331 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 16:31:31,692 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:31:31,743 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:31:31,744 basehttp 11 140341173013304 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:31:42,182 basehttp 11 140341175159608 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 16:31:43,078 basehttp 11 140341175159608 "GET /auth/42/callback?code=cedb7c1dba072943734785ae348ef71c62da0e2d2797b75935b410939b0a64ff&state=iU69XShcH4ZMkY3xsT1Q4sDjJ54taALR HTTP/1.0" 302 0
+INFO 2025-03-17 16:31:43,229 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+ERROR 2025-03-17 16:32:09,719 log 11 140341175159608 Internal Server Error: /auth/user/update_login_status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.NotNullViolation: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (3, 2025-03-17 15:32:09.697272+00, null, , 1, f).
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/oauth_app/views.py", line 589, in update_login_status
+    UserLoginHistory.objects.create(user=user, is_connected=is_connected)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: null value in column "ip_address" of relation "oauth_app_userloginhistory" violates not-null constraint
+DETAIL:  Failing row contains (3, 2025-03-17 15:32:09.697272+00, null, , 1, f).
+
+ERROR 2025-03-17 16:32:09,719 basehttp 11 140341175159608 "POST /auth/user/update_login_status/ HTTP/1.0" 500 151453
+INFO 2025-03-17 16:32:09,728 basehttp 11 140341175159608 "POST /api/logs/ HTTP/1.0" 200 16
+INFO 2025-03-17 16:32:35,841 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:32:36,005 basehttp 11 140341175159608 "GET /auth/user/ HTTP/1.0" 200 104
+INFO 2025-03-17 16:32:36,006 basehttp 11 140341171510072 "GET /auth/user/login_history/ HTTP/1.0" 200 21
+INFO 2025-03-17 16:46:21,594 autoreload 11 140304037255976 Watching for file changes with StatReloader
+INFO 2025-03-17 16:46:44,272 basehttp 11 140303958448952 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 16:46:45,171 basehttp 11 140303958448952 "GET /auth/42/callback?code=8e82c70a1bcb17af56219cffc0ce4da5f93e737e2e1616d1751c5e929958f700&state=JK746ESCuiMupb7k53LyZRZqyE3dZ8oF HTTP/1.0" 302 0
+INFO 2025-03-17 16:46:45,346 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:46:49,323 basehttp 11 140303955254072 "POST /auth/logout/ HTTP/1.0" 200 38
+WARNING 2025-03-17 16:47:05,612 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:05,613 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:47:05,954 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:05,955 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:47:09,501 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:09,501 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:47:10,141 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:47:10,141 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 16:49:48,096 basehttp 11 140303955254072 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-17 16:49:48,108 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:49,200 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:49,274 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:49,277 basehttp 11 140303954193208 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-17 16:49:51,265 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:49:52,698 basehttp 11 140303955254072 "POST /auth/logout/ HTTP/1.0" 200 38
+WARNING 2025-03-17 16:50:02,897 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:50:02,898 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 16:50:07,790 log 11 140303955254072 Unauthorized: /auth/user/
+WARNING 2025-03-17 16:50:07,791 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 16:53:02,351 basehttp 11 140303955254072 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-17 16:53:02,363 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:53:04,884 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:53:04,949 basehttp 11 140303955254072 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 16:53:04,952 basehttp 11 140303954193208 "GET /auth/user/login_history/ HTTP/1.0" 200 461
+INFO 2025-03-17 16:53:26,858 basehttp 11 140303955254072 "POST /auth/user/upload_avatar/ HTTP/1.0" 200 76
+INFO 2025-03-17 17:31:00,068 autoreload 13 139790408649512 Watching for file changes with StatReloader
+INFO 2025-03-17 17:31:20,379 basehttp 13 139790329871160 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 17:31:21,275 basehttp 13 139790329871160 "GET /auth/42/callback?code=80519d3436199e9a9230429f4450972146f03d7dd53da59ffaaf016c35ec8e5a&state=PAw3H6JkUDyVngGrud59B78hMB3NmcW2 HTTP/1.0" 302 0
+INFO 2025-03-17 17:31:21,447 basehttp 13 139790329908024 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 17:31:34,282 basehttp 13 139790329891640 "POST /auth/logout/ HTTP/1.0" 200 38
+INFO 2025-03-17 17:31:50,965 basehttp 13 139790329891640 "POST /auth/login/ HTTP/1.0" 200 39
+INFO 2025-03-17 17:31:50,974 basehttp 13 139790329891640 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 17:31:54,781 basehttp 13 139790329891640 "POST /auth/logout/ HTTP/1.0" 200 38
+INFO 2025-03-17 17:49:44,682 autoreload 10 140197757856552 Watching for file changes with StatReloader
+INFO 2025-03-17 17:50:01,978 basehttp 10 140197679090488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 17:50:02,854 basehttp 10 140197679090488 "GET /auth/42/callback?code=903e933a48c06c6c5f559624ca34ec77e0e6890023f45c09640381d6d8e6ae0c&state=1hGiuCVtKb01Y6813lzauJ7UG9f0MKDe HTTP/1.0" 302 0
+INFO 2025-03-17 17:50:03,043 basehttp 10 140197679094584 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 17:50:19,982 basehttp 10 140197679094584 "POST /auth/logout/ HTTP/1.0" 200 38
+WARNING 2025-03-17 17:50:41,406 log 10 140197679094584 Unauthorized: /auth/user/
+WARNING 2025-03-17 17:50:41,406 basehttp 10 140197679094584 "GET /auth/user/ HTTP/1.0" 401 35
+WARNING 2025-03-17 17:50:58,490 log 10 140197674699576 Unauthorized: /auth/user/
+WARNING 2025-03-17 17:50:58,490 basehttp 10 140197674699576 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 17:59:24,111 autoreload 11 140535933881128 Watching for file changes with StatReloader
+INFO 2025-03-17 17:59:24,354 basehttp 11 140535856278328 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 17:59:30,843 basehttp 11 140535854046008 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:01:53,819 autoreload 11 140039220636456 Watching for file changes with StatReloader
+INFO 2025-03-17 18:02:00,491 basehttp 11 140039141837624 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:02:01,579 basehttp 11 140039141837624 "GET /auth/42/callback?code=816e57d7dfb048bc628bb37010b4a382c327a714f36cb3bbacc80d9622ce9797&state=dQPtOzMfuuByYyFmuuAtARFGe24ZiLIa HTTP/1.0" 302 0
+INFO 2025-03-17 18:02:01,635 basehttp 11 140039141874488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:02:09,197 basehttp 11 140039141874488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:02:09,261 basehttp 11 140039141874488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:02:09,264 basehttp 11 140039137479480 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-17 18:02:14,589 basehttp 11 140039141874488 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:02:40,595 basehttp 11 140039141858104 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:02:48,399 basehttp 11 140039141858104 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:02:55,801 basehttp 11 140039141858104 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:03:08,352 basehttp 11 140039137479480 "POST /auth/logout/ HTTP/1.0" 200 38
+WARNING 2025-03-17 18:03:18,283 log 11 140039141858104 Unauthorized: /auth/user/
+WARNING 2025-03-17 18:03:18,284 basehttp 11 140039141858104 "GET /auth/user/ HTTP/1.0" 401 35
+INFO 2025-03-17 18:24:47,866 autoreload 11 140668714990376 Watching for file changes with StatReloader
+INFO 2025-03-17 18:25:10,234 basehttp 11 140668636146488 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:25:11,158 basehttp 11 140668636146488 "GET /auth/42/callback?code=8f04f4bdff58003d4bf2c0990781c464cff7011dd842792ca4930b69267de928&state=DYuxNNbzb37irGYRiVoOLjv4GDpN8S9t HTTP/1.0" 302 0
+INFO 2025-03-17 18:25:11,178 basehttp 11 140668636183352 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:25:43,260 basehttp 11 140668636166968 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:25:49,099 basehttp 11 140668636166968 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:27:02,446 basehttp 11 140668636166968 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:27:03,582 basehttp 11 140668636166968 "GET /auth/42/callback?code=6b388811222c231f923d18ad02fd9d5bc57c29635255f058f69a47368bdd09fb&state=ZEYrsTsM1GYbqELYPWQtFCIoGLlHHZdM HTTP/1.0" 302 0
+INFO 2025-03-17 18:27:03,604 basehttp 11 140668636183352 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:27:08,046 basehttp 11 140668636183352 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:14,927 autoreload 11 140514819210024 Watching for file changes with StatReloader
+INFO 2025-03-17 18:40:17,091 basehttp 11 140514740415288 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:40:17,926 basehttp 11 140514740415288 "GET /auth/42/callback?code=eb8a308816ee49f5d71c6567e97c205ab80c5743039c93513b1a59691f197139&state=wQiAqvZotrY3QR0PN4JKCPtSyI4khp8S HTTP/1.0" 302 0
+INFO 2025-03-17 18:40:17,959 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:19,045 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:19,128 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:19,130 basehttp 11 140514736053048 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-17 18:40:20,597 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:22,281 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:22,325 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:22,332 basehttp 11 140514736053048 "GET /auth/user/login_history/ HTTP/1.0" 200 240
+INFO 2025-03-17 18:40:24,010 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:30,050 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:40:37,640 basehttp 11 140514740452152 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:41:31,402 basehttp 11 140514736053048 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:41:38,683 basehttp 11 140514736053048 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:43:29,636 basehttp 11 140514736053048 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:44:30,465 basehttp 11 140514736053048 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:45:28,876 autoreload 11 139964884753192 Watching for file changes with StatReloader
+INFO 2025-03-17 18:45:32,093 basehttp 11 139964805946168 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:45:33,130 basehttp 11 139964805946168 "GET /auth/42/callback?code=d4a5fe7e674fb5392996b0a2ed71ed5e295f51afd1958527fc688d7012f3e67d&state=XoMvhi7vSALwJjWNjogcRhd9Ia1b9psK HTTP/1.0" 302 0
+INFO 2025-03-17 18:45:33,196 basehttp 11 139964805983032 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:45:43,501 basehttp 11 139964805983032 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:45:59,280 basehttp 11 139964805966648 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:46:13,638 basehttp 11 139964805950264 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:46:14,398 basehttp 11 139964805950264 "GET /auth/42/callback?code=6f455b9591c35f80079ea600930fc10c4d081dcc16f607aa4d602d9660187374&state=0iLRyxWj8eoCF9Jf1exk3mvkRLrPq31w HTTP/1.0" 302 0
+INFO 2025-03-17 18:46:14,428 basehttp 11 139964805950264 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:46:17,598 basehttp 11 139964805950264 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:46:37,210 autoreload 11 140600224725800 Watching for file changes with StatReloader
+INFO 2025-03-17 18:46:43,337 basehttp 11 140600145914680 "GET /auth/login-42/ HTTP/1.0" 302 0
+INFO 2025-03-17 18:46:44,223 basehttp 11 140600145914680 "GET /auth/42/callback?code=5e36c19f4bae328cf9475e7cb3ccbacd3507e3fb1b98453c93f0cb48486d7cca&state=S2aNlHy955k2l4GbejYn8xC0lcR4ouLi HTTP/1.0" 302 0
+INFO 2025-03-17 18:46:44,286 basehttp 11 140600145951544 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:47:09,351 basehttp 11 140600145951544 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:47:26,970 basehttp 11 140600145935160 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:47:28,289 basehttp 11 140600145935160 "GET /auth/user/ HTTP/1.0" 200 112
+INFO 2025-03-17 18:47:46,119 basehttp 11 140600145935160 "GET /auth/user/ HTTP/1.0" 200 112
+
+WARNING 2025-03-18 06:57:45,945 log 1 140229213879096 Not Found: /
+WARNING 2025-03-18 06:58:04,430 log 1 140229213879096 Not Found: /
+INFO 2025-03-18 07:04:33,395 autoreload 23 140615117998888 Watching for file changes with StatReloader
+INFO 2025-03-18 07:06:46,153 autoreload 7 140194472606504 Watching for file changes with StatReloader
+INFO 2025-03-18 07:09:07,685 autoreload 7 140077636610856 Watching for file changes with StatReloader
+WARNING 2025-03-18 07:17:07,208 log 1 140024868567864 Not Found: /favicon.ico
+ERROR 2025-03-21 13:45:08,594 log 1 140195380034360 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+ERROR 2025-03-21 13:46:47,615 log 1 140712948661048 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+ERROR 2025-03-21 13:46:53,980 log 1 140712948661048 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+ERROR 2025-03-21 13:51:56,088 log 1 139708023081784 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/middleware.py", line 59, in process_response
+    request.session.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 80, in save
+    return self.create()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 50, in create
+    self._session_key = self._get_new_session_key()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 150, in _get_new_session_key
+    if not self.exists(session_key):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 46, in exists
+    return self.model.objects.filter(session_key=session_key).exists()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1241, in exists
+    return self.query.has_results(using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 566, in has_results
+    return compiler.has_results()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1528, in has_results
+    return bool(self.execute_sql(SINGLE))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: SELECT 1 AS "a" FROM "django_session" WHERE "django_session"...
+                             ERROR 2025-03-21 14:45:11,140 log 1 139731069700920 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 134, in callback_42
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 892, in save_base
+    post_save.send(
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 176, in send
+    return [
+  File "/usr/local/lib/python3.10/site-packages/django/dispatch/dispatcher.py", line 177, in <listcomp>
+    (receiver, receiver(signal=self, sender=sender, **named))
+  File "/app/./game/models.py", line 30, in create_user_game_settings
+    GameSettings.objects.create(user=instance)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "game_gamesettings" does not exist
+LINE 1: INSERT INTO "game_gamesettings" ("user_id", "time", "score_l...
+                    ^
+
+ERROR 2025-03-21 14:49:13,223 log 1 140586085481272 Internal Server Error: /auth/login-42/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 43, in redirect_to_42
+    request.session['oauth_state'] = state
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 56, in __setitem__
+    self._session[key] = value
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/sessions/backends/db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 633, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 380, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1560, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+WARNING 2025-03-21 16:08:18,844 log 11 139836746328888 Unauthorized: /api/game_settings/
+WARNING 2025-03-21 16:08:21,010 log 11 139836747389752 Unauthorized: /api/game_settings/
+WARNING 2025-03-21 16:08:22,417 log 11 139836746328888 Unauthorized: /api/game_settings/
+WARNING 2025-03-21 16:08:24,378 log 11 139836746328888 Unauthorized: /api/game_settings/
+WARNING 2025-03-21 16:11:15,494 log 11 139836747389752 Unauthorized: /api/game_settings/
+WARNING 2025-03-21 16:11:41,827 log 11 139836746328888 Unauthorized: /api/game_settings/
+WARNING 2025-03-21 16:17:27,217 log 11 139836747389752 Not Found: /api/game_settings/
+WARNING 2025-03-21 16:23:30,019 log 11 140665594133304 Unauthorized: /api/game_settings/
+WARNING 2025-03-21 16:40:36,525 log 11 140573299006264 Not Found: /api/game_settings/
+WARNING 2025-03-21 16:40:47,554 log 11 140573299006264 Not Found: /api/game_settings/
+WARNING 2025-03-21 16:43:26,158 log 11 140169896598328 Not Found: /api/game_settings/
+ERROR 2025-03-21 17:03:38,327 exception 11 139823962659640 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:03:38,344 log 11 139823962659640 Bad Request: /auth/login-42/
+ERROR 2025-03-21 17:04:24,711 exception 11 139823962659640 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:04:24,740 log 11 139823962659640 Bad Request: /auth/signup/
+ERROR 2025-03-21 17:04:24,760 exception 11 139823962659640 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:04:24,771 log 11 139823962659640 Bad Request: /api/logs/
+ERROR 2025-03-21 17:06:04,667 exception 11 140638995098424 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:06:04,690 log 11 140638995098424 Bad Request: /auth/login-42/
+ERROR 2025-03-21 17:06:34,531 exception 11 140638995098424 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:06:34,558 log 11 140638995098424 Bad Request: /auth/signup/
+ERROR 2025-03-21 17:06:34,573 exception 11 140638995098424 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:06:34,585 log 11 140638995098424 Bad Request: /api/logs/
+ERROR 2025-03-21 17:07:51,993 exception 11 140676597205816 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:07:52,053 log 11 140676597205816 Bad Request: /auth/signup/
+ERROR 2025-03-21 17:07:52,073 exception 11 140676597205816 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:07:52,086 log 11 140676597205816 Bad Request: /api/logs/
+ERROR 2025-03-21 17:08:00,764 exception 11 140676597205816 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:08:00,776 log 11 140676597205816 Bad Request: /auth/login-42/
+ERROR 2025-03-21 17:09:21,643 exception 11 140668315355960 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:09:21,754 log 11 140668315355960 Bad Request: /auth/login-42/
+ERROR 2025-03-21 17:09:28,557 exception 11 140668315355960 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:09:28,581 log 11 140668315355960 Bad Request: /auth/42/callback
+ERROR 2025-03-21 17:09:48,379 exception 11 140668315355960 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:09:48,405 log 11 140668315355960 Bad Request: /auth/signup/
+ERROR 2025-03-21 17:09:48,419 exception 11 140668315355960 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:09:48,431 log 11 140668315355960 Bad Request: /api/logs/
+ERROR 2025-03-21 17:11:55,672 exception 11 139749786954552 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:11:55,696 log 11 139749786954552 Bad Request: /auth/login-42/
+ERROR 2025-03-21 17:12:03,527 exception 11 139749786954552 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 17:12:03,553 log 11 139749786954552 Bad Request: /auth/login-42/
+ERROR 2025-03-21 18:15:40,188 exception 11 140453046942520 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 18:15:40,216 log 11 140453046942520 Bad Request: /auth/login-42/
+ERROR 2025-03-21 18:16:07,528 exception 11 140453046942520 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 18:16:07,540 log 11 140453046942520 Bad Request: /auth/signup/
+ERROR 2025-03-21 18:16:07,556 exception 11 140453046942520 Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '10.31.4.3'. You may need to add '10.31.4.3' to ALLOWED_HOSTS.
+WARNING 2025-03-21 18:16:07,567 log 11 140453046942520 Bad Request: /api/logs/
+WARNING 2025-03-21 18:35:11,828 log 11 139817278171960 Unauthorized: /auth/login/
+WARNING 2025-03-23 19:22:44,540 log 1 140599460227896 Not Found: /static/js/translations.json
+WARNING 2025-03-23 19:22:44,563 log 1 140599460227896 Not Found: /favicon.ico
+WARNING 2025-03-23 20:11:25,288 log 1 140698633714488 Unauthorized: /auth/login/
+WARNING 2025-03-23 20:11:54,229 log 1 140698633714488 Unauthorized: /auth/login/
+WARNING 2025-03-23 20:11:55,816 log 1 140698633714488 Unauthorized: /auth/login/
+WARNING 2025-03-23 21:05:02,539 log 1 140444371598136 Not Found: /static/js/i18n.js
+WARNING 2025-03-23 22:25:22,503 log 1 140193505459000 Bad Request: /auth/signup/
+WARNING 2025-03-23 22:25:35,118 log 1 140193505459000 Unauthorized: /auth/login/
+WARNING 2025-03-23 22:25:36,628 log 1 140193505459000 Unauthorized: /auth/login/
+WARNING 2025-03-23 22:25:38,889 log 1 140193505459000 Unauthorized: /auth/login/
+WARNING 2025-03-23 22:25:43,012 log 1 140193505459000 Unauthorized: /auth/login/
+WARNING 2025-03-23 22:25:53,151 log 1 140193505459000 Unauthorized: /auth/login/
+WARNING 2025-03-23 22:26:01,435 log 1 140193505459000 Unauthorized: /auth/login/
+WARNING 2025-03-23 22:26:22,364 log 1 140193505459000 Bad Request: /auth/signup/
+WARNING 2025-03-23 22:26:35,296 log 1 140193505459000 Bad Request: /auth/signup/
+WARNING 2025-03-23 22:26:42,736 log 1 140193505459000 Bad Request: /auth/signup/
+WARNING 2025-03-24 10:26:14,860 log 1 140615663672120 Bad Request: /auth/signup/
+WARNING 2025-03-24 10:30:45,208 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:30:46,964 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:04,212 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:06,115 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:06,272 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:06,402 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:13,422 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:22,054 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:22,221 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:22,353 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:22,538 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:30,747 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:32,100 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:32,240 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:32,376 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:32,517 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:32,648 log 1 140621947329336 Unauthorized: /auth/login/
+WARNING 2025-03-24 10:31:52,884 log 1 140621947329336 Bad Request: /auth/signup/
+WARNING 2025-03-24 16:10:59,020 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:04,892 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:37,468 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:43,720 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:45,777 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:46,142 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:46,292 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:46,422 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:46,551 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:55,994 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:11:59,740 log 1 140204818021176 Unauthorized: /auth/login/
+WARNING 2025-03-24 16:12:15,597 log 1 140204818021176 Bad Request: /auth/signup/
+WARNING 2025-03-24 17:24:49,099 log 1 139990734805816 Unauthorized: /auth/login/
+WARNING 2025-03-24 17:24:49,810 log 1 139990734805816 Unauthorized: /auth/login/
+WARNING 2025-03-25 09:56:52,205 log 1 140688576043832 Unauthorized: /auth/user/
+WARNING 2025-03-25 10:08:50,204 log 1 140112123497272 Not Found: /tournament/create/
+ERROR 2025-03-25 10:14:49,961 log 1 140635120868152 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 12, in create_tournament
+    num_players = int(request.POST.get("num_players"))
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+WARNING 2025-03-25 10:16:03,298 log 1 140635120868152 Unauthorized: /auth/user/
+WARNING 2025-03-25 10:49:18,500 log 1 140682937916216 Unauthorized: /auth/login/
+INFO 2025-03-25 11:29:20,006 autoreload 23 139671125592872 Watching for file changes with StatReloader
+WARNING 2025-03-25 12:05:11,686 log 1 140523001285432 Unauthorized: /auth/login/
+WARNING 2025-03-25 12:05:12,604 log 1 140523001285432 Unauthorized: /auth/login/
+WARNING 2025-03-25 12:05:14,299 log 1 140523001285432 Unauthorized: /auth/login/
+WARNING 2025-03-25 12:05:14,418 log 1 140523001285432 Unauthorized: /auth/login/
+ERROR 2025-03-25 12:22:25,475 log 1 140145073728312 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 68, in create_tournament
+    create_matches(tournament, players, round_number=1)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 85, in create_matches
+    matches = [
+  File "/app/./tournament/views.py", line 89, in <listcomp>
+    player2=players[i + 1],
+IndexError: list index out of range
+ERROR 2025-03-26 11:02:28,196 exception 1 139661924559672 Invalid HTTP_HOST header: '192.168.1.130'. You may need to add '192.168.1.130' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.130'. You may need to add '192.168.1.130' to ALLOWED_HOSTS.
+WARNING 2025-03-26 11:02:28,444 log 1 139661924559672 Bad Request: /tournament/create/
+ERROR 2025-03-26 11:02:28,454 exception 1 139661924559672 Invalid HTTP_HOST header: '192.168.1.130'. You may need to add '192.168.1.130' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.130'. You may need to add '192.168.1.130' to ALLOWED_HOSTS.
+WARNING 2025-03-26 11:02:28,472 log 1 139661924559672 Bad Request: /api/logs/
+ERROR 2025-03-26 11:06:39,567 exception 1 140037002619704 Invalid HTTP_HOST header: '192.168.1.130'. You may need to add '192.168.1.130' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.10/site-packages/django/http/request.py", line 167, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.130'. You may need to add '192.168.1.130' to ALLOWED_HOSTS.
+WARNING 2025-03-26 11:06:39,705 log 1 140037002619704 Bad Request: /tournament/
+WARNING 2025-03-26 11:48:46,395 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:48:47,707 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:02,728 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:03,585 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:03,972 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:04,129 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:04,579 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:04,989 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:05,401 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:49:05,753 log 1 140029561092920 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:52:59,374 log 1 140135727897400 Bad Request: /tournament/create/
+WARNING 2025-03-26 11:55:16,525 log 1 139642901707576 Bad Request: /tournament/create/
+ERROR 2025-03-26 12:15:10,655 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+ERROR 2025-03-26 12:17:27,430 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+ERROR 2025-03-26 12:18:32,700 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+ERROR 2025-03-26 12:19:14,479 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+ERROR 2025-03-26 12:19:17,099 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+ERROR 2025-03-26 12:19:21,961 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+ERROR 2025-03-26 12:19:24,910 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+ERROR 2025-03-26 12:19:30,979 log 1 140608195230520 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 33, in create_tournament
+    create_matches(tournament, players, round_number=1)
+NameError: name 'create_matches' is not defined
+WARNING 2025-03-26 12:58:05,264 log 1 139798781713208 Forbidden (Origin checking failed - https://192.168.1.130:8443 does not match any trusted origins.): /tournament/create/
+WARNING 2025-03-26 13:02:49,805 log 1 139798781713208 Forbidden (Origin checking failed - https://192.168.1.130:8443 does not match any trusted origins.): /tournament/create/
+ERROR 2025-03-26 13:21:37,834 log 1 139888775076664 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 35, in create_tournament
+    create_matches(tournament, players, round_number=1)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+TypeError: create_matches() got an unexpected keyword argument 'round_number'
+ERROR 2025-03-26 13:24:30,395 log 1 139990863772472 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 35, in create_tournament
+    create_matches(tournament, players, round_number=1)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+TypeError: create_matches() got an unexpected keyword argument 'round_number'
+ERROR 2025-03-26 13:27:05,400 log 1 139815195654968 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 35, in create_tournament
+    create_matches(tournament, players, round_number=1)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+TypeError: create_matches() got multiple values for argument 'round_number'
+ERROR 2025-03-26 13:35:24,939 log 1 140116110523192 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column "winner_id" of relation "tournament_match" does not exist
+LINE 1: ...ch" ("tournament_id", "player1_id", "player2_id", "winner_id...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 25, in create_tournament
+    create_matches(tournament, players, round_number=1)
+  File "/app/./tournament/views.py", line 52, in create_matches
+    Match.objects.create(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1820, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column "winner_id" of relation "tournament_match" does not exist
+LINE 1: ...ch" ("tournament_id", "player1_id", "player2_id", "winner_id...
+                                                             ^
+
+ERROR 2025-03-26 13:43:28,051 log 1 139833409207096 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 32, in create_tournament
+    player1_nickname=F("player1__nickname"),
+NameError: name 'F' is not defined
+WARNING 2025-03-26 16:16:53,671 log 1 140007632108344 Method Not Allowed: /tournament/3/play_next/
+WARNING 2025-03-26 16:16:57,683 log 1 140007632108344 Method Not Allowed: /tournament/3/play_next/
+WARNING 2025-03-26 16:17:30,178 log 1 140007632108344 Method Not Allowed: /tournament/3/play_next/
+WARNING 2025-03-26 16:17:32,688 log 1 140007632108344 Method Not Allowed: /tournament/3/play_next/
+WARNING 2025-03-26 16:18:23,315 log 1 140007632108344 Not Found: /tournament/
+WARNING 2025-03-26 17:05:39,326 log 1 140376233990968 Bad Request: /tournament/1/play_next/
+WARNING 2025-03-26 17:05:42,748 log 1 140376233990968 Bad Request: /tournament/1/play_next/
+ERROR 2025-03-26 17:11:40,599 log 1 140626310683448 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 36, in create_tournament
+    "matches": [
+TypeError: 'NoneType' object is not iterable
+WARNING 2025-03-26 19:30:58,393 log 1 140658736225080 Not Found: /tournament/29/details/
+WARNING 2025-03-26 19:32:23,464 log 1 140158160804664 Not Found: /tournament/30/details/
+ERROR 2025-03-26 20:02:39,498 log 1 140401245100856 Internal Server Error: /tournament/create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./tournament/views.py", line 13, in create_tournament
+    num_players = int(data.get("num_players"))
+ValueError: invalid literal for int() with base 10: ''

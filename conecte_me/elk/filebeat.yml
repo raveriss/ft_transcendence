@@ -1,8 +1,13 @@
+# Configuration de Filebeat pour collecter les fichiers de logs et les envoyer à Logstash
 filebeat.inputs:
-  - type: log
-    enabled: true
+  - type: log  # Type of input: "log" pour la collecte de fichiers de logs
+    enabled: true  # Active cet input
     paths:
-      - /usr/share/filebeat/logs/*.log  # Chemin dans le conteneur Filebeat
+      # Chemin vers le fichier django.log et ses rotations éventuelles
+      - /usr/share/filebeat/logs/django.log*
+       # Chemin vers le fichier frontend.log et ses rotations éventuelles
+      - /usr/share/filebeat/logs/frontend.log*
 
 output.logstash:
+# Adresse et port du serveur Logstash pour l'envoi des logs
   hosts: ["logstash:5044"]

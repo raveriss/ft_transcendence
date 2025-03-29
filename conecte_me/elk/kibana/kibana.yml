@@ -3,5 +3,5 @@ server.host: "0.0.0.0"
 
 # Utilise la substitution d'environnement pour les informations d'Elasticsearch
 elasticsearch.hosts: ["${ELASTICSEARCH_URL}"]
-elasticsearch.username: "${ELASTICSEARCH_USERNAME}"
-elasticsearch.password: "${ELASTICSEARCH_PASSWORD}"
+elasticsearch.username: "${ELASTIC_USER}"
+elasticsearch.password: "${ELASTIC_PASSWORD}"

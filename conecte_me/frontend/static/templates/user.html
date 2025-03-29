@@ -1,0 +1,230 @@
+<div class="main-container">
+
+  <!-- Barre supérieure : flèche retour + Titre + user icon -->
+  <div class="header-bar">
+    <!-- Bouton retour -->
+    <div class="back-btn">
+      <button class="back-btn" onclick="customBack()">
+          <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon"/>
+        </button>
+          <!-- Titre PONG -->
+      </div>
+      <h1 class="title" data-i18n="user_profile">USER</h1>
+  </div>
+
+  <!-- Carte principale (Profil + Stats) -->
+  <div class="main-card">
+    
+    <!-- Bloc avatar -->
+    <div class="avatar-bubble">
+      <div class="avatar-image">
+        <img id="profile-image" src="static/img/default_avatar.png" alt="User Profile">
+      </div>
+      <!-- Bouton pour déclencher la sélection d'image -->
+      <button type="button" class="camera-icon">
+        <i class="bi bi-camera-fill"></i>
+      </button>
+      <!-- Input file caché -->
+      <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+    </div>
+
+    <!-- Nom + statut -->
+    <h2 class="player-name">Loading...</h2>
+    <div class="player-status" data-i18n="user_status_online">Online</div>
+
+    <!-- Stats en 4 blocs, alignés à gauche -->
+    <div class="stats-row">
+      <!-- Classement Elo
+      <div class="stat-item">
+        <p class="stat-label" data-i18n="elo_ranking">Classement Elo</p>
+        <div id="elo" class="stat-value">0</div>
+      </div> -->
+      <!-- Parties totales -->
+      <div class="stat-item">
+        <p class="stat-label" data-i18n="total_games">Parties totales</p>
+        <div id="total_games" class="stat-value">0</div>
+      </div>
+      <!-- Victoires -->
+      <div class="stat-item">
+        <p class="stat-label" data-i18n="Wins">Victoires</p>
+        <div id="wins" class="stat-value highlight-value">0</div>
+      </div>
+      <!-- Défaites -->
+      <div class="stat-item">
+        <p class="stat-label" data-i18n="losses">Défaites</p>
+        <div id="losses" class="stat-value">0</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Section Sécurité -->
+  <div class="security-card mb-4">
+    <h5 class="mb-3" data-i18n="security">Sécurité</h5>
+
+    <!-- Item 1 : Ajouter/Changer Email -->
+    <div class="security-item" id="email-toggle">
+      <div class="security-left">
+        <i class="bi bi-envelope"></i>
+        <span data-i18n="change_email">Ajouter/Changer : Email</span>
+      </div>
+      <div class="security-right">
+        <i class="bi bi-chevron-down" id="email-chevron"></i>
+      </div>
+    </div>
+
+    <!-- Conteneur du formulaire d'email (caché par défaut) -->
+    <div id="email-form-container" class="email-form-container">
+      <form id="email-form" novalidate class="mb-3">
+        <div class="mb-3">
+          <label for="old-email" class="form-label" data-i18n="old_email">Ancien Email</label>
+          <input type="email" id="old-email" class="form-control" placeholder="user@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="new-email" class="form-label" data-i18n="new_email">Nouveau Email</label>
+          <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email" required>
+          <div class="invalid-feedback">
+            Veuillez entrer un email valide.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="confirm-email" class="form-label" data-i18n="confirm_email">Confirmation Email</label>
+          <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email" required>
+          <div class="invalid-feedback">
+            Les emails ne correspondent pas.
+          </div>
+        </div>
+        <!-- Nouveau champ pour le mot de passe -->
+        <div class="mb-3">
+          <label for="email-password" class="form-label" data-i18n="password">Mot de passe</label>
+          <input type="password" id="email-password" class="form-control" placeholder="Votre mot de passe" required>
+          <div class="invalid-feedback">
+            Mot de passe requis.
+          </div>
+        </div>
+        <button id="email-submit" type="submit" class="btn btn-primary" data-i18n="validate">
+          <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          Valider
+        </button>
+      </form>
+    </div>
+    
+    <!-- Item 1.5 : Changer le nom d'utilisateur -->
+    <div class="security-item" id="username-toggle">
+      <div class="security-left">
+        <i class="bi bi-person"></i>
+        <span data-i18n="change_username">Changer le nom d'utilisateur</span>
+      </div>
+      <div class="security-right">
+        <i class="bi bi-chevron-down" id="username-chevron"></i>
+      </div>
+    </div>
+
+    <div id="username-form-container" class="username-form-container">
+      <form id="username-form" novalidate class="mb-3">
+        <div class="mb-3">
+          <label for="new-username" class="form-label" data-i18n="new_username_label">Nouveau nom d'utilisateur</label>
+          <input type="text" id="new-username" class="form-control" placeholder="Entrez le nouveau pseudo" data-i18n="new_username_placeholder" required>
+        </div>
+        <div class="mb-3">
+          <label for="username-password" class="form-label" data-i18n="password_label">Mot de passe</label>
+          <input type="password" id="username-password" class="form-control" placeholder="Mot de passe" data-i18n="password_placeholder2" required>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="validate">
+          <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          Valider
+        </button>
+      </form>
+    </div>
+
+    <!-- Item 2 : Changer le mot de passe -->
+    <div class="security-item" id="password-toggle">
+      <div class="security-left">
+        <i class="bi bi-key"></i>
+        <span data-i18n="change_password">Changer le mot de passe</span>
+      </div>
+      <div class="security-right">
+        <i class="bi bi-chevron-down" id="password-chevron"></i>
+      </div>
+    </div>
+
+    <!-- Conteneur du formulaire du mot de passe (caché par défaut) -->
+    <div id="password-form-container" class="password-form-container">
+      <form id="password-form" novalidate class="mb-3">
+        <div class="mb-3">
+          <label for="old-password" class="form-label" data-i18n="old_password">Ancien mot de passe</label>
+          <input type="password" id="old-password" class="form-control" placeholder="•••••••">
+        </div>
+        <div class="mb-3">
+          <label for="new-password" class="form-label" data-i18n="new_password">Nouveau mot de passe</label>
+          <input type="password" id="new-password" class="form-control" placeholder="•••••••">
+          <div class="invalid-feedback">
+            Veuillez entrer un mot de passe valide.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="confirm-password" class="form-label" data-i18n="confirm_password">Confirmation</label>
+          <input type="password" id="confirm-password" class="form-control" placeholder="•••••••">
+          <div class="invalid-feedback" data-i18n="password_mismatch">
+            Les mots de passe ne correspondent pas.
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" data-i18n="validate">
+          <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+          Valider
+        </button>
+      </form>
+    </div>
+
+
+  <!-- Section 2FA dans la sécurité -->
+  <div class="security-item" id="twofa-toggle">
+    <div class="security-left">
+      <i class="bi bi-shield"></i>
+      <span>Two-factor authentication (2FA)</span>
+    </div>
+    <div class="security-right">
+      <button id="twofa-btn" class="btn btn-link p-0" tabindex="0" aria-label="Activer 2FA">
+        <i id="twofa-icon" class="bi bi-toggle-off text-danger"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- Section Logs de connexion -->
+  <div class="logs-card">
+    <h5 class="mb-3"><i class="bi bi-activity"></i> <span data-i18n="login_logs">Logs de connexion</span></h5>
+    <!-- Conteneur “table-responsive” -->
+    <div class="table-responsive">
+      <table class="logs-table">
+          <thead>
+          <tr>
+              <th data-i18n="log_date">Date</th>
+              <th data-i18n="log_platform">Plateforme</th>
+              <th data-i18n="log_browser">Navigateur</th>
+              <th data-i18n="log_ip_address">Adresse IP</th>
+          </tr>
+          </thead>
+          <tbody id="login-history">
+            <!-- Les logs seront injectés ici par user.js -->
+          </tbody>
+      </table>
+  </div>
+</div>
+<!-- Section Gestion de mes données personnelles -->
+<div class="data-management-card text-center my-4 p-3 rounded" style="background: rgba(30,41,59,0.4); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+  <h5 class="mb-3">
+    <i class="bi bi-person-lines-fill me-2"></i> <span data-i18n="personal_data">Mes données personnelles</span>
+  </h5>
+  <div class="export-delete-container d-flex justify-content-center gap-3">
+    <button class="btn btn-secondary" id="export-data-btn">
+      <i class="bi bi-download me-2"></i> <span data-i18n="export_data">Télécharger mes données</span>
+    </button>
+    <button class="btn btn-danger" id="delete-account-btn">
+      <i class="bi bi-trash me-2"></i> <span data-i18n="delete_account">Supprimer mon compte</span>
+    </button>
+  </div>
+  <p class="small text-muted mt-2" data-i18n="data_info">
+    Vous pouvez télécharger une copie de vos données ou supprimer définitivement votre compte.
+  </p>
+</div>

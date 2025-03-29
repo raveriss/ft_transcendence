@@ -1,4 +1,39 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  changeLanguage(getCurrentLang()); // Appliquer immédiatement la langue actuelle
+});
+
+(function() {
+  // ------------------------------
+  // Fonction pour charger les statistiques utilisateur
+  // ------------------------------
+  function loadUserStats() {
+    console.log("loadUserStats called");
+    fetch('/api/game_settings/user_stats/', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'same-origin' // Assure que les cookies sont envoyés avec la requête
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then(stats => {
+      console.log("Stats utilisateur récupérées :", stats);
+      // Mettre à jour les éléments de la page user.html
+      // document.getElementById('elo').textContent = stats.elo;
+      document.getElementById('total_games').textContent = stats.total_games;
+      document.getElementById('wins').textContent = stats.wins;
+      document.getElementById('losses').textContent = stats.losses;
+    })
+    .catch(error => {
+      console.error("Erreur lors du chargement des stats utilisateur :", error);
+    });
+  }
+  loadUserStats();
   // ------------------------------
   // Fonctionnalité avatar (existante)
   // ------------------------------
@@ -13,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function parseUserAgent(userAgent) {
     let platform = 'Unknown';
     let browser = 'Unknown';
-  
+
     // Détection de la plateforme
     if (userAgent.indexOf('Linux') > -1) {
       platform = 'Linux';
@@ -22,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (userAgent.indexOf('Macintosh') > -1) {
       platform = 'Mac';
     }
-  
+
     // Détection du navigateur
     if (userAgent.indexOf('Chrome') > -1 && userAgent.indexOf('Edge') === -1) {
       browser = 'Chrome';
@@ -33,10 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (userAgent.indexOf('Edge') > -1) {
       browser = 'Edge';
     }
-  
+
     return { platform, browser };
   }
-  
+
 
   avatarInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
@@ -166,10 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!isValid) return;
 
-    const submitButton = emailForm.querySelector('button[type="submit"]');
+    const submitButton = document.getElementById('email-submit');
     submitButton.disabled = true;
     const spinner = submitButton.querySelector('.spinner-border');
-    spinner.classList.remove('d-none');
+    if (spinner )spinner.classList.remove('d-none');
 
     const payload = {
       current_email: currentEmail,
@@ -188,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(response => response.json())
     .then(data => {
-      spinner.classList.add('d-none');
+      if (spinner) spinner.classList.add('d-none');
       submitButton.disabled = false;
       if (data.success) {
         alert("Email modifié avec succès !");
@@ -205,6 +240,72 @@ document.addEventListener('DOMContentLoaded', () => {
       spinner.classList.add('d-none');
       submitButton.disabled = false;
       alert("Une erreur est survenue lors de la mise à jour de l'email.");
+    });
+  });
+
+  // ------------------------------
+  // Fonctionnalité Formulaire Username
+  // ------------------------------
+  const usernameForm = document.getElementById('username-form');
+  const newUsernameInput = document.getElementById('new-username');
+  const usernamePasswordInput = document.getElementById('username-password');
+  const usernameToggle = document.getElementById('username-toggle');
+  const usernameFormContainer = document.getElementById('username-form-container');
+  const usernameChevron = document.getElementById('username-chevron');
+
+  usernameToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    usernameFormContainer.classList.toggle('open');
+    usernameChevron.classList.toggle('rotate');
+    usernameToggle.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!usernameFormContainer.contains(e.target) && !usernameToggle.contains(e.target)) {
+      usernameFormContainer.classList.remove('open');
+      usernameChevron.classList.remove('rotate');
+      usernameToggle.classList.remove('open');
+    }
+  });
+
+  usernameForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const newUsername = newUsernameInput.value.trim();
+    const password = usernamePasswordInput.value.trim();
+
+    if (!newUsername || !password) {
+      alert("Tous les champs sont requis.");
+      return;
+    }
+
+    const payload = {
+      new_username: newUsername,
+      password: password
+    };
+
+    fetch('/auth/user/update_username/', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        alert("Nom d'utilisateur mis à jour !");
+        document.querySelector('.player-name').textContent = newUsername;
+        usernameForm.reset();
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    })
+    .catch(error => {
+      console.error("Erreur réseau :", error);
+      alert("Une erreur est survenue.");
     });
   });
 
@@ -334,6 +435,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Fonction pour mettre à jour l'icône selon l'état de 2FA
   function updateTwofaUI(is2faEnabled) {
+    // Mettez à jour le localStorage pour conserver l'état
+    localStorage.setItem('twofa_enabled', is2faEnabled);
     if (is2faEnabled) {
       twofaIcon.classList.remove('bi-toggle-off', 'text-danger');
       twofaIcon.classList.add('bi-toggle-on', 'text-success');
@@ -346,14 +449,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Vérifier l'état initial de 2FA
-  fetch('/auth/user/info/', { credentials: 'include' })
-    .then(response => response.json())
+  fetch('/auth/user/', { credentials: 'include' })
+  .then(response => response.json())
     .then(data => {
+      if (data.username) {
+        document.querySelector('.player-name').textContent = data.username;
+      }
+      if (data.profile_image) {
+        document.getElementById('profile-image').src = data.profile_image;
+      }
       if (data.is_2fa_enabled !== undefined) {
         updateTwofaUI(data.is_2fa_enabled);
       }
     })
-    .catch(error => console.error('Erreur de récupération de l\'état 2FA:', error));
+    .catch(error => console.error('Erreur de récupération des informations utilisateur:', error));
 
   // Gérer le clic sur le bouton de 2FA
   twofaBtn.addEventListener('click', () => {
@@ -396,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Si nous sommes sur user.html, récupérer l'historique des connexions
-  if (window.location.href.includes('user.html')) {
+  if (window.location.pathname === '/user') {
     fetch('/auth/user/login_history/', { credentials: 'include' })
       .then(response => response.json())
       .then(data => {
@@ -424,25 +533,22 @@ document.addEventListener('DOMContentLoaded', () => {
           ipCell.textContent = record.ip_address;
 
           // Statut : afficher "Active" si is_connected est vrai
-          const statusCell = document.createElement('td');
-          console.log('login_history:', data.login_history);
-          if (record.is_connected) {
-            statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
-          } else {
-            statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
-          }
+          // const statusCell = document.createElement('td');
+          // console.log('login_history:', data.login_history);
+          // if (record.is_connected) {
+          //   statusCell.innerHTML = '<span class="status-badge status-active">Active</span>';
+          // } else {
+          //   statusCell.innerHTML = '<span class="status-badge status-inactive">Inactive</span>';
+          // }
 
-          row.append(dateCell, platformCell, browserCell, ipCell, statusCell);
+          row.append(dateCell, platformCell, browserCell, ipCell);
           tbody.appendChild(row);
         });
       })
       .catch(error => console.error('Erreur lors de la récupération de l\'historique:', error));
   }
 
-});
-
-
-document.getElementById("export-data-btn").addEventListener("click", () => {
+  document.getElementById("export-data-btn").addEventListener("click", () => {
   fetch("/auth/user/export_data/", {
       method: "GET",
       credentials: "include"
@@ -459,9 +565,9 @@ document.getElementById("export-data-btn").addEventListener("click", () => {
       window.URL.revokeObjectURL(url);
   })
   .catch(error => console.error("Erreur lors de l'export des données :", error));
-});
+  });
 
-document.getElementById("delete-account-btn").addEventListener("click", () => {
+  document.getElementById("delete-account-btn").addEventListener("click", () => {
   if (confirm("Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.")) {
       fetch("/auth/user/delete_account/", {
           method: "POST",
@@ -472,11 +578,13 @@ document.getElementById("delete-account-btn").addEventListener("click", () => {
       .then(data => {
           if (data.success) {
               alert("Votre compte a été supprimé.");
-              window.location.href = "index.html";  // Redirection vers index.html
+              navigateTo('/home');
+              
           } else {
               alert("Erreur : " + data.error);
           }
       })
       .catch(error => console.error("Erreur lors de la suppression du compte :", error));
   }
-});
+  });
+})();

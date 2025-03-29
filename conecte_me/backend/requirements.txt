@@ -1,17 +1,30 @@
-Django==4.2
-djangorestframework
-psycopg2-binary==2.9.6
-PyJWT==2.8.0
-requests==2.31.0
-python-decouple==3.8  # Ajouté pour une meilleure gestion des variables d'environnement
-django-oauth-toolkit==2.0.0
+# --- FRAMEWORK & BASE DJANGO ---
+Django==4.2  # Framework Django
+djangorestframework==3.14.0  # Permet de créer des API REST avec Django
 
-qrcode>=7.3.1
-pyotp>=2.8.0
-Pillow>=9.0.0
+# --- AUTHENTICATION & SECURITY ---
+django-oauth-toolkit==2.0.0  # Gestion OAuth2 pour l’authentification des utilisateurs
+PyJWT==2.8.0  # Génération et vérification des tokens JWT
+python-decouple==3.8  # Gestion des variables d'environnement
 
+# --- DATABASE ---
+psycopg2-binary==2.9.6  # Connecteur pour utiliser PostgreSQL avec Django
 
+# --- WEBSOCKETS & REDIS ---
+channels==4.2.0  # Ajoute le support WebSockets à Django
+channels_redis==4.2.1  # Utilise Redis pour gérer les WebSockets
+daphne==4.1.2  # Serveur ASGI pour Django Channels
+redis==5.2.1  # Permet d'utiliser Redis comme broker de messages avec Django Channels
 
-channels==4.2.0
-channels_redis==4.2.1
-daphne==4.1.2
+# --- UTILITIES ---
+requests==2.31.0  # Permet d’envoyer des requêtes HTTP (utile pour interagir avec des API externes)
+pyotp>=2.8.0  # Permet la génération de codes TOTP pour l'authentification à deux facteurs
+qrcode>=7.3.1  # Génération de QR codes pour 2FA
+Pillow>=9.0.0  # Gestion et manipulation des images dans Django
+
+# --- SERVER ---
+gunicorn==21.2.0  # Serveur WSGI performant pour Django en production
+
+# --- DJANGO EXTENSIONS ---
+django-extensions==3.2.1  # Outils supplémentaires pour Django, y compris la commande show_urls
+

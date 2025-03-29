@@ -19,8 +19,8 @@
     ------------------------------------------------------------- */
     @font-face {
       font-family: 'Pong-Game';
-      src: url('static/fonts/PongGame.woff2') format('woff2'),
-           url('static/fonts/PongGame.woff') format('woff');
+      src: url('/static/fonts/PongGame.woff2') format('woff2'),
+           url('/static/fonts/PongGame.woff') format('woff');
       font-weight: normal;
       font-style: normal;
     }
@@ -345,7 +345,7 @@
     <!-- Barre supérieure avec bouton retour et titre -->
     <div class="header-bar">
       <div class="back-btn">
-        <button onclick="history.back()" style="background: transparent; border: none;">
+        <button onclick="customBack()" style="background: transparent; border: none;">
           <img src="/static/img/return_arrow.png" alt="Retour" class="arrow-icon">
         </button>
       </div>

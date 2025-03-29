@@ -1,0 +1,151 @@
+/* -------------------------------------------------------------
+   Fonts (hérite du board.css, rien à redéfinir ici)
+------------------------------------------------------------- */
+
+/* -------------------------------------------------------------
+   Base
+------------------------------------------------------------- */
+body {
+    font-family: 'Cantarell', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #f1f5f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  
+  /* -------------------------------------------------------------
+     Header / Retour
+  ------------------------------------------------------------- */
+  .header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .back-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .arrow-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+  }
+  
+  /* -------------------------------------------------------------
+     Titres et Sections
+  ------------------------------------------------------------- */
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 0.5rem;
+  }
+  
+  /* -------------------------------------------------------------
+     Mise en page 3 colonnes
+  ------------------------------------------------------------- */
+  .social-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .social-column {
+    flex: 1;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 400px;
+  }
+  
+  /* -------------------------------------------------------------
+     Listes d’utilisateurs
+  ------------------------------------------------------------- */
+  .social-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .social-column ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #263246;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  /* -------------------------------------------------------------
+     Bouton + pour ajout ami
+  ------------------------------------------------------------- */
+  .add-btn {
+    background-color: #3b82f6;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .add-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* -------------------------------------------------------------
+     Boutons standards (accepter / refuser / supprimer)
+  ------------------------------------------------------------- */
+  button {
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    color: #f1f5f9;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    transition: transform 0.2s, background 0.2s;
+  }
+  
+  button:hover {
+    background: rgba(51, 65, 85, 0.8);
+    transform: scale(1.05);
+  }
+  
+  /* -------------------------------------------------------------
+     Responsive
+  ------------------------------------------------------------- */
+  @media (max-width: 900px) {
+    .social-columns {
+      flex-direction: column;
+    }
+  
+    .social-column {
+      margin-bottom: 1rem;
+    }
+  }
+  

@@ -1,0 +1,35 @@
+/* game.css */
+
+/* Applique le fond d'écran sur toute la page */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Cantarell', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f1f5f9;
+}
+
+/* Conteneur pour centrer le canvas */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style du canvas de jeu */
+#pongCanvas {
+  background: black;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  /* Les dimensions peuvent être définies dans le JS ou ici : */
+  max-width: 1200px; /* Taille maximale en largeur */
+  min-width: 800px;  /* Taille minimale en largeur */
+  aspect-ratio: 4 / 3; /* Maintient le ratio 4:3 (donc 800x600 min) */
+  height: auto;
+}
+

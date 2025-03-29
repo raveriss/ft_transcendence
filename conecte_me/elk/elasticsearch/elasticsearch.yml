@@ -8,6 +8,4 @@ network.host: 0.0.0.0
 discovery.type: single-node
 
 # Activer la securite dans Elasticsearch 
-# A modifier pour securiser passer a true
-#########################
-xpack.security.enabled: false
+xpack.security.enabled: true
