@@ -97,3 +97,543 @@ WARNING 2025-03-29 11:08:04,140 log 1 140315340098360 Not Found: /auth/42/friend
 WARNING 2025-03-29 11:08:54,938 log 1 140315340098360 Not Found: /auth/42/friends/request/
 WARNING 2025-03-29 11:10:01,576 log 1 140315340098360 Not Found: /auth/42/friends/request/
 WARNING 2025-03-29 11:10:10,531 log 1 140315340098360 Not Found: /auth/42/friends/request/
+WARNING 2025-03-29 17:17:54,711 log 1 140521220016952 Not Found: /auth/42/friends/search/
+WARNING 2025-03-29 17:18:00,858 log 1 140521220016952 Not Found: /auth/42/friends/search/
+WARNING 2025-03-29 17:18:07,078 log 1 140521220016952 Not Found: /auth/42/friends/search/
+WARNING 2025-03-29 17:20:00,223 log 1 140521220016952 Not Found: /auth/42/friends/search/
+WARNING 2025-03-29 17:20:02,918 log 1 140521220016952 Not Found: /auth/42/friends/search/
+WARNING 2025-03-29 17:20:10,125 log 1 140521220016952 Not Found: /auth/42/friends/search/
+WARNING 2025-03-29 17:34:42,336 log 1 140673393732408 Not Found: /auth/42/friends/search/
+WARNING 2025-03-29 17:52:25,363 log 1 140323731565368 Not Found: /auth/42/friends/incoming/
+WARNING 2025-03-29 17:52:55,500 log 1 140323731565368 Not Found: /auth/42/friends/incoming/
+WARNING 2025-03-29 17:57:03,119 log 1 139757598354232 Not Found: /auth/42/friends/incoming/
+WARNING 2025-03-29 18:02:49,918 log 1 139757598354232 Bad Request: /auth/42/friends/request/
+WARNING 2025-03-29 18:02:49,937 log 1 139757598354232 Not Found: /auth/42/friends/remove/
+WARNING 2025-03-29 18:02:49,959 log 1 139757598354232 Bad Request: /auth/42/friends/request/
+WARNING 2025-03-29 18:02:49,996 log 1 139757598354232 Bad Request: /auth/42/friends/remove/
+WARNING 2025-03-29 18:06:50,281 log 1 139993595038520 Unauthorized: /auth/login/
+WARNING 2025-03-29 18:06:50,299 log 1 139993595038520 Unauthorized: /auth/login/
+WARNING 2025-03-29 18:06:50,314 log 1 139993595038520 Unauthorized: /auth/42/users/search/
+WARNING 2025-03-29 18:06:50,333 log 1 139993595038520 Unauthorized: /auth/42/friends/request/
+WARNING 2025-03-29 18:06:50,347 log 1 139993595038520 Unauthorized: /auth/42/friends/incoming/
+WARNING 2025-03-29 18:06:50,361 log 1 139993595038520 Unauthorized: /auth/42/friends/remove/
+WARNING 2025-03-29 18:06:50,376 log 1 139993595038520 Unauthorized: /auth/42/friends/request/
+WARNING 2025-03-29 18:06:50,391 log 1 139993595038520 Unauthorized: /auth/42/friends/incoming/
+WARNING 2025-03-29 18:06:50,405 log 1 139993595038520 Unauthorized: /auth/42/friends/accept/
+WARNING 2025-03-29 18:06:50,421 log 1 139993595038520 Unauthorized: /auth/42/friends/remove/
+WARNING 2025-03-29 18:07:22,953 log 1 139993595038520 Unauthorized: /auth/login/
+WARNING 2025-03-29 18:07:22,972 log 1 139993595038520 Unauthorized: /auth/login/
+WARNING 2025-03-29 18:07:22,983 log 1 139993595038520 Unauthorized: /auth/42/users/search/
+WARNING 2025-03-29 18:07:22,999 log 1 139993595038520 Unauthorized: /auth/42/friends/request/
+WARNING 2025-03-29 18:07:23,012 log 1 139993595038520 Unauthorized: /auth/42/friends/incoming/
+WARNING 2025-03-29 18:07:23,027 log 1 139993595038520 Unauthorized: /auth/42/friends/remove/
+WARNING 2025-03-29 18:07:23,042 log 1 139993595038520 Unauthorized: /auth/42/friends/request/
+WARNING 2025-03-29 18:07:23,056 log 1 139993595038520 Unauthorized: /auth/42/friends/incoming/
+WARNING 2025-03-29 18:07:23,070 log 1 139993595038520 Unauthorized: /auth/42/friends/accept/
+WARNING 2025-03-29 18:07:23,084 log 1 139993595038520 Unauthorized: /auth/42/friends/remove/
+WARNING 2025-03-29 18:08:27,081 log 1 139993595038520 Not Found: /auth/42/friends/remove/
+WARNING 2025-03-29 18:08:27,099 log 1 139993595038520 Bad Request: /auth/42/friends/request/
+WARNING 2025-03-29 18:08:27,156 log 1 139993595038520 Bad Request: /auth/42/friends/remove/
+WARNING 2025-03-29 18:56:23,972 log 1 140264611195704 Unauthorized: /auth/user/
+WARNING 2025-03-29 18:56:57,645 log 1 140264611195704 Unauthorized: /auth/user/
+WARNING 2025-03-29 18:56:58,563 log 1 140264611195704 Unauthorized: /auth/user/
+WARNING 2025-03-29 18:57:09,930 log 1 140264606931768 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 18:57:09,931 log 1 140264611195704 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 18:57:11,167 log 1 140264606931768 Unauthorized: /api/game_settings/user_stats/
+WARNING 2025-03-29 18:57:12,384 log 1 140264611195704 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 18:57:12,385 log 1 140264606931768 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 18:57:18,103 log 1 140264611195704 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 18:57:18,103 log 1 140264606931768 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 18:57:30,994 log 1 140264606931768 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-29 18:57:30,994 log 1 140264611195704 Unauthorized: /api/game_settings/
+WARNING 2025-03-29 19:22:17,492 log 1 140376261880632 Unauthorized: /auth/users/search/
+WARNING 2025-03-29 19:22:32,972 log 1 140376261880632 Unauthorized: /auth/42/users/search/
+WARNING 2025-03-29 19:23:13,870 log 1 140376261880632 Unauthorized: /auth/42/users/search/
+WARNING 2025-03-29 19:23:27,469 log 1 140376261880632 Bad Request: /auth/users/search/
+WARNING 2025-03-29 19:43:41,272 log 1 140062268193592 Unauthorized: /auth/42/friends/request/
+WARNING 2025-03-29 20:11:56,648 log 1 139922368092984 Bad Request: /auth/users/search/
+WARNING 2025-03-29 20:47:09,843 log 1 140124891208504 Not Found: /auth/friends/
+WARNING 2025-03-29 20:47:09,845 log 1 140124891208504 Not Found: /auth/users/search/
+WARNING 2025-03-29 20:49:53,360 log 1 140124891208504 Not Found: /auth/friends/
+WARNING 2025-03-29 20:49:53,363 log 1 140124891208504 Not Found: /auth/users/search/
+WARNING 2025-03-29 20:51:09,239 log 1 140124891208504 Not Found: /auth/friends/
+WARNING 2025-03-29 20:51:09,241 log 1 140124891208504 Not Found: /auth/users/search/
+WARNING 2025-03-29 20:51:16,000 log 1 140124891208504 Not Found: /auth/friends/
+WARNING 2025-03-29 20:51:16,006 log 1 140124891208504 Not Found: /auth/users/search/
+WARNING 2025-03-29 20:51:16,680 log 1 140124891208504 Not Found: /auth/friends/
+WARNING 2025-03-29 20:51:16,687 log 1 140124891208504 Not Found: /auth/users/search/
+WARNING 2025-03-29 20:53:19,447 log 1 140337358408504 Not Found: /auth/42/friends/
+WARNING 2025-03-29 20:53:19,451 log 1 140337358408504 Not Found: /auth/42/users/search/
+WARNING 2025-03-29 20:56:07,306 log 1 140337358408504 Not Found: /auth/42/friends/
+WARNING 2025-03-29 20:56:07,308 log 1 140337358408504 Not Found: /auth/42/users/search/
+WARNING 2025-03-29 20:56:12,147 log 1 140337358408504 Not Found: /auth/42/friends/
+WARNING 2025-03-29 20:56:12,156 log 1 140337358408504 Not Found: /auth/42/users/search/
+WARNING 2025-03-29 20:56:12,985 log 1 140337358408504 Not Found: /auth/42/friends/
+WARNING 2025-03-29 20:56:12,994 log 1 140337358408504 Not Found: /auth/42/users/search/
+WARNING 2025-03-29 20:56:19,019 log 1 140337358408504 Not Found: /auth/42/friends/
+WARNING 2025-03-29 20:56:19,020 log 1 140337358408504 Not Found: /auth/42/users/search/
+WARNING 2025-03-29 20:58:21,836 log 1 139706960309048 Not Found: /auth/users/search/
+WARNING 2025-03-29 20:58:21,838 log 1 139706960309048 Not Found: /auth/friends/
+WARNING 2025-03-29 20:58:37,235 log 1 139706960309048 Not Found: /auth/users/search/
+WARNING 2025-03-29 20:59:18,923 log 1 139706960309048 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:03:41,359 log 1 140287843240760 Not Found: /auth/friends/
+WARNING 2025-03-29 21:03:41,359 log 1 140287844301624 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:03:46,186 log 1 140287843240760 Not Found: /auth/friends/
+WARNING 2025-03-29 21:03:46,192 log 1 140287844301624 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:03:51,493 log 1 140287844301624 Not Found: /auth/friends/
+WARNING 2025-03-29 21:03:51,497 log 1 140287843240760 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:03:57,092 log 1 140287843240760 Not Found: /auth/friends/
+WARNING 2025-03-29 21:03:57,105 log 1 140287844301624 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:04:06,936 log 1 140287844301624 Not Found: /auth/friends/
+WARNING 2025-03-29 21:04:06,939 log 1 140287843240760 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:04:21,569 log 1 140287843240760 Not Found: /auth/friends/
+WARNING 2025-03-29 21:04:21,570 log 1 140287844301624 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:08:11,088 log 1 140216719407928 Not Found: /auth/friends/
+WARNING 2025-03-29 21:08:11,088 log 1 140216718347064 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:13:16,518 log 1 140216718347064 Not Found: /auth/friends/
+WARNING 2025-03-29 21:13:16,527 log 1 140216719407928 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:13:24,517 log 1 140216719407928 Not Found: /auth/friends/
+WARNING 2025-03-29 21:13:24,525 log 1 140216718347064 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:17:23,553 log 1 140216718347064 Not Found: /auth/friends/
+WARNING 2025-03-29 21:17:23,558 log 1 140216719407928 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:17:34,600 log 1 140216719407928 Not Found: /auth/friends/
+WARNING 2025-03-29 21:17:34,604 log 1 140216718347064 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:19:46,565 log 1 140216719407928 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:26:03,455 log 1 140308768099128 Not Found: /auth/friends/
+WARNING 2025-03-29 21:26:03,464 log 1 140308768099128 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:29:56,667 log 1 140308765989688 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:29:56,667 log 1 140308768099128 Not Found: /auth/friends/
+WARNING 2025-03-29 21:30:06,509 log 1 140308768099128 Not Found: /auth/friends/
+WARNING 2025-03-29 21:30:06,515 log 1 140308765989688 Not Found: /auth/users/search/
+WARNING 2025-03-29 21:30:09,849 log 1 140308765989688 Not Found: /auth/friends/
+WARNING 2025-03-29 21:30:09,854 log 1 140308768099128 Not Found: /auth/users/search/
+ERROR 2025-03-29 21:34:59,347 log 1 140089042885432 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:35:10,604 log 1 140089042885432 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:35:32,358 log 1 140089042885432 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:36:59,111 log 1 140089042885432 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:40:07,134 log 1 140089042885432 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:40:26,666 log 1 140089042885432 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:43:03,137 log 1 140089042885432 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+WARNING 2025-03-29 21:45:27,416 log 1 140423900265272 Not Found: /auth/friends/
+ERROR 2025-03-29 21:45:27,453 log 1 140423902374712 Internal Server Error: /auth/42/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+WARNING 2025-03-29 21:47:17,677 log 1 140423900265272 Not Found: /auth/friends/
+ERROR 2025-03-29 21:47:17,700 log 1 140423900265272 Internal Server Error: /auth/42/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+WARNING 2025-03-29 21:47:28,805 log 1 140423902374712 Not Found: /auth/friends/
+ERROR 2025-03-29 21:47:28,832 log 1 140423900265272 Internal Server Error: /auth/42/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:48:50,105 log 1 140196169153336 Internal Server Error: /auth/42/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:49:21,746 log 1 140196169153336 Internal Server Error: /auth/42/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:51:47,886 log 1 140472568625976 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:54:17,687 log 1 140472568625976 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:55:16,768 log 1 140472568625976 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:55:22,119 log 1 140472568625976 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 21:58:22,662 log 1 140248863562552 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 22:04:45,434 log 1 140248863562552 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 22:05:10,580 log 1 140248863562552 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 22:08:26,192 log 1 140241293720376 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 22:13:47,992 log 1 140441004141368 Internal Server Error: /auth/users/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+ERROR 2025-03-29 22:23:27,212 log 1 140172697807672 Internal Server Error: /auth/user/search/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 1271, in search_users_view
+    incoming = set(req.from_user.user_id for req in current_user.incoming_requests.all())
+AttributeError: 'User42' object has no attribute 'incoming_requests'
+WARNING 2025-03-29 22:40:53,441 log 1 140225046014776 Bad Request: /auth/42/friends/accept/
+WARNING 2025-03-29 22:42:03,311 log 1 140225046014776 Bad Request: /auth/42/friends/accept/
+WARNING 2025-03-29 22:44:40,321 log 1 140225046014776 Unauthorized: /auth/42/friends/request/
+WARNING 2025-03-29 22:45:45,973 log 1 140225046014776 Bad Request: /auth/friends/accept/
+WARNING 2025-03-29 22:46:04,731 log 1 140225046014776 Bad Request: /auth/friends/accept/
+WARNING 2025-03-29 22:46:09,876 log 1 140225046014776 Bad Request: /auth/friends/accept/
+WARNING 2025-03-29 22:46:52,338 log 1 140225046014776 Bad Request: /auth/friends/accept/
+WARNING 2025-03-29 22:46:58,136 log 1 140225046014776 Bad Request: /auth/friends/accept/
+WARNING 2025-03-29 22:49:19,843 log 1 140225046014776 Bad Request: /auth/friends/accept/

@@ -21,10 +21,11 @@ const routes = {
     '/tournament' : 'static/templates/tournament.html',
 	'/tournament-details' : 'static/templates/tournament_details.html',
 	'/game-tournament' : 'static/templates/game_tournament.html',
+  '/social': 'static/templates/social.html',
   };
 
 // Définir la liste des routes nécessitant une authentification
-const protectedRoutes = ['/board', '/user', '/stats', '/setup'];
+const protectedRoutes = ['/board', '/user', '/stats', '/setup', '/social'];
 
 function isRouteProtected(path) {
   return protectedRoutes.includes(path);
@@ -75,9 +76,12 @@ async function checkAuth() {
         cssFile = 'static/css/stats.css';
       } else if (route === '/game') {
         cssFile = 'static/css/game.css';
+      } else if (route === '/social') {
+        cssFile = 'static/css/social.css'; // si tu veux un style spécifique
       } else {
         cssFile = '/static/css/main.css';
       }
+
     
       // Crée un nouveau <link> avec un ID temporaire
       const newLink = document.createElement('link');
@@ -139,6 +143,8 @@ async function checkAuth() {
 		scriptFile = 'static/js/game_tournament.js';
     } else if (route === '/stats') {
       scriptFile = 'static/js/stats.js';
+    } else if (route === '/social') {
+      scriptFile = 'static/js/social.js';
     } else {
       // Par défaut, chargez le script global
       scriptFile = 'static/js/main.js';
@@ -262,7 +268,10 @@ async function navigateTo(path, pushHistory = true) {
     	if (path === '/tournament-details') {
 		  if (typeof renderTournamentDetails === 'function') {
 			console.log("📢 Appel explicite de renderTournamentDetails après chargement du JS");
-			renderTournamentDetails();
+			renderTournamentDetails();}}
+      if (path === '/social') {
+        if (typeof initSocialPage === 'function') {
+          initSocialPage();
 		  } else {
 			console.warn("⚠️ renderTournamentDetails non défini après chargement du JS");
 		  }
@@ -407,6 +416,12 @@ function attachListeners() {
     creditsBtn.addEventListener('click', () => {
       navigateTo('/team');
     });
+  }
+  const socialBtn = appDiv.querySelector('#social-btn');
+  if (socialBtn) {
+  socialBtn.addEventListener('click', () => {
+    navigateTo('/social');
+  });
   }
 
   // 4. Corriger le bouton exitBtn : rediriger vers "/home" et vider customHistory
