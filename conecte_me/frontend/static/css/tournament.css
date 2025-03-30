@@ -1,0 +1,100 @@
+/* tournament.css - Spécifique à la page tournoi.html */
+
+@font-face {
+    font-family: 'Pong-Game';
+    src: url('/static/fonts/PongGame.woff2') format('woff2'),
+         url('/static/fonts/PongGame.woff') format('woff');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Cantarell', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #f1f5f9;
+    overflow-x: hidden;
+}
+
+/* Zone centrale scrollable */
+.container {
+    background-color: #1f2937;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 3rem auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #1e293b;
+}
+
+/* Scrollbar WebKit pour un design propre */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+.container::-webkit-scrollbar-thumb {
+    background-color: #3b82f6;
+    border-radius: 10px;
+}
+.container::-webkit-scrollbar-track {
+    background-color: #1e293b;
+}
+
+h2, h3, h4 {
+    font-family: "Pong-Game", sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+
+label, p {
+    color: #e2e8f0;
+}
+
+.form-control, .form-select {
+    background-color: #263246;
+    border: 1px solid rgba(51, 65, 85, 0.5);
+    color: #f1f5f9;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.card-custom {
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-custom {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    border-color: #1e40af;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+    transform: scale(1.02);
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    background: #263246;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}

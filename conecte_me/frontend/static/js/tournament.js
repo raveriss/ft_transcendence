@@ -1,260 +1,195 @@
-// var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+if (typeof csrfToken === 'undefined') {
+	var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+}
 
-// // let currentTournamentId = null;
+document.addEventListener("DOMContentLoaded", () => {
+	loadExistingTournaments();
+});
 
-// function generatePlayerFields() {
-//     const numPlayers = document.getElementById("numPlayers").value;
-//     const playersContainer = document.getElementById("playersContainer");
-//     playersContainer.innerHTML = "";
-
-//     if (numPlayers >= 2) {
-//         for (let i = 1; i <= numPlayers; i++) {
-//             const label = document.createElement("label");
-//             label.classList.add("form-label");
-//             label.setAttribute("for", `player${i}`);
-//             label.textContent = `Pseudo joueur ${i}`;
-
-//             const input = document.createElement("input");
-//             input.type = "text";
-//             input.classList.add("form-control");
-//             input.id = `player${i}`;
-//             input.name = `player${i}`;
-//             input.required = true;
-
-//             playersContainer.appendChild(label);
-//             playersContainer.appendChild(input);
-//             playersContainer.appendChild(document.createElement("br"));
-//         }
-//     }
-// }
-
-// function createTournament() {
-//     const tournamentName = document.getElementById("tournamentName").value;
-//     const numPlayers = parseInt(document.getElementById("numPlayers").value);
-//     const playerNicknames = [];
-
-//     for (let i = 1; i <= numPlayers; i++) {
-//         const playerNickname = document.getElementById(`player${i}`).value;
-//         playerNicknames.push(playerNickname);
-//     }
-
-//     const time = parseInt(document.getElementById("gameTime").value, 10);
-//     const scoreLimit = parseInt(document.getElementById("scoreLimit").value, 10);
-
-//     const gameSettings = {
-//         time: time,
-//         score_limit: scoreLimit
-//     };
-
-//     const tournamentData = {
-//         name: tournamentName,
-//         num_players: numPlayers,
-//         player_nicknames: playerNicknames,
-//         game_settings: gameSettings
-//     };
-
-//     fetch("/tournament/create/", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             'X-CSRFToken': csrfToken
-//         },
-//         body: JSON.stringify(tournamentData),
-//     })
-//     .then(async response => {
-//         const text = await response.text();
-// 		if (!response.ok){
-// 			throw new Error(`Erreur HTTP ${response.status}: ${text}`);
-// 		}	
-//         console.log("Réponse brute du serveur :", text);
-
-//         try {
-//             const data = JSON.parse(text);
-
-//             if (data.tournament && data.tournament.id) {
-//                 currentTournamentId = data.tournament.id;
-//                 document.getElementById("tournamentNameDisplay").textContent = `Tournoi: ${data.tournament.name}`;
-
-//                 const playerList = document.getElementById("playerList");
-//                 playerList.innerHTML = "";
-//                 data.players.forEach(player => {
-//                     const listItem = document.createElement("li");
-//                     listItem.textContent = player;
-//                     playerList.appendChild(listItem);
-//                 });
-
-//                 const matchList = document.getElementById("matchList");
-//                 matchList.innerHTML = "";
-//                 data.matches.forEach(match => {
-//                     const matchItem = document.createElement("li");
-//                     matchItem.textContent = `${match.player1_nickname} vs ${match.player2_nickname} (Tour: ${match.round})`;
-//                     matchList.appendChild(matchItem);
-//                 });
-
-//                 localStorage.setItem("gameSettings", JSON.stringify({
-// 					score_limit: data.tournament.score_limit,
-// 					time: data.tournament.time
-// 				}));
-//                 localStorage.setItem("currentTournamentId", currentTournamentId);
-// 				window.navigateTo('/tournament-details');
-
-//             } else {
-//                 alert("Erreur: " + data.error);
-//             }
-
-//         } catch (e) {
-//             console.error("Erreur JSON:", e);
-//             alert("Réponse invalide du serveur (voir console)");
-//         }
-//     })
-//     .catch(error => {
-//         alert("Erreur lors de la création du tournoi: " + error);
-//     });
-// }
-
-
-
-var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
-// let currentTournamentId = null;
-
+// 🟦 Génère dynamiquement les champs joueurs
 function generatePlayerFields() {
-    const numPlayers = document.getElementById("numPlayers").value;
-    const playersContainer = document.getElementById("playersContainer");
-    playersContainer.innerHTML = "";
+	const numPlayers = document.getElementById("numPlayers").value;
+	const playersContainer = document.getElementById("playersContainer");
+	playersContainer.innerHTML = "";
 
-    if (numPlayers >= 2) {
-        for (let i = 1; i <= numPlayers; i++) {
-            const label = document.createElement("label");
-            label.classList.add("form-label");
-            label.setAttribute("for", `player${i}`);
-            label.textContent = `Pseudo joueur ${i}`;
+	if (numPlayers >= 2) {
+		if (numPlayers % 2 !== 0) {
+			alert("Le nombre de joueurs doit être pair pour créer un tournoi.");
+			return;
+		}
+		for (let i = 1; i <= numPlayers; i++) {
+			const label = document.createElement("label");
+			label.classList.add("form-label");
+			label.setAttribute("for", `player${i}`);
+			label.textContent = `Pseudo joueur ${i}`;
 
-            const input = document.createElement("input");
-            input.type = "text";
-            input.classList.add("form-control");
-            input.id = `player${i}`;
-            input.name = `player${i}`;
-            input.required = true;
+			const input = document.createElement("input");
+			input.type = "text";
+			input.classList.add("form-control", "mb-2");
+			input.id = `player${i}`;
+			input.name = `player${i}`;
+			input.required = true;
 
-            playersContainer.appendChild(label);
-            playersContainer.appendChild(input);
-            playersContainer.appendChild(document.createElement("br"));
-        }
-    }
+			playersContainer.appendChild(label);
+			playersContainer.appendChild(input);
+		}
+	}
 }
 
+// ✅ Vérifie que tous les pseudos joueurs sont remplis
+function validatePlayerNicknames(numPlayers) {
+	for (let i = 1; i <= numPlayers; i++) {
+		const input = document.getElementById(`player${i}`);
+		if (!input.value.trim()) {
+			alert(`Le champ "Pseudo joueur ${i}" est vide.`);
+			input.focus();
+			return false;
+		}
+	}
+	return true;
+}
+
+// 🟩 Créer un tournoi et envoyer au backend
 function createTournament() {
-    const tournamentName = document.getElementById("tournamentName").value;
-    const numPlayers = parseInt(document.getElementById("numPlayers").value);
-    const playerNicknames = [];
+	const tournamentName = document.getElementById("tournamentName").value.trim();
+	const numPlayers = parseInt(document.getElementById("numPlayers").value);
 
-    for (let i = 1; i <= numPlayers; i++) {
-        const playerNickname = document.getElementById(`player${i}`).value;
-        playerNicknames.push(playerNickname);
-    }
+	if (!tournamentName) {
+		alert("Le nom du tournoi est requis.");
+		document.getElementById("tournamentName").focus();
+		return;
+	}
 
-    const time = parseInt(document.getElementById("gameTime").value, 10);
-    const scoreLimit = parseInt(document.getElementById("scoreLimit").value, 10);
+	if (isNaN(numPlayers) || numPlayers < 2 || numPlayers % 2 !== 0) {
+		alert("Veuillez saisir un nombre pair de joueurs (au moins 2).");
+		document.getElementById("numPlayers").focus();
+		return;
+	}
 
-    const gameSettings = {
-        time: time,
-        score_limit: scoreLimit
-    };
+	if (!validatePlayerNicknames(numPlayers)) {
+		return;
+	}
 
-    const tournamentData = {
-        name: tournamentName,
-        num_players: numPlayers,
-        player_nicknames: playerNicknames,
-        game_settings: gameSettings
-    };
+	const playerNicknames = [];
+	for (let i = 1; i <= numPlayers; i++) {
+		const nickname = document.getElementById(`player${i}`).value.trim();
+		playerNicknames.push(nickname);
+	}
 
-    fetch("/tournament/create/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            'X-CSRFToken': csrfToken
-        },
-        body: JSON.stringify(tournamentData),
-    })
-    .then(async response => {
-        const text = await response.text();
-                if (!response.ok){
-                        throw new Error(`Erreur HTTP ${response.status}: ${text}`);
-                }
-        console.log("Réponse brute du serveur :", text);
+	const gameSettings = {
+		time: parseInt(document.getElementById("gameTime").value, 10),
+		score_limit: parseInt(document.getElementById("scoreLimit").value, 10)
+	};
 
-        try {
-            const data = JSON.parse(text);
+	if (isNaN(gameSettings.time) || isNaN(gameSettings.score_limit)) {
+		alert("Les paramètres de temps et de score sont requis.");
+		return;
+	}
 
-            if (data.tournament && data.tournament.id) {
-                currentTournamentId = data.tournament.id;
-                document.getElementById("tournamentNameDisplay").textContent = `Tournoi: ${data.tournament.name}`;
+	const tournamentData = {
+		name: tournamentName,
+		num_players: numPlayers,
+		player_nicknames: playerNicknames,
+		game_settings: gameSettings
+	};
 
-                const playerList = document.getElementById("playerList");
-                playerList.innerHTML = "";
-                data.players.forEach(player => {
-                    const listItem = document.createElement("li");
-                    listItem.textContent = player;
-                    playerList.appendChild(listItem);
-                });
-
-                const matchList = document.getElementById("matchList");
-                matchList.innerHTML = "";
-                data.matches.forEach(match => {
-                    const matchItem = document.createElement("li");
-                    matchItem.textContent = `${match.player1_nickname} vs ${match.player2_nickname} (Tour: ${match.round})`;
-                    matchList.appendChild(matchItem);
-                });
-
-                localStorage.setItem("gameSettings", JSON.stringify({
-                                        score_limit: data.tournament.score_limit,
-                                        time: data.tournament.time
-                                }));
-                localStorage.setItem("currentTournamentId", currentTournamentId);
-                                window.navigateTo('/tournament-details');
-
-            } else {
-                alert("Erreur: " + data.error);
-            }
-
-        } catch (e) {
-            console.error("Erreur JSON:", e);
-            alert("Réponse invalide du serveur (voir console)");
-        }
-    })
-    .catch(error => {
-        alert("Erreur lors de la création du tournoi: " + error);
-    });
+	fetch("/tournament/create/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			'X-CSRFToken': csrfToken
+		},
+		body: JSON.stringify(tournamentData),
+	})
+	.then(async response => {
+		const text = await response.text();
+		if (!response.ok) throw new Error(`Erreur HTTP ${response.status}: ${text}`);
+		return JSON.parse(text);
+	})
+	.then(data => {
+		if (data.tournament?.id) {
+			const currentTournamentId = data.tournament.id;
+			displayTournamentDetails(data);
+			localStorage.setItem("gameSettings", JSON.stringify({
+				score_limit: data.tournament.score_limit,
+				time: data.tournament.time
+			}));
+			localStorage.setItem("currentTournamentId", currentTournamentId);
+			window.navigateTo('/tournament-details');
+		} else {
+			alert("Erreur: " + data.error);
+		}
+	})
+	.catch(error => {
+		console.error("Erreur:", error);
+		alert("Erreur lors de la création du tournoi.");
+	});
 }
 
-// function playNextMatch() {
-//     if (!currentTournamentId) {
-//         alert("Aucun tournoi sélectionné.");
-//         return;
-//     }
+// 🔄 Affiche les données du tournoi après création
+function displayTournamentDetails(data) {
+	const nameDisplay = document.getElementById("tournamentNameDisplay");
+	if (nameDisplay) {
+		nameDisplay.textContent = `Tournoi: ${data.tournament.name}`;
+	}
+}
 
-//     fetch(`/tournament/${currentTournamentId}/play_next/`, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//             "X-CSRFToken": csrfToken
-//         }
-//     })
-//     .then(res => res.json())
-//     .then(data => {
-//         if (data.player1 && data.player2) {
-//             localStorage.setItem("player1", data.player1);
-//             localStorage.setItem("player2", data.player2);
-//             window.location.href = "/static/templates/game_tournament.html";
-//         } else if (data.message) {
-//             alert(data.message);
-//         } else {
-//             alert("Erreur: " + (data.error || "inconnue"));
-//         }
-//     })
-//     .catch(error => {
-//         console.error("Erreur lors du match :", error);
-//         alert("Erreur lors du match");
-//     });
-// }
+// 🔁 Chargement des tournois existants
+function loadExistingTournaments() {
+	const apiUrl = `${window.location.origin}/tournament/list/`;
+
+	fetch(apiUrl)
+		.then(response => {
+			console.log("✅ Réponse brute de /tournament/list/ :", response);
+			return response.json();
+		})
+		.then(data => {
+			console.log("✅ Données JSON :", data);
+			const select = document.getElementById("tournamentSelect");
+			select.innerHTML = '<option value="">-- Sélectionner un tournoi --</option>';
+
+			data.tournaments.forEach(t => {
+				const option = document.createElement("option");
+				const winnerText = t.winner ? ` - Vainqueur: ${t.winner}` : "";
+				option.value = t.id;
+				option.textContent = `${t.name}${winnerText}`;
+				select.appendChild(option);
+			});
+		})
+		.catch(err => {
+			console.error("❌ Erreur chargement tournois :", err);
+		});
+}
+
+// 🔁 Rejoindre un tournoi existant
+function joinSelectedTournament() {
+	const selectedId = document.getElementById("tournamentSelect").value;
+	if (!selectedId) {
+		alert("Veuillez sélectionner un tournoi.");
+		return;
+	}
+
+	fetch("/tournament/set_current_id/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"X-CSRFToken": csrfToken
+		},
+		body: JSON.stringify({ tournament_id: selectedId })
+	})
+	.then(response => {
+		if (!response.ok) throw new Error("Erreur lors de la sélection");
+		return response.json();
+	})
+	.then(data => {
+		window.navigateTo('/tournament-details');
+	})
+	.catch(error => {
+		console.error("Erreur:", error);
+		alert("Impossible de rejoindre le tournoi.");
+	});
+}
+
+function initTournamentPage() {
+	loadExistingTournaments();
+}
