@@ -73,25 +73,31 @@ console.log("✅ social.js chargé !");
     loadAllUsers();
   }
   
-  // 👥 Liste d’amis
-  async function loadFriends() {
-    const res = await fetch('/auth/friends/list/', { credentials: 'include' });
-    const data = await res.json();
-    const list = document.getElementById("friends-list");
-    list.innerHTML = "";
-    if (data.success && data.friends.length > 0) {
-      data.friends.forEach(friend => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <span>${friend.first_name} (${friend.username})</span>
-          <button onclick="removeFriend(${friend.user_id})">✖</button>
-        `;
-        list.appendChild(li);
-      });
-    } else {
-      list.innerHTML = "<li>Aucun ami pour l’instant.</li>";
-    }
+// 👥 Liste d’amis avec statut en ligne
+async function loadFriends() {
+  const res = await fetch('/auth/friends/list/', { credentials: 'include' });
+  const data = await res.json();
+  const list = document.getElementById("friends-list");
+  list.innerHTML = "";
+
+  if (data.success && data.friends.length > 0) {
+    data.friends.forEach(friend => {
+      const li = document.createElement("li");
+      const statusClass = friend.is_connected ? "status-online" : "status-offline";
+
+      li.innerHTML = `
+        <span style="display: flex; align-items: center; gap: 8px;">
+          <span class="status-indicator ${statusClass}"></span>
+          ${friend.first_name} (${friend.username})
+        </span>
+        <button onclick="removeFriend(${friend.user_id})">✖</button>
+      `;      
+      list.appendChild(li);
+    });
+  } else {
+    list.innerHTML = "<li>Aucun ami pour l’instant.</li>";
   }
+}
   
   // 📥 Demandes entrantes
   async function loadIncomingRequests() {

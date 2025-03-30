@@ -1285,7 +1285,7 @@ def search_users_view(request):
 @csrf_exempt
 def list_friends_view(request):
     """
-    Renvoie la liste des amis de l'utilisateur connecté.
+    Renvoie la liste des amis de l'utilisateur connecté, avec leur statut de connexion.
     """
     if request.method != 'GET':
         return JsonResponse({"success": False, "error": "Méthode non autorisée."}, status=405)
@@ -1300,12 +1300,20 @@ def list_friends_view(request):
         return JsonResponse({"success": False, "error": "Utilisateur introuvable."}, status=404)
 
     friends = user.get_friends()
-    data = [{
-        "user_id": friend.user_id,
-        "username": friend.username,
-        "first_name": friend.first_name,
-        "avatar_url": friend.profile_image.url if friend.profile_image else "/media/profile_pictures/default_avatar.png"
-    } for friend in friends]
+    data = []
+
+    for friend in friends:
+        # On va chercher le dernier log de connexion du friend
+        last_login = UserLoginHistory.objects.filter(user=friend).order_by('-timestamp').first()
+        is_connected = last_login.is_connected if last_login else False
+
+        data.append({
+            "user_id": friend.user_id,
+            "username": friend.username,
+            "first_name": friend.first_name,
+            "avatar_url": friend.profile_image.url if friend.profile_image else "/media/profile_pictures/default_avatar.png",
+            "is_connected": is_connected
+        })
 
     return JsonResponse({"success": True, "friends": data}, status=200)
 
