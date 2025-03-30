@@ -149,3 +149,23 @@ body {
     }
   }
   
+/* -------------------------------------------------------------
+   Statut en ligne (point vert ou gris à côté du nom)
+------------------------------------------------------------- */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.status-online {
+  background-color: #22c55e; /* vert */
+}
+
+.status-offline {
+  background-color: #64748b; /* gris */
+}
+
