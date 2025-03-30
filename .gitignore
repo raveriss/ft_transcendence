@@ -1,1 +1,44 @@
+venv/# Fichiers Python compilés
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Environnement virtuel
 venv/
+
+# Variables d’environnement
+.env
+conecte_me/.env
+
+# Fichiers de log
+*.log
+logs/
+!logs/.keep  # <-- si tu veux garder un dossier vide versionné
+
+# Base de données SQLite
+*.sqlite3
+
+# Fichiers temporaires
+*.tmp
+*.swp
+*.bak
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers de l’éditeur
+.vscode/
+.idea/
+
+# Fichiers de coverage/tests
+htmlcov/
+.coverage
+.pytest_cache/
+
+# Frontend
+node_modules/
+dist/
+build/
+
