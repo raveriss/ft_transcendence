@@ -118,3 +118,7 @@ INFO 2025-03-31 04:34:08,911 views 1 265508239976936 {"message": "TypeError: Fai
 INFO 2025-03-31 12:16:46,098 views 1 139643040783160 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
 INFO 2025-03-31 12:16:46,098 views 1 139643027938104 {"message": "Erreur lors du chargement de l'historique des matchs : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
 INFO 2025-03-31 12:36:58,975 views 1 139801940642616 {"message": "Erreur lors de l'enregistrement du match : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-31 12:48:38,037 views 1 139745118595896 {"message": "\u274c Erreur chargement tournois : TypeError: t is not a function", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-31 13:07:12,292 views 1 140181145692984 {"message": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-31 13:07:16,357 views 1 140181132737336 {"message": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-31 13:07:22,060 views 1 140181132737336 {"message": "SyntaxError: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON", "level": "ERROR", "type": "console-error", "origin": "frontend"}

@@ -34,17 +34,24 @@ function isRouteProtected(path) {
 // Fonction qui interroge le backend pour vérifier l'authentification
 async function checkAuth() {
   try {
-    // On utilise la route '/auth/user/' qui renvoie les infos utilisateur si authentifié
     const res = await fetch('/auth/user/', { method: 'GET', credentials: 'include' });
     if (res.ok) {
       return await res.json();
+    } else if (res.status === 401) {
+      // Utilisateur non authentifié : on retourne simplement null sans logger d'erreur
+      return null;
+    } else {
+      // Pour tout autre code de réponse, on log l'erreur pour faciliter le debug
+      console.error("Erreur lors de la vérification d'authentification :", res.status);
+      return null;
     }
-    return null;
   } catch (error) {
+    // En cas d'erreur réseau ou autre exception, on loggue l'erreur
     console.error("Erreur lors de la vérification d'authentification :", error);
     return null;
   }
 }
+
 
 
   function loadCSSForRoute(route) {
@@ -204,23 +211,21 @@ async function navigateTo(path, pushHistory = true) {
   console.log("🧭 Entree dans navigateTo avec path:", path);
   console.log("Navigating to:", path);
 
+  // Vérification de l'authentification une seule fois
+  const user = await checkAuth();
+
   // Si la route est protégée, vérifier l'authentification
-  if (isRouteProtected(path)) {
-    const user = await checkAuth();
-    if (!user) {
+  if (isRouteProtected(path) && !user) {
       // Si l'utilisateur n'est pas authentifié, rediriger vers /home
       console.log("Utilisateur non authentifié, redirection vers /home");
       path = '/home';
     }
-  }
 
-  const authPages = ['/home', '/login', '/signup'];
-  if (authPages.includes(path)) {
-    const user = await checkAuth();
-    if (user) {
-      console.log("Déjà connecté → redirection vers /board");
-      path = '/board';
-    }
+  // Si la route est une page d'authentification et que l'utilisateur est déjà connecté, rediriger vers /board
+  const authPages = ['/login', '/signup'];
+  if (authPages.includes(path) && user) {
+    console.log("Déjà connecté → redirection vers /board");
+    path = '/board';
   }
 
   // Pour la configuration 2FA, redirige sans SPA
@@ -450,6 +455,7 @@ function attachListeners() {
         sessionStorage.removeItem('customHistory');
         localStorage.removeItem('username');
         localStorage.removeItem('user_id');
+        localStorage.removeItem('jwtToken');
         // Rediriger vers '/home'
         navigateTo('/home');
       })

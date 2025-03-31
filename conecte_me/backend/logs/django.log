@@ -663,3 +663,132 @@ WARNING 2025-03-31 12:35:37,385 log 1 139801942895416 Unauthorized: /auth/user/
 WARNING 2025-03-31 12:35:43,695 log 1 139801942895416 Unauthorized: /auth/user/
 WARNING 2025-03-31 12:36:54,499 log 1 139801942895416 Unauthorized: /auth/user/
 WARNING 2025-03-31 12:36:58,970 log 1 139801942895416 Unauthorized: /api/game_settings/match_history/
+WARNING 2025-03-31 12:42:10,561 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:42:53,287 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:42:55,877 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:49:13,881 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:49:14,839 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:50:00,868 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:50:01,936 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:50:53,116 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:50:54,180 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:50:55,322 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:55:05,692 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:55:07,713 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:55:07,721 log 1 139745121057592 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:06:48,642 log 1 140181136497464 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:07:05,116 log 1 140181136497464 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:07:06,051 log 1 140181136497464 Unauthorized: /auth/user/
+ERROR 2025-03-31 13:07:12,284 log 1 140181136497464 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 632, in login_view
+    jwt_token = generate_jwt(user_id=user.user_id, username=user.username)
+  File "/app/./oauth_app/utils.py", line 40, in generate_jwt
+    'exp': expiration,        # Date et heure d'expiration du token, après laquelle il ne sera plus valide
+NameError: name 'expiration' is not defined
+ERROR 2025-03-31 13:07:16,349 log 1 140181136497464 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 632, in login_view
+    jwt_token = generate_jwt(user_id=user.user_id, username=user.username)
+  File "/app/./oauth_app/utils.py", line 40, in generate_jwt
+    'exp': expiration,        # Date et heure d'expiration du token, après laquelle il ne sera plus valide
+NameError: name 'expiration' is not defined
+ERROR 2025-03-31 13:07:22,053 log 1 140181136497464 Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 632, in login_view
+    jwt_token = generate_jwt(user_id=user.user_id, username=user.username)
+  File "/app/./oauth_app/utils.py", line 40, in generate_jwt
+    'exp': expiration,        # Date et heure d'expiration du token, après laquelle il ne sera plus valide
+NameError: name 'expiration' is not defined
+WARNING 2025-03-31 13:07:36,806 log 1 140181136497464 Unauthorized: /auth/user/
+ERROR 2025-03-31 13:07:40,410 log 1 140181136497464 Internal Server Error: /auth/42/callback
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/app/./oauth_app/views.py", line 363, in callback_42
+    jwt_token = generate_jwt(user_id=user.user_id, username=user_name_42)
+  File "/app/./oauth_app/utils.py", line 40, in generate_jwt
+    'exp': expiration,        # Date et heure d'expiration du token, après laquelle il ne sera plus valide
+NameError: name 'expiration' is not defined
+WARNING 2025-03-31 13:51:29,785 log 1 140165992958776 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:51:43,028 log 1 140165992958776 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:51:43,819 log 1 140165992958776 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:51:50,921 log 1 140165992958776 Unauthorized: /auth/login/
+WARNING 2025-03-31 13:52:01,192 log 1 140165992958776 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:52:23,684 log 1 140165992958776 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:52:25,568 log 1 140165992958776 Unauthorized: /auth/user/
+WARNING 2025-03-31 13:52:26,388 log 1 140165992958776 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:44:20,180 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:44:28,283 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:44:30,479 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:44:31,316 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:44:35,661 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:44:39,187 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:45:01,055 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:45:03,595 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:46:01,061 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:46:01,924 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:47:29,511 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 14:47:37,516 log 1 140554508491576 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:03:27,332 log 1 140659401759544 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:03:33,580 log 1 140659401759544 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:03:54,582 log 1 140659401759544 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:08:17,703 log 1 140169390144312 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:12:34,877 log 1 140072837491512 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:12:40,187 log 1 140072837491512 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:12:43,087 log 1 140072837491512 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:12:48,529 log 1 140072837491512 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:12:49,846 log 1 140072837491512 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:12:53,162 log 1 140072837491512 Unauthorized: /auth/user/
