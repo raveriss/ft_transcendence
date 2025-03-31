@@ -369,8 +369,8 @@ def callback_42(request):
     response.set_cookie(
         key="jwtToken", 
         value=jwt_token, 
-        httponly=True, 
-        secure=True, 
+        httponly=True, # Empêche l'accès via JavaScript
+        secure=True, # Transmet uniquement sur HTTPS
         samesite="Lax"
     )
     return response
@@ -635,11 +635,19 @@ def login_view(request):
             if user.is_2fa_enabled:
 
                 # Retourne une réponse JSON indiquant le succès de l'authentification et la redirection vers la configuration 2FA
-                return JsonResponse({
+                # On va stocker le token dans un cookie sécurisé
+                response = JsonResponse({
                     "success": True,
                     "redirect": "/auth/2fa/setup/",
-                    "token": jwt_token
                 }, status=200)
+                response.set_cookie(
+                    key="jwtToken",
+                    value=jwt_token,
+                    httponly=True,  # Empêche l'accès via JavaScript
+                    secure=True,    # Transmet uniquement sur HTTPS
+                    samesite="Lax"  # Selon vos besoins
+                )
+                return response
             else:
 
                 # Enregistrement de l'adresse IP et du navigateur de l'utilisateur pour le suivi
@@ -657,11 +665,19 @@ def login_view(request):
                 )
 
                 # Retourne une réponse JSON indiquant le succès de l'authentification et la redirection vers l'interface principale
-                return JsonResponse({
+                # On va stocker le token dans un cookie sécurisé
+                response = JsonResponse({
                     "success": True,
-                    "redirect": f"/board?jwt={jwt_token}",
-                    "token": jwt_token
+                    "redirect": "/board"
                 }, status=200)
+                response.set_cookie(
+                    key="jwtToken",
+                    value=jwt_token,
+                    httponly=True,  # Empêche l'accès via JavaScript
+                    secure=True,    # Transmet uniquement sur HTTPS
+                    samesite="Lax"  # Selon vos besoins
+                )
+                return response
 
         # Si le mot de passe ne correspond pas, retourner une erreur d'authentification
         return JsonResponse({
