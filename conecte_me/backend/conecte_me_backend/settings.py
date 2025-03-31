@@ -59,6 +59,10 @@ MIDDLEWARE = [
 
 CSRF_COOKIE_SECURE = True
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://localhost:8443",
+]
+
 # Configuration des URL
 ROOT_URLCONF = 'conecte_me_backend.urls'
 

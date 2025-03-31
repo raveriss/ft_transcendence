@@ -97,8 +97,8 @@ function createTournament() {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			'X-CSRFToken': csrfToken
 		},
+		credentials: "same-origin", // Permet d'envoyer les cookies avec la requête
 		body: JSON.stringify(tournamentData),
 	})
 	.then(async response => {
@@ -138,7 +138,7 @@ function displayTournamentDetails(data) {
 function loadExistingTournaments() {
 	const apiUrl = `${window.location.origin}/tournament/list/`;
 
-	fetch(apiUrl)
+	fetch(apiUrl, {credentials: "same-origin"}) // Permet d'envoyer les cookies avec la requête)
 		.then(response => {
 			console.log("✅ Réponse brute de /tournament/list/ :", response);
 			return response.json();
@@ -173,8 +173,8 @@ function joinSelectedTournament() {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
-			"X-CSRFToken": csrfToken
 		},
+		credentials: "include", // Permet d'envoyer les cookies avec la requête
 		body: JSON.stringify({ tournament_id: selectedId })
 	})
 	.then(response => {

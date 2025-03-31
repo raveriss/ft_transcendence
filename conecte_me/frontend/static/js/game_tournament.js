@@ -1,5 +1,8 @@
 console.log("✅ game_tournament.js loaded");
 
+
+let matchJustPlayed = false;
+
 (async function initGame() {
 	const currentMatch = JSON.parse(localStorage.getItem("currentMatch"));
 	if (!currentMatch || !currentMatch.match_id || !currentMatch.player1 || !currentMatch.player2 || !currentMatch.tournament_id) {
@@ -9,7 +12,7 @@ console.log("✅ game_tournament.js loaded");
 
 	const { match_id: matchId, player1, player2, tournament_id: tournamentId } = currentMatch;
 
-	const res = await fetch(`/tournament/api/details/${tournamentId}/`);
+	const res = await fetch(`/tournament/api/details/${tournamentId}/`, {credentials: "same-origin"});
 	const data = await res.json();
 	const scoreLimit = data.tournament.score_limit;
 	const timeLimit = data.tournament.time;
@@ -146,6 +149,7 @@ console.log("✅ game_tournament.js loaded");
 		fetch(`/tournament/${tournamentId}/match/${matchId}/finish/`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
+			credentials: "same-origin", // Permet d'envoyer les cookies avec la requête
 			body: JSON.stringify(data)
 		}).then(() => {
 			localStorage.removeItem("currentMatch");
@@ -164,6 +168,7 @@ console.log("✅ game_tournament.js loaded");
 
 			document.addEventListener("keydown", function handler(e) {
 				if (e.key === "Enter") {
+					sessionStorage.setItem("matchJustPlayed", "true");
 					window.location.replace(`/tournament-details`);
 					document.removeEventListener("keydown", handler);
 				}

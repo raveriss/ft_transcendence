@@ -5,7 +5,7 @@ if (typeof tournamentId === 'undefined') {
 }
 
 async function getTournamentIdFromSession() {
-  const res = await fetch('/tournament/get_current_id/');
+  const res = await fetch('/tournament/get_current_id/', {credentials: "same-origin"});
   const data = await res.json();
   if (!data.tournament_id) throw new Error("Aucun tournoi actif trouvé en session");
   return data.tournament_id;
@@ -14,7 +14,7 @@ async function getTournamentIdFromSession() {
 async function renderTournamentDetails() {
   try {
     tournamentId = await getTournamentIdFromSession();
-    const res = await fetch(`/tournament/api/details/${tournamentId}/`);
+    const res = await fetch(`/tournament/api/details/${tournamentId}/`, {credentials: "same-origin"});
     const raw = await res.text();
     console.log("Réponse de l'API:", raw);
     const data = JSON.parse(raw);
@@ -23,6 +23,7 @@ async function renderTournamentDetails() {
     if (titleEl) titleEl.textContent = data.tournament.name;
 
     renderBracket(data.matches);
+	sessionStorage.removeItem("matchJustPlayed");
   } catch (err) {
     console.error("❌ Impossible de charger les détails du tournoi:", err);
 	alert(t("tournament_load_error"));
@@ -227,6 +228,15 @@ function groupMatchesByRound(matches) {
   });
   return grouped;
 }
+
+window.addEventListener("popstate", function (event) {
+	const matchJustPlayed = sessionStorage.getItem("matchJustPlayed") === "true";
+	if (matchJustPlayed) {
+		alert("⛔ Vous ne pouvez pas revenir à un match terminé.");
+		history.go(1);
+	}
+});
+
 
 document.addEventListener("DOMContentLoaded", () => {
   renderTournamentDetails();
