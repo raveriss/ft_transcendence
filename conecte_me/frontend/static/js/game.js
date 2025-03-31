@@ -41,6 +41,9 @@ async function fetchGameSettings() {
   }
 }
 
+let startTime = Date.now();
+let pausedDuration = 0;
+let pauseStart = null;
 // Fonction principale pour initialiser le jeu avec les réglages récupérés
 (async function initGame() {
   const settings = await fetchGameSettings();
@@ -253,7 +256,7 @@ async function fetchGameSettings() {
 
     // Met à jour le chronomètre du match
     function updateTimer() {
-      elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        elapsedTime = Math.floor((Date.now() - startTime) / 1000);
     }
 
     // Vérifie les scores et termine le match si un joueur atteint le score gagnant
@@ -327,8 +330,15 @@ async function fetchGameSettings() {
       
       
       // Affichage du chronomètre
-      const minutes = Math.floor(elapsedTime / 60).toString().padStart(2, '0');
-      const seconds = (elapsedTime % 60).toString().padStart(2, '0');
+      let displayElapsed;
+		  if (isPaused && pauseStart !== null) {
+		  	displayElapsed = Math.floor((pauseStart - startTime - pausedDuration) / 1000);
+		  } else {
+		  displayElapsed = Math.floor((Date.now() - startTime - pausedDuration) / 1000);
+		  }
+
+      const minutes = Math.floor(displayElapsed / 60).toString().padStart(2, '0');
+      const seconds = (displayElapsed % 60).toString().padStart(2, '0');
       ctx.fillText(
         t("timer_display")
           .replace("{minutes}", minutes)
@@ -430,6 +440,13 @@ async function fetchGameSettings() {
       if (event.key === "p" || event.key === "P") {
         isPaused = !isPaused;
         confirmQuit = false;
+        if (isPaused){
+          pauseStart = Date.now()
+        }
+        else {
+          pausedDuration += Date.now() - pauseStart;
+          pauseStart = null;
+        }
       }
     });
     document.addEventListener("keyup", function(event) {

@@ -771,3 +771,27 @@ WARNING 2025-03-31 14:49:37,801 log 1 139977781136184 Unauthorized: /auth/user/
 WARNING 2025-03-31 14:50:01,377 log 1 139977780075320 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /tournament/set_current_id/
 WARNING 2025-03-31 14:57:30,377 log 1 140574937660216 Forbidden (Origin checking failed - https://localhost:8443 does not match any trusted origins.): /tournament/set_current_id/
 WARNING 2025-03-31 15:00:42,446 log 1 139722136615736 Forbidden (CSRF cookie not set.): /tournament/set_current_id/
+WARNING 2025-03-31 15:49:47,906 log 1 140299173571384 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:51:58,979 log 1 139748864199480 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:51:58,979 log 1 139748863138616 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 15:52:00,730 log 1 139748864199480 Unauthorized: /api/game_settings/user_stats/
+WARNING 2025-03-31 15:52:02,971 log 1 139748863138616 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 15:52:02,971 log 1 139748864199480 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:52:05,997 log 1 139748863138616 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:52:43,092 log 1 139748864199480 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:52:43,092 log 1 139748863138616 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 15:52:44,389 log 1 139748863138616 Unauthorized: /api/game_settings/user_stats/
+WARNING 2025-03-31 15:52:59,373 log 1 139748864199480 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:52:59,373 log 1 139748863138616 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 15:53:01,723 log 1 139748864199480 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:53:01,724 log 1 139748863138616 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 15:53:03,343 log 1 139748864199480 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:53:13,081 log 1 139748863138616 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:53:13,951 log 1 139748863138616 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:53:20,252 log 1 139748863138616 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:53:20,252 log 1 139748864199480 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 15:53:21,385 log 1 139748863138616 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:53:35,974 log 1 139748864199480 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 15:53:35,975 log 1 139748863138616 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 15:53:38,487 log 1 139748864199480 Unauthorized: /auth/user/
+WARNING 2025-03-31 15:53:39,759 log 1 139748863138616 Unauthorized: /auth/user/

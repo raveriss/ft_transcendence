@@ -2,6 +2,12 @@ console.log("✅ game_tournament.js loaded");
 
 
 let matchJustPlayed = false;
+let startTime = Date.now();
+let pausedDuration = 0;
+let pauseStart = null;
+let isOvertime = false;
+
+
 
 (async function initGame() {
 	const currentMatch = JSON.parse(localStorage.getItem("currentMatch"));
@@ -64,8 +70,8 @@ let matchJustPlayed = false;
 			ball.y >= player1State.y &&
 			ball.y <= player1State.y + player1State.height
 		) {
-			ball.speedX *= -1.05;
-			ball.speedY *= 1.05;
+			ball.speedX *= -1.10;
+			ball.speedY *= 1.10;
 		}
 
 		if (
@@ -73,12 +79,14 @@ let matchJustPlayed = false;
 			ball.y >= player2State.y &&
 			ball.y <= player2State.y + player2State.height
 		) {
-			ball.speedX *= -1.05;
-			ball.speedY *= 1.05;
+			ball.speedX *= -1.10;
+			ball.speedY *= 1.10;
 		}
 	}
 
 	function checkScore() {
+		const elapsed = Math.floor((Date.now() - startTime) / 1000);
+	
 		if (ball.x + ball.radius < 0) {
 			player2State.score++;
 			resetBall();
@@ -86,23 +94,40 @@ let matchJustPlayed = false;
 			player1State.score++;
 			resetBall();
 		}
-
-		if (player1State.score >= scoreLimit || player2State.score >= scoreLimit) {
+	
+		// 🔁 Prolongation active → le premier joueur qui marque gagne
+		if (isOvertime) {
+			if (player1State.score !== player2State.score) {
+				const winner = player1State.score > player2State.score ? player1 : player2;
+				const loser = winner === player1 ? player2 : player1;
+				quitGame(winner, loser, player1State.score, player2State.score);
+			}
+		}
+		// 🕓 Temps restant : jeu normal
+		else if (player1State.score >= scoreLimit || player2State.score >= scoreLimit) {
 			const winner = player1State.score > player2State.score ? player1 : player2;
 			const loser = winner === player1 ? player2 : player1;
 			quitGame(winner, loser, player1State.score, player2State.score);
 		}
 	}
-
+	
 	let startTime = Date.now();
 	function updateTimer() {
-		const elapsed = Math.floor((Date.now() - startTime) / 1000);
-		if (elapsed >= timeLimit * 60) {
-			const winner = player1State.score > player2State.score ? player1 : player2;
-			const loser = winner === player1 ? player2 : player1;
-			quitGame(winner, loser, player1State.score, player2State.score);
+		if (!isPaused) {
+			const elapsed = Math.floor((Date.now() - startTime) / 1000);
+			if (elapsed >= timeLimit * 60 && !isOvertime) {
+				if (player1State.score === player2State.score) {
+					isOvertime = true;
+					console.log("🔔 Prolongation activée !");
+				} else {
+					const winner = player1State.score > player2State.score ? player1 : player2;
+					const loser = winner === player1 ? player2 : player1;
+					quitGame(winner, loser, player1State.score, player2State.score);
+				}
+			}
 		}
 	}
+		
 
 	function draw() {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -131,10 +156,22 @@ let matchJustPlayed = false;
 		ctx.fillText(`${player1}: ${player1State.score}`, canvas.width / 4, 40);
 		ctx.fillText(`${player2}: ${player2State.score}`, canvas.width * 3 / 4, 40);
 
-		const elapsed = Math.floor((Date.now() - startTime) / 1000);
-		const min = String(Math.floor(elapsed / 60)).padStart(2, '0');
-		const sec = String(elapsed % 60).padStart(2, '0');
+		let displayElapsed;
+		if (isPaused && pauseStart !== null) {
+			displayElapsed = Math.floor((pauseStart - startTime - pausedDuration) / 1000);
+		} else {
+		displayElapsed = Math.floor((Date.now() - startTime - pausedDuration) / 1000);
+		}
+
+		const min = String(Math.floor(displayElapsed / 60)).padStart(2, '0');
+		const sec = String(displayElapsed % 60).padStart(2, '0');
 		ctx.fillText(`${min}:${sec}`, canvas.width / 2, 40);
+
+		if (isOvertime) {
+			ctx.font = "30px Orbitron, sans-serif";
+			ctx.fillStyle = "#facc15"; // jaune
+			ctx.fillText("🏁 Prolongation", canvas.width / 2, canvas.height - 40);
+		}
 	}
 
 	function quitGame(winner, loser, winnerScore, loserScore) {
@@ -177,8 +214,24 @@ let matchJustPlayed = false;
 	}
 
 	const keys = {};
-	document.addEventListener("keydown", e => keys[e.key] = true);
-	document.addEventListener("keyup", e => keys[e.key] = false);
+	document.addEventListener("keydown", function(event) {
+		keys[event.key] = true;
+		if (isGameOver) return;
+		if (event.key === "p" || event.key === "P") {
+		  isPaused = !isPaused;
+		  confirmQuit = false;
+		  if (isPaused){
+			pauseStart = Date.now();
+		  }
+		  else {
+			pausedDuration += Date.now() - pauseStart;
+			pauseStart = null;
+		  }
+		}
+	  });
+	  document.addEventListener("keyup", function(event) {
+		keys[event.key] = false;
+	  });;
 
 	function loop() {
 		if (isGameOver) return;

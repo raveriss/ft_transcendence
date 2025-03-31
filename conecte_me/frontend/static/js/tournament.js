@@ -148,11 +148,11 @@ function loadExistingTournaments() {
 			const select = document.getElementById("tournamentSelect");
 			select.innerHTML = `<option value="">${t("select_tournament_placeholder")}</option>`;
 
-			data.tournaments.forEach(t => {
+			data.tournaments.forEach(tournament => {
 				const option = document.createElement("option");
-				const winnerText = t.winner ? `${t("winner_prefix")}${t.winner}` : "";
-				option.value = t.id;
-				option.textContent = `${t.name}${winnerText}`;
+				const winnerText = tournament.winner ? `${t("winner_prefix")}${tournament.winner}` : "";
+				option.value = tournament.id;
+				option.textContent = `${tournament.name}${winnerText}`;
 				select.appendChild(option);
 			});
 		})
