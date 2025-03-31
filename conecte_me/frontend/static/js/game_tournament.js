@@ -7,6 +7,21 @@ let pausedDuration = 0;
 let pauseStart = null;
 let isOvertime = false;
 
+let loopId;
+let canvas;
+const keys = {};
+let keyDownHandler;
+let keyUpHandler;
+
+
+function cleanupGame() {
+	console.log("Cleanupgame called");
+	cancelAnimationFrame(loopId);
+	document.removeEventListener("keydown", keyDownHandler);
+	document.removeEventListener("keyup", keyUpHandler);
+	if (canvas && canvas.parentNode)
+		canvas.parentNode.removeChild(canvas);
+}
 
 
 (async function initGame() {
@@ -23,7 +38,7 @@ let isOvertime = false;
 	const scoreLimit = data.tournament.score_limit;
 	const timeLimit = data.tournament.time;
 
-	const canvas = document.createElement("canvas");
+	canvas = document.createElement("canvas");
 	canvas.id = "pongCanvas";
 	canvas.width = 1200;
 	canvas.height = 900;
@@ -206,32 +221,37 @@ let isOvertime = false;
 			document.addEventListener("keydown", function handler(e) {
 				if (e.key === "Enter") {
 					sessionStorage.setItem("matchJustPlayed", "true");
-					window.location.replace(`/tournament-details`);
+					cancelAnimationFrame(loopId); // on stoppe l'animation
+					document.body.removeChild(canvas); // on nettoie le canvas
+					window.location.replace(`/tournament-details`);	
 					document.removeEventListener("keydown", handler);
 				}
 			});
 		});
 	}
 
-	const keys = {};
-	document.addEventListener("keydown", function(event) {
+	const keyDownHandler = function(event) {
 		keys[event.key] = true;
 		if (isGameOver) return;
 		if (event.key === "p" || event.key === "P") {
-		  isPaused = !isPaused;
-		  confirmQuit = false;
-		  if (isPaused){
-			pauseStart = Date.now();
-		  }
-		  else {
-			pausedDuration += Date.now() - pauseStart;
-			pauseStart = null;
-		  }
+			isPaused = !isPaused;
+			confirmQuit = false;
+			if (isPaused){
+				pauseStart = Date.now();
+			} else {
+				pausedDuration += Date.now() - pauseStart;
+				pauseStart = null;
+			}
 		}
-	  });
-	  document.addEventListener("keyup", function(event) {
+	};
+	
+	const keyUpHandler = function(event) {
 		keys[event.key] = false;
-	  });;
+	};
+	
+	document.addEventListener("keydown", keyDownHandler);
+	document.addEventListener("keyup", keyUpHandler);
+	
 
 	function loop() {
 		if (isGameOver) return;
@@ -246,8 +266,11 @@ let isOvertime = false;
 			updateTimer();
 		}
 		draw();
-		requestAnimationFrame(loop);
+		loopId = requestAnimationFrame(loop);
 	}
 
 	loop();
 })();
+
+window.addEventListener("popstate", cleanupGame);
+

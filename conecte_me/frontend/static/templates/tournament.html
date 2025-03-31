@@ -12,7 +12,13 @@
     <script type="text/javascript">
         const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     </script>
-
+    <div class="top-bar">
+	  
+        <!-- Bouton de retour à gauche -->
+        <div class="back-btn" onclick="navigateTo('/board')">
+          <i class="fa fa-arrow-left"></i>
+          <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon" />
+        </div>
     <div class="container">
         <!-- Rejoindre un tournoi existant -->
         <div class="card-custom">
