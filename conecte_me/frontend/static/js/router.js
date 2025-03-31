@@ -25,7 +25,7 @@ const routes = {
   };
 
 // Définir la liste des routes nécessitant une authentification
-const protectedRoutes = ['/board', '/user', '/stats', '/setup', '/social', '/tournament', '/tournament-details', '/game-tournament'];
+const protectedRoutes = ['/board', '/user', '/stats', '/setup', '/social', '/tournament', '/tournament-details', '/game-tournament', '/game'];
 
 function isRouteProtected(path) {
   return protectedRoutes.includes(path);
@@ -34,17 +34,24 @@ function isRouteProtected(path) {
 // Fonction qui interroge le backend pour vérifier l'authentification
 async function checkAuth() {
   try {
-    // On utilise la route '/auth/user/' qui renvoie les infos utilisateur si authentifié
     const res = await fetch('/auth/user/', { method: 'GET', credentials: 'include' });
     if (res.ok) {
       return await res.json();
+    } else if (res.status === 401) {
+      // Utilisateur non authentifié : on retourne simplement null sans logger d'erreur
+      return null;
+    } else {
+      // Pour tout autre code de réponse, on log l'erreur pour faciliter le debug
+      console.error("Erreur lors de la vérification d'authentification :", res.status);
+      return null;
     }
-    return null;
   } catch (error) {
+    // En cas d'erreur réseau ou autre exception, on loggue l'erreur
     console.error("Erreur lors de la vérification d'authentification :", error);
     return null;
   }
 }
+
 
 
   function loadCSSForRoute(route) {
@@ -164,6 +171,11 @@ async function checkAuth() {
   }
 
 function addToHistory(route) {
+  // Définir les routes à exclure
+  const excludedRoutes = ["/login", "/signup"];
+  // Si la route est dans la liste des routes exclues, ne rien faire
+  if (excludedRoutes.includes(route)) return;
+
   // Récupère la pile existante ou initialise une liste vide
   let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
   // Évite d'ajouter plusieurs fois la même route consécutivement
@@ -198,6 +210,8 @@ function customBack() {
     navigateTo('/home', false);
   }
 }
+// Liste des routes fonctionnelles (à ajuster selon votre application)
+const validRoutes = ['/home', '/team', '/login', '/signup', '/signin42', '/board', '/setup', '/user', '/game', '/tournament', '/tournament-details', '/tournament/list', '/game-tournament', '/stats', '/social'];
 
 // Fonction principale pour charger une vue
 async function navigateTo(path, pushHistory = true) {
@@ -206,6 +220,7 @@ async function navigateTo(path, pushHistory = true) {
 
   // Si la route est protégée, vérifier l'authentification
   if (isRouteProtected(path)) {
+    // Vérification de l'authentification une seule fois
     const user = await checkAuth();
     if (!user) {
       // Si l'utilisateur n'est pas authentifié, rediriger vers /home
@@ -214,12 +229,14 @@ async function navigateTo(path, pushHistory = true) {
     }
   }
 
-  const authPages = ['/home', '/login', '/signup'];
+  // Si la route est une page d'authentification et que l'utilisateur est déjà connecté, rediriger vers /board
+  const authPages = ['/login', '/signup'];
   if (authPages.includes(path)) {
+    // Vérification de l'authentification une seule fois
     const user = await checkAuth();
     if (user) {
-      console.log("Déjà connecté → redirection vers /board");
-      path = '/board';
+    console.log("Déjà connecté → redirection vers /board");
+    path = '/board';
     }
   }
 
@@ -227,6 +244,15 @@ async function navigateTo(path, pushHistory = true) {
   if (path.startsWith("/auth/2fa/setup")) {
     window.location.href = path;
     return;
+  }
+
+  // Vérifier que la route fait partie des routes valides
+  if (!validRoutes.includes(path)) {
+    console.log("Route invalide détectée → redirection vers /home");
+    path = "/home";
+    pushHistory = false;
+    // Mettre à jour l'URL du navigateur pour refléter la bonne route
+    history.replaceState({}, '', path);
   }
 
   // Ajout dans l'historique et pushState seulement si demandé
@@ -450,6 +476,7 @@ function attachListeners() {
         sessionStorage.removeItem('customHistory');
         localStorage.removeItem('username');
         localStorage.removeItem('user_id');
+        localStorage.removeItem('jwtToken');
         // Rediriger vers '/home'
         navigateTo('/home');
       })
