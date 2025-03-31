@@ -650,3 +650,16 @@ WARNING 2025-03-31 02:52:58,773 log 1 280817706297832 Unauthorized: /api/game_se
 WARNING 2025-03-31 03:26:55,183 log 1 260713537620456 Unauthorized: /auth/user/
 WARNING 2025-03-31 03:26:55,196 log 1 260713537620456 Unauthorized: /auth/user/
 WARNING 2025-03-31 04:13:39,622 log 1 252105924110824 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:11:20,207 log 1 139643025816376 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:16:03,806 log 1 139643025816376 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:16:23,487 log 1 139643025816376 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:16:31,748 log 1 139643025816376 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:16:46,089 log 1 139643025816376 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 12:16:46,089 log 1 139643026877240 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 12:16:49,711 log 1 139643025816376 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:16:50,932 log 1 139643026877240 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:35:16,198 log 1 139801942895416 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:35:37,385 log 1 139801942895416 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:35:43,695 log 1 139801942895416 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:36:54,499 log 1 139801942895416 Unauthorized: /auth/user/
+WARNING 2025-03-31 12:36:58,970 log 1 139801942895416 Unauthorized: /api/game_settings/match_history/
