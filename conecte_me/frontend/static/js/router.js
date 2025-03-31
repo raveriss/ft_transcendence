@@ -25,7 +25,7 @@ const routes = {
   };
 
 // Définir la liste des routes nécessitant une authentification
-const protectedRoutes = ['/board', '/user', '/stats', '/setup', '/social', '/tournament', '/tournament-details', '/game-tournament'];
+const protectedRoutes = ['/board', '/user', '/stats', '/setup', '/social', '/tournament', '/tournament-details', '/game-tournament', '/game'];
 
 function isRouteProtected(path) {
   return protectedRoutes.includes(path);
@@ -210,33 +210,49 @@ function customBack() {
     navigateTo('/home', false);
   }
 }
+// Liste des routes fonctionnelles (à ajuster selon votre application)
+const validRoutes = ['/home', '/team', '/login', '/signup', '/signin42', '/board', '/setup', '/user', '/game', '/tournament', '/tournament-details', '/tournament/list', '/game-tournament', '/stats', '/social'];
 
 // Fonction principale pour charger une vue
 async function navigateTo(path, pushHistory = true) {
   console.log("🧭 Entree dans navigateTo avec path:", path);
   console.log("Navigating to:", path);
 
-  // Vérification de l'authentification une seule fois
-  const user = await checkAuth();
-
   // Si la route est protégée, vérifier l'authentification
-  if (isRouteProtected(path) && !user) {
+  if (isRouteProtected(path)) {
+    // Vérification de l'authentification une seule fois
+    const user = await checkAuth();
+    if (!user) {
       // Si l'utilisateur n'est pas authentifié, rediriger vers /home
       console.log("Utilisateur non authentifié, redirection vers /home");
       path = '/home';
     }
+  }
 
   // Si la route est une page d'authentification et que l'utilisateur est déjà connecté, rediriger vers /board
   const authPages = ['/login', '/signup'];
-  if (authPages.includes(path) && user) {
+  if (authPages.includes(path)) {
+    // Vérification de l'authentification une seule fois
+    const user = await checkAuth();
+    if (user) {
     console.log("Déjà connecté → redirection vers /board");
     path = '/board';
+    }
   }
 
   // Pour la configuration 2FA, redirige sans SPA
   if (path.startsWith("/auth/2fa/setup")) {
     window.location.href = path;
     return;
+  }
+
+  // Vérifier que la route fait partie des routes valides
+  if (!validRoutes.includes(path)) {
+    console.log("Route invalide détectée → redirection vers /home");
+    path = "/home";
+    pushHistory = false;
+    // Mettre à jour l'URL du navigateur pour refléter la bonne route
+    history.replaceState({}, '', path);
   }
 
   // Ajout dans l'historique et pushState seulement si demandé
