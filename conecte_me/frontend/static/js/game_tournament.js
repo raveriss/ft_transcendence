@@ -1,5 +1,8 @@
 console.log("✅ game_tournament.js loaded");
 
+
+let matchJustPlayed = false;
+
 (async function initGame() {
 	const currentMatch = JSON.parse(localStorage.getItem("currentMatch"));
 	if (!currentMatch || !currentMatch.match_id || !currentMatch.player1 || !currentMatch.player2 || !currentMatch.tournament_id) {
@@ -164,6 +167,7 @@ console.log("✅ game_tournament.js loaded");
 
 			document.addEventListener("keydown", function handler(e) {
 				if (e.key === "Enter") {
+					sessionStorage.setItem("matchJustPlayed", "true");
 					window.location.replace(`/tournament-details`);
 					document.removeEventListener("keydown", handler);
 				}
