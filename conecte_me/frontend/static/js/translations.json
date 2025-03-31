@@ -262,7 +262,6 @@
         "change_username": "Change username",
         "new_username_label": "New username",
         "new_username_placeholder": "Enter new username",
-        "password_placeholder2": "Password",
         "social_title": "SOCIAL",
         "my_friends": "My Friends",
         "incoming_requests": "Incoming Requests",
@@ -300,7 +299,11 @@
         "tournament_display": "Tournament",
         "winner_prefix": " - Winner: ",
         "select_tournament_required": "Please select a tournament.",
-        "join_tournament_failed": "Unable to join the tournament."
+        "join_tournament_failed": "Unable to join the tournament.",
+        "two_factor_auth": "Two-factor authentication (2FA)",
+        "old_email_placeholder": "Old email",
+        "new_email_placeholder": "Enter your new email",
+        "confirm_email_placeholder": "Confirm your new email"
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -565,7 +568,6 @@
         "change_username": "Changer le nom d'utilisateur",
         "new_username_label": "Nouveau nom d'utilisateur",
         "new_username_placeholder": "Entrez le nouveau pseudo",
-        "password_placeholder2": "Mot de passe",
         "social_title": "SOCIAL",
         "my_friends": "Mes amis",
         "incoming_requests": "Demandes reçues",
@@ -603,7 +605,11 @@
         "tournament_display": "Tournoi",
         "winner_prefix": " - Vainqueur: ",
         "select_tournament_required": "Veuillez sélectionner un tournoi.",
-        "join_tournament_failed": "Impossible de rejoindre le tournoi."
+        "join_tournament_failed": "Impossible de rejoindre le tournoi.",
+        "two_factor_auth": "Authentification à deux facteurs (2FA)",
+        "old_email_placeholder": "Ancien email",
+        "new_email_placeholder": "Entrez votre nouvel email",
+        "confirm_email_placeholder": "Confirmez votre nouvel email"
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -902,6 +908,10 @@
         "tournament_display": "Torneo",
         "winner_prefix": " - Ganador: ",
         "select_tournament_required": "Por favor selecciona un torneo.",
-        "join_tournament_failed": "No se pudo unir al torneo."
+        "join_tournament_failed": "No se pudo unir al torneo.",
+        "two_factor_auth": "Autenticación de dos factores (2FA)",
+        "old_email_placeholder": "Correo electrónico antiguo",
+        "new_email_placeholder": "Introduce tu nuevo correo",
+        "confirm_email_placeholder": "Confirma tu nuevo correo"
     }
 }

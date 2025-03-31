@@ -78,18 +78,18 @@
       <form id="email-form" novalidate class="mb-3">
         <div class="mb-3">
           <label for="old-email" class="form-label" data-i18n="old_email">Ancien Email</label>
-          <input type="email" id="old-email" class="form-control" placeholder="user@example.com" required>
+          <input type="email" id="old-email" class="form-control" placeholder="user@example.com" required data-i18n="old_email_placeholder">
         </div>
         <div class="mb-3">
           <label for="new-email" class="form-label" data-i18n="new_email">Nouveau Email</label>
-          <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email" required>
+          <input type="email" id="new-email" class="form-control" placeholder="Entrez votre nouvel email" required data-i18n="new_email_placeholder">
           <div class="invalid-feedback">
             Veuillez entrer un email valide.
           </div>
         </div>
         <div class="mb-3">
           <label for="confirm-email" class="form-label" data-i18n="confirm_email">Confirmation Email</label>
-          <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email" required>
+          <input type="email" id="confirm-email" class="form-control" placeholder="Confirmez votre nouvel email" required data-i18n="confirm_email_placeholder">
           <div class="invalid-feedback">
             Les emails ne correspondent pas.
           </div>
@@ -97,7 +97,7 @@
         <!-- Nouveau champ pour le mot de passe -->
         <div class="mb-3">
           <label for="email-password" class="form-label" data-i18n="password">Mot de passe</label>
-          <input type="password" id="email-password" class="form-control" placeholder="Votre mot de passe" required>
+          <input type="password" id="email-password" class="form-control" placeholder="Votre mot de passe" required data-i18n="password_placeholder">
           <div class="invalid-feedback">
             Mot de passe requis.
           </div>
@@ -181,7 +181,7 @@
   <div class="security-item" id="twofa-toggle">
     <div class="security-left">
       <i class="bi bi-shield"></i>
-      <span>Two-factor authentication (2FA)</span>
+      <span data-i18n="two_factor_auth">Two-factor authentication (2FA)</span>
     </div>
     <div class="security-right">
       <button id="twofa-btn" class="btn btn-link p-0" tabindex="0" aria-label="Activer 2FA">
