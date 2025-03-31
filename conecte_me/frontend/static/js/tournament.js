@@ -174,7 +174,7 @@ function joinSelectedTournament() {
 		headers: {
 			"Content-Type": "application/json",
 		},
-		credentials: "same-origin", // Permet d'envoyer les cookies avec la requête
+		credentials: "include", // Permet d'envoyer les cookies avec la requête
 		body: JSON.stringify({ tournament_id: selectedId })
 	})
 	.then(response => {

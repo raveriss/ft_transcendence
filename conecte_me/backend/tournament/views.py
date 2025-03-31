@@ -69,8 +69,7 @@ def create_tournament(request):
     return JsonResponse({"error": "Méthode non autorisée."}, status=405)
 
 
-@csrf_exempt
-@jwt_required
+
 def create_matches(tournament, players, round_number):
     matches = []
     i = 0
@@ -125,7 +124,7 @@ def get_tournament_details(request, tournament_id):
         return JsonResponse({'error': 'Tournoi non trouvé'}, status=404)
 #     return JsonResponse(data)
 
-
+@csrf_exempt
 @require_GET
 @jwt_required
 def tournament_details_json(request, tournament_id):
@@ -195,6 +194,7 @@ def play_next_match(request, tournament_id):
         "round": match.round_number
     })
 
+@csrf_exempt
 @jwt_required
 def get_current_tournament_id(request):
     tid = request.session.get("current_tournament_id")
@@ -202,9 +202,9 @@ def get_current_tournament_id(request):
         return JsonResponse({"error": "Aucun tournoi actif"}, status=404)
     return JsonResponse({"tournament_id": tid})
 
+@require_POST
 @csrf_exempt
 @jwt_required
-@require_POST
 def finish_match(request, tournament_id, match_id):
     match = get_object_or_404(Match, id=match_id, tournament_id=tournament_id)
     if match.is_finished:
@@ -267,9 +267,9 @@ def finish_match(request, tournament_id, match_id):
         return JsonResponse({"error": "Requête invalide (JSON)."}, status=400)
 
 
-
-@jwt_required
+@csrf_exempt
 @require_GET
+@jwt_required
 def list_tournaments(request):
     tournois = Tournament.objects.all().order_by('-id')[:10]  # tri par ID descendant
     return JsonResponse({
@@ -279,10 +279,13 @@ def list_tournaments(request):
         ]
     })
 
-@jwt_required
 @csrf_exempt
+@jwt_required
 @require_POST
 def set_current_tournament_id(request):
+    print("✅ Cookie reçu :", request.COOKIES.get("jwtToken"))
+    print("✅ set_current_tournament_id appelée")
+    print("➡️ Cookies reçus:", request.COOKIES)
     try:
         data = json.loads(request.body)
         tid = data.get("tournament_id")

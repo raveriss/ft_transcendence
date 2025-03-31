@@ -167,7 +167,7 @@ function addToHistory(route) {
   // Récupère la pile existante ou initialise une liste vide
   let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
   // Évite d'ajouter plusieurs fois la même route consécutivement
-  if (historyStack.length === 0 || historyStack[historyStack.length - 1] !== route) {
+  if ((historyStack.length === 0 || historyStack[historyStack.length - 1] !== route) && route !== "/game-tournament") {
     historyStack.push(route);
     sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
   }
