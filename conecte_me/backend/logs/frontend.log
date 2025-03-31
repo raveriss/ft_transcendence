@@ -109,3 +109,7 @@ INFO 2025-03-29 21:36:59,088 views 1 140089039727416 {"message": "TypeError: Fai
 INFO 2025-03-29 21:40:07,114 views 1 140089038666552 {"message": "TypeError: Failed to fetch", "level": "ERROR", "source": "Promise", "type": "promise-rejection", "origin": "frontend"}
 INFO 2025-03-29 21:40:26,656 views 1 140089038666552 {"message": "TypeError: Failed to fetch", "level": "ERROR", "source": "Promise", "type": "promise-rejection", "origin": "frontend"}
 INFO 2025-03-29 21:43:03,114 views 1 140089038666552 {"message": "TypeError: Failed to fetch", "level": "ERROR", "source": "Promise", "type": "promise-rejection", "origin": "frontend"}
+INFO 2025-03-31 02:52:35,170 views 1 280817724414440 {"message": "Erreur lors du chargement de l'historique des matchs : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-31 02:52:35,171 views 1 280817708407272 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-31 02:52:58,783 views 1 280817724414440 {"message": "Erreur lors du chargement de l'historique des matchs : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-03-31 02:52:58,784 views 1 280817708407272 {"message": "Erreur lors de la r\u00e9cup\u00e9ration des r\u00e9glages : Error: HTTP 401 - Unauthorized", "level": "ERROR", "type": "console-error", "origin": "frontend"}

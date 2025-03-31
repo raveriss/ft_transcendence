@@ -637,3 +637,13 @@ WARNING 2025-03-29 22:46:09,876 log 1 140225046014776 Bad Request: /auth/friends
 WARNING 2025-03-29 22:46:52,338 log 1 140225046014776 Bad Request: /auth/friends/accept/
 WARNING 2025-03-29 22:46:58,136 log 1 140225046014776 Bad Request: /auth/friends/accept/
 WARNING 2025-03-29 22:49:19,843 log 1 140225046014776 Bad Request: /auth/friends/accept/
+WARNING 2025-03-31 02:52:05,001 log 1 280817709468136 Unauthorized: /auth/user/
+WARNING 2025-03-31 02:52:07,632 log 1 280817709468136 Unauthorized: /auth/user/
+WARNING 2025-03-31 02:52:21,700 log 1 280817709468136 Unauthorized: /auth/user/
+WARNING 2025-03-31 02:52:24,136 log 1 280817709468136 Unauthorized: /auth/user/
+WARNING 2025-03-31 02:52:35,159 log 1 280817709468136 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 02:52:35,159 log 1 280817706297832 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 02:52:45,483 log 1 280817709468136 Unauthorized: /auth/user/
+WARNING 2025-03-31 02:52:46,220 log 1 280817706297832 Unauthorized: /auth/user/
+WARNING 2025-03-31 02:52:58,773 log 1 280817709468136 Unauthorized: /api/game_settings/match_history/list/
+WARNING 2025-03-31 02:52:58,773 log 1 280817706297832 Unauthorized: /api/game_settings/
