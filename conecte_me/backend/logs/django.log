@@ -649,3 +649,4 @@ WARNING 2025-03-31 02:52:58,773 log 1 280817709468136 Unauthorized: /api/game_se
 WARNING 2025-03-31 02:52:58,773 log 1 280817706297832 Unauthorized: /api/game_settings/
 WARNING 2025-03-31 03:26:55,183 log 1 260713537620456 Unauthorized: /auth/user/
 WARNING 2025-03-31 03:26:55,196 log 1 260713537620456 Unauthorized: /auth/user/
+WARNING 2025-03-31 04:13:39,622 log 1 252105924110824 Unauthorized: /auth/user/

@@ -14,14 +14,14 @@ function generatePlayerFields() {
 
 	if (numPlayers >= 2) {
 		if (numPlayers % 2 !== 0) {
-			alert("Le nombre de joueurs doit être pair pour créer un tournoi.");
+			alert(t("players_must_be_even"));
 			return;
 		}
 		for (let i = 1; i <= numPlayers; i++) {
 			const label = document.createElement("label");
 			label.classList.add("form-label");
 			label.setAttribute("for", `player${i}`);
-			label.textContent = `Pseudo joueur ${i}`;
+			label.textContent = `${t("player_nickname")} ${i}`;
 
 			const input = document.createElement("input");
 			input.type = "text";
@@ -41,7 +41,7 @@ function validatePlayerNicknames(numPlayers) {
 	for (let i = 1; i <= numPlayers; i++) {
 		const input = document.getElementById(`player${i}`);
 		if (!input.value.trim()) {
-			alert(`Le champ "Pseudo joueur ${i}" est vide.`);
+			alert(t("player_nickname_field_empty").replace("{i}", i));
 			input.focus();
 			return false;
 		}
@@ -55,13 +55,13 @@ function createTournament() {
 	const numPlayers = parseInt(document.getElementById("numPlayers").value);
 
 	if (!tournamentName) {
-		alert("Le nom du tournoi est requis.");
+		alert(t("tournament_name_required"));
 		document.getElementById("tournamentName").focus();
 		return;
 	}
 
 	if (isNaN(numPlayers) || numPlayers < 2 || numPlayers % 2 !== 0) {
-		alert("Veuillez saisir un nombre pair de joueurs (au moins 2).");
+		alert(t("invalid_player_number"));
 		document.getElementById("numPlayers").focus();
 		return;
 	}
@@ -82,7 +82,7 @@ function createTournament() {
 	};
 
 	if (isNaN(gameSettings.time) || isNaN(gameSettings.score_limit)) {
-		alert("Les paramètres de temps et de score sont requis.");
+		alert(t("settings_required"));
 		return;
 	}
 
@@ -117,12 +117,12 @@ function createTournament() {
 			localStorage.setItem("currentTournamentId", currentTournamentId);
 			window.navigateTo('/tournament-details');
 		} else {
-			alert("Erreur: " + data.error);
+			alert(t("error_generic") + ": " + data.error);
 		}
 	})
 	.catch(error => {
 		console.error("Erreur:", error);
-		alert("Erreur lors de la création du tournoi.");
+		alert(t("tournament_creation_error"));
 	});
 }
 
@@ -130,7 +130,7 @@ function createTournament() {
 function displayTournamentDetails(data) {
 	const nameDisplay = document.getElementById("tournamentNameDisplay");
 	if (nameDisplay) {
-		nameDisplay.textContent = `Tournoi: ${data.tournament.name}`;
+		nameDisplay.textContent = `${t("tournament_display")}: ${data.tournament.name}`;
 	}
 }
 
@@ -146,11 +146,11 @@ function loadExistingTournaments() {
 		.then(data => {
 			console.log("✅ Données JSON :", data);
 			const select = document.getElementById("tournamentSelect");
-			select.innerHTML = '<option value="">-- Sélectionner un tournoi --</option>';
+			select.innerHTML = `<option value="">${t("select_tournament_placeholder")}</option>`;
 
 			data.tournaments.forEach(t => {
 				const option = document.createElement("option");
-				const winnerText = t.winner ? ` - Vainqueur: ${t.winner}` : "";
+				const winnerText = t.winner ? `${t("winner_prefix")}${t.winner}` : "";
 				option.value = t.id;
 				option.textContent = `${t.name}${winnerText}`;
 				select.appendChild(option);
@@ -165,7 +165,7 @@ function loadExistingTournaments() {
 function joinSelectedTournament() {
 	const selectedId = document.getElementById("tournamentSelect").value;
 	if (!selectedId) {
-		alert("Veuillez sélectionner un tournoi.");
+		alert(t("select_tournament_required"));
 		return;
 	}
 
@@ -186,7 +186,7 @@ function joinSelectedTournament() {
 	})
 	.catch(error => {
 		console.error("Erreur:", error);
-		alert("Impossible de rejoindre le tournoi.");
+		alert(t("join_tournament_failed"));
 	});
 }
 

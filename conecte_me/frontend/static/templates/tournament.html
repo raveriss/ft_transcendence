@@ -16,37 +16,37 @@
     <div class="container">
         <!-- Rejoindre un tournoi existant -->
         <div class="card-custom">
-            <h4 class="card-header-custom">Rejoindre un tournoi existant</h4>
+            <h4 class="card-header-custom" data-i18n="join_existing_tournament">Rejoindre un tournoi existant</h4>
             <select id="tournamentSelect" class="form-select mt-2 mb-2">
-                <option value="">-- Sélectionner un tournoi --</option>
+                <option value="" data-i18n="select_tournament_placeholder">-- Sélectionner un tournoi --</option>
             </select>
-            <button class="btn btn-primary mt-2" onclick="joinSelectedTournament()">Rejoindre</button>
+            <button class="btn btn-primary mt-2" onclick="joinSelectedTournament()" data-i18n="join_button">Rejoindre</button>
         </div>
 
         <!-- Créer un tournoi -->
-        <h2>Créer un Tournoi</h2>
+        <h2 data-i18n="create_tournament_title">Créer un Tournoi</h2>
         <div class="mb-3">
-            <label class="form-label" for="tournamentName">Nom du tournoi</label>
+            <label class="form-label" for="tournamentName" data-i18n="tournament_name_label">Nom du tournoi</label>
             <input type="text" class="form-control" id="tournamentName">
         </div>
         <div class="mb-3">
-            <label class="form-label" for="numPlayers">Nombre de joueurs</label>
+            <label class="form-label" for="numPlayers" data-i18n="number_of_players_label">Nombre de joueurs</label>
             <input type="number" class="form-control" id="numPlayers" min="2" step="2" onchange="generatePlayerFields()">
         </div>
         <div id="playersContainer" class="mb-3"></div>
 
-        <h3>Paramètres du jeu</h3>
+        <h3 data-i18n="game_settings">Paramètres du jeu</h3>
         <div class="row mb-3">
             <div class="col">
-                <label for="gameTime" class="form-label">Temps</label>
+                <label for="gameTime" class="form-label" data-i18n="game_time_label">Temps</label>
                 <input type="number" class="form-control" id="gameTime" value="5" min="1" max="10">
             </div>
             <div class="col">
-                <label for="scoreLimit" class="form-label">Score limite</label>
+                <label for="scoreLimit" class="form-label" data-i18n="score_limit_label">Score limite</label>
                 <input type="number" class="form-control" id="scoreLimit" value="5" min="1" max="20">
             </div>
         </div>
-        <button class="btn btn-primary" onclick="createTournament()">Créer</button>
+        <button class="btn btn-primary" onclick="createTournament()" data-i18n="create_button">Créer</button>
 
         <!-- Affichage -->
         <!-- <h2 id="tournamentNameDisplay"></h2>

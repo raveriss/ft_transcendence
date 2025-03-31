@@ -25,8 +25,8 @@ async function renderTournamentDetails() {
     renderBracket(data.matches);
   } catch (err) {
     console.error("❌ Impossible de charger les détails du tournoi:", err);
-    alert("Erreur lors du chargement du tournoi.");
-  }
+	alert(t("tournament_load_error"));
+}
 }
 
 function renderBracket(matches) {
@@ -65,7 +65,7 @@ function renderBracket(matches) {
 	  column.style.minHeight = `${minColHeight}px`;
   
 	  const roundTitle = document.createElement('h4');
-	  roundTitle.textContent = `Tour ${roundKey}`;
+	  roundTitle.textContent = `${t("round")} ${roundKey}`;
 	  roundTitle.style.color = '#60a5fa';
 	  roundTitle.style.fontFamily = 'Pong-Game, sans-serif';
 	  column.appendChild(roundTitle);
@@ -89,7 +89,7 @@ function renderBracket(matches) {
   
 		const winnerText = document.createElement('div');
 		winnerText.className = 'score';
-		winnerText.innerHTML = `<span style="color:#cbd5e1;">Gagnant:</span> <strong>${match.winner || 'à venir'}</strong>`;
+		winnerText.innerHTML = `<span style="color:#cbd5e1;">${t("winner")}:</span> <strong>${match.winner || t("upcoming")}</strong>`;
   
 		const playBtn = document.createElement('button');
 		playBtn.className = 'play-btn btn-centered';
@@ -121,7 +121,7 @@ function renderBracket(matches) {
 	if (winnerMatch) {
 	  const winnerBanner = document.createElement('div');
 	  winnerBanner.className = 'winner-banner';
-	  winnerBanner.textContent = `🏆 Vainqueur: ${winnerMatch.winner}`;
+	  winnerBanner.textContent = `🏆 ${t("winner")}: ${winnerMatch.winner}`;
 	  winnerBanner.style.marginTop = '1rem';
 	  winnerBanner.style.textAlign = 'center';
 	  winnerBanner.style.fontSize = '1.2rem';
