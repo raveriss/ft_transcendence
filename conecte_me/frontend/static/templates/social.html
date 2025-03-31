@@ -13,10 +13,10 @@
 
     <!-- Barre de navigation supérieure -->
     <div class="header-bar">
-      <button class="back-btn" onclick="customBack()">
+      <div class="back-btn" onclick="customBack()">
         <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon" />
-      </button>
-      <h1 class="title" data-i18n="social_title">SOCIAL</h1>
+      </div>
+      <h1 class="page-title" data-i18n="social_title">SOCIAL</h1>
     </div>
 
     <!-- Contenu 3 colonnes -->
@@ -25,7 +25,7 @@
       <!-- Colonne gauche : Amis -->
       <div class="social-column">
         <h2 class="section-title" data-i18n="my_friends">Mes amis</h2>
-        <ul id="friends-list" class="list-group list-group-flush">
+        <ul id="friends-list">
           <!-- Liste des amis -->
         </ul>
       </div>
@@ -33,7 +33,7 @@
       <!-- Colonne centre : Demandes -->
       <div class="social-column">
         <h2 class="section-title" data-i18n="incoming_requests">Demandes reçues</h2>
-        <ul id="incoming-requests" class="list-group list-group-flush">
+        <ul id="incoming-requests">
           <!-- Demandes en attente -->
         </ul>
       </div>
@@ -41,7 +41,7 @@
       <!-- Colonne droite : Tous les utilisateurs -->
       <div class="social-column">
         <h2 class="section-title" data-i18n="all_users">Tous les utilisateurs</h2>
-        <ul id="all-users-list" class="list-group list-group-flush">
+        <ul id="all-users-list">
           <!-- Tous les utilisateurs -->
         </ul>
       </div>
