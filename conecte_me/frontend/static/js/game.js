@@ -1,5 +1,3 @@
-console.log("game.js loaded");
-
 // Fonction pour récupérer les réglages du jeu via l'API
 async function fetchGameSettings() {
   console.log("fetchGameSettings() called");
