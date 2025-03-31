@@ -1,12 +1,14 @@
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from oauth_app.jwt_decorator import jwt_required
 from django.views.decorators.http import require_POST
 from django.views.decorators.http import require_GET
 from .models import Tournament, Player, Match
 import random, json
 
 @csrf_exempt
+@jwt_required
 def create_tournament(request):
     if request.method == "POST":
         try:
@@ -66,6 +68,9 @@ def create_tournament(request):
 
     return JsonResponse({"error": "Méthode non autorisée."}, status=405)
 
+
+@csrf_exempt
+@jwt_required
 def create_matches(tournament, players, round_number):
     matches = []
     i = 0
@@ -84,7 +89,8 @@ def create_matches(tournament, players, round_number):
 
 
 
-#@csrf_exempt
+@csrf_exempt
+@jwt_required
 def get_tournament_details(request, tournament_id):
     print("✅ Vue API /tournament/api/details/ appelée avec ID:", tournament_id)
     print("✅ Appel à get_tournament_details avec ID:", tournament_id)
@@ -121,6 +127,7 @@ def get_tournament_details(request, tournament_id):
 
 
 @require_GET
+@jwt_required
 def tournament_details_json(request, tournament_id):
     tournament = get_object_or_404(Tournament, id=tournament_id)
     players = tournament.players.all()
@@ -150,6 +157,7 @@ def tournament_details_json(request, tournament_id):
 
 @csrf_exempt
 @require_POST
+@jwt_required
 def play_specific_match(request, tournament_id, match_id):
     try:
         match = Match.objects.get(id=match_id, tournament_id=tournament_id)
@@ -169,6 +177,7 @@ def play_specific_match(request, tournament_id, match_id):
 
 
 @csrf_exempt
+@jwt_required
 def play_next_match(request, tournament_id):
     if request.method != 'POST':
         return JsonResponse({"error": "Méthode non autorisée, utilisez POST."}, status=405)
@@ -186,6 +195,7 @@ def play_next_match(request, tournament_id):
         "round": match.round_number
     })
 
+@jwt_required
 def get_current_tournament_id(request):
     tid = request.session.get("current_tournament_id")
     if not tid:
@@ -193,6 +203,7 @@ def get_current_tournament_id(request):
     return JsonResponse({"tournament_id": tid})
 
 @csrf_exempt
+@jwt_required
 @require_POST
 def finish_match(request, tournament_id, match_id):
     match = get_object_or_404(Match, id=match_id, tournament_id=tournament_id)
@@ -257,7 +268,7 @@ def finish_match(request, tournament_id, match_id):
 
 
 
-
+@jwt_required
 @require_GET
 def list_tournaments(request):
     tournois = Tournament.objects.all().order_by('-id')[:10]  # tri par ID descendant
@@ -268,6 +279,7 @@ def list_tournaments(request):
         ]
     })
 
+@jwt_required
 @csrf_exempt
 @require_POST
 def set_current_tournament_id(request):

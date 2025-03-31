@@ -25,7 +25,7 @@ const routes = {
   };
 
 // Définir la liste des routes nécessitant une authentification
-const protectedRoutes = ['/board', '/user', '/stats', '/setup', '/social'];
+const protectedRoutes = ['/board', '/user', '/stats', '/setup', '/social', '/tournament', '/tournament-details', '/game-tournament'];
 
 function isRouteProtected(path) {
   return protectedRoutes.includes(path);

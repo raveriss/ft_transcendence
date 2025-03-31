@@ -5,7 +5,7 @@ if (typeof tournamentId === 'undefined') {
 }
 
 async function getTournamentIdFromSession() {
-  const res = await fetch('/tournament/get_current_id/');
+  const res = await fetch('/tournament/get_current_id/', {credentials: "same-origin"});
   const data = await res.json();
   if (!data.tournament_id) throw new Error("Aucun tournoi actif trouvé en session");
   return data.tournament_id;
@@ -14,7 +14,7 @@ async function getTournamentIdFromSession() {
 async function renderTournamentDetails() {
   try {
     tournamentId = await getTournamentIdFromSession();
-    const res = await fetch(`/tournament/api/details/${tournamentId}/`);
+    const res = await fetch(`/tournament/api/details/${tournamentId}/`, {credentials: "same-origin"});
     const raw = await res.text();
     console.log("Réponse de l'API:", raw);
     const data = JSON.parse(raw);
