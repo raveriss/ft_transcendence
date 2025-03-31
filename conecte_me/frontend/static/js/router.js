@@ -251,9 +251,9 @@ async function navigateTo(path, pushHistory = true) {
     console.log("Route invalide détectée → redirection vers /home");
     path = "/home";
     pushHistory = false;
-    // Mettre à jour l'URL du navigateur pour refléter la bonne route
-    history.replaceState({}, '', path);
   }
+  // Mettre à jour l'URL du navigateur pour refléter la bonne route
+  history.replaceState({}, '', path);
 
   // Ajout dans l'historique et pushState seulement si demandé
   if (pushHistory) {
