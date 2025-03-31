@@ -171,6 +171,11 @@ async function checkAuth() {
   }
 
 function addToHistory(route) {
+  // Définir les routes à exclure
+  const excludedRoutes = ["/login", "/signup"];
+  // Si la route est dans la liste des routes exclues, ne rien faire
+  if (excludedRoutes.includes(route)) return;
+
   // Récupère la pile existante ou initialise une liste vide
   let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
   // Évite d'ajouter plusieurs fois la même route consécutivement
