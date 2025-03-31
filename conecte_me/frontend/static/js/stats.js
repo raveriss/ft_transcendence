@@ -30,7 +30,7 @@
         document.getElementById('win-rate').textContent = winRate;
         document.getElementById('win-streak').textContent = stats.win_streak;
         // Affichage de la durée moyenne en minutes avec deux décimales
-        document.getElementById('avg-duration').textContent = (stats.avg_duration / 60).toFixed(2) + ' min';
+        document.getElementById('avg-duration').textContent = (stats.avg_duration / 60).toFixed(2) + ' ' + t("minutes_short");
         document.getElementById('week_win').textContent = stats.rank_progress;
     
         // Construire le camembert Wins vs Losses
@@ -52,7 +52,7 @@
       new Chart(ctx, {
         type: 'pie',
         data: {
-          labels: ['Victoires', 'Défaites'],
+          labels: [t("wins_label"), t("losses_label")],
           datasets: [{
             label: 'Stats 1v1',
             data: [wins, losses],
@@ -69,7 +69,7 @@
             },
             title: {
               display: true,
-              text: 'Répartition Victoires/Défaites'
+              text: t("win_loss_pie_title")
             }
           }
         }
@@ -104,7 +104,7 @@
                 const dateStr = new Date(match.match_date).toLocaleDateString();
                 const adversary = match.player2;
                 const score = `${match.score1}-${match.score2}`;
-                const duration = match.duration + " sec";
+                const duration = match.duration + ' ' + t("seconds_short");
                 // Elo reste fixé à 0 pour l'instant
                 const elo = 0;
         

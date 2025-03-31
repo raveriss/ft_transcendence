@@ -647,3 +647,5 @@ WARNING 2025-03-31 02:52:45,483 log 1 280817709468136 Unauthorized: /auth/user/
 WARNING 2025-03-31 02:52:46,220 log 1 280817706297832 Unauthorized: /auth/user/
 WARNING 2025-03-31 02:52:58,773 log 1 280817709468136 Unauthorized: /api/game_settings/match_history/list/
 WARNING 2025-03-31 02:52:58,773 log 1 280817706297832 Unauthorized: /api/game_settings/
+WARNING 2025-03-31 03:26:55,183 log 1 260713537620456 Unauthorized: /auth/user/
+WARNING 2025-03-31 03:26:55,196 log 1 260713537620456 Unauthorized: /auth/user/

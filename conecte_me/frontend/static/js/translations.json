@@ -249,7 +249,7 @@
         "avg_duration_desc": "Average match time",
         "weekly_win_label": "Weekly win",
         "weekly_win_desc": "Matches won this week",
-        "playstyle_title": "Play Style",
+        "playstyle_style": "Play Style",
         "win_loss_title": "Wins / Losses",
         "recent_matches_title": "Recent Matches",
         "match_date_col": "Date",
@@ -266,7 +266,14 @@
         "social_title": "SOCIAL",
         "my_friends": "My Friends",
         "incoming_requests": "Incoming Requests",
-        "all_users": "All Users"
+        "all_users": "All Users",
+        "wins_label": "Wins",
+        "losses_label": "Losses",
+        "win_loss_pie_title": "Wins vs Losses",
+        "1v1_stats_label": "1v1 Stats",
+        "minutes_short": "min",
+        "seconds_short": "sec",
+        "radar_placeholder": "[Radar Chart: Speed, Precision, Aggressive, Defensive, Consistency]"
     },
     "fr": {
         "setup_title": "CONFIGURATION",
@@ -518,7 +525,7 @@
         "avg_duration_desc": "Temps moyen par match",
         "weekly_win_label": "Victoires hebdo",
         "weekly_win_desc": "Matchs gagnés cette semaine",
-        "playstyle_title": "Style de jeu",
+        "playstyle_style": "Style de jeu",
         "win_loss_title": "Victoires / Défaites",
         "recent_matches_title": "Matchs récents",
         "match_date_col": "Date",
@@ -535,7 +542,14 @@
         "social_title": "SOCIAL",
         "my_friends": "Mes amis",
         "incoming_requests": "Demandes reçues",
-        "all_users": "Tous les utilisateurs"
+        "all_users": "Tous les utilisateurs",
+        "wins_label": "Victoires",
+        "losses_label": "Défaites",
+        "win_loss_pie_title": "Répartition Victoires/Défaites",
+        "1v1_stats_label": "Stats 1v1",
+        "minutes_short": "min",
+        "seconds_short": "sec",
+        "radar_placeholder": "[Graphique radar : Vitesse, Précision, Agressif, Défensif, Régularité]"
     },
     "es": {
         "setup_title": "CONFIGURACIÓN",
@@ -783,7 +797,7 @@
         "avg_duration_desc": "Tiempo promedio por partida",
         "weekly_win_label": "Victorias semanales",
         "weekly_win_desc": "Partidos ganados esta semana",
-        "playstyle_title": "Estilo de juego",
+        "playstyle_style": "Estilo de juego",
         "win_loss_title": "Victorias / Derrotas",
         "recent_matches_title": "Partidas recientes",
         "match_date_col": "Fecha",
@@ -800,6 +814,13 @@
         "social_title": "SOCIAL",
         "my_friends": "Mis amigos",
         "incoming_requests": "Solicitudes recibidas",
-        "all_users": "Todos los usuarios"
+        "all_users": "Todos los usuarios",
+        "wins_label": "Victorias",
+        "losses_label": "Derrotas",
+        "win_loss_pie_title": "Victorias vs Derrotas",
+        "1v1_stats_label": "Estadísticas 1v1",
+        "minutes_short": "min",
+        "seconds_short": "seg",
+        "radar_placeholder": "[Gráfico de radar: Velocidad, Precisión, Agresivo, Defensivo, Constancia]"
     }
 }
