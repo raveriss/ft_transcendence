@@ -598,10 +598,16 @@ def login_view(request):
     En cas d'échec ou si la méthode HTTP n'est pas POST, une réponse JSON d'erreur est retournée.
     """
     if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+        except Exception:
+            return JsonResponse({
+                "success": False,
+                "error": "Format JSON invalide."
+            }, status=400)
 
-        # Récupération des champs 'email' et 'password' envoyés via POST
-        email = request.POST.get('email')
-        password = request.POST.get('password')
+        email = data.get('email')
+        password = data.get('password')
 
         # Vérification que les deux champs requis sont fournis
         if not email or not password:

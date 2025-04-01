@@ -363,10 +363,21 @@ function attachListeners() {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         const url = form.action || window.location.pathname;
-        const method = form.method || 'POST';
+        let method = form.method ? form.method.toUpperCase() : 'POST';
+        if (method === 'GET') method = 'POST';
+                
         const formData = new FormData(form);
+        const jsonData = {};
+        formData.forEach((value, key) => {
+          jsonData[key] = value;
+        });
         
-        fetch(url, { method, body: formData, credentials: 'include' })
+        fetch(url, {
+          method,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(jsonData),
+          credentials: 'include'
+        })
           .then(response => response.json())
           .then(data => {
             console.log("Réponse JSON du backend:", data);
