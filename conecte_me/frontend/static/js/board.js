@@ -17,15 +17,21 @@
     credentials: "same-origin"
   })
   .then(response => {
+    if (response.status === 401) {
+      logoutAndClearStorage();
+      throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
+    }
     if (!response.ok) {
       throw new Error(`HTTP ${response.status} - ${response.statusText}`);
     }
     return response.json();
   })
   .then(data => {
-    if (data.username) {
-      localStorage.setItem('username', data.username);
-      console.log("Username stocké:", data.username);
+    if (data.id) {
+      sessionStorage.setItem('settings_id', data.id);
+      console.log("GameSettings id enregistre en session :", data.id);
+    } else {
+      console.log("Aucun id reçu dans les réglages.");
     }
     loadLeaderboard();
   })
@@ -46,6 +52,10 @@
       cache: 'no-cache'
     })
     .then(response => {
+      if (response.status === 401) {
+        logoutAndClearStorage();
+        throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
+      }
       if (!response.ok) {
         throw new Error(`HTTP ${response.status} - ${response.statusText}`);
       }
@@ -82,9 +92,6 @@
   }
 
   function loadLeaderboard() {
-    const currentUser = localStorage.getItem('username') || '';
-    console.log("currentUser =", currentUser);
-
     fetch('/api/game_settings/leaderboard/', {
       method: 'GET',
       headers: {
@@ -95,6 +102,10 @@
       cache: 'no-cache'
     })
     .then(response => {
+      if (response.status === 401) {
+        logoutAndClearStorage();
+        throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
+      }
       if (!response.ok) {
         throw new Error(`HTTP ${response.status} - ${response.statusText}`);
       }

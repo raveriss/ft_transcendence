@@ -218,25 +218,30 @@ async function navigateTo(path, pushHistory = true) {
   console.log("🧭 Entree dans navigateTo avec path:", path);
   console.log("Navigating to:", path);
 
+  const settingsId = sessionStorage.getItem('settings_id');
+
   // Si la route est protégée, vérifier l'authentification
   if (isRouteProtected(path)) {
     // Vérification de l'authentification une seule fois
-    const user = await checkAuth();
-    if (!user) {
-      // Si l'utilisateur n'est pas authentifié, rediriger vers /home
-      console.log("Utilisateur non authentifié, redirection vers /home");
-      path = '/home';
-    }
+      const user = await checkAuth();
+      if (!user) {
+        // Si l'utilisateur n'est pas authentifié, rediriger vers /home
+        console.log("Utilisateur non authentifié, redirection vers /home");
+        path = '/home';
+      }
   }
+
 
   // Si la route est une page d'authentification et que l'utilisateur est déjà connecté, rediriger vers /board
   const authPages = ['/login', '/signup'];
   if (authPages.includes(path)) {
-    // Vérification de l'authentification une seule fois
-    const user = await checkAuth();
-    if (user) {
-    console.log("Déjà connecté → redirection vers /board");
-    path = '/board';
+    if (settingsId) {
+      // Vérification de l'authentification une seule fois
+      const user = await checkAuth();
+      if (user) {
+      console.log("Déjà connecté → redirection vers /board");
+      path = '/board';
+      }
     }
   }
 
@@ -484,10 +489,10 @@ function attachListeners() {
       .then(data => {
         console.log("Déconnexion réussie :", data);
         // Vider l'historique personnalisé et le token JWT lors de la déconnexion
+        sessionStorage.removeItem('settings_id');
         sessionStorage.removeItem('customHistory');
-        localStorage.removeItem('username');
-        localStorage.removeItem('user_id');
-        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('twofa_enabled');
+        localStorage.removeItem('lang');
         // Rediriger vers '/home'
         navigateTo('/home');
       })
@@ -511,6 +516,28 @@ function attachListeners() {
   });
   
   // Etc. Répliquez la logique de vos anciens scripts qui faisaient du "window.location.href"
+}
+
+async function logoutAndClearStorage() {
+  try {
+    const res = await fetch('/auth/logout/', {
+      method: 'POST',
+      credentials: 'include',
+    });
+    const data = await res.json();
+    console.log("Déconnexion réussie :", data);
+  } catch (error) {
+    console.error("Erreur lors de la déconnexion :", error);
+  } finally {
+    // Vider les données de stockage
+    sessionStorage.removeItem('settings_id');
+    sessionStorage.removeItem('customHistory');
+    localStorage.removeItem('twofa_enabled');
+    localStorage.removeItem('lang');
+    localStorage.removeItem('username');
+    // Rediriger vers '/home'
+    navigateTo('/home');
+  }
 }
 
 // Au premier chargement, on charge la vue correspondant à la route en cours
