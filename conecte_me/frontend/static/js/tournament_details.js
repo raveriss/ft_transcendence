@@ -27,6 +27,7 @@ async function renderTournamentDetails() {
   } catch (err) {
     console.error("❌ Impossible de charger les détails du tournoi:", err);
 	alert(t("tournament_load_error"));
+	window.history.back();
 }
 }
 
