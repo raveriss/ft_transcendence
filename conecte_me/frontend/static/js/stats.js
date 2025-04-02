@@ -13,6 +13,10 @@
         credentials: 'same-origin' // Permet d'envoyer les cookies avec la requête pour le domaine courant.
       })
       .then(response => {
+        if (response.status === 401) {
+          logoutAndClearStorage();
+          throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
+        }
         if (!response.ok) {
           throw new Error(`HTTP ${response.status} - ${response.statusText}`);
         }
@@ -87,10 +91,14 @@
             cache: 'no-cache'
         })
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status} - ${response.statusText}`);
-            }
-            return response.json();
+          if (response.status === 401) {
+            logoutAndClearStorage();
+            throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
+          }
+          if (!response.ok) {
+              throw new Error(`HTTP ${response.status} - ${response.statusText}`);
+          }
+          return response.json();
         })
         .then(matches => {
             console.log("All match history retrieved:", matches);

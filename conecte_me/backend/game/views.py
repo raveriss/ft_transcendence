@@ -42,13 +42,14 @@ def game_settings_api(request):
     # Si la requête est de type GET(Recuperer), retourne les réglages actuels sous forme de JSON
     if request.method == "GET":
         data = {
+            "id": settings_obj.id,  # Ajout de l'id de l'entrée GameSettings
             "time": settings_obj.time,
             "score_limit": settings_obj.score_limit,
             "lives": settings_obj.lives,
             "ball_speed": settings_obj.ball_speed,
             "map_choice": settings_obj.map_choice,
             "username": user.username,
-            "user_id": user.user_id,
+            # "user_id": user.user_id,
             "paddle_size": settings_obj.paddle_size,
             "particles_enabled": settings_obj.particles_enabled,
             "paddle_hit_sound_enabled": settings_obj.paddle_hit_sound_enabled,

@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Récupérer le token JWT globalement
-if (typeof token === 'undefined') {
-  var token = localStorage.getItem('jwtToken');
-}
-console.log("Token récupéré dans setup.js:", token);
+// if (typeof token === 'undefined') {
+//   var token = localStorage.getItem('jwtToken');
+// }
+// console.log("Token récupéré dans setup.js:", token);
 
 // Fonction debounce pour retarder la sauvegarde
 function debounce(func, delay) {
@@ -61,6 +61,10 @@ function updateSettings() {
     body: JSON.stringify(settings)
   })
   .then(response => {
+    if (response.status === 401) {
+      logoutAndClearStorage();
+      throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
+    }
     if (!response.ok) {
       throw new Error(`HTTP ${response.status} - ${response.statusText}`);
     }
@@ -173,6 +177,10 @@ function initSetupPage() {
       credentials: "same-origin" // Permet d'envoyer les cookies avec la requête
     })
     .then(response => {
+      if (response.status === 401) {
+        logoutAndClearStorage();
+        throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
+      }
       if (!response.ok) {
         throw new Error(`HTTP ${response.status} - ${response.statusText}`);
       }
