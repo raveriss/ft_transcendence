@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+#game-tournament-view {
+    width: 100vw;
+    height: 100vh;
+    background-color: #0f172a; /* fond sombre bleu uniforme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#pongCanvas {
+    background-color: #0f172a;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+    border-radius: 8px;
+}
+

@@ -85,6 +85,10 @@ async function checkAuth() {
         cssFile = 'static/css/game.css';
       } else if (route === '/tournament-details') {
         cssFile = 'static/css/tournament_details.css';
+      } else if (route === '/tournament') {
+        cssFile = 'static/css/tournament.css';
+      } else if (route === '/game-tournament') {
+        cssFile = 'static/css/game_tournament.css';
       } else {
         cssFile = '/static/css/main.css';
       }
@@ -302,12 +306,12 @@ async function navigateTo(path, pushHistory = true) {
 		  if (typeof renderTournamentDetails === 'function') {
 			console.log("📢 Appel explicite de renderTournamentDetails après chargement du JS");
 			renderTournamentDetails();}}
-      if (path === '/social') {
-        if (typeof initSocialPage === 'function') {
-          initSocialPage();
-		  } else {
-			console.warn("⚠️ renderTournamentDetails non défini après chargement du JS");
-		  }
+      	if (path === '/social') {
+      	  if (typeof initSocialPage === 'function') {
+      	    initSocialPage();
+			  } else {
+				console.warn("⚠️ renderTournamentDetails non défini après chargement du JS");
+			  }
 		}
 		if (path === '/tournament') {
 			if (typeof initTournamentPage === 'function') {

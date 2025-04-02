@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/tournament.css">
-    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
-</head>
-<body>
-    <script type="text/javascript">
-        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    </script>
+<!-- static/html/tournament.html -->
+<div id="tournament-view" class="tournament-full-container">
+    <!-- Top Bar -->
     <div class="top-bar">
-	  
-        <!-- Bouton de retour à gauche -->
         <div class="back-btn" onclick="navigateTo('/board')">
-          <i class="fa fa-arrow-left"></i>
-          <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon" />
+            <i class="fa fa-arrow-left"></i>
+            <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon" />
         </div>
+    </div>
+
+    <!-- Conteneur principal -->
     <div class="container">
         <!-- Rejoindre un tournoi existant -->
         <div class="card-custom">
@@ -31,14 +21,17 @@
 
         <!-- Créer un tournoi -->
         <h2 data-i18n="create_tournament_title">Créer un Tournoi</h2>
+
         <div class="mb-3">
             <label class="form-label" for="tournamentName" data-i18n="tournament_name_label">Nom du tournoi</label>
             <input type="text" class="form-control" id="tournamentName">
         </div>
+
         <div class="mb-3">
             <label class="form-label" for="numPlayers" data-i18n="number_of_players_label">Nombre de joueurs</label>
             <input type="number" class="form-control" id="numPlayers" min="2" step="2" onchange="generatePlayerFields()">
         </div>
+
         <div id="playersContainer" class="mb-3"></div>
 
         <h3 data-i18n="game_settings">Paramètres du jeu</h3>
@@ -52,19 +45,9 @@
                 <input type="number" class="form-control" id="scoreLimit" value="5" min="1" max="20">
             </div>
         </div>
+
         <button class="btn btn-primary" onclick="createTournament()" data-i18n="create_button">Créer</button>
-
-        <!-- Affichage -->
-        <!-- <h2 id="tournamentNameDisplay"></h2>
-        <p>Vainqueur: <span id="winnerDisplay"></span></p>
-
-        <h3>Joueurs</h3>
-        <ul id="playerList"></ul>
-
-        <h3>Matchs</h3>
-        <ul id="matchList"></ul> -->
     </div>
 
     <script src="/static/js/tournament.js"></script>
-</body>
-</html>
+</div>

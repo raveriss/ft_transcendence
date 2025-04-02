@@ -1,7 +1,3 @@
-if (typeof csrfToken === 'undefined') {
-	var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-}
-
 document.addEventListener("DOMContentLoaded", () => {
 	loadExistingTournaments();
 });
@@ -191,5 +187,28 @@ function joinSelectedTournament() {
 }
 
 function initTournamentPage() {
+	console.log("📦 Initialisation de la page tournoi");
+
+	// Récupération du token CSRF si nécessaire (depuis le cookie)
+	// Ajout des listeners
+	const numPlayersInput = document.getElementById('numPlayers');
+	if (numPlayersInput) {
+		numPlayersInput.addEventListener('change', generatePlayerFields);
+	}
+
+	const createBtn = document.querySelector('button[onclick="createTournament()"]');
+	if (createBtn) {
+		createBtn.addEventListener('click', createTournament);
+	}
+
+	const joinBtn = document.querySelector('button[onclick="joinSelectedTournament()"]');
+	if (joinBtn) {
+		joinBtn.addEventListener('click', joinSelectedTournament);
+	}
+
+	// Remplir la liste des tournois existants
 	loadExistingTournaments();
+
+	// Appliquer les traductions si nécessaire
+	changeLanguage(getCurrentLang());
 }

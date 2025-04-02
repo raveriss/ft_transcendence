@@ -25,12 +25,15 @@ function cleanupGame() {
 
 
 (async function initGame() {
+	// sessionStorage.setItem("matchJustPlayed", "true");
 	const currentMatch = JSON.parse(localStorage.getItem("currentMatch"));
-	if (!currentMatch || !currentMatch.match_id || !currentMatch.player1 || !currentMatch.player2 || !currentMatch.tournament_id) {
-		alert("Aucune donnée de match valide.");
+	if (matchJustPlayed || !currentMatch || !currentMatch.match_id || !currentMatch.player1 || !currentMatch.player2 || !currentMatch.tournament_id) {
+		// alert("Aucune donnée de match valide.");
+		navigateTo('/tournament-details');
 		return;
 	}
 
+	// matchJustPlayed = sessionStorage.getItem("matchJustPlayed") === "false";
 	const { match_id: matchId, player1, player2, tournament_id: tournamentId } = currentMatch;
 
 	const res = await fetch(`/tournament/api/details/${tournamentId}/`, {credentials: "same-origin"});
@@ -223,7 +226,7 @@ function cleanupGame() {
 					sessionStorage.setItem("matchJustPlayed", "true");
 					cancelAnimationFrame(loopId); // on stoppe l'animation
 					document.body.removeChild(canvas); // on nettoie le canvas
-					window.location.replace(`/tournament-details`);	
+					navigateTo('/tournament-details');	
 					document.removeEventListener("keydown", handler);
 				}
 			});

@@ -389,3 +389,12 @@ WARNING 2025-04-02 14:10:17,838 log 1 139858738699064 Unauthorized: /auth/user/
 WARNING 2025-04-02 14:31:52,998 log 1 140692121176888 Bad Request: /auth/signup/
 WARNING 2025-04-02 14:33:12,483 log 1 139980620634936 Bad Request: /auth/42/callback
 WARNING 2025-04-02 14:33:45,760 log 1 139980620634936 Bad Request: /auth/42/callback
+WARNING 2025-04-02 15:42:51,104 log 1 140181356886840 Unauthorized: /auth/user/
+WARNING 2025-04-02 15:42:56,571 log 1 140181356886840 Unauthorized: /auth/login/
+WARNING 2025-04-02 15:43:04,896 log 1 140181356886840 Unauthorized: /auth/user/
+WARNING 2025-04-02 15:43:19,957 log 1 140181356886840 Unauthorized: /auth/user/
+WARNING 2025-04-02 15:57:23,034 log 1 140705153432376 Bad Request: /tournament/2/match/8/finish/
+WARNING 2025-04-02 15:57:35,224 log 1 140705153432376 Bad Request: /tournament/2/match/8/finish/
+WARNING 2025-04-02 15:57:51,051 log 1 140705153432376 Bad Request: /tournament/2/match/8/finish/
+WARNING 2025-04-02 16:01:09,803 log 1 140696382843704 Bad Request: /tournament/2/match/9/finish/
+WARNING 2025-04-02 16:01:22,170 log 1 140696382843704 Bad Request: /tournament/2/match/9/finish/

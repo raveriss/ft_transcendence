@@ -130,7 +130,7 @@ let pauseStart = null;
     const ballRadius = 10;
 
     // Chronomètre
-    const startTime = Date.now();
+    // const startTime = Date.now();
     let elapsedTime = 0;
     const dateStart = new Date(startTime).toISOString();
 
