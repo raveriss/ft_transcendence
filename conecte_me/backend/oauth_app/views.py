@@ -1076,8 +1076,11 @@ def delete_account_view(request):
     # Nettoyer la session
     request.session.flush()
 
-    return JsonResponse({"success": True, "detail": "Compte supprimé avec succès."})
-
+     # Créer une réponse et supprimer le cookie "jwtToken"
+    response = JsonResponse({"success": True, "detail": "Compte supprimé avec succès."}, status=200)
+    response.delete_cookie("jwtToken")
+    return response
+    
 @csrf_exempt
 def update_login_status(request):
     if request.method == "POST":
