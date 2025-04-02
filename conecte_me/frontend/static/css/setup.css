@@ -595,6 +595,7 @@
       
       /* Centrage du contenu dans les options (optionnel) */
       #language-selector option {
+        font-size: 2rem;
         text-align: center;
       }
       
