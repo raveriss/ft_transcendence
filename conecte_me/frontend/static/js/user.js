@@ -576,12 +576,18 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then(response => response.json())
       .then(data => {
-          if (data.success) {
-              alert("Votre compte a été supprimé.");
-              navigateTo('/home');
-              
-          } else {
-              alert("Erreur : " + data.error);
+        if (data.success) {
+            alert("Votre compte a été supprimé.");
+            // Vider les données de stockage
+            sessionStorage.removeItem('settings_id');
+            sessionStorage.removeItem('customHistory');
+            localStorage.removeItem('twofa_enabled');
+            localStorage.removeItem('lang');
+            localStorage.removeItem('username');
+            // Rediriger vers '/home'
+            navigateTo('/home');
+        } else {
+            alert("Erreur : " + data.error);
           }
       })
       .catch(error => console.error("Erreur lors de la suppression du compte :", error));
