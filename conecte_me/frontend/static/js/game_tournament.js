@@ -104,6 +104,7 @@
 			) {
 				ball.speedX *= -1.10;
 				ball.speedY *= 1.10;
+				ball.x = player1State.x + player1State.width + ball.radius + 1;
 			}
 	
 			if (
@@ -113,6 +114,7 @@
 			) {
 				ball.speedX *= -1.10;
 				ball.speedY *= 1.10;
+				ball.x = player2State.x - ball.radius - 1;
 			}
 		}
 	

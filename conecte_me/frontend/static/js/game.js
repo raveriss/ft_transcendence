@@ -1,4 +1,3 @@
-// Fonction pour récupérer les réglages du jeu via l'API
 async function fetchGameSettings() {
   console.log("fetchGameSettings() called");
   try {
@@ -37,9 +36,6 @@ async function fetchGameSettings() {
   }
 }
 
-let startTime = Date.now();
-let pausedDuration = 0;
-let pauseStart = null;
 // Fonction principale pour initialiser le jeu avec les réglages récupérés
 (async function initGame() {
   const settings = await fetchGameSettings();
@@ -47,6 +43,9 @@ let pauseStart = null;
     // Le token a expiré ou la déconnexion a été déclenchée, on arrête l'initialisation.
     return;
   }
+  let startTime = Date.now();
+  let pausedDuration = 0;
+  let pauseStart = null;
   const hitSound = new Audio("/static/sounds/hit.mp3");
 
   // Paramètres de configuration du jeu, récupérés depuis l'API
@@ -497,6 +496,18 @@ let pauseStart = null;
       requestAnimationFrame(gameLoop);
     }
     gameLoop();
+     // Gestion du retour arrière du navigateur (popstate) : lorsqu'on quitte "/game"
+    function handlePopState() {
+      if (location.pathname !== "/game") {
+         // Arrêter le jeu et retirer le canvas
+         isGameOver = true;
+         if (canvas.parentNode) {
+           canvas.parentNode.removeChild(canvas);
+         }
+         window.removeEventListener("popstate", handlePopState);
+      }
+    }
+      window.addEventListener("popstate", handlePopState);
   }
 
   // Lancement du jeu dès que le DOM est prêt
