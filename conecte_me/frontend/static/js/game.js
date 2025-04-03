@@ -237,6 +237,7 @@ let pauseStart = null;
         // Inverser la direction et appliquer un facteur d'accélération (par exemple 1.05)
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
+        ball.x = player1.x + player1.width + ball.radius + 1;
         if (settings.paddle_hit_sound_enabled) hitSound.play();
         if (particlesEnabled) spawnCollisionParticles(ball.x, ball.y);
       }
@@ -249,6 +250,7 @@ let pauseStart = null;
       ) {
         ball.speedX = -ball.speedX * 1.05;
         ball.speedY = ball.speedY * 1.05;
+        ball.x = player2.x - ball.radius - 1;
         if (settings.paddle_hit_sound_enabled) hitSound.play();
         if (particlesEnabled) spawnCollisionParticles(ball.x, ball.y);
       }
