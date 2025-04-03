@@ -233,11 +233,6 @@ function customBack() {
 	  navigateTo('/home', false);
 	}
   }
-  
-  
-  
-  
-
 
   function customForward() {
 	let forwardStack = JSON.parse(sessionStorage.getItem('customForward')) || [];
@@ -614,10 +609,8 @@ function attachListeners() {
       .then(data => {
         console.log("Déconnexion réussie :", data);
         // Vider l'historique personnalisé et le token JWT lors de la déconnexion
-        sessionStorage.removeItem('settings_id');
-        sessionStorage.removeItem('customHistory');
-        localStorage.removeItem('twofa_enabled');
-        localStorage.removeItem('lang');
+        localStorage.clear();
+        sessionStorage.clear();
         // Rediriger vers '/home'
         navigateTo('/home');
       })
@@ -655,11 +648,8 @@ async function logoutAndClearStorage() {
     console.error("Erreur lors de la déconnexion :", error);
   } finally {
     // Vider les données de stockage
-    sessionStorage.removeItem('settings_id');
-    sessionStorage.removeItem('customHistory');
-    localStorage.removeItem('twofa_enabled');
-    localStorage.removeItem('lang');
-    localStorage.removeItem('username');
+    localStorage.clear();
+    sessionStorage.clear();
     // Rediriger vers '/home'
     navigateTo('/home');
   }

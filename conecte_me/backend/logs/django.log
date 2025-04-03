@@ -407,3 +407,4 @@ WARNING 2025-04-03 17:19:15,931 log 1 140252774210360 Unauthorized: /auth/login/
 WARNING 2025-04-03 17:19:16,436 log 1 140252774210360 Unauthorized: /auth/login/
 WARNING 2025-04-03 17:19:16,893 log 1 140252774210360 Unauthorized: /auth/login/
 WARNING 2025-04-03 17:24:16,598 log 1 139906606512952 Unauthorized: /auth/user/
+WARNING 2025-04-03 17:34:42,842 log 1 140422825569080 Unauthorized: /auth/user/

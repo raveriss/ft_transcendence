@@ -579,11 +579,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (data.success) {
             alert("Votre compte a été supprimé.");
             // Vider les données de stockage
-            sessionStorage.removeItem('settings_id');
-            sessionStorage.removeItem('customHistory');
-            localStorage.removeItem('twofa_enabled');
-            localStorage.removeItem('lang');
-            localStorage.removeItem('username');
+            localStorage.clear();
+            sessionStorage.clear();
             // Rediriger vers '/home'
             navigateTo('/home');
         } else {

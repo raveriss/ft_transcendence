@@ -507,7 +507,7 @@ async function fetchGameSettings() {
          window.removeEventListener("popstate", handlePopState);
       }
     }
-      window.addEventListener("popstate", handlePopState);
+    window.addEventListener("popstate", handlePopState);
   }
 
   // Lancement du jeu dès que le DOM est prêt
