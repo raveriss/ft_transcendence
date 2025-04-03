@@ -258,21 +258,22 @@ function customBack() {
   }
   
   function customReplace(path) {
-    let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+	let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
   
-    // ⚠️ Remplace la dernière entrée
-    if (historyStack.length > 0) {
-      historyStack[historyStack.length - 1] = path;
-    } else {
-      historyStack.push(path);
-    }
+	// 🧠 Remplace la dernière entrée
+	if (historyStack.length > 0) {
+	  historyStack[historyStack.length - 1] = path;
+	} else {
+	  historyStack.push(path);
+	}
   
-    sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
-    sessionStorage.removeItem('customForward');
+	sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+	sessionStorage.removeItem('customForward');
   
-    history.replaceState({}, '', path);       // remplace l'entrée dans le vrai historique du navigateur
-    navigateTo(path, false);                  // charge sans push
+	history.replaceState({}, '', path);
+	navigateTo(path, false, true); // ✅ <<<<<< 3e paramètre : fromReplace = true
   }
+  
   
   // 👇 expose globalement
   window.customHistory = {
@@ -283,149 +284,143 @@ function customBack() {
   
   
   // Pour y accéder globalement
-  window.customHistory = {
-    replace: customReplace,
-    back: customBack,
-    forward: customForward,
-  };
+//   window.customHistory = {
+//     replace: customReplace,
+//     back: customBack,
+//     forward: customForward,
+//   };
   
 // Liste des routes fonctionnelles (à ajuster selon votre application)
 const validRoutes = ['/home', '/team', '/login', '/signup', '/signin42', '/board', '/setup', '/user', '/game', '/tournament', '/tournament-details', '/tournament/list', '/game-tournament', '/stats', '/social'];
 
 // Fonction principale pour charger une vue
-async function navigateTo(path, pushHistory = true) {
-  console.log("🧭 Entree dans navigateTo avec path:", path);
-  console.log("Navigating to:", path);
-
-  const settingsId = sessionStorage.getItem('settings_id');
-
-  // Si la route est protégée, vérifier l'authentification
-  if (isRouteProtected(path)) {
-    // Vérification de l'authentification une seule fois
-      const user = await checkAuth();
-      if (!user) {
-        // Si l'utilisateur n'est pas authentifié, rediriger vers /home
-        console.log("Utilisateur non authentifié, redirection vers /home");
-        path = '/home';
-      }
-  }
-
-
-  // Si la route est une page d'authentification et que l'utilisateur est déjà connecté, rediriger vers /board
-  const authPages = ['/login', '/signup'];
-  if (authPages.includes(path)) {
-    if (settingsId) {
-      // Vérification de l'authentification une seule fois
-      const user = await checkAuth();
-      if (user) {
-      console.log("Déjà connecté → redirection vers /board");
-      path = '/board';
-      }
-    }
-  }
-
-  // Pour la configuration 2FA, redirige sans SPA
-  if (path.startsWith("/auth/2fa/setup")) {
-    window.location.href = path;
-    return;
-  }
-
-  // Vérifier que la route fait partie des routes valides
-  if (!validRoutes.includes(path)) {
-    console.log("Route invalide détectée → redirection vers /home");
-    path = "/home";
-    pushHistory = false;
-  }
-  // Mettre à jour l'URL du navigateur pour refléter la bonne route
-//   if (pushHistory) {
-// 	history.pushState({}, '', path);
-//   } else {
-// 	history.replaceState({}, '', path);
-//   }
+async function navigateTo(path, pushHistory = true, fromReplace = false) {
+	console.log("🧭 Entree dans navigateTo avec path:", path);
+	console.log("Navigating to:", path);
   
-
-  // Ajout dans l'historique et pushState seulement si demandé
-  if (pushHistory) {
-    if (path !== '/game-tournament') {
+	const settingsId = sessionStorage.getItem('settings_id');
+  
+	// Si la route est protégée, vérifier l'authentification
+	if (isRouteProtected(path)) {
+	  const user = await checkAuth();
+	  if (!user) {
+		console.log("Utilisateur non authentifié, redirection vers /home");
+		path = '/home';
+	  }
+	}
+  
+	// Gestion spéciale si on est sur une page d'auth et déjà connecté
+	const authPages = ['/login', '/signup'];
+	if (authPages.includes(path)) {
+		if (settingsId) {
+		  const user = await checkAuth();
+		  if (user) {
+			console.log("🔁 Tentative de redirection vers /board depuis une page d’authentification");
+	  
+			const historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+			const previous = historyStack[historyStack.length - 1];
+	  
+			if (previous === '/home' || previous === '/signup' || previous === '/login') {
+				console.log("✅ Remplacement vers /board depuis une page publique");
+				customHistory.replace('/board'); // ✅ toujours replace pour ne pas empiler 2 fois
+			  } else {
+				console.log("✅ Déjà logué, aucun besoin de push");
+			  }
+			  
+	  
+			return;
+		  }
+		}
+	  }
+	  
+	  
+  
+	// Redirection externe autorisée (2FA, etc.)
+	if (path.startsWith("/auth/2fa/setup")) {
+	  window.location.href = path;
+	  return;
+	}
+  
+	const validRoutes = Object.keys(routes);
+	if (!validRoutes.includes(path)) {
+	  console.log("Route invalide détectée → redirection vers /home");
+	  path = "/home";
+	  pushHistory = false;
+	}
+  
+	// Ajout à l'historique personnalisé
+	if (pushHistory) {
+	  if (path !== '/game-tournament') {
 		addToHistory(path);
 		history.pushState({}, '', path);
-	  };
-  } else {
-    // Même en navigation passive, si la route n’est pas déjà la dernière de l’historique, on l’enregistre
-    const historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
-    if (path !== "/game-tournament" && (historyStack.length === 0 || historyStack[historyStack.length - 1] !== path)) {
-      historyStack.push(path);
-      sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
-    }
-  }
-
-
-  // Masque temporairement le contenu pour éviter le FOUC
-  appDiv.style.visibility = 'hidden';
-
-  try {
-    // Attend que le nouveau CSS soit chargé
-    await loadCSSForRoute(path);
-	console.log("✅ CSS chargé pour :", path);
-
-  } catch (err) {
-    console.error("Erreur lors du chargement du CSS :", err);
+	  }
+	} else if (!fromReplace) {
+		const historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+		if (path !== "/game-tournament" && (historyStack.length === 0 || historyStack[historyStack.length - 1] !== path)) {
+		  historyStack.push(path);
+		  sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+		}
+	  }
+	  
+  
+	// Empêche FOUC
+	appDiv.style.visibility = 'hidden';
+  
+	try {
+	  await loadCSSForRoute(path);
+	  console.log("✅ CSS chargé pour :", path);
+	} catch (err) {
+	  console.error("Erreur lors du chargement du CSS :", err);
+	}
+  
+	const file = routes[path] || routes['/'];
+	console.log("Fetching file:", file);
+	console.log("🚧 Juste avant le bloc try dans navigateTo");
+  
+	try {
+	  const res = await fetch(file, { method: 'GET' });
+	  if (!res.ok) {
+		console.error("Erreur lors du fetch de", file, res.status);
+		return;
+	  }
+	  const html = await res.text();
+	  console.log("Contenu récupéré (truncated):", html.substring(0, 100));
+  
+	  if (typeof window.stopGame === 'function') {
+		window.stopGame();
+	  }
+  
+	  appDiv.innerHTML = html;
+	  attachListeners();
+  
+	  console.log("🔍 Path dans navigateTo avant JS:", path);
+	  console.log("🧱 customHistory =", JSON.parse(sessionStorage.getItem('customHistory') || '[]'));
+	  console.log("➡️ customForward =", JSON.parse(sessionStorage.getItem('customForward') || '[]'));
+  
+	  loadScriptForRoute(path, () => {
+		if (path === '/tournament-details' && typeof renderTournamentDetails === 'function') {
+		  console.log("📢 Appel explicite de renderTournamentDetails après chargement du JS");
+		  renderTournamentDetails();
+		}
+		if (path === '/social' && typeof initSocialPage === 'function') {
+		  initSocialPage();
+		}
+		if (path === '/tournament' && typeof initTournamentPage === 'function') {
+		  console.log("📢 Appel explicite de initTournamentPage après chargement du JS");
+		  initTournamentPage();
+		}
+	  });
+  
+	  changeLanguage(getCurrentLang());
+	  console.log("🔄 Forçage de la traduction après navigation :", getCurrentLang());
+  
+	} catch (err) {
+	  console.error(err);
+	} finally {
+	  appDiv.style.visibility = 'visible';
+	}
   }
   
-  const file = routes[path] || routes['/'];
-  console.log("Fetching file:", file);
-  console.log("🚧 Juste avant le bloc try dans navigateTo");
-
-  try {
-    const res = await fetch(file, { method: 'GET' });
-    if (!res.ok) {
-      console.error("Erreur lors du fetch de", file, res.status);
-      return;
-    }
-    const html = await res.text();
-    console.log("Contenu récupéré (truncated):", html.substring(0, 100));
-    if (typeof window.stopGame === 'function') {
-      window.stopGame();
-    }
-    appDiv.innerHTML = html;
-    attachListeners();
-	console.log("🔍 Path dans navigateTo avant JS:", path);
-	console.log("🧱 customHistory =", JSON.parse(sessionStorage.getItem('customHistory') || '[]'));
-	console.log("➡️ customForward =", JSON.parse(sessionStorage.getItem('customForward') || '[]'));
-
-	loadScriptForRoute(path, () => {
-    	if (path === '/tournament-details') {
-		  if (typeof renderTournamentDetails === 'function') {
-			console.log("📢 Appel explicite de renderTournamentDetails après chargement du JS");
-			renderTournamentDetails();}}
-      	if (path === '/social') {
-      	  if (typeof initSocialPage === 'function') {
-      	    initSocialPage();
-			  } else {
-				console.warn("⚠️ renderTournamentDetails non défini après chargement du JS");
-			  }
-		}
-		if (path === '/tournament') {
-			if (typeof initTournamentPage === 'function') {
-				console.log("📢 Appel explicite de initTournamentPage après chargement du JS");
-				initTournamentPage();
-			} else {
-				console.warn("⚠️ initTournamentPage non défini après chargement du JS");
-			}
-		}
-	});
-
-    // 🛠 FORCER LA TRADUCTION APRÈS LE CHANGEMENT DE PAGE
-    changeLanguage(getCurrentLang());
-    console.log("🔄 Forçage de la traduction après navigation :", getCurrentLang());
-    
-  } catch (err) {
-    console.error(err);
-  } finally {
-    // Révèle le contenu une fois que tout est chargé
-    appDiv.style.visibility = 'visible';
-  }
-}
 
 // 3. Utiliser customBack() pour gérer l'événement popstate (bouton retour du navigateur)
 let lastKnownRoute = window.location.pathname;

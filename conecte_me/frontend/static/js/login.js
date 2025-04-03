@@ -23,13 +23,21 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       console.log("Réponse JSON du backend:", data);
-      if (data.success) {
-        // Rediriger vers la page indiquée
-        window.location.href = data.redirect;
-      } else {
-        alert(data.error || "Erreur de connexion");
-      }
-    })
+      if (data.success && data.redirect) {
+		const historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+		const previous = historyStack[historyStack.length - 1];
+	
+		if (previous === '/home' || previous === '/signup' || previous === '/login') {
+			// 🟢 On vient d'une page publique → on push
+			navigateTo(data.redirect, true);
+		} else if (previous === data.redirect) {
+			// 🔁 Pas besoin d'y retourner
+			console.log("Déjà sur la bonne page, aucune navigation");
+		} else {
+			// 🔁 Sinon on push aussi (et non replace !)
+			navigateTo(data.redirect, true);
+		}
+	}})
     .catch(err => {
       console.error("Erreur réseau ou serveur : ", err);
       alert("Une erreur s'est produite. Veuillez réessayer.");

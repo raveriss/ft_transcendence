@@ -29,8 +29,8 @@
 		const isBackNavigation = navType === "back_forward";
 	
 		if (
-			matchJustPlayed ||
-			!currentMatch || 
+			matchJustPlayed === true ||
+			!currentMatch ||			 
 			!currentMatch.match_id || 
 			!currentMatch.player1 || 
 			!currentMatch.player2 || 
@@ -236,9 +236,14 @@
 						sessionStorage.setItem("matchJustPlayed", "true");
 						cancelAnimationFrame(loopId);
 						document.body.removeChild(canvas);
-						sessionStorage.setItem("matchJustPlayed", "true");
-						customHistory.replace('/tournament-details');
-						sessionStorage.removeItem("matchJustPlayed");
+
+						setTimeout(() => {
+						  customHistory.replace('/tournament-details');
+						}, 100);  // Laisse le temps au navigateur de traiter
+
+						// 🔒 Laissons `matchJustPlayed` dans sessionStorage pour une vérification correcte
+						// → Il sera supprimé automatiquement dans game_tournament.js si redirection réussie
+
 						document.removeEventListener("keydown", handler);
 					}
 				});
