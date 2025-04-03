@@ -398,3 +398,12 @@ WARNING 2025-04-02 15:57:35,224 log 1 140705153432376 Bad Request: /tournament/2
 WARNING 2025-04-02 15:57:51,051 log 1 140705153432376 Bad Request: /tournament/2/match/8/finish/
 WARNING 2025-04-02 16:01:09,803 log 1 140696382843704 Bad Request: /tournament/2/match/9/finish/
 WARNING 2025-04-02 16:01:22,170 log 1 140696382843704 Bad Request: /tournament/2/match/9/finish/
+WARNING 2025-04-03 17:18:57,374 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:19:13,022 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:19:14,043 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:19:14,581 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:19:15,252 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:19:15,931 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:19:16,436 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:19:16,893 log 1 140252774210360 Unauthorized: /auth/login/
+WARNING 2025-04-03 17:24:16,598 log 1 139906606512952 Unauthorized: /auth/user/

@@ -175,7 +175,7 @@ async function checkAuth() {
   }
 
   function addToHistory(route) {
-	const excludedRoutes = ["/login", "/signup", "/game-tournament"]; // 👈 AJOUT ICI
+	const excludedRoutes = ["/login", "/signup", "/game-tournament",]; // 👈 AJOUT ICI
 	if (excludedRoutes.includes(route)) return;
   
 	let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
