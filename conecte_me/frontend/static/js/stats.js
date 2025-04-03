@@ -122,7 +122,6 @@
                     <td>${adversary}</td>
                     <td>${score}</td>
                     <td>${duration}</td>
-                    <td>${elo}</td>
                   </tr>
                 `;
                 tbody.insertAdjacentHTML('beforeend', row);
