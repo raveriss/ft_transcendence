@@ -142,7 +142,8 @@ function launchGame(match) {
     player2: match.player2,
     tournament_id: tournamentId
   }));
-  window.location.href = "/game-tournament";
+  	sessionStorage.setItem("matchJustPlayed", "false");
+	customHistory.replace('/game-tournament');
 }
 
 function drawConnections(rounds, matchCoords) {

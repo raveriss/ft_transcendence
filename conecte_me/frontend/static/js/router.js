@@ -174,46 +174,126 @@ async function checkAuth() {
     document.body.appendChild(script);
   }
 
-function addToHistory(route) {
-  // Définir les routes à exclure
-  const excludedRoutes = ["/login", "/signup"];
-  // Si la route est dans la liste des routes exclues, ne rien faire
-  if (excludedRoutes.includes(route)) return;
-
-  // Récupère la pile existante ou initialise une liste vide
-  let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
-  // Évite d'ajouter plusieurs fois la même route consécutivement
-  if ((historyStack.length === 0 || historyStack[historyStack.length - 1] !== route) && route !== "/game-tournament") {
-    historyStack.push(route);
-    sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+  function addToHistory(route) {
+	const excludedRoutes = ["/login", "/signup", "/game-tournament"]; // 👈 AJOUT ICI
+	if (excludedRoutes.includes(route)) return;
+  
+	let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+  
+	// ✅ NE PAS ÉVITER LES DOUBLONS sauf si consécutifs stricts
+	if ((historyStack.length === 0 || historyStack[historyStack.length - 1] !== route) && route !== "/game-tournament" ) {
+	  historyStack.push(route);
+	  sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+	  sessionStorage.removeItem('customForward');
+	}
   }
-}
+  
+  
 
 // 2. Modifier customBack pour ne pas rajouter la route dans l'historique lors d'une navigation "retour"
 function customBack() {
-  let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
-  if (historyStack.length > 1) {
-    // Retirer la route courante
-    historyStack.pop();
-    // Récupérer la route précédente
-    const previousRoute = historyStack[historyStack.length - 1];
-    sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
-    
-    /**
-     * replaceState permet de modifier l'URL sans ajouter une nouvelle entrée dans l'historique
-     */
-    history.replaceState({}, '', previousRoute);
-    
-    if (typeof window.stopGame === 'function') {
-      window.stopGame();
-    }
-
-    // Naviguer sans pousser de nouvelle entrée dans l'historique
-    navigateTo(previousRoute, false);
-  } else {
-    navigateTo('/home', false);
+	let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+  
+	if (historyStack.length > 1) {
+	  let currentRoute = historyStack.pop();
+	  let previousRoute = historyStack[historyStack.length - 1];
+  
+	  // 🔁 ⚠️ Nouvelle logique : on saute TANT qu'on tombe sur /game-tournament
+	  while (previousRoute === '/game-tournament' && historyStack.length > 1) {
+		currentRoute = historyStack.pop(); // on pop à nouveau
+		previousRoute = historyStack[historyStack.length - 1];
+	  }
+  
+	  // 🧠 Ajoute currentRoute (quittée) dans customForward
+	  let forwardStack = JSON.parse(sessionStorage.getItem('customForward')) || [];
+	  forwardStack.unshift(currentRoute);
+	  sessionStorage.setItem('customForward', JSON.stringify(forwardStack));
+  
+	  // ✍️ Sauvegarde le stack MAJ
+	  sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+  
+	  history.replaceState({}, '', previousRoute);
+  
+	  if (typeof window.stopGame === 'function') {
+		window.stopGame();
+	  }
+  
+	  if (previousRoute === '/game-tournament') {
+		// Skip complet si on allait retomber dessus
+		customBack(); 
+	  } else {
+		navigateTo(previousRoute, false);
+	  }
+  
+	} else if (historyStack.length === 1) {
+	  const onlyRoute = historyStack[0];
+	  sessionStorage.setItem('customForward', JSON.stringify([]));
+	  navigateTo(onlyRoute, false);
+	} else {
+	  navigateTo('/home', false);
+	}
   }
-}
+  
+  
+  
+  
+
+
+  function customForward() {
+	let forwardStack = JSON.parse(sessionStorage.getItem('customForward')) || [];
+	let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+  
+	if (forwardStack.length > 0) {
+	  const nextRoute = forwardStack.shift(); // route à visiter
+	  sessionStorage.setItem('customForward', JSON.stringify(forwardStack));
+  
+	  const currentRoute = window.location.pathname;
+	  if (historyStack.length === 0 || historyStack[historyStack.length - 1] !== currentRoute) {
+		historyStack.push(currentRoute);
+		sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+	  }
+  
+	  if (typeof window.stopGame === 'function') {
+		window.stopGame();
+	  }
+  
+	  history.replaceState({}, '', nextRoute);
+	  navigateTo(nextRoute, false);
+	}
+  }
+  
+  function customReplace(path) {
+    let historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+  
+    // ⚠️ Remplace la dernière entrée
+    if (historyStack.length > 0) {
+      historyStack[historyStack.length - 1] = path;
+    } else {
+      historyStack.push(path);
+    }
+  
+    sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+    sessionStorage.removeItem('customForward');
+  
+    history.replaceState({}, '', path);       // remplace l'entrée dans le vrai historique du navigateur
+    navigateTo(path, false);                  // charge sans push
+  }
+  
+  // 👇 expose globalement
+  window.customHistory = {
+    replace: customReplace,
+    back: customBack,
+    forward: customForward,
+  };
+  
+  
+  // Pour y accéder globalement
+  window.customHistory = {
+    replace: customReplace,
+    back: customBack,
+    forward: customForward,
+  };
+  
 // Liste des routes fonctionnelles (à ajuster selon votre application)
 const validRoutes = ['/home', '/team', '/login', '/signup', '/signin42', '/board', '/setup', '/user', '/game', '/tournament', '/tournament-details', '/tournament/list', '/game-tournament', '/stats', '/social'];
 
@@ -262,13 +342,28 @@ async function navigateTo(path, pushHistory = true) {
     pushHistory = false;
   }
   // Mettre à jour l'URL du navigateur pour refléter la bonne route
-  history.replaceState({}, '', path);
+//   if (pushHistory) {
+// 	history.pushState({}, '', path);
+//   } else {
+// 	history.replaceState({}, '', path);
+//   }
+  
 
   // Ajout dans l'historique et pushState seulement si demandé
   if (pushHistory) {
-    addToHistory(path);
-    history.pushState({}, '', path);
+    if (path !== '/game-tournament') {
+		addToHistory(path);
+		history.pushState({}, '', path);
+	  };
+  } else {
+    // Même en navigation passive, si la route n’est pas déjà la dernière de l’historique, on l’enregistre
+    const historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+    if (path !== "/game-tournament" && (historyStack.length === 0 || historyStack[historyStack.length - 1] !== path)) {
+      historyStack.push(path);
+      sessionStorage.setItem('customHistory', JSON.stringify(historyStack));
+    }
   }
+
 
   // Masque temporairement le contenu pour éviter le FOUC
   appDiv.style.visibility = 'hidden';
@@ -300,6 +395,8 @@ async function navigateTo(path, pushHistory = true) {
     appDiv.innerHTML = html;
     attachListeners();
 	console.log("🔍 Path dans navigateTo avant JS:", path);
+	console.log("🧱 customHistory =", JSON.parse(sessionStorage.getItem('customHistory') || '[]'));
+	console.log("➡️ customForward =", JSON.parse(sessionStorage.getItem('customForward') || '[]'));
 
 	loadScriptForRoute(path, () => {
     	if (path === '/tournament-details') {
@@ -336,9 +433,33 @@ async function navigateTo(path, pushHistory = true) {
 }
 
 // 3. Utiliser customBack() pour gérer l'événement popstate (bouton retour du navigateur)
+let lastKnownRoute = window.location.pathname;
+
 window.addEventListener('popstate', () => {
-  customBack();
+  const currentRoute = window.location.pathname;
+
+  const historyStack = JSON.parse(sessionStorage.getItem('customHistory')) || [];
+  const forwardStack = JSON.parse(sessionStorage.getItem('customForward')) || [];
+
+  const lastInHistory = historyStack[historyStack.length - 1];
+  const firstInForward = forwardStack[0];
+
+  if (currentRoute === lastInHistory) {
+    customBack();
+  } else if (currentRoute === firstInForward) {
+    customForward();
+  } else {
+    navigateTo(currentRoute, false);
+  }
+
+  lastKnownRoute = currentRoute;
 });
+
+window.debugRouter = () => {
+	console.log("🧱 customHistory =", JSON.parse(sessionStorage.getItem('customHistory') || '[]'));
+	console.log("➡️ customForward =", JSON.parse(sessionStorage.getItem('customForward') || '[]'));
+  };
+  
 
 // Interception des clics sur liens <a data-link> pour naviguer en SPA
 document.addEventListener('click', (e) => {

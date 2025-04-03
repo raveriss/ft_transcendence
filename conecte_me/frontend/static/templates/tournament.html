@@ -16,7 +16,7 @@
             <select id="tournamentSelect" class="form-select mt-2 mb-2">
                 <option value="" data-i18n="select_tournament_placeholder">-- Sélectionner un tournoi --</option>
             </select>
-            <button class="btn btn-primary mt-2" onclick="joinSelectedTournament()" data-i18n="join_button">Rejoindre</button>
+            <button id="join-tournament-btn" class="btn btn-primary mt-2" data-i18n="join_button">Rejoindre</button>
         </div>
 
         <!-- Créer un tournoi -->
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <button class="btn btn-primary" onclick="createTournament()" data-i18n="create_button">Créer</button>
+        <button id="create-tournament-btn" class="btn btn-primary" data-i18n="create_button">Créer</button>
     </div>
 
     <script src="/static/js/tournament.js"></script>

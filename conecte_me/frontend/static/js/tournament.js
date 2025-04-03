@@ -196,15 +196,17 @@ function initTournamentPage() {
 		numPlayersInput.addEventListener('change', generatePlayerFields);
 	}
 
-	const createBtn = document.querySelector('button[onclick="createTournament()"]');
+	const createBtn = document.getElementById("create-tournament-btn");
 	if (createBtn) {
-		createBtn.addEventListener('click', createTournament);
+	  createBtn.addEventListener("click", createTournament);
 	}
 
-	const joinBtn = document.querySelector('button[onclick="joinSelectedTournament()"]');
+
+	const joinBtn = document.getElementById("join-tournament-btn");
 	if (joinBtn) {
-		joinBtn.addEventListener('click', joinSelectedTournament);
+	  joinBtn.addEventListener("click", joinSelectedTournament);
 	}
+
 
 	// Remplir la liste des tournois existants
 	loadExistingTournaments();
