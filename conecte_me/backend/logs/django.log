@@ -422,3 +422,5 @@ WARNING 2025-04-04 17:02:26,945 log 1 140320615775032 Unauthorized: /auth/login/
 WARNING 2025-04-04 17:02:29,052 log 1 140320615775032 Unauthorized: /auth/login/
 WARNING 2025-04-04 17:03:42,191 log 1 140320615775032 Unauthorized: /auth/login/
 WARNING 2025-04-04 17:03:44,068 log 1 140320615775032 Unauthorized: /auth/login/
+WARNING 2025-04-04 17:38:05,477 log 1 139785484446520 Unauthorized: /auth/login/
+WARNING 2025-04-04 17:38:06,396 log 1 139785484446520 Unauthorized: /auth/login/

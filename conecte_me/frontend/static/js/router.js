@@ -179,6 +179,13 @@ async function loadCSS(path) {
     if (route === '/game-tournament' && typeof initGameTournament === 'function') {
       initGameTournament();
     }
+    if (route === '/social') {
+      if (typeof initSocialPage === 'function') {
+        initSocialPage();
+    } else {
+    console.warn("⚠️ renderTournamentDetails non défini après chargement du JS");
+    }
+}
 
     if (typeof callback === 'function') callback();
   };
