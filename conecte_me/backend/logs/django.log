@@ -416,3 +416,9 @@ WARNING 2025-04-04 16:23:26,242 log 1 140482580007736 Unauthorized: /auth/user/
 WARNING 2025-04-04 16:23:38,875 log 1 140482580007736 Unauthorized: /auth/user/
 WARNING 2025-04-04 16:34:19,060 log 1 139976922127160 Unauthorized: /auth/user/
 WARNING 2025-04-04 16:34:24,223 log 1 139976922127160 Unauthorized: /auth/user/
+WARNING 2025-04-04 16:43:10,881 log 1 140148408204088 Unauthorized: /auth/user/
+WARNING 2025-04-04 16:59:49,563 log 1 140320615775032 Not Found: /tournament/get_current_id/
+WARNING 2025-04-04 17:02:26,945 log 1 140320615775032 Unauthorized: /auth/login/
+WARNING 2025-04-04 17:02:29,052 log 1 140320615775032 Unauthorized: /auth/login/
+WARNING 2025-04-04 17:03:42,191 log 1 140320615775032 Unauthorized: /auth/login/
+WARNING 2025-04-04 17:03:44,068 log 1 140320615775032 Unauthorized: /auth/login/

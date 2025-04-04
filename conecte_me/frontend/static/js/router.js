@@ -204,6 +204,11 @@ async function navigateTo(path, replace = false) {
   }
   history[replace ? 'replaceState' : 'pushState']({}, '', path);
   
+  if (path.startsWith("/auth/2fa")) {
+    window.location.href = path;
+    return;
+  }
+
   appDiv.style.visibility = 'hidden';
   await loadCSSForRoute(path);
 
@@ -263,10 +268,11 @@ function attachListeners() {
         .then(response => response.json())
         .then(data => {
           console.log("Réponse JSON du backend:", data);
-          if (data.success && data.redirect) {
-            navigateTo(data.redirect);  // ✅ ici
-          }
-        })
+          if (data.redirect.startsWith("/auth/2fa")) {
+            window.location.href = data.redirect;  // 🔥 redirection classique
+          } else {
+            navigateTo(data.redirect);
+        }})
         .catch(console.error);
     });
   });
