@@ -408,3 +408,9 @@ WARNING 2025-04-03 17:19:16,436 log 1 140252774210360 Unauthorized: /auth/login/
 WARNING 2025-04-03 17:19:16,893 log 1 140252774210360 Unauthorized: /auth/login/
 WARNING 2025-04-03 17:24:16,598 log 1 139906606512952 Unauthorized: /auth/user/
 WARNING 2025-04-03 17:34:42,842 log 1 140422825569080 Unauthorized: /auth/user/
+WARNING 2025-04-04 13:22:45,432 log 1 140674255387448 Bad Request: /tournament/3/match/5/finish/
+WARNING 2025-04-04 13:22:46,579 log 1 140674255387448 Bad Request: /tournament/3/match/5/finish/
+WARNING 2025-04-04 13:22:47,032 log 1 140674255387448 Bad Request: /tournament/3/match/5/finish/
+WARNING 2025-04-04 15:58:33,978 log 1 139894427663160 Bad Request: /auth/signup/
+WARNING 2025-04-04 16:23:26,242 log 1 140482580007736 Unauthorized: /auth/user/
+WARNING 2025-04-04 16:23:38,875 log 1 140482580007736 Unauthorized: /auth/user/

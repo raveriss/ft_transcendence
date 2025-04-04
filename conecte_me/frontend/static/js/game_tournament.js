@@ -26,7 +26,7 @@
 		const matchJustPlayed = sessionStorage.getItem("matchJustPlayed") === "true";
 	
 		const navType = performance.getEntriesByType("navigation")[0]?.type;
-		const isBackNavigation = navType === "back_forward";
+		// const isBackNavigation = navType === "back_forward";
 	
 		if (
 			matchJustPlayed ||
@@ -41,7 +41,7 @@
 			// ↪️ Cas d'accès direct : on remplace l'URL pour éviter une boucle
 			console.log("⛔ Accès direct sans match → remplacement forcé");
 			localStorage.setItem("matchJustPlayed", "false");
-			customHistory.replace('/tournament-details');
+			navigateTo('/tournament-details', true);
 		} else {
 				console.log("↩️ Retour arrière détecté → pas de redirection forcée");
 			}
@@ -237,7 +237,7 @@
 						cancelAnimationFrame(loopId);
 						document.body.removeChild(canvas);
 						sessionStorage.setItem("matchJustPlayed", "true");
-						customHistory.replace('/tournament-details');
+						navigateTo('/tournament-details', true);
 						sessionStorage.removeItem("matchJustPlayed");
 						document.removeEventListener("keydown", handler);
 					}

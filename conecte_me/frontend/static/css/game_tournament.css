@@ -3,7 +3,7 @@
 #game-tournament-view {
     width: 100vw;
     height: 100vh;
-    background-color: #0f172a; /* fond sombre bleu uniforme */
+    background-color: #0f172a;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,5 +14,10 @@
     background-color: #0f172a;
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
     border-radius: 8px;
-}
 
+    width: 100%;
+    max-width: 1200px;
+    min-width: 800px;
+    aspect-ratio: 4 / 3;
+    height: auto;
+}

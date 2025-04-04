@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       console.log("Réponse JSON du backend:", data);
-      if (data.success) {
-        // Rediriger vers la page indiquée
-        window.location.href = data.redirect;
+      if (data.success && data.redirect) {
+        // sessionStorage.setItem('forward', JSON.stringify([]));
+        navigateTo(data.redirect); // SPA redirection propre
       } else {
         alert(data.error || "Erreur de connexion");
       }
