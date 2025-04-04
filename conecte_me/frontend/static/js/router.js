@@ -186,37 +186,22 @@ async function loadCSS(path) {
   document.body.appendChild(script);
   }
 
-// function loadJS(path) {
-//   const oldScript = document.getElementById('route-script');
-//   if (oldScript) oldScript.remove();
-//   const jsFile = routeToFile(path, 'js');
-//   const script = document.createElement('script');
-//   script.src = jsFile;
-//   script.id = 'route-script';
-//   script.defer = true;
-
-//   script.onload = () => {
-//     if (path === '/tournament-details' && typeof renderTournamentDetails === 'function') {
-//       renderTournamentDetails();
-//     }
-//     if (path === '/game-tournament' && typeof initGameTournament === 'function') {
-//       initGameTournament();
-//     }
-//     if (path === '/tournament' && typeof initTournamentPage === 'function') {
-//       initTournamentPage();
-//     }
-//   };
-
-//   document.body.appendChild(script);
-// }
-
 async function navigateTo(path, replace = false) {
+
+  const settingsId = sessionStorage.getItem('settings_id');
+  
   if (protectedRoutes.includes(path) && !(await checkAuth())) {
     path = '/login';
   }
 
   if (!routes[path]) path = '/home';
-
+  if (settingsId){
+    const isAuth = await checkAuth();
+    if ((path === '/login' || path === '/signup') && isAuth) {
+      path = '/board';
+      replace = true;
+    }
+  }
   history[replace ? 'replaceState' : 'pushState']({}, '', path);
   
   appDiv.style.visibility = 'hidden';
