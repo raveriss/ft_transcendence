@@ -18,7 +18,8 @@
   })
   .then(response => {
     if (response.status === 401) {
-      logoutAndClearStorage();
+      localStorage.clear();
+      sessionStorage.clear();
       throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
     }
     if (!response.ok) {
@@ -53,7 +54,8 @@
     })
     .then(response => {
       if (response.status === 401) {
-        logoutAndClearStorage();
+        localStorage.clear();
+        sessionStorage.clear();
         throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
       }
       if (!response.ok) {
@@ -103,7 +105,8 @@
     })
     .then(response => {
       if (response.status === 401) {
-        logoutAndClearStorage();
+        localStorage.clear();
+        sessionStorage.clear();
         throw new Error("HTTP 401 - Token expiré, déconnexion en cours");
       }
       if (!response.ok) {

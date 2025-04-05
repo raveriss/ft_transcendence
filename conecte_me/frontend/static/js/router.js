@@ -198,6 +198,7 @@ async function navigateTo(path, replace = false) {
   const settingsId = sessionStorage.getItem('settings_id');
   
   if (protectedRoutes.includes(path) && !(await checkAuth())) {
+    sessionStorage.clear();
     path = '/login';
   }
 
@@ -208,6 +209,8 @@ async function navigateTo(path, replace = false) {
       path = '/board';
       replace = true;
     }
+    else if (!isAuth)
+      sessionStorage.clear();
   }
   history[replace ? 'replaceState' : 'pushState']({}, '', path);
   

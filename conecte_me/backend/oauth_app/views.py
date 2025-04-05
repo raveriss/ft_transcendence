@@ -68,7 +68,11 @@ from django.middleware.csrf import get_token
 # Importation du module messages depuis django.contrib pour gérer les messages flash (feedback utilisateur).
 from django.contrib import messages
 
+from django.conf import settings
 
+# Verification email valide(syntaxe) 
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
 # /*                 IMPORTS SPÉCIFIQUES À L'APPLICATION                       */
@@ -97,6 +101,7 @@ logger = logging.getLogger(__name__)
 
 
 
+
 # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
 # /*                           Env vars Auth OAuth42                           */
 # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
@@ -111,10 +116,13 @@ CLIENT_SECRET = os.environ.get('OAUTH42_CLIENT_SECRET')
 REDIRECT_URI = os.environ.get('OAUTH42_REDIRECT_URI')
 
 # URL pour obtenir le token OAuth
-TOKEN_URL = "https://api.intra.42.fr/oauth/token"
+# TOKEN_URL = "https://api.intra.42.fr/oauth/token"
+
+TOKEN_URL = os.environ.get('OAUTH42_TOKEN_URL')
+
 
 # URL pour lancer le processus d'autorisation
-AUTHORIZE_URL = "https://api.intra.42.fr/oauth/authorize"
+AUTHORIZE_URL = os.environ.get('OAUTH42_AUTH_URL')
 
 
 # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
@@ -210,7 +218,7 @@ def callback_42(request):
     # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
 
     # URL pour récupérer les informations de l'utilisateur.
-    user_info_url = "https://api.intra.42.fr/v2/me"
+    user_info_url = os.environ.get('OAUTH42_USER_URL')
 
     # Transmission de l'access token dans l'en-tête pour authentifier la requête.
     headers = {
@@ -260,7 +268,7 @@ def callback_42(request):
     # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
 
     # Hachage d'un mot de passe par défaut.
-    default_password = make_password("42sch@@L")
+    default_password = make_password(os.environ.get('OAUTH42_MDP'))
 
     # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
     # /*     Création ou mise à jour de l'utilisateur dans la base de données      */
@@ -410,6 +418,15 @@ def signup_view(request):
             # Retourne une réponse JSON avec une erreur si l'un des champs requis est manquant
             return JsonResponse(
                 {"success": False, "error": "Tous les champs requis ne sont pas remplis."},
+                status=400
+            )
+
+        # Validation de l'adresse e-mail avec le validateur intégré de Django
+        try:
+            validate_email(email)
+        except ValidationError:
+            return JsonResponse(
+                {"success": False, "error": "Adresse e-mail invalide."},
                 status=400
             )
 
@@ -706,6 +723,15 @@ def login_view(request):
 # /*                                                                           */  
 # /*   -'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-',-'   */
 def user_info(request):
+    # Vérifier la validité du JWT (issu de la connexion)
+    jwt_token = request.COOKIES.get("jwtToken")
+    if jwt_token:
+        try:
+            payload = jwt.decode(jwt_token, settings.SECRET_KEY, algorithms=["HS256"])
+        except jwt.ExpiredSignatureError:
+            return JsonResponse({'error': 'Token expired'}, status=401)
+    else:
+        return JsonResponse({'error': 'Token missing'}, status=401)
 
     # 🐛 Affichage d'un log de débug pour la session
     logger.debug("Appel de user_info, session: %s", dict(request.session))
