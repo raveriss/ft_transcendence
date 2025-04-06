@@ -168,22 +168,48 @@ body {
 /* -------------------------------------------------------------
    Bouton + pour ajout ami
 ------------------------------------------------------------- */
+/* Avatar circulaire */
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover; /* pour bien recadrer l'image */
+  margin-right: 8px;
+}
+
+/* Conteneur utilisateur */
+.user-entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+/* Nom et pseudo */
+.user-info {
+  flex: 1; /* prendre l'espace dispo */
+}
+
+/* Bouton d’ajout d’ami */
 .add-btn {
-  background-color: #3b82f6;
+  background-color: #3b82f6; 
   border: none;
   color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 1.0rem;
   width: 28px;
   height: 28px;
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
+
 
 /* -------------------------------------------------------------
    Boutons standards (accepter / refuser / supprimer)

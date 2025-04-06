@@ -4,20 +4,39 @@ console.log("✅ social.js chargé !");
   // 🔍 Charger tous les utilisateurs (hors amis et demandes)
   async function loadAllUsers() {
     console.log("🔍 Chargement de tous les utilisateurs...");
-    const res = await fetch('/auth/user/search?q=', {
-      credentials: 'include'
-    });
+    const res = await fetch('/auth/user/search?q=', { credentials: 'include' });
     const data = await res.json();
     console.log("✅ Résultat reçu :", data);
   
     const container = document.getElementById("all-users-list");
     container.innerHTML = "";
+    
     if (data.success && data.results.length > 0) {
       data.results.forEach(user => {
+        // On prend l’URL de l’avatar si dispo, sinon fallback
+        const avatarUrl = user.profile_image_url 
+          ? user.profile_image_url 
+          : '/static/img/default_avatar.png';
+  
+        // On crée la ligne (li) contenant l’avatar et le nom
         const li = document.createElement("li");
         li.innerHTML = `
-          <span>${user.first_name} (${user.username})</span>
-          <button class="add-btn" onclick="sendFriendRequest(${user.user_id})">+</button>
+          <div class="user-entry">
+            <!-- Avatar circulaire -->
+            <img 
+              src="${avatarUrl}" 
+              alt="Avatar de ${user.username}" 
+              class="avatar-img"
+            />
+            <!-- Nom d’utilisateur -->
+            <span class="user-info">
+              ${user.first_name} (${user.username})
+            </span>
+            <!-- Bouton d’ajout d’ami -->
+            <button class="add-btn" onclick="sendFriendRequest(${user.user_id})">
+              <i class="bi bi-person-plus-fill"></i>
+            </button>
+          </div>
         `;
         container.appendChild(li);
       });
@@ -25,6 +44,7 @@ console.log("✅ social.js chargé !");
       container.innerHTML = "<li>Aucun utilisateur trouvé.</li>";
     }
   }
+  
   
   
   // 📤 Envoi de demande d’ami
