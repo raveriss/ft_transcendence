@@ -1306,15 +1306,10 @@ def search_users_view(request):
     except User42.DoesNotExist:
         return JsonResponse({"success": False, "error": "Utilisateur introuvable."}, status=404)
 
-    # IDs des amis
+    # IDs des amis, demandes entrantes et sortantes à exclure
     friends_ids = set(friend.user_id for friend in current_user.get_friends())
-
-    # Requêtes en attente où le user est le destinataire
     incoming = Friendship.objects.filter(receiver=current_user, is_accepted=False).values_list('sender__user_id', flat=True)
-
-    # Requêtes en attente envoyées par le user
     outgoing = Friendship.objects.filter(sender=current_user, is_accepted=False).values_list('receiver__user_id', flat=True)
-
     excluded_ids = friends_ids.union(incoming).union(outgoing).union({user_id})
 
     if query:
@@ -1328,7 +1323,8 @@ def search_users_view(request):
         "user_id": user.user_id,
         "username": user.username,
         "first_name": user.first_name,
-        "avatar_url": user.profile_image.url if user.profile_image else "/media/profile_pictures/default_avatar.png"
+        # Renommez le champ ici pour qu'il corresponde à ce que le front attend
+        "profile_image_url": user.profile_image.url if user.profile_image else "/media/profile_pictures/default_avatar.png"
     } for user in results]
 
     return JsonResponse({"success": True, "results": data}, status=200)
