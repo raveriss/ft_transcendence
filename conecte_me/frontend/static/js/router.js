@@ -18,9 +18,9 @@ const routes = {
     '/stats': 'static/templates/stats.html',
     '/game': 'static/templates/game.html',
     '/tournament' : 'static/templates/tournament.html',
-	'/tournament-details' : 'static/templates/tournament_details.html',
-	'/game-tournament' : 'static/templates/game_tournament.html',
-  '/social': 'static/templates/social.html',
+	  '/tournament-details' : 'static/templates/tournament_details.html',
+	  '/game-tournament' : 'static/templates/game_tournament.html',
+    '/social': 'static/templates/social.html',
 };
 
 
@@ -90,6 +90,8 @@ async function loadCSS(path) {
          cssFile = 'static/css/tournament_details.css';
        } else if (route === '/tournament') {
          cssFile = 'static/css/tournament.css';
+       } else if (route ==='/social') {
+         cssFile = 'static/css/social.css';
        } else if (route === '/game-tournament') {
          cssFile = 'static/css/game_tournament.css';
        } else {
@@ -147,13 +149,13 @@ async function loadCSS(path) {
     } else if (route === '/game') {
       scriptFile = 'static/js/game.js';
     } else if (route === '/tournament') {
-        scriptFile = 'static/js/tournament.js';
-	} else if (route === '/tournament-details') {
-		scriptFile = 'static/js/tournament_details.js';
-	} else if (route === '/tournament/list') {
-		scriptFile = 'static/js/tournament.js';
-	}else if (route === '/game-tournament') {
-		scriptFile = 'static/js/game_tournament.js';
+      scriptFile = 'static/js/tournament.js';
+	  } else if (route === '/tournament-details') {
+		  scriptFile = 'static/js/tournament_details.js';
+	  } else if (route === '/tournament/list') {
+		  scriptFile = 'static/js/tournament.js';
+	  } else if (route === '/game-tournament') {
+		  scriptFile = 'static/js/game_tournament.js';
     } else if (route === '/stats') {
       scriptFile = 'static/js/stats.js';
     } else if (route === '/social') {

@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Social</title>
-  <link rel="stylesheet" href="/static/css/social.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-</head>
-<body>
-
+<div class="wrapper">  
   <div class="main-container">
 
     <!-- Barre de navigation supérieure -->
     <div class="header-bar">
       <div class="back-btn" onclick="navigateTo('/board')">
-        <img src="/static/img/return_arrow.png" alt="Retour" class="arrow-icon" />
+        <img src="static/img/return_arrow.png" alt="Retour" class="arrow-icon" />
       </div>
       <h1 class="page-title" data-i18n="social_title">SOCIAL</h1>
     </div>
@@ -24,32 +14,37 @@
 
       <!-- Colonne gauche : Amis -->
       <div class="social-column">
-        <h2 class="section-title" data-i18n="my_friends">Mes amis</h2>
+        <h2 class="section-title" data-i18n="my_friends">
+          <i class="bi bi-people-fill"></i> Amis
+        </h2>
         <ul id="friends-list">
           <!-- Liste des amis -->
+          <li>Aucun ami pour l'instant</li>
         </ul>
       </div>
 
       <!-- Colonne centre : Demandes -->
       <div class="social-column">
-        <h2 class="section-title" data-i18n="incoming_requests">Demandes reçues</h2>
+        <h2 class="section-title" data-i18n="incoming_requests">
+          <i class="bi bi-person-plus-fill"></i> Demandes
+        </h2>
         <ul id="incoming-requests">
           <!-- Demandes en attente -->
+          <li>Aucune demande</li>
         </ul>
       </div>
 
-      <!-- Colonne droite : Tous les utilisateurs -->
+      <!-- Colonne droite : Utilisateurs -->
       <div class="social-column">
-        <h2 class="section-title" data-i18n="all_users">Tous les utilisateurs</h2>
+        <h2 class="section-title" data-i18n="all_users">
+          <i class="bi bi-person-fill-gear"></i> Utilisateurs
+        </h2>
         <ul id="all-users-list">
           <!-- Tous les utilisateurs -->
+          <li>Rien à afficher</li>
         </ul>
       </div>
 
     </div>
   </div>
-
-  <!-- Inclusion du script JS -->
-  <script src="/static/js/social.js"></script>
-</body>
-</html>
+</div>
