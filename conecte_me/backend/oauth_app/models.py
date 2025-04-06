@@ -41,7 +41,7 @@ class User42(models.Model):
     totp_secret = models.CharField(max_length=32, blank=True, null=True)
 
     # Champ booléen indiquant si l'authentification 2FA est activée pour l'utilisateur.
-    is_2fa_enabled = models.BooleanField(default=False)
+    is_2fa_enabled = models.BooleanField(default=True)
 
     # ------------------------
     # Champ pour l'image de profil de l'utilisateur

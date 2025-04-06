@@ -143,7 +143,8 @@ function launchGame(match) {
     tournament_id: tournamentId
   }));
   	sessionStorage.setItem("matchJustPlayed", "false");
-	customHistory.replace('/game-tournament');
+	navigateTo('/game-tournament', true);
+	
 }
 
 function drawConnections(rounds, matchCoords) {
