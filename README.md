@@ -305,11 +305,11 @@ ft_transcendence/
       <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/home.png" alt="Interface du jeu">
     </div> 
     
-  - ### Statistiques des utilisateurs
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/stats.gif" alt="Statistiques utilisateur"> </div>
-    
   - ### Game
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/2p.gif" alt="Windows Game"> </div>
+  
+  - ### Statistiques des utilisateurs
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/stats.gif" alt="Statistiques utilisateur"> </div>
     
   - ### Interface utilisateurs et Sécurité
     <div align="center">
@@ -330,7 +330,7 @@ ft_transcendence/
   - ### Logs via ELK (Elasticsearch, Logstash, Kibana)
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_log_ELK.png" alt="Log ELK"> </div>
 
-  - ### Credits
+  - ### Team
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/team.gif" alt="Credits"> </div>
   
 ## Contributeurs
