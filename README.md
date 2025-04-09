@@ -36,7 +36,7 @@ Le projet **`ft_transcendence`** est une plateforme Web innovante centrée sur l
 
 ### Partie Obligatoire
 - **Jeu Pong en ligne** :
-  - Mode **`1v1`** sur **`même machine`** ou **`en ligne`**
+  - Mode **`1v1`** sur **`même machine`**
   - **`Tournoi`** avec organisation **`automatique`** des **`matchs`**.
 - **Application Web Monopage (**`SPA`**)** :
   - Développée en **`JavaScript`** : **`vanilla`**.
@@ -54,7 +54,6 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 #### Web
 - Backend avec **`Django`**.
 - Utilisation de **`PostgreSQL`** comme base de données.
-- Stockage des scores sur **`Ethereum`** (**`blockchain`**).
 
 #### User Management
 - **Authentification `OAuth2.0/42`**.
@@ -62,8 +61,6 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 - Système d'**`amis`** avec affichage du **`statut`** en ligne.
 
 #### Gameplay
-- **Joueurs** **`distants`** et **`multijoueurs`**.
-- **Chat** en **`direct`** avec **`invitations`** à jouer.
 - **Matchmaking** **`automatisé`**.
 
 #### Cybersécurité
@@ -73,16 +70,11 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 - Conformité **`GDPR`**.
 
 #### DevOps
-- **`Monitoring`** avec **`Prometheus/Grafana`**.
 - Gestion des **`logs via ELK` `(Elasticsearch, Logstash, Kibana)`**.
 - Architecture **`backend`** en **`microservices`**.
 
-#### Graphiques
-- **Graphismes** avancés avec **`ThreeJS`**.
-
 #### Accessibilité
-- **Multi-langue**, compatibilité **`multi-navigateurs`**, support mobile.
-- **Accessibilité** pour **`malvoyants`**.
+- **Multi-langue**, compatibilité **`multi-navigateurs`**.
 
 ## Structure du Projet
 
