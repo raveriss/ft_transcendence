@@ -1,0 +1,7 @@
+WARNING 2025-04-09 19:06:44,815 log 1 123735536110392 Unauthorized: /auth/user/
+WARNING 2025-04-09 19:08:44,069 log 1 123735536110392 Unauthorized: /auth/login/
+WARNING 2025-04-09 19:08:50,762 log 1 123735536110392 Unauthorized: /auth/login/
+WARNING 2025-04-09 19:09:00,731 log 1 123735536110392 Unauthorized: /auth/login/
+WARNING 2025-04-09 19:09:11,682 log 1 123735536110392 Unauthorized: /auth/login/
+WARNING 2025-04-09 19:09:19,315 log 1 123735536110392 Unauthorized: /auth/login/
+WARNING 2025-04-09 19:09:38,839 log 1 123735536110392 Unauthorized: /auth/login/

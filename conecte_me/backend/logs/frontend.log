@@ -1,0 +1,6 @@
+INFO 2025-04-09 19:08:44,074 views 1 123735564180280 {"message": "TypeError: Cannot read properties of undefined (reading 'startsWith')", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-04-09 19:08:50,768 views 1 123735564180280 {"message": "TypeError: Cannot read properties of undefined (reading 'startsWith')", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-04-09 19:09:00,736 views 1 123735564180280 {"message": "TypeError: Cannot read properties of undefined (reading 'startsWith')", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-04-09 19:09:11,688 views 1 123735564180280 {"message": "TypeError: Cannot read properties of undefined (reading 'startsWith')", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-04-09 19:09:19,320 views 1 123735564180280 {"message": "TypeError: Cannot read properties of undefined (reading 'startsWith')", "level": "ERROR", "type": "console-error", "origin": "frontend"}
+INFO 2025-04-09 19:09:38,844 views 1 123735564180280 {"message": "TypeError: Cannot read properties of undefined (reading 'startsWith')", "level": "ERROR", "type": "console-error", "origin": "frontend"}

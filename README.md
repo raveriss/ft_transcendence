@@ -8,20 +8,14 @@
   <img src="https://img.shields.io/badge/security-2FA-blue" alt="2FA">
   <img src="https://img.shields.io/badge/application-SPA-brightgreen" alt="SPA">
   <img src="https://img.shields.io/badge/frontend-JavaScript-yellow" alt="JavaScript">
-  <img src="https://img.shields.io/badge/graphics-Three.js-orange" alt="Three.js">
   <img src="https://img.shields.io/badge/multi--language-Yes-blue" alt="Multi-language">
-  <img src="https://img.shields.io/badge/mobile-Compatible-yellow" alt="Mobile Compatible">
   <img src="https://img.shields.io/badge/compliance-GDPR-blue" alt="GDPR">
-  <img src="https://img.shields.io/badge/blockchain-Ethereum-lightgrey" alt="Ethereum">
   <img src="https://img.shields.io/badge/authentication-OAuth2.0/42-blueviolet" alt="OAuth2.0/42">
   <img src="https://img.shields.io/badge/logging-ELK-orange" alt="ELK">
-  <img src="https://img.shields.io/badge/monitoring-Prometheus/Grafana-brightgreen" alt="Prometheus/Grafana">
   <img src="https://img.shields.io/badge/architecture-Microservices-ff69b4" alt="Microservices">
-  <img src="https://img.shields.io/badge/accessibility-Visually%20Impaired-yellowgreen" alt="Accessibility">
   <img src="https://img.shields.io/badge/security-WAF%2FModSecurity-red" alt="WAF/ModSecurity">
   <img src="https://img.shields.io/badge/secrets-HashiCorp%20Vault-blue" alt="HashiCorp Vault">
   <img src="https://img.shields.io/badge/matchmaking-Automated-blue" alt="Matchmaking">
-  <img src="https://img.shields.io/badge/chat-Live%20Chat-brightgreen" alt="Live Chat">
   <img src="https://img.shields.io/badge/status-Friends%20Online-green" alt="Friends Online">
   <img src="https://img.shields.io/badge/tournament-Automatic%20Organization-blue" alt="Automatic Tournament">
 </div>
@@ -94,52 +88,163 @@ Le projet peut être enrichi avec de nombreux modules pour atteindre **`100 %`**
 
 ```bash
 ft_transcendence/
+.
 ├── backend
 │   ├── conecte_me_backend
+│   │   ├── asgi.py
 │   │   ├── __init__.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-310.pyc
-│   │   │   ├── settings.cpython-310.pyc
-│   │   │   └── urls.cpython-310.pyc
+│   │   ├── middleware.py
 │   │   ├── settings.py
 │   │   ├── urls.py
+│   │   ├── views.py
 │   │   └── wsgi.py
 │   ├── Dockerfile
-│   ├── manage.py
-│   ├── oauth_app
+│   ├── entrypoint.sh
+│   ├── game
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── consumers.py
 │   │   ├── __init__.py
 │   │   ├── migrations
 │   │   │   ├── 0001_initial.py
-│   │   │   ├── __init__.py
-│   │   │   └── __pycache__
-│   │   │       └── __init__.cpython-310.pyc
+│   │   │   ├── 0002_gamesettings_paddle_size_matchhistory.py
+│   │   │   └── __init__.py
 │   │   ├── models.py
-│   │   ├── __pycache__
-│   │   │   ├── __init__.cpython-310.pyc
-│   │   │   ├── models.cpython-310.pyc
-│   │   │   ├── urls.cpython-310.pyc
-│   │   │   ├── utils.cpython-310.pyc
-│   │   │   └── views.cpython-310.pyc
+│   │   ├── routing.py
 │   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── logs
+│   │   ├── django.log
+│   │   └── frontend.log
+│   ├── manage.py
+│   ├── media
+│   │   └── profile_pictures
+│   │       └── default_avatar.png
+│   ├── oauth_app
+│   │   ├── __init__.py
+│   │   ├── jwt_decorator.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   ├── 0002_user42_email_address_user42_first_name_and_more.py
+│   │   │   ├── 0003_user42_is_2fa_enabled_user42_totp_secret.py
+│   │   │   ├── 0004_alter_user42_totp_secret.py
+│   │   │   ├── 0005_user42_profile_image.py
+│   │   │   ├── 0006_alter_user42_profile_image_userloginhistory.py
+│   │   │   ├── 0007_userloginhistory_is_connected.py
+│   │   │   ├── 0008_alter_user42_username.py
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── templates
+│   │   │   └── 2fa_setup.html
+│   │   ├── tests.py
+│   │   ├── twofa_views.py
 │   │   ├── urls.py
 │   │   ├── utils.py
 │   │   └── views.py
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── tournament
+│       ├── admin.py
+│       ├── apps.py
+│       ├── forms.py
+│       ├── __init__.py
+│       ├── migrations
+│       │   └── __init__.py
+│       ├── models.py
+│       ├── tests.py
+│       ├── urls.py
+│       └── views.py
 ├── certs
 │   ├── localhost.crt
 │   └── localhost.key
 ├── docker-compose.yml
+├── elk
+│   ├── elasticsearch
+│   │   └── elasticsearch.yml
+│   ├── elk_initializer.sh
+│   ├── filebeat.yml
+│   ├── kibana
+│   │   └── kibana.yml
+│   ├── logstash
+│   │   ├── logstash.conf
+│   │   └── logstash.yml
+│   └── saved_objects.ndjson
 ├── frontend
 │   ├── Dockerfile
 │   ├── index.html
 │   └── static
 │       ├── css
-│       │   └── main.css
+│       │   ├── board.css
+│       │   ├── game.css
+│       │   ├── game_tournament.css
+│       │   ├── login.css
+│       │   ├── main.css
+│       │   ├── privacy.css
+│       │   ├── setup.css
+│       │   ├── signup.css
+│       │   ├── social.css
+│       │   ├── stats.css
+│       │   ├── team.css
+│       │   ├── terms.css
+│       │   ├── tournament.css
+│       │   ├── tournament_details.css
+│       │   └── user.css
+│       ├── fonts
+│       │   ├── PongGame.woff
+│       │   └── PongGame.woff2
 │       ├── img
-│       │   ├── 42_logo.svg
-│       │   └── PONG_Accueil.png
-│       └── js
-│           └── main.js
+│       │   ├── 42_logo.png
+│       │   ├── default_avatar.png
+│       │   ├── favicon.ico
+│       │   ├── field_basketball.png
+│       │   ├── field_hockey.png
+│       │   ├── field_NFL.png
+│       │   ├── Game_anime.png
+│       │   ├── jecointr.jpg
+│       │   ├── mmaric.jpg
+│       │   ├── ode-cleb.jpg
+│       │   ├── PONG_Accueil.png
+│       │   ├── PONG_seul.png
+│       │   ├── raveriss.jpg
+│       │   ├── return_arrow.png
+│       │   └── sycourbi.jpg
+│       ├── js
+│       │   ├── 2fa.js
+│       │   ├── board.js
+│       │   ├── game.js
+│       │   ├── game_tournament.js
+│       │   ├── i18n.js
+│       │   ├── login.js
+│       │   ├── main.js
+│       │   ├── router.js
+│       │   ├── setup.js
+│       │   ├── signin42.js
+│       │   ├── signup.js
+│       │   ├── social.js
+│       │   ├── stats.js
+│       │   ├── tournament_details.js
+│       │   ├── tournament.js
+│       │   ├── translations.json
+│       │   └── user.js
+│       ├── sounds
+│       │   └── hit.mp3
+│       └── templates
+│           ├── board.html
+│           ├── game.html
+│           ├── game_tournament.html
+│           ├── home.html
+│           ├── login.html
+│           ├── privacy.html
+│           ├── setup.html
+│           ├── signin42.html
+│           ├── signup.html
+│           ├── social.html
+│           ├── stats.html
+│           ├── team.html
+│           ├── terms.html
+│           ├── tournament_details.html
+│           ├── tournament.html
+│           └── user.html
 ├── nginx.conf
 └── README.md
 ```
@@ -182,97 +287,58 @@ ft_transcendence/
 
   - ### Accueil
   	<div align="center">
-     <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Accueil_pong.gif" alt="Accueil_pong">
+     <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/accueil.gif" alt="Accueil_pong">
   	</div>
 
-  - ### Inscription
+  - ### Login Signup et 2fa
     <div align="center">
-      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_signup_windows.png" alt="Inscription et authentification">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/signup_login_2fa.gif" alt="Inscription et authentification">
     </div> 
     
-  - ### Authentification avec log in
+  - ### Authentification avec log in 42
     <div align="center">
-      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_login.png" alt="Authentification avec log in">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/login42.gif" alt="Authentification avec log in">
     </div> 
 
   - ### Interface du jeu
     <div align="center">
-      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_interface_windows.png" alt="Interface du jeu">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/home.png" alt="Interface du jeu">
     </div> 
     
   - ### Statistiques des utilisateurs
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_statistique_windows.png" alt="Statistiques utilisateur"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/stats.gif" alt="Statistiques utilisateur"> </div>
     
   - ### Game
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_game_windows.png" alt="Windows Game"> </div>
-
-  - ### Différents modes de jeu
-    1. **Mode classique** :
-      <div align="center"> <img src="assets/classic-mode.png" alt="Mode classique du Pong"> </div>
-     
-    2. **Mode tournoi** :
-     <div align="center"> <img src="assets/tournament-mode.png" alt="Mode tournoi avec plusieurs joueurs"> </div>
-     
-    3. **Mode spectateur** :
-     <div align="center"> <img src="assets/spectator-mode.png" alt="Vue du mode spectateur"> </div>
-  
-    4. **Mode solo avec IA** :
-     <div align="center"> <img src="assets/solo-ai-mode.png" alt="Mode solo avec une IA"> </div>
-  
-    5. **Mode multijoueur en ligne** :
-     <div align="center"> <img src="assets/online-mode.png" alt="Mode multijoueur en ligne"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/2p.gif" alt="Windows Game"> </div>
     
   - ### Interface utilisateurs et Sécurité
     <div align="center">
-      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_user_windows.png" alt="Interface du jeu">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/user.gif" alt="Interface du jeu">
     </div> 
 
   - ### Personnalisation et réglages
     <div align="center">
-      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_setup_windows.png" alt="Personnalisation des avatars et réglages">
+      <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/setup.gif" alt="Personnalisation des avatars et réglages">
     </div>
-
-  - ### Tournoi
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screnshot_tournament.png" alt="Organisation des tournois"> </div>
     
   - ### Tournoi game
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screnshot_tournament_game.png" alt="Tournois game"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/tournament.gif" alt="Tournois game"> </div>
 
   - ### Réseau social
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_add_friends_windows.png" alt="Réseau social"> </div>
-  
-  - ### Chat
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat.png" alt="Chat en direct entre les joueurs"> </div>
-
-  - ### Chat room
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_salon.png" alt="Chat room"> </div>
-    
-  - ### Private chat
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_chat_prive.png" alt="Private chat"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/social.gif" alt="Réseau social"> </div>
 
   - ### Logs via ELK (Elasticsearch, Logstash, Kibana)
     <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_log_ELK.png" alt="Log ELK"> </div>
-    
-  - ### Monitoring avec Prometheus/Grafana
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_monitoring_prometheus_grafana.png" alt="Monitoring avec Prometheus/Grafana"> </div>
-  
-  - ### Stockage des scores sur Ethereum (blockchain)
-  	- **1.** connect :
-  		<div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_tournament_scores_ethereum_connected.png" alt="Monitoring avec Prometheus/Grafana"> </div>
-  	- **2.** disconnect :
-  		<div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_tournament_scores_ethereum.png" alt="Monitoring avec Prometheus/Grafana"> </div>
-
-  - ### Pong 3D
-    <div align="center"> <img src="assets/bonus-pong-3d.png" alt="Aperçu du Pong en 3D"> </div>
-
-  - ### Fonctionnalités bonus : Autre jeu
-    <div align="center"> <img src="assets/bonus-other-game.png" alt="Exemple d'un autre jeu implémenté"> </div>
 
   - ### Credits
-    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/Screenshot_credits.png" alt="Credits"> </div>
+    <div align="center"> <img src="https://github.com/raveriss/ft_transcendence/blob/main/assets/team.gif" alt="Credits"> </div>
   
 ## Contributeurs
+- [jecointr](https://github.com/jecointr)
+- [mmaric](https://github.com/markomrc)
+- [ode-cleb](https://github.com/ode-cleb)
 - [raveriss](https://github.com/raveriss)
+- [sycourbi](https://github.com/Sycourbi)
 
 ## Ressources Utilisées
 
