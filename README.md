@@ -274,14 +274,12 @@ ft_transcendence/
 ### Modules Principaux
   - **`1`.** **`Backend Framework`** : Développement du backend avec **`Django`**.
   - **`2`.** **`User Management`** : Authentification, gestion des profils et historique des matchs.
-  - **`3`.** **`Gameplay`** : Mode multijoueur, personnalisation des règles, et ajout d'une **`IA`**.
+  - **`3`.** **`Gameplay`** : Personnalisation des règles**.
   - **`4`.** **`Cybersecurity`** : Mise en place de **`2FA`** et **`JWT`**.
-  - **`5`.** **`DevOps`** : Monitoring avec **`Prometheus/Grafana`** et gestion des logs avec **`ELK`**.
+  - **`5`.** **`DevOps`** : Gestion des logs avec **`ELK`**.
   
 ### Modules Bonus
-  - **`Accessibilité`** : Compatibilité multi-langue et support pour les utilisateurs malvoyants.
-  - **`Graphiques 3D`** : Utilisation de **`ThreeJS`** pour une expérience immersive.
-  - **`Blockchain`** : Stockage des scores de tournois sur **`Ethereum`**.
+  - **`Accessibilité`** : Compatibilité multi-langue
 
 ## Aperçu
 
